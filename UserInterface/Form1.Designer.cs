@@ -1,5 +1,5 @@
 ﻿
-namespace Interface {
+namespace UserInterface {
     partial class Form1 {
         /// <summary>
         /// Required designer variable.
