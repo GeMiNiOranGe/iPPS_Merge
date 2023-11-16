@@ -1,5 +1,7 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace DataAccess {
     internal class DataProvider {
@@ -16,7 +18,7 @@ namespace DataAccess {
         private DataProvider() { }
         #endregion
 
-        private SqlConnection GetConnection() {
+       public SqlConnection GetConnection() {
             return new SqlConnection(CONNECTION_STRING);
         }
         public SqlCommand GetCommand(string query) {
@@ -62,9 +64,11 @@ namespace DataAccess {
             return dataTable;
         }
 
-        public int ExecuteNonQuery(string query) {
+        /*public int ExecuteNonQuery(string query)
+        {
             int iData = 0;
-            using (var sqlConnection = GetConnection()) {
+            using (var sqlConnection = GetConnection())
+            {
                 OpenConnection(sqlConnection);
                 var sqlCommand = new SqlCommand(query, sqlConnection);
 
@@ -76,8 +80,39 @@ namespace DataAccess {
                 CloseConnection(sqlConnection);
             }
             return iData;
-        }
+        }*/
+        public int ExecuteNonQuery(string query, object[] parameter = null)
+        {
+            int data = 0;
 
+            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                if (parameter != null)
+                {
+                    string[] listPara = query.Split(' ');
+                    int i = 0;
+                    foreach (string item in listPara)
+                    {
+                        if (item.Contains('@'))
+                        {
+                            command.Parameters.AddWithValue(item, parameter[i]);
+                            i++;
+                        }
+                    }
+                }
+
+                data = command.ExecuteNonQuery();
+
+                connection.Close();
+            }
+
+            return data;
+        }
+       
         /// <summary>
         ///     Executes the query, and returns the first column of the first row in the result
         ///     set returned by the query. Additional columns or rows are ignored.
@@ -100,6 +135,11 @@ namespace DataAccess {
                 CloseConnection(sqlConnection);
             }
             return objData;
+        }
+
+        public void OpenConnection()
+        {
+            throw new NotImplementedException();
         }
     }
 }
