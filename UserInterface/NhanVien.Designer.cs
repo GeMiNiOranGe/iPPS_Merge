@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhanVien));
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewDataNV = new System.Windows.Forms.ListView();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnRead = new System.Windows.Forms.Button();
@@ -39,16 +39,47 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.lbSLNV = new System.Windows.Forms.Label();
+            this.lbMaNV = new System.Windows.Forms.Label();
+            this.colMaNV = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colHoTenNV = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colGioiTinh = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colNgaySinh = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colNoiSinh = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colQueQuan = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTDVH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDanToc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTonGiao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDoanVien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDangVien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCongDoanVien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
-            // listView1
+            // listViewDataNV
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 85);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1158, 556);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewDataNV.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colMaNV,
+            this.colHoTenNV,
+            this.colGioiTinh,
+            this.colNgaySinh,
+            this.colNoiSinh,
+            this.colQueQuan,
+            this.colTDVH,
+            this.colDanToc,
+            this.colTonGiao,
+            this.colDoanVien,
+            this.colDangVien,
+            this.colCongDoanVien});
+            this.listViewDataNV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewDataNV.FullRowSelect = true;
+            this.listViewDataNV.GridLines = true;
+            this.listViewDataNV.HideSelection = false;
+            this.listViewDataNV.Location = new System.Drawing.Point(12, 166);
+            this.listViewDataNV.Name = "listViewDataNV";
+            this.listViewDataNV.Size = new System.Drawing.Size(1158, 475);
+            this.listViewDataNV.TabIndex = 0;
+            this.listViewDataNV.UseCompatibleStateImageBehavior = false;
+            this.listViewDataNV.View = System.Windows.Forms.View.Details;
             // 
             // txtSearch
             // 
@@ -159,12 +190,82 @@
             this.radioButton2.Text = "Tên nhân viên";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
+            // lbSLNV
+            // 
+            this.lbSLNV.AutoSize = true;
+            this.lbSLNV.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSLNV.Location = new System.Drawing.Point(1092, 126);
+            this.lbSLNV.Name = "lbSLNV";
+            this.lbSLNV.Size = new System.Drawing.Size(78, 25);
+            this.lbSLNV.TabIndex = 10;
+            this.lbSLNV.Text = "SL NV";
+            // 
+            // lbMaNV
+            // 
+            this.lbMaNV.AutoSize = true;
+            this.lbMaNV.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMaNV.Location = new System.Drawing.Point(976, 126);
+            this.lbMaNV.Name = "lbMaNV";
+            this.lbMaNV.Size = new System.Drawing.Size(86, 25);
+            this.lbMaNV.TabIndex = 11;
+            this.lbMaNV.Text = "Mã NV";
+            // 
+            // colMaNV
+            // 
+            this.colMaNV.Text = "Mã Nhân viên";
+            // 
+            // colHoTenNV
+            // 
+            this.colHoTenNV.Text = "Họ và tên";
+            // 
+            // colGioiTinh
+            // 
+            this.colGioiTinh.Text = "Giới tính";
+            // 
+            // colNgaySinh
+            // 
+            this.colNgaySinh.Text = "Ngày sinh";
+            // 
+            // colNoiSinh
+            // 
+            this.colNoiSinh.Text = "Nơi sinh";
+            // 
+            // colQueQuan
+            // 
+            this.colQueQuan.Text = "Quê quán";
+            // 
+            // colTDVH
+            // 
+            this.colTDVH.Text = "Trình độ văn hoá";
+            // 
+            // colDanToc
+            // 
+            this.colDanToc.Text = "Dân tộc";
+            // 
+            // colTonGiao
+            // 
+            this.colTonGiao.Text = "Tôn giáo";
+            // 
+            // colDoanVien
+            // 
+            this.colDoanVien.Text = "Đoàn viên";
+            // 
+            // colDangVien
+            // 
+            this.colDangVien.Text = "Đảng viên";
+            // 
+            // colCongDoanVien
+            // 
+            this.colCongDoanVien.Text = "Công đoàn viên";
+            // 
             // NhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1182, 653);
+            this.Controls.Add(this.lbMaNV);
+            this.Controls.Add(this.lbSLNV);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.btnExport);
@@ -174,7 +275,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listViewDataNV);
             this.Name = "NhanVien";
             this.Text = "NhanVien";
             this.Load += new System.EventHandler(this.NhanVien_Load);
@@ -185,7 +286,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewDataNV;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnAdd;
@@ -195,5 +296,19 @@
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Label lbSLNV;
+        private System.Windows.Forms.Label lbMaNV;
+        private System.Windows.Forms.ColumnHeader colMaNV;
+        private System.Windows.Forms.ColumnHeader colHoTenNV;
+        private System.Windows.Forms.ColumnHeader colGioiTinh;
+        private System.Windows.Forms.ColumnHeader colNgaySinh;
+        private System.Windows.Forms.ColumnHeader colNoiSinh;
+        private System.Windows.Forms.ColumnHeader colQueQuan;
+        private System.Windows.Forms.ColumnHeader colTDVH;
+        private System.Windows.Forms.ColumnHeader colDanToc;
+        private System.Windows.Forms.ColumnHeader colTonGiao;
+        private System.Windows.Forms.ColumnHeader colDoanVien;
+        private System.Windows.Forms.ColumnHeader colDangVien;
+        private System.Windows.Forms.ColumnHeader colCongDoanVien;
     }
 }
