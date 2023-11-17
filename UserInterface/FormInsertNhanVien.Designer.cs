@@ -1,6 +1,6 @@
 ﻿namespace UserInterface
 {
-    partial class AddNhanVien
+    partial class FormInsertNhanVien
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbTieuDe = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -104,7 +104,7 @@
             this.txtMaNL = new System.Windows.Forms.TextBox();
             this.txtMaCV = new System.Windows.Forms.TextBox();
             this.txtMaPB = new System.Windows.Forms.TextBox();
-            this.btnThemNV = new System.Windows.Forms.Button();
+            this.btnSaveNV = new System.Windows.Forms.Button();
             this.btnThemCM = new System.Windows.Forms.Button();
             this.txtMaCM = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
@@ -123,21 +123,18 @@
             this.lbCheck2 = new System.Windows.Forms.Label();
             this.lbCheck3 = new System.Windows.Forms.Label();
             this.lbCheck4 = new System.Windows.Forms.Label();
-            this.lbCheck5 = new System.Windows.Forms.Label();
-            this.lbCheck6 = new System.Windows.Forms.Label();
-            this.lbCheck7 = new System.Windows.Forms.Label();
-            this.lbCheck8 = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lbTieuDe
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(508, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Thêm nhân viên";
+            this.lbTieuDe.AutoSize = true;
+            this.lbTieuDe.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTieuDe.Location = new System.Drawing.Point(508, 9);
+            this.lbTieuDe.Name = "lbTieuDe";
+            this.lbTieuDe.Size = new System.Drawing.Size(208, 32);
+            this.lbTieuDe.TabIndex = 0;
+            this.lbTieuDe.Text = "Thêm nhân viên";
             // 
             // label2
             // 
@@ -875,17 +872,17 @@
             this.txtMaPB.Size = new System.Drawing.Size(208, 30);
             this.txtMaPB.TabIndex = 80;
             // 
-            // btnThemNV
+            // btnSaveNV
             // 
-            this.btnThemNV.BackColor = System.Drawing.Color.White;
-            this.btnThemNV.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemNV.Location = new System.Drawing.Point(950, 950);
-            this.btnThemNV.Name = "btnThemNV";
-            this.btnThemNV.Size = new System.Drawing.Size(236, 54);
-            this.btnThemNV.TabIndex = 82;
-            this.btnThemNV.Text = "Thêm nhân viên";
-            this.btnThemNV.UseVisualStyleBackColor = false;
-            this.btnThemNV.Click += new System.EventHandler(this.btnThemNV_Click);
+            this.btnSaveNV.BackColor = System.Drawing.Color.White;
+            this.btnSaveNV.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveNV.Location = new System.Drawing.Point(950, 950);
+            this.btnSaveNV.Name = "btnSaveNV";
+            this.btnSaveNV.Size = new System.Drawing.Size(236, 54);
+            this.btnSaveNV.TabIndex = 82;
+            this.btnSaveNV.Text = "Lưu nhân viên";
+            this.btnSaveNV.UseVisualStyleBackColor = false;
+            this.btnSaveNV.Click += new System.EventHandler(this.btnSaveNV_Click);
             // 
             // btnThemCM
             // 
@@ -1026,93 +1023,62 @@
             // 
             this.lbCheck1.AutoSize = true;
             this.lbCheck1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheck1.Location = new System.Drawing.Point(417, 562);
+            this.lbCheck1.Location = new System.Drawing.Point(417, 615);
             this.lbCheck1.Name = "lbCheck1";
             this.lbCheck1.Size = new System.Drawing.Size(20, 23);
-            this.lbCheck1.TabIndex = 94;
+            this.lbCheck1.TabIndex = 95;
             this.lbCheck1.Text = "*";
             // 
             // lbCheck2
             // 
             this.lbCheck2.AutoSize = true;
             this.lbCheck2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheck2.Location = new System.Drawing.Point(417, 615);
+            this.lbCheck2.Location = new System.Drawing.Point(417, 725);
             this.lbCheck2.Name = "lbCheck2";
             this.lbCheck2.Size = new System.Drawing.Size(20, 23);
-            this.lbCheck2.TabIndex = 95;
+            this.lbCheck2.TabIndex = 97;
             this.lbCheck2.Text = "*";
             // 
             // lbCheck3
             // 
             this.lbCheck3.AutoSize = true;
             this.lbCheck3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheck3.Location = new System.Drawing.Point(417, 674);
+            this.lbCheck3.Location = new System.Drawing.Point(417, 835);
             this.lbCheck3.Name = "lbCheck3";
             this.lbCheck3.Size = new System.Drawing.Size(20, 23);
-            this.lbCheck3.TabIndex = 96;
+            this.lbCheck3.TabIndex = 99;
             this.lbCheck3.Text = "*";
             // 
             // lbCheck4
             // 
             this.lbCheck4.AutoSize = true;
             this.lbCheck4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheck4.Location = new System.Drawing.Point(417, 725);
+            this.lbCheck4.Location = new System.Drawing.Point(417, 945);
             this.lbCheck4.Name = "lbCheck4";
             this.lbCheck4.Size = new System.Drawing.Size(20, 23);
-            this.lbCheck4.TabIndex = 97;
+            this.lbCheck4.TabIndex = 101;
             this.lbCheck4.Text = "*";
             // 
-            // lbCheck5
+            // btnExit
             // 
-            this.lbCheck5.AutoSize = true;
-            this.lbCheck5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheck5.Location = new System.Drawing.Point(417, 780);
-            this.lbCheck5.Name = "lbCheck5";
-            this.lbCheck5.Size = new System.Drawing.Size(20, 23);
-            this.lbCheck5.TabIndex = 98;
-            this.lbCheck5.Text = "*";
+            this.btnExit.BackColor = System.Drawing.Color.White;
+            this.btnExit.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(768, 950);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(149, 54);
+            this.btnExit.TabIndex = 102;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // lbCheck6
-            // 
-            this.lbCheck6.AutoSize = true;
-            this.lbCheck6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheck6.Location = new System.Drawing.Point(417, 835);
-            this.lbCheck6.Name = "lbCheck6";
-            this.lbCheck6.Size = new System.Drawing.Size(20, 23);
-            this.lbCheck6.TabIndex = 99;
-            this.lbCheck6.Text = "*";
-            // 
-            // lbCheck7
-            // 
-            this.lbCheck7.AutoSize = true;
-            this.lbCheck7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheck7.Location = new System.Drawing.Point(417, 890);
-            this.lbCheck7.Name = "lbCheck7";
-            this.lbCheck7.Size = new System.Drawing.Size(20, 23);
-            this.lbCheck7.TabIndex = 100;
-            this.lbCheck7.Text = "*";
-            // 
-            // lbCheck8
-            // 
-            this.lbCheck8.AutoSize = true;
-            this.lbCheck8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheck8.Location = new System.Drawing.Point(417, 945);
-            this.lbCheck8.Name = "lbCheck8";
-            this.lbCheck8.Size = new System.Drawing.Size(20, 23);
-            this.lbCheck8.TabIndex = 101;
-            this.lbCheck8.Text = "*";
-            // 
-            // AddNhanVien
+            // FormInsertNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1225, 1055);
-            this.Controls.Add(this.lbCheck8);
-            this.Controls.Add(this.lbCheck7);
-            this.Controls.Add(this.lbCheck6);
-            this.Controls.Add(this.lbCheck5);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lbCheck4);
             this.Controls.Add(this.lbCheck3);
             this.Controls.Add(this.lbCheck2);
@@ -1127,7 +1093,7 @@
             this.Controls.Add(this.txtMaCM);
             this.Controls.Add(this.label39);
             this.Controls.Add(this.btnThemCM);
-            this.Controls.Add(this.btnThemNV);
+            this.Controls.Add(this.btnSaveNV);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label8);
@@ -1203,8 +1169,8 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Name = "AddNhanVien";
+            this.Controls.Add(this.lbTieuDe);
+            this.Name = "FormInsertNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhân viên";
             this.Load += new System.EventHandler(this.AddNhanVien_Load);
@@ -1215,7 +1181,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbTieuDe;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -1291,7 +1257,7 @@
         private System.Windows.Forms.TextBox txtMaNL;
         private System.Windows.Forms.TextBox txtMaCV;
         private System.Windows.Forms.TextBox txtMaPB;
-        private System.Windows.Forms.Button btnThemNV;
+        private System.Windows.Forms.Button btnSaveNV;
         private System.Windows.Forms.Button btnThemCM;
         private System.Windows.Forms.TextBox txtMaCM;
         private System.Windows.Forms.Label label39;
@@ -1310,9 +1276,6 @@
         private System.Windows.Forms.Label lbCheck2;
         private System.Windows.Forms.Label lbCheck3;
         private System.Windows.Forms.Label lbCheck4;
-        private System.Windows.Forms.Label lbCheck5;
-        private System.Windows.Forms.Label lbCheck6;
-        private System.Windows.Forms.Label lbCheck7;
-        private System.Windows.Forms.Label lbCheck8;
+        private System.Windows.Forms.Button btnExit;
     }
 }
