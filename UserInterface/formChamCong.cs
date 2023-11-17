@@ -85,7 +85,7 @@ namespace UserInterface
                 }
                 else
                 {
-                    ChamCongDA.Instance.insertAttendance(MaCC, MaNV, Thang, Songaydilam, SongaynghiBHXH, Songaynghilam);
+                    ChamCongBL.Instance.insertAttendanceBL(MaCC, MaNV, Thang, Songaydilam, SongaynghiBHXH, Songaynghilam);
                     loadAttendanceList();
                 }
 
@@ -100,7 +100,7 @@ namespace UserInterface
             Byte Songaydilam=Convert.ToByte(numDiLam.Value);
             Byte SongaynghiBHXH = Convert.ToByte(numngaynghiBHXH.Value);
             Byte Songaynghilam = Convert.ToByte(numngaynghi.Value);
-            if (ChamCongDA.Instance.updateAttendace(MaNV, Thang, Songaydilam, SongaynghiBHXH, Songaynghilam))
+            if (ChamCongBL.Instance.updateAttendanceBL(MaNV,Thang,Songaydilam,SongaynghiBHXH,Songaynghilam))
             {
                 MessageBox.Show("Cập nhật thành công!");
                 loadAttendanceList();
@@ -121,7 +121,28 @@ namespace UserInterface
         {
             this.Close();
         }
-        
+        private void btnChamCong_Click_1(object sender, EventArgs e)
+        {
+            string MaNV = cboManv.Text.ToString();
+            DateTime Thang = (DateTime)dtpNgayLV.Value;
+            Byte Songaydilam = Convert.ToByte(numDiLam.Value);
+            Byte SongaynghiBHXH = Convert.ToByte(numngaynghiBHXH.Value);
+            Byte Songaynghilam = Convert.ToByte(numngaynghi.Value);
+
+            if (workStatus(cbTinhTrang.Text) == 0 && Songaydilam<=numberDaysinMonth(Thang.Month,Thang.Year))
+            {
+                Songaydilam++;
+            } else if(workStatus(cbTinhTrang.Text) == 1 && SongaynghiBHXH <= 180)
+            {
+                SongaynghiBHXH++; 
+            } else
+            {
+               Songaynghilam++;
+            }
+            ChamCongBL.Instance.updateAttendanceBL(MaNV,Thang,Songaydilam,SongaynghiBHXH,Songaynghilam);
+            loadAttendanceList();
+        }
+
         #endregion
         //-------------------------------------------------------------Function------------------------------------------------
         #region Function
@@ -136,6 +157,46 @@ namespace UserInterface
             cboManv.DataSource = data;
             cboManv.DisplayMember= "MANV";
         }
+        private int workStatus(string status)
+        {
+            if(status=="Đi làm")
+            {
+                return 0;
+            } else if(status=="Nghỉ có phép")
+            {
+                return 1;
+            }
+            else
+            {
+                return 2;
+            }
+            
+        }
+        private int numberDaysinMonth(int thang,int nam)
+        {
+            int ngay=0;
+            switch(thang)
+            {
+                case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                    ngay= 31;
+                    break;
+                case 4: case 6: case 9: case 11:
+                    ngay=30;
+                    break;
+                case 2:
+                    if (nam% 4 == 0 && (nam % 100 != 0 || nam % 400 == 0))
+                    {
+                        ngay=29;
+                        break;
+                    } else
+                    {
+                        ngay=28;
+                        break;
+                    }
+            }
+            return ngay;
+        }
+
 
 
 
@@ -143,6 +204,6 @@ namespace UserInterface
 
         #endregion
 
-       
+        
     }
 }

@@ -33,7 +33,14 @@ namespace BusinessLogic
         {
             return ChamCongDA.Instance.getEmployeeID();
         }
+       public bool updateAttendanceBL(string manv,DateTime thang,byte songaydilam,byte songaynghibhxh,byte songaynghikhonglydo)
+        {
+            return ChamCongDA.Instance.updateAttendace(manv,thang,songaydilam,songaynghibhxh,songaynghikhonglydo);
+        }
+       public bool insertAttendanceBL(string macc,string manv,DateTime thang,byte songaydilam,byte songaynghibhxh,byte songaynghikhonglydo)
+        {
+            return ChamCongDA.Instance.insertAttendance(macc,manv,thang,songaydilam,songaynghibhxh,songaynghikhonglydo);
+        }
        
-
     }
 }
