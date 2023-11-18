@@ -911,8 +911,8 @@ namespace UserInterface
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            FormStaff formStaff = new FormStaff();
-            formStaff.Show();
+            FormMenu formMenu = new FormMenu();
+            formMenu.Show();
         }
     }
 }
