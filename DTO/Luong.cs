@@ -6,69 +6,41 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
+
     public class Luong
     {
-        private string maluong;
-        private DateTime thoidiem;
-        private int luongcb;
-        private string manl;
-        private string mabl;
-        private byte? macc;
-        private int tn;
         private string manv;
-        public string MaLuong
+        private int luongcb;
+        private decimal hesobl;
+        private decimal hesophucap;
+        private byte songaydilam;
+        private byte songaynghibhxh;
+        private byte songaynghikhongphep;
+        private int tiennha;
+        private int? tongluong;
+        private DateTime thoidiem;
+        public string MaNhanVien { get { return manv; } set { manv = value; } }
+        public int LuongCoBan { get { return luongcb;  } set { luongcb = value; } }
+        public decimal HeSoBacLuong { get { return hesobl; } set { hesobl = value; } }
+        public decimal HeSoPhuCapChucVu { get { return hesophucap; } set { hesophucap = value; } }
+        public byte SoNgayDiLam { get { return songaydilam; } set { songaydilam = value; } }
+        public byte SoNgayNghiBHXH { get { return songaynghibhxh; } set { songaynghibhxh = value; } }
+        public byte SoNgayNghiKhongLyDo { get { return songaynghikhongphep; } set { songaynghikhongphep = value; } }
+        public int TienNha { get { return tiennha; } set { tiennha = value; } }
+        public int? TongLuong { get { return tongluong; } set { tongluong = value; } }
+        public DateTime ThoiDiem { get { return thoidiem; } set { thoidiem = value; } }
+        public Luong(string manv,int lcb,decimal hsbl,decimal hspc,byte songaydilam,byte songaynghibhxh,byte songaynghikhongphep,int tiennha,int? tongluong,DateTime thoidiem)
         {
-            get { return maluong; }
-            set { maluong = value; }
+            this.manv = manv;
+            this.luongcb = lcb;
+            this.hesobl= hsbl;
+            this.hesophucap = hspc;
+            this.songaydilam=songaydilam;
+            this.songaynghibhxh= songaynghibhxh;
+            this.songaynghikhongphep=songaynghikhongphep;
+            this.tiennha = tiennha;
+            this.tongluong = tongluong;
+            this.thoidiem=thoidiem;
         }
-        public DateTime ThoiDiem
-        {
-            get { return thoidiem; }
-            set { thoidiem = value; }
-        }
-        public int LuongCB
-        {
-            get { return luongcb; }
-            set { luongcb = value; }
-        }
-        public string MaNgachLuong
-        {
-            get { return manl; }
-            set { manl = value; }
-        }
-        public string MaBacLuong
-        {
-            get { return mabl; }
-            set { mabl = value; }
-        }
-        public byte? SoNgayCong
-        {
-            get { return macc; }
-            set { macc = value; }
-        }
-        public int TienNha
-        {
-            get { return tn; }
-            set { tn = value; }
-        }
-        public string MaNhanVien
-        {
-            get { return manv; }
-            set { manv = value; }
-        }
-       
-        public Luong(string maluong,DateTime thoidiem,int luongcb,string manl,string mabl,byte? macc,int tiennha,string manv)
-        {
-            this.maluong= maluong;
-            this.thoidiem= thoidiem;
-            this.luongcb= luongcb;
-            this.manl= manl;
-            this.mabl= mabl;
-            this.macc= macc;
-            this.tn= tiennha;
-            this.manv= manv;
-
-        }
-    
     }
 }

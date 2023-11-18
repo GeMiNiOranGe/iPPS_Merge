@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DataAccess {
     internal class DataProvider {
-        private const string CONNECTION_STRING = @"";
+        private const string CONNECTION_STRING = @"Data Source=LAPTOP-3MHE919R\KIMHUNG;Initial Catalog=QUANLYLUONG;Integrated Security=True";
 
         #region Singleton Design Pattern
         private static DataProvider instance;

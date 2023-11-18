@@ -53,10 +53,19 @@
     <Compile Include="formChamCong.Designer.cs">
       <DependentUpon>formChamCong.cs</DependentUpon>
     </Compile>
+    <Compile Include="formTinhLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTinhLuong.Designer.cs">
+      <DependentUpon>formTinhLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formChamCong.resx">
       <DependentUpon>formChamCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formTinhLuong.resx">
+      <DependentUpon>formTinhLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
