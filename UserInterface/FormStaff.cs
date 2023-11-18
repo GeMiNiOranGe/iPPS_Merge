@@ -5,31 +5,33 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UserInterface
 {
-    public partial class FormNhanVien : Form
+    public partial class FormStaff : Form
     {
         SqlConnection sqlConnection = new SqlConnection(Database.CONNECTION_STRING);
         SqlCommand sqlCommand;
         SqlDataReader sqlDataReader;
         SqlDataAdapter sqlDataAdapter;
         DataTable dataTable;
-        public FormNhanVien()
+
+        public FormStaff()
         {
             InitializeComponent();
         }
-
-        private void NhanVien_Load(object sender, EventArgs e)
+        private void FormStaff_Load(object sender, EventArgs e)
         {
-            loadData();
+            loadDataStaff();
         }
-        public void loadData()
+        public void loadDataStaff()
         {
             int i = 0;
 
@@ -135,7 +137,7 @@ namespace UserInterface
         private void btnReload_Click(object sender, EventArgs e)
         {
             listViewDataNV.Items.Clear();
-            loadData();
+            loadDataStaff();
         }
         private void btnRead_Click(object sender, EventArgs e)
         {
@@ -143,12 +145,11 @@ namespace UserInterface
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            FormInsertNhanVien formInsertNhanVien = new FormInsertNhanVien();
-            formInsertNhanVien.formNhanVien_TieuDe = "Thêm nhân viên";
+            FormSaveStaff formInsertNhanVien = new FormSaveStaff();
+            formInsertNhanVien.formStaff_TieuDe = "Thêm nhân viên";
             formInsertNhanVien.Show();
             this.Hide();
         }
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (lbMaNV.Text == "null")
@@ -157,14 +158,13 @@ namespace UserInterface
             }
             else
             {
-                FormInsertNhanVien formInsertNhanVien = new FormInsertNhanVien();
-                formInsertNhanVien.formNhanVien_MaNV = lbMaNV.Text;
-                formInsertNhanVien.formNhanVien_TieuDe = "Cập nhật nhân viên";
+                FormSaveStaff formInsertNhanVien = new FormSaveStaff();
+                formInsertNhanVien.formStaff_MaNV = lbMaNV.Text;
+                formInsertNhanVien.formStaff_TieuDe = "Cập nhật nhân viên";
                 formInsertNhanVien.Show();
                 this.Hide();
             }
         }
-
         private void btnDel_Click(object sender, EventArgs e)
         {
             if (lbMaNV.Text != "null")
@@ -197,6 +197,75 @@ namespace UserInterface
             else
             {
                 MessageBox.Show("Vui lòng chọn nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Files|*.xlsx";
+            saveFileDialog.Title = "Save Excel File";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ExportToExcel(listViewDataNV, saveFileDialog.FileName);
+            }
+        }
+        private void ExportToExcel(System.Windows.Forms.ListView listView, string filePath)
+        {
+            Excel.Application excelApp = new Excel.Application();
+            excelApp.Visible = true;
+            Excel.Workbook workbook = excelApp.Workbooks.Add();
+            Excel.Worksheet worksheet = workbook.Sheets[1];
+
+            int row = 1;
+            int col = 1;
+
+            // Xuất tiêu đề của các cột
+            foreach (ColumnHeader header in listView.Columns)
+            {
+                worksheet.Cells[row, col] = header.Text;
+                col++;
+            }
+
+            // Xuất dữ liệu từ ListView
+            row++;
+            foreach (ListViewItem item in listView.Items)
+            {
+                col = 1;
+                foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                {
+                    worksheet.Cells[row, col] = subItem.Text;
+                    col++;
+                }
+                row++;
+            }
+
+            // Lưu tệp Excel
+            workbook.SaveAs(filePath);
+            workbook.Close();
+            excelApp.Quit();
+
+            ReleaseObject(worksheet);
+            ReleaseObject(workbook);
+            ReleaseObject(excelApp);
+
+            MessageBox.Show("Dữ liệu đã được xuất ra Excel.");
+        }
+        private void ReleaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occured while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
             }
         }
     }
