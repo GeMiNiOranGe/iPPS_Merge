@@ -1,6 +1,6 @@
 ﻿namespace UserInterface
 {
-    partial class FormInsertNhanVien
+    partial class FormSaveStaff
     {
         /// <summary>
         /// Required designer variable.
@@ -1071,7 +1071,7 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // FormInsertNhanVien
+            // FormSaveStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1170,10 +1170,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbTieuDe);
-            this.Name = "FormInsertNhanVien";
+            this.Name = "FormSaveStaff";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhân viên";
-            this.Load += new System.EventHandler(this.AddNhanVien_Load);
+            this.Load += new System.EventHandler(this.FormSaveStaff_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

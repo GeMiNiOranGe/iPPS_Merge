@@ -1,6 +1,6 @@
 ﻿namespace UserInterface
 {
-    partial class FormNhanVien
+    partial class FormStaff
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNhanVien));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStaff));
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.radioSearchMa = new System.Windows.Forms.RadioButton();
             this.radioSearchTen = new System.Windows.Forms.RadioButton();
@@ -228,6 +228,7 @@
             this.btnExport.Size = new System.Drawing.Size(48, 50);
             this.btnExport.TabIndex = 7;
             this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnRead
             // 
@@ -317,7 +318,7 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "Mã nhân viên:";
             // 
-            // FormNhanVien
+            // FormStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -338,9 +339,9 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
-            this.Name = "FormNhanVien";
+            this.Name = "FormStaff";
             this.Text = "NhanVien";
-            this.Load += new System.EventHandler(this.NhanVien_Load);
+            this.Load += new System.EventHandler(this.FormStaff_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

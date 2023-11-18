@@ -15,7 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace UserInterface
 {
-    public partial class FormInsertNhanVien : Form
+    public partial class FormSaveStaff : Form
     {
         SqlConnection sqlConnection = new SqlConnection(Database.CONNECTION_STRING);
         SqlCommand sqlCommand;
@@ -23,31 +23,31 @@ namespace UserInterface
         SqlDataAdapter sqlDataAdapter;
         DataTable dataTable;
 
-        public string formNhanVien_MaNV;
-        public string formNhanVien_TieuDe;
+        public string formStaff_MaNV;
+        public string formStaff_TieuDe;
 
         private HashSet<string> uniqueValues = new HashSet<string>(); // kiểm tra trùng lặp trong listbox
-        public FormInsertNhanVien()
+        public FormSaveStaff()
         {
             InitializeComponent();
         }
-        private void AddNhanVien_Load(object sender, EventArgs e)
+        private void FormSaveStaff_Load(object sender, EventArgs e)
         {
-            loadCheck();
+            checkImportTextbox();
             loadCombobox();
 
-            txtMaNV.Text = formNhanVien_MaNV;
-            lbTieuDe.Text = formNhanVien_TieuDe;
+            txtMaNV.Text = formStaff_MaNV;
+            lbTieuDe.Text = formStaff_TieuDe;
             if (lbTieuDe.Text == "Thêm nhân viên")
             {
-                loadMaNhanVien();
+                loadIDStaff();
             }
             else
             {
-                loadUpdate();
+                loadUpdateStaff();
             }
         }
-        public void loadCheck()
+        public void checkImportTextbox()
         {
             if ((string.IsNullOrEmpty(cbPhongBan.Text)) || (string.IsNullOrEmpty(cbChucVu.Text)) || (string.IsNullOrEmpty(cbNgachLuong.Text)) || (string.IsNullOrEmpty(cbBacLuong.Text)))
             {
@@ -275,7 +275,7 @@ namespace UserInterface
 
             sqlConnection.Close();
         }
-        public void loadMaNhanVien()
+        public void loadIDStaff()
         {
             string iID0000 = "NV0000";
             string iID000 = "NV000";
@@ -312,7 +312,7 @@ namespace UserInterface
                 txtMaNV.Text = iID + iIDNV.ToString();
             }
         }
-        public void insertNhanVien()
+        public void insertStaff()
         {
             string insertQuery = "INSERT INTO NHANVIEN (MANV, HOTENNV, GIOITINH, NGAYSINH, NOISINH, QUEQUAN, TRINHDOVANHOA, DANTOC, TONGIAO, DOANVIEN, DANGVIEN, CONGDOANVIEN, MAPB, MACV, MANL, MABL) " +
                                  "VALUES (@MANV, @HOTENNV, @GIOITINH, @NGAYSINH, @NOISINH, @QUEQUAN, @TRINHDOVANHOA, @DANTOC, @TONGIAO, @DOANVIEN, @DANGVIEN, @CONGDOANVIEN, @MAPB, @MACV, @MANL, @MABL)";
@@ -370,7 +370,7 @@ namespace UserInterface
             
             sqlConnection.Close();
         }
-        public string loadMaNguoiThan(string idNT)
+        public string loadIDRelatives(string idNT)
         {
             string iID00 = "NT00";
             string iID0 = "NT0";
@@ -398,7 +398,7 @@ namespace UserInterface
             }
             return idNT;
         }
-        public void insertNguoiThan()
+        public void insertRelatives()
         {
             if ((string.IsNullOrEmpty(txtHoTenCha.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCha.Text)))
             {
@@ -407,7 +407,7 @@ namespace UserInterface
             else
             {
                 string idNT = null;
-                idNT = loadMaNguoiThan(idNT);
+                idNT = loadIDRelatives(idNT);
 
                 string insertQuery = "INSERT INTO NGUOITHAN (MANT, LOAINT, HOTEN, NGAYSINH, NGHENGHIEP, MANV) " +
                                  "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
@@ -435,7 +435,7 @@ namespace UserInterface
             else
             {
                 string idNT = null;
-                idNT = loadMaNguoiThan(idNT);
+                idNT = loadIDRelatives(idNT);
 
                 string insertQuery = "INSERT INTO NGUOITHAN (MANT, LOAINT, HOTEN, NGAYSINH, NGHENGHIEP, MANV) " +
                                  "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
@@ -463,7 +463,7 @@ namespace UserInterface
             else
             {
                 string idNT = null;
-                idNT = loadMaNguoiThan(idNT);
+                idNT = loadIDRelatives(idNT);
 
                 string insertQuery = "INSERT INTO NGUOITHAN (MANT, LOAINT, HOTEN, NGAYSINH, NGHENGHIEP, MANV) " +
                                  "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
@@ -491,7 +491,7 @@ namespace UserInterface
             else
             {
                 string idNT = null;
-                idNT = loadMaNguoiThan(idNT);
+                idNT = loadIDRelatives(idNT);
 
                 string insertQuery = "INSERT INTO NGUOITHAN (MANT, LOAINT, HOTEN, NGAYSINH, NGHENGHIEP, MANV) " +
                                  "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
@@ -519,7 +519,7 @@ namespace UserInterface
             else
             {
                 string idNT = null;
-                idNT = loadMaNguoiThan(idNT);
+                idNT = loadIDRelatives(idNT);
 
                 string insertQuery = "INSERT INTO NGUOITHAN (MANT, LOAINT, HOTEN, NGAYSINH, NGHENGHIEP, MANV) " +
                                  "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
@@ -550,8 +550,8 @@ namespace UserInterface
                 }
                 else
                 {
-                    insertNhanVien();
-                    insertNguoiThan();
+                    insertStaff();
+                    insertRelatives();
                     saveChuyenMon();
                     saveNgoaiNgu();
 
@@ -560,15 +560,15 @@ namespace UserInterface
             }
             else
             {
-                updateNhanVien();
+                updateStaff();
             }
             this.Close();
-            FormNhanVien formNhanVien = new FormNhanVien();
+            FormStaff formNhanVien = new FormStaff();
             formNhanVien.Show();
         }
 
         // CẬP NHẬT NHÂN VIÊN
-        public void loadUpdate()
+        public void loadUpdateStaff()
         {
             // Nhân viên
             sqlConnection.Open();
@@ -720,7 +720,7 @@ namespace UserInterface
             }
             sqlConnection.Close();
         }
-        public void updateNhanVien()
+        public void updateStaff()
         {
             // Nhân viên
             sqlConnection.Open();
@@ -778,7 +778,7 @@ namespace UserInterface
             // Người thân
             if((string.IsNullOrEmpty(txtHoTenCha.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCha.Text)))
             {
-                insertNguoiThan();
+                insertRelatives();
             }
             else
             {
@@ -798,7 +798,7 @@ namespace UserInterface
 
             if ((string.IsNullOrEmpty(txtHoTenMe.Text)) && (string.IsNullOrEmpty(txtNgheNghiepMe.Text)))
             {
-                insertNguoiThan();
+                insertRelatives();
             }
             else
             {
@@ -818,7 +818,7 @@ namespace UserInterface
 
             if ((string.IsNullOrEmpty(txtHoTenVC.Text)) && (string.IsNullOrEmpty(txtNgheNghiepVC.Text)))
             {
-                insertNguoiThan();
+                insertRelatives();
             }
             else
             {
@@ -838,7 +838,7 @@ namespace UserInterface
 
             if ((string.IsNullOrEmpty(txtHoTenCon1.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCon1.Text)))
             {
-                insertNguoiThan();
+                insertRelatives();
             }
             else
             {
@@ -858,7 +858,7 @@ namespace UserInterface
 
             if ((string.IsNullOrEmpty(txtHoTenCon2.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCon2.Text)))
             {
-                insertNguoiThan();
+                insertRelatives();
             }
             else
             {
@@ -911,8 +911,8 @@ namespace UserInterface
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            FormNhanVien formNhanVien = new FormNhanVien();
-            formNhanVien.Show();
+            FormStaff formStaff = new FormStaff();
+            formStaff.Show();
         }
     }
 }
