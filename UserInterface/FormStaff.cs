@@ -148,7 +148,6 @@ namespace UserInterface
             FormSaveStaff formInsertNhanVien = new FormSaveStaff();
             formInsertNhanVien.formStaff_TieuDe = "Thêm nhân viên";
             formInsertNhanVien.Show();
-            this.Hide();
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
@@ -162,7 +161,6 @@ namespace UserInterface
                 formInsertNhanVien.formStaff_MaNV = lbMaNV.Text;
                 formInsertNhanVien.formStaff_TieuDe = "Cập nhật nhân viên";
                 formInsertNhanVien.Show();
-                this.Hide();
             }
         }
         private void btnDel_Click(object sender, EventArgs e)

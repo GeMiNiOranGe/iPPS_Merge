@@ -48,6 +48,8 @@
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnReload = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnRead = new System.Windows.Forms.Button();
@@ -55,8 +57,6 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -95,7 +95,7 @@
             // 
             this.lbSLNV.AutoSize = true;
             this.lbSLNV.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSLNV.Location = new System.Drawing.Point(1130, 103);
+            this.lbSLNV.Location = new System.Drawing.Point(1097, 105);
             this.lbSLNV.Name = "lbSLNV";
             this.lbSLNV.Size = new System.Drawing.Size(40, 25);
             this.lbSLNV.TabIndex = 10;
@@ -105,7 +105,7 @@
             // 
             this.lbMaNV.AutoSize = true;
             this.lbMaNV.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMaNV.Location = new System.Drawing.Point(891, 103);
+            this.lbMaNV.Location = new System.Drawing.Point(858, 105);
             this.lbMaNV.Name = "lbMaNV";
             this.lbMaNV.Size = new System.Drawing.Size(48, 25);
             this.lbMaNV.TabIndex = 11;
@@ -131,9 +131,9 @@
             this.listViewDataNV.FullRowSelect = true;
             this.listViewDataNV.GridLines = true;
             this.listViewDataNV.HideSelection = false;
-            this.listViewDataNV.Location = new System.Drawing.Point(12, 154);
+            this.listViewDataNV.Location = new System.Drawing.Point(2, 154);
             this.listViewDataNV.Name = "listViewDataNV";
-            this.listViewDataNV.Size = new System.Drawing.Size(1158, 487);
+            this.listViewDataNV.Size = new System.Drawing.Size(1146, 505);
             this.listViewDataNV.TabIndex = 12;
             this.listViewDataNV.UseCompatibleStateImageBehavior = false;
             this.listViewDataNV.View = System.Windows.Forms.View.Details;
@@ -203,6 +203,26 @@
             this.columnHeader13.Text = "Công đoàn viên";
             this.columnHeader13.Width = 145;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(977, 105);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 25);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Số lượng:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(695, 105);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(157, 25);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Mã nhân viên:";
+            // 
             // btnReload
             // 
             this.btnReload.BackColor = System.Drawing.Color.White;
@@ -210,7 +230,7 @@
             this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnReload.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnReload.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(733, 14);
+            this.btnReload.Location = new System.Drawing.Point(717, 14);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(53, 50);
             this.btnReload.TabIndex = 13;
@@ -223,7 +243,7 @@
             this.btnExport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExport.BackgroundImage")));
             this.btnExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnExport.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.Location = new System.Drawing.Point(1122, 14);
+            this.btnExport.Location = new System.Drawing.Point(1090, 14);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(48, 50);
             this.btnExport.TabIndex = 7;
@@ -237,7 +257,7 @@
             this.btnRead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnRead.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnRead.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRead.Location = new System.Drawing.Point(812, 14);
+            this.btnRead.Location = new System.Drawing.Point(787, 14);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(53, 50);
             this.btnRead.TabIndex = 6;
@@ -250,7 +270,7 @@
             this.btnDel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDel.BackgroundImage")));
             this.btnDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnDel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDel.Location = new System.Drawing.Point(1044, 14);
+            this.btnDel.Location = new System.Drawing.Point(1015, 14);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(50, 50);
             this.btnDel.TabIndex = 5;
@@ -264,7 +284,7 @@
             this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.Location = new System.Drawing.Point(967, 14);
+            this.btnEdit.Location = new System.Drawing.Point(938, 14);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(50, 50);
             this.btnEdit.TabIndex = 4;
@@ -278,7 +298,7 @@
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.Black;
-            this.btnAdd.Location = new System.Drawing.Point(890, 14);
+            this.btnAdd.Location = new System.Drawing.Point(863, 14);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(50, 50);
             this.btnAdd.TabIndex = 3;
@@ -298,32 +318,12 @@
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1010, 103);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 25);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Số lượng:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(728, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 25);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Mã nhân viên:";
-            // 
             // FormStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1182, 653);
+            this.ClientSize = new System.Drawing.Size(1150, 660);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReload);
@@ -339,6 +339,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormStaff";
             this.Text = "NhanVien";
             this.Load += new System.EventHandler(this.FormStaff_Load);
