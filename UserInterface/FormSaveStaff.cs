@@ -49,7 +49,7 @@ namespace UserInterface
         }
         public void checkImportTextbox()
         {
-            if ((string.IsNullOrEmpty(cbPhongBan.Text)) || (string.IsNullOrEmpty(cbChucVu.Text)) || (string.IsNullOrEmpty(cbNgachLuong.Text)) || (string.IsNullOrEmpty(cbBacLuong.Text)))
+            if ((string.IsNullOrEmpty(txtMaPB.Text)) || (string.IsNullOrEmpty(txtMaCV.Text)) || (string.IsNullOrEmpty(txtMaNL.Text)) || (string.IsNullOrEmpty(txtMaBL.Text)))
             {
                 lbCheck1.ForeColor = System.Drawing.Color.Red;
                 lbCheck2.ForeColor = System.Drawing.Color.Red;
@@ -59,15 +59,6 @@ namespace UserInterface
         }
         public void loadCombobox()
         {
-            sqlConnection.Open();
-            sqlCommand = new SqlCommand("SELECT * FROM PHONGBAN", sqlConnection);
-            sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
-                cbPhongBan.Items.Add(sqlDataReader["TENPB"]);
-            }
-            sqlConnection.Close();
-
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM CHUCVU", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
@@ -103,20 +94,6 @@ namespace UserInterface
                 cbNgoaiNgu.Items.Add(sqlDataReader["TENNN"]);
             }
             sqlConnection.Close();
-        }
-        private void cbPhongBan_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            sqlConnection.Open();
-            sqlCommand = new SqlCommand("SELECT * FROM PHONGBAN WHERE TENPB = @TENPB", sqlConnection);
-            sqlCommand.Parameters.AddWithValue("@TENPB", cbPhongBan.Text);
-            sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
-                txtMaPB.Text = sqlDataReader["MAPB"].ToString();
-            }
-            sqlConnection.Close();
-
-            lbCheck1.ForeColor = System.Drawing.Color.Black;
         }
         private void cbChucVu_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -156,8 +133,6 @@ namespace UserInterface
             txtMaBL.DataBindings.Clear();
             txtMaBL.DataBindings.Add("Text", cbBacLuong.DataSource, "MABL");
             sqlConnection.Close();
-
-            lbCheck4.ForeColor = System.Drawing.Color.Black;
         }
         private void cbChuyenMon_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -170,6 +145,7 @@ namespace UserInterface
                 txtMaCM.Text = sqlDataReader["MACM"].ToString();
             }
             sqlConnection.Close();
+            lbCheck4.ForeColor = System.Drawing.Color.Black;
         }
         private void btnThemCM_Click(object sender, EventArgs e)
         {
@@ -189,7 +165,7 @@ namespace UserInterface
 
                 if (flag)
                 {
-                    MessageBox.Show("Dữ liệu bị trùng");
+                    MessageBox.Show("Dữ liệu bị trùng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -247,11 +223,10 @@ namespace UserInterface
 
                 if (flag)
                 {
-                    MessageBox.Show("Dữ liệu bị trùng");
+                    MessageBox.Show("Dữ liệu bị trùng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
-
             ListViewItem newItem = new ListViewItem(newColumns);
             listViewNgoaiNgu.Items.Add(newItem);
         }
@@ -410,7 +385,7 @@ namespace UserInterface
                 idNT = loadIDRelatives(idNT);
 
                 string insertQuery = "INSERT INTO NGUOITHAN (MANT, LOAINT, HOTEN, NGAYSINH, NGHENGHIEP, MANV) " +
-                                 "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
+                                     "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
 
                 sqlConnection.Open();
 
@@ -563,8 +538,6 @@ namespace UserInterface
                 updateStaff();
             }
             this.Close();
-            FormStaff formNhanVien = new FormStaff();
-            formNhanVien.Show();
         }
 
         // CẬP NHẬT NHÂN VIÊN
@@ -911,8 +884,17 @@ namespace UserInterface
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            FormMenu formMenu = new FormMenu();
-            formMenu.Show();
+        }
+
+        private void btnTCNV_Click(object sender, EventArgs e)
+        {
+            FormDispatchStaff formDispatchStaff = new FormDispatchStaff();
+            DialogResult result = formDispatchStaff.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                txtMaPB.Text = formDispatchStaff.MaPB;
+                lbCheck1.ForeColor = System.Drawing.Color.Black;
+            }
         }
     }
 }
