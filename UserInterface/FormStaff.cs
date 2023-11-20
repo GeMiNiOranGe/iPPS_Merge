@@ -83,65 +83,65 @@ namespace UserInterface
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            listViewDataNV.Items.Clear();
-            sqlConnection.Open();
-            if (radioSearchMa.Checked)
+            if (string.IsNullOrEmpty(txtSearch.Text)) 
             {
-                sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN WHERE MANV LIKE '%" + txtSearch.Text + "%'", sqlConnection);
-            }
-            else if (radioSearchTen.Checked)
-            {
-                sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN WHERE HOTENNV LIKE '%" + txtSearch.Text + "%'", sqlConnection);
+                MessageBox.Show("Vui lòng nhập thông tin cần tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn mục tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                listViewDataNV.Items.Clear();
+                sqlConnection.Open();
+                if (radioSearchMa.Checked)
+                {
+                    sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN WHERE MANV LIKE '%" + txtSearch.Text + "%'", sqlConnection);
+                }
+                else if (radioSearchTen.Checked)
+                {
+                    sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN WHERE HOTENNV LIKE '%" + txtSearch.Text + "%'", sqlConnection);
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn mục tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                sqlDataReader = sqlCommand.ExecuteReader();
+                int i = 0;
+                while (sqlDataReader.Read())
+                {
+                    ListViewItem item = new ListViewItem((i + 1).ToString());
+                    item.SubItems.Add(sqlDataReader[0].ToString());
+                    item.SubItems.Add(sqlDataReader[1].ToString());
+
+                    string gender = (bool)sqlDataReader[2] ? "Nam" : "Nữ";
+                    item.SubItems.Add(gender);
+
+                    var date = DateTime.Parse(sqlDataReader[3].ToString());
+                    item.SubItems.Add(date.ToString("dd/MM/yyyy"));
+
+                    item.SubItems.Add(sqlDataReader[4].ToString());
+                    item.SubItems.Add(sqlDataReader[5].ToString());
+                    item.SubItems.Add(sqlDataReader[6].ToString());
+                    item.SubItems.Add(sqlDataReader[7].ToString());
+                    item.SubItems.Add(sqlDataReader[8].ToString());
+
+                    string DoanVien = (bool)sqlDataReader[9] ? "Có" : "Không";
+                    item.SubItems.Add(DoanVien);
+
+                    string DangVien = (bool)sqlDataReader[10] ? "Có" : "Không";
+                    item.SubItems.Add(DangVien);
+
+                    string CongDoanVien = (bool)sqlDataReader[11] ? "Có" : "Không";
+                    item.SubItems.Add(CongDoanVien);
+                    listViewDataNV.Items.Add(item);
+                    i++;
+                }
+                sqlConnection.Close();
             }
-            sqlDataReader = sqlCommand.ExecuteReader();
-            int i = 0;
-            while (sqlDataReader.Read())
-            {
-                ListViewItem item = new ListViewItem((i + 1).ToString());
-                item.SubItems.Add(sqlDataReader[0].ToString());
-                item.SubItems.Add(sqlDataReader[1].ToString());
-
-                string gender = (bool)sqlDataReader[2] ? "Nam" : "Nữ";
-                item.SubItems.Add(gender);
-
-                var date = DateTime.Parse(sqlDataReader[3].ToString());
-                item.SubItems.Add(date.ToString("dd/MM/yyyy"));
-
-                item.SubItems.Add(sqlDataReader[4].ToString());
-                item.SubItems.Add(sqlDataReader[5].ToString());
-                item.SubItems.Add(sqlDataReader[6].ToString());
-                item.SubItems.Add(sqlDataReader[7].ToString());
-                item.SubItems.Add(sqlDataReader[8].ToString());
-
-                string DoanVien = (bool)sqlDataReader[9] ? "Có" : "Không";
-                item.SubItems.Add(DoanVien);
-
-                string DangVien = (bool)sqlDataReader[10] ? "Có" : "Không";
-                item.SubItems.Add(DangVien);
-
-                string CongDoanVien = (bool)sqlDataReader[11] ? "Có" : "Không";
-                item.SubItems.Add(CongDoanVien);
-
-                listViewDataNV.Items.Add(item);
-                i++;
-            }
-
-            sqlConnection.Close();
-
             txtSearch.Text = null;
         }
         private void btnReload_Click(object sender, EventArgs e)
         {
             listViewDataNV.Items.Clear();
             loadDataStaff();
-        }
-        private void btnRead_Click(object sender, EventArgs e)
-        {
-
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -169,21 +169,91 @@ namespace UserInterface
             {
                 if (MessageBox.Show("Bạn có chắc là muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    // Xoá Lương
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("DELETE FROM LUONG WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    // Xoá Bộ phận chấm công
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("DELETE FROM BOPHANCHAMCONG WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    // Nếu 2 nhân viên cùng sống chung 1 Hộ gia đình thì update NULL ở nhân viên bị xoá
+                    // Khi MANV1
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("UPDATE HOGIADINH SET MANV1 = NULL WHERE MANV1 = @MANV1 AND MANV2 IS NOT NULL", sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@MANV1", lbMaNV.Text);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    // Khi MANV2
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("UPDATE HOGIADINH SET MANV2 = NULL WHERE MANV2 = @MANV2 AND MANV1 IS NOT NULL", sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@MANV2", lbMaNV.Text);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    // Nếu 1 nhân viên thì xoá theo thứ tự Tiền nhà -> Nước -> Điện -> Hộ gia đình
+                    // Khi MANV1
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("DELETE FROM TIENNHA WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV1 = '" + lbMaNV.Text + "' AND MANV2 IS NULL)", sqlConnection);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("DELETE FROM NUOC WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV1 = '" + lbMaNV.Text + "' AND MANV2 IS NULL)", sqlConnection);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("DELETE FROM DIEN WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV1 = '" + lbMaNV.Text + "' AND MANV2 IS NULL)", sqlConnection);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("DELETE FROM HOGIADINH WHERE MANV1 = '" + lbMaNV.Text + "' AND MANV2 IS NULL", sqlConnection);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    // Khi MANV2
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("DELETE FROM TIENNHA WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV2 = '" + lbMaNV.Text + "' AND MANV1 IS NULL)", sqlConnection);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("DELETE FROM NUOC WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV2 = '" + lbMaNV.Text + "' AND MANV1 IS NULL)", sqlConnection);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("DELETE FROM DIEN WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV2 = '" + lbMaNV.Text + "' AND MANV1 IS NULL)", sqlConnection);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("DELETE FROM HOGIADINH WHERE MANV2 = '" + lbMaNV.Text + "' AND MANV1 IS NULL", sqlConnection);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    // Xoá Nhân viên - Phòng tổ chức
+                    sqlConnection.Open();
+                    sqlCommand = new SqlCommand("DELETE FROM NHANVIEN_PHONGTOCHUC WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    // Xoá Nhân viên - Chuyên môn
                     sqlConnection.Open();
                     sqlCommand = new SqlCommand("DELETE FROM NHANVIEN_CHUYENMON WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
                     sqlCommand.ExecuteNonQuery();
                     sqlConnection.Close();
-
+                    // Xoá nhân viên - Ngoại ngữ
                     sqlConnection.Open();
                     sqlCommand = new SqlCommand("DELETE FROM NHANVIEN_NGOAINGU WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
                     sqlCommand.ExecuteNonQuery();
                     sqlConnection.Close();
-
+                    // Xoá Người thân
                     sqlConnection.Open();
                     sqlCommand = new SqlCommand("DELETE FROM NGUOITHAN WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
                     sqlCommand.ExecuteNonQuery();
                     sqlConnection.Close();
-
+                    // Xoá nhân viên
                     sqlConnection.Open();
                     sqlCommand = new SqlCommand("DELETE FROM NHANVIEN WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
                     sqlCommand.ExecuteNonQuery();
@@ -259,7 +329,7 @@ namespace UserInterface
             catch (Exception ex)
             {
                 obj = null;
-                MessageBox.Show("Exception Occured while releasing object " + ex.ToString());
+                MessageBox.Show("Lỗi" + ex.ToString());
             }
             finally
             {

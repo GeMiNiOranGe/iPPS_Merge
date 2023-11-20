@@ -84,11 +84,9 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.cbPhongBan = new System.Windows.Forms.ComboBox();
             this.cbChucVu = new System.Windows.Forms.ComboBox();
             this.cbNgachLuong = new System.Windows.Forms.ComboBox();
             this.cbBacLuong = new System.Windows.Forms.ComboBox();
@@ -124,6 +122,7 @@
             this.lbCheck3 = new System.Windows.Forms.Label();
             this.lbCheck4 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnTCNV = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbTieuDe
@@ -671,16 +670,6 @@
             this.label28.TabIndex = 50;
             this.label28.Text = "Họ và tên Con 2";
             // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(25, 565);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(91, 22);
-            this.label29.TabIndex = 56;
-            this.label29.Text = "Phòng ban";
-            // 
             // label30
             // 
             this.label30.AutoSize = true;
@@ -710,17 +699,6 @@
             this.label32.Size = new System.Drawing.Size(92, 22);
             this.label32.TabIndex = 59;
             this.label32.Text = "Bậc lương";
-            // 
-            // cbPhongBan
-            // 
-            this.cbPhongBan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPhongBan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPhongBan.FormattingEnabled = true;
-            this.cbPhongBan.Location = new System.Drawing.Point(206, 560);
-            this.cbPhongBan.Name = "cbPhongBan";
-            this.cbPhongBan.Size = new System.Drawing.Size(208, 30);
-            this.cbPhongBan.TabIndex = 60;
-            this.cbPhongBan.SelectedIndexChanged += new System.EventHandler(this.cbPhongBan_SelectedIndexChanged);
             // 
             // cbChucVu
             // 
@@ -819,7 +797,7 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(25, 620);
+            this.label38.Location = new System.Drawing.Point(25, 565);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(121, 22);
             this.label38.TabIndex = 67;
@@ -866,7 +844,7 @@
             // txtMaPB
             // 
             this.txtMaPB.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaPB.Location = new System.Drawing.Point(206, 615);
+            this.txtMaPB.Location = new System.Drawing.Point(206, 560);
             this.txtMaPB.Name = "txtMaPB";
             this.txtMaPB.ReadOnly = true;
             this.txtMaPB.Size = new System.Drawing.Size(208, 30);
@@ -1023,7 +1001,7 @@
             // 
             this.lbCheck1.AutoSize = true;
             this.lbCheck1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheck1.Location = new System.Drawing.Point(417, 615);
+            this.lbCheck1.Location = new System.Drawing.Point(416, 560);
             this.lbCheck1.Name = "lbCheck1";
             this.lbCheck1.Size = new System.Drawing.Size(20, 23);
             this.lbCheck1.TabIndex = 95;
@@ -1071,6 +1049,18 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnTCNV
+            // 
+            this.btnTCNV.BackColor = System.Drawing.Color.White;
+            this.btnTCNV.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTCNV.Location = new System.Drawing.Point(95, 610);
+            this.btnTCNV.Name = "btnTCNV";
+            this.btnTCNV.Size = new System.Drawing.Size(245, 32);
+            this.btnTCNV.TabIndex = 103;
+            this.btnTCNV.Text = "Thuyên chuyển nhân viên";
+            this.btnTCNV.UseVisualStyleBackColor = false;
+            this.btnTCNV.Click += new System.EventHandler(this.btnTCNV_Click);
+            // 
             // FormSaveStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1078,6 +1068,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1225, 1055);
+            this.Controls.Add(this.btnTCNV);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lbCheck4);
             this.Controls.Add(this.lbCheck3);
@@ -1114,11 +1105,9 @@
             this.Controls.Add(this.cbBacLuong);
             this.Controls.Add(this.cbNgachLuong);
             this.Controls.Add(this.cbChucVu);
-            this.Controls.Add(this.cbPhongBan);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
-            this.Controls.Add(this.label29);
             this.Controls.Add(this.dateNgaySinhCon2);
             this.Controls.Add(this.txtNgheNghiepCon2);
             this.Controls.Add(this.txtHoTenCon2);
@@ -1238,11 +1227,9 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.ComboBox cbPhongBan;
         private System.Windows.Forms.ComboBox cbChucVu;
         private System.Windows.Forms.ComboBox cbNgachLuong;
         private System.Windows.Forms.ComboBox cbBacLuong;
@@ -1278,5 +1265,6 @@
         private System.Windows.Forms.Label lbCheck3;
         private System.Windows.Forms.Label lbCheck4;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnTCNV;
     }
 }

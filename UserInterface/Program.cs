@@ -13,7 +13,7 @@ namespace UserInterface {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMenu()) ;
+            Application.Run(new FormStaff()) ;
         }
     }
 }

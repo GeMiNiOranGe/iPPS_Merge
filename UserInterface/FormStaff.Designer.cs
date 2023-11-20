@@ -52,7 +52,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnReload = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
-            this.btnRead = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -230,7 +229,7 @@
             this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnReload.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnReload.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(717, 14);
+            this.btnReload.Location = new System.Drawing.Point(770, 15);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(53, 50);
             this.btnReload.TabIndex = 13;
@@ -243,26 +242,12 @@
             this.btnExport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExport.BackgroundImage")));
             this.btnExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnExport.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.Location = new System.Drawing.Point(1090, 14);
+            this.btnExport.Location = new System.Drawing.Point(1090, 15);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(48, 50);
             this.btnExport.TabIndex = 7;
             this.btnExport.UseVisualStyleBackColor = false;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // btnRead
-            // 
-            this.btnRead.BackColor = System.Drawing.Color.White;
-            this.btnRead.BackgroundImage = global::UserInterface.Properties.Resources.read;
-            this.btnRead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnRead.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btnRead.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRead.Location = new System.Drawing.Point(787, 14);
-            this.btnRead.Name = "btnRead";
-            this.btnRead.Size = new System.Drawing.Size(53, 50);
-            this.btnRead.TabIndex = 6;
-            this.btnRead.UseVisualStyleBackColor = false;
-            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
             // 
             // btnDel
             // 
@@ -270,7 +255,7 @@
             this.btnDel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDel.BackgroundImage")));
             this.btnDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnDel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDel.Location = new System.Drawing.Point(1015, 14);
+            this.btnDel.Location = new System.Drawing.Point(1010, 15);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(50, 50);
             this.btnDel.TabIndex = 5;
@@ -284,7 +269,7 @@
             this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.Location = new System.Drawing.Point(938, 14);
+            this.btnEdit.Location = new System.Drawing.Point(930, 15);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(50, 50);
             this.btnEdit.TabIndex = 4;
@@ -298,7 +283,7 @@
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.Black;
-            this.btnAdd.Location = new System.Drawing.Point(863, 14);
+            this.btnAdd.Location = new System.Drawing.Point(850, 15);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(50, 50);
             this.btnAdd.TabIndex = 3;
@@ -311,7 +296,7 @@
             this.btnSearch.BackgroundImage = global::UserInterface.Properties.Resources.search;
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(274, 14);
+            this.btnSearch.Location = new System.Drawing.Point(274, 15);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(50, 50);
             this.btnSearch.TabIndex = 2;
@@ -333,7 +318,6 @@
             this.Controls.Add(this.radioSearchTen);
             this.Controls.Add(this.radioSearchMa);
             this.Controls.Add(this.btnExport);
-            this.Controls.Add(this.btnRead);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
@@ -354,7 +338,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDel;
-        private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.RadioButton radioSearchMa;
         private System.Windows.Forms.RadioButton radioSearchTen;

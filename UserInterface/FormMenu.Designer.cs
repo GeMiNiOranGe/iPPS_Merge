@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
             this.panelSidebar = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panelChinh = new System.Windows.Forms.Panel();
+            this.lbMaPB = new System.Windows.Forms.Label();
             this.panelSide = new System.Windows.Forms.Panel();
-            this.btnExit = new System.Windows.Forms.Button();
             this.btnNhanVien = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.panelChinh = new System.Windows.Forms.Panel();
             this.panelSidebar.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -41,6 +43,7 @@
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.panelSidebar.Controls.Add(this.lbMaPB);
             this.panelSidebar.Controls.Add(this.panelSide);
             this.panelSidebar.Controls.Add(this.btnNhanVien);
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
@@ -48,6 +51,43 @@
             this.panelSidebar.Name = "panelSidebar";
             this.panelSidebar.Size = new System.Drawing.Size(250, 700);
             this.panelSidebar.TabIndex = 0;
+            // 
+            // lbMaPB
+            // 
+            this.lbMaPB.AutoSize = true;
+            this.lbMaPB.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMaPB.ForeColor = System.Drawing.Color.White;
+            this.lbMaPB.Location = new System.Drawing.Point(73, 55);
+            this.lbMaPB.Name = "lbMaPB";
+            this.lbMaPB.Size = new System.Drawing.Size(105, 34);
+            this.lbMaPB.TabIndex = 4;
+            this.lbMaPB.Text = "Admin";
+            // 
+            // panelSide
+            // 
+            this.panelSide.BackColor = System.Drawing.Color.White;
+            this.panelSide.Location = new System.Drawing.Point(5, 163);
+            this.panelSide.Name = "panelSide";
+            this.panelSide.Size = new System.Drawing.Size(15, 66);
+            this.panelSide.TabIndex = 0;
+            // 
+            // btnNhanVien
+            // 
+            this.btnNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.btnNhanVien.FlatAppearance.BorderSize = 0;
+            this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhanVien.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhanVien.ForeColor = System.Drawing.Color.White;
+            this.btnNhanVien.Image = global::UserInterface.Properties.Resources.employee;
+            this.btnNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNhanVien.Location = new System.Drawing.Point(23, 163);
+            this.btnNhanVien.Name = "btnNhanVien";
+            this.btnNhanVien.Size = new System.Drawing.Size(224, 66);
+            this.btnNhanVien.TabIndex = 2;
+            this.btnNhanVien.Text = "  Nhân viên";
+            this.btnNhanVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNhanVien.UseVisualStyleBackColor = false;
+            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
             // 
             // panel2
             // 
@@ -59,29 +99,13 @@
             this.panel2.Size = new System.Drawing.Size(1150, 40);
             this.panel2.TabIndex = 1;
             // 
-            // panelChinh
-            // 
-            this.panelChinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChinh.Location = new System.Drawing.Point(250, 40);
-            this.panelChinh.Name = "panelChinh";
-            this.panelChinh.Size = new System.Drawing.Size(1150, 660);
-            this.panelChinh.TabIndex = 2;
-            // 
-            // panelSide
-            // 
-            this.panelSide.BackColor = System.Drawing.Color.White;
-            this.panelSide.Location = new System.Drawing.Point(2, 141);
-            this.panelSide.Name = "panelSide";
-            this.panelSide.Size = new System.Drawing.Size(15, 66);
-            this.panelSide.TabIndex = 0;
-            // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.White;
-            this.btnExit.BackgroundImage = global::UserInterface.Properties.Resources.x;
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.Location = new System.Drawing.Point(1111, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(36, 34);
@@ -89,23 +113,13 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnNhanVien
+            // panelChinh
             // 
-            this.btnNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.btnNhanVien.FlatAppearance.BorderSize = 0;
-            this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhanVien.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhanVien.ForeColor = System.Drawing.Color.White;
-            this.btnNhanVien.Image = global::UserInterface.Properties.Resources.employee;
-            this.btnNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhanVien.Location = new System.Drawing.Point(23, 141);
-            this.btnNhanVien.Name = "btnNhanVien";
-            this.btnNhanVien.Size = new System.Drawing.Size(224, 66);
-            this.btnNhanVien.TabIndex = 2;
-            this.btnNhanVien.Text = "  Nhân viên";
-            this.btnNhanVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNhanVien.UseVisualStyleBackColor = false;
-            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
+            this.panelChinh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChinh.Location = new System.Drawing.Point(250, 40);
+            this.panelChinh.Name = "panelChinh";
+            this.panelChinh.Size = new System.Drawing.Size(1150, 660);
+            this.panelChinh.TabIndex = 2;
             // 
             // FormMenu
             // 
@@ -122,6 +136,7 @@
             this.Text = "FormMenu";
             this.Load += new System.EventHandler(this.FormMenu_Load);
             this.panelSidebar.ResumeLayout(false);
+            this.panelSidebar.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -135,5 +150,6 @@
         private System.Windows.Forms.Panel panelChinh;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panelSide;
+        private System.Windows.Forms.Label lbMaPB;
     }
 }
