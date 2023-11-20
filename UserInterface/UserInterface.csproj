@@ -141,6 +141,30 @@
     <Compile Include="formChamCong.Designer.cs">
       <DependentUpon>formChamCong.cs</DependentUpon>
     </Compile>
+    <Compile Include="formKTX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formKTX.Designer.cs">
+      <DependentUpon>formKTX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formTienDien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTienDien.Designer.cs">
+      <DependentUpon>formTienDien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formTienNha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTienNha.Designer.cs">
+      <DependentUpon>formTienNha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formTienNuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTienNuoc.Designer.cs">
+      <DependentUpon>formTienNuoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="formTinhLuong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +175,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formChamCong.resx">
       <DependentUpon>formChamCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formKTX.resx">
+      <DependentUpon>formKTX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formTienDien.resx">
+      <DependentUpon>formTienDien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formTienNha.resx">
+      <DependentUpon>formTienNha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formTienNuoc.resx">
+      <DependentUpon>formTienNuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formTinhLuong.resx">
       <DependentUpon>formTinhLuong.cs</DependentUpon>

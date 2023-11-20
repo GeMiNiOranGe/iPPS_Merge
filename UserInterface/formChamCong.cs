@@ -244,6 +244,7 @@ namespace UserInterface
             }
             return ngay;
         }
+       
 
 
 
@@ -256,6 +257,6 @@ namespace UserInterface
 
         #endregion
 
-        
+
     }
 }
