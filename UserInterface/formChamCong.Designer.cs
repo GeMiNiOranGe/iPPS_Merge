@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbTinhTrang = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.tbMaCC = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -53,9 +55,8 @@
             this.SONGAYNGHIKHONGLYDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbTinhTrang = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.btnChamCong = new System.Windows.Forms.Button();
+            this.btnBaoCao = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDiLam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numngaynghiBHXH)).BeginInit();
@@ -88,6 +89,32 @@
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Chấm Công";
+            // 
+            // cbTinhTrang
+            // 
+            this.cbTinhTrang.BackColor = System.Drawing.SystemColors.Info;
+            this.cbTinhTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTinhTrang.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTinhTrang.FormattingEnabled = true;
+            this.cbTinhTrang.Items.AddRange(new object[] {
+            "Đi làm",
+            "Nghỉ có phép",
+            "Nghỉ không phép"});
+            this.cbTinhTrang.Location = new System.Drawing.Point(120, 70);
+            this.cbTinhTrang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbTinhTrang.Name = "cbTinhTrang";
+            this.cbTinhTrang.Size = new System.Drawing.Size(133, 25);
+            this.cbTinhTrang.TabIndex = 26;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(34, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 18);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Tình Trạng:";
             // 
             // tbMaCC
             // 
@@ -166,6 +193,7 @@
             this.dtpNgayLV.Name = "dtpNgayLV";
             this.dtpNgayLV.Size = new System.Drawing.Size(172, 25);
             this.dtpNgayLV.TabIndex = 16;
+            this.dtpNgayLV.ValueChanged += new System.EventHandler(this.dtpNgayLV_ValueChanged);
             // 
             // cboManv
             // 
@@ -332,32 +360,6 @@
             this.label2.TabIndex = 55;
             this.label2.Text = "Chấm Công";
             // 
-            // cbTinhTrang
-            // 
-            this.cbTinhTrang.BackColor = System.Drawing.SystemColors.Info;
-            this.cbTinhTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTinhTrang.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTinhTrang.FormattingEnabled = true;
-            this.cbTinhTrang.Items.AddRange(new object[] {
-            "Đi làm",
-            "Nghỉ có phép",
-            "Nghỉ không phép"});
-            this.cbTinhTrang.Location = new System.Drawing.Point(120, 70);
-            this.cbTinhTrang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbTinhTrang.Name = "cbTinhTrang";
-            this.cbTinhTrang.Size = new System.Drawing.Size(133, 25);
-            this.cbTinhTrang.TabIndex = 26;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(34, 73);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 18);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Tình Trạng:";
-            // 
             // btnChamCong
             // 
             this.btnChamCong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -372,6 +374,20 @@
             this.btnChamCong.UseVisualStyleBackColor = false;
             this.btnChamCong.Click += new System.EventHandler(this.btnChamCong_Click_1);
             // 
+            // btnBaoCao
+            // 
+            this.btnBaoCao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBaoCao.BackColor = System.Drawing.Color.LightCoral;
+            this.btnBaoCao.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBaoCao.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBaoCao.Location = new System.Drawing.Point(71, 447);
+            this.btnBaoCao.Name = "btnBaoCao";
+            this.btnBaoCao.Size = new System.Drawing.Size(94, 30);
+            this.btnBaoCao.TabIndex = 57;
+            this.btnBaoCao.Text = "Xuất báo cáo";
+            this.btnBaoCao.UseVisualStyleBackColor = false;
+            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
+            // 
             // formChamCong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,6 +395,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(232)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(1028, 503);
+            this.Controls.Add(this.btnBaoCao);
             this.Controls.Add(this.btnChamCong);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataChamCong);
@@ -431,5 +448,6 @@
         private System.Windows.Forms.ComboBox cbTinhTrang;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnChamCong;
+        private System.Windows.Forms.Button btnBaoCao;
     }
 }

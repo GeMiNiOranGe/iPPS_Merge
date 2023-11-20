@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccess;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using iText.Layout.Splitting;
+using iText;
 
 namespace UserInterface
 {
@@ -53,7 +55,7 @@ namespace UserInterface
                numDiLam.Value = songaydilam;
                numngaynghi.Value = songaynghikhonglydo;
                numngaynghiBHXH.Value= songaynghiBHXH;
-                
+               
             }
             
         }
@@ -69,29 +71,40 @@ namespace UserInterface
             Byte Songaydilam = Convert.ToByte(numDiLam.Value);
             Byte SongaynghiBHXH = Convert.ToByte(numngaynghiBHXH.Value);
             Byte Songaynghilam = Convert.ToByte(numngaynghi.Value);
-            DatabaseHelper dbHelper = new DatabaseHelper();
-            bool result = dbHelper.CheckMACCAndMANVExists(MaNV,MaCC);
 
-            if (result)
+            DatabaseHelper dbHelper = new DatabaseHelper();
+
+            // Kiểm tra xem mã chấm công và mã nhân viên đã tồn tại hay chưa
+            bool macAndManvExists = dbHelper.CheckMACCAndMANVExists(MaNV, MaCC);
+
+            if (macAndManvExists)
             {
-                MessageBox.Show("MACC đã tồn tại.");
-                
+                MessageBox.Show("Mã chấm công hoặc Mã nhân viên đã tồn tại.");
             }
             else
             {
-                if (MaCC == string.Empty)
+                if (string.IsNullOrEmpty(MaCC))
                 {
                     MessageBox.Show("Nhập mã chấm công");
                 }
                 else
                 {
-                    ChamCongBL.Instance.insertAttendanceBL(MaCC, MaNV, Thang, Songaydilam, SongaynghiBHXH, Songaynghilam);
-                    loadAttendanceList();
+                    // Kiểm tra xem mã chấm công đã tồn tại cho nhân viên hay chưa
+                    bool maccExistsForNV = ChamCongDA.Instance.CheckMaccExist_01(MaCC, MaNV);
+
+                    if (maccExistsForNV)
+                    {
+                        MessageBox.Show("Mã chấm công '" + MaCC + "' đã tồn tại cho nhân viên '" + MaNV + "'");
+                    }
+                    else
+                    {
+                        // Thêm mới chấm công
+                        ChamCongDA.Instance.insertAttendance(MaCC, MaNV, Thang, Songaynghilam, SongaynghiBHXH, Songaynghilam);
+                        MessageBox.Show("Thêm mới thành công!");
+                        loadAttendanceList();
+                    }
                 }
-
             }
-           
-
         }
         private void btnCapnhat_Click(object sender, EventArgs e)
         {
@@ -129,20 +142,55 @@ namespace UserInterface
             Byte SongaynghiBHXH = Convert.ToByte(numngaynghiBHXH.Value);
             Byte Songaynghilam = Convert.ToByte(numngaynghi.Value);
 
-            if (workStatus(cbTinhTrang.Text) == 0 && Songaydilam<=numberDaysinMonth(Thang.Month,Thang.Year))
+            int workStatusValue = workStatus(cbTinhTrang.Text);
+            int numberDaysInMonth = numberDaysinMonth(Thang.Month, Thang.Year);
+
+            if (workStatusValue == 0 && Songaydilam < numberDaysInMonth)
             {
                 Songaydilam++;
-            } else if(workStatus(cbTinhTrang.Text) == 1 && SongaynghiBHXH <= 180)
-            {
-                SongaynghiBHXH++; 
-            } else
-            {
-               Songaynghilam++;
             }
-            ChamCongBL.Instance.updateAttendanceBL(MaNV,Thang,Songaydilam,SongaynghiBHXH,Songaynghilam);
+            else if (workStatusValue == 1 && SongaynghiBHXH < 30)
+            {
+                SongaynghiBHXH++;
+            }
+            else
+            {
+                // Kiểm tra số ngày nghỉ làm không được quá 3 ngày
+                if (Songaynghilam < 3)
+                {
+                    Songaynghilam++;
+                }
+                else
+                {
+                    MessageBox.Show("Số ngày nghỉ làm không được quá 3 ngày.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Không thực hiện cập nhật nếu có lỗi
+                }
+            }
+
+            if (Songaydilam > 26)
+            {
+                MessageBox.Show("Số ngày đi làm không được lớn hơn 26 ngày.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Không thực hiện cập nhật nếu có lỗi
+            }
+
+            ChamCongBL.Instance.updateAttendanceBL(MaNV, Thang, Songaydilam, SongaynghiBHXH, Songaynghilam);
             loadAttendanceList();
         }
-
+        private void dtpNgayLV_ValueChanged(object sender, EventArgs e)
+        {
+            string manv=cboManv.Text;
+            DateTime thoigian=dtpNgayLV.Value;
+            if (ChamCongDA.Instance.updateAttendanceForNewMonth(manv, thoigian))
+            {
+                loadAttendanceList();
+            }
+        }
+        private void btnBaoCao_Click(object sender, EventArgs e)
+        {
+            DataTable dataTable = ChamCongDA.Instance.GetAllChamCongInfo();
+            string filePath=ChamCongDA.Instance.ExportAlltoPdf(dataTable);
+            MessageBox.Show($"File PDF đã được xuất tại:\n{filePath}", "Thông báo");
+        }
         #endregion
         //-------------------------------------------------------------Function------------------------------------------------
         #region Function
@@ -196,6 +244,10 @@ namespace UserInterface
             }
             return ngay;
         }
+
+
+
+
 
 
 
