@@ -13,34 +13,30 @@ using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace UserInterface
-{
-    public partial class FormStaff : Form
-    {
+namespace UserInterface {
+    public partial class FormStaff : Form {
         SqlConnection sqlConnection = new SqlConnection(Database.CONNECTION_STRING);
         SqlCommand sqlCommand;
         SqlDataReader sqlDataReader;
-        SqlDataAdapter sqlDataAdapter;
-        DataTable dataTable;
+        //SqlDataAdapter sqlDataAdapter;
+        //DataTable dataTable;
 
-        public FormStaff()
-        {
+        public FormStaff() {
             InitializeComponent();
         }
-        private void FormStaff_Load(object sender, EventArgs e)
-        {
+
+        private void FormStaff_Load(object sender, EventArgs e) {
             loadDataStaff();
         }
-        public void loadDataStaff()
-        {
+
+        public void loadDataStaff() {
             int i = 0;
 
             sqlConnection.Open();
 
             sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while(sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 ListViewItem item = new ListViewItem((i + 1).ToString());
                 item.SubItems.Add(sqlDataReader[0].ToString());
                 item.SubItems.Add(sqlDataReader[1].ToString());
@@ -73,40 +69,33 @@ namespace UserInterface
 
             sqlConnection.Close();
         }
-        private void listViewDataNV_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listViewDataNV.SelectedItems.Count > 0)
-            {
+
+        private void listViewDataNV_SelectedIndexChanged(object sender, EventArgs e) {
+            if (listViewDataNV.SelectedItems.Count > 0) {
                 ListViewItem item = listViewDataNV.SelectedItems[0];
                 lbMaNV.Text = item.SubItems[1].Text;
             }
         }
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtSearch.Text)) 
-            {
+
+        private void btnSearch_Click(object sender, EventArgs e) {
+            if (string.IsNullOrEmpty(txtSearch.Text)) {
                 MessageBox.Show("Vui lòng nhập thông tin cần tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-            {
+            else {
                 listViewDataNV.Items.Clear();
                 sqlConnection.Open();
-                if (radioSearchMa.Checked)
-                {
+                if (radioSearchMa.Checked) {
                     sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN WHERE MANV LIKE '%" + txtSearch.Text + "%'", sqlConnection);
                 }
-                else if (radioSearchTen.Checked)
-                {
+                else if (radioSearchTen.Checked) {
                     sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN WHERE HOTENNV LIKE '%" + txtSearch.Text + "%'", sqlConnection);
                 }
-                else
-                {
+                else {
                     MessageBox.Show("Vui lòng chọn mục tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 sqlDataReader = sqlCommand.ExecuteReader();
                 int i = 0;
-                while (sqlDataReader.Read())
-                {
+                while (sqlDataReader.Read()) {
                     ListViewItem item = new ListViewItem((i + 1).ToString());
                     item.SubItems.Add(sqlDataReader[0].ToString());
                     item.SubItems.Add(sqlDataReader[1].ToString());
@@ -138,37 +127,33 @@ namespace UserInterface
             }
             txtSearch.Text = null;
         }
-        private void btnReload_Click(object sender, EventArgs e)
-        {
+
+        private void btnReload_Click(object sender, EventArgs e) {
             listViewDataNV.Items.Clear();
             loadDataStaff();
         }
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
+        
+        private void btnAdd_Click(object sender, EventArgs e) {
             FormSaveStaff formInsertNhanVien = new FormSaveStaff();
             formInsertNhanVien.formStaff_TieuDe = "Thêm nhân viên";
             formInsertNhanVien.Show();
         }
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            if (lbMaNV.Text == "null")
-            {
+        
+        private void btnEdit_Click(object sender, EventArgs e) {
+            if (lbMaNV.Text == "null") {
                 MessageBox.Show("Vui lòng chọn nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-            {
+            else {
                 FormSaveStaff formInsertNhanVien = new FormSaveStaff();
                 formInsertNhanVien.formStaff_MaNV = lbMaNV.Text;
                 formInsertNhanVien.formStaff_TieuDe = "Cập nhật nhân viên";
                 formInsertNhanVien.Show();
             }
         }
-        private void btnDel_Click(object sender, EventArgs e)
-        {
-            if (lbMaNV.Text != "null")
-            {
-                if (MessageBox.Show("Bạn có chắc là muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
+        
+        private void btnDel_Click(object sender, EventArgs e) {
+            if (lbMaNV.Text != "null") {
+                if (MessageBox.Show("Bạn có chắc là muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes) {
                     // Xoá Lương
                     sqlConnection.Open();
                     sqlCommand = new SqlCommand("DELETE FROM LUONG WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
@@ -262,24 +247,22 @@ namespace UserInterface
                     MessageBox.Show("Bạn đã xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
-            {
+            else {
                 MessageBox.Show("Vui lòng chọn nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        private void btnExport_Click(object sender, EventArgs e)
-        {
+        
+        private void btnExport_Click(object sender, EventArgs e) {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Excel Files|*.xlsx";
             saveFileDialog.Title = "Save Excel File";
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK) {
                 ExportToExcel(listViewDataNV, saveFileDialog.FileName);
             }
         }
-        private void ExportToExcel(System.Windows.Forms.ListView listView, string filePath)
-        {
+        
+        private void ExportToExcel(System.Windows.Forms.ListView listView, string filePath) {
             Excel.Application excelApp = new Excel.Application();
             excelApp.Visible = true;
             Excel.Workbook workbook = excelApp.Workbooks.Add();
@@ -289,19 +272,16 @@ namespace UserInterface
             int col = 1;
 
             // Xuất tiêu đề của các cột
-            foreach (ColumnHeader header in listView.Columns)
-            {
+            foreach (ColumnHeader header in listView.Columns) {
                 worksheet.Cells[row, col] = header.Text;
                 col++;
             }
 
             // Xuất dữ liệu từ ListView
             row++;
-            foreach (ListViewItem item in listView.Items)
-            {
+            foreach (ListViewItem item in listView.Items) {
                 col = 1;
-                foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
-                {
+                foreach (ListViewItem.ListViewSubItem subItem in item.SubItems) {
                     worksheet.Cells[row, col] = subItem.Text;
                     col++;
                 }
@@ -319,20 +299,17 @@ namespace UserInterface
 
             MessageBox.Show("Dữ liệu đã được xuất ra Excel.");
         }
-        private void ReleaseObject(object obj)
-        {
-            try
-            {
+        
+        private void ReleaseObject(object obj) {
+            try {
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
                 obj = null;
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 obj = null;
                 MessageBox.Show("Lỗi" + ex.ToString());
             }
-            finally
-            {
+            finally {
                 GC.Collect();
             }
         }

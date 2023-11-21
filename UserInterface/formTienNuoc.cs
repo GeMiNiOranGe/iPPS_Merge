@@ -8,12 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UserInterface
-{
-    public partial class formTienNuoc : Form
-    {
-        public formTienNuoc()
-        {
+namespace UserInterface {
+    public partial class formTienNuoc : Form {
+        public formTienNuoc() {
             InitializeComponent();
         }
     }
