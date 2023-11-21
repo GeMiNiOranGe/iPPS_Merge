@@ -13,10 +13,8 @@ using Config;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
-namespace UserInterface
-{
-    public partial class FormSaveStaff : Form
-    {
+namespace UserInterface {
+    public partial class FormSaveStaff : Form {
         SqlConnection sqlConnection = new SqlConnection(Database.CONNECTION_STRING);
         SqlCommand sqlCommand;
         SqlDataReader sqlDataReader;
@@ -27,43 +25,36 @@ namespace UserInterface
         public string formStaff_TieuDe;
 
         private HashSet<string> uniqueValues = new HashSet<string>(); // kiểm tra trùng lặp trong listbox
-        public FormSaveStaff()
-        {
+        public FormSaveStaff() {
             InitializeComponent();
         }
-        private void FormSaveStaff_Load(object sender, EventArgs e)
-        {
+
+        private void FormSaveStaff_Load(object sender, EventArgs e) {
             checkImportTextbox();
             loadCombobox();
 
             txtMaNV.Text = formStaff_MaNV;
             lbTieuDe.Text = formStaff_TieuDe;
-            if (lbTieuDe.Text == "Thêm nhân viên")
-            {
+            if (lbTieuDe.Text == "Thêm nhân viên") {
                 loadIDStaff();
             }
-            else
-            {
+            else {
                 loadUpdateStaff();
             }
         }
-        public void checkImportTextbox()
-        {
-            if ((string.IsNullOrEmpty(txtMaPB.Text)) || (string.IsNullOrEmpty(txtMaCV.Text)) || (string.IsNullOrEmpty(txtMaNL.Text)) || (string.IsNullOrEmpty(txtMaBL.Text)))
-            {
+        public void checkImportTextbox() {
+            if ((string.IsNullOrEmpty(txtMaPB.Text)) || (string.IsNullOrEmpty(txtMaCV.Text)) || (string.IsNullOrEmpty(txtMaNL.Text)) || (string.IsNullOrEmpty(txtMaBL.Text))) {
                 lbCheck1.ForeColor = System.Drawing.Color.Red;
                 lbCheck2.ForeColor = System.Drawing.Color.Red;
                 lbCheck3.ForeColor = System.Drawing.Color.Red;
                 lbCheck4.ForeColor = System.Drawing.Color.Red;
             }
         }
-        public void loadCombobox()
-        {
+        public void loadCombobox() {
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM CHUCVU", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 cbChucVu.Items.Add(sqlDataReader["TENCV"]);
             }
             sqlConnection.Close();
@@ -71,8 +62,7 @@ namespace UserInterface
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM NGACHLUONG", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 cbNgachLuong.Items.Add(sqlDataReader["TENNL"]);
             }
             sqlConnection.Close();
@@ -80,8 +70,7 @@ namespace UserInterface
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM CHUYENMON", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 cbChuyenMon.Items.Add(sqlDataReader["TENCM"]);
             }
             sqlConnection.Close();
@@ -89,34 +78,31 @@ namespace UserInterface
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM NGOAINGU", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 cbNgoaiNgu.Items.Add(sqlDataReader["TENNN"]);
             }
             sqlConnection.Close();
         }
-        private void cbChucVu_SelectedIndexChanged(object sender, EventArgs e)
-        {
+
+        private void cbChucVu_SelectedIndexChanged(object sender, EventArgs e) {
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM CHUCVU WHERE TENCV = @TENCV", sqlConnection);
             sqlCommand.Parameters.AddWithValue("@TENCV", cbChucVu.Text);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 txtMaCV.Text = sqlDataReader["MACV"].ToString();
             }
             sqlConnection.Close();
 
             lbCheck2.ForeColor = System.Drawing.Color.Black;
         }
-        private void cbNgachLuong_SelectedIndexChanged(object sender, EventArgs e)
-        {
+
+        private void cbNgachLuong_SelectedIndexChanged(object sender, EventArgs e) {
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM NGACHLUONG WHERE TENNL = @TENNL", sqlConnection);
             sqlCommand.Parameters.AddWithValue("@TENNL", cbNgachLuong.Text);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 txtMaNL.Text = sqlDataReader["MANL"].ToString();
             }
             sqlConnection.Close();
@@ -134,95 +120,76 @@ namespace UserInterface
             txtMaBL.DataBindings.Add("Text", cbBacLuong.DataSource, "MABL");
             sqlConnection.Close();
         }
-        private void cbChuyenMon_SelectedIndexChanged(object sender, EventArgs e)
-        {
+
+        private void cbChuyenMon_SelectedIndexChanged(object sender, EventArgs e) {
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM CHUYENMON WHERE TENCM = @TENCM", sqlConnection);
             sqlCommand.Parameters.AddWithValue("@TENCM", cbChuyenMon.Text);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 txtMaCM.Text = sqlDataReader["MACM"].ToString();
             }
             sqlConnection.Close();
             lbCheck4.ForeColor = System.Drawing.Color.Black;
         }
-        private void btnThemCM_Click(object sender, EventArgs e)
-        {
-            string[] newColumns = new string[] { txtMaCM.Text, cbChuyenMon.Text };
 
-            foreach (ListViewItem item in listViewChuyenMon.Items)
-            {
+        private void btnThemCM_Click(object sender, EventArgs e) {
+            string[] newColumns = new string[] { txtMaCM.Text, cbChuyenMon.Text };
+            foreach (ListViewItem item in listViewChuyenMon.Items) {
                 bool flag = true;
-                for (int i = 0; i < listViewChuyenMon.Columns.Count; i++)
-                {
-                    if (item.SubItems[i].Text != newColumns[i])
-                    {
+                for (int i = 0; i < listViewChuyenMon.Columns.Count; i++) {
+                    if (item.SubItems[i].Text != newColumns[i]) {
                         flag = false;
                         break;
                     }
                 }
-
-                if (flag)
-                {
+                if (flag) {
                     MessageBox.Show("Dữ liệu bị trùng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
-
             ListViewItem newItem = new ListViewItem(newColumns);
             listViewChuyenMon.Items.Add(newItem);
         }
-        private void btnXoaCM_Click(object sender, EventArgs e)
-        {
+
+        private void btnXoaCM_Click(object sender, EventArgs e) {
             listViewChuyenMon.Items.Remove(listViewChuyenMon.SelectedItems[0]);
         }
-        private void saveChuyenMon()
-        {
+
+        private void saveChuyenMon() {
             string insertQuery = "INSERT INTO NHANVIEN_CHUYENMON (MANV, MACM) VALUES (@MANV, @MACM)";
-
             sqlConnection.Open();
-
-            foreach (ListViewItem item in listViewChuyenMon.Items)
-            {
+            foreach (ListViewItem item in listViewChuyenMon.Items) {
                 SqlCommand command = new SqlCommand(insertQuery, sqlConnection);
                 command.Parameters.AddWithValue("@MANV", txtMaNV.Text);
                 command.Parameters.AddWithValue("@MACM", item.SubItems[0].Text);
                 command.ExecuteNonQuery();
             }
-
             sqlConnection.Close();
         }
-        private void cbNgoaiNgu_SelectedIndexChanged(object sender, EventArgs e)
-        {
+
+        private void cbNgoaiNgu_SelectedIndexChanged(object sender, EventArgs e) {
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM NGOAINGU WHERE TENNN = @TENNN", sqlConnection);
             sqlCommand.Parameters.AddWithValue("@TENNN", cbNgoaiNgu.Text);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 txtMaNN.Text = sqlDataReader["MANN"].ToString();
             }
             sqlConnection.Close();
         }
-        private void btnThemNN_Click(object sender, EventArgs e)
-        {
-            string[] newColumns = new string[] { txtMaNN.Text, cbNgoaiNgu.Text };
 
-            foreach (ListViewItem item in listViewNgoaiNgu.Items)
-            {
+        private void btnThemNN_Click(object sender, EventArgs e) {
+            string[] newColumns = new string[] { txtMaNN.Text, cbNgoaiNgu.Text };
+            foreach (ListViewItem item in listViewNgoaiNgu.Items) {
                 bool flag = true;
-                for (int i = 0; i < listViewNgoaiNgu.Columns.Count; i++)
-                {
-                    if (item.SubItems[i].Text != newColumns[i])
-                    {
+                for (int i = 0; i < listViewNgoaiNgu.Columns.Count; i++) {
+                    if (item.SubItems[i].Text != newColumns[i]) {
                         flag = false;
                         break;
                     }
                 }
-
-                if (flag)
-                {
+                if (flag) {
                     MessageBox.Show("Dữ liệu bị trùng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -230,28 +197,24 @@ namespace UserInterface
             ListViewItem newItem = new ListViewItem(newColumns);
             listViewNgoaiNgu.Items.Add(newItem);
         }
-        private void btnXoaNN_Click(object sender, EventArgs e)
-        {
+
+        private void btnXoaNN_Click(object sender, EventArgs e) {
             listViewNgoaiNgu.Items.Remove(listViewNgoaiNgu.SelectedItems[0]);
         }
-        private void saveNgoaiNgu()
-        {
+
+        private void saveNgoaiNgu() {
             string insertQuery = "INSERT INTO NHANVIEN_NGOAINGU (MANV, MANN) VALUES (@MANV, @MANN)";
-
             sqlConnection.Open();
-
-            foreach (ListViewItem item in listViewNgoaiNgu.Items)
-            {
+            foreach (ListViewItem item in listViewNgoaiNgu.Items) {
                 SqlCommand command = new SqlCommand(insertQuery, sqlConnection);
                 command.Parameters.AddWithValue("@MANV", txtMaNV.Text);
                 command.Parameters.AddWithValue("@MANN", item.SubItems[0].Text);
                 command.ExecuteNonQuery();
             }
-
             sqlConnection.Close();
         }
-        public void loadIDStaff()
-        {
+
+        public void loadIDStaff() {
             string iID0000 = "NV0000";
             string iID000 = "NV000";
             string iID00 = "NV00";
@@ -266,29 +229,24 @@ namespace UserInterface
             int iIDNV = Convert.ToInt32(strID);
             sqlConnection.Close();
             iIDNV++;
-            if (iIDNV < 10)
-            {
+            if (iIDNV < 10) {
                 txtMaNV.Text = iID0000 + iIDNV.ToString();
             }
-            else if (iIDNV < 100)
-            {
+            else if (iIDNV < 100) {
                 txtMaNV.Text = iID000 + iIDNV.ToString();
             }
-            else if (iIDNV < 1000)
-            {
+            else if (iIDNV < 1000) {
                 txtMaNV.Text = iID00 + iIDNV.ToString();
             }
-            else if (iIDNV < 10000)
-            {
+            else if (iIDNV < 10000) {
                 txtMaNV.Text = iID0 + iIDNV.ToString();
             }
-            else
-            {
+            else {
                 txtMaNV.Text = iID + iIDNV.ToString();
             }
         }
-        public void insertStaff()
-        {
+
+        public void insertStaff() {
             string insertQuery = "INSERT INTO NHANVIEN (MANV, HOTENNV, GIOITINH, NGAYSINH, NOISINH, QUEQUAN, TRINHDOVANHOA, DANTOC, TONGIAO, DOANVIEN, DANGVIEN, CONGDOANVIEN, MAPB, MACV, MANL, MABL) " +
                                  "VALUES (@MANV, @HOTENNV, @GIOITINH, @NGAYSINH, @NOISINH, @QUEQUAN, @TRINHDOVANHOA, @DANTOC, @TONGIAO, @DOANVIEN, @DANGVIEN, @CONGDOANVIEN, @MAPB, @MACV, @MANL, @MABL)";
 
@@ -297,12 +255,10 @@ namespace UserInterface
             sqlCommand = new SqlCommand(insertQuery, sqlConnection);
             sqlCommand.Parameters.AddWithValue("@MANV", txtMaNV.Text);
             sqlCommand.Parameters.AddWithValue("@HOTENNV", txtHoTenNV.Text);
-            if(radioNam.Checked)
-            {
+            if (radioNam.Checked) {
                 sqlCommand.Parameters.AddWithValue("@GIOITINH", "1");
             }
-            else
-            {
+            else {
                 sqlCommand.Parameters.AddWithValue("@GIOITINH", "0");
             }
             dateNgaySinhNV.Format = DateTimePickerFormat.Custom;
@@ -313,28 +269,22 @@ namespace UserInterface
             sqlCommand.Parameters.AddWithValue("@TRINHDOVANHOA", cbTDVH.Text);
             sqlCommand.Parameters.AddWithValue("@DANTOC", cbDanToc.Text);
             sqlCommand.Parameters.AddWithValue("@TONGIAO", cbTonGiao.Text);
-            if(checkDoanVien.Checked)
-            {
+            if (checkDoanVien.Checked) {
                 sqlCommand.Parameters.AddWithValue("@DOANVIEN", "1");
             }
-            else
-            {
+            else {
                 sqlCommand.Parameters.AddWithValue("@DOANVIEN", "0");
             }
-            if (checkDangVien.Checked)
-            {
+            if (checkDangVien.Checked) {
                 sqlCommand.Parameters.AddWithValue("@DANGVIEN", "1");
             }
-            else
-            {
+            else {
                 sqlCommand.Parameters.AddWithValue("@DANGVIEN", "0");
             }
-            if (checkCongDoanVien.Checked)
-            {
+            if (checkCongDoanVien.Checked) {
                 sqlCommand.Parameters.AddWithValue("@CONGDOANVIEN", "1");
             }
-            else
-            {
+            else {
                 sqlCommand.Parameters.AddWithValue("@CONGDOANVIEN", "0");
             }
             sqlCommand.Parameters.AddWithValue("@MAPB", txtMaPB.Text);
@@ -342,11 +292,11 @@ namespace UserInterface
             sqlCommand.Parameters.AddWithValue("@MANL", txtMaNL.Text);
             sqlCommand.Parameters.AddWithValue("@MABL", txtMaBL.Text);
             sqlCommand.ExecuteNonQuery();
-            
+
             sqlConnection.Close();
         }
-        public string loadIDRelatives(string idNT)
-        {
+
+        public string loadIDRelatives(string idNT) {
             string iID00 = "NT00";
             string iID0 = "NT0";
             string iID = "NT";
@@ -359,28 +309,21 @@ namespace UserInterface
             int iIDNT = Convert.ToInt32(strID);
             sqlConnection.Close();
             iIDNT++;
-            if (iIDNT < 10)
-            {
+            if (iIDNT < 10) {
                 idNT = iID00 + iIDNT.ToString();
             }
-            else if (iIDNT < 100)
-            {
+            else if (iIDNT < 100) {
                 idNT = iID0 + iIDNT.ToString();
             }
-            else
-            {
+            else {
                 idNT = iID + iIDNT.ToString();
             }
             return idNT;
         }
-        public void insertRelatives()
-        {
-            if ((string.IsNullOrEmpty(txtHoTenCha.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCha.Text)))
-            {
 
-            }
-            else
-            {
+        public void insertRelatives() {
+            if ((string.IsNullOrEmpty(txtHoTenCha.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCha.Text))) { }
+            else {
                 string idNT = null;
                 idNT = loadIDRelatives(idNT);
 
@@ -403,17 +346,13 @@ namespace UserInterface
                 sqlConnection.Close();
             }
 
-            if ((string.IsNullOrEmpty(txtHoTenMe.Text)) && (string.IsNullOrEmpty(txtNgheNghiepMe.Text)))
-            {
-                
-            }
-            else
-            {
+            if ((string.IsNullOrEmpty(txtHoTenMe.Text)) && (string.IsNullOrEmpty(txtNgheNghiepMe.Text))) { }
+            else {
                 string idNT = null;
                 idNT = loadIDRelatives(idNT);
 
                 string insertQuery = "INSERT INTO NGUOITHAN (MANT, LOAINT, HOTEN, NGAYSINH, NGHENGHIEP, MANV) " +
-                                 "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
+                                     "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
 
                 sqlConnection.Open();
 
@@ -431,17 +370,13 @@ namespace UserInterface
                 sqlConnection.Close();
             }
 
-            if ((string.IsNullOrEmpty(txtHoTenVC.Text)) && (string.IsNullOrEmpty(txtNgheNghiepVC.Text)))
-            {
-                
-            }
-            else
-            {
+            if ((string.IsNullOrEmpty(txtHoTenVC.Text)) && (string.IsNullOrEmpty(txtNgheNghiepVC.Text))) { }
+            else {
                 string idNT = null;
                 idNT = loadIDRelatives(idNT);
 
                 string insertQuery = "INSERT INTO NGUOITHAN (MANT, LOAINT, HOTEN, NGAYSINH, NGHENGHIEP, MANV) " +
-                                 "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
+                                     "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
 
                 sqlConnection.Open();
 
@@ -459,17 +394,13 @@ namespace UserInterface
                 sqlConnection.Close();
             }
 
-            if ((string.IsNullOrEmpty(txtHoTenCon1.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCon1.Text)))
-            {
-                
-            }
-            else
-            {
+            if ((string.IsNullOrEmpty(txtHoTenCon1.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCon1.Text))) { }
+            else {
                 string idNT = null;
                 idNT = loadIDRelatives(idNT);
 
                 string insertQuery = "INSERT INTO NGUOITHAN (MANT, LOAINT, HOTEN, NGAYSINH, NGHENGHIEP, MANV) " +
-                                 "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
+                                     "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
 
                 sqlConnection.Open();
 
@@ -487,17 +418,13 @@ namespace UserInterface
                 sqlConnection.Close();
             }
 
-            if ((string.IsNullOrEmpty(txtHoTenCon2.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCon2.Text)))
-            {
-                
-            }
-            else
-            {
+            if ((string.IsNullOrEmpty(txtHoTenCon2.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCon2.Text))) { }
+            else {
                 string idNT = null;
                 idNT = loadIDRelatives(idNT);
 
                 string insertQuery = "INSERT INTO NGUOITHAN (MANT, LOAINT, HOTEN, NGAYSINH, NGHENGHIEP, MANV) " +
-                                 "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
+                                     "VALUES (@MANT, @LOAINT, @HOTEN, @NGAYSINH, @NGHENGHIEP, @MANV)";
 
                 sqlConnection.Open();
 
@@ -515,16 +442,13 @@ namespace UserInterface
                 sqlConnection.Close();
             }
         }
-        private void btnSaveNV_Click(object sender, EventArgs e)
-        {
-            if(lbTieuDe.Text == "Thêm nhân viên")
-            {
-                if ((string.IsNullOrEmpty(txtMaPB.Text)) || (string.IsNullOrEmpty(txtMaCV.Text)) || (string.IsNullOrEmpty(txtMaNL.Text)) || (string.IsNullOrEmpty(txtMaBL.Text)))
-                {
+
+        private void btnSaveNV_Click(object sender, EventArgs e) {
+            if (lbTieuDe.Text == "Thêm nhân viên") {
+                if ((string.IsNullOrEmpty(txtMaPB.Text)) || (string.IsNullOrEmpty(txtMaCV.Text)) || (string.IsNullOrEmpty(txtMaNL.Text)) || (string.IsNullOrEmpty(txtMaBL.Text))) {
                     MessageBox.Show("Mời điền đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
-                {
+                else {
                     insertStaff();
                     insertRelatives();
                     saveChuyenMon();
@@ -533,31 +457,25 @@ namespace UserInterface
                     MessageBox.Show("Thêm Nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
-            {
+            else {
                 updateStaff();
             }
             this.Close();
         }
 
         // CẬP NHẬT NHÂN VIÊN
-        public void loadUpdateStaff()
-        {
+        public void loadUpdateStaff() {
             // Nhân viên
             sqlConnection.Open();
             SqlCommand sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN WHERE MANV = '" + txtMaNV.Text + "'", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            if (sqlDataReader.Read())
-            {
+            if (sqlDataReader.Read()) {
                 txtHoTenNV.Text = sqlDataReader["HOTENNV"].ToString();
-
-                if (Convert.ToBoolean(sqlDataReader["GIOITINH"]))
-                {
+                if (Convert.ToBoolean(sqlDataReader["GIOITINH"])) {
                     radioNam.Checked = true;
                     radioNu.Checked = false;
                 }
-                else
-                {
+                else {
                     radioNam.Checked = false;
                     radioNu.Checked = true;
                 }
@@ -597,8 +515,7 @@ namespace UserInterface
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM NGUOITHAN WHERE MANV = '" + txtMaNV.Text + "' AND LOAINT = N'" + "Cha" + "'", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            if (sqlDataReader.Read())
-            {
+            if (sqlDataReader.Read()) {
                 txtHoTenCha.Text = sqlDataReader["HOTEN"].ToString();
 
                 dateNgaySinhCha.Format = DateTimePickerFormat.Custom;
@@ -612,8 +529,7 @@ namespace UserInterface
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM NGUOITHAN WHERE MANV = '" + txtMaNV.Text + "' AND LOAINT = N'" + "Mẹ" + "'", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            if (sqlDataReader.Read())
-            {
+            if (sqlDataReader.Read()) {
                 txtHoTenMe.Text = sqlDataReader["HOTEN"].ToString();
 
                 dateNgaySinhMe.Format = DateTimePickerFormat.Custom;
@@ -627,8 +543,7 @@ namespace UserInterface
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM NGUOITHAN WHERE MANV = '" + txtMaNV.Text + "' AND LOAINT = N'" + "Vợ/Chồng" + "'", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            if (sqlDataReader.Read())
-            {
+            if (sqlDataReader.Read()) {
                 txtHoTenVC.Text = sqlDataReader["HOTEN"].ToString();
 
                 dateNgaySinhVC.Format = DateTimePickerFormat.Custom;
@@ -642,8 +557,7 @@ namespace UserInterface
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM NGUOITHAN WHERE MANV = '" + txtMaNV.Text + "' AND LOAINT = N'" + "Con1" + "'", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            if (sqlDataReader.Read())
-            {
+            if (sqlDataReader.Read()) {
                 txtHoTenCon1.Text = sqlDataReader["HOTEN"].ToString();
 
                 dateNgaySinhCon1.Format = DateTimePickerFormat.Custom;
@@ -657,8 +571,7 @@ namespace UserInterface
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM NGUOITHAN WHERE MANV = '" + txtMaNV.Text + "' AND LOAINT = N'" + "Con2" + "'", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            if (sqlDataReader.Read())
-            {
+            if (sqlDataReader.Read()) {
                 txtHoTenCon2.Text = sqlDataReader["HOTEN"].ToString();
 
                 dateNgaySinhCon2.Format = DateTimePickerFormat.Custom;
@@ -673,8 +586,7 @@ namespace UserInterface
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM CHUYENMON, NHANVIEN_CHUYENMON WHERE CHUYENMON.MACM = NHANVIEN_CHUYENMON.MACM AND MANV = '" + txtMaNV.Text + "'", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 ListViewItem item = new ListViewItem(sqlDataReader[0].ToString());
                 item.SubItems.Add(sqlDataReader[1].ToString());
                 listViewChuyenMon.Items.Add(item);
@@ -685,27 +597,24 @@ namespace UserInterface
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM NGOAINGU, NHANVIEN_NGOAINGU WHERE NGOAINGU.MANN = NHANVIEN_NGOAINGU.MANN AND MANV = '" + txtMaNV.Text + "'", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 ListViewItem item = new ListViewItem(sqlDataReader[0].ToString());
                 item.SubItems.Add(sqlDataReader[1].ToString());
                 listViewNgoaiNgu.Items.Add(item);
             }
             sqlConnection.Close();
         }
-        public void updateStaff()
-        {
+
+        public void updateStaff() {
             // Nhân viên
             sqlConnection.Open();
             sqlCommand = new SqlCommand("UPDATE NHANVIEN SET HOTENNV = @HOTENNV, GIOITINH = @GIOITINH, NGAYSINH = @NGAYSINH, @NOISINH = NOISINH, QUEQUAN = @QUEQUAN, TRINHDOVANHOA = @TRINHDOVANHOA, DANTOC = @DANTOC, TONGIAO = @TONGIAO, DOANVIEN = @DOANVIEN, DANGVIEN = @DANGVIEN, CONGDOANVIEN = @CONGDOANVIEN, MAPB = @MAPB, MACV = @MACV, MANL = @MANL, MABL = @MABL WHERE MANV = @MANV", sqlConnection);
             sqlCommand.Parameters.AddWithValue("@MANV", txtMaNV.Text);
             sqlCommand.Parameters.AddWithValue("@HOTENNV", txtHoTenNV.Text);
-            if (radioNam.Checked)
-            {
+            if (radioNam.Checked) {
                 sqlCommand.Parameters.AddWithValue("@GIOITINH", "1");
             }
-            else
-            {
+            else {
                 sqlCommand.Parameters.AddWithValue("@GIOITINH", "0");
             }
             dateNgaySinhNV.Format = DateTimePickerFormat.Custom;
@@ -716,28 +625,22 @@ namespace UserInterface
             sqlCommand.Parameters.AddWithValue("@TRINHDOVANHOA", cbTDVH.Text);
             sqlCommand.Parameters.AddWithValue("@DANTOC", cbDanToc.Text);
             sqlCommand.Parameters.AddWithValue("@TONGIAO", cbTonGiao.Text);
-            if (checkDoanVien.Checked)
-            {
+            if (checkDoanVien.Checked) {
                 sqlCommand.Parameters.AddWithValue("@DOANVIEN", "1");
             }
-            else
-            {
+            else {
                 sqlCommand.Parameters.AddWithValue("@DOANVIEN", "0");
             }
-            if (checkDangVien.Checked)
-            {
+            if (checkDangVien.Checked) {
                 sqlCommand.Parameters.AddWithValue("@DANGVIEN", "1");
             }
-            else
-            {
+            else {
                 sqlCommand.Parameters.AddWithValue("@DANGVIEN", "0");
             }
-            if (checkCongDoanVien.Checked)
-            {
+            if (checkCongDoanVien.Checked) {
                 sqlCommand.Parameters.AddWithValue("@CONGDOANVIEN", "1");
             }
-            else
-            {
+            else {
                 sqlCommand.Parameters.AddWithValue("@CONGDOANVIEN", "0");
             }
             sqlCommand.Parameters.AddWithValue("@MAPB", txtMaPB.Text);
@@ -749,12 +652,10 @@ namespace UserInterface
             sqlConnection.Close();
 
             // Người thân
-            if((string.IsNullOrEmpty(txtHoTenCha.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCha.Text)))
-            {
+            if ((string.IsNullOrEmpty(txtHoTenCha.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCha.Text))) {
                 insertRelatives();
             }
-            else
-            {
+            else {
                 sqlConnection.Open();
                 sqlCommand = new SqlCommand("UPDATE NGUOITHAN SET HOTEN = @HOTEN, NGAYSINH = @NGAYSINH, NGHENGHIEP = @NGHENGHIEP WHERE MANV = @MANV AND LOAINT = @LOAINT", sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@MANV", txtMaNV.Text);
@@ -769,12 +670,10 @@ namespace UserInterface
 
             }
 
-            if ((string.IsNullOrEmpty(txtHoTenMe.Text)) && (string.IsNullOrEmpty(txtNgheNghiepMe.Text)))
-            {
+            if ((string.IsNullOrEmpty(txtHoTenMe.Text)) && (string.IsNullOrEmpty(txtNgheNghiepMe.Text))) {
                 insertRelatives();
             }
-            else
-            {
+            else {
                 sqlConnection.Open();
                 sqlCommand = new SqlCommand("UPDATE NGUOITHAN SET HOTEN = @HOTEN, NGAYSINH = @NGAYSINH, NGHENGHIEP = @NGHENGHIEP WHERE MANV = @MANV AND LOAINT = @LOAINT", sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@MANV", txtMaNV.Text);
@@ -789,12 +688,10 @@ namespace UserInterface
 
             }
 
-            if ((string.IsNullOrEmpty(txtHoTenVC.Text)) && (string.IsNullOrEmpty(txtNgheNghiepVC.Text)))
-            {
+            if ((string.IsNullOrEmpty(txtHoTenVC.Text)) && (string.IsNullOrEmpty(txtNgheNghiepVC.Text))) {
                 insertRelatives();
             }
-            else
-            {
+            else {
                 sqlConnection.Open();
                 sqlCommand = new SqlCommand("UPDATE NGUOITHAN SET HOTEN = @HOTEN, NGAYSINH = @NGAYSINH, NGHENGHIEP = @NGHENGHIEP WHERE MANV = @MANV AND LOAINT = @LOAINT", sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@MANV", txtMaNV.Text);
@@ -809,12 +706,10 @@ namespace UserInterface
 
             }
 
-            if ((string.IsNullOrEmpty(txtHoTenCon1.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCon1.Text)))
-            {
+            if ((string.IsNullOrEmpty(txtHoTenCon1.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCon1.Text))) {
                 insertRelatives();
             }
-            else
-            {
+            else {
                 sqlConnection.Open();
                 sqlCommand = new SqlCommand("UPDATE NGUOITHAN SET HOTEN = @HOTEN, NGAYSINH = @NGAYSINH, NGHENGHIEP = @NGHENGHIEP WHERE MANV = @MANV AND LOAINT = @LOAINT", sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@MANV", txtMaNV.Text);
@@ -829,12 +724,10 @@ namespace UserInterface
 
             }
 
-            if ((string.IsNullOrEmpty(txtHoTenCon2.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCon2.Text)))
-            {
+            if ((string.IsNullOrEmpty(txtHoTenCon2.Text)) && (string.IsNullOrEmpty(txtNgheNghiepCon2.Text))) {
                 insertRelatives();
             }
-            else
-            {
+            else {
                 sqlConnection.Open();
                 sqlCommand = new SqlCommand("UPDATE NGUOITHAN SET HOTEN = @HOTEN, NGAYSINH = @NGAYSINH, NGHENGHIEP = @NGHENGHIEP WHERE MANV = @MANV AND LOAINT = @LOAINT", sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@MANV", txtMaNV.Text);
@@ -850,8 +743,7 @@ namespace UserInterface
             }
 
             // Chuyên môn
-            if(listViewChuyenMon.Items.Count > 0)
-            {
+            if (listViewChuyenMon.Items.Count > 0) {
                 sqlConnection.Open();
                 sqlCommand = new SqlCommand("DELETE FROM NHANVIEN_CHUYENMON WHERE MANV = '" + txtMaNV.Text + "'", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
@@ -859,14 +751,12 @@ namespace UserInterface
 
                 saveChuyenMon();
             }
-            else
-            {
+            else {
                 saveChuyenMon();
             }
 
             // Ngoại ngữ
-            if (listViewNgoaiNgu.Items.Count > 0)
-            {
+            if (listViewNgoaiNgu.Items.Count > 0) {
                 sqlConnection.Open();
                 sqlCommand = new SqlCommand("DELETE FROM NHANVIEN_NGOAINGU WHERE MANV = '" + txtMaNV.Text + "'", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
@@ -874,24 +764,20 @@ namespace UserInterface
 
                 saveNgoaiNgu();
             }
-            else
-            {
+            else {
                 saveNgoaiNgu();
             }
             MessageBox.Show("Cập nhật nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
+        private void btnExit_Click(object sender, EventArgs e) {
             this.Close();
         }
 
-        private void btnTCNV_Click(object sender, EventArgs e)
-        {
+        private void btnTCNV_Click(object sender, EventArgs e) {
             FormDispatchStaff formDispatchStaff = new FormDispatchStaff();
             DialogResult result = formDispatchStaff.ShowDialog();
-            if (result == DialogResult.OK)
-            {
+            if (result == DialogResult.OK) {
                 txtMaPB.Text = formDispatchStaff.MaPB;
                 lbCheck1.ForeColor = System.Drawing.Color.Black;
             }

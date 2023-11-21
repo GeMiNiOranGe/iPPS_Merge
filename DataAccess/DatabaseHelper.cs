@@ -6,20 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess
-{
-   public class DatabaseHelper
-    {
-        public bool CheckMACCAndMANVExists(string manv, string macc)
-        {
-            try
-            {
-                using (SqlConnection connection = DataProvider.Instance.GetConnection())
-                {
+namespace DataAccess {
+    public class DatabaseHelper {
+        public bool CheckMACCAndMANVExists(string manv, string macc) {
+            try {
+                using (SqlConnection connection = DataProvider.Instance.GetConnection()) {
                     connection.Open();
 
-                    using (SqlCommand command = new SqlCommand("CheckMACCAndMANVexists", connection))
-                    {
+                    using (SqlCommand command = new SqlCommand("CheckMACCAndMANVexists", connection)) {
                         command.CommandType = CommandType.StoredProcedure;
 
                         // Thêm tham số cho hàm
@@ -41,8 +35,7 @@ namespace DataAccess
                     }
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Console.WriteLine($"Lỗi: {ex.Message}");
                 return false;
             }

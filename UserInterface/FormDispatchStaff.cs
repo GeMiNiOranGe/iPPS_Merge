@@ -11,33 +11,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UserInterface
-{
-    public partial class FormDispatchStaff : Form
-    {
+namespace UserInterface {
+    public partial class FormDispatchStaff : Form {
         SqlConnection sqlConnection = new SqlConnection(Database.CONNECTION_STRING);
         SqlCommand sqlCommand;
         SqlDataReader sqlDataReader;
-        SqlDataAdapter sqlDataAdapter;
-        DataTable dataTable;
+        //SqlDataAdapter sqlDataAdapter;
+        //DataTable dataTable;
 
         string maPB;
-        public string MaPB
-        {
+        public string MaPB {
             get { return maPB; }
         }
-        public FormDispatchStaff()
-        {
+
+        public FormDispatchStaff() {
             InitializeComponent();
         }
 
-        private void FormDispatchStaff_Load(object sender, EventArgs e)
-        {
+        private void FormDispatchStaff_Load(object sender, EventArgs e) {
             loadIDDispatchStaff();
             loadCombobox();
         }
-        public void loadIDDispatchStaff()
-        {
+
+        public void loadIDDispatchStaff() {
             string iSQD = "/QD-PB";
             int i = 1;
 
@@ -46,7 +42,7 @@ namespace UserInterface
 
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT TOP 1 * FROM PHONGTOCHUC ORDER BY SOQUYETDINH DESC ", sqlConnection);
-            
+
             string strSQD = Convert.ToString(sqlCommand.ExecuteScalar());
             strSQD = strSQD.Substring(2, 8);
 
@@ -56,30 +52,24 @@ namespace UserInterface
             sqlConnection.Close();
             DateTime ngaySQD;
 
-            if (DateTime.TryParseExact(strSQD, "ddMMyyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out ngaySQD))
-            {
-                if (ngaySQD.Date == ngay.Date)
-                {
+            if (DateTime.TryParseExact(strSQD, "ddMMyyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out ngaySQD)) {
+                if (ngaySQD.Date == ngay.Date) {
                     txtSoQuyetDinh.Text = (iSttSQD + 1) + "/" + customNgay + iSQD;
                     iSttSQD++;
                 }
-                else if (ngaySQD.Date < ngay.Date)
-                {
+                else if (ngaySQD.Date < ngay.Date) {
                     txtSoQuyetDinh.Text = i + "/" + customNgay + iSQD;
                 }
-                else
-                {
+                else {
                     MessageBox.Show("Lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
-        public void loadCombobox()
-        {
+        public void loadCombobox() {
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM PHONGBAN", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 cbPhongBanHT.Items.Add(sqlDataReader["TENPB"]);
                 cbPhongBanTC.Items.Add(sqlDataReader["TENPB"]);
             }
@@ -88,62 +78,52 @@ namespace UserInterface
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM CHUCVU", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 cbChucVu.Items.Add(sqlDataReader["TENCV"]);
             }
             sqlConnection.Close();
         }
 
-        private void cbChucVu_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void cbChucVu_SelectedIndexChanged(object sender, EventArgs e) {
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM CHUCVU WHERE TENCV = @TENCV", sqlConnection);
             sqlCommand.Parameters.AddWithValue("@TENCV", cbChucVu.Text);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 txtMaCV.Text = sqlDataReader["MACV"].ToString();
             }
             sqlConnection.Close();
         }
 
-        private void cbPhongBanHT_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void cbPhongBanHT_SelectedIndexChanged(object sender, EventArgs e) {
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM PHONGBAN WHERE TENPB = @TENPB", sqlConnection);
             sqlCommand.Parameters.AddWithValue("@TENPB", cbPhongBanHT.Text);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 txtMaPBHT.Text = sqlDataReader["MAPB"].ToString();
             }
             sqlConnection.Close();
         }
 
-        private void cbPhongBanTC_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void cbPhongBanTC_SelectedIndexChanged(object sender, EventArgs e) {
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM PHONGBAN WHERE TENPB = @TENPB", sqlConnection);
             sqlCommand.Parameters.AddWithValue("@TENPB", cbPhongBanTC.Text);
             sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
+            while (sqlDataReader.Read()) {
                 txtMaPBTC.Text = sqlDataReader["MAPB"].ToString();
             }
             sqlConnection.Close();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if(string.IsNullOrEmpty(txtMaPBTC.Text) || string.IsNullOrEmpty(txtMaPBHT.Text))
-            {
+        private void btnAdd_Click(object sender, EventArgs e) {
+            if (string.IsNullOrEmpty(txtMaPBTC.Text) || string.IsNullOrEmpty(txtMaPBHT.Text)) {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-            {
+            else {
                 string insertQuery = "INSERT INTO PHONGTOCHUC (SOQUYETDINH, TENNGUOIKY, CHUCVUNGUOIKY, PHONGBANHIENTAI, PHONGBANTHUYENCHUYEN) " +
-                                 "VALUES (@SOQUYETDINH, @TENNGUOIKY, @CHUCVUNGUOIKY, @PHONGBANHIENTAI, @PHONGBANTHUYENCHUYEN)";
+                                     "VALUES (@SOQUYETDINH, @TENNGUOIKY, @CHUCVUNGUOIKY, @PHONGBANHIENTAI, @PHONGBANTHUYENCHUYEN)";
 
                 sqlConnection.Open();
 

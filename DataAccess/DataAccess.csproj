@@ -131,7 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChamCongDA.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="DatabaseHelper.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="LuongDA.cs" />
