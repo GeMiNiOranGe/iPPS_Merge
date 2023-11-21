@@ -13,7 +13,11 @@ namespace UserInterface {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
             Application.Run(new formKTX());
+=======
+            Application.Run(new FormStaff()) ;
+>>>>>>> origin/Tuong
         }
     }
 }

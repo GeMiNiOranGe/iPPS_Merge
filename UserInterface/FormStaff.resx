@@ -117,47 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="eyeopen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eyeopen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnExport.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAOpJREFUOE/NlT0KwkAQhddab6AoCAp6HEH0FBZa2FraewE9ir2oiCewEuwFBX++
+        JxtJcMluooUPvmLgzduE2UmMQyWoByKvV0t4BCKvV3s4wdSDPPJ6JVOIMdT3x4FN6MDB0vUQ+dTTgIRG
+        cAPXJENQ7xBeKsIVNtCDgcX1VHEiXx+2cAFlmRbolImKnFKvMpRl2raIAvNsShSorI/APJuSGqirkHVT
+        EoE1W8xUIO/9sor71KuMqooCaEoa/Q7OoNN9kkde9dxhDW9VYAEryBqonjmUwak8r5wqmY4w9iBPUODP
+        P7Bf/AKMeQLh8o8Jm+2t0AAAAABJRU5ErkJggg==
+</value>
   </data>
-  <data name="reload" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reload.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnDel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAH5JREFUOE/V1MENQEAYROHtghpc9UYLLhrRiripQhGYPyHZbJ4YRy/5LuxsnKTf
+        10hfiGefGmW6bHIU4tn9Ps6+tkp5yZM4a9Wa7OhriB2NiR2NiR2NiR2NiR2NiR2NiR2NiR2Nid0udEEu
+        ztgtQpfkZrGrJX5Vw4NOKvldKZ0hb4rVKlXBzQAAAABJRU5ErkJggg==
+</value>
   </data>
-  <data name="x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnEdit.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAASZJREFUOE+l1M8qBlEcxvGxYCELsWBtQSlbhYUbQHZchL38K7kI5VbIRbgGFrIj
+        ShS+39PM2/D+zpjT+9Qn7zkz53Fmak41Yiaxivk0GjFreMA3PnCAQcawg8OMPbSzgZfaEe5g6WCnV/A/
+        5TyiSbvM3+YY3ufjVzP4wjWWsBDwHhOVNXP38J1Wy7D93EFHusq07oTpU+jNLnrFphMkmkv5r7CozHQV
+        FpeZXOEiXKjonTVzQ8kVnsD57TSKy2bxhP00qpMrvMEbpmBptLNwbTQ5Acve679ejx6zd6Gf0Ccsc6en
+        8J3+Te9CMwd32pWiwj4J1/r9OnmRRmVZgWvP0qiOj/UMP24vRMdXzi0s3MKv7MJSL5bwlLqE5+lQxhEd
+        XV2m0UpV/QAhpYD+aZEYqAAAAABJRU5ErkJggg==
+</value>
   </data>
-  <data name="person_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\person_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="employee" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\employee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="read" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\read.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="passwork" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\passwork.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eyeclose" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eyeclose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="print" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="businessmen-exchange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\businessmen-exchange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnAdd.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAN1JREFUOE/V060KwlAchvGpwY9msPoBglnsNpvFqlGTzeIFmEwGsWrxCrQYBRXB
+        6h1oslkUUQR9/szBYTvMbW0P/OCUvZwxZoS6GOroo4ssApfEFh/FAw0Eqgd1zHJBHL6bQzcoivDdBLox
+        kYHvZtCNiRysVpiaR/fa0I2dEIHVGRvz6F4ab9gHR5DkZke8cPud/950DftgFVKgwRrUsR3seX5lqQJ1
+        cAl7nj5KAvJHyI3UwTsGKMFTBYxxhTqks0cLUWhr4gndw24OSMHRAroHvCjDUQfDgPIITYbxBRpwfqD3
+        a5K5AAAAAElFTkSuQmCC
+</value>
   </data>
 </root>
