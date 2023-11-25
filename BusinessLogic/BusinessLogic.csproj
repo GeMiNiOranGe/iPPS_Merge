@@ -132,8 +132,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChamCongBL.cs" />
+    <Compile Include="DienBL.cs" />
+    <Compile Include="KTXBL.cs" />
     <Compile Include="LuongBL.cs" />
+    <Compile Include="NuocBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TienNhaBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">

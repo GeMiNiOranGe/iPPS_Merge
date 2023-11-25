@@ -131,8 +131,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChamCong.cs" />
+    <Compile Include="Dien.cs" />
+    <Compile Include="HoGD.cs" />
     <Compile Include="Luong.cs" />
+    <Compile Include="Nuoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TienNha.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

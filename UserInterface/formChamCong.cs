@@ -113,6 +113,7 @@ namespace UserInterface {
             Byte SongaynghiBHXH = Convert.ToByte(numngaynghiBHXH.Value);
             Byte Songaynghilam = Convert.ToByte(numngaynghi.Value);
 
+          
             int workStatusValue = workStatus(cbTinhTrang.Text);
             int numberDaysInMonth = numberDaysinMonth(Thang.Month, Thang.Year);
 
@@ -212,6 +213,7 @@ namespace UserInterface {
             }
             return ngay;
         }
+      
         #endregion
     }
 }

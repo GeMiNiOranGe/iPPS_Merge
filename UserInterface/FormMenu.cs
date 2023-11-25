@@ -37,5 +37,47 @@ namespace UserInterface {
             panelChinh.Controls.Add(formStaff);
             formStaff.Show();
         }
+
+        private void btnChamCong_Click(object sender, EventArgs e)
+        {
+            panelSide.Height = btnNhanVien.Height;
+            panelSide.Top = btnNhanVien.Top;
+            panelChinh.Controls.Clear();
+            formChamCong formchamcong = new formChamCong();
+            formchamcong.TopLevel = false;
+            formchamcong.TopLevel=false;
+            formchamcong.Dock = DockStyle.Fill;
+            formchamcong.FormBorderStyle = FormBorderStyle.None;
+            panelChinh.Controls.Add(formchamcong);
+            formchamcong.Show();
+        }
+
+        private void btnLuong_Click(object sender, EventArgs e)
+        {
+            panelSide.Height = btnLuong.Height;
+            panelSide.Top = btnLuong.Top;
+            panelChinh.Controls.Clear();
+           formTinhLuong formtinhluong= new formTinhLuong();
+            formtinhluong.TopLevel = false;
+            formtinhluong.TopLevel = false;
+            formtinhluong.Dock = DockStyle.Fill;
+            formtinhluong.FormBorderStyle = FormBorderStyle.None;
+            panelChinh.Controls.Add(formtinhluong);
+            formtinhluong.Show();
+        }
+
+        private void btnDormitory_Click(object sender, EventArgs e)
+        {
+            panelSide.Height = btnDormitory.Height;
+            panelSide.Top = btnDormitory.Top;
+            panelChinh.Controls.Clear();
+            formKTX formktx = new formKTX();
+            formktx.TopLevel = false;
+            formktx.TopLevel = false;
+            formktx.Dock = DockStyle.Fill;
+            formktx.FormBorderStyle = FormBorderStyle.None;
+            panelChinh.Controls.Add(formktx);
+            formktx.Show();
+        }
     }
 }
