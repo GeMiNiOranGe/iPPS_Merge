@@ -83,9 +83,9 @@
             this.groupBox1.Controls.Add(this.cboManv);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(22, 69);
+            this.groupBox1.Location = new System.Drawing.Point(2, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(976, 114);
+            this.groupBox1.Size = new System.Drawing.Size(904, 114);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Chấm Công";
@@ -137,7 +137,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(653, 19);
+            this.label9.Location = new System.Drawing.Point(636, 19);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(110, 18);
             this.label9.TabIndex = 22;
@@ -145,16 +145,16 @@
             // 
             // numDiLam
             // 
-            this.numDiLam.Location = new System.Drawing.Point(769, 19);
+            this.numDiLam.Location = new System.Drawing.Point(752, 19);
             this.numDiLam.Name = "numDiLam";
-            this.numDiLam.Size = new System.Drawing.Size(95, 20);
+            this.numDiLam.Size = new System.Drawing.Size(68, 20);
             this.numDiLam.TabIndex = 21;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(625, 75);
+            this.label5.Location = new System.Drawing.Point(608, 75);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(140, 18);
             this.label5.TabIndex = 20;
@@ -162,26 +162,26 @@
             // 
             // numngaynghiBHXH
             // 
-            this.numngaynghiBHXH.Location = new System.Drawing.Point(769, 75);
+            this.numngaynghiBHXH.Location = new System.Drawing.Point(752, 75);
             this.numngaynghiBHXH.Name = "numngaynghiBHXH";
-            this.numngaynghiBHXH.Size = new System.Drawing.Size(95, 20);
+            this.numngaynghiBHXH.Size = new System.Drawing.Size(68, 20);
             this.numngaynghiBHXH.TabIndex = 19;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(586, 47);
+            this.label4.Location = new System.Drawing.Point(569, 47);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(177, 18);
+            this.label4.Size = new System.Drawing.Size(178, 18);
             this.label4.TabIndex = 18;
-            this.label4.Text = "Số ngày nghỉ không lý do:";
+            this.label4.Text = "Số ngày nghỉ không phép:";
             // 
             // numngaynghi
             // 
-            this.numngaynghi.Location = new System.Drawing.Point(769, 47);
+            this.numngaynghi.Location = new System.Drawing.Point(752, 47);
             this.numngaynghi.Name = "numngaynghi";
-            this.numngaynghi.Size = new System.Drawing.Size(95, 20);
+            this.numngaynghi.Size = new System.Drawing.Size(68, 20);
             this.numngaynghi.TabIndex = 17;
             // 
             // dtpNgayLV
@@ -233,7 +233,7 @@
             this.btnThem.BackColor = System.Drawing.Color.LightCoral;
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnThem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(531, 447);
+            this.btnThem.Location = new System.Drawing.Point(402, 441);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(94, 30);
             this.btnThem.TabIndex = 50;
@@ -247,7 +247,7 @@
             this.btnCapnhat.BackColor = System.Drawing.Color.LightCoral;
             this.btnCapnhat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCapnhat.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCapnhat.Location = new System.Drawing.Point(641, 447);
+            this.btnCapnhat.Location = new System.Drawing.Point(512, 441);
             this.btnCapnhat.Name = "btnCapnhat";
             this.btnCapnhat.Size = new System.Drawing.Size(94, 30);
             this.btnCapnhat.TabIndex = 51;
@@ -261,7 +261,7 @@
             this.btnXoa.BackColor = System.Drawing.Color.LightCoral;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnXoa.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Location = new System.Drawing.Point(747, 447);
+            this.btnXoa.Location = new System.Drawing.Point(618, 441);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(94, 30);
             this.btnXoa.TabIndex = 52;
@@ -275,7 +275,7 @@
             this.btnThoat.BackColor = System.Drawing.Color.LightCoral;
             this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnThoat.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(858, 447);
+            this.btnThoat.Location = new System.Drawing.Point(729, 441);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(94, 30);
             this.btnThoat.TabIndex = 53;
@@ -296,10 +296,10 @@
             this.SONGAYNGHIBHXH,
             this.SONGAYNGHIKHONGLYDO,
             this.MANV});
-            this.dataChamCong.Location = new System.Drawing.Point(71, 190);
+            this.dataChamCong.Location = new System.Drawing.Point(63, 190);
             this.dataChamCong.Name = "dataChamCong";
             this.dataChamCong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataChamCong.Size = new System.Drawing.Size(887, 243);
+            this.dataChamCong.Size = new System.Drawing.Size(760, 237);
             this.dataChamCong.TabIndex = 54;
             this.dataChamCong.SelectionChanged += new System.EventHandler(this.dataChamCong_SelectionChanged);
             // 
@@ -354,7 +354,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(420, 20);
+            this.label2.Location = new System.Drawing.Point(359, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 25);
             this.label2.TabIndex = 55;
@@ -366,7 +366,7 @@
             this.btnChamCong.BackColor = System.Drawing.Color.LightCoral;
             this.btnChamCong.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnChamCong.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChamCong.Location = new System.Drawing.Point(416, 448);
+            this.btnChamCong.Location = new System.Drawing.Point(287, 442);
             this.btnChamCong.Name = "btnChamCong";
             this.btnChamCong.Size = new System.Drawing.Size(94, 30);
             this.btnChamCong.TabIndex = 56;
@@ -380,7 +380,7 @@
             this.btnBaoCao.BackColor = System.Drawing.Color.LightCoral;
             this.btnBaoCao.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBaoCao.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBaoCao.Location = new System.Drawing.Point(71, 447);
+            this.btnBaoCao.Location = new System.Drawing.Point(63, 441);
             this.btnBaoCao.Name = "btnBaoCao";
             this.btnBaoCao.Size = new System.Drawing.Size(94, 30);
             this.btnBaoCao.TabIndex = 57;
@@ -394,7 +394,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(232)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(1028, 503);
+            this.ClientSize = new System.Drawing.Size(907, 497);
             this.Controls.Add(this.btnBaoCao);
             this.Controls.Add(this.btnChamCong);
             this.Controls.Add(this.label2);
@@ -406,7 +406,6 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "formChamCong";
             this.Text = "Chấm Công";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.fromChamCong_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

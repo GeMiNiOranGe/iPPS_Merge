@@ -326,5 +326,14 @@
   <ItemGroup>
     <None Include="Resources\businessmen-exchange.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chamcong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dormitory.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

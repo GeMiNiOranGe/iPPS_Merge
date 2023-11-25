@@ -50,25 +50,28 @@
             this.txtTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTaiKhoan.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTaiKhoan.ForeColor = System.Drawing.Color.White;
-            this.txtTaiKhoan.Location = new System.Drawing.Point(111, 232);
+            this.txtTaiKhoan.Location = new System.Drawing.Point(83, 188);
+            this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTaiKhoan.Name = "txtTaiKhoan";
-            this.txtTaiKhoan.Size = new System.Drawing.Size(239, 25);
+            this.txtTaiKhoan.Size = new System.Drawing.Size(179, 20);
             this.txtTaiKhoan.TabIndex = 1;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(55, 263);
+            this.panel1.Location = new System.Drawing.Point(41, 214);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(331, 1);
+            this.panel1.Size = new System.Drawing.Size(248, 1);
             this.panel1.TabIndex = 2;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(55, 331);
+            this.panel2.Location = new System.Drawing.Point(41, 269);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(333, 1);
+            this.panel2.Size = new System.Drawing.Size(250, 1);
             this.panel2.TabIndex = 5;
             // 
             // txtPassWord
@@ -77,19 +80,21 @@
             this.txtPassWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassWord.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassWord.ForeColor = System.Drawing.Color.White;
-            this.txtPassWord.Location = new System.Drawing.Point(111, 299);
+            this.txtPassWord.Location = new System.Drawing.Point(83, 243);
+            this.txtPassWord.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPassWord.Name = "txtPassWord";
             this.txtPassWord.PasswordChar = '●';
-            this.txtPassWord.Size = new System.Drawing.Size(239, 25);
+            this.txtPassWord.Size = new System.Drawing.Size(179, 20);
             this.txtPassWord.TabIndex = 4;
             // 
             // btnDangNhap
             // 
             this.btnDangNhap.BackColor = System.Drawing.Color.White;
             this.btnDangNhap.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangNhap.Location = new System.Drawing.Point(143, 375);
+            this.btnDangNhap.Location = new System.Drawing.Point(107, 305);
+            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(157, 36);
+            this.btnDangNhap.Size = new System.Drawing.Size(118, 29);
             this.btnDangNhap.TabIndex = 6;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.UseVisualStyleBackColor = false;
@@ -103,9 +108,10 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(405, 2);
+            this.btnExit.Location = new System.Drawing.Point(304, 2);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(36, 34);
+            this.btnExit.Size = new System.Drawing.Size(27, 28);
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -116,18 +122,20 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(128, 83);
+            this.label1.Location = new System.Drawing.Point(96, 67);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 34);
+            this.label1.Size = new System.Drawing.Size(146, 27);
             this.label1.TabIndex = 9;
             this.label1.Text = "ĐĂNG NHẬP";
             // 
             // picYey
             // 
             this.picYey.Image = global::UserInterface.Properties.Resources.eyeclose;
-            this.picYey.Location = new System.Drawing.Point(356, 299);
+            this.picYey.Location = new System.Drawing.Point(267, 243);
+            this.picYey.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.picYey.Name = "picYey";
-            this.picYey.Size = new System.Drawing.Size(30, 30);
+            this.picYey.Size = new System.Drawing.Size(22, 24);
             this.picYey.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picYey.TabIndex = 7;
             this.picYey.TabStop = false;
@@ -136,9 +144,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::UserInterface.Properties.Resources.passwork;
-            this.pictureBox2.Location = new System.Drawing.Point(55, 279);
+            this.pictureBox2.Location = new System.Drawing.Point(41, 227);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(38, 41);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
@@ -146,9 +155,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::UserInterface.Properties.Resources.login;
-            this.pictureBox1.Location = new System.Drawing.Point(55, 211);
+            this.pictureBox1.Location = new System.Drawing.Point(41, 171);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(38, 41);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -158,18 +168,19 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(26, 135);
+            this.label2.Location = new System.Drawing.Point(20, 110);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(390, 22);
+            this.label2.Size = new System.Drawing.Size(330, 18);
             this.label2.TabIndex = 10;
             this.label2.Text = "QUẢN LÝ NHÂN SỰ – TIỀN LƯƠNG CÁN BỘ";
             // 
             // FormLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(442, 453);
+            this.ClientSize = new System.Drawing.Size(368, 368);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
@@ -182,9 +193,11 @@
             this.Controls.Add(this.txtTaiKhoan);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLogin";
+          
             ((System.ComponentModel.ISupportInitialize)(this.picYey)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

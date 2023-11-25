@@ -65,7 +65,13 @@ namespace UserInterface {
 
         private void btnTinhLuong_Click(object sender, EventArgs e) {
             string maNhanVien = cbMaNV.Text.Trim();
- 
+            DateTime Thang =(DateTime) dtpkThoiDiem.Value;
+            //Kiểm tra xem cuối tháng hay chưa 
+            if (!IsEndOfMonth(Thang))
+            {
+                MessageBox.Show("Chấm công chỉ được thực hiện vào cuối tháng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             // Kiểm tra xem Mã Nhân Viên có giá trị hợp lệ hay không
             if (string.IsNullOrEmpty(maNhanVien)) {
                 MessageBox.Show("Vui lòng chọn Mã Nhân Viên.");
@@ -126,22 +132,7 @@ namespace UserInterface {
             }
         }
 
-        private void btnXoa_Click(object sender, EventArgs e) {
-            try {
-                string maNhanVien = cbMaNV.Text;
-                if (LuongBL.Instance.deleteSalaryInfo(maNhanVien)) {
-                    MessageBox.Show("Xoá thành công");
-                    loadSalaryList();
-                }
-                else {
-                    MessageBox.Show("Xóa không thành công");
-                }
-            }
-            catch (Exception ex) {
-                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
-            }
-        }
-
+     
         private void btnBaoCao_Click(object sender, EventArgs e) {
             try {
                 string maNhanVien = cbMaNV.Text;
@@ -221,6 +212,11 @@ namespace UserInterface {
                 // Xử lý ngoại lệ nếu có lỗi
                 Console.WriteLine($"Lỗi: {ex.Message}");
             }
+        }
+        private static bool IsEndOfMonth(DateTime currentDate)
+        {
+            // Check if the current date is the last day of the month
+            return currentDate.AddDays(1).Day == 1;
         }
         #endregion
     }
