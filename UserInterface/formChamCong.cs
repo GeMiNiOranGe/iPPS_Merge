@@ -18,16 +18,25 @@ using iText;
 namespace UserInterface {
     public partial class formChamCong : Form {
         private ChamCongBL businessLogic;
+        private string selectedValueBeforeDropDown;
         //private ChamCong chamcong;
         #region Event
         public formChamCong() {
             InitializeComponent();
             this.businessLogic = new ChamCongBL();
+            this.Load += fromChamCong_Load;
         }
 
         private void fromChamCong_Load(object sender, EventArgs e) {
+           
             loadAttendanceList();
             loadComBoBoxMaNV();
+            numDiLam.Value = 0;
+            numngaynghiBHXH.Value = 0;
+            numngaynghi.Value = 0;
+            
+            dataChamCong.ClearSelection();
+            
         }
         private void dataChamCong_SelectionChanged(object sender, EventArgs e) {
             if (dataChamCong.SelectedRows.Count > 0) {
@@ -82,17 +91,25 @@ namespace UserInterface {
         }
 
         private void btnCapnhat_Click(object sender, EventArgs e) {
-            string MaNV = cboManv.Text.ToString();
-            DateTime Thang = (DateTime)dtpNgayLV.Value;
-            Byte Songaydilam = Convert.ToByte(numDiLam.Value);
-            Byte SongaynghiBHXH = Convert.ToByte(numngaynghiBHXH.Value);
-            Byte Songaynghilam = Convert.ToByte(numngaynghi.Value);
-            if (ChamCongBL.Instance.updateAttendanceBL(MaNV, Thang, Songaydilam, SongaynghiBHXH, Songaynghilam)) {
-                MessageBox.Show("Cập nhật thành công!");
-                loadAttendanceList();
-            }
-            else {
-                MessageBox.Show("Cập nhật không thành công!");
+            if (dataChamCong.SelectedRows.Count > 0)
+            {
+                string MaNV = cboManv.Text.ToString();
+                DateTime Thang = (DateTime)dtpNgayLV.Value;
+                Byte Songaydilam = Convert.ToByte(numDiLam.Value);
+                Byte SongaynghiBHXH = Convert.ToByte(numngaynghiBHXH.Value);
+                Byte Songaynghilam = Convert.ToByte(numngaynghi.Value);
+                if (ChamCongBL.Instance.updateAttendanceBL(MaNV, Thang, Songaydilam, SongaynghiBHXH, Songaynghilam))
+                {
+                    MessageBox.Show("Cập nhật thành công!");
+                    loadAttendanceList();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật không thành công!");
+                }
+            } else
+            {
+                MessageBox.Show("Vui lòng chọn nhân viên để cập nhật");
             }
         }
 
@@ -105,7 +122,7 @@ namespace UserInterface {
         private void btnThoat_Click(object sender, EventArgs e) {
             this.Close();
         }
-
+      
         private void btnChamCong_Click_1(object sender, EventArgs e) {
             string MaNV = cboManv.Text.ToString();
             DateTime Thang = (DateTime)dtpNgayLV.Value;
@@ -156,6 +173,32 @@ namespace UserInterface {
             string filePath = ChamCongDA.Instance.ExportAlltoPdf(dataTable);
             MessageBox.Show($"File PDF đã được xuất tại:\n{filePath}", "Thông báo");
         }
+        private void numDiLam_ValueChanged(object sender, EventArgs e)
+        {
+            if (numDiLam.Value > 26)
+            {
+                numDiLam.Value = 0;
+            }
+        }
+        private void numngaynghi_ValueChanged(object sender, EventArgs e)
+        {
+            if(numngaynghi.Value > 3)
+            {
+                numngaynghi.Value = 0;
+            }
+        }
+        private void numngaynghiBHXH_ValueChanged(object sender, EventArgs e)
+        {
+            if(numngaynghiBHXH.Value > 30)
+            {
+                numngaynghiBHXH.Value = 0;
+            }
+        }
+      
+        private void cboManv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+        }
         #endregion
 
         //-------------------------------------------------------------Function------------------------------------------------
@@ -169,6 +212,7 @@ namespace UserInterface {
             DataTable data = businessLogic.getEmployeeID();
             cboManv.DataSource = data;
             cboManv.DisplayMember = "MANV";
+            cboManv.ValueMember = "MANV";
         }
 
         private int workStatus(string status) {
@@ -213,7 +257,14 @@ namespace UserInterface {
             }
             return ngay;
         }
-      
+
+
+
+
+
+
         #endregion
+
+       
     }
 }
