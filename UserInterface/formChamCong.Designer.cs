@@ -149,6 +149,7 @@
             this.numDiLam.Name = "numDiLam";
             this.numDiLam.Size = new System.Drawing.Size(68, 20);
             this.numDiLam.TabIndex = 21;
+            this.numDiLam.ValueChanged += new System.EventHandler(this.numDiLam_ValueChanged);
             // 
             // label5
             // 
@@ -166,6 +167,7 @@
             this.numngaynghiBHXH.Name = "numngaynghiBHXH";
             this.numngaynghiBHXH.Size = new System.Drawing.Size(68, 20);
             this.numngaynghiBHXH.TabIndex = 19;
+            this.numngaynghiBHXH.ValueChanged += new System.EventHandler(this.numngaynghiBHXH_ValueChanged);
             // 
             // label4
             // 
@@ -183,6 +185,7 @@
             this.numngaynghi.Name = "numngaynghi";
             this.numngaynghi.Size = new System.Drawing.Size(68, 20);
             this.numngaynghi.TabIndex = 17;
+            this.numngaynghi.ValueChanged += new System.EventHandler(this.numngaynghi_ValueChanged);
             // 
             // dtpNgayLV
             // 
@@ -206,6 +209,8 @@
             this.cboManv.Name = "cboManv";
             this.cboManv.Size = new System.Drawing.Size(175, 25);
             this.cboManv.TabIndex = 15;
+           
+            this.cboManv.SelectedIndexChanged += new System.EventHandler(this.cboManv_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -301,6 +306,7 @@
             this.dataChamCong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataChamCong.Size = new System.Drawing.Size(760, 237);
             this.dataChamCong.TabIndex = 54;
+        
             this.dataChamCong.SelectionChanged += new System.EventHandler(this.dataChamCong_SelectionChanged);
             // 
             // MACC
