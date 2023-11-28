@@ -70,7 +70,6 @@ namespace UserInterface {
             sqlCommand = new SqlCommand("SELECT * FROM PHONGBAN", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
             while (sqlDataReader.Read()) {
-                cbPhongBanHT.Items.Add(sqlDataReader["TENPB"]);
                 cbPhongBanTC.Items.Add(sqlDataReader["TENPB"]);
             }
             sqlConnection.Close();
@@ -91,17 +90,6 @@ namespace UserInterface {
             sqlDataReader = sqlCommand.ExecuteReader();
             while (sqlDataReader.Read()) {
                 txtMaCV.Text = sqlDataReader["MACV"].ToString();
-            }
-            sqlConnection.Close();
-        }
-
-        private void cbPhongBanHT_SelectedIndexChanged(object sender, EventArgs e) {
-            sqlConnection.Open();
-            sqlCommand = new SqlCommand("SELECT * FROM PHONGBAN WHERE TENPB = @TENPB", sqlConnection);
-            sqlCommand.Parameters.AddWithValue("@TENPB", cbPhongBanHT.Text);
-            sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read()) {
-                txtMaPBHT.Text = sqlDataReader["MAPB"].ToString();
             }
             sqlConnection.Close();
         }

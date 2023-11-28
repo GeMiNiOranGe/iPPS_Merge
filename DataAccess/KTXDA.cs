@@ -75,7 +75,7 @@ namespace DataAccess
         }
         public bool checkHouseHoldID(string mahgd)
         {
-            string query = "SELECT COUNT(*) FROM HOGIADINH WHERE MAHGD = '"+mahgd+"'";
+            string query = "SELECT COUNT(*) FROM HOGIADINH WHERE MAHGD like '"+mahgd+"'";
             int result=(int)(DataProvider.Instance.ExecuteScalar(query));
             return result > 0;
         }
