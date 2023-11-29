@@ -152,7 +152,7 @@
             // 
             // numDiLam
             // 
-            this.numDiLam.Location = new System.Drawing.Point(1010, 29);
+            this.numDiLam.Location = new System.Drawing.Point(1021, 29);
             this.numDiLam.Margin = new System.Windows.Forms.Padding(4);
             this.numDiLam.Name = "numDiLam";
             this.numDiLam.Size = new System.Drawing.Size(91, 28);
@@ -172,7 +172,7 @@
             // 
             // numngaynghiBHXH
             // 
-            this.numngaynghiBHXH.Location = new System.Drawing.Point(1010, 117);
+            this.numngaynghiBHXH.Location = new System.Drawing.Point(1021, 117);
             this.numngaynghiBHXH.Margin = new System.Windows.Forms.Padding(4);
             this.numngaynghiBHXH.Name = "numngaynghiBHXH";
             this.numngaynghiBHXH.Size = new System.Drawing.Size(91, 28);
@@ -192,7 +192,7 @@
             // 
             // numngaynghi
             // 
-            this.numngaynghi.Location = new System.Drawing.Point(1010, 73);
+            this.numngaynghi.Location = new System.Drawing.Point(1021, 73);
             this.numngaynghi.Margin = new System.Windows.Forms.Padding(4);
             this.numngaynghi.Name = "numngaynghi";
             this.numngaynghi.Size = new System.Drawing.Size(91, 28);

@@ -17,7 +17,7 @@ namespace DataAccess {
 
     public class ChamCongDA {
         // thêm đường dẫn
-        private static string folderPath = @""; // thêm đường dẫn 
+        private static string folderPath = @"C:\Users\Administrator\Desktop\Môn HĐT"; // thêm đường dẫn 
         private static string filePath = Path.Combine(folderPath, $"ChamCongReport.pdf");
         private static ChamCongDA instance;
         public static ChamCongDA Instance {

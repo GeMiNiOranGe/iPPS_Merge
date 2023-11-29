@@ -20,6 +20,7 @@ namespace UserInterface {
         //DataTable dataTable;
 
         string maPB;
+        public string formDispatchStaff_MaPB;
         public string MaPB {
             get { return maPB; }
         }
@@ -31,6 +32,7 @@ namespace UserInterface {
         private void FormDispatchStaff_Load(object sender, EventArgs e) {
             loadIDDispatchStaff();
             loadCombobox();
+            txtMaPBHT.Text = formDispatchStaff_MaPB;
         }
 
         public void loadIDDispatchStaff() {
@@ -132,6 +134,11 @@ namespace UserInterface {
                 maPB = txtMaPBTC.Text;
                 this.Close();
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

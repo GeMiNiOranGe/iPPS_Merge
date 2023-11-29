@@ -50,7 +50,7 @@
             this.txtTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTaiKhoan.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTaiKhoan.ForeColor = System.Drawing.Color.White;
-            this.txtTaiKhoan.Location = new System.Drawing.Point(134, 231);
+            this.txtTaiKhoan.Location = new System.Drawing.Point(108, 231);
             this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.Size = new System.Drawing.Size(239, 25);
@@ -59,7 +59,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(78, 263);
+            this.panel1.Location = new System.Drawing.Point(52, 263);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(331, 1);
@@ -68,7 +68,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(78, 331);
+            this.panel2.Location = new System.Drawing.Point(52, 331);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(333, 1);
@@ -80,7 +80,7 @@
             this.txtPassWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassWord.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassWord.ForeColor = System.Drawing.Color.White;
-            this.txtPassWord.Location = new System.Drawing.Point(134, 299);
+            this.txtPassWord.Location = new System.Drawing.Point(108, 299);
             this.txtPassWord.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassWord.Name = "txtPassWord";
             this.txtPassWord.PasswordChar = '●';
@@ -92,7 +92,7 @@
             this.btnDangNhap.BackColor = System.Drawing.Color.White;
             this.btnDangNhap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDangNhap.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangNhap.Location = new System.Drawing.Point(166, 375);
+            this.btnDangNhap.Location = new System.Drawing.Point(140, 375);
             this.btnDangNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(157, 36);
@@ -109,7 +109,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(453, 2);
+            this.btnExit.Location = new System.Drawing.Point(452, 2);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(36, 34);
@@ -123,7 +123,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(151, 82);
+            this.label1.Location = new System.Drawing.Point(125, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 34);
             this.label1.TabIndex = 9;
@@ -132,7 +132,7 @@
             // picYey
             // 
             this.picYey.Image = global::UserInterface.Properties.Resources.eyeclose;
-            this.picYey.Location = new System.Drawing.Point(379, 299);
+            this.picYey.Location = new System.Drawing.Point(353, 299);
             this.picYey.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picYey.Name = "picYey";
             this.picYey.Size = new System.Drawing.Size(29, 30);
@@ -144,7 +144,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::UserInterface.Properties.Resources.passwork;
-            this.pictureBox2.Location = new System.Drawing.Point(78, 279);
+            this.pictureBox2.Location = new System.Drawing.Point(52, 279);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(51, 50);
@@ -155,7 +155,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::UserInterface.Properties.Resources.login;
-            this.pictureBox1.Location = new System.Drawing.Point(78, 210);
+            this.pictureBox1.Location = new System.Drawing.Point(52, 210);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(51, 50);
@@ -168,7 +168,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(50, 135);
+            this.label2.Location = new System.Drawing.Point(24, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(390, 22);
             this.label2.TabIndex = 10;
@@ -179,7 +179,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.ClientSize = new System.Drawing.Size(490, 453);
+            this.ClientSize = new System.Drawing.Size(488, 453);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
