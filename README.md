@@ -7,7 +7,7 @@ You are a developer and you want to run this project, you have to follow these i
 	```bash
 	git clone https://github.com/GeMiNiOranGe/EmployeeSalaryManagement.git
 	```
-* Step 2: open 'iPPS.sln' by Visual Studio
+* Step 2: open 'EmployeeSalaryManagement.sln' by Visual Studio
 
 * Step 3: open MSSQL server management and execute 'Database.sql'
 
