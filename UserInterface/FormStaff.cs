@@ -136,6 +136,7 @@ namespace UserInterface {
         private void btnAdd_Click(object sender, EventArgs e) {
             FormSaveStaff formInsertNhanVien = new FormSaveStaff();
             formInsertNhanVien.formStaff_TieuDe = "Thêm nhân viên";
+            this.Close();
             formInsertNhanVien.Show();
         }
         
@@ -147,6 +148,7 @@ namespace UserInterface {
                 FormSaveStaff formInsertNhanVien = new FormSaveStaff();
                 formInsertNhanVien.formStaff_MaNV = lbMaNV.Text;
                 formInsertNhanVien.formStaff_TieuDe = "Cập nhật nhân viên";
+                this.Close();
                 formInsertNhanVien.Show();
             }
         }

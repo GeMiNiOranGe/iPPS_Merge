@@ -1044,7 +1044,7 @@
             // 
             this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(199)))));
             this.btnExit.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(1225, -1);
+            this.btnExit.Location = new System.Drawing.Point(1216, -1);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(50, 50);
             this.btnExit.TabIndex = 102;
@@ -1073,6 +1073,7 @@
             this.cbPhongBan.Name = "cbPhongBan";
             this.cbPhongBan.Size = new System.Drawing.Size(208, 32);
             this.cbPhongBan.TabIndex = 105;
+            this.cbPhongBan.SelectedIndexChanged += new System.EventHandler(this.cbPhongBan_SelectedIndexChanged);
             // 
             // lbPhongBan
             // 
@@ -1090,7 +1091,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(199)))));
-            this.ClientSize = new System.Drawing.Size(1275, 1055);
+            this.ClientSize = new System.Drawing.Size(1266, 1055);
             this.Controls.Add(this.cbPhongBan);
             this.Controls.Add(this.lbPhongBan);
             this.Controls.Add(this.btnTCNV);

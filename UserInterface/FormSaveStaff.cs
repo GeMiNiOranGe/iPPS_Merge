@@ -37,9 +37,15 @@ namespace UserInterface {
             lbTieuDe.Text = formStaff_TieuDe;
             if (lbTieuDe.Text == "Thêm nhân viên") {
                 loadIDStaff();
+                btnTCNV.Visible = false;
+                lbPhongBan.Visible = true;
+                cbPhongBan.Visible = true;
             }
             else {
                 loadUpdateStaff();
+                btnTCNV.Visible = true;
+                lbPhongBan.Visible = false;
+                cbPhongBan.Visible = false;
             }
         }
         public void checkImportTextbox() {
@@ -51,6 +57,15 @@ namespace UserInterface {
             }
         }
         public void loadCombobox() {
+            sqlConnection.Open();
+            sqlCommand = new SqlCommand("SELECT * FROM PHONGBAN", sqlConnection);
+            sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                cbPhongBan.Items.Add(sqlDataReader["TENPB"]);
+            }
+            sqlConnection.Close();
+
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM CHUCVU", sqlConnection);
             sqlDataReader = sqlCommand.ExecuteReader();
@@ -83,7 +98,20 @@ namespace UserInterface {
             }
             sqlConnection.Close();
         }
+        private void cbPhongBan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            sqlConnection.Open();
+            sqlCommand = new SqlCommand("SELECT * FROM PHONGBAN WHERE TENPB = @TENPB", sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@TENPB", cbPhongBan.Text);
+            sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                txtMaPB.Text = sqlDataReader["MAPB"].ToString();
+            }
+            sqlConnection.Close();
 
+            lbCheck1.ForeColor = System.Drawing.Color.Black;
+        }
         private void cbChucVu_SelectedIndexChanged(object sender, EventArgs e) {
             sqlConnection.Open();
             sqlCommand = new SqlCommand("SELECT * FROM CHUCVU WHERE TENCV = @TENCV", sqlConnection);
@@ -776,6 +804,7 @@ namespace UserInterface {
 
         private void btnTCNV_Click(object sender, EventArgs e) {
             FormDispatchStaff formDispatchStaff = new FormDispatchStaff();
+            formDispatchStaff.formDispatchStaff_MaPB = txtMaPB.Text;
             DialogResult result = formDispatchStaff.ShowDialog();
             if (result == DialogResult.OK) {
                 txtMaPB.Text = formDispatchStaff.MaPB;

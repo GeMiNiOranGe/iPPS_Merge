@@ -18,7 +18,7 @@ using iText.Forms.Fields.Merging;
 namespace DataAccess {
     public class LuongDA {
         // Đường dẫn để xuất báo cáo
-        private static string folderPath = @""; // thêm đường dẫn 
+        private static string folderPath = @"C:\Users\Administrator\Desktop\Môn HĐT"; // thêm đường dẫn 
         private static string filePath = Path.Combine(folderPath, $"LuongReport.pdf");
         private static LuongDA instance;
         public static LuongDA Instance {
