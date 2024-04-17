@@ -1,0 +1,139 @@
+[33mcommit eeece54721511c386703d7399510aaf67703e5bd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 8300205 e980579
+Author: hunglk2011 <hle47285@gmail.com>
+Date:   Tue Nov 21 07:21:57 2023 +0700
+
+    Resolve merge conflicts
+
+[33mcommit 8300205b4b3b9dbcddd2ea07079c616d9bb55179[m
+Merge: 0c662b3 4e35074
+Author: hunglk2011 <hle47285@gmail.com>
+Date:   Tue Nov 21 01:46:12 2023 +0700
+
+    update UserInterFace/Program.cs
+
+[33mcommit 0c662b3be39ef3deb88e12a48380df600b90bd17[m[33m ([m[1;31morigin/Hung[m[33m, [m[1;32mHung[m[33m)[m
+Author: hunglk2011 <hle47285@gmail.com>
+Date:   Tue Nov 21 00:53:59 2023 +0700
+
+    Finished
+
+[33mcommit e980579d5ef96f674dffc5097851caeb9c6b8904[m[33m ([m[1;31morigin/Tuong[m[33m)[m
+Author: TuongSieuCute <108283017+TuongSieuCute@users.noreply.github.com>
+Date:   Mon Nov 20 23:26:47 2023 +0700
+
+    xong
+
+[33mcommit 0dde88c2b639367fef4f18da990e499b3c814e90[m
+Author: hunglk2011 <hle47285@gmail.com>
+Date:   Mon Nov 20 19:50:44 2023 +0700
+
+    xong ChamCong va TinhLuong
+
+[33mcommit 5f1a841a259d560c57dfa2df2946c3df983a31c4[m
+Author: hunglk2011 <hle47285@gmail.com>
+Date:   Sun Nov 19 02:19:50 2023 +0700
+
+    tinhluong,timkiem,capnhat
+
+[33mcommit 5b59074ba1686e3ee223b4523c1ce1692e5fccc1[m
+Author: TuongSieuCute <108283017+TuongSieuCute@users.noreply.github.com>
+Date:   Sat Nov 18 22:45:09 2023 +0700
+
+    formmenu
+
+[33mcommit 1ed889e7ee9853bca3fd7e434a07df7515becc41[m
+Author: TuongSieuCute <108283017+TuongSieuCute@users.noreply.github.com>
+Date:   Sat Nov 18 15:53:41 2023 +0700
+
+    xong nhan vien
+
+[33mcommit 2829bf649f7cbebd9e9bf55d11eeecd55a5b0ff9[m
+Author: hunglk2011 <hle47285@gmail.com>
+Date:   Sat Nov 18 01:31:26 2023 +0700
+
+    Tinh Luong
+
+[33mcommit dd8ad818ea10ae01a3690325f92ee33989e160bb[m
+Author: TuongSieuCute <108283017+TuongSieuCute@users.noreply.github.com>
+Date:   Fri Nov 17 22:54:44 2023 +0700
+
+    xong them, sua, xoa, tim kiem nv, con doc voi in nv
+
+[33mcommit 4d86c11de9a32a040a2f751fb34b87c8a6261c8e[m
+Author: hunglk2011 <hle47285@gmail.com>
+Date:   Fri Nov 17 12:00:19 2023 +0700
+
+    xong Cham Cong
+
+[33mcommit 779681ccb5218d1ee86fe13e6f62f715645f9aaf[m
+Author: hunglk2011 <hle47285@gmail.com>
+Date:   Fri Nov 17 02:09:46 2023 +0700
+
+    Cham cong
+
+[33mcommit 1f6a892c7ade231ec2ada517c60b08ffe9cd1652[m
+Author: TuongSieuCute <108283017+TuongSieuCute@users.noreply.github.com>
+Date:   Thu Nov 16 22:59:21 2023 +0700
+
+    add NV xong, load data
+
+[33mcommit a45271c2b98ddc3da434bd6232dfd3f45cc10b78[m
+Author: TuongSieuCute <108283017+TuongSieuCute@users.noreply.github.com>
+Date:   Thu Nov 16 22:58:35 2023 +0700
+
+    xong add Nhan Vien, load data
+
+[33mcommit 036e6c593a42f63aee1b93dd893590308982c9bf[m
+Author: TuongSieuCute <108283017+TuongSieuCute@users.noreply.github.com>
+Date:   Wed Nov 15 23:08:52 2023 +0700
+
+    formaddNhanVien
+
+[33mcommit d2923832523e2505d7ed3d143501c62f6f460c1e[m
+Author: TuongSieuCute <108283017+TuongSieuCute@users.noreply.github.com>
+Date:   Tue Nov 14 23:51:13 2023 +0700
+
+    add
+
+[33mcommit 4e350743f050f1da0d74b56a288024698065f56d[m[33m ([m[1;32mTuong[m[33m)[m
+Author: TuongSieuCute <108283017+TuongSieuCute@users.noreply.github.com>
+Date:   Thu Nov 2 21:31:47 2023 +0700
+
+    tao branch
+
+[33mcommit 022bf4df3f020f0581aa1d7d5215c75a44f82092[m
+Author: GeMiNi <67833209+GeMiNiOranGe@users.noreply.github.com>
+Date:   Fri Oct 27 23:24:27 2023 +0700
+
+    rename Interface to UserInterface
+
+[33mcommit c63192de7f97f8bd6d7b1726f50638e85416b61c[m
+Author: GeMiNi <67833209+GeMiNiOranGe@users.noreply.github.com>
+Date:   Fri Oct 27 22:58:43 2023 +0700
+
+    add empty sql script and update README file
+
+[33mcommit e226f73f47a1a8ecbc54037d490a789d500b83e2[m
+Author: GeMiNi <67833209+GeMiNiOranGe@users.noreply.github.com>
+Date:   Fri Oct 27 21:56:56 2023 +0700
+
+    have configured 3 layers
+
+[33mcommit 2c6c0ebbe4eda588033da0e1d56255c63639af4a[m
+Author: GeMiNi <67833209+GeMiNiOranGe@users.noreply.github.com>
+Date:   Fri Oct 27 20:42:57 2023 +0700
+
+    Add project files.
+
+[33mcommit 64d21ac6772b4d97e40b8f3d22e3ba295b6b1d47[m
+Author: GeMiNi <67833209+GeMiNiOranGe@users.noreply.github.com>
+Date:   Fri Oct 27 20:42:55 2023 +0700
+
+    Add .gitignore and .gitattributes.
+
+[33mcommit 1deada88166167154b3e4046d899219873ba8c17[m
+Author: GeMiNi <67833209+GeMiNiOranGe@users.noreply.github.com>
+Date:   Thu Oct 26 19:49:37 2023 +0700
+
+    Initial commit
