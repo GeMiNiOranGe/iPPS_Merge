@@ -11,6 +11,7 @@
 @REM )
 
 sqlcmd /S . /d master -E -i"InitialDatabase.sql"
-@REM sqlcmd /S . /d master -E -i"CreateStoredProcedure.sql"
+sqlcmd /S . /d master -E -i"Function.sql"
+sqlcmd /S . /d master -E -i"StoredProcedure.sql"
 sqlcmd /S . /d master -E -i"PopulateData.sql"
 pause
