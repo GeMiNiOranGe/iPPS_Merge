@@ -1,9 +1,9 @@
-USE QUANLYLUONG
+USE [Pepro]
 GO
 
-INSERT INTO [dbo].[TAIKHOAN]
-        ([USERNAME],    [PASSWORD])
-VALUES  ('Admin',       'admin123')
+INSERT INTO [dbo].[Account]
+        ([Username],    [Password], [IsActive], [EmployeeId])
+VALUES  ('Admin',       'admin123', 1,          'NV00001')
 GO
 
 INSERT INTO [dbo].[PHONGBAN]

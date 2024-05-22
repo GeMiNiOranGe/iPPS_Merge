@@ -1,14 +1,24 @@
-﻿DROP DATABASE IF EXISTS [QUANLYLUONG]
-CREATE DATABASE [QUANLYLUONG]
+﻿USE [Master]
 GO
 
-USE [QUANLYLUONG]
+DECLARE @DbName     NVARCHAR(50)  = N'Pepro' -- change DbName here and...
+DECLARE @DeleteStmt NVARCHAR(Max) = N'DROP    DATABASE IF EXISTS '  + QuoteName(@DbName)
+DECLARE @CreateStmt NVARCHAR(Max) = N'CREATE  DATABASE '            + QuoteName(@DbName)
+EXECUTE sys.sp_ExecuteSql @Stmt = @DeleteStmt
+EXECUTE sys.sp_ExecuteSql @Stmt = @CreateStmt
 GO
 
--- TẠO BẢNG TÀI KHOẢN
-CREATE TABLE [dbo].[TAIKHOAN] (
-	USERNAME VARCHAR(10) PRIMARY KEY,
-	PASSWORD NVARCHAR(30) NOT NULL,
+USE [Pepro]
+GO
+
+CREATE TABLE [dbo].[Account] (
+    [AccountId]  [int]          NOT NULL IDENTITY(1, 1),
+    [Username]   [varchar](10)  PRIMARY KEY,
+    [Password]   [nvarchar](30) NOT NULL,
+    [IsActive]   [bit]          NOT NULL,
+    -- 1 is active, otherwise 0 is disabled
+
+    [EmployeeId] [varchar](10)  NOT NULL,
 )
 
 -- TẠO BẢNG PHÒNG BAN
@@ -233,95 +243,8 @@ CREATE TABLE [dbo].[LUONG] (
 )
 GO
 
---STORE PROCEDURE
-CREATE PROCEDURE usp_XoaChamCong
-    @MaNhanVienCanXoa NVARCHAR(50)
-AS BEGIN
-    SET NOCOUNT ON;
+-- add unique key --------------------------------------------------------
 
-    EXEC sp_MSForeachTable 'ALTER TABLE ? NOCHECK CONSTRAINT ALL';
-    DELETE FROM BOPHANCHAMCONG WHERE MANV = @MaNhanVienCanXoa;
-    EXEC sp_MSForeachTable 'ALTER TABLE ? CHECK CONSTRAINT ALL';
-END;
-GO
+-- add primary key -------------------------------------------------------
 
-CREATE PROCEDURE usp_XoaMaDien
-    @MaDien NVARCHAR(50)
-AS BEGIN
-    SET NOCOUNT ON;
-
-    EXEC sp_MSForeachTable 'ALTER TABLE ? NOCHECK CONSTRAINT ALL';
-    DELETE FROM DIEN WHERE MAD = @MaDien;
-    EXEC sp_MSForeachTable 'ALTER TABLE ? CHECK CONSTRAINT ALL';
-END;
-GO
-
-CREATE PROCEDURE usp_XoaMaNuoc
-    @MaNuoc NVARCHAR(50)
-AS BEGIN
-    SET NOCOUNT ON;
-
-    EXEC sp_MSForeachTable 'ALTER TABLE ? NOCHECK CONSTRAINT ALL';
-    DELETE FROM NUOC WHERE MAN = @MaNuoc;
-    EXEC sp_MSForeachTable 'ALTER TABLE ? CHECK CONSTRAINT ALL';
-END;
-GO
-
-CREATE PROCEDURE CalculateSalary
-    @MaNhanVien NVARCHAR(10)
-AS BEGIN
-    SELECT
-        ((LUONG.LUONGCOBAN * BACLUONG.HESOBL) + 
-        (LUONG.LUONGCOBAN * CHUCVU.HESOPHUCAP * 0.1) - 
-        (ISNULL(TIENNHA.TONGTIEN, 0) + 
-        (BOPHANCHAMCONG.SONGAYNGHIBHXH * LUONG.LUONGCOBAN * 0.1) + 
-        (BOPHANCHAMCONG.SONGAYNGHIKHONGLYDO * LUONG.LUONGCOBAN * 0.3))) AS TongLuong
-    FROM LUONG
-        INNER JOIN NGACHLUONG
-                ON LUONG.MANL = NGACHLUONG.MANL
-        INNER JOIN BACLUONG
-                ON LUONG.MABL = BACLUONG.MABL
-        INNER JOIN CHUCVU
-                ON LUONG.MACV = CHUCVU.MACV
-        INNER JOIN BOPHANCHAMCONG
-                ON LUONG.MACC = BOPHANCHAMCONG.MACC
-        INNER JOIN TIENNHA
-                ON LUONG.MATN = TIENNHA.MANTT
-    WHERE LUONG.MANV = @MaNhanVien;
-END
-GO
-
---Function
-CREATE FUNCTION dbo.CheckMACCAndMANVexists (
-    @MANV VARCHAR(10),
-    @MACC VARCHAR(10)
-)
-RETURNS BIT
-AS BEGIN
-    DECLARE @Result BIT;
-
-    IF EXISTS (
-        SELECT 1
-        FROM NHANVIEN
-        WHERE MANV = @MANV
-    ) BEGIN
-        IF EXISTS (
-            SELECT 1
-            FROM BOPHANCHAMCONG
-            WHERE MANV = @MANV AND MACC = @MACC
-        ) BEGIN
-            SET @Result = 1;
-        -- MANV và MACC tồn tại
-        END
-        ELSE BEGIN
-            SET @Result = 0;
-        -- MANV tồn tại, nhưng MACC không tồn tại
-        END
-    END
-    ELSE BEGIN
-        SET @Result = 0;
-    -- MANV không tồn tại
-    END
-
-    RETURN @Result;
-END;
+-- add foreign key -------------------------------------------------------

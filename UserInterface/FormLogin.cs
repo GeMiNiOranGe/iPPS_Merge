@@ -14,12 +14,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace UserInterface {
     public partial class FormLogin : Form {
         SqlConnection sqlConnection = new SqlConnection(Database.CONNECTION_STRING);
-        //SqlCommand sqlCommand;
-        //SqlDataReader sqlDataReader;
         SqlDataAdapter sqlDataAdapter;
         DataTable dataTable;
-
         bool isImageClose = true;
+
         public FormLogin() {
             InitializeComponent();
         }
@@ -68,7 +66,5 @@ namespace UserInterface {
                 Application.Exit();
             }
         }
-
-       
     }
 }
