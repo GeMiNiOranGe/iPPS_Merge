@@ -1,6 +1,8 @@
 USE [Pepro]
 GO
 
+-- :r $(workspace)\Database\SampleData\PopulateDepartment.sql
+
 INSERT INTO [dbo].[Account]
         ([Username],    [Password], [IsActive], [EmployeeId])
 VALUES  ('Admin',       'admin123', 1,          'NV00001')
