@@ -2,6 +2,11 @@ USE [Pepro]
 GO
 
 -- :r $(workspace)\Database\SampleData\PopulateDepartment.sql
+-- :r $(workspace)\Database\SampleData\PopulateProject.sql
+-- :r $(workspace)\Database\SampleData\PopulateJobPosition.sql
+-- :r $(workspace)\Database\SampleData\PopulateSalaryScale.sql
+
+-- :r $(workspace)\Database\SampleData\PopulateSalaryLevel.sql
 
 INSERT INTO [dbo].[Account]
         ([Username],    [Password], [IsActive], [EmployeeId])
