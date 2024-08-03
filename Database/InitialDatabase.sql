@@ -11,6 +11,12 @@ GO
 USE [Pepro]
 GO
 
+-- create security key --------------------------
+CREATE SYMMETRIC KEY PeproSymKey
+    WITH ALGORITHM = AES_256
+    ENCRYPTION BY PASSWORD = 'W34kP4ssw0rd@'
+GO
+
 -- have no key ----------------------------------
 CREATE TABLE [dbo].[Department] (
     [DepartmentId]  [varchar](10)   NOT NULL,
@@ -18,12 +24,9 @@ CREATE TABLE [dbo].[Department] (
     [ManagerId]     [varchar](10)   NOT NULL,
 );
 
-CREATE TABLE [dbo].[Project] (
-    [ProjectId]     [varchar](10)   NOT NULL,
-    [Name]          [nvarchar](50)  NOT NULL,
-    [Status]        [varchar](10)   NOT NULL,
-    [CustomerName]  [nvarchar](50)  NOT NULL,
-    [ManagerId]     [varchar](10)   NOT NULL,
+CREATE TABLE [dbo].[Status] (
+    [StatusId]      [int]           NOT NULL IDENTITY(1, 1),
+    [StatusValue]   [varchar](10)   NOT NULL,
 );
 
 CREATE TABLE [dbo].[JobPosition] (
@@ -39,6 +42,15 @@ CREATE TABLE [dbo].[SalaryScale] (
 );
 
 -- has a foreign key ----------------------------
+CREATE TABLE [dbo].[Project] (
+    [ProjectId]     [varchar](10)   NOT NULL,
+    [Name]          [nvarchar](50)  NOT NULL,
+    [CustomerName]  [nvarchar](50)  NOT NULL,
+    [ManagerId]     [varchar](10)   NOT NULL,
+
+    [StatusId]      [int]           NOT NULL,
+);
+
 CREATE TABLE [dbo].[SalaryLevel] (
     [SalaryLevelId] [int]           NOT NULL IDENTITY(1, 1),
     [Level]         [nvarchar](10)  NOT NULL,
@@ -50,12 +62,13 @@ CREATE TABLE [dbo].[SalaryLevel] (
 CREATE TABLE [dbo].[Employee] (
     [EmployeeId]    [varchar](10)   NOT NULL,
     [FirstName]     [nvarchar](10)  NOT NULL,
-    [MiddleName]    [nvarchar](30)  NOT NULL,
+    [MiddleName]    [nvarchar](30),
     [LastName]      [nvarchar](10)  NOT NULL,
     [DateOfBirth]   [date]          NOT NULL,
     [Gender]        [bit], -- 1 is male, 0 is female and null is other
-    [TaxCode]       [varbinary](MAX),
+    [TaxCode]       [varbinary](max),
     [CitizenId]     [varchar](12)   NOT NULL,
+    -- TODO: add address column
 
     [DepartmentId]  [varchar](10)   NOT NULL,
     [JobPositionId] [int]           NOT NULL,
@@ -83,7 +96,6 @@ CREATE TABLE [dbo].[Account] (
 CREATE TABLE [dbo].[Task] (
     [TaskId]                [int]           NOT NULL IDENTITY(1, 1),
     [Name]                  [nvarchar](50)  NOT NULL,
-    [Status]                [varchar](10)   NOT NULL,
     [IsProjectPublic]       [bit]           NOT NULL,
     [IsDepartmentPublic]    [bit]           NOT NULL,
     [ManagerId]             [varchar](10)   NOT NULL,
@@ -91,6 +103,7 @@ CREATE TABLE [dbo].[Task] (
     [EndDate]               [date]          NOT NULL,
 
     [ProjectId]             [varchar](10)   NOT NULL,
+    [StatusId]              [int]           NOT NULL,
 );
 
 CREATE TABLE [dbo].[Document] (
@@ -134,9 +147,10 @@ GO
 
 -- add primary key -------------------------------------------------------
 ALTER TABLE [dbo].[Department]          ADD CONSTRAINT [PK_Department]          PRIMARY KEY ([DepartmentId])
-ALTER TABLE [dbo].[Project]             ADD CONSTRAINT [PK_Project]             PRIMARY KEY ([ProjectId])
+ALTER TABLE [dbo].[Status]              ADD CONSTRAINT [PK_Status]              PRIMARY KEY ([StatusId])
 ALTER TABLE [dbo].[JobPosition]         ADD CONSTRAINT [PK_JobPosition]         PRIMARY KEY ([JobPositionId])
 ALTER TABLE [dbo].[SalaryScale]         ADD CONSTRAINT [PK_SalaryScale]         PRIMARY KEY ([SalaryScaleId]);
+ALTER TABLE [dbo].[Project]             ADD CONSTRAINT [PK_Project]             PRIMARY KEY ([ProjectId])
 ALTER TABLE [dbo].[SalaryLevel]         ADD CONSTRAINT [PK_SalaryLevel]         PRIMARY KEY ([SalaryLevelId]);
 ALTER TABLE [dbo].[Employee]            ADD CONSTRAINT [PK_Employee]            PRIMARY KEY ([EmployeeId])
 ALTER TABLE [dbo].[EmployeePhoneNumber] ADD CONSTRAINT [PK_EmployeePhoneNumber] PRIMARY KEY ([EmployeePhoneNumberId])
@@ -147,6 +161,12 @@ ALTER TABLE [dbo].[TaskDetail]          ADD CONSTRAINT [PK_TaskDetail]          
 GO
 
 -- add foreign key -------------------------------------------------------
+ALTER TABLE [dbo].[Project] ADD
+CONSTRAINT [FK_Project_Status]
+    FOREIGN KEY ([StatusId])
+    REFERENCES [dbo].[Status]([StatusId]);
+GO
+
 ALTER TABLE [dbo].[SalaryLevel] ADD
 CONSTRAINT [FK_SalaryLevel_SalaryScale]
     FOREIGN KEY ([SalaryScaleId])
@@ -180,7 +200,10 @@ GO
 ALTER TABLE [dbo].[Task] ADD
 CONSTRAINT [FK_Task_Project]
     FOREIGN KEY ([ProjectId])
-    REFERENCES [dbo].[Project]([ProjectId]);
+    REFERENCES [dbo].[Project]([ProjectId]),
+CONSTRAINT [FK_Task_Status]
+    FOREIGN KEY ([StatusId])
+    REFERENCES [dbo].[Status]([StatusId]);
 GO
 
 ALTER TABLE [dbo].[Document] ADD

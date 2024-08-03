@@ -1,6 +1,36 @@
 USE [Pepro]
 GO
 
+CREATE OR ALTER PROCEDURE [dbo].[usp_InsertEmployee]
+    @EmployeeId     VARCHAR(10),
+    @FirstName      NVARCHAR(10),
+    @MiddleName     NVARCHAR(30)    = NULL,
+    @LastName       NVARCHAR(10),
+    @DateOfBirth    DATE,
+    @Gender         BIT, -- 1 is male, 0 is female and null is other
+    @TaxCode        VARCHAR(14)     = NULL,
+    @CitizenId      VARCHAR(12),
+    @PhoneNumber    CHAR(10)        = NULL,
+    @DepartmentId   VARCHAR(10),
+    @JobPositionId  INT,
+    @SalaryLevelId  INT
+AS BEGIN
+    DECLARE @EncryptedTaxCode VARBINARY(Max)
+
+    OPEN SYMMETRIC KEY [PeproSymKey] DECRYPTION BY PASSWORD = 'W34kP4ssw0rd@'
+    SET @EncryptedTaxCode = EncryptByKey(key_guid('PeproSymKey'), @TaxCode)
+    CLOSE SYMMETRIC KEY [PeproSymKey]
+
+    INSERT INTO [dbo].[Employee]
+            ([EmployeeId], [FirstName], [MiddleName], [LastName], [DateOfBirth], [Gender], [TaxCode],         [CitizenId], [DepartmentId], [JobPositionId], [SalaryLevelId])
+    VALUES  (@EmployeeId,  @FirstName,  @MiddleName,  @LastName,  @DateOfBirth,  @Gender,  @EncryptedTaxCode, @CitizenId,  @DepartmentId,  @JobPositionId,  @SalaryLevelId)
+
+    IF (@PhoneNumber IS NOT NULL) BEGIN
+        -- TODO: insert employee phone number
+    END
+END
+GO
+
 CREATE OR ALTER PROCEDURE usp_XoaChamCong
     @MaNhanVienCanXoa NVARCHAR(50)
 AS BEGIN
