@@ -13,9 +13,9 @@ chcp 65001
 @REM     sqlcmd /S . /d master -E -i"%%i"
 @REM )
 
-@REM sqlcmd /S . /d master -E -i"Database/InitialDatabase.sql"
+sqlcmd /S . /d master -E -i"Database/InitialDatabase.sql"
 @REM sqlcmd /S . /d master -E -i"Database/Function.sql"
-@REM sqlcmd /S . /d master -E -i"Database/StoredProcedure.sql"
+sqlcmd /S . /d master -E -i"Database/StoredProcedure.sql"
 @REM sqlcmd /S . /d master -E -i"Database/PopulateData.sql"
 
 @REM %~dp0: will return the Drive and Path to the batch script (e.g. W:\path\to\Database\)
