@@ -15,6 +15,8 @@ CREATE OR ALTER PROCEDURE [dbo].[usp_InsertEmployee]
     @JobPositionId      INT,
     @SalaryLevelId      INT
 AS BEGIN
+    SET NOCOUNT ON
+
     DECLARE @Separator          VARCHAR(2)
     DECLARE @EncryptedTaxCode   VARBINARY(Max)
 
