@@ -10,6 +10,6 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @CitizenId       = '012735687326'
   , @PhoneNumberList = '0192381297,0284724665,0423874468,0623748736'
   , @DepartmentId    = 'Director'
-  , @JobPositionId   = 'POS00001'
+  , @JobPositionId   = 1
   , @SalaryLevelId   = 30
 
