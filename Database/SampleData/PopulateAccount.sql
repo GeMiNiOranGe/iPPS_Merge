@@ -9,3 +9,4 @@ EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'pnnlam',  @EmployeeId = 'E
 EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'hvu',     @EmployeeId = 'EMP00009'
 EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'thnga',   @EmployeeId = 'EMP00010'
 EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'ptphong', @EmployeeId = 'EMP00011'
+GO

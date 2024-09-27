@@ -34,8 +34,8 @@ AS BEGIN
         INSERT INTO [dbo].[EmployeePhoneNumber]
                 ([PhoneNumber], [EmployeeId])
         SELECT    value,        @EmployeeId
-        FROM STRING_SPLIT(@PhoneNumberList, @Separator)
-        WHERE RTRIM(value) <> '';
+        FROM string_split(@PhoneNumberList, @Separator)
+        WHERE RTrim(value) <> '';
     END
 END
 GO
