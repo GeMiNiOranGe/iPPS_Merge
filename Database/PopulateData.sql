@@ -11,3 +11,5 @@ SET NOCOUNT ON
 :r $(workspace)\Database\SampleData\PopulateProject.sql
 :r $(workspace)\Database\SampleData\PopulateSalaryLevel.sql
 :r $(workspace)\Database\SampleData\PopulateEmployee.sql
+:r $(workspace)\Database\SampleData\PopulateAccount.sql
+:r $(workspace)\Database\SampleData\PopulateTask.sql
