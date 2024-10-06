@@ -1,4 +1,4 @@
-﻿USE [Master]
+USE [Master]
 GO
 
 DECLARE @DbName     NVARCHAR(50)  = N'Pepro' -- change DbName here and...
