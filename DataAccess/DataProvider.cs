@@ -64,11 +64,10 @@ namespace DataAccess {
             return dataTable;
         }
 
-        /*public int ExecuteNonQuery(string query)
-        {
+        /* 
+        public int ExecuteNonQuery(string query) {
             int iData = 0;
-            using (var sqlConnection = GetConnection())
-            {
+            using (var sqlConnection = GetConnection()) {
                 OpenConnection(sqlConnection);
                 var sqlCommand = new SqlCommand(query, sqlConnection);
 
@@ -80,7 +79,9 @@ namespace DataAccess {
                 CloseConnection(sqlConnection);
             }
             return iData;
-        }*/
+        }
+         */
+
         public int ExecuteNonQuery(string query, object[] parameter = null) {
             int data = 0;
             using (SqlConnection connection = new SqlConnection(CONNECTION_STRING)) {
@@ -125,6 +126,18 @@ namespace DataAccess {
             }
             return objData;
         }
+
+        //public void ExecuteReader(string query, out SqlDataReader dataReader) {
+        //    using (var sqlConnection = GetConnection()) {
+        //        OpenConnection(sqlConnection);
+        //        var sqlCommand = new SqlCommand(query, sqlConnection);
+        //        try {
+        //            dataReader = sqlCommand.ExecuteReader();
+        //        }
+        //        catch (SqlException ex) { throw ex; }
+        //        CloseConnection(sqlConnection);
+        //    }
+        //}
 
         public void OpenConnection() {
             throw new NotImplementedException();

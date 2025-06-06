@@ -1,4 +1,4 @@
-﻿namespace DAL {
+﻿namespace DataAccess {
     public class CAccountDAL {
         #region Singleton Design Pattern
         private static CAccountDAL instance;
