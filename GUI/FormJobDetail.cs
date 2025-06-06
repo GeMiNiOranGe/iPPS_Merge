@@ -34,7 +34,7 @@ namespace GUI {
 
         private void ShowJobsFromProject(string strProjectId) {
             flPnlListJob.Controls.Clear();
-            var dataTable = BLL.CJobBLL.Instance.GetAllFromProject(strProjectId);
+            var dataTable = BusinessLogic.CJobBLL.Instance.GetAllFromProject(strProjectId);
             double total;
             double total1;
             if (dataTable != null && dataTable.Rows.Count > 0) {
@@ -45,8 +45,8 @@ namespace GUI {
                         PanelManager = pnlManager,
                         PanelJobOfEmployee = flPnlJobOfEmployee
                     };
-                    total = Convert.ToDouble(BLL.CProgressBLL.getTotalDocumentbyJobID(jobItem.Id));
-                    total1 = Convert.ToDouble(BLL.CProgressBLL.getNumberofDocumentbyJobID(jobItem.Id));
+                    total = Convert.ToDouble(BusinessLogic.CProgressBLL.getTotalDocumentbyJobID(jobItem.Id));
+                    total1 = Convert.ToDouble(BusinessLogic.CProgressBLL.getNumberofDocumentbyJobID(jobItem.Id));
                     jobItem.Percent = Math.Round((total / total1) * 100, 2).ToString() + "%";
 
                     jobItem.Size = new Size() {
