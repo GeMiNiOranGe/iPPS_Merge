@@ -1,4 +1,4 @@
-﻿namespace BLL {
+﻿namespace BusinessLogic {
     public enum LoginStatus {
         Success = 0,
         InvalidInput = 1,

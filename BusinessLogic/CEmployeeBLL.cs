@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace BLL {
+namespace BusinessLogic {
     public class CEmployeeBLL {
         #region Singleton Design Pattern
         private static CEmployeeBLL instance;

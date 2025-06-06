@@ -55,7 +55,7 @@ namespace GUI {
 
             string managerTempId = null;
 
-            var dtManager = BLL.CJobBLL.Instance.GetManager(strJobId);
+            var dtManager = BusinessLogic.CJobBLL.Instance.GetManager(strJobId);
 
             if (dtManager != null && dtManager.Rows.Count > 0) {
                 foreach (DataRow row in dtManager.Rows) {
@@ -74,7 +74,7 @@ namespace GUI {
                 }
             }
 
-            var dtJobsByProject = BLL.CJobBLL.Instance.GetAllByEmployee(managerTempId);
+            var dtJobsByProject = BusinessLogic.CJobBLL.Instance.GetAllByEmployee(managerTempId);
             double total;
             double total1;
             if (dtJobsByProject != null && dtJobsByProject.Rows.Count > 0) {
@@ -84,8 +84,8 @@ namespace GUI {
                         JobId = row["JOB_ID"].ToString(),
                         JobName = row["JOB_NAME"].ToString()
                     };
-                    total = Convert.ToDouble(BLL.CProgressBLL.getTotalDocumentbyJobID(jobOfEmployeeItem.JobId));
-                    total1 = Convert.ToDouble(BLL.CProgressBLL.getNumberofDocumentbyJobID(jobOfEmployeeItem.JobId));
+                    total = Convert.ToDouble(BusinessLogic.CProgressBLL.getTotalDocumentbyJobID(jobOfEmployeeItem.JobId));
+                    total1 = Convert.ToDouble(BusinessLogic.CProgressBLL.getNumberofDocumentbyJobID(jobOfEmployeeItem.JobId));
                     jobOfEmployeeItem.JobPercent = Math.Round((total / total1) * 100, 2).ToString() + "%";
                     pnlJobOfEmployee.Controls.Add(jobOfEmployeeItem);
                 }

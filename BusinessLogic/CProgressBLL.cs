@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace BusinessLogic
 {
     public class CProgressBLL
     {
