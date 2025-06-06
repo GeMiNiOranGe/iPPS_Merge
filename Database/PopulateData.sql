@@ -15,3 +15,4 @@ SET NOCOUNT ON
 :r $(workspace)\Database\SampleData\PopulateTask.sql
 
 :r $(workspace)\Database\SampleData\PopulateTaskDetail.sql
+:r $(workspace)\Database\SampleData\PopulateDepartmentProject.sql
