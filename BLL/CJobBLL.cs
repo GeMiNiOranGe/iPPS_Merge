@@ -15,15 +15,15 @@ namespace BLL {
         #endregion
 
         public DataTable GetAllFromProject(string strProjectId) {
-            return DAL.CJobDAL.Instance.GetAllFromProject(strProjectId);
+            return DataAccess.CJobDAL.Instance.GetAllFromProject(strProjectId);
         }
         
         public DataTable GetAllByEmployee(string strEmployeeId) {
-            return DAL.CJobDAL.Instance.GetAllByEmployee(strEmployeeId);
+            return DataAccess.CJobDAL.Instance.GetAllByEmployee(strEmployeeId);
         }
         
         public DataTable GetManager(string strJobId) {
-            return DAL.CJobDAL.Instance.GetManager(strJobId);
+            return DataAccess.CJobDAL.Instance.GetManager(strJobId);
         }
     }
 }

@@ -53,9 +53,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{fe151fbd-a14d-45b0-a79b-6242b4cddef9}</Project>
-      <Name>DAL</Name>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{8dfe98a9-ee6f-47e7-b473-bfad18e46eef}</Project>
+      <Name>DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{c8b046d7-286d-41c5-ba96-204531df24ac}</Project>

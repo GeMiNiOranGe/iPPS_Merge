@@ -14,7 +14,7 @@ namespace BLL {
         #endregion
 
         public DataTable GetProjectList() {
-            return DAL.CProjectDAL.Instance.GetProjectList();
+            return DataAccess.CProjectDAL.Instance.GetProjectList();
         }
     }
 }

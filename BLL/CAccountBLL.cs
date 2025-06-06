@@ -25,9 +25,9 @@
         //change from 'query directly for value' to 'query for returned value. then, compare with current value'
         public LoginStatus GetLoginStatus(DTO.CAccount account) {
             //// Check account existence
-            //bool bExist = DAL.CAccountDAL.Instance.IsAccountExist(account);
+            //bool bExist = DataAccess.CAccountDAL.Instance.IsAccountExist(account);
             //// Check active account
-            //bool bActive = DAL.CAccountDAL.Instance.IsActive(account);
+            //bool bActive = DataAccess.CAccountDAL.Instance.IsActive(account);
 
             //if (account.EmployeeId == USER_ID_PLACEHOLDER && account.Password == PASSWORD_PLACEHOLDER)
             //    return LoginStatus.InvalidInput;
@@ -37,7 +37,7 @@
             //    return LoginStatus.InvalidAccount;
             //return LoginStatus.OtherError;
 
-            var newAccount = DAL.CAccountDAL.Instance.GetAccount(account);
+            var newAccount = DataAccess.CAccountDAL.Instance.GetAccount(account);
 
             bool IsExist = newAccount.EmployeeId == account.EmployeeId && newAccount.Password == account.Password;
             

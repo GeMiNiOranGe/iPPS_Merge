@@ -12,27 +12,27 @@ namespace BLL
     {
         public static CEmployee getEmployeebyEmployeeID(string employeeID)
         {
-            return DAL.CEmployeeInfoDAL.Instance.getEmployeebyEmployeeID(employeeID);
+            return DataAccess.CEmployeeInfoDAL.Instance.getEmployeebyEmployeeID(employeeID);
         }
         public static CRole getRolebyEmployeeID(string employeeID)
         {
-            return DAL.CEmployeeInfoDAL.Instance.getRolebyEmployeeID(employeeID);
+            return DataAccess.CEmployeeInfoDAL.Instance.getRolebyEmployeeID(employeeID);
         }
         public static CDepartment getDepartmentbyDepartmentID(string departmentID)
         {
-            return DAL.CEmployeeInfoDAL.Instance.getDepartmentbyDepartmentID(departmentID);
+            return DataAccess.CEmployeeInfoDAL.Instance.getDepartmentbyDepartmentID(departmentID);
         }
         public static List<CEmployeeBelongToProject> getProjectIDbyEmployeeID(string employeeID)
         {
-            return DAL.CEmployeeInfoDAL.Instance.getProjectIDbyEmployeeID(employeeID);
+            return DataAccess.CEmployeeInfoDAL.Instance.getProjectIDbyEmployeeID(employeeID);
         }
         public static CProject getProjectbyProjectID(string projectID)
         {
-            return DAL.CEmployeeInfoDAL.Instance.getProjectbyProjectID(projectID);
+            return DataAccess.CEmployeeInfoDAL.Instance.getProjectbyProjectID(projectID);
         }
         public static List<CEmployeePhoneNumber> getPhoneNumberbyEmployeeID(string employeeID)
         {
-            return DAL.CEmployeeInfoDAL.Instance.getPhoneNumberbyEmployeeID(employeeID);
+            return DataAccess.CEmployeeInfoDAL.Instance.getPhoneNumberbyEmployeeID(employeeID);
         }
     }
 }

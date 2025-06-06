@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace DAL {
+namespace DataAccess {
     public class CJobDAL {
         #region Singleton Design Pattern
         private static CJobDAL instance;
