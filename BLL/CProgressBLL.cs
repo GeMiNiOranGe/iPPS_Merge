@@ -12,11 +12,11 @@ namespace BLL
     {
         public static string getNumberofDocumentbyJobID(string jobID)
         {
-            return DAL.CProgressDAL.Instance.getNumberofDocumentbyJobID(jobID);
+            return DataAccess.CProgressDAL.Instance.getNumberofDocumentbyJobID(jobID);
         }
         public static string getTotalDocumentbyJobID(string jobID)
         {
-            return DAL.CProgressDAL.Instance.getTotalDocumentbyJobID(jobID);
+            return DataAccess.CProgressDAL.Instance.getTotalDocumentbyJobID(jobID);
         }
     }
 }
