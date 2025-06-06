@@ -47,6 +47,8 @@ CREATE TABLE [dbo].[Project] (
     [Name]          [nvarchar](50)  NOT NULL,
     [CustomerName]  [nvarchar](50)  NOT NULL,
     [ManagerId]     [varchar](10)   NOT NULL,
+    [StartDate]     [date]          NOT NULL,
+    [EndDate]       [date]          NOT NULL,
 
     [StatusId]      [int]           NOT NULL,
 );
@@ -131,8 +133,6 @@ CREATE TABLE [TaskDetail] (
 
 CREATE TABLE [DepartmentProject] (
     [DepartmentProjectId]   [int]           NOT NULL IDENTITY(1, 1),
-    [ProjectStartDate]      [date]          NOT NULL,
-    [ProjectEndDate]        [date]          NOT NULL,
 
     [ProjectId]             [varchar](10)   NOT NULL,
     [DepartmentId]          [varchar](10)   NOT NULL,
@@ -141,8 +141,8 @@ GO
 
 -- add unique key --------------------------------------------------------
 ALTER TABLE [dbo].[Account]
-ADD CONSTRAINT UK_Username      UNIQUE ([Username])
-  , CONSTRAINT UK_EmployeeId    UNIQUE ([EmployeeId])
+ADD CONSTRAINT [UK_Username]      UNIQUE ([Username])
+  , CONSTRAINT [UK_EmployeeId]    UNIQUE ([EmployeeId])
 GO
 
 -- add primary key -------------------------------------------------------
