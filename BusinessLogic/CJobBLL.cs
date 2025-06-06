@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace BLL {
+namespace BusinessLogic {
     public class CJobBLL {
         #region Singleton Design Pattern
         private static CJobBLL instance;
