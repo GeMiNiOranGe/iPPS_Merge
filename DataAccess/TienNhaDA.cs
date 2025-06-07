@@ -94,8 +94,7 @@ namespace DataAccess
                 int result = DataProvider.Instance.ExecuteNonQuery(query);
                 return result > 0;
             }
-            catch (Exception ex)
-            {
+            catch (Exception) {
                 return false;
             }   
         }
