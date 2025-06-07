@@ -144,7 +144,6 @@
     <Compile Include="CProject.cs" />
     <Compile Include="CRole.cs" />
     <Compile Include="Enumerate.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ChamCong.cs" />
     <Compile Include="Dien.cs" />
     <Compile Include="HoGD.cs" />
