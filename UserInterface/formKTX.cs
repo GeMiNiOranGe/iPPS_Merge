@@ -102,7 +102,7 @@ namespace UserInterface {
 
                 insertNewHouseHold(maHGD, maNV1, maNV2);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Lỗi");
             }

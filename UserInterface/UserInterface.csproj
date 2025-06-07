@@ -144,8 +144,74 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminProjects.Designer.cs">
+      <DependentUpon>AdminProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProjectsModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminProjectsModule.Designer.cs">
+      <DependentUpon>AdminProjectsModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminTasks.Designer.cs">
+      <DependentUpon>AdminTasks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminTasksModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminTasksModule.Designer.cs">
+      <DependentUpon>AdminTasksModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeProjects.Designer.cs">
+      <DependentUpon>EmployeeProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeTasks.Designer.cs">
+      <DependentUpon>EmployeeTasks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInfo.Designer.cs">
+      <DependentUpon>frmInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="formChamCong.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDocument.Designer.cs">
+      <DependentUpon>FormDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInsert.Designer.cs">
+      <DependentUpon>FormInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProgress.Designer.cs">
+      <DependentUpon>FormProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormJobDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormJobDetail.Designer.cs">
+      <DependentUpon>FormJobDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDispatchStaff.cs">
       <SubType>Form</SubType>
@@ -159,11 +225,23 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLoginGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoginGUI.Designer.cs">
+      <DependentUpon>FormLoginGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenuGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenuGUI.Designer.cs">
+      <DependentUpon>FormMenuGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSaveStaff.cs">
       <SubType>Form</SubType>
@@ -208,11 +286,57 @@
     <Compile Include="FormStaff.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UCManagerItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCManagerItem.Designer.cs">
+      <DependentUpon>UCManagerItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCProjectItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCProjectItem.Designer.cs">
+      <DependentUpon>UCProjectItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCJobOfEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCJobOfEmployee.Designer.cs">
+      <DependentUpon>UCJobOfEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCJobItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCJobItem.Designer.cs">
+      <DependentUpon>UCJobItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormStaff.Designer.cs">
       <DependentUpon>FormStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="HandleControl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminProjects.resx">
+      <DependentUpon>AdminProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminProjectsModule.resx">
+      <DependentUpon>AdminProjectsModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminTasks.resx">
+      <DependentUpon>AdminTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminTasksModule.resx">
+      <DependentUpon>AdminTasksModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeProjects.resx">
+      <DependentUpon>EmployeeProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeTasks.resx">
+      <DependentUpon>EmployeeTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInfo.resx">
+      <DependentUpon>frmInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formChamCong.resx">
       <DependentUpon>formChamCong.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,14 +361,44 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLoginGUI.resx">
+      <DependentUpon>FormLoginGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenuGUI.resx">
+      <DependentUpon>FormMenuGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSaveStaff.resx">
       <DependentUpon>FormSaveStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStaff.resx">
       <DependentUpon>FormStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProgress.resx">
+      <DependentUpon>FormProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormJobDetail.resx">
+      <DependentUpon>FormJobDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDocument.resx">
+      <DependentUpon>FormDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInsert.resx">
+      <DependentUpon>FormInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCManagerItem.resx">
+      <DependentUpon>UCManagerItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCProjectItem.resx">
+      <DependentUpon>UCProjectItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCJobOfEmployee.resx">
+      <DependentUpon>UCJobOfEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCJobItem.resx">
+      <DependentUpon>UCJobItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -283,6 +437,84 @@
       <Project>{30e587df-fe35-4b61-b313-04a24dd79360}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseLockWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseLockYellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenLockWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenLockYellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserYellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseCircleFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AccImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FullScreenCircleFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MinimizeCircleFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NormalScreenCircleFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Laptop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MultiplePages.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DoughnutChart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DoughnutChartFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MultiplePagesFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PasteClipboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PasteClipboardFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FolderFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insert.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\print.png" />

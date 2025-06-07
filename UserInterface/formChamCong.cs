@@ -18,7 +18,6 @@ using iText;
 namespace UserInterface {
     public partial class formChamCong : Form {
         private ChamCongBL businessLogic;
-        private string selectedValueBeforeDropDown;
         //private ChamCong chamcong;
         #region Event
         public formChamCong() {
