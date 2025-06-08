@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTO
+namespace Pepro.DTOs
 {
-    public class Nuoc
+    public class Dien
     {
-        private string maNuoc;
+        private string maDien;
         private string maHGD;
         private DateTime Month;
         private int HeSoThangTruoc;
         private int HeSoHienTai;
         private string donvi;
-        public string MaNuoc
+        public string MaDien
         {
-            get { return maNuoc; }
-            set { maNuoc = value; }
+            get { return maDien; }
+            set { maDien = value; }
         }
         public string MaHGD
         {
@@ -29,29 +30,29 @@ namespace DTO
             get { return Month; }
             set { Month = value; }
         }
-        public int HESONUOCTHANGTRUOC
+        public int HeSoDienThangTruoc
         {
             get { return HeSoThangTruoc; }
             set { HeSoThangTruoc = value; }
         }
-        public int HESONUOCHIENTAI
+        public int HeSoDienHienTai
         {
             get { return HeSoHienTai; }
             set { HeSoHienTai = value; }
         }
-        public string DVN
+        public string DonVi
         {
             get { return donvi; }
             set { donvi = value; }
         }
-        public Nuoc(string man, string mahgd, DateTime thang, int hesodienthangtruoc, int hesodienhientai, string dv)
+        public Dien(string mad,string mahgd,DateTime thang,int hesodienthangtruoc,int hesodienhientai,string dv)
         {
-            this.maNuoc = man;
-            this.maHGD = mahgd;
-            this.Month = thang;
-            this.HeSoThangTruoc = hesodienthangtruoc;
-            this.HeSoHienTai = hesodienhientai;
-            this.donvi = dv;
+            this.MaDien = mad;
+            this.maHGD= mahgd;
+            this.Thang = thang;
+            this.HeSoThangTruoc= hesodienthangtruoc;
+            this.HeSoDienHienTai=hesodienhientai;
+            this.DonVi = dv;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace DTO {
+﻿namespace Pepro.DTOs {
     // A class to represent a project implemented by a department
     public class CImplementProject {
         // Attributes of the class

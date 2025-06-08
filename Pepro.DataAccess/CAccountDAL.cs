@@ -1,4 +1,6 @@
-﻿namespace Pepro.DataAccess {
+﻿using Pepro.DTOs;
+
+namespace Pepro.DataAccess {
     public class CAccountDAL {
         #region Singleton Design Pattern
         private static CAccountDAL instance;
@@ -11,7 +13,7 @@
         private CAccountDAL() { }
         #endregion
 
-        public bool IsAccountExist(DTO.CAccount account) {
+        public bool IsAccountExist(CAccount account) {
             // Create a query to check if the account exists or not
             string strQuery = $"Select EMPLOYEE_ID, PASSWORD From ACCOUNT Where EMPLOYEE_ID = '{account.EmployeeId}' And PASSWORD = '{account.Password}'";
             
@@ -28,7 +30,7 @@
             return bExist;
         }
 
-        public bool IsActive(DTO.CAccount account) {
+        public bool IsActive(CAccount account) {
             // Create a query to check if the account is active or not
             string strQuery = $"Select IS_ACTIVE From ACCOUNT Where EMPLOYEE_ID = '{account.EmployeeId}'";
             
@@ -37,16 +39,16 @@
             return bActive;
         }
 
-        public DTO.CAccount GetAccount(DTO.CAccount account) {
+        public CAccount GetAccount(CAccount account) {
             string query = $"Select EMPLOYEE_ID, PASSWORD, IS_ACTIVE From ACCOUNT Where EMPLOYEE_ID = '{account.EmployeeId}' And PASSWORD = '{account.Password}'";
             
             var sqlCommand = DataProvider.Instance.GetCommand(query);
             
             DataProvider.Instance.OpenConnection(sqlCommand);
             var sqlDataReader = sqlCommand.ExecuteReader();
-            DTO.CAccount newAccount = null;
+            CAccount newAccount = null;
             if (sqlDataReader.Read()) {
-                    newAccount = new DTO.CAccount() {
+                    newAccount = new CAccount() {
                     EmployeeId = sqlDataReader["EMPLOYEE_ID"].ToString(),
                     Password = sqlDataReader["PASSWORD"].ToString(),
                     IsActive = System.Convert.ToBoolean(sqlDataReader["IS_ACTIVE"])

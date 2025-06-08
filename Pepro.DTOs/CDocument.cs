@@ -1,4 +1,4 @@
-﻿namespace DTO {
+﻿namespace Pepro.DTOs {
     public class CDocument {
         // Attributes
         public string strId;

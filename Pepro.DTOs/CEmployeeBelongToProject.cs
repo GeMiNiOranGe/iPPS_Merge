@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace DTO {
+namespace Pepro.DTOs {
     public class CEmployeeBelongToProject {
         public CEmployeeBelongToProject(string strEmployeeId, string strProjectId)
         {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTO {
+namespace Pepro.DTOs {
     public class CDocumentNativeFileFormat {
         // Attributes of the class
         private string strId;
