@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace DataAccess {
+namespace Pepro.DataAccess {
     public class CEmployeeDAL {
         #region Singleton Design Pattern
         private static CEmployeeDAL instance;
