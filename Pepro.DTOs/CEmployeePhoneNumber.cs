@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace DTO {
+namespace Pepro.DTOs {
     public class CEmployeePhoneNumber {
         public CEmployeePhoneNumber(string strId, string strEmployeeId, string strPhoneNumber)
         {

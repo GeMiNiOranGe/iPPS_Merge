@@ -1,4 +1,4 @@
-﻿namespace DTO {
+﻿namespace Pepro.DTOs {
     public enum EmployeeType {
         InternOrTrainee,
         PartTime,

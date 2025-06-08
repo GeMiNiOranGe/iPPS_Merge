@@ -1,4 +1,4 @@
-﻿namespace DTO {
+﻿namespace Pepro.DTOs {
     public class CJoinJob {
         // Private data members
         public string strEmployeeId;

@@ -1,4 +1,4 @@
-﻿namespace DTO {
+﻿namespace Pepro.DTOs {
     public class CAccount {
         private string strId;
         private string strEmployeeId;
