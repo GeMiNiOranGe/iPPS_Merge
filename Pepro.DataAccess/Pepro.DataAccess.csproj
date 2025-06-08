@@ -147,9 +147,9 @@
     <Compile Include="TienNhaDA.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DTO\DTO.csproj">
+    <ProjectReference Include="..\Pepro.DTOs\Pepro.DTOs.csproj">
       <Project>{30e587df-fe35-4b61-b313-04a24dd79360}</Project>
-      <Name>DTO</Name>
+      <Name>Pepro.DTOs</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

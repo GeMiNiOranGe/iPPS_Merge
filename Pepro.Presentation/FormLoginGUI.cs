@@ -1,11 +1,12 @@
 ﻿using Pepro.Business;
+using Pepro.DTOs;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace Pepro.Presentation {
     public partial class FormLoginGUI : Form {
-        private readonly DTO.CAccount account = new DTO.CAccount();
+        private readonly CAccount account = new CAccount();
 
         public FormLoginGUI() {
             InitializeComponent();

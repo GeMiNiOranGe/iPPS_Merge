@@ -1,4 +1,6 @@
-﻿namespace Pepro.Business {
+﻿using Pepro.DTOs;
+
+namespace Pepro.Business {
     public enum LoginStatus {
         Success = 0,
         InvalidInput = 1,
@@ -23,7 +25,7 @@
         public const string PASSWORD_PLACEHOLDER = "Mật khẩu";
 
         //change from 'query directly for value' to 'query for returned value. then, compare with current value'
-        public LoginStatus GetLoginStatus(DTO.CAccount account) {
+        public LoginStatus GetLoginStatus(CAccount account) {
             //// Check account existence
             //bool bExist = DataAccess.CAccountDAL.Instance.IsAccountExist(account);
             //// Check active account

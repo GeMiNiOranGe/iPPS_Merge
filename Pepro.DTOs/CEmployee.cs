@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System;
 
-namespace DTO {
+namespace Pepro.DTOs {
     public class CEmployee {
         public CEmployee(string strId, string strDepartmentId, string strFirstName, string strMiddleName, string strLastName, bool bSex, DateTime dtDateOfBirth, string strCitizenIdNumber)
         {

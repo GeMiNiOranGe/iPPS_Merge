@@ -1,4 +1,4 @@
-﻿namespace DTO {
+﻿namespace Pepro.DTOs {
     public class CJoinProject {
         public string strProjectId;
         public string strPartnerId;

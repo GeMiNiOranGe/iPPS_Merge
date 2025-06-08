@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System;
 
-namespace DTO {
+namespace Pepro.DTOs {
     public class CRole {
         public CRole(string strId, string strEmployeeId, string strName)
         {

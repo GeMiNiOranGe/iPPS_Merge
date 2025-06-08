@@ -1,4 +1,4 @@
-﻿namespace DTO {
+﻿namespace Pepro.DTOs {
     class CJob {
         // Attributes of the class
         private string strId; 

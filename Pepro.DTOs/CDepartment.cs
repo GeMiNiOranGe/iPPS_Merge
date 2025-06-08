@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace DTO {
+namespace Pepro.DTOs {
         public class CDepartment {
         public CDepartment(string strId, string strName)
         {

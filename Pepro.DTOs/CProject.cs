@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace DTO {
+namespace Pepro.DTOs {
         public class CProject {
         public CProject(string strId,  string strName)
         {
