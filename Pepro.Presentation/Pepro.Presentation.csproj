@@ -425,9 +425,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+    <ProjectReference Include="..\Pepro.Business\Pepro.Business.csproj">
       <Project>{efa16b32-7c07-4f33-8c8d-4153fbb38dfa}</Project>
-      <Name>BusinessLogic</Name>
+      <Name>Pepro.Business</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{8dfe98a9-ee6f-47e7-b473-bfad18e46eef}</Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pepro.Business;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,8 +9,8 @@ namespace Pepro.Presentation {
 
         public FormLoginGUI() {
             InitializeComponent();
-            ForTextbox.SetPlaceHolder(this.TxtUserId, BusinessLogic.CAccountBLL.USER_ID_PLACEHOLDER);
-            ForTextbox.SetPlaceHolder(this.TxtPassword, BusinessLogic.CAccountBLL.PASSWORD_PLACEHOLDER);
+            ForTextbox.SetPlaceHolder(this.TxtUserId, CAccountBLL.USER_ID_PLACEHOLDER);
+            ForTextbox.SetPlaceHolder(this.TxtPassword, CAccountBLL.PASSWORD_PLACEHOLDER);
         }
 
         private void BtnLogin_Click(object sender, EventArgs e) {
@@ -18,11 +19,11 @@ namespace Pepro.Presentation {
             account.Password = TxtPassword.Text;
 
             // Call the login handler method and get the result
-            BusinessLogic.LoginStatus status = BusinessLogic.CAccountBLL.Instance.GetLoginStatus(account);
+            LoginStatus status = CAccountBLL.Instance.GetLoginStatus(account);
             string userID = TxtUserId.Text;
             // Check the result
             switch (status) {
-            case BusinessLogic.LoginStatus.Success:
+            case LoginStatus.Success:
                 LbError.Text = "Đăng nhập thành công!";
                 var formMenu = new FormMenuGUI {
                     UserId = TxtUserId.Text
@@ -30,25 +31,25 @@ namespace Pepro.Presentation {
                 formMenu.Show();
                 Hide();
                 break;
-            case BusinessLogic.LoginStatus.InvalidInput:
+            case LoginStatus.InvalidInput:
                 // Displays an error message due to invalid input data
                 LbError.Text = "ID người dùng và mật khẩu không được để trống!";
                 break;
-            case BusinessLogic.LoginStatus.InvalidAccount:
+            case LoginStatus.InvalidAccount:
                 // Displays an error message because the account does not exist or has incorrect information
                 LbError.Text = "ID người dùng hoặc mật khẩu sai!";
                 break;
-            case BusinessLogic.LoginStatus.LockedAccount:
+            case LoginStatus.LockedAccount:
                 // Shows an error message because the account is locked
                 LbError.Text = "Tài khoản của bạn đã bị khóa!";
                 break;
-            case BusinessLogic.LoginStatus.OtherError:
+            case LoginStatus.OtherError:
                 // Display error messages due to other causes
                 LbError.Text = "Đã xảy ra lỗi trong quá trình đăng nhập!";
                 break;
             }
-            TxtUserId.Text = BusinessLogic.CAccountBLL.USER_ID_PLACEHOLDER;
-            TxtPassword.Text = BusinessLogic.CAccountBLL.PASSWORD_PLACEHOLDER;
+            TxtUserId.Text = CAccountBLL.USER_ID_PLACEHOLDER;
+            TxtPassword.Text = CAccountBLL.PASSWORD_PLACEHOLDER;
             TxtUserId.ForeColor = Color.Gray;
             TxtPassword.ForeColor = Color.Gray;
             TxtPassword.UseSystemPasswordChar = false;
@@ -56,7 +57,7 @@ namespace Pepro.Presentation {
         }
 
         private void TxtPassword_Enter(object sender, EventArgs e) {
-            if (TxtPassword.Text == BusinessLogic.CAccountBLL.PASSWORD_PLACEHOLDER) {
+            if (TxtPassword.Text == CAccountBLL.PASSWORD_PLACEHOLDER) {
                 TextBox textBox = sender as TextBox;
                 TxtPassword.UseSystemPasswordChar = true;
                 textBox.ForeColor = Color.FromArgb(248, 245, 168);
@@ -64,7 +65,7 @@ namespace Pepro.Presentation {
         }
 
         private void TxtPassword_Leave(object sender, EventArgs e) {
-            if (TxtPassword.Text == BusinessLogic.CAccountBLL.PASSWORD_PLACEHOLDER)
+            if (TxtPassword.Text == CAccountBLL.PASSWORD_PLACEHOLDER)
                 TxtPassword.UseSystemPasswordChar = false;
         }
 

@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{C8B046D7-286D-41C5-BA96-204531DF24AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{EFA16B32-7C07-4F33-8C8D-4153FBB38DFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pepro.Business", "Pepro.Business\Pepro.Business.csproj", "{EFA16B32-7C07-4F33-8C8D-4153FBB38DFA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{8DFE98A9-EE6F-47E7-B473-BFAD18E46EEF}"
 EndProject
