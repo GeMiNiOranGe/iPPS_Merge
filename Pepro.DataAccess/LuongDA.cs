@@ -15,7 +15,7 @@ using iText;
 using iText.Kernel.Colors;
 using iText.Forms.Fields.Merging;
 
-namespace DataAccess {
+namespace Pepro.DataAccess {
     public class LuongDA {
         // Đường dẫn để xuất báo cáo
         private static string folderPath = @"C:\Users\Administrator\Desktop\Môn HĐT"; // thêm đường dẫn 

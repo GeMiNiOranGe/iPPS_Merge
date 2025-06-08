@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace DataAccess {
+namespace Pepro.DataAccess {
     internal class DataProvider {
         private const string CONNECTION_STRING = @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True";
 
