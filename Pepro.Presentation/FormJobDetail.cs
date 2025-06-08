@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pepro.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,7 +35,7 @@ namespace Pepro.Presentation {
 
         private void ShowJobsFromProject(string strProjectId) {
             flPnlListJob.Controls.Clear();
-            var dataTable = BusinessLogic.CJobBLL.Instance.GetAllFromProject(strProjectId);
+            var dataTable = CJobBLL.Instance.GetAllFromProject(strProjectId);
             double total;
             double total1;
             if (dataTable != null && dataTable.Rows.Count > 0) {
@@ -45,8 +46,8 @@ namespace Pepro.Presentation {
                         PanelManager = pnlManager,
                         PanelJobOfEmployee = flPnlJobOfEmployee
                     };
-                    total = Convert.ToDouble(BusinessLogic.CProgressBLL.getTotalDocumentbyJobID(jobItem.Id));
-                    total1 = Convert.ToDouble(BusinessLogic.CProgressBLL.getNumberofDocumentbyJobID(jobItem.Id));
+                    total = Convert.ToDouble(CProgressBLL.getTotalDocumentbyJobID(jobItem.Id));
+                    total1 = Convert.ToDouble(CProgressBLL.getNumberofDocumentbyJobID(jobItem.Id));
                     jobItem.Percent = Math.Round((total / total1) * 100, 2).ToString() + "%";
 
                     jobItem.Size = new Size() {

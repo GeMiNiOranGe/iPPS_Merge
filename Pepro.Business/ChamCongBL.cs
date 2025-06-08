@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BusinessLogic {
+namespace Pepro.Business {
     public class ChamCongBL {
         private static ChamCongBL instance;
         public static ChamCongBL Instance {

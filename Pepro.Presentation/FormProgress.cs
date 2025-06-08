@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pepro.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +22,7 @@ namespace Pepro.Presentation {
         private void ShowAllProject() {
             if (flPnlProjectList.Controls.Count > 0) flPnlProjectList.Controls.Clear();
 
-            var dataTable = BusinessLogic.CProjectBLL.Instance.GetProjectList();
+            var dataTable = CProjectBLL.Instance.GetProjectList();
             string projectID;
             double total;
             double total1;
@@ -35,15 +36,15 @@ namespace Pepro.Presentation {
                         DepartmentName = row["DEPARTMENT_NAME"].ToString()
                     };
                     projectID = projectItem.Id;
-                    var dataTable1 = BusinessLogic.CJobBLL.Instance.GetAllFromProject(projectID);
+                    var dataTable1 = CJobBLL.Instance.GetAllFromProject(projectID);
                     if (dataTable1 != null && dataTable1.Rows.Count > 0)
                         foreach (DataRow row1 in dataTable1.Rows)
                             totalJob += 1;
 
                     if (dataTable1 != null && dataTable1.Rows.Count > 0)
                         foreach (DataRow row1 in dataTable1.Rows) {
-                            total = Convert.ToDouble(BusinessLogic.CProgressBLL.getTotalDocumentbyJobID(row1["JOB_ID"].ToString()));
-                            total1 = Convert.ToDouble(BusinessLogic.CProgressBLL.getNumberofDocumentbyJobID(row1["JOB_ID"].ToString()));
+                            total = Convert.ToDouble(CProgressBLL.getTotalDocumentbyJobID(row1["JOB_ID"].ToString()));
+                            total1 = Convert.ToDouble(CProgressBLL.getNumberofDocumentbyJobID(row1["JOB_ID"].ToString()));
                             if (total == total1) count += 1;
                         }
 
