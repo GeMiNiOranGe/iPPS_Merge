@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace DataAccess
+namespace Pepro.DataAccess
 {
     public class DienDA
     {

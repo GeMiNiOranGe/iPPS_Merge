@@ -146,9 +146,9 @@
     <Compile Include="TienNhaBL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+    <ProjectReference Include="..\Pepro.DataAccess\Pepro.DataAccess.csproj">
       <Project>{8dfe98a9-ee6f-47e7-b473-bfad18e46eef}</Project>
-      <Name>DataAccess</Name>
+      <Name>Pepro.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{30e587df-fe35-4b61-b313-04a24dd79360}</Project>

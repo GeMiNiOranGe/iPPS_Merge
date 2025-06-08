@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace DataAccess {
+namespace Pepro.DataAccess {
 
     public class ChamCongDA {
         // thêm đường dẫn
