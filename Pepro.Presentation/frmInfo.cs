@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pepro.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,7 +23,7 @@ namespace Pepro.Presentation
 
         private void frmInfo_Load(object sender, EventArgs e)
         {
-            CEmployee getEmployee = BusinessLogic.CEmployeeInfoBLL.getEmployeebyEmployeeID(strId);
+            CEmployee getEmployee = CEmployeeInfoBLL.getEmployeebyEmployeeID(strId);
             txtEmpoyeeID.Text = getEmployee.Id;
             txtEmployeeName.Text = getEmployee.FirstName + " " + getEmployee.MiddleName + " " + getEmployee.LastName;
             bool bSex = getEmployee.Sex;
@@ -37,17 +38,17 @@ namespace Pepro.Presentation
             string employeeBirthday = getEmployee.DateOfBirth.ToString();
             dtpEmployeeBirthday.Value = DateTime.Parse(employeeBirthday);
             txtCCCD.Text = getEmployee.CitizenIdNumber;
-            CRole getRole = BusinessLogic.CEmployeeInfoBLL.getRolebyEmployeeID(strId);
+            CRole getRole = CEmployeeInfoBLL.getRolebyEmployeeID(strId);
             txtRole.Text = getRole.Name;
             string departmentID = getEmployee.DepartmentId;
-            CDepartment getDepartment = BusinessLogic.CEmployeeInfoBLL.getDepartmentbyDepartmentID(departmentID);
+            CDepartment getDepartment = CEmployeeInfoBLL.getDepartmentbyDepartmentID(departmentID);
             txtDepartment.Text = getDepartment.Name;
-            List<CEmployeeBelongToProject> listProjectID = BusinessLogic.CEmployeeInfoBLL.getProjectIDbyEmployeeID(strId);
+            List<CEmployeeBelongToProject> listProjectID = CEmployeeInfoBLL.getProjectIDbyEmployeeID(strId);
             if (listProjectID.Count > 0)
             {
                 foreach (CEmployeeBelongToProject projectID in listProjectID)
                 {
-                    CProject getProject = BusinessLogic.CEmployeeInfoBLL.getProjectbyProjectID(projectID.ProjectId);
+                    CProject getProject = CEmployeeInfoBLL.getProjectbyProjectID(projectID.ProjectId);
                     cbProject.Items.Add(getProject.Name);
                 }
                 cbProject.Text = cbProject.Items[0].ToString();
@@ -57,7 +58,7 @@ namespace Pepro.Presentation
                 cbProject.Items.Add("Không có");
                 cbProject.Text = cbProject.Items[0].ToString();
             }
-            List<CEmployeePhoneNumber> listPhoneNumber = BusinessLogic.CEmployeeInfoBLL.getPhoneNumberbyEmployeeID(strId);
+            List<CEmployeePhoneNumber> listPhoneNumber = CEmployeeInfoBLL.getPhoneNumberbyEmployeeID(strId);
             foreach(CEmployeePhoneNumber phoneNumber in listPhoneNumber)
             {
                 cbSDT.Items.Add(phoneNumber.PhoneNumber);

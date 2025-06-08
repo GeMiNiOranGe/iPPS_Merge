@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace BusinessLogic {
+namespace Pepro.Business {
     public class CEmployeeBLL {
         #region Singleton Design Pattern
         private static CEmployeeBLL instance;

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic {
+namespace Pepro.Business {
     public class LuongBL {
         private static LuongBL instance;
         public static LuongBL Instance {

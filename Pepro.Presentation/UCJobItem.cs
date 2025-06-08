@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pepro.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -55,7 +56,7 @@ namespace Pepro.Presentation {
 
             string managerTempId = null;
 
-            var dtManager = BusinessLogic.CJobBLL.Instance.GetManager(strJobId);
+            var dtManager = CJobBLL.Instance.GetManager(strJobId);
 
             if (dtManager != null && dtManager.Rows.Count > 0) {
                 foreach (DataRow row in dtManager.Rows) {
@@ -74,7 +75,7 @@ namespace Pepro.Presentation {
                 }
             }
 
-            var dtJobsByProject = BusinessLogic.CJobBLL.Instance.GetAllByEmployee(managerTempId);
+            var dtJobsByProject = CJobBLL.Instance.GetAllByEmployee(managerTempId);
             double total;
             double total1;
             if (dtJobsByProject != null && dtJobsByProject.Rows.Count > 0) {
@@ -84,8 +85,8 @@ namespace Pepro.Presentation {
                         JobId = row["JOB_ID"].ToString(),
                         JobName = row["JOB_NAME"].ToString()
                     };
-                    total = Convert.ToDouble(BusinessLogic.CProgressBLL.getTotalDocumentbyJobID(jobOfEmployeeItem.JobId));
-                    total1 = Convert.ToDouble(BusinessLogic.CProgressBLL.getNumberofDocumentbyJobID(jobOfEmployeeItem.JobId));
+                    total = Convert.ToDouble(CProgressBLL.getTotalDocumentbyJobID(jobOfEmployeeItem.JobId));
+                    total1 = Convert.ToDouble(CProgressBLL.getNumberofDocumentbyJobID(jobOfEmployeeItem.JobId));
                     jobOfEmployeeItem.JobPercent = Math.Round((total / total1) * 100, 2).ToString() + "%";
                     pnlJobOfEmployee.Controls.Add(jobOfEmployeeItem);
                 }
