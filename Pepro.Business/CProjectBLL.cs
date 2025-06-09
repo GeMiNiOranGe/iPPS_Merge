@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using Pepro.DataAccess;
+using System.Data;
 
 namespace Pepro.Business {
     public class CProjectBLL {
@@ -14,7 +15,7 @@ namespace Pepro.Business {
         #endregion
 
         public DataTable GetProjectList() {
-            return DataAccess.CProjectDAL.Instance.GetProjectList();
+            return CProjectDAL.Instance.GetProjectList();
         }
     }
 }

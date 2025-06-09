@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using Pepro.DataAccess;
+using System.Data;
 
 namespace Pepro.Business {
     public class CJobBLL {
@@ -15,15 +16,15 @@ namespace Pepro.Business {
         #endregion
 
         public DataTable GetAllFromProject(string strProjectId) {
-            return DataAccess.CJobDAL.Instance.GetAllFromProject(strProjectId);
+            return CJobDAL.Instance.GetAllFromProject(strProjectId);
         }
         
         public DataTable GetAllByEmployee(string strEmployeeId) {
-            return DataAccess.CJobDAL.Instance.GetAllByEmployee(strEmployeeId);
+            return CJobDAL.Instance.GetAllByEmployee(strEmployeeId);
         }
         
         public DataTable GetManager(string strJobId) {
-            return DataAccess.CJobDAL.Instance.GetManager(strJobId);
+            return CJobDAL.Instance.GetManager(strJobId);
         }
     }
 }

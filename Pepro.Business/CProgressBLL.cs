@@ -1,4 +1,5 @@
-﻿using Pepro.DTOs;
+﻿using Pepro.DataAccess;
+using Pepro.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,11 @@ namespace Pepro.Business
     {
         public static string getNumberofDocumentbyJobID(string jobID)
         {
-            return DataAccess.CProgressDAL.Instance.getNumberofDocumentbyJobID(jobID);
+            return CProgressDAL.Instance.getNumberofDocumentbyJobID(jobID);
         }
         public static string getTotalDocumentbyJobID(string jobID)
         {
-            return DataAccess.CProgressDAL.Instance.getTotalDocumentbyJobID(jobID);
+            return CProgressDAL.Instance.getTotalDocumentbyJobID(jobID);
         }
     }
 }

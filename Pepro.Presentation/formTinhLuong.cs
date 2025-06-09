@@ -11,10 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
-using iText;
 
 namespace Pepro.Presentation {
     public partial class formTinhLuong : Form {

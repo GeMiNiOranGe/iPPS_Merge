@@ -1,8 +1,4 @@
 ﻿using Pepro.DTOs;
-using iText.Kernel.Colors;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,6 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+//using iText.Kernel.Colors;
+//using iText.Kernel.Pdf;
+//using iText.Layout;
+//using iText.Layout.Element;
 
 namespace Pepro.DataAccess {
 
@@ -132,42 +132,43 @@ namespace Pepro.DataAccess {
 
         public string ExportAlltoPdf(DataTable dataTable) {
             try {
-                using (FileStream fs = new FileStream(filePath, FileMode.Create)) {
-                    using (var pdfWriter = new PdfWriter(fs)) {
-                        using (var pdf = new PdfDocument(pdfWriter)) {
-                            var document = new Document(pdf);
-                            // Tiêu đề báo cáo
-                            document.Add(new Paragraph("ATTENDANCE REPORT").SetFontSize(16));
+                //using (FileStream fs = new FileStream(filePath, FileMode.Create)) {
+                //    using (var pdfWriter = new PdfWriter(fs)) {
+                //        using (var pdf = new PdfDocument(pdfWriter)) {
+                //            var document = new Document(pdf);
+                //            // Tiêu đề báo cáo
+                //            document.Add(new Paragraph("ATTENDANCE REPORT").SetFontSize(16));
 
-                            // Chọn các cột bạn muốn xuất
-                            var selectedColumns = new List<string> { "MaCC", "SONGAYTRONGTHANG", "SONGAYNGHIBHXH", "SONGAYNGHIKHONGLYDO", "THANG" };
+                //            // Chọn các cột bạn muốn xuất
+                //            var selectedColumns = new List<string> { "MaCC", "SONGAYTRONGTHANG", "SONGAYNGHIBHXH", "SONGAYNGHIKHONGLYDO", "THANG" };
 
-                            // Tạo bảng với số cột bằng với số cột bạn đã chọn
-                            var table = new Table(selectedColumns.Count);
+                //            // Tạo bảng với số cột bằng với số cột bạn đã chọn
+                //            var table = new Table(selectedColumns.Count);
 
-                            // Thêm header bảng
-                            foreach (var columnName in selectedColumns) {
-                                table.AddCell(new Cell()
-                                     .Add(new Paragraph(columnName))
-                                     .SetFontColor(DeviceRgb.WHITE)
-                                     .SetBackgroundColor(DeviceRgb.BLACK)
-                                     .SetFontSize(12));
-                            }
+                //            // Thêm header bảng
+                //            foreach (var columnName in selectedColumns) {
+                //                table.AddCell(new Cell()
+                //                     .Add(new Paragraph(columnName))
+                //                     .SetFontColor(DeviceRgb.WHITE)
+                //                     .SetBackgroundColor(DeviceRgb.BLACK)
+                //                     .SetFontSize(12));
+                //            }
 
-                            // Thêm dữ liệu từ DataTable vào bảng
-                            foreach (DataRow row in dataTable.Rows) {
-                                foreach (var columnName in selectedColumns) {
-                                    var cellValue = row[columnName].ToString();
-                                    table.AddCell(new Cell().Add(new Paragraph(cellValue)).SetFontSize(10));
-                                }
-                            }
+                //            // Thêm dữ liệu từ DataTable vào bảng
+                //            foreach (DataRow row in dataTable.Rows) {
+                //                foreach (var columnName in selectedColumns) {
+                //                    var cellValue = row[columnName].ToString();
+                //                    table.AddCell(new Cell().Add(new Paragraph(cellValue)).SetFontSize(10));
+                //                }
+                //            }
 
-                            // Thêm bảng vào tài liệu
-                            document.Add(table);
-                        }
-                    }
-                }
-                return filePath;
+                //            // Thêm bảng vào tài liệu
+                //            document.Add(table);
+                //        }
+                //    }
+                //}
+                //return filePath;
+                return null;
             }
             catch (Exception ex) {
                 Console.WriteLine($"Lỗi: {ex.Message}");
