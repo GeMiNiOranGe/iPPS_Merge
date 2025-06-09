@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Pepro.DataAccess {
     internal class DataProvider {
-        private const string CONNECTION_STRING = @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True";
+        private const string CONNECTION_STRING = @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Trust Server Certificate=True";
 
         #region Singleton Design Pattern
         private static DataProvider instance;
