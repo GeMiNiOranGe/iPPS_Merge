@@ -7,13 +7,11 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using iText.Kernel.Pdf;
-using iText.Layout.Element;
 using System.IO;
-using iText.Layout;
-using iText;
-using iText.Kernel.Colors;
-using iText.Forms.Fields.Merging;
+//using iText.Kernel.Colors;
+//using iText.Kernel.Pdf;
+//using iText.Layout.Element;
+//using iText.Layout;
 
 namespace Pepro.DataAccess {
     public class LuongDA {
@@ -225,20 +223,21 @@ namespace Pepro.DataAccess {
 
         public static string ExportToPdf(string maNhanVien, int luongCoBan, int tongLuong, DateTime thoigian) {
             try {
-                using (FileStream fs = new FileStream(filePath, FileMode.Create)) {
-                    PdfWriter writer = new PdfWriter(fs);
-                    PdfDocument pdf = new PdfDocument(writer);
-                    Document document = new Document(pdf);
+                //using (FileStream fs = new FileStream(filePath, FileMode.Create)) {
+                //    PdfWriter writer = new PdfWriter(fs);
+                //    PdfDocument pdf = new PdfDocument(writer);
+                //    Document document = new Document(pdf);
 
-                    // Thêm nội dung vào tài liệu PDF
-                    document.Add(new Paragraph($"ID: - ({maNhanVien})"));
-                    document.Add(new Paragraph($"Basic Salary: {luongCoBan} VND"));
-                    document.Add(new Paragraph($"Total Salary: {tongLuong} VND"));
-                    document.Add(new Paragraph($"Date:{thoigian}"));
-                    // Lưu và đóng tài liệu
-                    document.Close();
-                }
-                return filePath;
+                //    // Thêm nội dung vào tài liệu PDF
+                //    document.Add(new Paragraph($"ID: - ({maNhanVien})"));
+                //    document.Add(new Paragraph($"Basic Salary: {luongCoBan} VND"));
+                //    document.Add(new Paragraph($"Total Salary: {tongLuong} VND"));
+                //    document.Add(new Paragraph($"Date:{thoigian}"));
+                //    // Lưu và đóng tài liệu
+                //    document.Close();
+                //}
+                //return filePath;
+                return null;
             }
             catch (Exception ex) {
                 Console.WriteLine($"Error creating PDF: {ex.Message}");
@@ -248,41 +247,42 @@ namespace Pepro.DataAccess {
 
         public string ExportAlltoPdf(DataTable dataTable) {
             try {
-                using (FileStream fs = new FileStream(filePath, FileMode.Create)) {
-                    using (var pdfWriter = new PdfWriter(fs)) {
-                        using (var pdf = new PdfDocument(pdfWriter)) {
-                            var document = new Document(pdf);
+                //using (FileStream fs = new FileStream(filePath, FileMode.Create)) {
+                //    using (var pdfWriter = new PdfWriter(fs)) {
+                //        using (var pdf = new PdfDocument(pdfWriter)) {
+                //            var document = new Document(pdf);
 
-                            // Tiêu đề báo cáo
-                            document.Add(new Paragraph("BÁO CÁO TOÀN BỘ DỮ LIỆU NHÂN VIÊN").SetFontSize(16));
+                //            // Tiêu đề báo cáo
+                //            document.Add(new Paragraph("BÁO CÁO TOÀN BỘ DỮ LIỆU NHÂN VIÊN").SetFontSize(16));
 
-                            // Chọn các cột bạn muốn xuất
-                            var selectedColumns = new List<string> { "MaNhanVien", "LuongCoBan", "HeSoBacLuong", "TienNha", "TongLuong" };
+                //            // Chọn các cột bạn muốn xuất
+                //            var selectedColumns = new List<string> { "MaNhanVien", "LuongCoBan", "HeSoBacLuong", "TienNha", "TongLuong" };
 
-                            // Tạo bảng với số cột bằng với số cột bạn đã chọn
-                            var table = new Table(selectedColumns.Count);
+                //            // Tạo bảng với số cột bằng với số cột bạn đã chọn
+                //            var table = new Table(selectedColumns.Count);
 
-                            // Thêm header bảng
-                            foreach (var columnName in selectedColumns) {
-                                table.AddCell(new Cell().Add(new Paragraph(columnName)).SetFontColor(DeviceRgb.WHITE)
-                                        .SetBackgroundColor(DeviceRgb.BLACK)
-                                        .SetFontSize(12));
-                            }
+                //            // Thêm header bảng
+                //            foreach (var columnName in selectedColumns) {
+                //                table.AddCell(new Cell().Add(new Paragraph(columnName)).SetFontColor(DeviceRgb.WHITE)
+                //                        .SetBackgroundColor(DeviceRgb.BLACK)
+                //                        .SetFontSize(12));
+                //            }
 
-                            // Thêm dữ liệu từ DataTable vào bảng
-                            foreach (DataRow row in dataTable.Rows) {
-                                foreach (var columnName in selectedColumns) {
-                                    var cellValue = row[columnName].ToString();
-                                    table.AddCell(new Cell().Add(new Paragraph(cellValue)).SetFontSize(10));
-                                }
-                            }
+                //            // Thêm dữ liệu từ DataTable vào bảng
+                //            foreach (DataRow row in dataTable.Rows) {
+                //                foreach (var columnName in selectedColumns) {
+                //                    var cellValue = row[columnName].ToString();
+                //                    table.AddCell(new Cell().Add(new Paragraph(cellValue)).SetFontSize(10));
+                //                }
+                //            }
 
-                            // Thêm bảng vào tài liệu
-                            document.Add(table);
-                        }
-                    }
-                }
-                return filePath;
+                //            // Thêm bảng vào tài liệu
+                //            document.Add(table);
+                //        }
+                //    }
+                //}
+                //return filePath;
+                return null;
             }
             catch (Exception ex) {
                 Console.WriteLine($"Lỗi: {ex.Message}");
