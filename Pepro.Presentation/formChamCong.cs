@@ -11,9 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Pepro.DataAccess;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using iText.Layout.Splitting;
-using iText;
 
 namespace Pepro.Presentation {
     public partial class formChamCong : Form {

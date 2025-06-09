@@ -10,8 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+//using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Pepro.Presentation {
     public partial class FormStaff : Form {
@@ -265,41 +264,41 @@ namespace Pepro.Presentation {
         }
         
         private void ExportToExcel(System.Windows.Forms.ListView listView, string filePath) {
-            Excel.Application excelApp = new Excel.Application();
-            excelApp.Visible = true;
-            Excel.Workbook workbook = excelApp.Workbooks.Add();
-            Excel.Worksheet worksheet = workbook.Sheets[1];
+            //Excel.Application excelApp = new Excel.Application();
+            //excelApp.Visible = true;
+            //Excel.Workbook workbook = excelApp.Workbooks.Add();
+            //Excel.Worksheet worksheet = workbook.Sheets[1];
 
-            int row = 1;
-            int col = 1;
+            //int row = 1;
+            //int col = 1;
 
-            // Xuất tiêu đề của các cột
-            foreach (ColumnHeader header in listView.Columns) {
-                worksheet.Cells[row, col] = header.Text;
-                col++;
-            }
+            //// Xuất tiêu đề của các cột
+            //foreach (ColumnHeader header in listView.Columns) {
+            //    worksheet.Cells[row, col] = header.Text;
+            //    col++;
+            //}
 
-            // Xuất dữ liệu từ ListView
-            row++;
-            foreach (ListViewItem item in listView.Items) {
-                col = 1;
-                foreach (ListViewItem.ListViewSubItem subItem in item.SubItems) {
-                    worksheet.Cells[row, col] = subItem.Text;
-                    col++;
-                }
-                row++;
-            }
+            //// Xuất dữ liệu từ ListView
+            //row++;
+            //foreach (ListViewItem item in listView.Items) {
+            //    col = 1;
+            //    foreach (ListViewItem.ListViewSubItem subItem in item.SubItems) {
+            //        worksheet.Cells[row, col] = subItem.Text;
+            //        col++;
+            //    }
+            //    row++;
+            //}
 
-            // Lưu tệp Excel
-            workbook.SaveAs(filePath);
-            workbook.Close();
-            excelApp.Quit();
+            //// Lưu tệp Excel
+            //workbook.SaveAs(filePath);
+            //workbook.Close();
+            //excelApp.Quit();
 
-            ReleaseObject(worksheet);
-            ReleaseObject(workbook);
-            ReleaseObject(excelApp);
+            //ReleaseObject(worksheet);
+            //ReleaseObject(workbook);
+            //ReleaseObject(excelApp);
 
-            MessageBox.Show("Dữ liệu đã được xuất ra Excel.");
+            //MessageBox.Show("Dữ liệu đã được xuất ra Excel.");
         }
         
         private void ReleaseObject(object obj) {

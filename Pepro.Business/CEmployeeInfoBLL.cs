@@ -1,4 +1,5 @@
-﻿using Pepro.DTOs;
+﻿using Pepro.DataAccess;
+using Pepro.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,27 +13,27 @@ namespace Pepro.Business
     {
         public static CEmployee getEmployeebyEmployeeID(string employeeID)
         {
-            return DataAccess.CEmployeeInfoDAL.Instance.getEmployeebyEmployeeID(employeeID);
+            return CEmployeeInfoDAL.Instance.getEmployeebyEmployeeID(employeeID);
         }
         public static CRole getRolebyEmployeeID(string employeeID)
         {
-            return DataAccess.CEmployeeInfoDAL.Instance.getRolebyEmployeeID(employeeID);
+            return CEmployeeInfoDAL.Instance.getRolebyEmployeeID(employeeID);
         }
         public static CDepartment getDepartmentbyDepartmentID(string departmentID)
         {
-            return DataAccess.CEmployeeInfoDAL.Instance.getDepartmentbyDepartmentID(departmentID);
+            return CEmployeeInfoDAL.Instance.getDepartmentbyDepartmentID(departmentID);
         }
         public static List<CEmployeeBelongToProject> getProjectIDbyEmployeeID(string employeeID)
         {
-            return DataAccess.CEmployeeInfoDAL.Instance.getProjectIDbyEmployeeID(employeeID);
+            return CEmployeeInfoDAL.Instance.getProjectIDbyEmployeeID(employeeID);
         }
         public static CProject getProjectbyProjectID(string projectID)
         {
-            return DataAccess.CEmployeeInfoDAL.Instance.getProjectbyProjectID(projectID);
+            return CEmployeeInfoDAL.Instance.getProjectbyProjectID(projectID);
         }
         public static List<CEmployeePhoneNumber> getPhoneNumberbyEmployeeID(string employeeID)
         {
-            return DataAccess.CEmployeeInfoDAL.Instance.getPhoneNumberbyEmployeeID(employeeID);
+            return CEmployeeInfoDAL.Instance.getPhoneNumberbyEmployeeID(employeeID);
         }
     }
 }
