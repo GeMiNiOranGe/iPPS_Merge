@@ -5,9 +5,8 @@ using System.Linq;
 
 namespace Pepro.DataAccess {
     internal class DataProvider {
-        private const string CONNECTION_STRING = @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Trust Server Certificate=True";
+        private const string CONNECTION_STRING = @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 
-        #region Singleton Design Pattern
         private static DataProvider instance;
 
         public static DataProvider Instance {
@@ -16,50 +15,51 @@ namespace Pepro.DataAccess {
         }
 
         private DataProvider() { }
-        #endregion
 
-        public SqlConnection GetConnection() {
+        public SqlConnection CreateConnection() {
             return new SqlConnection(CONNECTION_STRING);
         }
-        public SqlCommand GetCommand(string query) {
-            var sqlConnection = GetConnection();
-            return new SqlCommand(query, sqlConnection);
+
+        public SqlCommand CreateCommand(string query) {
+            var connection = CreateConnection();
+            return new SqlCommand(query, connection);
         }
 
-        public void OpenConnection(SqlConnection sqlConnection) {
-            var state = sqlConnection.State;
-            if (state == ConnectionState.Closed ||
-                state == ConnectionState.Broken) {
-                try { sqlConnection.Open(); }
-                catch (SqlException ex) { throw ex; }
+        public void OpenConnection(SqlConnection connection) {
+            var state = connection.State;
+            if (state == ConnectionState.Closed || state == ConnectionState.Broken) {
+                try {
+                    connection.Open();
+                }
+                catch (SqlException ex) {
+                    throw ex;
+                }
             }
-        }
-        public void OpenConnection(SqlCommand sqlCommand) {
-            OpenConnection(sqlCommand.Connection);
         }
 
-        public void CloseConnection(SqlConnection sqlConnection) {
-            if (sqlConnection != null) {
-                try { sqlConnection.Close(); }
-                catch (SqlException ex) { throw ex; }
+        public void CloseConnection(SqlConnection connection) {
+            if (connection == null) {
+                return;
             }
-        }
-        public void CloseConnection(SqlCommand sqlCommand) {
-            CloseConnection(sqlCommand.Connection);
+            try {
+                connection.Close();
+            }
+            catch (SqlException ex) {
+                throw ex;
+            }
         }
 
         public DataTable ExecuteQuery(string query) {
             var dataTable = new DataTable();
-            using (var sqlConnection = GetConnection()) {
-                OpenConnection(sqlConnection);
-                var sqlCommand = new SqlCommand(query, sqlConnection);
-                var sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-
-                // Fill dataTable with returned query
-                try { sqlDataAdapter.Fill(dataTable); }
-                catch (SqlException ex) { throw ex; }
-
-                CloseConnection(sqlConnection);
+            using (SqlCommand command = CreateCommand(query)) {
+                using (var dataAdapter = new SqlDataAdapter(command)) {
+                    try {
+                        dataAdapter.Fill(dataTable);
+                    }
+                    catch (SqlException ex) {
+                        throw ex;
+                    }
+                }
             }
             return dataTable;
         }
@@ -67,40 +67,40 @@ namespace Pepro.DataAccess {
         /* 
         public int ExecuteNonQuery(string query) {
             int iData = 0;
-            using (var sqlConnection = GetConnection()) {
-                OpenConnection(sqlConnection);
-                var sqlCommand = new SqlCommand(query, sqlConnection);
+            using (var connection = CreateConnection()) {
+                OpenConnection(connection);
+                var sqlCommand = new SqlCommand(query, connection);
 
                 // Execute CRUD
                 try { iData = sqlCommand.ExecuteNonQuery(); }
                 catch (SqlException ex) { throw ex; }
 
                 iData = sqlCommand.ExecuteNonQuery();
-                CloseConnection(sqlConnection);
+                CloseConnection(connection);
             }
             return iData;
         }
          */
 
-        public int ExecuteNonQuery(string query, object[] parameter = null) {
-            int data = 0;
-            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING)) {
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                if (parameter != null) {
-                    string[] listPara = query.Split(' ');
+        public int ExecuteNonQuery(string query, object[] parameters = null) {
+            int numberOfRowsAffected = 0;
+            using (SqlCommand command = CreateCommand(query)) {
+                if (parameters != null) {
+                    string[] listParam = query.Split(' ');
                     int i = 0;
-                    foreach (string item in listPara) {
+                    foreach (string item in listParam) {
                         if (item.Contains('@')) {
-                            command.Parameters.AddWithValue(item, parameter[i]);
+                            command.Parameters.AddWithValue(item, parameters[i]);
                             i++;
                         }
                     }
                 }
-                data = command.ExecuteNonQuery();
-                connection.Close();
+
+                OpenConnection(command.Connection);
+                numberOfRowsAffected = command.ExecuteNonQuery();
+                CloseConnection(command.Connection);
             }
-            return data;
+            return numberOfRowsAffected;
         }
 
         /// <summary>
@@ -114,33 +114,59 @@ namespace Pepro.DataAccess {
         /// </returns>
         public object ExecuteScalar(string query) {
             object objData = 0;
-            using (var sqlConnection = GetConnection()) {
-                OpenConnection(sqlConnection);
-                var sqlCommand = new SqlCommand(query, sqlConnection);
+            using (SqlConnection connection = CreateConnection()) {
+                OpenConnection(connection);
+                var sqlCommand = new SqlCommand(query, connection);
 
                 // Get data 
-                try { objData = sqlCommand.ExecuteScalar(); }
-                catch (SqlException ex) { throw ex; }
+                try {
+                    objData = sqlCommand.ExecuteScalar();
+                }
+                catch (SqlException ex) {
+                    throw ex;
+                }
 
-                CloseConnection(sqlConnection);
+                CloseConnection(connection);
             }
             return objData;
         }
 
-        //public void ExecuteReader(string query, out SqlDataReader dataReader) {
-        //    using (var sqlConnection = GetConnection()) {
-        //        OpenConnection(sqlConnection);
-        //        var sqlCommand = new SqlCommand(query, sqlConnection);
-        //        try {
-        //            dataReader = sqlCommand.ExecuteReader();
-        //        }
-        //        catch (SqlException ex) { throw ex; }
-        //        CloseConnection(sqlConnection);
-        //    }
-        //}
-
-        public void OpenConnection() {
+        public void ExecuteReader(string query, out SqlDataReader dataReader) {
             throw new NotImplementedException();
+            /*
+            using (var connection = CreateConnection()) {
+                OpenConnection(connection);
+                var sqlCommand = new SqlCommand(query, connection);
+                try {
+                    dataReader = sqlCommand.ExecuteReader();
+                }
+                catch (SqlException ex) {
+                    throw ex;
+                }
+                CloseConnection(connection);
+            }
+            */
+        }
+
+        public DataTable ExecuteProcedure(string query, SqlParameter[] parameters = null) {
+            var dataTable = new DataTable();
+            using (SqlCommand command = CreateCommand(query)) {
+                command.CommandType = CommandType.StoredProcedure;
+
+                if (parameters != null) {
+                    command.Parameters.AddRange(parameters);
+                }
+
+                using (var dataAdapter = new SqlDataAdapter(command)) {
+                    try {
+                        dataAdapter.Fill(dataTable);
+                    }
+                    catch (SqlException ex) {
+                        throw ex;
+                    }
+                }
+            }
+            return dataTable;
         }
     }
 }
