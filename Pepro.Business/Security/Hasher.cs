@@ -3,9 +3,9 @@ using System.Linq;
 using System.Security.Authentication;
 using System.Security.Cryptography;
 
-using Business.Utilities;
+using Pepro.Business.Utilities;
 
-namespace Business.Security {
+namespace Pepro.Business.Security {
     static class Hasher {
         #region Factory method Design Pattern
         private static HashAlgorithm CreateHashAlgorithm(HashAlgorithmType type) {

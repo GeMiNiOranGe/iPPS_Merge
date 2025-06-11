@@ -6,13 +6,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using DTO;
+using Pepro.DTOs;
 
 namespace Pepro.DataAccess
 {
     public class AccountData
     {
-        private string connectionString = Config.connectionString;
+        private string connectionString = "";
+
+        private static AccountData? instance;
+
+        public static AccountData Instance
+        {
+            get => instance ?? new();
+            private set => instance = value;
+        }
+
+        private AccountData() { }
 
         public DataTable ExecuteStoredProcedure(string storedProcedureName, SqlParameter[] parameters)
         {

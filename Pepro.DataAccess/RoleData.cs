@@ -13,7 +13,7 @@ namespace Pepro.DataAccess
         public DataTable getRoleID()
         {
             DataTable dataTable = new DataTable();
-            using (SqlConnection connection = new SqlConnection(Config.connectionString))
+            using (SqlConnection connection = new SqlConnection(""))
             {
                 string query = "SELECT RoleID FROM Roles";
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -30,7 +30,7 @@ namespace Pepro.DataAccess
         public DataTable getPermissionsID()
         {
             DataTable dataTable = new DataTable();
-            using (SqlConnection connection = new SqlConnection(Config.connectionString))
+            using (SqlConnection connection = new SqlConnection(""))
             {
                 string query = "SELECT PermissionID FROM Permissions";
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -48,7 +48,7 @@ namespace Pepro.DataAccess
         {
             DataTable dataTable = new DataTable();
 
-            using (SqlConnection connection = new SqlConnection(Config.connectionString))
+            using (SqlConnection connection = new SqlConnection(""))
             {
                 string query = "SELECT * FROM RolePermissions";
 
@@ -89,7 +89,7 @@ namespace Pepro.DataAccess
                     }
 
                     // Update the existing row with the new ColumnName
-                    using (SqlConnection connection = new SqlConnection(Config.connectionString))
+                    using (SqlConnection connection = new SqlConnection(""))
                     {
                         connection.Open();
                         using (SqlCommand command = new SqlCommand("UPDATE RolePermissions SET ColumnName = @ColumnName WHERE RoleID = @RoleIDAdd AND PermissionID = @PermissionID AND Name = @Name", connection))
@@ -106,7 +106,7 @@ namespace Pepro.DataAccess
             else
             {
                 // Call the stored procedure to insert a new permission
-                using (SqlConnection connection = new SqlConnection(Config.connectionString))
+                using (SqlConnection connection = new SqlConnection(""))
                 {
                     connection.Open();
                     using (SqlCommand command = new SqlCommand("GrantRole", connection))
@@ -126,7 +126,7 @@ namespace Pepro.DataAccess
         }
         public void UpdateRolePermission(int roleID, int roleIDAdd,int permissionID, string columnName)
         {
-            using (SqlConnection connection = new SqlConnection(Config.connectionString))
+            using (SqlConnection connection = new SqlConnection(""))
             {
                 SqlCommand command = new SqlCommand("UpdateRolePermission", connection);
                 command.CommandType = CommandType.StoredProcedure;
