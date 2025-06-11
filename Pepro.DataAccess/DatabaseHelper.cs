@@ -10,7 +10,7 @@ namespace Pepro.DataAccess {
     public class DatabaseHelper {
         public bool CheckMACCAndMANVExists(string manv, string macc) {
             try {
-                using (SqlConnection connection = DataProvider.Instance.GetConnection()) {
+                using (SqlConnection connection = DataProvider.Instance.CreateConnection()) {
                     connection.Open();
 
                     using (SqlCommand command = new SqlCommand("CheckMACCAndMANVexists", connection)) {
