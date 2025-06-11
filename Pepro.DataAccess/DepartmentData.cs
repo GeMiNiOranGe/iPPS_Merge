@@ -14,7 +14,7 @@ namespace Pepro.DataAccess
         {
             DataTable dataTable = new DataTable();
 
-            using (SqlConnection connection = new SqlConnection(Config.connectionString))
+            using (SqlConnection connection = new SqlConnection(""))
             {
                 string query = "SELECT DepartmentID FROM Departments";
 
@@ -35,7 +35,7 @@ namespace Pepro.DataAccess
         {
             DataTable dataTable = new DataTable();
 
-            using (SqlConnection connection = new SqlConnection(Config.connectionString))
+            using (SqlConnection connection = new SqlConnection(""))
             {
                 string query = "SELECT DepartmentID, DepartmentName, ISNULL(ManagerID, 'NULL') AS ManagerID FROM Departments";
 

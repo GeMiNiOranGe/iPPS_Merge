@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Utilities {
+namespace Pepro.Business.Utilities {
     static class DefaultConverter {
         public static string GetString(byte[] bytes) {
             if (bytes == null || bytes.Length <= 0) {

@@ -1,4 +1,4 @@
-﻿namespace DTO {
+﻿namespace Pepro.DTOs {
     public class Account {
         private int accountId;
         private string username;

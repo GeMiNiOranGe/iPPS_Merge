@@ -12,7 +12,7 @@ namespace Pepro.DataAccess
     {
         public int ExecuteStoredProcedure(string storedProcedureName, SqlParameter[] parameters)
         {
-            using (SqlConnection connection = new SqlConnection(Config.connectionString))
+            using (SqlConnection connection = new SqlConnection(""))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(storedProcedureName, connection);
@@ -30,7 +30,7 @@ namespace Pepro.DataAccess
         public DataTable getEmployeeByRoleID(int roleID)
         {
             DataTable dataTable = new DataTable();
-                using (SqlConnection conn = new SqlConnection(Config.connectionString))
+                using (SqlConnection conn = new SqlConnection(""))
                 {
                     using (SqlCommand cmd = new SqlCommand("spSelectEmployees", conn))
                     {
@@ -47,7 +47,7 @@ namespace Pepro.DataAccess
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(Config.connectionString))
+                using (SqlConnection connection = new SqlConnection(""))
                 {
                     connection.Open();
 
@@ -77,7 +77,7 @@ namespace Pepro.DataAccess
     
         public bool deleteEmployee(int roleID, string employeeID)
         {
-            using (SqlConnection connection = new SqlConnection(Config.connectionString))
+            using (SqlConnection connection = new SqlConnection(""))
             {
                 try
                 {
@@ -101,7 +101,7 @@ namespace Pepro.DataAccess
         }
         public void InsertEmployee(string employeeId, string fullname, bool? gender, DateTime? dateOfBirth, string phoneNumber, string salary, string allowance, string taxCode, string departmentId)
         {
-            using (SqlConnection conn = new SqlConnection(Config.connectionString))
+            using (SqlConnection conn = new SqlConnection(""))
             {
                 using (SqlCommand cmd = new SqlCommand("spInsertEmployeeFull", conn))
                 {
