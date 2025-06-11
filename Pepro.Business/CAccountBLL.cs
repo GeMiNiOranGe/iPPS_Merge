@@ -2,11 +2,12 @@
 
 namespace Pepro.Business {
     public enum LoginStatus {
-        Success = 0,
-        InvalidInput = 1,
-        InvalidAccount = 2,
-        LockedAccount = 3,
-        OtherError = 4
+        None,
+        Success,
+        InvalidInput,
+        InvalidAccount,
+        LockedAccount,
+        OtherError
     }
 
     public class CAccountBLL {
