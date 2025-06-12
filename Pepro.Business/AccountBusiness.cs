@@ -21,11 +21,6 @@ public class AccountBusiness
 
     public AccountBusiness() { }
 
-    public void Login(string username, string password, out int result, out int roleID, out string name)
-    {
-        AccountDataAccess.Instance.Login(username, password, out result, out roleID, out name);
-    }
-
     public LoginStatus GetLoginStatus(string accountName, string password)
     {
         try
