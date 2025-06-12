@@ -29,7 +29,7 @@ namespace Pepro.Presentation
             if (result == DialogResult.OK)
             {
                 this.Close(); 
-                FormLogin loginForm = new FormLogin();
+                FormLoginPM loginForm = new();
                 loginForm.Show();
             }
 
