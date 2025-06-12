@@ -1,79 +1,65 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using Microsoft.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Security.Authentication;
-
+﻿using System.Security.Authentication;
 using Pepro.Business.Utilities;
 using Pepro.Business.Security;
 using Pepro.DataAccess;
 using Pepro.DTOs;
 
-namespace Pepro.Business
+namespace Pepro.Business;
+
+public class AccountBusiness
 {
-    public class AccountBusiness
+    public const string USER_ID_PLACEHOLDER = "ID người dùng";
+    public const string PASSWORD_PLACEHOLDER = "Mật khẩu";
+
+    private static AccountBusiness? instance;
+
+    public static AccountBusiness Instance
     {
-        private static AccountBusiness instance;
+        get => instance ??= new();
+        private set => instance = value;
+    }
 
-        public static AccountBusiness Instance
+    public AccountBusiness() { }
+
+    public void Login(string username, string password, out int result, out int roleID, out string name)
+    {
+        AccountDataAccess.Instance.Login(username, password, out result, out roleID, out name);
+    }
+
+    public LoginStatus GetLoginStatus(string accountName, string password)
+    {
+        try
         {
-            get => instance ??= new();
-            private set => instance = value;
-        }
-
-        public AccountBusiness() { }
-
-        public void Login(string username, string password, out int result, out int roleID, out string name)
-        {
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("@USERNAME", SqlDbType.VarChar) { Value = username },
-                new SqlParameter("@PASSWORD", SqlDbType.VarChar) { Value = password },
-                new SqlParameter("@KETQUA", SqlDbType.Int) { Direction = ParameterDirection.Output },
-                new SqlParameter("@ROLEID", SqlDbType.Int) { Direction = ParameterDirection.Output },
-                new SqlParameter("@NAME", SqlDbType.VarChar, -1) { Direction = ParameterDirection.Output }
-            };
-
-            DataTable dataTable = AccountData.Instance.ExecuteStoredProcedure("spLogin", parameters);
-
-            // Lấy kết quả đăng nhập, roleID và name từ kết quả trả về của stored procedure
-            result = Convert.ToInt32(parameters[2].Value);
-            roleID = parameters[3].Value == DBNull.Value ? 0 : Convert.ToInt32(parameters[3].Value);
-            name = parameters[4].Value.ToString();
-        }
-
-        public LoginStatus GetLoginStatus(string accountName, string password)
-        {
-            Account account = AccountData.Instance.GetAccountDetails(accountName);
-
-            var isSamePassword = false;
-
-            if (account != null)
-            {
-                string castSalt = DefaultConverter.GetString(account.Salt);
-                string saltedPassword = string.Concat(password, castSalt);
-                isSamePassword = Hasher.VerifyMessage(saltedPassword, account.Password, HashAlgorithmType.Sha256);
-            }
-
-            bool isValid = account != null && isSamePassword;
-
-            if (string.IsNullOrEmpty(accountName) || string.IsNullOrEmpty(password))
+            if (accountName == USER_ID_PLACEHOLDER && password == PASSWORD_PLACEHOLDER)
             {
                 return LoginStatus.InvalidInput;
             }
-            if (isValid)
-            {
-                return LoginStatus.Success;
-            }
-            if (!isValid)
+
+            Account? account = AccountDataAccess.Instance.GetAccountDetails(accountName);
+
+            if (account == null)
             {
                 return LoginStatus.InvalidAccount;
             }
+
+            byte[] castPassword = DefaultConverter.GetBytes(password);
+            byte[] saltedPassword = ByteHandler.Combine(castPassword, account.Salt);
+            bool isSamePassword = Hasher.VerifyMessage(
+                saltedPassword,
+                account.Password,
+                HashAlgorithmType.Sha256
+            );
+
+            if (!isSamePassword)
+            {
+                return LoginStatus.InvalidAccount;
+            }
+
+            return account.IsActive ? LoginStatus.Success : LoginStatus.LockedAccount;
+        }
+        catch (Exception)
+        {
+            // Logs can be written here if needed.
             return LoginStatus.OtherError;
         }
     }

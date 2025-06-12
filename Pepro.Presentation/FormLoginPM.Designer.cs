@@ -78,7 +78,6 @@ namespace Pepro.Presentation
             this.cbRemember.TabIndex = 11;
             this.cbRemember.Text = "Remember";
             this.cbRemember.UseVisualStyleBackColor = true;
-            this.cbRemember.CheckedChanged += new System.EventHandler(this.cbRemember_CheckedChanged);
             // 
             // txtUsername
             // 
