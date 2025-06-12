@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace Presentation
+namespace Pepro.Presentation
 {
     public partial class FormGrantRole : Form
     {

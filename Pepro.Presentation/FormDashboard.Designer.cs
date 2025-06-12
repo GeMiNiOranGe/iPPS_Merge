@@ -1,5 +1,5 @@
 ﻿
-namespace Presentation {
+namespace Pepro.Presentation {
     partial class FormDashboard {
         /// <summary>
         /// Required designer variable.
