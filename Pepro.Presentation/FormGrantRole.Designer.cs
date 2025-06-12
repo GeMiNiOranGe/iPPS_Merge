@@ -1,4 +1,4 @@
-﻿namespace Presentation
+﻿namespace Pepro.Presentation
 {
     partial class FormGrantRole
     {
@@ -79,7 +79,7 @@
             // 
             // btnForbid
             // 
-            this.btnForbid.BackgroundImage = global::Presentation.Properties.Resources.IconForbid;
+            this.btnForbid.BackgroundImage = global::Pepro.Presentation.Properties.Resources.IconForbid;
             this.btnForbid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnForbid.Location = new System.Drawing.Point(294, 135);
             this.btnForbid.Name = "btnForbid";
@@ -90,7 +90,7 @@
             // 
             // btnPermiss
             // 
-            this.btnPermiss.BackgroundImage = global::Presentation.Properties.Resources.IconPermiss;
+            this.btnPermiss.BackgroundImage = global::Pepro.Presentation.Properties.Resources.IconPermiss;
             this.btnPermiss.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnPermiss.Location = new System.Drawing.Point(170, 135);
             this.btnPermiss.Name = "btnPermiss";

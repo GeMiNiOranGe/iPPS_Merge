@@ -1,6 +1,6 @@
-namespace Presentation
+namespace Pepro.Presentation
 {
-    partial class FormLogin
+    partial class FormLoginPM
     {
         /// <summary>
         /// Required designer variable.
@@ -102,7 +102,7 @@ namespace Presentation
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // FormLogin
+            // FormLoginPM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -114,7 +114,7 @@ namespace Presentation
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnLogin);
-            this.Name = "FormLogin";
+            this.Name = "FormLoginPM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.FormLogin_Load);

@@ -1,4 +1,4 @@
-﻿namespace Presentation {
+﻿namespace Pepro.Presentation {
     partial class FormRole {
         /// <summary>
         /// Required designer variable.

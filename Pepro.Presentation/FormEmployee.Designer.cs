@@ -1,4 +1,4 @@
-﻿namespace Presentation
+﻿namespace Pepro.Presentation
 {
     partial class FormEmployee
     {
@@ -347,7 +347,7 @@
             // btnReload
             // 
             this.btnReload.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnReload.BackgroundImage = global::Presentation.Properties.Resources.reloadIcon;
+            this.btnReload.BackgroundImage = global::Pepro.Presentation.Properties.Resources.reloadIcon;
             this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnReload.Location = new System.Drawing.Point(537, 145);
             this.btnReload.Name = "btnReload";
@@ -359,7 +359,7 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDelete.BackgroundImage = global::Presentation.Properties.Resources.deleteicon;
+            this.btnDelete.BackgroundImage = global::Pepro.Presentation.Properties.Resources.deleteicon;
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDelete.Location = new System.Drawing.Point(407, 145);
             this.btnDelete.Name = "btnDelete";
@@ -371,7 +371,7 @@
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnUpdate.BackgroundImage = global::Presentation.Properties.Resources.update;
+            this.btnUpdate.BackgroundImage = global::Pepro.Presentation.Properties.Resources.update;
             this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnUpdate.Location = new System.Drawing.Point(278, 145);
             this.btnUpdate.Name = "btnUpdate";
@@ -383,7 +383,7 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAdd.BackgroundImage = global::Presentation.Properties.Resources.updateicon;
+            this.btnAdd.BackgroundImage = global::Pepro.Presentation.Properties.Resources.updateicon;
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAdd.Location = new System.Drawing.Point(141, 145);
             this.btnAdd.Name = "btnAdd";

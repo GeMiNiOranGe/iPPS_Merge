@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Presentation {
-    public partial class RolePermission : Form {
-        public RolePermission() {
+namespace Pepro.Presentation {
+    public partial class FormAccountRole : Form {
+        public FormAccountRole() {
             InitializeComponent();
         }
     }

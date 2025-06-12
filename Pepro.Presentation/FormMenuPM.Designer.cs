@@ -1,6 +1,6 @@
-﻿namespace Presentation
+﻿namespace Pepro.Presentation
 {
-    partial class FormMenu
+    partial class FormMenuPM
     {
         /// <summary>
         /// Required designer variable.
@@ -60,7 +60,7 @@
             // 
             // picLogout
             // 
-            this.picLogout.BackgroundImage = global::Presentation.Properties.Resources.logout;
+            this.picLogout.BackgroundImage = global::Pepro.Presentation.Properties.Resources.Logout;
             this.picLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picLogout.Location = new System.Drawing.Point(3, 346);
             this.picLogout.Name = "picLogout";
@@ -154,7 +154,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Presentation.Properties.Resources.iconUser;
+            this.pictureBox1.BackgroundImage = global::Pepro.Presentation.Properties.Resources.iconUser;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Location = new System.Drawing.Point(1027, 9);
             this.pictureBox1.Name = "pictureBox1";
@@ -162,7 +162,7 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // FormMenu
+            // FormMenuPM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -173,7 +173,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pnMenu);
             this.Controls.Add(this.groupBox1);
-            this.Name = "FormMenu";
+            this.Name = "FormMenuPM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.FormMenu_Load);
