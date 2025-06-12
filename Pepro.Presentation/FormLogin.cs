@@ -3,8 +3,8 @@ using Pepro.DTOs;
 
 namespace Pepro.Presentation;
 
-public partial class FormLoginGUI : Form {
-    public FormLoginGUI() {
+public partial class FormLogin : Form {
+    public FormLogin() {
         InitializeComponent();
         ForTextbox.SetPlaceHolder(TxtUserId, AccountBusiness.USER_ID_PLACEHOLDER);
         ForTextbox.SetPlaceHolder(TxtPassword, AccountBusiness.PASSWORD_PLACEHOLDER);
