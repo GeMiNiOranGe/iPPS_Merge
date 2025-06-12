@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 using Pepro.DTOs;
 
-namespace Presentation
+namespace Pepro.Presentation
 {
-    public partial class FormLogin : Form
+    public partial class FormLoginPM : Form
     {
         private AccountBusiness accountBusiness;
         public int roleID {  get; private set; }
-        public FormLogin()
+        public FormLoginPM()
         {
             InitializeComponent();
             accountBusiness = new AccountBusiness();
@@ -26,7 +26,7 @@ namespace Presentation
         private void BtnSignIn_Click(object sender, EventArgs e) {
             LoginStatus loginStatus = LoginStatus.None;
             try {
-                loginStatus = AccountBusiness.Instance.GetLoginStatus(txtAccountName.Text, txtPassword.Text);
+                loginStatus = AccountBusiness.Instance.GetLoginStatus(txtUsername.Text, txtPassword.Text);
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -41,13 +41,13 @@ namespace Presentation
                 Hide();
                 break;
             case LoginStatus.InvalidInput:
-                lblError.Text = "Tên tài khoản và mật khẩu không được để trống!";
+                //lblError.Text = "Tên tài khoản và mật khẩu không được để trống!";
                 break;
             case LoginStatus.InvalidAccount:
-                lblError.Text = "Tên tài khoản hoặc mật khẩu sai!";
+                //lblError.Text = "Tên tài khoản hoặc mật khẩu sai!";
                 break;
             case LoginStatus.OtherError:
-                lblError.Text = "Đã xảy ra lỗi trong quá trình đăng nhập!";
+                //lblError.Text = "Đã xảy ra lỗi trong quá trình đăng nhập!";
                 break;
             }
         }
@@ -66,12 +66,12 @@ namespace Presentation
             {
                 if (cbRemember.Checked)
                 {
-                    Properties.Settings.Default.Username = username;
-                    Properties.Settings.Default.Password = password;
-                    Properties.Settings.Default.Save();
+                    // Properties.Settings.Default.Username = username;
+                    // Properties.Settings.Default.Password = password;
+                    // Properties.Settings.Default.Save();
                 }
                 this.roleID= roleID;
-                FormMenu fmn=new FormMenu(roleID);
+                FormMenuPM fmn=new(roleID);
                 fmn.Show();
                
             }
@@ -83,11 +83,11 @@ namespace Presentation
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Properties.Settings.Default.Username))
-            {
-                txtUsername.Text = Properties.Settings.Default.Username;
-                txtPassword.Text = Properties.Settings.Default.Password;
-            }
+            // if (!string.IsNullOrEmpty(Properties.Settings.Default.Username))
+            // {
+            //     txtUsername.Text = Properties.Settings.Default.Username;
+            //     txtPassword.Text = Properties.Settings.Default.Password;
+            // }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

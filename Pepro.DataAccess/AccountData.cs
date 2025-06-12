@@ -18,7 +18,7 @@ namespace Pepro.DataAccess
 
         public static AccountData Instance
         {
-            get => instance ?? new();
+            get => instance ??= new();
             private set => instance = value;
         }
 

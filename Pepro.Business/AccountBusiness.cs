@@ -18,6 +18,14 @@ namespace Pepro.Business
 {
     public class AccountBusiness
     {
+        private static AccountBusiness instance;
+
+        public static AccountBusiness Instance
+        {
+            get => instance ??= new();
+            private set => instance = value;
+        }
+
         public AccountBusiness() { }
 
         public void Login(string username, string password, out int result, out int roleID, out string name)

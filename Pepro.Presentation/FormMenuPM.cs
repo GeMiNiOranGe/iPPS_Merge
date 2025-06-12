@@ -9,12 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Presentation
+namespace Pepro.Presentation
 {
-    public partial class FormMenu : Form
+    public partial class FormMenuPM : Form
     {
         private int _roleID;
-        public FormMenu(int roleID)
+        public FormMenuPM(int roleID)
         {
             InitializeComponent();
             _roleID = roleID;
