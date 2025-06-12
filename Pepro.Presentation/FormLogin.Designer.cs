@@ -1,6 +1,6 @@
 ﻿
 namespace Pepro.Presentation {
-    partial class FormLoginGUI {
+    partial class FormLogin {
         /// <summary>
         /// Required designer variable.
         /// </summary>
