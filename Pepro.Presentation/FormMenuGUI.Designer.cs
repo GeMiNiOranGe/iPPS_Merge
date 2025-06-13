@@ -25,6 +25,11 @@ namespace Pepro.Presentation {
         /// </summary>
         private void InitializeComponent() {
             PnlLeft = new Panel();
+            optionPanel = new Panel();
+            dormitoryButton = new Button();
+            salaryButton = new Button();
+            attendanceButton = new Button();
+            employeeButton = new Button();
             PnlAccount = new Panel();
             LbUsername = new Label();
             LbRole = new Label();
@@ -43,6 +48,11 @@ namespace Pepro.Presentation {
             // PnlLeft
             // 
             PnlLeft.BackColor = Color.FromArgb(29, 29, 29);
+            PnlLeft.Controls.Add(optionPanel);
+            PnlLeft.Controls.Add(dormitoryButton);
+            PnlLeft.Controls.Add(salaryButton);
+            PnlLeft.Controls.Add(attendanceButton);
+            PnlLeft.Controls.Add(employeeButton);
             PnlLeft.Controls.Add(PnlAccount);
             PnlLeft.Controls.Add(BtnProgress);
             PnlLeft.Controls.Add(BtnDocument);
@@ -54,6 +64,118 @@ namespace Pepro.Presentation {
             PnlLeft.Name = "PnlLeft";
             PnlLeft.Size = new Size(231, 720);
             PnlLeft.TabIndex = 0;
+            // 
+            // optionPanel
+            // 
+            optionPanel.BackColor = Color.White;
+            optionPanel.Location = new Point(0, 100);
+            optionPanel.Name = "optionPanel";
+            optionPanel.Size = new Size(10, 60);
+            optionPanel.TabIndex = 0;
+            // 
+            // dormitoryButton
+            // 
+            dormitoryButton.BackColor = Color.Transparent;
+            dormitoryButton.Cursor = Cursors.Hand;
+            dormitoryButton.Dock = DockStyle.Top;
+            dormitoryButton.FlatAppearance.BorderSize = 0;
+            dormitoryButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
+            dormitoryButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            dormitoryButton.FlatStyle = FlatStyle.Flat;
+            dormitoryButton.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dormitoryButton.ForeColor = Color.White;
+            dormitoryButton.Image = Properties.Resources.Dormitory;
+            dormitoryButton.ImageAlign = ContentAlignment.MiddleLeft;
+            dormitoryButton.Location = new Point(0, 520);
+            dormitoryButton.Name = "dormitoryButton";
+            dormitoryButton.Padding = new Padding(24, 5, 0, 5);
+            dormitoryButton.Size = new Size(231, 60);
+            dormitoryButton.TabIndex = 27;
+            dormitoryButton.Text = "   Ký túc xá";
+            dormitoryButton.TextAlign = ContentAlignment.MiddleLeft;
+            dormitoryButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            dormitoryButton.UseVisualStyleBackColor = false;
+            dormitoryButton.MouseClick += DormitoryButton_MouseClick;
+            dormitoryButton.MouseDown += DormitoryButton_MouseDown;
+            dormitoryButton.MouseUp += DormitoryButton_MouseUp;
+            // 
+            // salaryButton
+            // 
+            salaryButton.BackColor = Color.Transparent;
+            salaryButton.Cursor = Cursors.Hand;
+            salaryButton.Dock = DockStyle.Top;
+            salaryButton.FlatAppearance.BorderSize = 0;
+            salaryButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
+            salaryButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            salaryButton.FlatStyle = FlatStyle.Flat;
+            salaryButton.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            salaryButton.ForeColor = Color.White;
+            salaryButton.Image = Properties.Resources.salary;
+            salaryButton.ImageAlign = ContentAlignment.MiddleLeft;
+            salaryButton.Location = new Point(0, 460);
+            salaryButton.Name = "salaryButton";
+            salaryButton.Padding = new Padding(24, 5, 0, 5);
+            salaryButton.Size = new Size(231, 60);
+            salaryButton.TabIndex = 26;
+            salaryButton.Text = "   Lương";
+            salaryButton.TextAlign = ContentAlignment.MiddleLeft;
+            salaryButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            salaryButton.UseVisualStyleBackColor = false;
+            salaryButton.MouseClick += SalaryButton_MouseClick;
+            salaryButton.MouseDown += SalaryButton_MouseDown;
+            salaryButton.MouseUp += SalaryButton_MouseUp;
+            // 
+            // attendanceButton
+            // 
+            attendanceButton.BackColor = Color.Transparent;
+            attendanceButton.Cursor = Cursors.Hand;
+            attendanceButton.Dock = DockStyle.Top;
+            attendanceButton.FlatAppearance.BorderSize = 0;
+            attendanceButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
+            attendanceButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            attendanceButton.FlatStyle = FlatStyle.Flat;
+            attendanceButton.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            attendanceButton.ForeColor = Color.White;
+            attendanceButton.Image = Properties.Resources.Chamcong;
+            attendanceButton.ImageAlign = ContentAlignment.MiddleLeft;
+            attendanceButton.Location = new Point(0, 400);
+            attendanceButton.Name = "attendanceButton";
+            attendanceButton.Padding = new Padding(24, 5, 0, 5);
+            attendanceButton.Size = new Size(231, 60);
+            attendanceButton.TabIndex = 25;
+            attendanceButton.Text = "   Chấm công";
+            attendanceButton.TextAlign = ContentAlignment.MiddleLeft;
+            attendanceButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            attendanceButton.UseVisualStyleBackColor = false;
+            attendanceButton.MouseClick += AttendanceButton_MouseClick;
+            attendanceButton.MouseDown += AttendanceButton_MouseDown;
+            attendanceButton.MouseUp += AttendanceButton_MouseUp;
+            // 
+            // employeeButton
+            // 
+            employeeButton.BackColor = Color.Transparent;
+            employeeButton.Cursor = Cursors.Hand;
+            employeeButton.Dock = DockStyle.Top;
+            employeeButton.FlatAppearance.BorderSize = 0;
+            employeeButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
+            employeeButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            employeeButton.FlatStyle = FlatStyle.Flat;
+            employeeButton.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            employeeButton.ForeColor = Color.White;
+            employeeButton.Image = Properties.Resources.employee;
+            employeeButton.ImageAlign = ContentAlignment.MiddleLeft;
+            employeeButton.Location = new Point(0, 340);
+            employeeButton.Name = "employeeButton";
+            employeeButton.Padding = new Padding(24, 5, 0, 5);
+            employeeButton.Size = new Size(231, 60);
+            employeeButton.TabIndex = 24;
+            employeeButton.Text = "   Nhân viên";
+            employeeButton.TextAlign = ContentAlignment.MiddleLeft;
+            employeeButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            employeeButton.UseVisualStyleBackColor = false;
+            employeeButton.MouseClick += EmployeeButton_MouseClick;
+            employeeButton.MouseDown += EmployeeButton_MouseDown;
+            employeeButton.MouseUp += EmployeeButton_MouseUp;
             // 
             // PnlAccount
             // 
@@ -285,6 +407,11 @@ namespace Pepro.Presentation {
         private System.Windows.Forms.Button BtnDocument;
         private System.Windows.Forms.Button BtnProject;
         private System.Windows.Forms.Label lbAppName;
+        private Button employeeButton;
+        private Button dormitoryButton;
+        private Button salaryButton;
+        private Button attendanceButton;
+        private Panel optionPanel;
     }
 }
 
