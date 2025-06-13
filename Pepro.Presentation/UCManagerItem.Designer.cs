@@ -27,48 +27,47 @@ namespace Pepro.Presentation
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
-            this.lbManagerId = new System.Windows.Forms.Label();
-            this.lbManagerName = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+        private void InitializeComponent() {
+            lbManagerId = new Label();
+            lbManagerName = new Label();
+            SuspendLayout();
             // 
             // lbManagerId
             // 
-            this.lbManagerId.AutoSize = true;
-            this.lbManagerId.ForeColor = System.Drawing.Color.White;
-            this.lbManagerId.Location = new System.Drawing.Point(8, 8);
-            this.lbManagerId.Margin = new System.Windows.Forms.Padding(8, 8, 8, 5);
-            this.lbManagerId.Name = "lbManagerId";
-            this.lbManagerId.Size = new System.Drawing.Size(125, 20);
-            this.lbManagerId.TabIndex = 0;
-            this.lbManagerId.Text = "Mã người quản lý";
+            lbManagerId.AutoSize = true;
+            lbManagerId.ForeColor = Color.White;
+            lbManagerId.Location = new Point(8, 8);
+            lbManagerId.Margin = new Padding(8, 8, 8, 5);
+            lbManagerId.Name = "lbManagerId";
+            lbManagerId.Size = new Size(125, 20);
+            lbManagerId.TabIndex = 0;
+            lbManagerId.Text = "Mã người quản lý";
             // 
             // lbManagerName
             // 
-            this.lbManagerName.AutoSize = true;
-            this.lbManagerName.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbManagerName.ForeColor = System.Drawing.Color.White;
-            this.lbManagerName.Location = new System.Drawing.Point(8, 33);
-            this.lbManagerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbManagerName.Name = "lbManagerName";
-            this.lbManagerName.Size = new System.Drawing.Size(191, 30);
-            this.lbManagerName.TabIndex = 1;
-            this.lbManagerName.Text = "Tên người quản lý";
+            lbManagerName.AutoSize = true;
+            lbManagerName.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbManagerName.ForeColor = Color.White;
+            lbManagerName.Location = new Point(8, 33);
+            lbManagerName.Margin = new Padding(4, 0, 4, 0);
+            lbManagerName.Name = "lbManagerName";
+            lbManagerName.Size = new Size(191, 30);
+            lbManagerName.TabIndex = 1;
+            lbManagerName.Text = "Tên người quản lý";
             // 
             // UCManagerItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.Controls.Add(this.lbManagerName);
-            this.Controls.Add(this.lbManagerId);
-            this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "UCManagerItem";
-            this.Size = new System.Drawing.Size(471, 85);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(29, 29, 29);
+            Controls.Add(lbManagerName);
+            Controls.Add(lbManagerId);
+            Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "UCManagerItem";
+            Size = new Size(471, 85);
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

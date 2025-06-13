@@ -27,75 +27,74 @@ namespace Pepro.Presentation
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
-            this.lbJobId = new System.Windows.Forms.Label();
-            this.lbJobName = new System.Windows.Forms.Label();
-            this.lbJobPercent = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+        private void InitializeComponent() {
+            lbJobId = new Label();
+            lbJobName = new Label();
+            lbJobPercent = new Label();
+            SuspendLayout();
             // 
             // lbJobId
             // 
-            this.lbJobId.AutoSize = true;
-            this.lbJobId.ForeColor = System.Drawing.Color.White;
-            this.lbJobId.Location = new System.Drawing.Point(8, 8);
-            this.lbJobId.Margin = new System.Windows.Forms.Padding(8, 8, 8, 5);
-            this.lbJobId.Name = "lbJobId";
-            this.lbJobId.Size = new System.Drawing.Size(97, 20);
-            this.lbJobId.TabIndex = 0;
-            this.lbJobId.Text = "Mã công việc";
-            this.lbJobId.Click += new System.EventHandler(this.UCJobItem_Click);
-            this.lbJobId.MouseEnter += new System.EventHandler(this.UCJobItem_MouseEnter);
-            this.lbJobId.MouseLeave += new System.EventHandler(this.UCJobItem_MouseLeave);
+            lbJobId.AutoSize = true;
+            lbJobId.ForeColor = Color.White;
+            lbJobId.Location = new Point(8, 8);
+            lbJobId.Margin = new Padding(8, 8, 8, 5);
+            lbJobId.Name = "lbJobId";
+            lbJobId.Size = new Size(97, 20);
+            lbJobId.TabIndex = 0;
+            lbJobId.Text = "Mã công việc";
+            lbJobId.Click += UCJobItem_Click;
+            lbJobId.MouseEnter += UCJobItem_MouseEnter;
+            lbJobId.MouseLeave += UCJobItem_MouseLeave;
             // 
             // lbJobName
             // 
-            this.lbJobName.AutoSize = true;
-            this.lbJobName.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbJobName.ForeColor = System.Drawing.Color.White;
-            this.lbJobName.Location = new System.Drawing.Point(7, 33);
-            this.lbJobName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbJobName.Name = "lbJobName";
-            this.lbJobName.Size = new System.Drawing.Size(146, 30);
-            this.lbJobName.TabIndex = 1;
-            this.lbJobName.Text = "Tên công việc";
-            this.lbJobName.Click += new System.EventHandler(this.UCJobItem_Click);
-            this.lbJobName.MouseEnter += new System.EventHandler(this.UCJobItem_MouseEnter);
-            this.lbJobName.MouseLeave += new System.EventHandler(this.UCJobItem_MouseLeave);
+            lbJobName.AutoSize = true;
+            lbJobName.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbJobName.ForeColor = Color.White;
+            lbJobName.Location = new Point(7, 33);
+            lbJobName.Margin = new Padding(4, 0, 4, 0);
+            lbJobName.Name = "lbJobName";
+            lbJobName.Size = new Size(146, 30);
+            lbJobName.TabIndex = 1;
+            lbJobName.Text = "Tên công việc";
+            lbJobName.Click += UCJobItem_Click;
+            lbJobName.MouseEnter += UCJobItem_MouseEnter;
+            lbJobName.MouseLeave += UCJobItem_MouseLeave;
             // 
             // lbJobPercent
             // 
-            this.lbJobPercent.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbJobPercent.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbJobPercent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(130)))), ((int)(((byte)(253)))));
-            this.lbJobPercent.Location = new System.Drawing.Point(415, 0);
-            this.lbJobPercent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbJobPercent.Name = "lbJobPercent";
-            this.lbJobPercent.Size = new System.Drawing.Size(85, 85);
-            this.lbJobPercent.TabIndex = 2;
-            this.lbJobPercent.Text = "100%";
-            this.lbJobPercent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbJobPercent.Click += new System.EventHandler(this.UCJobItem_Click);
-            this.lbJobPercent.MouseEnter += new System.EventHandler(this.UCJobItem_MouseEnter);
-            this.lbJobPercent.MouseLeave += new System.EventHandler(this.UCJobItem_MouseLeave);
+            lbJobPercent.Dock = DockStyle.Right;
+            lbJobPercent.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbJobPercent.ForeColor = Color.FromArgb(34, 130, 253);
+            lbJobPercent.Location = new Point(415, 0);
+            lbJobPercent.Margin = new Padding(4, 0, 4, 0);
+            lbJobPercent.Name = "lbJobPercent";
+            lbJobPercent.Size = new Size(85, 85);
+            lbJobPercent.TabIndex = 2;
+            lbJobPercent.Text = "100%";
+            lbJobPercent.TextAlign = ContentAlignment.MiddleCenter;
+            lbJobPercent.Click += UCJobItem_Click;
+            lbJobPercent.MouseEnter += UCJobItem_MouseEnter;
+            lbJobPercent.MouseLeave += UCJobItem_MouseLeave;
             // 
             // UCJobItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.Controls.Add(this.lbJobPercent);
-            this.Controls.Add(this.lbJobName);
-            this.Controls.Add(this.lbJobId);
-            this.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.Name = "UCJobItem";
-            this.Size = new System.Drawing.Size(500, 85);
-            this.Click += new System.EventHandler(this.UCJobItem_Click);
-            this.MouseEnter += new System.EventHandler(this.UCJobItem_MouseEnter);
-            this.MouseLeave += new System.EventHandler(this.UCJobItem_MouseLeave);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(29, 29, 29);
+            Controls.Add(lbJobPercent);
+            Controls.Add(lbJobName);
+            Controls.Add(lbJobId);
+            Font = new Font("Segoe UI", 11.25F);
+            Margin = new Padding(0, 0, 0, 8);
+            Name = "UCJobItem";
+            Size = new Size(500, 85);
+            Click += UCJobItem_Click;
+            MouseEnter += UCJobItem_MouseEnter;
+            MouseLeave += UCJobItem_MouseLeave;
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
