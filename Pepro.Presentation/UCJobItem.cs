@@ -17,29 +17,34 @@ namespace Pepro.Presentation {
         private Panel pnlManager;
         private Panel pnlJobOfEmployee;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Panel PanelManager {
             get => pnlManager;
             set => pnlManager = value;
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Panel PanelJobOfEmployee {
             get => pnlJobOfEmployee;
             set => pnlJobOfEmployee = value;
         }
 
         [Category("Custom Props")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Id {
             get => lbJobId.Text;
             set => lbJobId.Text = value;
         }
 
         [Category("Custom Props")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new string Name {
             get => lbJobName.Text;
             set => lbJobName.Text = value;
         }
 
         [Category("Custom Props")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Percent {
             get => lbJobPercent.Text;
             set => lbJobPercent.Text = value;
