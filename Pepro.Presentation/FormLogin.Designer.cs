@@ -24,160 +24,160 @@ namespace Pepro.Presentation {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.TxtUserId = new System.Windows.Forms.TextBox();
-            this.LbAppName = new System.Windows.Forms.Label();
-            this.TxtPassword = new System.Windows.Forms.TextBox();
-            this.BtnLogin = new System.Windows.Forms.Button();
-            this.LbError = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.PcbClose = new System.Windows.Forms.PictureBox();
-            this.PicturePassWord = new System.Windows.Forms.PictureBox();
-            this.PictureUserID = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.PcbClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicturePassWord)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureUserID)).BeginInit();
-            this.SuspendLayout();
+            TxtUserId = new TextBox();
+            LbAppName = new Label();
+            TxtPassword = new TextBox();
+            BtnLogin = new Button();
+            LbError = new Label();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            PcbClose = new PictureBox();
+            PicturePassWord = new PictureBox();
+            PictureUserID = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)PcbClose).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PicturePassWord).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PictureUserID).BeginInit();
+            SuspendLayout();
             // 
             // TxtUserId
             // 
-            this.TxtUserId.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TxtUserId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.TxtUserId.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtUserId.ForeColor = System.Drawing.Color.Gray;
-            this.TxtUserId.Location = new System.Drawing.Point(108, 89);
-            this.TxtUserId.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.TxtUserId.Name = "TxtUserId";
-            this.TxtUserId.Size = new System.Drawing.Size(305, 24);
-            this.TxtUserId.TabIndex = 2;
-            this.TxtUserId.Click += new System.EventHandler(this.TxtUserId_Click);
+            TxtUserId.Anchor = AnchorStyles.None;
+            TxtUserId.BackColor = Color.FromArgb(29, 29, 29);
+            TxtUserId.BorderStyle = BorderStyle.None;
+            TxtUserId.ForeColor = Color.Gray;
+            TxtUserId.Location = new Point(108, 89);
+            TxtUserId.Margin = new Padding(4, 6, 4, 6);
+            TxtUserId.Name = "TxtUserId";
+            TxtUserId.Size = new Size(305, 24);
+            TxtUserId.TabIndex = 2;
+            TxtUserId.Click += TxtUserId_Click;
             // 
             // LbAppName
             // 
-            this.LbAppName.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LbAppName.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbAppName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(245)))), ((int)(((byte)(168)))));
-            this.LbAppName.Location = new System.Drawing.Point(0, 0);
-            this.LbAppName.Name = "LbAppName";
-            this.LbAppName.Size = new System.Drawing.Size(468, 59);
-            this.LbAppName.TabIndex = 0;
-            this.LbAppName.Text = "iPPS Ver.0";
-            this.LbAppName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            LbAppName.Dock = DockStyle.Top;
+            LbAppName.Font = new Font("Segoe UI", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LbAppName.ForeColor = Color.FromArgb(248, 245, 168);
+            LbAppName.Location = new Point(0, 0);
+            LbAppName.Name = "LbAppName";
+            LbAppName.Size = new Size(468, 59);
+            LbAppName.TabIndex = 0;
+            LbAppName.Text = "iPPS Ver.0";
+            LbAppName.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // TxtPassword
             // 
-            this.TxtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TxtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.TxtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtPassword.ForeColor = System.Drawing.Color.Gray;
-            this.TxtPassword.Location = new System.Drawing.Point(108, 164);
-            this.TxtPassword.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.TxtPassword.Name = "TxtPassword";
-            this.TxtPassword.Size = new System.Drawing.Size(305, 24);
-            this.TxtPassword.TabIndex = 3;
-            this.TxtPassword.Click += new System.EventHandler(this.TxtPassword_Click);
-            this.TxtPassword.Enter += new System.EventHandler(this.TxtPassword_Enter);
-            this.TxtPassword.Leave += new System.EventHandler(this.TxtPassword_Leave);
+            TxtPassword.Anchor = AnchorStyles.None;
+            TxtPassword.BackColor = Color.FromArgb(29, 29, 29);
+            TxtPassword.BorderStyle = BorderStyle.None;
+            TxtPassword.ForeColor = Color.Gray;
+            TxtPassword.Location = new Point(108, 164);
+            TxtPassword.Margin = new Padding(4, 6, 4, 6);
+            TxtPassword.Name = "TxtPassword";
+            TxtPassword.Size = new Size(305, 24);
+            TxtPassword.TabIndex = 3;
+            TxtPassword.Click += TxtPassword_Click;
+            TxtPassword.Enter += TxtPassword_Enter;
+            TxtPassword.Leave += TxtPassword_Leave;
             // 
             // BtnLogin
             // 
-            this.BtnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BtnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnLogin.Location = new System.Drawing.Point(49, 250);
-            this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(364, 49);
-            this.BtnLogin.TabIndex = 1;
-            this.BtnLogin.Text = "Đăng nhập";
-            this.BtnLogin.UseVisualStyleBackColor = true;
-            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            BtnLogin.Anchor = AnchorStyles.None;
+            BtnLogin.Cursor = Cursors.Hand;
+            BtnLogin.Location = new Point(49, 250);
+            BtnLogin.Name = "BtnLogin";
+            BtnLogin.Size = new Size(364, 49);
+            BtnLogin.TabIndex = 1;
+            BtnLogin.Text = "Đăng nhập";
+            BtnLogin.UseVisualStyleBackColor = true;
+            BtnLogin.Click += BtnLogin_Click;
             // 
             // LbError
             // 
-            this.LbError.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LbError.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbError.ForeColor = System.Drawing.Color.Red;
-            this.LbError.Location = new System.Drawing.Point(49, 217);
-            this.LbError.Name = "LbError";
-            this.LbError.Size = new System.Drawing.Size(364, 30);
-            this.LbError.TabIndex = 3;
-            this.LbError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            LbError.Anchor = AnchorStyles.None;
+            LbError.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LbError.ForeColor = Color.Red;
+            LbError.Location = new Point(49, 217);
+            LbError.Name = "LbError";
+            LbError.Size = new Size(364, 30);
+            LbError.TabIndex = 3;
+            LbError.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(49, 132);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(362, 1);
-            this.panel1.TabIndex = 6;
+            panel1.BackColor = Color.White;
+            panel1.Location = new Point(49, 132);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(362, 1);
+            panel1.TabIndex = 6;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(49, 207);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(362, 1);
-            this.panel2.TabIndex = 7;
+            panel2.BackColor = Color.White;
+            panel2.Location = new Point(49, 207);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(362, 1);
+            panel2.TabIndex = 7;
             // 
             // PcbClose
             // 
-            this.PcbClose.Image = global::Pepro.Presentation.Properties.Resources.CloseCircleFill;
-            this.PcbClose.Location = new System.Drawing.Point(422, 14);
-            this.PcbClose.Margin = new System.Windows.Forms.Padding(5);
-            this.PcbClose.Name = "PcbClose";
-            this.PcbClose.Size = new System.Drawing.Size(32, 32);
-            this.PcbClose.TabIndex = 9;
-            this.PcbClose.TabStop = false;
-            this.PcbClose.Click += new System.EventHandler(this.PcbClose_Click);
+            PcbClose.Image = Properties.Resources.CloseCircleFill;
+            PcbClose.Location = new Point(422, 14);
+            PcbClose.Margin = new Padding(5);
+            PcbClose.Name = "PcbClose";
+            PcbClose.Size = new Size(32, 32);
+            PcbClose.TabIndex = 9;
+            PcbClose.TabStop = false;
+            PcbClose.Click += PcbClose_Click;
             // 
             // PicturePassWord
             // 
-            this.PicturePassWord.BackgroundImage = global::Pepro.Presentation.Properties.Resources.CloseLockWhite;
-            this.PicturePassWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PicturePassWord.Location = new System.Drawing.Point(49, 151);
-            this.PicturePassWord.Name = "PicturePassWord";
-            this.PicturePassWord.Size = new System.Drawing.Size(52, 50);
-            this.PicturePassWord.TabIndex = 5;
-            this.PicturePassWord.TabStop = false;
-            this.PicturePassWord.Click += new System.EventHandler(this.PicturePassWord_Click);
+            PicturePassWord.BackgroundImage = Properties.Resources.CloseLockWhite;
+            PicturePassWord.BackgroundImageLayout = ImageLayout.Zoom;
+            PicturePassWord.Location = new Point(49, 151);
+            PicturePassWord.Name = "PicturePassWord";
+            PicturePassWord.Size = new Size(52, 50);
+            PicturePassWord.TabIndex = 5;
+            PicturePassWord.TabStop = false;
+            PicturePassWord.Click += PicturePassWord_Click;
             // 
             // PictureUserID
             // 
-            this.PictureUserID.BackgroundImage = global::Pepro.Presentation.Properties.Resources.UserWhite;
-            this.PictureUserID.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PictureUserID.Location = new System.Drawing.Point(49, 76);
-            this.PictureUserID.Name = "PictureUserID";
-            this.PictureUserID.Size = new System.Drawing.Size(52, 50);
-            this.PictureUserID.TabIndex = 4;
-            this.PictureUserID.TabStop = false;
+            PictureUserID.BackgroundImage = Properties.Resources.UserWhite;
+            PictureUserID.BackgroundImageLayout = ImageLayout.Zoom;
+            PictureUserID.Location = new Point(49, 76);
+            PictureUserID.Name = "PictureUserID";
+            PictureUserID.Size = new Size(52, 50);
+            PictureUserID.TabIndex = 4;
+            PictureUserID.TabStop = false;
             // 
             // FormLogin
             // 
-            this.AcceptButton = this.BtnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.ClientSize = new System.Drawing.Size(468, 311);
-            this.Controls.Add(this.PcbClose);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.PicturePassWord);
-            this.Controls.Add(this.PictureUserID);
-            this.Controls.Add(this.TxtPassword);
-            this.Controls.Add(this.TxtUserId);
-            this.Controls.Add(this.LbError);
-            this.Controls.Add(this.BtnLogin);
-            this.Controls.Add(this.LbAppName);
-            this.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.Name = "FormLogin";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đăng Nhập";
-            ((System.ComponentModel.ISupportInitialize)(this.PcbClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PicturePassWord)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureUserID)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AcceptButton = BtnLogin;
+            AutoScaleDimensions = new SizeF(11F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(29, 29, 29);
+            ClientSize = new Size(468, 311);
+            Controls.Add(PcbClose);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Controls.Add(PicturePassWord);
+            Controls.Add(PictureUserID);
+            Controls.Add(TxtPassword);
+            Controls.Add(TxtUserId);
+            Controls.Add(LbError);
+            Controls.Add(BtnLogin);
+            Controls.Add(LbAppName);
+            Font = new Font("Segoe UI", 13.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 6, 4, 6);
+            Name = "FormLogin";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Đăng Nhập";
+            ((System.ComponentModel.ISupportInitialize)PcbClose).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PicturePassWord).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PictureUserID).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

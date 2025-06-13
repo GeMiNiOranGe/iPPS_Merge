@@ -26,190 +26,187 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
-            this.panelSidebar = new System.Windows.Forms.Panel();
-            this.btnDormitory = new System.Windows.Forms.Button();
-            this.btnLuong = new System.Windows.Forms.Button();
-            this.btnChamCong = new System.Windows.Forms.Button();
-            this.lbMaPB = new System.Windows.Forms.Label();
-            this.panelSide = new System.Windows.Forms.Panel();
-            this.btnNhanVien = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.panelChinh = new System.Windows.Forms.Panel();
-            this.panelSidebar.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.SuspendLayout();
+        private void InitializeComponent() {
+            panelSidebar = new Panel();
+            btnDormitory = new Button();
+            btnLuong = new Button();
+            btnChamCong = new Button();
+            lbMaPB = new Label();
+            panelSide = new Panel();
+            btnNhanVien = new Button();
+            panel2 = new Panel();
+            btnExit = new Button();
+            panelChinh = new Panel();
+            panelSidebar.SuspendLayout();
+            panel2.SuspendLayout();
+            SuspendLayout();
             // 
             // panelSidebar
             // 
-            this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.panelSidebar.Controls.Add(this.btnDormitory);
-            this.panelSidebar.Controls.Add(this.btnLuong);
-            this.panelSidebar.Controls.Add(this.btnChamCong);
-            this.panelSidebar.Controls.Add(this.lbMaPB);
-            this.panelSidebar.Controls.Add(this.panelSide);
-            this.panelSidebar.Controls.Add(this.btnNhanVien);
-            this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSidebar.Location = new System.Drawing.Point(0, 0);
-            this.panelSidebar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(251, 700);
-            this.panelSidebar.TabIndex = 0;
+            panelSidebar.BackColor = Color.FromArgb(69, 69, 69);
+            panelSidebar.Controls.Add(btnDormitory);
+            panelSidebar.Controls.Add(btnLuong);
+            panelSidebar.Controls.Add(btnChamCong);
+            panelSidebar.Controls.Add(lbMaPB);
+            panelSidebar.Controls.Add(panelSide);
+            panelSidebar.Controls.Add(btnNhanVien);
+            panelSidebar.Dock = DockStyle.Left;
+            panelSidebar.Location = new Point(0, 0);
+            panelSidebar.Margin = new Padding(3, 2, 3, 2);
+            panelSidebar.Name = "panelSidebar";
+            panelSidebar.Size = new Size(220, 656);
+            panelSidebar.TabIndex = 0;
             // 
             // btnDormitory
             // 
-            this.btnDormitory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.btnDormitory.FlatAppearance.BorderSize = 0;
-            this.btnDormitory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDormitory.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDormitory.ForeColor = System.Drawing.Color.White;
-            this.btnDormitory.Image = global::Pepro.Presentation.Properties.Resources.Dormitory;
-            this.btnDormitory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDormitory.Location = new System.Drawing.Point(24, 423);
-            this.btnDormitory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDormitory.Name = "btnDormitory";
-            this.btnDormitory.Size = new System.Drawing.Size(224, 66);
-            this.btnDormitory.TabIndex = 10;
-            this.btnDormitory.Text = " Ký Túc Xá";
-            this.btnDormitory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDormitory.UseVisualStyleBackColor = false;
-            this.btnDormitory.Click += new System.EventHandler(this.btnDormitory_Click);
+            btnDormitory.BackColor = Color.FromArgb(69, 69, 69);
+            btnDormitory.FlatAppearance.BorderSize = 0;
+            btnDormitory.FlatStyle = FlatStyle.Flat;
+            btnDormitory.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDormitory.ForeColor = Color.White;
+            btnDormitory.Image = Properties.Resources.Dormitory;
+            btnDormitory.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDormitory.Location = new Point(21, 397);
+            btnDormitory.Margin = new Padding(3, 2, 3, 2);
+            btnDormitory.Name = "btnDormitory";
+            btnDormitory.Size = new Size(196, 62);
+            btnDormitory.TabIndex = 10;
+            btnDormitory.Text = " Ký Túc Xá";
+            btnDormitory.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnDormitory.UseVisualStyleBackColor = false;
+            btnDormitory.Click += btnDormitory_Click;
             // 
             // btnLuong
             // 
-            this.btnLuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.btnLuong.FlatAppearance.BorderSize = 0;
-            this.btnLuong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLuong.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuong.ForeColor = System.Drawing.Color.White;
-            this.btnLuong.Image = global::Pepro.Presentation.Properties.Resources.salary;
-            this.btnLuong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLuong.Location = new System.Drawing.Point(24, 325);
-            this.btnLuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLuong.Name = "btnLuong";
-            this.btnLuong.Size = new System.Drawing.Size(224, 66);
-            this.btnLuong.TabIndex = 8;
-            this.btnLuong.Text = " Lương";
-            this.btnLuong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLuong.UseVisualStyleBackColor = false;
-            this.btnLuong.Click += new System.EventHandler(this.btnLuong_Click);
+            btnLuong.BackColor = Color.FromArgb(69, 69, 69);
+            btnLuong.FlatAppearance.BorderSize = 0;
+            btnLuong.FlatStyle = FlatStyle.Flat;
+            btnLuong.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLuong.ForeColor = Color.White;
+            btnLuong.Image = Properties.Resources.salary;
+            btnLuong.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLuong.Location = new Point(21, 305);
+            btnLuong.Margin = new Padding(3, 2, 3, 2);
+            btnLuong.Name = "btnLuong";
+            btnLuong.Size = new Size(196, 62);
+            btnLuong.TabIndex = 8;
+            btnLuong.Text = " Lương";
+            btnLuong.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnLuong.UseVisualStyleBackColor = false;
+            btnLuong.Click += btnLuong_Click;
             // 
             // btnChamCong
             // 
-            this.btnChamCong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.btnChamCong.FlatAppearance.BorderSize = 0;
-            this.btnChamCong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChamCong.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChamCong.ForeColor = System.Drawing.Color.White;
-            this.btnChamCong.Image = global::Pepro.Presentation.Properties.Resources.Chamcong;
-            this.btnChamCong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChamCong.Location = new System.Drawing.Point(24, 227);
-            this.btnChamCong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnChamCong.Name = "btnChamCong";
-            this.btnChamCong.Size = new System.Drawing.Size(224, 66);
-            this.btnChamCong.TabIndex = 6;
-            this.btnChamCong.Text = " Chấm Công";
-            this.btnChamCong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnChamCong.UseVisualStyleBackColor = false;
-            this.btnChamCong.Click += new System.EventHandler(this.btnChamCong_Click);
+            btnChamCong.BackColor = Color.FromArgb(69, 69, 69);
+            btnChamCong.FlatAppearance.BorderSize = 0;
+            btnChamCong.FlatStyle = FlatStyle.Flat;
+            btnChamCong.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnChamCong.ForeColor = Color.White;
+            btnChamCong.Image = Properties.Resources.Chamcong;
+            btnChamCong.ImageAlign = ContentAlignment.MiddleLeft;
+            btnChamCong.Location = new Point(21, 213);
+            btnChamCong.Margin = new Padding(3, 2, 3, 2);
+            btnChamCong.Name = "btnChamCong";
+            btnChamCong.Size = new Size(196, 62);
+            btnChamCong.TabIndex = 6;
+            btnChamCong.Text = " Chấm Công";
+            btnChamCong.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnChamCong.UseVisualStyleBackColor = false;
+            btnChamCong.Click += btnChamCong_Click;
             // 
             // lbMaPB
             // 
-            this.lbMaPB.AutoSize = true;
-            this.lbMaPB.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMaPB.ForeColor = System.Drawing.Color.White;
-            this.lbMaPB.Location = new System.Drawing.Point(73, 39);
-            this.lbMaPB.Name = "lbMaPB";
-            this.lbMaPB.Size = new System.Drawing.Size(105, 34);
-            this.lbMaPB.TabIndex = 4;
-            this.lbMaPB.Text = "Admin";
+            lbMaPB.AutoSize = true;
+            lbMaPB.Font = new Font("Tahoma", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbMaPB.ForeColor = Color.White;
+            lbMaPB.Location = new Point(64, 37);
+            lbMaPB.Name = "lbMaPB";
+            lbMaPB.Size = new Size(83, 27);
+            lbMaPB.TabIndex = 4;
+            lbMaPB.Text = "Admin";
             // 
             // panelSide
             // 
-            this.panelSide.BackColor = System.Drawing.Color.White;
-            this.panelSide.Location = new System.Drawing.Point(5, 129);
-            this.panelSide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelSide.Name = "panelSide";
-            this.panelSide.Size = new System.Drawing.Size(15, 66);
-            this.panelSide.TabIndex = 0;
+            panelSide.BackColor = Color.White;
+            panelSide.Location = new Point(4, 121);
+            panelSide.Margin = new Padding(3, 2, 3, 2);
+            panelSide.Name = "panelSide";
+            panelSide.Size = new Size(13, 62);
+            panelSide.TabIndex = 0;
             // 
             // btnNhanVien
             // 
-            this.btnNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.btnNhanVien.FlatAppearance.BorderSize = 0;
-            this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhanVien.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhanVien.ForeColor = System.Drawing.Color.White;
-            this.btnNhanVien.Image = global::Pepro.Presentation.Properties.Resources.employee;
-            this.btnNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhanVien.Location = new System.Drawing.Point(24, 129);
-            this.btnNhanVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnNhanVien.Name = "btnNhanVien";
-            this.btnNhanVien.Size = new System.Drawing.Size(224, 66);
-            this.btnNhanVien.TabIndex = 2;
-            this.btnNhanVien.Text = "  Nhân Viên";
-            this.btnNhanVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNhanVien.UseVisualStyleBackColor = false;
-            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
+            btnNhanVien.BackColor = Color.FromArgb(69, 69, 69);
+            btnNhanVien.FlatAppearance.BorderSize = 0;
+            btnNhanVien.FlatStyle = FlatStyle.Flat;
+            btnNhanVien.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNhanVien.ForeColor = Color.White;
+            btnNhanVien.Image = Properties.Resources.employee;
+            btnNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNhanVien.Location = new Point(21, 121);
+            btnNhanVien.Margin = new Padding(3, 2, 3, 2);
+            btnNhanVien.Name = "btnNhanVien";
+            btnNhanVien.Size = new Size(196, 62);
+            btnNhanVien.TabIndex = 2;
+            btnNhanVien.Text = "  Nhân Viên";
+            btnNhanVien.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnNhanVien.UseVisualStyleBackColor = false;
+            btnNhanVien.Click += btnNhanVien_Click;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(199)))));
-            this.panel2.Controls.Add(this.btnExit);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(251, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1136, 39);
-            this.panel2.TabIndex = 1;
+            panel2.BackColor = Color.FromArgb(255, 230, 199);
+            panel2.Controls.Add(btnExit);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(220, 0);
+            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(994, 37);
+            panel2.TabIndex = 1;
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(199)))));
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(1100, 2);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(36, 34);
-            this.btnExit.TabIndex = 0;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            btnExit.BackColor = Color.FromArgb(255, 230, 199);
+            btnExit.BackgroundImageLayout = ImageLayout.Center;
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.Location = new Point(962, 2);
+            btnExit.Margin = new Padding(3, 2, 3, 2);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(32, 32);
+            btnExit.TabIndex = 0;
+            btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
             // 
             // panelChinh
             // 
-            this.panelChinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(199)))));
-            this.panelChinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChinh.Location = new System.Drawing.Point(251, 39);
-            this.panelChinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelChinh.Name = "panelChinh";
-            this.panelChinh.Size = new System.Drawing.Size(1136, 661);
-            this.panelChinh.TabIndex = 2;
+            panelChinh.BackColor = Color.FromArgb(255, 230, 199);
+            panelChinh.Dock = DockStyle.Fill;
+            panelChinh.Location = new Point(220, 37);
+            panelChinh.Margin = new Padding(3, 2, 3, 2);
+            panelChinh.Name = "panelChinh";
+            panelChinh.Size = new Size(994, 619);
+            panelChinh.TabIndex = 2;
             // 
             // FormMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1387, 700);
-            this.Controls.Add(this.panelChinh);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panelSidebar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FormMenu";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormMenu";
-            this.Load += new System.EventHandler(this.FormMenu_Load);
-            this.panelSidebar.ResumeLayout(false);
-            this.panelSidebar.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(1214, 656);
+            Controls.Add(panelChinh);
+            Controls.Add(panel2);
+            Controls.Add(panelSidebar);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "FormMenu";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FormMenu";
+            Load += FormMenu_Load;
+            panelSidebar.ResumeLayout(false);
+            panelSidebar.PerformLayout();
+            panel2.ResumeLayout(false);
+            ResumeLayout(false);
 
         }
 

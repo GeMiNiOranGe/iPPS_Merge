@@ -27,137 +27,126 @@ namespace Pepro.Presentation
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
-            this.lblIdProject = new System.Windows.Forms.Label();
-            this.lblNameProject = new System.Windows.Forms.Label();
-            this.lblListWorkOfProject = new System.Windows.Forms.Label();
-            this.lbManagerOfJob = new System.Windows.Forms.Label();
-            this.flPnlListJob = new System.Windows.Forms.FlowLayoutPanel();
-            this.pnlManager = new System.Windows.Forms.Panel();
-            this.flPnlJobOfEmployee = new System.Windows.Forms.FlowLayoutPanel();
-            this.lbOtherJobOfManager = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+        private void InitializeComponent() {
+            lblIdProject = new Label();
+            lblNameProject = new Label();
+            lblListWorkOfProject = new Label();
+            lbManagerOfJob = new Label();
+            flPnlListJob = new FlowLayoutPanel();
+            pnlManager = new Panel();
+            flPnlJobOfEmployee = new FlowLayoutPanel();
+            lbOtherJobOfManager = new Label();
+            SuspendLayout();
             // 
             // lblIdProject
             // 
-            this.lblIdProject.AutoSize = true;
-            this.lblIdProject.ForeColor = System.Drawing.Color.White;
-            this.lblIdProject.Location = new System.Drawing.Point(12, 9);
-            this.lblIdProject.Name = "lblIdProject";
-            this.lblIdProject.Size = new System.Drawing.Size(72, 20);
-            this.lblIdProject.TabIndex = 0;
-            this.lblIdProject.Text = "Mã dự án";
+            lblIdProject.AutoSize = true;
+            lblIdProject.ForeColor = Color.White;
+            lblIdProject.Location = new Point(12, 9);
+            lblIdProject.Name = "lblIdProject";
+            lblIdProject.Size = new Size(72, 20);
+            lblIdProject.TabIndex = 0;
+            lblIdProject.Text = "Mã dự án";
             // 
             // lblNameProject
             // 
-            this.lblNameProject.AutoSize = true;
-            this.lblNameProject.ForeColor = System.Drawing.Color.White;
-            this.lblNameProject.Location = new System.Drawing.Point(12, 39);
-            this.lblNameProject.Name = "lblNameProject";
-            this.lblNameProject.Size = new System.Drawing.Size(74, 20);
-            this.lblNameProject.TabIndex = 1;
-            this.lblNameProject.Text = "Tên dự án";
+            lblNameProject.AutoSize = true;
+            lblNameProject.ForeColor = Color.White;
+            lblNameProject.Location = new Point(12, 39);
+            lblNameProject.Name = "lblNameProject";
+            lblNameProject.Size = new Size(74, 20);
+            lblNameProject.TabIndex = 1;
+            lblNameProject.Text = "Tên dự án";
             // 
             // lblListWorkOfProject
             // 
-            this.lblListWorkOfProject.AutoSize = true;
-            this.lblListWorkOfProject.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListWorkOfProject.ForeColor = System.Drawing.Color.White;
-            this.lblListWorkOfProject.Location = new System.Drawing.Point(12, 89);
-            this.lblListWorkOfProject.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblListWorkOfProject.Name = "lblListWorkOfProject";
-            this.lblListWorkOfProject.Size = new System.Drawing.Size(304, 25);
-            this.lblListWorkOfProject.TabIndex = 2;
-            this.lblListWorkOfProject.Text = "Danh sách công việc trong dự án";
+            lblListWorkOfProject.AutoSize = true;
+            lblListWorkOfProject.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblListWorkOfProject.ForeColor = Color.White;
+            lblListWorkOfProject.Location = new Point(12, 89);
+            lblListWorkOfProject.Margin = new Padding(6, 0, 6, 0);
+            lblListWorkOfProject.Name = "lblListWorkOfProject";
+            lblListWorkOfProject.Size = new Size(304, 25);
+            lblListWorkOfProject.TabIndex = 2;
+            lblListWorkOfProject.Text = "Danh sách công việc trong dự án";
             // 
             // lbManagerOfJob
             // 
-            this.lbManagerOfJob.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbManagerOfJob.AutoSize = true;
-            this.lbManagerOfJob.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbManagerOfJob.ForeColor = System.Drawing.Color.White;
-            this.lbManagerOfJob.Location = new System.Drawing.Point(693, 89);
-            this.lbManagerOfJob.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lbManagerOfJob.Name = "lbManagerOfJob";
-            this.lbManagerOfJob.Size = new System.Drawing.Size(263, 25);
-            this.lbManagerOfJob.TabIndex = 3;
-            this.lbManagerOfJob.Text = "Nhân viên phụ trách quản lý";
+            lbManagerOfJob.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lbManagerOfJob.AutoSize = true;
+            lbManagerOfJob.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbManagerOfJob.ForeColor = Color.White;
+            lbManagerOfJob.Location = new Point(693, 89);
+            lbManagerOfJob.Margin = new Padding(6, 0, 6, 0);
+            lbManagerOfJob.Name = "lbManagerOfJob";
+            lbManagerOfJob.Size = new Size(263, 25);
+            lbManagerOfJob.TabIndex = 3;
+            lbManagerOfJob.Text = "Nhân viên phụ trách quản lý";
             // 
             // flPnlListJob
             // 
-            this.flPnlListJob.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flPnlListJob.AutoScroll = true;
-            this.flPnlListJob.Location = new System.Drawing.Point(15, 126);
-            this.flPnlListJob.Margin = new System.Windows.Forms.Padding(6);
-            this.flPnlListJob.Name = "flPnlListJob";
-            this.flPnlListJob.Size = new System.Drawing.Size(643, 540);
-            this.flPnlListJob.TabIndex = 4;
+            flPnlListJob.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flPnlListJob.AutoScroll = true;
+            flPnlListJob.Location = new Point(15, 126);
+            flPnlListJob.Margin = new Padding(6);
+            flPnlListJob.Name = "flPnlListJob";
+            flPnlListJob.Size = new Size(643, 540);
+            flPnlListJob.TabIndex = 4;
             // 
             // pnlManager
             // 
-            this.pnlManager.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlManager.Location = new System.Drawing.Point(698, 126);
-            this.pnlManager.Margin = new System.Windows.Forms.Padding(6);
-            this.pnlManager.Name = "pnlManager";
-            this.pnlManager.Size = new System.Drawing.Size(551, 150);
-            this.pnlManager.TabIndex = 5;
+            pnlManager.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlManager.Location = new Point(698, 126);
+            pnlManager.Margin = new Padding(6);
+            pnlManager.Name = "pnlManager";
+            pnlManager.Size = new Size(551, 150);
+            pnlManager.TabIndex = 5;
             // 
             // flPnlJobOfEmployee
             // 
-            this.flPnlJobOfEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flPnlJobOfEmployee.AutoScroll = true;
-            this.flPnlJobOfEmployee.Location = new System.Drawing.Point(698, 341);
-            this.flPnlJobOfEmployee.Margin = new System.Windows.Forms.Padding(6);
-            this.flPnlJobOfEmployee.Name = "flPnlJobOfEmployee";
-            this.flPnlJobOfEmployee.Size = new System.Drawing.Size(551, 325);
-            this.flPnlJobOfEmployee.TabIndex = 5;
+            flPnlJobOfEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flPnlJobOfEmployee.AutoScroll = true;
+            flPnlJobOfEmployee.Location = new Point(698, 341);
+            flPnlJobOfEmployee.Margin = new Padding(6);
+            flPnlJobOfEmployee.Name = "flPnlJobOfEmployee";
+            flPnlJobOfEmployee.Size = new Size(551, 325);
+            flPnlJobOfEmployee.TabIndex = 5;
             // 
             // lbOtherJobOfManager
             // 
-            this.lbOtherJobOfManager.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbOtherJobOfManager.AutoSize = true;
-            this.lbOtherJobOfManager.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbOtherJobOfManager.ForeColor = System.Drawing.Color.White;
-            this.lbOtherJobOfManager.Location = new System.Drawing.Point(693, 310);
-            this.lbOtherJobOfManager.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lbOtherJobOfManager.Name = "lbOtherJobOfManager";
-            this.lbOtherJobOfManager.Size = new System.Drawing.Size(463, 25);
-            this.lbOtherJobOfManager.TabIndex = 7;
-            this.lbOtherJobOfManager.Text = "Những công việc đang tham gia của người quản lý";
+            lbOtherJobOfManager.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lbOtherJobOfManager.AutoSize = true;
+            lbOtherJobOfManager.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbOtherJobOfManager.ForeColor = Color.White;
+            lbOtherJobOfManager.Location = new Point(693, 310);
+            lbOtherJobOfManager.Margin = new Padding(6, 0, 6, 0);
+            lbOtherJobOfManager.Name = "lbOtherJobOfManager";
+            lbOtherJobOfManager.Size = new Size(463, 25);
+            lbOtherJobOfManager.TabIndex = 7;
+            lbOtherJobOfManager.Text = "Những công việc đang tham gia của người quản lý";
             // 
             // FormJobDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.lbOtherJobOfManager);
-            this.Controls.Add(this.flPnlJobOfEmployee);
-            this.Controls.Add(this.pnlManager);
-            this.Controls.Add(this.flPnlListJob);
-            this.Controls.Add(this.lbManagerOfJob);
-            this.Controls.Add(this.lblListWorkOfProject);
-            this.Controls.Add(this.lblNameProject);
-            this.Controls.Add(this.lblIdProject);
-            this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "FormJobDetail";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chi tiết công việc";
-            this.Load += new System.EventHandler(this.FormWorkOfProject_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(15, 15, 15);
+            ClientSize = new Size(1264, 681);
+            Controls.Add(lbOtherJobOfManager);
+            Controls.Add(flPnlJobOfEmployee);
+            Controls.Add(pnlManager);
+            Controls.Add(flPnlListJob);
+            Controls.Add(lbManagerOfJob);
+            Controls.Add(lblListWorkOfProject);
+            Controls.Add(lblNameProject);
+            Controls.Add(lblIdProject);
+            Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Margin = new Padding(6);
+            Name = "FormJobDetail";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Chi tiết công việc";
+            Load += FormWorkOfProject_Load;
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

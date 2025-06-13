@@ -26,186 +26,177 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txtSearchTask = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSearchProject = new System.Windows.Forms.TextBox();
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.dgvTasks = new System.Windows.Forms.DataGridView();
-            this.idJob = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idMng = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccessRight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrjPublic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DepPublic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).BeginInit();
-            this.SuspendLayout();
+        private void InitializeComponent() {
+            panel1 = new Panel();
+            txtSearchTask = new TextBox();
+            label1 = new Label();
+            txtSearchProject = new TextBox();
+            lblSearch = new Label();
+            dgvTasks = new DataGridView();
+            idJob = new DataGridViewTextBoxColumn();
+            idMng = new DataGridViewTextBoxColumn();
+            WorkName = new DataGridViewTextBoxColumn();
+            AccessRight = new DataGridViewTextBoxColumn();
+            Status = new DataGridViewTextBoxColumn();
+            PrjPublic = new DataGridViewTextBoxColumn();
+            DepPublic = new DataGridViewTextBoxColumn();
+            ProjectID = new DataGridViewTextBoxColumn();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvTasks).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.panel1.Controls.Add(this.txtSearchTask);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtSearchProject);
-            this.panel1.Controls.Add(this.lblSearch);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 467);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 94);
-            this.panel1.TabIndex = 3;
+            panel1.BackColor = Color.FromArgb(22, 22, 22);
+            panel1.Controls.Add(txtSearchTask);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(txtSearchProject);
+            panel1.Controls.Add(lblSearch);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(0, 467);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(984, 94);
+            panel1.TabIndex = 3;
             // 
             // txtSearchTask
             // 
-            this.txtSearchTask.Location = new System.Drawing.Point(146, 52);
-            this.txtSearchTask.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtSearchTask.Name = "txtSearchTask";
-            this.txtSearchTask.Size = new System.Drawing.Size(169, 31);
-            this.txtSearchTask.TabIndex = 4;
-            this.txtSearchTask.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchTask_KeyPress);
+            txtSearchTask.Location = new Point(146, 52);
+            txtSearchTask.Margin = new Padding(3, 4, 3, 4);
+            txtSearchTask.Name = "txtSearchTask";
+            txtSearchTask.Size = new Size(169, 31);
+            txtSearchTask.TabIndex = 4;
+            txtSearchTask.KeyPress += txtSearchTask_KeyPress;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 59);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 18);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Nhập ID công việc";
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(12, 59);
+            label1.Name = "label1";
+            label1.Size = new Size(128, 18);
+            label1.TabIndex = 3;
+            label1.Text = "Nhập ID công việc";
             // 
             // txtSearchProject
             // 
-            this.txtSearchProject.Location = new System.Drawing.Point(146, 13);
-            this.txtSearchProject.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtSearchProject.Name = "txtSearchProject";
-            this.txtSearchProject.Size = new System.Drawing.Size(169, 31);
-            this.txtSearchProject.TabIndex = 1;
-            this.txtSearchProject.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchProject_KeyPress);
+            txtSearchProject.Location = new Point(146, 13);
+            txtSearchProject.Margin = new Padding(3, 4, 3, 4);
+            txtSearchProject.Name = "txtSearchProject";
+            txtSearchProject.Size = new Size(169, 31);
+            txtSearchProject.TabIndex = 1;
+            txtSearchProject.KeyPress += txtSearchProject_KeyPress;
             // 
             // lblSearch
             // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.ForeColor = System.Drawing.Color.White;
-            this.lblSearch.Location = new System.Drawing.Point(39, 20);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(101, 18);
-            this.lblSearch.TabIndex = 0;
-            this.lblSearch.Text = "Nhập ID dự án";
+            lblSearch.AutoSize = true;
+            lblSearch.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSearch.ForeColor = Color.White;
+            lblSearch.Location = new Point(39, 20);
+            lblSearch.Name = "lblSearch";
+            lblSearch.Size = new Size(101, 18);
+            lblSearch.TabIndex = 0;
+            lblSearch.Text = "Nhập ID dự án";
             // 
             // dgvTasks
             // 
-            this.dgvTasks.AllowUserToAddRows = false;
-            this.dgvTasks.AllowUserToDeleteRows = false;
-            this.dgvTasks.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.dgvTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTasks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idJob,
-            this.idMng,
-            this.WorkName,
-            this.AccessRight,
-            this.Status,
-            this.PrjPublic,
-            this.DepPublic,
-            this.ProjectID});
-            this.dgvTasks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvTasks.Location = new System.Drawing.Point(0, 0);
-            this.dgvTasks.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgvTasks.Name = "dgvTasks";
-            this.dgvTasks.ReadOnly = true;
-            this.dgvTasks.RowHeadersWidth = 51;
-            this.dgvTasks.RowTemplate.Height = 24;
-            this.dgvTasks.Size = new System.Drawing.Size(984, 467);
-            this.dgvTasks.TabIndex = 2;
+            dgvTasks.AllowUserToAddRows = false;
+            dgvTasks.AllowUserToDeleteRows = false;
+            dgvTasks.BackgroundColor = Color.FromArgb(15, 15, 15);
+            dgvTasks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTasks.Columns.AddRange(new DataGridViewColumn[] { idJob, idMng, WorkName, AccessRight, Status, PrjPublic, DepPublic, ProjectID });
+            dgvTasks.Dock = DockStyle.Fill;
+            dgvTasks.Location = new Point(0, 0);
+            dgvTasks.Margin = new Padding(3, 4, 3, 4);
+            dgvTasks.Name = "dgvTasks";
+            dgvTasks.ReadOnly = true;
+            dgvTasks.RowHeadersWidth = 51;
+            dgvTasks.RowTemplate.Height = 24;
+            dgvTasks.Size = new Size(984, 467);
+            dgvTasks.TabIndex = 2;
             // 
             // idJob
             // 
-            this.idJob.HeaderText = "ID công việc";
-            this.idJob.MinimumWidth = 6;
-            this.idJob.Name = "idJob";
-            this.idJob.ReadOnly = true;
-            this.idJob.Width = 150;
+            idJob.HeaderText = "ID công việc";
+            idJob.MinimumWidth = 6;
+            idJob.Name = "idJob";
+            idJob.ReadOnly = true;
+            idJob.Width = 150;
             // 
             // idMng
             // 
-            this.idMng.HeaderText = "ID quản lý";
-            this.idMng.MinimumWidth = 6;
-            this.idMng.Name = "idMng";
-            this.idMng.ReadOnly = true;
-            this.idMng.Width = 125;
+            idMng.HeaderText = "ID quản lý";
+            idMng.MinimumWidth = 6;
+            idMng.Name = "idMng";
+            idMng.ReadOnly = true;
+            idMng.Width = 125;
             // 
             // WorkName
             // 
-            this.WorkName.HeaderText = "Tên công việc";
-            this.WorkName.MinimumWidth = 6;
-            this.WorkName.Name = "WorkName";
-            this.WorkName.ReadOnly = true;
-            this.WorkName.Width = 160;
+            WorkName.HeaderText = "Tên công việc";
+            WorkName.MinimumWidth = 6;
+            WorkName.Name = "WorkName";
+            WorkName.ReadOnly = true;
+            WorkName.Width = 160;
             // 
             // AccessRight
             // 
-            this.AccessRight.HeaderText = "Quyền truy cập";
-            this.AccessRight.MinimumWidth = 6;
-            this.AccessRight.Name = "AccessRight";
-            this.AccessRight.ReadOnly = true;
-            this.AccessRight.Width = 160;
+            AccessRight.HeaderText = "Quyền truy cập";
+            AccessRight.MinimumWidth = 6;
+            AccessRight.Name = "AccessRight";
+            AccessRight.ReadOnly = true;
+            AccessRight.Width = 160;
             // 
             // Status
             // 
-            this.Status.HeaderText = "Tình trạng";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 160;
+            Status.HeaderText = "Tình trạng";
+            Status.MinimumWidth = 6;
+            Status.Name = "Status";
+            Status.ReadOnly = true;
+            Status.Width = 160;
             // 
             // PrjPublic
             // 
-            this.PrjPublic.HeaderText = "Công khai dự án";
-            this.PrjPublic.MinimumWidth = 6;
-            this.PrjPublic.Name = "PrjPublic";
-            this.PrjPublic.ReadOnly = true;
-            this.PrjPublic.Width = 220;
+            PrjPublic.HeaderText = "Công khai dự án";
+            PrjPublic.MinimumWidth = 6;
+            PrjPublic.Name = "PrjPublic";
+            PrjPublic.ReadOnly = true;
+            PrjPublic.Width = 220;
             // 
             // DepPublic
             // 
-            this.DepPublic.HeaderText = "Công khai phòng ban";
-            this.DepPublic.MinimumWidth = 6;
-            this.DepPublic.Name = "DepPublic";
-            this.DepPublic.ReadOnly = true;
-            this.DepPublic.Width = 220;
+            DepPublic.HeaderText = "Công khai phòng ban";
+            DepPublic.MinimumWidth = 6;
+            DepPublic.Name = "DepPublic";
+            DepPublic.ReadOnly = true;
+            DepPublic.Width = 220;
             // 
             // ProjectID
             // 
-            this.ProjectID.HeaderText = "ID dự án";
-            this.ProjectID.MinimumWidth = 6;
-            this.ProjectID.Name = "ProjectID";
-            this.ProjectID.ReadOnly = true;
-            this.ProjectID.Width = 125;
+            ProjectID.HeaderText = "ID dự án";
+            ProjectID.MinimumWidth = 6;
+            ProjectID.Name = "ProjectID";
+            ProjectID.ReadOnly = true;
+            ProjectID.Width = 125;
             // 
             // EmployeeTasks
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
-            this.Controls.Add(this.dgvTasks);
-            this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "EmployeeTasks";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EmployeeTasks";
-            this.Load += new System.EventHandler(this.EmployeeTasks_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(9F, 23F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(984, 561);
+            Controls.Add(dgvTasks);
+            Controls.Add(panel1);
+            Font = new Font("Segoe UI", 13F);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "EmployeeTasks";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "EmployeeTasks";
+            Load += EmployeeTasks_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvTasks).EndInit();
+            ResumeLayout(false);
 
         }
 

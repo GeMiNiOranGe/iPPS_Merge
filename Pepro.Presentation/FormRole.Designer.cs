@@ -23,119 +23,130 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.txtRoleId = new System.Windows.Forms.TextBox();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.lblRoleName = new System.Windows.Forms.Label();
-            this.lblId = new System.Windows.Forms.Label();
-            this.dgvRole = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRole)).BeginInit();
-            this.SuspendLayout();
+            groupBox1 = new GroupBox();
+            btnDelete = new Button();
+            btnUpdate = new Button();
+            btnAdd = new Button();
+            txtRoleId = new TextBox();
+            txtID = new TextBox();
+            lblRoleName = new Label();
+            lblId = new Label();
+            dgvRole = new DataGridView();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRole).BeginInit();
+            SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Controls.Add(this.btnDelete);
-            this.groupBox1.Controls.Add(this.btnUpdate);
-            this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.txtRoleId);
-            this.groupBox1.Controls.Add(this.txtID);
-            this.groupBox1.Controls.Add(this.lblRoleName);
-            this.groupBox1.Controls.Add(this.lblId);
-            this.groupBox1.Location = new System.Drawing.Point(66, 30);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(669, 187);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Function";
+            groupBox1.BackColor = SystemColors.ControlLightLight;
+            groupBox1.Controls.Add(btnDelete);
+            groupBox1.Controls.Add(btnUpdate);
+            groupBox1.Controls.Add(btnAdd);
+            groupBox1.Controls.Add(txtRoleId);
+            groupBox1.Controls.Add(txtID);
+            groupBox1.Controls.Add(lblRoleName);
+            groupBox1.Controls.Add(lblId);
+            groupBox1.Location = new Point(77, 35);
+            groupBox1.Margin = new Padding(4, 3, 4, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(4, 3, 4, 3);
+            groupBox1.Size = new Size(780, 216);
+            groupBox1.TabIndex = 5;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Function";
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.SystemColors.Menu;
-            this.btnDelete.Location = new System.Drawing.Point(370, 106);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(63, 31);
-            this.btnDelete.TabIndex = 8;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.BackColor = SystemColors.Menu;
+            btnDelete.Location = new Point(432, 122);
+            btnDelete.Margin = new Padding(4, 3, 4, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(74, 36);
+            btnDelete.TabIndex = 8;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = false;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.SystemColors.Menu;
-            this.btnUpdate.Location = new System.Drawing.Point(283, 106);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(63, 31);
-            this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.BackColor = SystemColors.Menu;
+            btnUpdate.Location = new Point(330, 122);
+            btnUpdate.Margin = new Padding(4, 3, 4, 3);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(74, 36);
+            btnUpdate.TabIndex = 7;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = false;
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.SystemColors.Menu;
-            this.btnAdd.Location = new System.Drawing.Point(196, 106);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(63, 31);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.BackColor = SystemColors.Menu;
+            btnAdd.Location = new Point(229, 122);
+            btnAdd.Margin = new Padding(4, 3, 4, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(74, 36);
+            btnAdd.TabIndex = 6;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = false;
             // 
             // txtRoleId
             // 
-            this.txtRoleId.Location = new System.Drawing.Point(441, 45);
-            this.txtRoleId.Name = "txtRoleId";
-            this.txtRoleId.Size = new System.Drawing.Size(129, 20);
-            this.txtRoleId.TabIndex = 1;
+            txtRoleId.Location = new Point(514, 52);
+            txtRoleId.Margin = new Padding(4, 3, 4, 3);
+            txtRoleId.Name = "txtRoleId";
+            txtRoleId.Size = new Size(150, 23);
+            txtRoleId.TabIndex = 1;
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(126, 45);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(129, 20);
-            this.txtID.TabIndex = 1;
+            txtID.Location = new Point(147, 52);
+            txtID.Margin = new Padding(4, 3, 4, 3);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(150, 23);
+            txtID.TabIndex = 1;
             // 
             // lblRoleName
             // 
-            this.lblRoleName.AutoSize = true;
-            this.lblRoleName.Location = new System.Drawing.Point(374, 48);
-            this.lblRoleName.Name = "lblRoleName";
-            this.lblRoleName.Size = new System.Drawing.Size(61, 13);
-            this.lblRoleName.TabIndex = 0;
-            this.lblRoleName.Text = "Role name:";
+            lblRoleName.AutoSize = true;
+            lblRoleName.Location = new Point(436, 55);
+            lblRoleName.Margin = new Padding(4, 0, 4, 0);
+            lblRoleName.Name = "lblRoleName";
+            lblRoleName.Size = new Size(66, 15);
+            lblRoleName.TabIndex = 0;
+            lblRoleName.Text = "Role name:";
             // 
             // lblId
             // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(99, 48);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(21, 13);
-            this.lblId.TabIndex = 0;
-            this.lblId.Text = "ID:";
+            lblId.AutoSize = true;
+            lblId.Location = new Point(115, 55);
+            lblId.Margin = new Padding(4, 0, 4, 0);
+            lblId.Name = "lblId";
+            lblId.Size = new Size(21, 15);
+            lblId.TabIndex = 0;
+            lblId.Text = "ID:";
             // 
             // dgvRole
             // 
-            this.dgvRole.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRole.Location = new System.Drawing.Point(66, 245);
-            this.dgvRole.Name = "dgvRole";
-            this.dgvRole.Size = new System.Drawing.Size(669, 176);
-            this.dgvRole.TabIndex = 6;
+            dgvRole.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRole.Location = new Point(77, 283);
+            dgvRole.Margin = new Padding(4, 3, 4, 3);
+            dgvRole.Name = "dgvRole";
+            dgvRole.Size = new Size(780, 203);
+            dgvRole.TabIndex = 6;
             // 
             // FormRole
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dgvRole);
-            this.Name = "FormRole";
-            this.Text = "FormRole";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRole)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(933, 519);
+            Controls.Add(groupBox1);
+            Controls.Add(dgvRole);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FormRole";
+            Text = "FormRole";
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRole).EndInit();
+            ResumeLayout(false);
 
         }
 

@@ -24,28 +24,30 @@ namespace Pepro.Presentation {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.flPnlProjectList = new System.Windows.Forms.FlowLayoutPanel();
-            this.SuspendLayout();
+            flPnlProjectList = new FlowLayoutPanel();
+            SuspendLayout();
             // 
             // flPnlProjectList
             // 
-            this.flPnlProjectList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.flPnlProjectList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flPnlProjectList.Location = new System.Drawing.Point(0, 0);
-            this.flPnlProjectList.Name = "flPnlProjectList";
-            this.flPnlProjectList.Padding = new System.Windows.Forms.Padding(12);
-            this.flPnlProjectList.Size = new System.Drawing.Size(284, 261);
-            this.flPnlProjectList.TabIndex = 0;
+            flPnlProjectList.BackColor = Color.FromArgb(15, 15, 15);
+            flPnlProjectList.Dock = DockStyle.Fill;
+            flPnlProjectList.Location = new Point(0, 0);
+            flPnlProjectList.Margin = new Padding(4, 3, 4, 3);
+            flPnlProjectList.Name = "flPnlProjectList";
+            flPnlProjectList.Padding = new Padding(14, 14, 14, 14);
+            flPnlProjectList.Size = new Size(331, 301);
+            flPnlProjectList.TabIndex = 0;
             // 
             // FormProgress
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.flPnlProjectList);
-            this.Name = "FormProgress";
-            this.Load += new System.EventHandler(this.FormProgress_Load);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(331, 301);
+            Controls.Add(flPnlProjectList);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FormProgress";
+            Load += FormProgress_Load;
+            ResumeLayout(false);
 
         }
 

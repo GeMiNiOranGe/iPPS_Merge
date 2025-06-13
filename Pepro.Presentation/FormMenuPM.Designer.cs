@@ -26,162 +26,173 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.picLogout = new System.Windows.Forms.PictureBox();
-            this.btnAR = new System.Windows.Forms.Button();
-            this.btnGrant = new System.Windows.Forms.Button();
-            this.btnDepartment = new System.Windows.Forms.Button();
-            this.btnEmployee = new System.Windows.Forms.Button();
-            this.pnMenu = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbRole = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+        private void InitializeComponent() {
+            groupBox1 = new GroupBox();
+            picLogout = new PictureBox();
+            btnAR = new Button();
+            btnGrant = new Button();
+            btnDepartment = new Button();
+            btnEmployee = new Button();
+            pnMenu = new Panel();
+            label1 = new Label();
+            lbRole = new Label();
+            pictureBox1 = new PictureBox();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogout).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.picLogout);
-            this.groupBox1.Controls.Add(this.btnAR);
-            this.groupBox1.Controls.Add(this.btnGrant);
-            this.groupBox1.Controls.Add(this.btnDepartment);
-            this.groupBox1.Controls.Add(this.btnEmployee);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox1.Location = new System.Drawing.Point(12, 80);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(174, 417);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Function";
+            groupBox1.Controls.Add(picLogout);
+            groupBox1.Controls.Add(btnAR);
+            groupBox1.Controls.Add(btnGrant);
+            groupBox1.Controls.Add(btnDepartment);
+            groupBox1.Controls.Add(btnEmployee);
+            groupBox1.ForeColor = SystemColors.ButtonFace;
+            groupBox1.Location = new Point(14, 92);
+            groupBox1.Margin = new Padding(4, 3, 4, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(4, 3, 4, 3);
+            groupBox1.Size = new Size(203, 481);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Function";
             // 
             // picLogout
             // 
-            this.picLogout.BackgroundImage = global::Pepro.Presentation.Properties.Resources.Logout;
-            this.picLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picLogout.Location = new System.Drawing.Point(3, 346);
-            this.picLogout.Name = "picLogout";
-            this.picLogout.Size = new System.Drawing.Size(76, 65);
-            this.picLogout.TabIndex = 3;
-            this.picLogout.TabStop = false;
-            this.picLogout.Click += new System.EventHandler(this.picLogout_Click);
+            picLogout.BackgroundImage = Properties.Resources.Logout;
+            picLogout.BackgroundImageLayout = ImageLayout.Center;
+            picLogout.Location = new Point(4, 399);
+            picLogout.Margin = new Padding(4, 3, 4, 3);
+            picLogout.Name = "picLogout";
+            picLogout.Size = new Size(89, 75);
+            picLogout.TabIndex = 3;
+            picLogout.TabStop = false;
+            picLogout.Click += picLogout_Click;
             // 
             // btnAR
             // 
-            this.btnAR.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAR.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAR.Location = new System.Drawing.Point(10, 275);
-            this.btnAR.Name = "btnAR";
-            this.btnAR.Size = new System.Drawing.Size(158, 49);
-            this.btnAR.TabIndex = 3;
-            this.btnAR.Text = "AccountRole";
-            this.btnAR.UseVisualStyleBackColor = false;
-            this.btnAR.Click += new System.EventHandler(this.btnAR_Click);
+            btnAR.BackColor = Color.LightSkyBlue;
+            btnAR.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAR.ForeColor = SystemColors.ControlLightLight;
+            btnAR.Location = new Point(12, 317);
+            btnAR.Margin = new Padding(4, 3, 4, 3);
+            btnAR.Name = "btnAR";
+            btnAR.Size = new Size(184, 57);
+            btnAR.TabIndex = 3;
+            btnAR.Text = "AccountRole";
+            btnAR.UseVisualStyleBackColor = false;
+            btnAR.Click += btnAR_Click;
             // 
             // btnGrant
             // 
-            this.btnGrant.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnGrant.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrant.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnGrant.Location = new System.Drawing.Point(10, 113);
-            this.btnGrant.Name = "btnGrant";
-            this.btnGrant.Size = new System.Drawing.Size(158, 49);
-            this.btnGrant.TabIndex = 2;
-            this.btnGrant.Text = "Grant Permissions";
-            this.btnGrant.UseVisualStyleBackColor = false;
-            this.btnGrant.Click += new System.EventHandler(this.btnGrant_Click);
+            btnGrant.BackColor = Color.LightSkyBlue;
+            btnGrant.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGrant.ForeColor = SystemColors.ControlLightLight;
+            btnGrant.Location = new Point(12, 130);
+            btnGrant.Margin = new Padding(4, 3, 4, 3);
+            btnGrant.Name = "btnGrant";
+            btnGrant.Size = new Size(184, 57);
+            btnGrant.TabIndex = 2;
+            btnGrant.Text = "Grant Permissions";
+            btnGrant.UseVisualStyleBackColor = false;
+            btnGrant.Click += btnGrant_Click;
             // 
             // btnDepartment
             // 
-            this.btnDepartment.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDepartment.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDepartment.Location = new System.Drawing.Point(11, 196);
-            this.btnDepartment.Name = "btnDepartment";
-            this.btnDepartment.Size = new System.Drawing.Size(158, 49);
-            this.btnDepartment.TabIndex = 1;
-            this.btnDepartment.Text = "Department";
-            this.btnDepartment.UseVisualStyleBackColor = false;
-            this.btnDepartment.Click += new System.EventHandler(this.btnDepartment_Click);
+            btnDepartment.BackColor = Color.LightSkyBlue;
+            btnDepartment.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDepartment.ForeColor = SystemColors.ControlLightLight;
+            btnDepartment.Location = new Point(13, 226);
+            btnDepartment.Margin = new Padding(4, 3, 4, 3);
+            btnDepartment.Name = "btnDepartment";
+            btnDepartment.Size = new Size(184, 57);
+            btnDepartment.TabIndex = 1;
+            btnDepartment.Text = "Department";
+            btnDepartment.UseVisualStyleBackColor = false;
+            btnDepartment.Click += btnDepartment_Click;
             // 
             // btnEmployee
             // 
-            this.btnEmployee.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployee.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEmployee.Location = new System.Drawing.Point(10, 28);
-            this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Size = new System.Drawing.Size(158, 49);
-            this.btnEmployee.TabIndex = 0;
-            this.btnEmployee.Text = "Employee";
-            this.btnEmployee.UseVisualStyleBackColor = false;
-            this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
+            btnEmployee.BackColor = Color.LightSkyBlue;
+            btnEmployee.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEmployee.ForeColor = SystemColors.ControlLightLight;
+            btnEmployee.Location = new Point(12, 32);
+            btnEmployee.Margin = new Padding(4, 3, 4, 3);
+            btnEmployee.Name = "btnEmployee";
+            btnEmployee.Size = new Size(184, 57);
+            btnEmployee.TabIndex = 0;
+            btnEmployee.Text = "Employee";
+            btnEmployee.UseVisualStyleBackColor = false;
+            btnEmployee.Click += btnEmployee_Click;
             // 
             // pnMenu
             // 
-            this.pnMenu.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.pnMenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pnMenu.Location = new System.Drawing.Point(192, 84);
-            this.pnMenu.Name = "pnMenu";
-            this.pnMenu.Size = new System.Drawing.Size(940, 413);
-            this.pnMenu.TabIndex = 1;
+            pnMenu.BackColor = SystemColors.ButtonFace;
+            pnMenu.ForeColor = SystemColors.ActiveCaptionText;
+            pnMenu.Location = new Point(224, 97);
+            pnMenu.Margin = new Padding(4, 3, 4, 3);
+            pnMenu.Name = "pnMenu";
+            pnMenu.Size = new Size(1097, 477);
+            pnMenu.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(18, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 24);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Personnel Management";
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(21, 32);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(232, 24);
+            label1.TabIndex = 2;
+            label1.Text = "Personnel Management";
             // 
             // lbRole
             // 
-            this.lbRole.AutoSize = true;
-            this.lbRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRole.ForeColor = System.Drawing.Color.Coral;
-            this.lbRole.Location = new System.Drawing.Point(941, 36);
-            this.lbRole.Name = "lbRole";
-            this.lbRole.Size = new System.Drawing.Size(50, 16);
-            this.lbRole.TabIndex = 3;
-            this.lbRole.Text = "Admin";
+            lbRole.AutoSize = true;
+            lbRole.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbRole.ForeColor = Color.Coral;
+            lbRole.Location = new Point(1098, 42);
+            lbRole.Margin = new Padding(4, 0, 4, 0);
+            lbRole.Name = "lbRole";
+            lbRole.Size = new Size(50, 16);
+            lbRole.TabIndex = 3;
+            lbRole.Text = "Admin";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Pepro.Presentation.Properties.Resources.iconUser;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(1027, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 69);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.BackgroundImage = Properties.Resources.iconUser;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox1.Location = new Point(1198, 10);
+            pictureBox1.Margin = new Padding(4, 3, 4, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(79, 80);
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
             // 
             // FormMenuPM
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SlateBlue;
-            this.ClientSize = new System.Drawing.Size(1144, 562);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lbRole);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pnMenu);
-            this.Controls.Add(this.groupBox1);
-            this.Name = "FormMenuPM";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu";
-            this.Load += new System.EventHandler(this.FormMenu_Load);
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picLogout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.SlateBlue;
+            ClientSize = new Size(1335, 648);
+            Controls.Add(pictureBox1);
+            Controls.Add(lbRole);
+            Controls.Add(label1);
+            Controls.Add(pnMenu);
+            Controls.Add(groupBox1);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FormMenuPM";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Menu";
+            Load += FormMenu_Load;
+            groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picLogout).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

@@ -26,314 +26,310 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminTasksModule));
-            this.pnlHead = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.txtPrjID = new System.Windows.Forms.TextBox();
-            this.txtJobID = new System.Windows.Forms.TextBox();
-            this.txtMngID = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtAccessR = new System.Windows.Forms.TextBox();
-            this.txtDepPub = new System.Windows.Forms.TextBox();
-            this.txtPrjPub = new System.Windows.Forms.TextBox();
-            this.txtStatus = new System.Windows.Forms.TextBox();
-            this.pnlHead.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+        private void InitializeComponent() {
+            pnlHead = new Panel();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            btnSave = new Button();
+            btnUpdate = new Button();
+            btnClear = new Button();
+            txtPrjID = new TextBox();
+            txtJobID = new TextBox();
+            txtMngID = new TextBox();
+            txtName = new TextBox();
+            txtAccessR = new TextBox();
+            txtDepPub = new TextBox();
+            txtPrjPub = new TextBox();
+            txtStatus = new TextBox();
+            pnlHead.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // pnlHead
             // 
-            this.pnlHead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(130)))), ((int)(((byte)(253)))));
-            this.pnlHead.Controls.Add(this.pictureBox1);
-            this.pnlHead.Controls.Add(this.label1);
-            this.pnlHead.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHead.Location = new System.Drawing.Point(0, 0);
-            this.pnlHead.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlHead.Name = "pnlHead";
-            this.pnlHead.Size = new System.Drawing.Size(488, 65);
-            this.pnlHead.TabIndex = 0;
-            this.pnlHead.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlHead_MouseDown);
+            pnlHead.BackColor = Color.FromArgb(34, 130, 253);
+            pnlHead.Controls.Add(pictureBox1);
+            pnlHead.Controls.Add(label1);
+            pnlHead.Dock = DockStyle.Top;
+            pnlHead.Location = new Point(0, 0);
+            pnlHead.Margin = new Padding(2);
+            pnlHead.Name = "pnlHead";
+            pnlHead.Size = new Size(569, 75);
+            pnlHead.TabIndex = 0;
+            pnlHead.MouseDown += pnlHead_MouseDown;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(460, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(19, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            pictureBox1.Cursor = Cursors.Hand;
+            pictureBox1.Location = new Point(537, 12);
+            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(22, 23);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(30, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 26);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Thêm công việc";
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(35, 23);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(165, 26);
+            label1.TabIndex = 0;
+            label1.Text = "Thêm công việc";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(11, 87);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "ID dự án";
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(13, 100);
+            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(70, 20);
+            label3.TabIndex = 2;
+            label3.Text = "ID dự án";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(11, 122);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "ID công việc";
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(13, 141);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(96, 20);
+            label2.TabIndex = 3;
+            label2.Text = "ID công việc";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(11, 157);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 20);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "ID quản lý";
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(13, 181);
+            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(80, 20);
+            label4.TabIndex = 4;
+            label4.Text = "ID quản lý";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(11, 192);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 20);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Tên công việc";
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(13, 222);
+            label5.Margin = new Padding(2, 0, 2, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(106, 20);
+            label5.TabIndex = 5;
+            label5.Text = "Tên công việc";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(11, 227);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 20);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Quyền truy cập";
+            label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
+            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(13, 262);
+            label6.Margin = new Padding(2, 0, 2, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(115, 20);
+            label6.TabIndex = 6;
+            label6.Text = "Quyền truy cập";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(11, 262);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 20);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Trạng thái";
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(13, 302);
+            label7.Margin = new Padding(2, 0, 2, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(80, 20);
+            label7.TabIndex = 7;
+            label7.Text = "Trạng thái";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(11, 297);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(124, 20);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Công khai dự án";
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(13, 343);
+            label8.Margin = new Padding(2, 0, 2, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(124, 20);
+            label8.TabIndex = 8;
+            label8.Text = "Công khai dự án";
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(11, 332);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(160, 20);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Công khai phòng ban";
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(13, 383);
+            label9.Margin = new Padding(2, 0, 2, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(160, 20);
+            label9.TabIndex = 9;
+            label9.Text = "Công khai phòng ban";
             // 
             // btnSave
             // 
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(185, 370);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 39);
-            this.btnSave.TabIndex = 9;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSave.Location = new Point(216, 427);
+            btnSave.Margin = new Padding(2);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(88, 45);
+            btnSave.TabIndex = 9;
+            btnSave.Text = "Lưu";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(280, 370);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 39);
-            this.btnUpdate.TabIndex = 10;
-            this.btnUpdate.Text = "Cập nhật";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            btnUpdate.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnUpdate.Location = new Point(327, 427);
+            btnUpdate.Margin = new Padding(2);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(88, 45);
+            btnUpdate.TabIndex = 10;
+            btnUpdate.Text = "Cập nhật";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnClear
             // 
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(374, 370);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 39);
-            this.btnClear.TabIndex = 11;
-            this.btnClear.Text = "Làm mới";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            btnClear.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnClear.Location = new Point(436, 427);
+            btnClear.Margin = new Padding(2);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(88, 45);
+            btnClear.TabIndex = 11;
+            btnClear.Text = "Làm mới";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // txtPrjID
             // 
-            this.txtPrjID.Location = new System.Drawing.Point(185, 89);
-            this.txtPrjID.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPrjID.Name = "txtPrjID";
-            this.txtPrjID.Size = new System.Drawing.Size(265, 20);
-            this.txtPrjID.TabIndex = 1;
+            txtPrjID.Location = new Point(216, 103);
+            txtPrjID.Margin = new Padding(2);
+            txtPrjID.Name = "txtPrjID";
+            txtPrjID.Size = new Size(308, 23);
+            txtPrjID.TabIndex = 1;
             // 
             // txtJobID
             // 
-            this.txtJobID.Location = new System.Drawing.Point(185, 124);
-            this.txtJobID.Margin = new System.Windows.Forms.Padding(2);
-            this.txtJobID.Name = "txtJobID";
-            this.txtJobID.Size = new System.Drawing.Size(265, 20);
-            this.txtJobID.TabIndex = 2;
+            txtJobID.Location = new Point(216, 143);
+            txtJobID.Margin = new Padding(2);
+            txtJobID.Name = "txtJobID";
+            txtJobID.Size = new Size(308, 23);
+            txtJobID.TabIndex = 2;
             // 
             // txtMngID
             // 
-            this.txtMngID.Location = new System.Drawing.Point(185, 158);
-            this.txtMngID.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMngID.Name = "txtMngID";
-            this.txtMngID.Size = new System.Drawing.Size(265, 20);
-            this.txtMngID.TabIndex = 3;
+            txtMngID.Location = new Point(216, 182);
+            txtMngID.Margin = new Padding(2);
+            txtMngID.Name = "txtMngID";
+            txtMngID.Size = new Size(308, 23);
+            txtMngID.TabIndex = 3;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(185, 193);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(265, 20);
-            this.txtName.TabIndex = 4;
+            txtName.Location = new Point(216, 223);
+            txtName.Margin = new Padding(2);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(308, 23);
+            txtName.TabIndex = 4;
             // 
             // txtAccessR
             // 
-            this.txtAccessR.Location = new System.Drawing.Point(185, 228);
-            this.txtAccessR.Margin = new System.Windows.Forms.Padding(2);
-            this.txtAccessR.Name = "txtAccessR";
-            this.txtAccessR.Size = new System.Drawing.Size(265, 20);
-            this.txtAccessR.TabIndex = 5;
+            txtAccessR.Location = new Point(216, 263);
+            txtAccessR.Margin = new Padding(2);
+            txtAccessR.Name = "txtAccessR";
+            txtAccessR.Size = new Size(308, 23);
+            txtAccessR.TabIndex = 5;
             // 
             // txtDepPub
             // 
-            this.txtDepPub.Location = new System.Drawing.Point(185, 333);
-            this.txtDepPub.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDepPub.Name = "txtDepPub";
-            this.txtDepPub.Size = new System.Drawing.Size(265, 20);
-            this.txtDepPub.TabIndex = 8;
+            txtDepPub.Location = new Point(216, 384);
+            txtDepPub.Margin = new Padding(2);
+            txtDepPub.Name = "txtDepPub";
+            txtDepPub.Size = new Size(308, 23);
+            txtDepPub.TabIndex = 8;
             // 
             // txtPrjPub
             // 
-            this.txtPrjPub.Location = new System.Drawing.Point(185, 298);
-            this.txtPrjPub.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPrjPub.Name = "txtPrjPub";
-            this.txtPrjPub.Size = new System.Drawing.Size(265, 20);
-            this.txtPrjPub.TabIndex = 7;
+            txtPrjPub.Location = new Point(216, 344);
+            txtPrjPub.Margin = new Padding(2);
+            txtPrjPub.Name = "txtPrjPub";
+            txtPrjPub.Size = new Size(308, 23);
+            txtPrjPub.TabIndex = 7;
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(185, 263);
-            this.txtStatus.Margin = new System.Windows.Forms.Padding(2);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(265, 20);
-            this.txtStatus.TabIndex = 6;
+            txtStatus.Location = new Point(216, 303);
+            txtStatus.Margin = new Padding(2);
+            txtStatus.Name = "txtStatus";
+            txtStatus.Size = new Size(308, 23);
+            txtStatus.TabIndex = 6;
             // 
             // AdminTasksModule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.ClientSize = new System.Drawing.Size(488, 447);
-            this.Controls.Add(this.txtDepPub);
-            this.Controls.Add(this.txtPrjPub);
-            this.Controls.Add(this.txtStatus);
-            this.Controls.Add(this.txtAccessR);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtMngID);
-            this.Controls.Add(this.txtJobID);
-            this.Controls.Add(this.txtPrjID);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.pnlHead);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "AdminTasksModule";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AdminTasksModule";
-            this.pnlHead.ResumeLayout(false);
-            this.pnlHead.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(29, 29, 29);
+            ClientSize = new Size(569, 516);
+            Controls.Add(txtDepPub);
+            Controls.Add(txtPrjPub);
+            Controls.Add(txtStatus);
+            Controls.Add(txtAccessR);
+            Controls.Add(txtName);
+            Controls.Add(txtMngID);
+            Controls.Add(txtJobID);
+            Controls.Add(txtPrjID);
+            Controls.Add(btnClear);
+            Controls.Add(btnUpdate);
+            Controls.Add(btnSave);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label2);
+            Controls.Add(label3);
+            Controls.Add(pnlHead);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2);
+            Name = "AdminTasksModule";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "AdminTasksModule";
+            pnlHead.ResumeLayout(false);
+            pnlHead.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

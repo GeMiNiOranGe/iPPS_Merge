@@ -26,726 +26,705 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dateIssused_On = new System.Windows.Forms.DateTimePicker();
-            this.dateDate = new System.Windows.Forms.DateTimePicker();
-            this.cbNameJob = new System.Windows.Forms.ComboBox();
-            this.cbNameProject = new System.Windows.Forms.ComboBox();
-            this.txtIDJob = new System.Windows.Forms.TextBox();
-            this.txtIDPro = new System.Windows.Forms.TextBox();
-            this.txtIDDoc = new System.Windows.Forms.TextBox();
-            this.btnBroser = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
-            this.txtLink = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.cbIssue_Purpose = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbLastest_Revision = new System.Windows.Forms.ComboBox();
-            this.cbReference = new System.Windows.Forms.ComboBox();
-            this.cbSupport = new System.Windows.Forms.ComboBox();
-            this.cbAction = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txtChecked_By = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtApproved_By = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txtTitle = new System.Windows.Forms.TextBox();
-            this.txtTo_Company = new System.Windows.Forms.TextBox();
-            this.txtIssused_Via = new System.Windows.Forms.TextBox();
-            this.txtPrepared_By = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cbRevision_Number = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbPartner_Code = new System.Windows.Forms.ComboBox();
-            this.cbType = new System.Windows.Forms.ComboBox();
-            this.cbPackage = new System.Windows.Forms.ComboBox();
-            this.txtWork_Item = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+        private void InitializeComponent() {
+            panel1 = new Panel();
+            dateIssused_On = new DateTimePicker();
+            dateDate = new DateTimePicker();
+            cbNameJob = new ComboBox();
+            cbNameProject = new ComboBox();
+            txtIDJob = new TextBox();
+            txtIDPro = new TextBox();
+            txtIDDoc = new TextBox();
+            btnBroser = new Button();
+            label25 = new Label();
+            txtLink = new TextBox();
+            label24 = new Label();
+            cbIssue_Purpose = new ComboBox();
+            label23 = new Label();
+            btnSave = new Button();
+            label7 = new Label();
+            cbLastest_Revision = new ComboBox();
+            cbReference = new ComboBox();
+            cbSupport = new ComboBox();
+            cbAction = new ComboBox();
+            label10 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            txtChecked_By = new TextBox();
+            label19 = new Label();
+            txtApproved_By = new TextBox();
+            label20 = new Label();
+            txtTitle = new TextBox();
+            txtTo_Company = new TextBox();
+            txtIssused_Via = new TextBox();
+            txtPrepared_By = new TextBox();
+            label8 = new Label();
+            label9 = new Label();
+            label11 = new Label();
+            cbRevision_Number = new ComboBox();
+            label22 = new Label();
+            label6 = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            cbPartner_Code = new ComboBox();
+            cbType = new ComboBox();
+            cbPackage = new ComboBox();
+            txtWork_Item = new TextBox();
+            label21 = new Label();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.dateIssused_On);
-            this.panel1.Controls.Add(this.dateDate);
-            this.panel1.Controls.Add(this.cbNameJob);
-            this.panel1.Controls.Add(this.cbNameProject);
-            this.panel1.Controls.Add(this.txtIDJob);
-            this.panel1.Controls.Add(this.txtIDPro);
-            this.panel1.Controls.Add(this.txtIDDoc);
-            this.panel1.Controls.Add(this.btnBroser);
-            this.panel1.Controls.Add(this.label25);
-            this.panel1.Controls.Add(this.txtLink);
-            this.panel1.Controls.Add(this.label24);
-            this.panel1.Controls.Add(this.cbIssue_Purpose);
-            this.panel1.Controls.Add(this.label23);
-            this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.cbLastest_Revision);
-            this.panel1.Controls.Add(this.cbReference);
-            this.panel1.Controls.Add(this.cbSupport);
-            this.panel1.Controls.Add(this.cbAction);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.txtChecked_By);
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.txtApproved_By);
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.txtTitle);
-            this.panel1.Controls.Add(this.txtTo_Company);
-            this.panel1.Controls.Add(this.txtIssused_Via);
-            this.panel1.Controls.Add(this.txtPrepared_By);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.cbRevision_Number);
-            this.panel1.Controls.Add(this.label22);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.cbPartner_Code);
-            this.panel1.Controls.Add(this.cbType);
-            this.panel1.Controls.Add(this.cbPackage);
-            this.panel1.Controls.Add(this.txtWork_Item);
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Location = new System.Drawing.Point(10, 11);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(569, 1088);
-            this.panel1.TabIndex = 0;
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(dateIssused_On);
+            panel1.Controls.Add(dateDate);
+            panel1.Controls.Add(cbNameJob);
+            panel1.Controls.Add(cbNameProject);
+            panel1.Controls.Add(txtIDJob);
+            panel1.Controls.Add(txtIDPro);
+            panel1.Controls.Add(txtIDDoc);
+            panel1.Controls.Add(btnBroser);
+            panel1.Controls.Add(label25);
+            panel1.Controls.Add(txtLink);
+            panel1.Controls.Add(label24);
+            panel1.Controls.Add(cbIssue_Purpose);
+            panel1.Controls.Add(label23);
+            panel1.Controls.Add(btnSave);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(cbLastest_Revision);
+            panel1.Controls.Add(cbReference);
+            panel1.Controls.Add(cbSupport);
+            panel1.Controls.Add(cbAction);
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(label12);
+            panel1.Controls.Add(label13);
+            panel1.Controls.Add(label14);
+            panel1.Controls.Add(label15);
+            panel1.Controls.Add(label16);
+            panel1.Controls.Add(label17);
+            panel1.Controls.Add(label18);
+            panel1.Controls.Add(txtChecked_By);
+            panel1.Controls.Add(label19);
+            panel1.Controls.Add(txtApproved_By);
+            panel1.Controls.Add(label20);
+            panel1.Controls.Add(txtTitle);
+            panel1.Controls.Add(txtTo_Company);
+            panel1.Controls.Add(txtIssused_Via);
+            panel1.Controls.Add(txtPrepared_By);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(label9);
+            panel1.Controls.Add(label11);
+            panel1.Controls.Add(cbRevision_Number);
+            panel1.Controls.Add(label22);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(cbPartner_Code);
+            panel1.Controls.Add(cbType);
+            panel1.Controls.Add(cbPackage);
+            panel1.Controls.Add(txtWork_Item);
+            panel1.Controls.Add(label21);
+            panel1.Location = new Point(12, 13);
+            panel1.Margin = new Padding(2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(664, 1255);
+            panel1.TabIndex = 0;
             // 
             // dateIssused_On
             // 
-            this.dateIssused_On.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateIssused_On.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateIssused_On.Location = new System.Drawing.Point(175, 859);
-            this.dateIssused_On.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dateIssused_On.Name = "dateIssused_On";
-            this.dateIssused_On.Size = new System.Drawing.Size(169, 26);
-            this.dateIssused_On.TabIndex = 192;
+            dateIssused_On.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dateIssused_On.Format = DateTimePickerFormat.Short;
+            dateIssused_On.Location = new Point(204, 991);
+            dateIssused_On.Margin = new Padding(2);
+            dateIssused_On.Name = "dateIssused_On";
+            dateIssused_On.Size = new Size(196, 26);
+            dateIssused_On.TabIndex = 192;
             // 
             // dateDate
             // 
-            this.dateDate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateDate.Location = new System.Drawing.Point(175, 457);
-            this.dateDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dateDate.Name = "dateDate";
-            this.dateDate.Size = new System.Drawing.Size(169, 26);
-            this.dateDate.TabIndex = 191;
+            dateDate.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dateDate.Format = DateTimePickerFormat.Short;
+            dateDate.Location = new Point(204, 527);
+            dateDate.Margin = new Padding(2);
+            dateDate.Name = "dateDate";
+            dateDate.Size = new Size(196, 26);
+            dateDate.TabIndex = 191;
             // 
             // cbNameJob
             // 
-            this.cbNameJob.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbNameJob.FormattingEnabled = true;
-            this.cbNameJob.Location = new System.Drawing.Point(175, 133);
-            this.cbNameJob.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbNameJob.Name = "cbNameJob";
-            this.cbNameJob.Size = new System.Drawing.Size(169, 27);
-            this.cbNameJob.TabIndex = 190;
+            cbNameJob.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbNameJob.FormattingEnabled = true;
+            cbNameJob.Location = new Point(204, 153);
+            cbNameJob.Margin = new Padding(2);
+            cbNameJob.Name = "cbNameJob";
+            cbNameJob.Size = new Size(196, 27);
+            cbNameJob.TabIndex = 190;
             // 
             // cbNameProject
             // 
-            this.cbNameProject.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbNameProject.FormattingEnabled = true;
-            this.cbNameProject.Location = new System.Drawing.Point(175, 86);
-            this.cbNameProject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbNameProject.Name = "cbNameProject";
-            this.cbNameProject.Size = new System.Drawing.Size(169, 27);
-            this.cbNameProject.TabIndex = 189;
+            cbNameProject.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbNameProject.FormattingEnabled = true;
+            cbNameProject.Location = new Point(204, 99);
+            cbNameProject.Margin = new Padding(2);
+            cbNameProject.Name = "cbNameProject";
+            cbNameProject.Size = new Size(196, 27);
+            cbNameProject.TabIndex = 189;
             // 
             // txtIDJob
             // 
-            this.txtIDJob.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDJob.Location = new System.Drawing.Point(453, 133);
-            this.txtIDJob.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtIDJob.Name = "txtIDJob";
-            this.txtIDJob.Size = new System.Drawing.Size(100, 26);
-            this.txtIDJob.TabIndex = 188;
+            txtIDJob.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtIDJob.Location = new Point(528, 153);
+            txtIDJob.Margin = new Padding(2);
+            txtIDJob.Name = "txtIDJob";
+            txtIDJob.Size = new Size(116, 26);
+            txtIDJob.TabIndex = 188;
             // 
             // txtIDPro
             // 
-            this.txtIDPro.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDPro.Location = new System.Drawing.Point(453, 86);
-            this.txtIDPro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtIDPro.Name = "txtIDPro";
-            this.txtIDPro.Size = new System.Drawing.Size(100, 26);
-            this.txtIDPro.TabIndex = 187;
+            txtIDPro.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtIDPro.Location = new Point(528, 99);
+            txtIDPro.Margin = new Padding(2);
+            txtIDPro.Name = "txtIDPro";
+            txtIDPro.Size = new Size(116, 26);
+            txtIDPro.TabIndex = 187;
             // 
             // txtIDDoc
             // 
-            this.txtIDDoc.Enabled = false;
-            this.txtIDDoc.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDDoc.Location = new System.Drawing.Point(175, 40);
-            this.txtIDDoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtIDDoc.Name = "txtIDDoc";
-            this.txtIDDoc.Size = new System.Drawing.Size(169, 26);
-            this.txtIDDoc.TabIndex = 186;
+            txtIDDoc.Enabled = false;
+            txtIDDoc.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtIDDoc.Location = new Point(204, 46);
+            txtIDDoc.Margin = new Padding(2);
+            txtIDDoc.Name = "txtIDDoc";
+            txtIDDoc.Size = new Size(196, 26);
+            txtIDDoc.TabIndex = 186;
             // 
             // btnBroser
             // 
-            this.btnBroser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(130)))), ((int)(((byte)(253)))));
-            this.btnBroser.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBroser.ForeColor = System.Drawing.Color.Black;
-            this.btnBroser.Location = new System.Drawing.Point(357, 986);
-            this.btnBroser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnBroser.Name = "btnBroser";
-            this.btnBroser.Size = new System.Drawing.Size(76, 41);
-            this.btnBroser.TabIndex = 185;
-            this.btnBroser.Text = "Broser";
-            this.btnBroser.UseVisualStyleBackColor = false;
-            this.btnBroser.Click += new System.EventHandler(this.btnBroser_Click);
+            btnBroser.BackColor = Color.FromArgb(34, 130, 253);
+            btnBroser.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBroser.ForeColor = Color.Black;
+            btnBroser.Location = new Point(416, 1138);
+            btnBroser.Margin = new Padding(2);
+            btnBroser.Name = "btnBroser";
+            btnBroser.Size = new Size(89, 47);
+            btnBroser.TabIndex = 185;
+            btnBroser.Text = "Broser";
+            btnBroser.UseVisualStyleBackColor = false;
+            btnBroser.Click += btnBroser_Click;
             // 
             // label25
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(19, 997);
-            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(32, 17);
-            this.label25.TabIndex = 183;
-            this.label25.Text = "Link";
+            label25.AutoSize = true;
+            label25.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label25.ForeColor = Color.White;
+            label25.Location = new Point(22, 1150);
+            label25.Margin = new Padding(2, 0, 2, 0);
+            label25.Name = "label25";
+            label25.Size = new Size(32, 17);
+            label25.TabIndex = 183;
+            label25.Text = "Link";
             // 
             // txtLink
             // 
-            this.txtLink.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLink.Location = new System.Drawing.Point(175, 993);
-            this.txtLink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtLink.Name = "txtLink";
-            this.txtLink.Size = new System.Drawing.Size(169, 24);
-            this.txtLink.TabIndex = 184;
+            txtLink.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtLink.Location = new Point(204, 1146);
+            txtLink.Margin = new Padding(2);
+            txtLink.Name = "txtLink";
+            txtLink.Size = new Size(196, 24);
+            txtLink.TabIndex = 184;
             // 
             // label24
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.White;
-            this.label24.Location = new System.Drawing.Point(2, 0);
-            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(66, 21);
-            this.label24.TabIndex = 182;
-            this.label24.Text = "label24";
+            label24.AutoSize = true;
+            label24.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label24.ForeColor = Color.White;
+            label24.Location = new Point(2, 0);
+            label24.Margin = new Padding(2, 0, 2, 0);
+            label24.Name = "label24";
+            label24.Size = new Size(66, 21);
+            label24.TabIndex = 182;
+            label24.Text = "label24";
             // 
             // cbIssue_Purpose
             // 
-            this.cbIssue_Purpose.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbIssue_Purpose.FormattingEnabled = true;
-            this.cbIssue_Purpose.Items.AddRange(new object[] {
-            "F1",
-            "FA",
-            "FR"});
-            this.cbIssue_Purpose.Location = new System.Drawing.Point(175, 503);
-            this.cbIssue_Purpose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbIssue_Purpose.Name = "cbIssue_Purpose";
-            this.cbIssue_Purpose.Size = new System.Drawing.Size(169, 25);
-            this.cbIssue_Purpose.TabIndex = 181;
+            cbIssue_Purpose.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbIssue_Purpose.FormattingEnabled = true;
+            cbIssue_Purpose.Items.AddRange(new object[] { "F1", "FA", "FR" });
+            cbIssue_Purpose.Location = new Point(204, 580);
+            cbIssue_Purpose.Margin = new Padding(2);
+            cbIssue_Purpose.Name = "cbIssue_Purpose";
+            cbIssue_Purpose.Size = new Size(196, 25);
+            cbIssue_Purpose.TabIndex = 181;
             // 
             // label23
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(19, 44);
-            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(73, 19);
-            this.label23.TabIndex = 174;
-            this.label23.Text = "Mã tài liệu";
+            label23.AutoSize = true;
+            label23.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label23.ForeColor = Color.White;
+            label23.Location = new Point(22, 51);
+            label23.Margin = new Padding(2, 0, 2, 0);
+            label23.Name = "label23";
+            label23.Size = new Size(73, 19);
+            label23.TabIndex = 174;
+            label23.Text = "Mã tài liệu";
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(130)))), ((int)(((byte)(253)))));
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Location = new System.Drawing.Point(262, 1033);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(82, 41);
-            this.btnSave.TabIndex = 172;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.BackColor = Color.FromArgb(34, 130, 253);
+            btnSave.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSave.ForeColor = Color.Black;
+            btnSave.Location = new Point(306, 1192);
+            btnSave.Margin = new Padding(2);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(96, 47);
+            btnSave.TabIndex = 172;
+            btnSave.Text = "Lưu";
+            btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(19, 415);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(112, 17);
-            this.label7.TabIndex = 168;
-            this.label7.Text = "Sửa đổi mới nhất";
+            label7.AutoSize = true;
+            label7.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(22, 479);
+            label7.Margin = new Padding(2, 0, 2, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(112, 17);
+            label7.TabIndex = 168;
+            label7.Text = "Sửa đổi mới nhất";
             // 
             // cbLastest_Revision
             // 
-            this.cbLastest_Revision.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbLastest_Revision.FormattingEnabled = true;
-            this.cbLastest_Revision.Items.AddRange(new object[] {
-            "Latest"});
-            this.cbLastest_Revision.Location = new System.Drawing.Point(175, 412);
-            this.cbLastest_Revision.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbLastest_Revision.Name = "cbLastest_Revision";
-            this.cbLastest_Revision.Size = new System.Drawing.Size(169, 25);
-            this.cbLastest_Revision.TabIndex = 169;
+            cbLastest_Revision.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbLastest_Revision.FormattingEnabled = true;
+            cbLastest_Revision.Items.AddRange(new object[] { "Latest" });
+            cbLastest_Revision.Location = new Point(204, 475);
+            cbLastest_Revision.Margin = new Padding(2);
+            cbLastest_Revision.Name = "cbLastest_Revision";
+            cbLastest_Revision.Size = new Size(196, 25);
+            cbLastest_Revision.TabIndex = 169;
             // 
             // cbReference
             // 
-            this.cbReference.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbReference.FormattingEnabled = true;
-            this.cbReference.Items.AddRange(new object[] {
-            "BCMP VIETNAM"});
-            this.cbReference.Location = new System.Drawing.Point(175, 770);
-            this.cbReference.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbReference.Name = "cbReference";
-            this.cbReference.Size = new System.Drawing.Size(169, 25);
-            this.cbReference.TabIndex = 167;
+            cbReference.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbReference.FormattingEnabled = true;
+            cbReference.Items.AddRange(new object[] { "BCMP VIETNAM" });
+            cbReference.Location = new Point(204, 888);
+            cbReference.Margin = new Padding(2);
+            cbReference.Name = "cbReference";
+            cbReference.Size = new Size(196, 25);
+            cbReference.TabIndex = 167;
             // 
             // cbSupport
             // 
-            this.cbSupport.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSupport.FormattingEnabled = true;
-            this.cbSupport.Items.AddRange(new object[] {
-            "BCMP VIETNAM"});
-            this.cbSupport.Location = new System.Drawing.Point(175, 725);
-            this.cbSupport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbSupport.Name = "cbSupport";
-            this.cbSupport.Size = new System.Drawing.Size(169, 25);
-            this.cbSupport.TabIndex = 165;
+            cbSupport.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbSupport.FormattingEnabled = true;
+            cbSupport.Items.AddRange(new object[] { "BCMP VIETNAM" });
+            cbSupport.Location = new Point(204, 837);
+            cbSupport.Margin = new Padding(2);
+            cbSupport.Name = "cbSupport";
+            cbSupport.Size = new Size(196, 25);
+            cbSupport.TabIndex = 165;
             // 
             // cbAction
             // 
-            this.cbAction.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAction.FormattingEnabled = true;
-            this.cbAction.Items.AddRange(new object[] {
-            "BCMP KOREA",
-            "BCMP - PASSET"});
-            this.cbAction.Location = new System.Drawing.Point(175, 680);
-            this.cbAction.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbAction.Name = "cbAction";
-            this.cbAction.Size = new System.Drawing.Size(169, 25);
-            this.cbAction.TabIndex = 164;
+            cbAction.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbAction.FormattingEnabled = true;
+            cbAction.Items.AddRange(new object[] { "BCMP KOREA", "BCMP - PASSET" });
+            cbAction.Location = new Point(204, 785);
+            cbAction.Margin = new Padding(2);
+            cbAction.Name = "cbAction";
+            cbAction.Size = new Size(196, 25);
+            cbAction.TabIndex = 164;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(19, 551);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(97, 17);
-            this.label10.TabIndex = 148;
-            this.label10.Text = "Được soạn bởi";
+            label10.AutoSize = true;
+            label10.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(22, 636);
+            label10.Margin = new Padding(2, 0, 2, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(97, 17);
+            label10.TabIndex = 148;
+            label10.Text = "Được soạn bởi";
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(19, 595);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(95, 17);
-            this.label12.TabIndex = 149;
-            this.label12.Text = "KIểm tra bằng";
+            label12.AutoSize = true;
+            label12.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.White;
+            label12.Location = new Point(22, 687);
+            label12.Margin = new Padding(2, 0, 2, 0);
+            label12.Name = "label12";
+            label12.Size = new Size(95, 17);
+            label12.TabIndex = 149;
+            label12.Text = "KIểm tra bằng";
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(19, 639);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(133, 17);
-            this.label13.TabIndex = 150;
-            this.label13.Text = "Được chấp nhận bởi";
+            label13.AutoSize = true;
+            label13.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.White;
+            label13.Location = new Point(22, 737);
+            label13.Margin = new Padding(2, 0, 2, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(133, 17);
+            label13.TabIndex = 150;
+            label13.Text = "Được chấp nhận bởi";
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(19, 683);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(73, 17);
-            this.label14.TabIndex = 151;
-            this.label14.Text = "Hoạt động";
+            label14.AutoSize = true;
+            label14.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.ForeColor = Color.White;
+            label14.Location = new Point(22, 788);
+            label14.Margin = new Padding(2, 0, 2, 0);
+            label14.Name = "label14";
+            label14.Size = new Size(73, 17);
+            label14.TabIndex = 151;
+            label14.Text = "Hoạt động";
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(19, 729);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(47, 17);
-            this.label15.TabIndex = 152;
-            this.label15.Text = "Hỗ trợ";
+            label15.AutoSize = true;
+            label15.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label15.ForeColor = Color.White;
+            label15.Location = new Point(22, 841);
+            label15.Margin = new Padding(2, 0, 2, 0);
+            label15.Name = "label15";
+            label15.Size = new Size(47, 17);
+            label15.TabIndex = 152;
+            label15.Text = "Hỗ trợ";
             // 
             // label16
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(19, 774);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(77, 17);
-            this.label16.TabIndex = 153;
-            this.label16.Text = "Tham khảo";
+            label16.AutoSize = true;
+            label16.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label16.ForeColor = Color.White;
+            label16.Location = new Point(22, 893);
+            label16.Margin = new Padding(2, 0, 2, 0);
+            label16.Name = "label16";
+            label16.Size = new Size(77, 17);
+            label16.TabIndex = 153;
+            label16.Text = "Tham khảo";
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(19, 819);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(58, 17);
-            this.label17.TabIndex = 154;
-            this.label17.Text = "Công ty";
+            label17.AutoSize = true;
+            label17.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label17.ForeColor = Color.White;
+            label17.Location = new Point(22, 945);
+            label17.Margin = new Padding(2, 0, 2, 0);
+            label17.Name = "label17";
+            label17.Size = new Size(58, 17);
+            label17.TabIndex = 154;
+            label17.Text = "Công ty";
             // 
             // label18
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(19, 864);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(107, 17);
-            this.label18.TabIndex = 155;
-            this.label18.Text = "Ngày phát hành";
+            label18.AutoSize = true;
+            label18.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label18.ForeColor = Color.White;
+            label18.Location = new Point(22, 997);
+            label18.Margin = new Padding(2, 0, 2, 0);
+            label18.Name = "label18";
+            label18.Size = new Size(107, 17);
+            label18.TabIndex = 155;
+            label18.Text = "Ngày phát hành";
             // 
             // txtChecked_By
             // 
-            this.txtChecked_By.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChecked_By.Location = new System.Drawing.Point(175, 592);
-            this.txtChecked_By.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtChecked_By.Name = "txtChecked_By";
-            this.txtChecked_By.Size = new System.Drawing.Size(169, 24);
-            this.txtChecked_By.TabIndex = 163;
+            txtChecked_By.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtChecked_By.Location = new Point(204, 683);
+            txtChecked_By.Margin = new Padding(2);
+            txtChecked_By.Name = "txtChecked_By";
+            txtChecked_By.Size = new Size(196, 24);
+            txtChecked_By.TabIndex = 163;
             // 
             // label19
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(19, 909);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(32, 17);
-            this.label19.TabIndex = 156;
-            this.label19.Text = "Cấp";
+            label19.AutoSize = true;
+            label19.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label19.ForeColor = Color.White;
+            label19.Location = new Point(22, 1049);
+            label19.Margin = new Padding(2, 0, 2, 0);
+            label19.Name = "label19";
+            label19.Size = new Size(32, 17);
+            label19.TabIndex = 156;
+            label19.Text = "Cấp";
             // 
             // txtApproved_By
             // 
-            this.txtApproved_By.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApproved_By.Location = new System.Drawing.Point(175, 636);
-            this.txtApproved_By.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtApproved_By.Name = "txtApproved_By";
-            this.txtApproved_By.Size = new System.Drawing.Size(169, 24);
-            this.txtApproved_By.TabIndex = 162;
+            txtApproved_By.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtApproved_By.Location = new Point(204, 734);
+            txtApproved_By.Margin = new Padding(2);
+            txtApproved_By.Name = "txtApproved_By";
+            txtApproved_By.Size = new Size(196, 24);
+            txtApproved_By.TabIndex = 162;
             // 
             // label20
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(19, 953);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(51, 17);
-            this.label20.TabIndex = 157;
-            this.label20.Text = "Tựa đề";
+            label20.AutoSize = true;
+            label20.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label20.ForeColor = Color.White;
+            label20.Location = new Point(22, 1100);
+            label20.Margin = new Padding(2, 0, 2, 0);
+            label20.Name = "label20";
+            label20.Size = new Size(51, 17);
+            label20.TabIndex = 157;
+            label20.Text = "Tựa đề";
             // 
             // txtTitle
             // 
-            this.txtTitle.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitle.Location = new System.Drawing.Point(175, 949);
-            this.txtTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(169, 24);
-            this.txtTitle.TabIndex = 161;
+            txtTitle.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtTitle.Location = new Point(204, 1095);
+            txtTitle.Margin = new Padding(2);
+            txtTitle.Name = "txtTitle";
+            txtTitle.Size = new Size(196, 24);
+            txtTitle.TabIndex = 161;
             // 
             // txtTo_Company
             // 
-            this.txtTo_Company.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTo_Company.Location = new System.Drawing.Point(175, 815);
-            this.txtTo_Company.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtTo_Company.Name = "txtTo_Company";
-            this.txtTo_Company.Size = new System.Drawing.Size(169, 24);
-            this.txtTo_Company.TabIndex = 158;
+            txtTo_Company.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtTo_Company.Location = new Point(204, 940);
+            txtTo_Company.Margin = new Padding(2);
+            txtTo_Company.Name = "txtTo_Company";
+            txtTo_Company.Size = new Size(196, 24);
+            txtTo_Company.TabIndex = 158;
             // 
             // txtIssused_Via
             // 
-            this.txtIssused_Via.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIssused_Via.Location = new System.Drawing.Point(175, 905);
-            this.txtIssused_Via.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtIssused_Via.Name = "txtIssused_Via";
-            this.txtIssused_Via.Size = new System.Drawing.Size(169, 24);
-            this.txtIssused_Via.TabIndex = 159;
+            txtIssused_Via.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtIssused_Via.Location = new Point(204, 1044);
+            txtIssused_Via.Margin = new Padding(2);
+            txtIssused_Via.Name = "txtIssused_Via";
+            txtIssused_Via.Size = new Size(196, 24);
+            txtIssused_Via.TabIndex = 159;
             // 
             // txtPrepared_By
             // 
-            this.txtPrepared_By.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrepared_By.Location = new System.Drawing.Point(175, 548);
-            this.txtPrepared_By.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtPrepared_By.Name = "txtPrepared_By";
-            this.txtPrepared_By.Size = new System.Drawing.Size(169, 24);
-            this.txtPrepared_By.TabIndex = 160;
+            txtPrepared_By.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPrepared_By.Location = new Point(204, 632);
+            txtPrepared_By.Margin = new Padding(2);
+            txtPrepared_By.Name = "txtPrepared_By";
+            txtPrepared_By.Size = new Size(196, 24);
+            txtPrepared_By.TabIndex = 160;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(19, 464);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(40, 17);
-            this.label8.TabIndex = 144;
-            this.label8.Text = "Ngày";
+            label8.AutoSize = true;
+            label8.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(22, 535);
+            label8.Margin = new Padding(2, 0, 2, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(40, 17);
+            label8.TabIndex = 144;
+            label8.Text = "Ngày";
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(19, 506);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(129, 17);
-            this.label9.TabIndex = 145;
-            this.label9.Text = "Mục đích phát hành";
+            label9.AutoSize = true;
+            label9.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(22, 584);
+            label9.Margin = new Padding(2, 0, 2, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(129, 17);
+            label9.TabIndex = 145;
+            label9.Text = "Mục đích phát hành";
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(19, 370);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 17);
-            this.label11.TabIndex = 142;
-            this.label11.Text = "Số sửa đổi";
+            label11.AutoSize = true;
+            label11.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.White;
+            label11.Location = new Point(22, 427);
+            label11.Margin = new Padding(2, 0, 2, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(72, 17);
+            label11.TabIndex = 142;
+            label11.Text = "Số sửa đổi";
             // 
             // cbRevision_Number
             // 
-            this.cbRevision_Number.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRevision_Number.FormattingEnabled = true;
-            this.cbRevision_Number.Items.AddRange(new object[] {
-            "A",
-            "B"});
-            this.cbRevision_Number.Location = new System.Drawing.Point(175, 367);
-            this.cbRevision_Number.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbRevision_Number.Name = "cbRevision_Number";
-            this.cbRevision_Number.Size = new System.Drawing.Size(169, 25);
-            this.cbRevision_Number.TabIndex = 143;
+            cbRevision_Number.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbRevision_Number.FormattingEnabled = true;
+            cbRevision_Number.Items.AddRange(new object[] { "A", "B" });
+            cbRevision_Number.Location = new Point(204, 423);
+            cbRevision_Number.Margin = new Padding(2);
+            cbRevision_Number.Name = "cbRevision_Number";
+            cbRevision_Number.Size = new Size(196, 25);
+            cbRevision_Number.TabIndex = 143;
             // 
             // label22
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(354, 138);
-            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(88, 17);
-            this.label22.TabIndex = 141;
-            this.label22.Text = "Mã công việc";
+            label22.AutoSize = true;
+            label22.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label22.ForeColor = Color.White;
+            label22.Location = new Point(413, 159);
+            label22.Margin = new Padding(2, 0, 2, 0);
+            label22.Name = "label22";
+            label22.Size = new Size(88, 17);
+            label22.TabIndex = 141;
+            label22.Text = "Mã công việc";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(354, 91);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 17);
-            this.label6.TabIndex = 140;
-            this.label6.Text = "Mã dự án";
+            label6.AutoSize = true;
+            label6.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(413, 105);
+            label6.Margin = new Padding(2, 0, 2, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(65, 17);
+            label6.TabIndex = 140;
+            label6.Text = "Mã dự án";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(19, 89);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 19);
-            this.label1.TabIndex = 126;
-            this.label1.Text = "Tên dự án";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(22, 103);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 19);
+            label1.TabIndex = 126;
+            label1.Text = "Tên dự án";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(19, 136);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 19);
-            this.label2.TabIndex = 127;
-            this.label2.Text = "Tên công việc";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(22, 157);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(91, 19);
+            label2.TabIndex = 127;
+            label2.Text = "Tên công việc";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(19, 183);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 19);
-            this.label3.TabIndex = 128;
-            this.label3.Text = "Bưu kiện";
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(22, 211);
+            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(62, 19);
+            label3.TabIndex = 128;
+            label3.Text = "Bưu kiện";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(19, 230);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 19);
-            this.label4.TabIndex = 129;
-            this.label4.Text = "Mục công việc";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(22, 265);
+            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(97, 19);
+            label4.TabIndex = 129;
+            label4.Text = "Mục công việc";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(19, 276);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 19);
-            this.label5.TabIndex = 130;
-            this.label5.Text = "Loại";
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(22, 318);
+            label5.Margin = new Padding(2, 0, 2, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(34, 19);
+            label5.TabIndex = 130;
+            label5.Text = "Loại";
             // 
             // cbPartner_Code
             // 
-            this.cbPartner_Code.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPartner_Code.FormattingEnabled = true;
-            this.cbPartner_Code.Location = new System.Drawing.Point(175, 320);
-            this.cbPartner_Code.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbPartner_Code.Name = "cbPartner_Code";
-            this.cbPartner_Code.Size = new System.Drawing.Size(169, 27);
-            this.cbPartner_Code.TabIndex = 137;
+            cbPartner_Code.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbPartner_Code.FormattingEnabled = true;
+            cbPartner_Code.Location = new Point(204, 369);
+            cbPartner_Code.Margin = new Padding(2);
+            cbPartner_Code.Name = "cbPartner_Code";
+            cbPartner_Code.Size = new Size(196, 27);
+            cbPartner_Code.TabIndex = 137;
             // 
             // cbType
             // 
-            this.cbType.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbType.FormattingEnabled = true;
-            this.cbType.Items.AddRange(new object[] {
-            "D",
-            "E",
-            "F",
-            "H",
-            "L",
-            "M",
-            "Q",
-            "S"});
-            this.cbType.Location = new System.Drawing.Point(175, 273);
-            this.cbType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(169, 27);
-            this.cbType.TabIndex = 136;
+            cbType.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbType.FormattingEnabled = true;
+            cbType.Items.AddRange(new object[] { "D", "E", "F", "H", "L", "M", "Q", "S" });
+            cbType.Location = new Point(204, 315);
+            cbType.Margin = new Padding(2);
+            cbType.Name = "cbType";
+            cbType.Size = new Size(196, 27);
+            cbType.TabIndex = 136;
             // 
             // cbPackage
             // 
-            this.cbPackage.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPackage.FormattingEnabled = true;
-            this.cbPackage.Items.AddRange(new object[] {
-            "Common",
-            "Licence"});
-            this.cbPackage.Location = new System.Drawing.Point(175, 180);
-            this.cbPackage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbPackage.Name = "cbPackage";
-            this.cbPackage.Size = new System.Drawing.Size(169, 27);
-            this.cbPackage.TabIndex = 135;
+            cbPackage.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbPackage.FormattingEnabled = true;
+            cbPackage.Items.AddRange(new object[] { "Common", "Licence" });
+            cbPackage.Location = new Point(204, 208);
+            cbPackage.Margin = new Padding(2);
+            cbPackage.Name = "cbPackage";
+            cbPackage.Size = new Size(196, 27);
+            cbPackage.TabIndex = 135;
             // 
             // txtWork_Item
             // 
-            this.txtWork_Item.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWork_Item.Location = new System.Drawing.Point(175, 227);
-            this.txtWork_Item.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtWork_Item.Name = "txtWork_Item";
-            this.txtWork_Item.Size = new System.Drawing.Size(169, 26);
-            this.txtWork_Item.TabIndex = 132;
+            txtWork_Item.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtWork_Item.Location = new Point(204, 262);
+            txtWork_Item.Margin = new Padding(2);
+            txtWork_Item.Name = "txtWork_Item";
+            txtWork_Item.Size = new Size(196, 26);
+            txtWork_Item.TabIndex = 132;
             // 
             // label21
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(19, 323);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(74, 19);
-            this.label21.TabIndex = 131;
-            this.label21.Text = "Mã đối tác";
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label21.ForeColor = Color.White;
+            label21.Location = new Point(22, 373);
+            label21.Margin = new Padding(2, 0, 2, 0);
+            label21.Name = "label21";
+            label21.Size = new Size(74, 19);
+            label21.TabIndex = 131;
+            label21.Text = "Mã đối tác";
             // 
             // FormInsert
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.ClientSize = new System.Drawing.Size(609, 811);
-            this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MinimumSize = new System.Drawing.Size(625, 850);
-            this.Name = "FormInsert";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormInsert";
-            this.Load += new System.EventHandler(this.FormInsert_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
+            BackColor = Color.FromArgb(22, 22, 22);
+            ClientSize = new Size(710, 936);
+            Controls.Add(panel1);
+            Margin = new Padding(2);
+            MinimumSize = new Size(726, 975);
+            Name = "FormInsert";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FormInsert";
+            Load += FormInsert_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ResumeLayout(false);
 
         }
 

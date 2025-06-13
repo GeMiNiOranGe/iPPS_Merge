@@ -24,44 +24,47 @@ namespace Pepro.Presentation {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            btnLogout = new Button();
+            btnExit = new Button();
+            SuspendLayout();
             // 
             // btnLogout
             // 
-            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLogout.Location = new System.Drawing.Point(12, 545);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(156, 43);
-            this.btnLogout.TabIndex = 0;
-            this.btnLogout.Text = "Log out";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
+            btnLogout.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnLogout.Location = new Point(14, 629);
+            btnLogout.Margin = new Padding(4, 3, 4, 3);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(182, 50);
+            btnLogout.TabIndex = 0;
+            btnLogout.Text = "Log out";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += BtnLogout_Click;
             // 
             // btnExit
             // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(938, 12);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(50, 50);
-            this.btnExit.TabIndex = 0;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExit.Location = new Point(1094, 14);
+            btnExit.Margin = new Padding(4, 3, 4, 3);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(58, 58);
+            btnExit.TabIndex = 0;
+            btnExit.Text = "Exit";
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += BtnExit_Click;
             // 
             // FormDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 600);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnLogout);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormDashboard";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormDashboard";
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1167, 692);
+            Controls.Add(btnExit);
+            Controls.Add(btnLogout);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FormDashboard";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FormDashboard";
+            ResumeLayout(false);
 
         }
 
