@@ -23,179 +23,196 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.txtColumnName = new System.Windows.Forms.TextBox();
-            this.lblColumnName = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.lblName = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.lblId = new System.Windows.Forms.Label();
-            this.lblRoleId = new System.Windows.Forms.Label();
-            this.txtRoleId = new System.Windows.Forms.TextBox();
-            this.lblPermissionID = new System.Windows.Forms.Label();
-            this.txtPermissionID = new System.Windows.Forms.TextBox();
-            this.dgvRolePermission = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRolePermission)).BeginInit();
-            this.SuspendLayout();
+            groupBox1 = new GroupBox();
+            btnDelete = new Button();
+            btnUpdate = new Button();
+            btnAdd = new Button();
+            txtColumnName = new TextBox();
+            lblColumnName = new Label();
+            txtName = new TextBox();
+            lblName = new Label();
+            txtPermissionID = new TextBox();
+            txtRoleId = new TextBox();
+            lblPermissionID = new Label();
+            txtID = new TextBox();
+            lblRoleId = new Label();
+            lblId = new Label();
+            dgvRolePermission = new DataGridView();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRolePermission).BeginInit();
+            SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Controls.Add(this.btnDelete);
-            this.groupBox1.Controls.Add(this.btnUpdate);
-            this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.txtColumnName);
-            this.groupBox1.Controls.Add(this.lblColumnName);
-            this.groupBox1.Controls.Add(this.txtName);
-            this.groupBox1.Controls.Add(this.lblName);
-            this.groupBox1.Controls.Add(this.txtPermissionID);
-            this.groupBox1.Controls.Add(this.txtRoleId);
-            this.groupBox1.Controls.Add(this.lblPermissionID);
-            this.groupBox1.Controls.Add(this.txtID);
-            this.groupBox1.Controls.Add(this.lblRoleId);
-            this.groupBox1.Controls.Add(this.lblId);
-            this.groupBox1.Location = new System.Drawing.Point(66, 31);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(669, 187);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Function";
+            groupBox1.BackColor = SystemColors.ControlLightLight;
+            groupBox1.Controls.Add(btnDelete);
+            groupBox1.Controls.Add(btnUpdate);
+            groupBox1.Controls.Add(btnAdd);
+            groupBox1.Controls.Add(txtColumnName);
+            groupBox1.Controls.Add(lblColumnName);
+            groupBox1.Controls.Add(txtName);
+            groupBox1.Controls.Add(lblName);
+            groupBox1.Controls.Add(txtPermissionID);
+            groupBox1.Controls.Add(txtRoleId);
+            groupBox1.Controls.Add(lblPermissionID);
+            groupBox1.Controls.Add(txtID);
+            groupBox1.Controls.Add(lblRoleId);
+            groupBox1.Controls.Add(lblId);
+            groupBox1.Location = new Point(77, 36);
+            groupBox1.Margin = new Padding(4, 3, 4, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(4, 3, 4, 3);
+            groupBox1.Size = new Size(780, 216);
+            groupBox1.TabIndex = 3;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Function";
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.SystemColors.Menu;
-            this.btnDelete.Location = new System.Drawing.Point(239, 114);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(63, 31);
-            this.btnDelete.TabIndex = 8;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.BackColor = SystemColors.Menu;
+            btnDelete.Location = new Point(279, 132);
+            btnDelete.Margin = new Padding(4, 3, 4, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(74, 36);
+            btnDelete.TabIndex = 8;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = false;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.SystemColors.Menu;
-            this.btnUpdate.Location = new System.Drawing.Point(152, 114);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(63, 31);
-            this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.BackColor = SystemColors.Menu;
+            btnUpdate.Location = new Point(177, 132);
+            btnUpdate.Margin = new Padding(4, 3, 4, 3);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(74, 36);
+            btnUpdate.TabIndex = 7;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = false;
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.SystemColors.Menu;
-            this.btnAdd.Location = new System.Drawing.Point(65, 114);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(63, 31);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.BackColor = SystemColors.Menu;
+            btnAdd.Location = new Point(76, 132);
+            btnAdd.Margin = new Padding(4, 3, 4, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(74, 36);
+            btnAdd.TabIndex = 6;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = false;
             // 
             // txtColumnName
             // 
-            this.txtColumnName.Location = new System.Drawing.Point(450, 111);
-            this.txtColumnName.Name = "txtColumnName";
-            this.txtColumnName.Size = new System.Drawing.Size(129, 20);
-            this.txtColumnName.TabIndex = 5;
+            txtColumnName.Location = new Point(525, 128);
+            txtColumnName.Margin = new Padding(4, 3, 4, 3);
+            txtColumnName.Name = "txtColumnName";
+            txtColumnName.Size = new Size(150, 23);
+            txtColumnName.TabIndex = 5;
             // 
             // lblColumnName
             // 
-            this.lblColumnName.AutoSize = true;
-            this.lblColumnName.Location = new System.Drawing.Point(370, 114);
-            this.lblColumnName.Name = "lblColumnName";
-            this.lblColumnName.Size = new System.Drawing.Size(74, 13);
-            this.lblColumnName.TabIndex = 4;
-            this.lblColumnName.Text = "Column name:";
+            lblColumnName.AutoSize = true;
+            lblColumnName.Location = new Point(432, 132);
+            lblColumnName.Margin = new Padding(4, 0, 4, 0);
+            lblColumnName.Name = "lblColumnName";
+            lblColumnName.Size = new Size(86, 15);
+            lblColumnName.TabIndex = 4;
+            lblColumnName.Text = "Column name:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(135, 61);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(129, 20);
-            this.txtName.TabIndex = 3;
+            txtName.Location = new Point(158, 70);
+            txtName.Margin = new Padding(4, 3, 4, 3);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(150, 23);
+            txtName.TabIndex = 3;
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(91, 64);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(38, 13);
-            this.lblName.TabIndex = 2;
-            this.lblName.Text = "Name:";
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(135, 19);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(129, 20);
-            this.txtID.TabIndex = 1;
-            // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(108, 22);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(21, 13);
-            this.lblId.TabIndex = 0;
-            this.lblId.Text = "ID:";
-            // 
-            // lblRoleId
-            // 
-            this.lblRoleId.AutoSize = true;
-            this.lblRoleId.Location = new System.Drawing.Point(398, 22);
-            this.lblRoleId.Name = "lblRoleId";
-            this.lblRoleId.Size = new System.Drawing.Size(46, 13);
-            this.lblRoleId.TabIndex = 0;
-            this.lblRoleId.Text = "Role ID:";
-            // 
-            // txtRoleId
-            // 
-            this.txtRoleId.Location = new System.Drawing.Point(450, 19);
-            this.txtRoleId.Name = "txtRoleId";
-            this.txtRoleId.Size = new System.Drawing.Size(129, 20);
-            this.txtRoleId.TabIndex = 1;
-            // 
-            // lblPermissionID
-            // 
-            this.lblPermissionID.AutoSize = true;
-            this.lblPermissionID.Location = new System.Drawing.Point(370, 67);
-            this.lblPermissionID.Name = "lblPermissionID";
-            this.lblPermissionID.Size = new System.Drawing.Size(74, 13);
-            this.lblPermissionID.TabIndex = 0;
-            this.lblPermissionID.Text = "Permission ID:";
+            lblName.AutoSize = true;
+            lblName.Location = new Point(106, 74);
+            lblName.Margin = new Padding(4, 0, 4, 0);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(42, 15);
+            lblName.TabIndex = 2;
+            lblName.Text = "Name:";
             // 
             // txtPermissionID
             // 
-            this.txtPermissionID.Location = new System.Drawing.Point(450, 64);
-            this.txtPermissionID.Name = "txtPermissionID";
-            this.txtPermissionID.Size = new System.Drawing.Size(129, 20);
-            this.txtPermissionID.TabIndex = 1;
+            txtPermissionID.Location = new Point(525, 74);
+            txtPermissionID.Margin = new Padding(4, 3, 4, 3);
+            txtPermissionID.Name = "txtPermissionID";
+            txtPermissionID.Size = new Size(150, 23);
+            txtPermissionID.TabIndex = 1;
+            // 
+            // txtRoleId
+            // 
+            txtRoleId.Location = new Point(525, 22);
+            txtRoleId.Margin = new Padding(4, 3, 4, 3);
+            txtRoleId.Name = "txtRoleId";
+            txtRoleId.Size = new Size(150, 23);
+            txtRoleId.TabIndex = 1;
+            // 
+            // lblPermissionID
+            // 
+            lblPermissionID.AutoSize = true;
+            lblPermissionID.Location = new Point(432, 77);
+            lblPermissionID.Margin = new Padding(4, 0, 4, 0);
+            lblPermissionID.Name = "lblPermissionID";
+            lblPermissionID.Size = new Size(82, 15);
+            lblPermissionID.TabIndex = 0;
+            lblPermissionID.Text = "Permission ID:";
+            // 
+            // txtID
+            // 
+            txtID.Location = new Point(158, 22);
+            txtID.Margin = new Padding(4, 3, 4, 3);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(150, 23);
+            txtID.TabIndex = 1;
+            // 
+            // lblRoleId
+            // 
+            lblRoleId.AutoSize = true;
+            lblRoleId.Location = new Point(464, 25);
+            lblRoleId.Margin = new Padding(4, 0, 4, 0);
+            lblRoleId.Name = "lblRoleId";
+            lblRoleId.Size = new Size(47, 15);
+            lblRoleId.TabIndex = 0;
+            lblRoleId.Text = "Role ID:";
+            // 
+            // lblId
+            // 
+            lblId.AutoSize = true;
+            lblId.Location = new Point(126, 25);
+            lblId.Margin = new Padding(4, 0, 4, 0);
+            lblId.Name = "lblId";
+            lblId.Size = new Size(21, 15);
+            lblId.TabIndex = 0;
+            lblId.Text = "ID:";
             // 
             // dgvRolePermission
             // 
-            this.dgvRolePermission.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRolePermission.Location = new System.Drawing.Point(66, 246);
-            this.dgvRolePermission.Name = "dgvRolePermission";
-            this.dgvRolePermission.Size = new System.Drawing.Size(669, 176);
-            this.dgvRolePermission.TabIndex = 4;
+            dgvRolePermission.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRolePermission.Location = new Point(77, 284);
+            dgvRolePermission.Margin = new Padding(4, 3, 4, 3);
+            dgvRolePermission.Name = "dgvRolePermission";
+            dgvRolePermission.Size = new Size(780, 203);
+            dgvRolePermission.TabIndex = 4;
             // 
             // RolePermission
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgvRolePermission);
-            this.Controls.Add(this.groupBox1);
-            this.Name = "RolePermission";
-            this.Text = "FormRolePermission";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRolePermission)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(933, 519);
+            Controls.Add(dgvRolePermission);
+            Controls.Add(groupBox1);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "RolePermission";
+            Text = "FormRolePermission";
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRolePermission).EndInit();
+            ResumeLayout(false);
 
         }
 

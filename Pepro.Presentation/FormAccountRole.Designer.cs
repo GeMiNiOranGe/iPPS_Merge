@@ -23,139 +23,152 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.txtAccountId = new System.Windows.Forms.TextBox();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.lblAccountId = new System.Windows.Forms.Label();
-            this.lblId = new System.Windows.Forms.Label();
-            this.dgvAccountRole = new System.Windows.Forms.DataGridView();
-            this.lblRoleId = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAccountRole)).BeginInit();
-            this.SuspendLayout();
+            groupBox1 = new GroupBox();
+            btnDelete = new Button();
+            btnUpdate = new Button();
+            btnAdd = new Button();
+            textBox1 = new TextBox();
+            txtAccountId = new TextBox();
+            lblRoleId = new Label();
+            txtID = new TextBox();
+            lblAccountId = new Label();
+            lblId = new Label();
+            dgvAccountRole = new DataGridView();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvAccountRole).BeginInit();
+            SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Controls.Add(this.btnDelete);
-            this.groupBox1.Controls.Add(this.btnUpdate);
-            this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.txtAccountId);
-            this.groupBox1.Controls.Add(this.lblRoleId);
-            this.groupBox1.Controls.Add(this.txtID);
-            this.groupBox1.Controls.Add(this.lblAccountId);
-            this.groupBox1.Controls.Add(this.lblId);
-            this.groupBox1.Location = new System.Drawing.Point(66, 30);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(669, 187);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Function";
+            groupBox1.BackColor = SystemColors.ControlLightLight;
+            groupBox1.Controls.Add(btnDelete);
+            groupBox1.Controls.Add(btnUpdate);
+            groupBox1.Controls.Add(btnAdd);
+            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtAccountId);
+            groupBox1.Controls.Add(lblRoleId);
+            groupBox1.Controls.Add(txtID);
+            groupBox1.Controls.Add(lblAccountId);
+            groupBox1.Controls.Add(lblId);
+            groupBox1.Location = new Point(77, 35);
+            groupBox1.Margin = new Padding(4, 3, 4, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(4, 3, 4, 3);
+            groupBox1.Size = new Size(780, 216);
+            groupBox1.TabIndex = 7;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Function";
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.SystemColors.Menu;
-            this.btnDelete.Location = new System.Drawing.Point(516, 113);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(63, 31);
-            this.btnDelete.TabIndex = 8;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.BackColor = SystemColors.Menu;
+            btnDelete.Location = new Point(602, 130);
+            btnDelete.Margin = new Padding(4, 3, 4, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(74, 36);
+            btnDelete.TabIndex = 8;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = false;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.SystemColors.Menu;
-            this.btnUpdate.Location = new System.Drawing.Point(429, 113);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(63, 31);
-            this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.BackColor = SystemColors.Menu;
+            btnUpdate.Location = new Point(500, 130);
+            btnUpdate.Margin = new Padding(4, 3, 4, 3);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(74, 36);
+            btnUpdate.TabIndex = 7;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = false;
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.SystemColors.Menu;
-            this.btnAdd.Location = new System.Drawing.Point(342, 113);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(63, 31);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // txtAccountId
-            // 
-            this.txtAccountId.Location = new System.Drawing.Point(437, 31);
-            this.txtAccountId.Name = "txtAccountId";
-            this.txtAccountId.Size = new System.Drawing.Size(129, 20);
-            this.txtAccountId.TabIndex = 1;
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(122, 31);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(129, 20);
-            this.txtID.TabIndex = 1;
-            // 
-            // lblAccountId
-            // 
-            this.lblAccountId.AutoSize = true;
-            this.lblAccountId.Location = new System.Drawing.Point(370, 34);
-            this.lblAccountId.Name = "lblAccountId";
-            this.lblAccountId.Size = new System.Drawing.Size(64, 13);
-            this.lblAccountId.TabIndex = 0;
-            this.lblAccountId.Text = "Account ID:";
-            // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(95, 34);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(21, 13);
-            this.lblId.TabIndex = 0;
-            this.lblId.Text = "ID:";
-            // 
-            // dgvAccountRole
-            // 
-            this.dgvAccountRole.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAccountRole.Location = new System.Drawing.Point(66, 245);
-            this.dgvAccountRole.Name = "dgvAccountRole";
-            this.dgvAccountRole.Size = new System.Drawing.Size(669, 176);
-            this.dgvAccountRole.TabIndex = 8;
-            // 
-            // lblRoleId
-            // 
-            this.lblRoleId.AutoSize = true;
-            this.lblRoleId.Location = new System.Drawing.Point(55, 113);
-            this.lblRoleId.Name = "lblRoleId";
-            this.lblRoleId.Size = new System.Drawing.Size(46, 13);
-            this.lblRoleId.TabIndex = 0;
-            this.lblRoleId.Text = "Role ID:";
+            btnAdd.BackColor = SystemColors.Menu;
+            btnAdd.Location = new Point(399, 130);
+            btnAdd.Margin = new Padding(4, 3, 4, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(74, 36);
+            btnAdd.TabIndex = 6;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = false;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(122, 110);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(129, 20);
-            this.textBox1.TabIndex = 1;
+            textBox1.Location = new Point(142, 127);
+            textBox1.Margin = new Padding(4, 3, 4, 3);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(150, 23);
+            textBox1.TabIndex = 1;
+            // 
+            // txtAccountId
+            // 
+            txtAccountId.Location = new Point(510, 36);
+            txtAccountId.Margin = new Padding(4, 3, 4, 3);
+            txtAccountId.Name = "txtAccountId";
+            txtAccountId.Size = new Size(150, 23);
+            txtAccountId.TabIndex = 1;
+            // 
+            // lblRoleId
+            // 
+            lblRoleId.AutoSize = true;
+            lblRoleId.Location = new Point(64, 130);
+            lblRoleId.Margin = new Padding(4, 0, 4, 0);
+            lblRoleId.Name = "lblRoleId";
+            lblRoleId.Size = new Size(47, 15);
+            lblRoleId.TabIndex = 0;
+            lblRoleId.Text = "Role ID:";
+            // 
+            // txtID
+            // 
+            txtID.Location = new Point(142, 36);
+            txtID.Margin = new Padding(4, 3, 4, 3);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(150, 23);
+            txtID.TabIndex = 1;
+            // 
+            // lblAccountId
+            // 
+            lblAccountId.AutoSize = true;
+            lblAccountId.Location = new Point(432, 39);
+            lblAccountId.Margin = new Padding(4, 0, 4, 0);
+            lblAccountId.Name = "lblAccountId";
+            lblAccountId.Size = new Size(69, 15);
+            lblAccountId.TabIndex = 0;
+            lblAccountId.Text = "Account ID:";
+            // 
+            // lblId
+            // 
+            lblId.AutoSize = true;
+            lblId.Location = new Point(111, 39);
+            lblId.Margin = new Padding(4, 0, 4, 0);
+            lblId.Name = "lblId";
+            lblId.Size = new Size(21, 15);
+            lblId.TabIndex = 0;
+            lblId.Text = "ID:";
+            // 
+            // dgvAccountRole
+            // 
+            dgvAccountRole.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAccountRole.Location = new Point(77, 283);
+            dgvAccountRole.Margin = new Padding(4, 3, 4, 3);
+            dgvAccountRole.Name = "dgvAccountRole";
+            dgvAccountRole.Size = new Size(780, 203);
+            dgvAccountRole.TabIndex = 8;
             // 
             // FormAccountRole
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dgvAccountRole);
-            this.Name = "FormAccountRole";
-            this.Text = "FormAccountRole";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAccountRole)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(933, 519);
+            Controls.Add(groupBox1);
+            Controls.Add(dgvAccountRole);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FormAccountRole";
+            Text = "FormAccountRole";
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvAccountRole).EndInit();
+            ResumeLayout(false);
 
         }
 

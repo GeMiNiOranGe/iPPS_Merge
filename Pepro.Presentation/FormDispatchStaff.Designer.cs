@@ -26,229 +26,228 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSoQuyetDinh = new System.Windows.Forms.TextBox();
-            this.txtNguoiKy = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cbChucVu = new System.Windows.Forms.ComboBox();
-            this.txtMaCV = new System.Windows.Forms.TextBox();
-            this.txtMaPBHT = new System.Windows.Forms.TextBox();
-            this.txtMaPBTC = new System.Windows.Forms.TextBox();
-            this.cbPhongBanTC = new System.Windows.Forms.ComboBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+        private void InitializeComponent() {
+            label1 = new Label();
+            txtSoQuyetDinh = new TextBox();
+            txtNguoiKy = new TextBox();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            cbChucVu = new ComboBox();
+            txtMaCV = new TextBox();
+            txtMaPBHT = new TextBox();
+            txtMaPBTC = new TextBox();
+            cbPhongBanTC = new ComboBox();
+            btnAdd = new Button();
+            btnExit = new Button();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(184, 100);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Số quyết định";
+            label1.AutoSize = true;
+            label1.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(161, 94);
+            label1.Name = "label1";
+            label1.Size = new Size(107, 19);
+            label1.TabIndex = 0;
+            label1.Text = "Số quyết định";
             // 
             // txtSoQuyetDinh
             // 
-            this.txtSoQuyetDinh.Enabled = false;
-            this.txtSoQuyetDinh.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoQuyetDinh.Location = new System.Drawing.Point(337, 97);
-            this.txtSoQuyetDinh.Name = "txtSoQuyetDinh";
-            this.txtSoQuyetDinh.ReadOnly = true;
-            this.txtSoQuyetDinh.Size = new System.Drawing.Size(217, 32);
-            this.txtSoQuyetDinh.TabIndex = 1;
+            txtSoQuyetDinh.Enabled = false;
+            txtSoQuyetDinh.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSoQuyetDinh.Location = new Point(295, 91);
+            txtSoQuyetDinh.Name = "txtSoQuyetDinh";
+            txtSoQuyetDinh.ReadOnly = true;
+            txtSoQuyetDinh.Size = new Size(190, 27);
+            txtSoQuyetDinh.TabIndex = 1;
             // 
             // txtNguoiKy
             // 
-            this.txtNguoiKy.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNguoiKy.Location = new System.Drawing.Point(337, 153);
-            this.txtNguoiKy.Name = "txtNguoiKy";
-            this.txtNguoiKy.Size = new System.Drawing.Size(217, 32);
-            this.txtNguoiKy.TabIndex = 3;
+            txtNguoiKy.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNguoiKy.Location = new Point(295, 143);
+            txtNguoiKy.Name = "txtNguoiKy";
+            txtNguoiKy.Size = new Size(190, 27);
+            txtNguoiKy.TabIndex = 3;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(190, 156);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Tên người ký";
+            label2.AutoSize = true;
+            label2.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(166, 146);
+            label2.Name = "label2";
+            label2.Size = new Size(103, 19);
+            label2.TabIndex = 2;
+            label2.Text = "Tên người ký";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(130, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(375, 34);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Thuyên chuyển nhân viên";
+            label3.AutoSize = true;
+            label3.Font = new Font("Tahoma", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label3.Location = new Point(114, 23);
+            label3.Name = "label3";
+            label3.Size = new Size(293, 27);
+            label3.TabIndex = 4;
+            label3.Text = "Thuyên chuyển nhân viên";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(158, 212);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(158, 24);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Chức vụ người kí";
+            label4.AutoSize = true;
+            label4.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(138, 199);
+            label4.Name = "label4";
+            label4.Size = new Size(130, 19);
+            label4.TabIndex = 5;
+            label4.Text = "Chức vụ người kí";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(76, 380);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(240, 24);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Phòng ban thuyên chuyển";
+            label6.AutoSize = true;
+            label6.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(66, 356);
+            label6.Name = "label6";
+            label6.Size = new Size(193, 19);
+            label6.TabIndex = 7;
+            label6.Text = "Phòng ban thuyên chuyển";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(206, 268);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 24);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Mã chức vụ";
+            label7.AutoSize = true;
+            label7.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(180, 251);
+            label7.Name = "label7";
+            label7.Size = new Size(89, 19);
+            label7.TabIndex = 8;
+            label7.Text = "Mã chức vụ";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(107, 324);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(209, 24);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Mã phòng ban hiện tại";
+            label8.AutoSize = true;
+            label8.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(94, 304);
+            label8.Name = "label8";
+            label8.Size = new Size(167, 19);
+            label8.TabIndex = 9;
+            label8.Text = "Mã phòng ban hiện tại";
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(44, 436);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(272, 24);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Mã phòng ban thuyên chuyển";
+            label9.AutoSize = true;
+            label9.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(38, 409);
+            label9.Name = "label9";
+            label9.Size = new Size(218, 19);
+            label9.TabIndex = 10;
+            label9.Text = "Mã phòng ban thuyên chuyển";
             // 
             // cbChucVu
             // 
-            this.cbChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbChucVu.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbChucVu.FormattingEnabled = true;
-            this.cbChucVu.Location = new System.Drawing.Point(337, 209);
-            this.cbChucVu.Name = "cbChucVu";
-            this.cbChucVu.Size = new System.Drawing.Size(217, 32);
-            this.cbChucVu.TabIndex = 11;
-            this.cbChucVu.SelectedIndexChanged += new System.EventHandler(this.cbChucVu_SelectedIndexChanged);
+            cbChucVu.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbChucVu.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbChucVu.FormattingEnabled = true;
+            cbChucVu.Location = new Point(295, 196);
+            cbChucVu.Name = "cbChucVu";
+            cbChucVu.Size = new Size(190, 27);
+            cbChucVu.TabIndex = 11;
+            cbChucVu.SelectedIndexChanged += cbChucVu_SelectedIndexChanged;
             // 
             // txtMaCV
             // 
-            this.txtMaCV.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaCV.Location = new System.Drawing.Point(337, 265);
-            this.txtMaCV.Name = "txtMaCV";
-            this.txtMaCV.ReadOnly = true;
-            this.txtMaCV.Size = new System.Drawing.Size(217, 32);
-            this.txtMaCV.TabIndex = 12;
+            txtMaCV.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMaCV.Location = new Point(295, 248);
+            txtMaCV.Name = "txtMaCV";
+            txtMaCV.ReadOnly = true;
+            txtMaCV.Size = new Size(190, 27);
+            txtMaCV.TabIndex = 12;
             // 
             // txtMaPBHT
             // 
-            this.txtMaPBHT.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaPBHT.Location = new System.Drawing.Point(337, 321);
-            this.txtMaPBHT.Name = "txtMaPBHT";
-            this.txtMaPBHT.ReadOnly = true;
-            this.txtMaPBHT.Size = new System.Drawing.Size(217, 32);
-            this.txtMaPBHT.TabIndex = 13;
+            txtMaPBHT.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMaPBHT.Location = new Point(295, 301);
+            txtMaPBHT.Name = "txtMaPBHT";
+            txtMaPBHT.ReadOnly = true;
+            txtMaPBHT.Size = new Size(190, 27);
+            txtMaPBHT.TabIndex = 13;
             // 
             // txtMaPBTC
             // 
-            this.txtMaPBTC.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaPBTC.Location = new System.Drawing.Point(337, 433);
-            this.txtMaPBTC.Name = "txtMaPBTC";
-            this.txtMaPBTC.ReadOnly = true;
-            this.txtMaPBTC.Size = new System.Drawing.Size(217, 32);
-            this.txtMaPBTC.TabIndex = 14;
+            txtMaPBTC.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMaPBTC.Location = new Point(295, 406);
+            txtMaPBTC.Name = "txtMaPBTC";
+            txtMaPBTC.ReadOnly = true;
+            txtMaPBTC.Size = new Size(190, 27);
+            txtMaPBTC.TabIndex = 14;
             // 
             // cbPhongBanTC
             // 
-            this.cbPhongBanTC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPhongBanTC.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPhongBanTC.FormattingEnabled = true;
-            this.cbPhongBanTC.Location = new System.Drawing.Point(337, 377);
-            this.cbPhongBanTC.Name = "cbPhongBanTC";
-            this.cbPhongBanTC.Size = new System.Drawing.Size(217, 32);
-            this.cbPhongBanTC.TabIndex = 16;
-            this.cbPhongBanTC.SelectedIndexChanged += new System.EventHandler(this.cbPhongBanTC_SelectedIndexChanged);
+            cbPhongBanTC.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPhongBanTC.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbPhongBanTC.FormattingEnabled = true;
+            cbPhongBanTC.Location = new Point(295, 353);
+            cbPhongBanTC.Name = "cbPhongBanTC";
+            cbPhongBanTC.Size = new Size(190, 27);
+            cbPhongBanTC.TabIndex = 16;
+            cbPhongBanTC.SelectedIndexChanged += cbPhongBanTC_SelectedIndexChanged;
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(96)))), ((int)(((byte)(0)))));
-            this.btnAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAdd.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(239, 492);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(139, 51);
-            this.btnAdd.TabIndex = 17;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            btnAdd.BackColor = Color.FromArgb(255, 96, 0);
+            btnAdd.DialogResult = DialogResult.OK;
+            btnAdd.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.Location = new Point(209, 461);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(122, 48);
+            btnAdd.TabIndex = 17;
+            btnAdd.Text = "Thêm";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(199)))));
-            this.btnExit.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(572, -1);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(30, 30);
-            this.btnExit.TabIndex = 103;
-            this.btnExit.Text = "X";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            btnExit.BackColor = Color.FromArgb(255, 230, 199);
+            btnExit.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExit.Location = new Point(500, -1);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(26, 28);
+            btnExit.TabIndex = 103;
+            btnExit.Text = "X";
+            btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
             // 
             // FormDispatchStaff
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(199)))));
-            this.ClientSize = new System.Drawing.Size(598, 574);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.cbPhongBanTC);
-            this.Controls.Add(this.txtMaPBTC);
-            this.Controls.Add(this.txtMaPBHT);
-            this.Controls.Add(this.txtMaCV);
-            this.Controls.Add(this.cbChucVu);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtNguoiKy);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtSoQuyetDinh);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormDispatchStaff";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormDispatchStaff";
-            this.Load += new System.EventHandler(this.FormDispatchStaff_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 230, 199);
+            ClientSize = new Size(523, 538);
+            Controls.Add(btnExit);
+            Controls.Add(btnAdd);
+            Controls.Add(cbPhongBanTC);
+            Controls.Add(txtMaPBTC);
+            Controls.Add(txtMaPBHT);
+            Controls.Add(txtMaCV);
+            Controls.Add(cbChucVu);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(txtNguoiKy);
+            Controls.Add(label2);
+            Controls.Add(txtSoQuyetDinh);
+            Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "FormDispatchStaff";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FormDispatchStaff";
+            Load += FormDispatchStaff_Load;
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
