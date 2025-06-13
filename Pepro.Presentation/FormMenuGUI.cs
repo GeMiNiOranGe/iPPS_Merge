@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.ComponentModel;
 
 namespace Pepro.Presentation;
 
@@ -9,6 +10,7 @@ public partial class FormMenuGUI : Form {
     private Form? currentFormChild;
     private string? userId;
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public string? UserId {
         get => userId;
         set => userId = value;

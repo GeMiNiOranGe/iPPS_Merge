@@ -15,22 +15,26 @@ namespace Pepro.Presentation {
         }
 
         [Category("Custom Props")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ProjectId {
             get => lbProjectId.Text;
             set => lbProjectId.Text = value;
         }
 
         [Category("Custom Props")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string JobName {
             get => lbJobName.Text;
             set => lbJobName.Text = value;
         }
         [Category("Custom Props")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string JobId {
             get => lbJobId.Text;
             set => lbJobId.Text = value;
         }
         [Category("Custom Props")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string JobPercent {
             get => lbJobPercent.Text;
             set => lbJobPercent.Text = value;

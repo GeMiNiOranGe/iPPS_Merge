@@ -14,24 +14,28 @@ namespace Pepro.Presentation {
         bool isHover = false;
 
         [Category("Custom Props")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Id {
             get => lbId.Text;
             set => lbId.Text = value;
         }
 
         [Category("Custom Props")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new string Name {
             get => lbName.Text;
             set => lbName.Text = value;
         }
 
         [Category("Custom Props")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string DepartmentName {
             get => lbDepartmentName.Text;
             set => lbDepartmentName.Text = value;
         }
 
         [Category("Custom Props")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Percent {
             get => lbPercent.Text;
             set => lbPercent.Text = value;
