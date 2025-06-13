@@ -1,4 +1,6 @@
 ﻿
+using Pepro.Presentation.Controls;
+
 namespace Pepro.Presentation {
     partial class FormMenuGUI {
         /// <summary>

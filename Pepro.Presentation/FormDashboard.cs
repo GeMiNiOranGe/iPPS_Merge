@@ -1,4 +1,6 @@
-﻿namespace Pepro.Presentation;
+﻿using System.ComponentModel;
+
+namespace Pepro.Presentation;
 
 public partial class FormDashboard : Form {
     private Form rootForm = new();
@@ -7,6 +9,7 @@ public partial class FormDashboard : Form {
         InitializeComponent();
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public Form RootForm {
         get => rootForm;
         set => rootForm = value;

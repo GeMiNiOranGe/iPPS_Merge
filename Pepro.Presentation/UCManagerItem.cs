@@ -15,12 +15,14 @@ namespace Pepro.Presentation {
         }
 
         [Category("Custom Props")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Id {
             get => lbManagerId.Text;
             set => lbManagerId.Text = value;
         }
 
         [Category("Custom Props")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new string Name {
             get => lbManagerName.Text;
             set => lbManagerName.Text = value;

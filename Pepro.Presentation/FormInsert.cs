@@ -58,25 +58,45 @@ namespace Pepro.Presentation
             InitializeComponent();
             this.strNameTitle = name;
         }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ID { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string JOB_ID { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string PACKAGE { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string WORK_ITEM { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string TYPE { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string PARTNER_CODE { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string REVISION_NUMBER { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string LASTEST_REVISION { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string DATE { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ISSUE_PURPOSE { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string PREPARED_BY { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string CHECKED_BY { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string APPROVED_BY { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ACTION { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string SUPPORT { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string REFERRENCE { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string TO_COMPANY { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ISSUSED_ON { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ISSUSED_VIA { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string TITLE { set; get; }
         public void LoadData()
         {

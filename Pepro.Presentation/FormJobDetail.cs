@@ -14,11 +14,13 @@ namespace Pepro.Presentation {
         public string strEmployeeId;
 
         #region Properties
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ProjectId {
             get => lblIdProject.Text;
             set => lblIdProject.Text = value;
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ProjectName {
             get => lblNameProject.Text;
             set => lblNameProject.Text = value;
