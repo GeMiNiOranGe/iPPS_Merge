@@ -26,7 +26,7 @@ public partial class FormMenuGUI : Form {
         childForm.TopLevel = false;
         childForm.FormBorderStyle = FormBorderStyle.None;
         childForm.Dock = DockStyle.Fill;
-        PnlWorkplace.Controls.Add(childForm);
+        workplacePanel.Controls.Add(childForm);
         childForm.BringToFront();
         childForm.Show();
     }
@@ -57,8 +57,8 @@ public partial class FormMenuGUI : Form {
     }
 
     private void FormMenu_Load(object sender, EventArgs e) {
-        LbUsername.Text = GetFullname();
-        LbRole.Text = GetRole();
+        usernameLabel.Text = GetFullname();
+        roleLabel.Text = GetRole();
     }
 
     private void FormMenu_FormClosed(object sender, FormClosedEventArgs e) {
@@ -70,7 +70,7 @@ public partial class FormMenuGUI : Form {
 
     #region button job
     private void BtnJob_MouseClick(object sender, MouseEventArgs e) {
-        optionPanel.SetLocationY(BtnJob.Location.Y);
+        optionPanel.SetLocationY(taskButton.Location.Y);
 
         string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{userId}'";
         conn.Open();
@@ -88,19 +88,19 @@ public partial class FormMenuGUI : Form {
     }
 
     private void BtnJob_MouseDown(object sender, MouseEventArgs e) {
-        BtnJob.Image = Properties.Resources.PasteClipboardFill;
-        BtnJob.ForeColor = Color.FromArgb(29, 29, 29);
+        taskButton.Image = Properties.Resources.PasteClipboardFill;
+        taskButton.ForeColor = Color.FromArgb(29, 29, 29);
     }
 
     private void BtnJob_MouseUp(object sender, MouseEventArgs e) {
-        BtnJob.Image = Properties.Resources.PasteClipboard;
-        BtnJob.ForeColor = Color.White;
+        taskButton.Image = Properties.Resources.PasteClipboard;
+        taskButton.ForeColor = Color.White;
     }
     #endregion
 
     #region button project
     private void BtnProject_MouseClick(object sender, MouseEventArgs e) {
-        optionPanel.SetLocationY(BtnProject.Location.Y);
+        optionPanel.SetLocationY(projectButton.Location.Y);
 
         string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{userId}'";
         conn.Open();
@@ -118,49 +118,49 @@ public partial class FormMenuGUI : Form {
     }
 
     private void BtnProject_MouseDown(object sender, MouseEventArgs e) {
-        BtnProject.Image = Properties.Resources.FolderFill;
-        BtnProject.ForeColor = Color.FromArgb(29, 29, 29);
+        projectButton.Image = Properties.Resources.FolderFill;
+        projectButton.ForeColor = Color.FromArgb(29, 29, 29);
     }
 
     private void BtnProject_MouseUp(object sender, MouseEventArgs e) {
-        BtnProject.Image = Properties.Resources.Folder;
-        BtnProject.ForeColor = Color.White;
+        projectButton.Image = Properties.Resources.Folder;
+        projectButton.ForeColor = Color.White;
     }
     #endregion
 
     #region button document
     private void BtnDocument_MouseClick(object sender, MouseEventArgs e) {
-        optionPanel.SetLocationY(BtnDocument.Location.Y);
+        optionPanel.SetLocationY(documentButton.Location.Y);
 
         OpenChildForm(new FormDocument());
     }
 
     private void BtnDocument_MouseDown(object sender, MouseEventArgs e) {
-        BtnDocument.Image = Properties.Resources.MultiplePagesFill;
-        BtnDocument.ForeColor = Color.FromArgb(29, 29, 29);
+        documentButton.Image = Properties.Resources.MultiplePagesFill;
+        documentButton.ForeColor = Color.FromArgb(29, 29, 29);
     }
 
     private void BtnDocument_MouseUp(object sender, MouseEventArgs e) {
-        BtnDocument.Image = Properties.Resources.MultiplePages;
-        BtnDocument.ForeColor = Color.White;
+        documentButton.Image = Properties.Resources.MultiplePages;
+        documentButton.ForeColor = Color.White;
     }
     #endregion
 
     #region button progress
     private void BtnProgress_MouseClick(object sender, MouseEventArgs e) {
-        optionPanel.SetLocationY(BtnProgress.Location.Y);
+        optionPanel.SetLocationY(progressButton.Location.Y);
 
         OpenChildForm(new FormProgress());
     }
 
     private void BtnProgress_MouseDown(object sender, MouseEventArgs e) {
-        BtnProgress.Image = Properties.Resources.DoughnutChartFill;
-        BtnProgress.ForeColor = Color.FromArgb(29, 29, 29);
+        progressButton.Image = Properties.Resources.DoughnutChartFill;
+        progressButton.ForeColor = Color.FromArgb(29, 29, 29);
     }
 
     private void BtnProgress_MouseUp(object sender, MouseEventArgs e) {
-        BtnProgress.Image = Properties.Resources.DoughnutChart;
-        BtnProgress.ForeColor = Color.White;
+        progressButton.Image = Properties.Resources.DoughnutChart;
+        progressButton.ForeColor = Color.White;
     }
     #endregion
 
@@ -234,21 +234,21 @@ public partial class FormMenuGUI : Form {
     }
 
     private void Account_MouseDown(object sender, MouseEventArgs e) {
-        PnlAccount.BackColor = Color.FromArgb(34, 130, 253);
-        LbUsername.ForeColor = Color.Black;
+        accountPanel.BackColor = Color.FromArgb(34, 130, 253);
+        usernameLabel.ForeColor = Color.Black;
     }
 
     private void Account_MouseUp(object sender, MouseEventArgs e) {
-        PnlAccount.BackColor = Color.Transparent;
-        LbUsername.ForeColor = Color.White;
+        accountPanel.BackColor = Color.Transparent;
+        usernameLabel.ForeColor = Color.White;
     }
 
     private void Account_MouseEnter(object sender, EventArgs e) {
-        PnlAccount.BackColor = Color.FromArgb(34, 130, 253);
+        accountPanel.BackColor = Color.FromArgb(34, 130, 253);
     }
 
     private void Account_MouseLeave(object sender, EventArgs e) {
-        PnlAccount.BackColor = Color.Transparent;
+        accountPanel.BackColor = Color.Transparent;
     }
     #endregion
 
