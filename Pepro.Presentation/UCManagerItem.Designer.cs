@@ -73,7 +73,7 @@ namespace Pepro.Presentation
 
         #endregion
 
-        private System.Windows.Forms.Label lbManagerId;
-        private System.Windows.Forms.Label lbManagerName;
+        private Label lbManagerId;
+        private Label lbManagerName;
     }
 }

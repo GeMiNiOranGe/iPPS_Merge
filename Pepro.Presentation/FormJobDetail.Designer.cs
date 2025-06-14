@@ -152,13 +152,13 @@ namespace Pepro.Presentation
 
         #endregion
 
-        private System.Windows.Forms.Label lblIdProject;
-        private System.Windows.Forms.Label lblNameProject;
-        private System.Windows.Forms.Label lblListWorkOfProject;
-        private System.Windows.Forms.Label lbManagerOfJob;
-        private System.Windows.Forms.FlowLayoutPanel flPnlListJob;
-        private System.Windows.Forms.Panel pnlManager;
-        private System.Windows.Forms.FlowLayoutPanel flPnlJobOfEmployee;
-        private System.Windows.Forms.Label lbOtherJobOfManager;
+        private Label lblIdProject;
+        private Label lblNameProject;
+        private Label lblListWorkOfProject;
+        private Label lbManagerOfJob;
+        private FlowLayoutPanel flPnlListJob;
+        private Panel pnlManager;
+        private FlowLayoutPanel flPnlJobOfEmployee;
+        private Label lbOtherJobOfManager;
     }
 }

@@ -387,30 +387,30 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnCapnhat;
-        private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtpkThang;
-        private System.Windows.Forms.TextBox tbMaDien;
-        private System.Windows.Forms.ComboBox cbHGD;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbDonVi;
-        private System.Windows.Forms.Label DonVi;
-        private System.Windows.Forms.Label tbThangSau;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dtDien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaDien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaHGD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Thang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HeSoDienThangTruoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HeSoDienHienTai;
-        private System.Windows.Forms.NumericUpDown numThangSau;
-        private System.Windows.Forms.NumericUpDown numThangTruoc;
-        private System.Windows.Forms.Button btnReload;
-        private System.Windows.Forms.Button btnExit;
+        private Label label2;
+        private Button btnXoa;
+        private Button btnCapnhat;
+        private Button btnThem;
+        private GroupBox groupBox1;
+        private Label label4;
+        private DateTimePicker dtpkThang;
+        private TextBox tbMaDien;
+        private ComboBox cbHGD;
+        private Label label3;
+        private Label label1;
+        private TextBox tbDonVi;
+        private Label DonVi;
+        private Label tbThangSau;
+        private Label label5;
+        private DataGridView dtDien;
+        private DataGridViewTextBoxColumn MaDien;
+        private DataGridViewTextBoxColumn MaHGD;
+        private DataGridViewTextBoxColumn Thang;
+        private DataGridViewTextBoxColumn HeSoDienThangTruoc;
+        private DataGridViewTextBoxColumn HeSoDienHienTai;
+        private NumericUpDown numThangSau;
+        private NumericUpDown numThangTruoc;
+        private Button btnReload;
+        private Button btnExit;
     }
 }

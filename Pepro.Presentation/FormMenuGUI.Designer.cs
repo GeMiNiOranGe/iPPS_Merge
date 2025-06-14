@@ -398,17 +398,17 @@ namespace Pepro.Presentation {
 
         #endregion
 
-        private System.Windows.Forms.Panel sidebarPanel;
-        private System.Windows.Forms.Panel workplacePanel;
-        private System.Windows.Forms.PictureBox imageUserPictureBox;
-        private System.Windows.Forms.Label usernameLabel;
-        private System.Windows.Forms.Label roleLabel;
-        private System.Windows.Forms.Panel accountPanel;
-        private System.Windows.Forms.Button taskButton;
-        private System.Windows.Forms.Button progressButton;
-        private System.Windows.Forms.Button documentButton;
-        private System.Windows.Forms.Button projectButton;
-        private System.Windows.Forms.Label appNameLabel;
+        private Panel sidebarPanel;
+        private Panel workplacePanel;
+        private PictureBox imageUserPictureBox;
+        private Label usernameLabel;
+        private Label roleLabel;
+        private Panel accountPanel;
+        private Button taskButton;
+        private Button progressButton;
+        private Button documentButton;
+        private Button projectButton;
+        private Label appNameLabel;
         private Button employeeButton;
         private Button dormitoryButton;
         private Button salaryButton;

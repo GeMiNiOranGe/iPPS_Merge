@@ -233,22 +233,22 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox txtSearchProject;
-        private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.TextBox txtSearchTask;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private System.Windows.Forms.DataGridViewImageColumn Edit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DepPublic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrjPublic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccessRight;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WorkName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idMng;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idJob;
-        private System.Windows.Forms.DataGridView dgvTasks;
-        private System.Windows.Forms.Panel panel2;
+        private Button btnAdd;
+        private TextBox txtSearchProject;
+        private Label lblSearch;
+        private TextBox txtSearchTask;
+        private Label label1;
+        private DataGridViewImageColumn Delete;
+        private DataGridViewImageColumn Edit;
+        private DataGridViewTextBoxColumn ProjectID;
+        private DataGridViewTextBoxColumn DepPublic;
+        private DataGridViewTextBoxColumn PrjPublic;
+        private DataGridViewTextBoxColumn Status;
+        private DataGridViewTextBoxColumn AccessRight;
+        private DataGridViewTextBoxColumn WorkName;
+        private DataGridViewTextBoxColumn idMng;
+        private DataGridViewTextBoxColumn idJob;
+        private DataGridView dgvTasks;
+        private Panel panel2;
     }
 }
