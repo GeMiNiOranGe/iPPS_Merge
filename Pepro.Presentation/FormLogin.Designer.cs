@@ -183,16 +183,16 @@ namespace Pepro.Presentation {
 
         #endregion
 
-        private System.Windows.Forms.TextBox TxtUserId;
-        private System.Windows.Forms.Label LbAppName;
-        private System.Windows.Forms.TextBox TxtPassword;
-        private System.Windows.Forms.Button BtnLogin;
-        private System.Windows.Forms.Label LbError;
-        private System.Windows.Forms.PictureBox PictureUserID;
-        private System.Windows.Forms.PictureBox PicturePassWord;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox PcbClose;
+        private TextBox TxtUserId;
+        private Label LbAppName;
+        private TextBox TxtPassword;
+        private Button BtnLogin;
+        private Label LbError;
+        private PictureBox PictureUserID;
+        private PictureBox PicturePassWord;
+        private Panel panel1;
+        private Panel panel2;
+        private PictureBox PcbClose;
     }
 }
 

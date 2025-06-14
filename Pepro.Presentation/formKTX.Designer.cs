@@ -328,26 +328,26 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem điệnToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nướcToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tiềnNhàToolStripMenuItem;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dtHoGiaDinh;
-        private System.Windows.Forms.Button btnCapnhat;
-        private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbHoGiaDinh;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbMaNV1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaHoGD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaNV1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaNV2;
-        private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.RichTextBox rtbTimKiem;
-        private System.Windows.Forms.Button btnHuy;
-        private System.Windows.Forms.ComboBox cbMaNV2;
-        private System.Windows.Forms.Label label4;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem điệnToolStripMenuItem;
+        private ToolStripMenuItem nướcToolStripMenuItem;
+        private ToolStripMenuItem tiềnNhàToolStripMenuItem;
+        private Label label2;
+        private DataGridView dtHoGiaDinh;
+        private Button btnCapnhat;
+        private Button btnThem;
+        private GroupBox groupBox1;
+        private Label label1;
+        private TextBox tbHoGiaDinh;
+        private Label label3;
+        private ComboBox cbMaNV1;
+        private DataGridViewTextBoxColumn MaHoGD;
+        private DataGridViewTextBoxColumn MaNV1;
+        private DataGridViewTextBoxColumn MaNV2;
+        private Button btnTimKiem;
+        private RichTextBox rtbTimKiem;
+        private Button btnHuy;
+        private ComboBox cbMaNV2;
+        private Label label4;
     }
 }

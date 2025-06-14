@@ -355,26 +355,26 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cbProject;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtEmpoyeeID;
-        private System.Windows.Forms.TextBox txtDepartment;
-        private System.Windows.Forms.TextBox txtEmployeeName;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox txtRole;
-        private System.Windows.Forms.TextBox txtCCCD;
-        private System.Windows.Forms.DateTimePicker dtpEmployeeBirthday;
-        private System.Windows.Forms.RadioButton rdoMale;
-        private System.Windows.Forms.RadioButton rdoFemale;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbSDT;
+        private Label label22;
+        private Panel panel2;
+        private Label label1;
+        private Label label4;
+        private Label label5;
+        private Label label10;
+        private Label label11;
+        private ComboBox cbProject;
+        private Label label12;
+        private Label label13;
+        private TextBox txtEmpoyeeID;
+        private TextBox txtDepartment;
+        private TextBox txtEmployeeName;
+        private Label label21;
+        private TextBox txtRole;
+        private TextBox txtCCCD;
+        private DateTimePicker dtpEmployeeBirthday;
+        private RadioButton rdoMale;
+        private RadioButton rdoFemale;
+        private Label label6;
+        private ComboBox cbSDT;
     }
 }

@@ -70,7 +70,7 @@ namespace Pepro.Presentation {
 
         #endregion
 
-        private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button btnExit;
+        private Button btnLogout;
+        private Button btnExit;
     }
 }

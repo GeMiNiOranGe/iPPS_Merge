@@ -198,15 +198,15 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnEmployee;
-        private System.Windows.Forms.Panel pnMenu;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbRole;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnGrant;
-        private System.Windows.Forms.Button btnDepartment;
-        private System.Windows.Forms.PictureBox picLogout;
-        private System.Windows.Forms.Button btnAR;
+        private GroupBox groupBox1;
+        private Button btnEmployee;
+        private Panel pnMenu;
+        private Label label1;
+        private Label lbRole;
+        private PictureBox pictureBox1;
+        private Button btnGrant;
+        private Button btnDepartment;
+        private PictureBox picLogout;
+        private Button btnAR;
     }
 }

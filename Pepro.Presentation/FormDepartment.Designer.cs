@@ -210,19 +210,19 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dtgvDepartment;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DepartmentID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DepartmentName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ManagerID;
+        private DataGridView dtgvDepartment;
+        private GroupBox groupBox1;
+        private TextBox textBox2;
+        private Label label3;
+        private TextBox txtName;
+        private Label label2;
+        private TextBox txtID;
+        private Label label1;
+        private Button btnDelete;
+        private Button btnUpdate;
+        private Button btnAdd;
+        private DataGridViewTextBoxColumn DepartmentID;
+        private DataGridViewTextBoxColumn DepartmentName;
+        private DataGridViewTextBoxColumn ManagerID;
     }
 }

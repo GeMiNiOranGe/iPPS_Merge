@@ -53,7 +53,7 @@ namespace Pepro.Presentation {
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flPnlProjectList;
+        private FlowLayoutPanel flPnlProjectList;
     }
 }
 
