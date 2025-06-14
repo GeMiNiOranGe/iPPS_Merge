@@ -362,29 +362,29 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlHead;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private Panel pnlHead;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        private Label label7;
         public System.Windows.Forms.TextBox txtIDPrj;
         public System.Windows.Forms.TextBox txtName;
         public System.Windows.Forms.TextBox txtAccess;
         public System.Windows.Forms.Button btnSave;
         public System.Windows.Forms.Button btnUpdate;
         public System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.PictureBox ptbClose;
+        private PictureBox ptbClose;
         public System.Windows.Forms.TextBox txtCustomer;
         public System.Windows.Forms.TextBox txtIDManager;
         public System.Windows.Forms.TextBox txtStatus;
         public System.Windows.Forms.TextBox txtIDDep;
-        private System.Windows.Forms.Label label8;
+        private Label label8;
         public System.Windows.Forms.DateTimePicker dtpStart;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private Label label9;
+        private Label label10;
         public System.Windows.Forms.DateTimePicker dtpEnd;
     }
 }

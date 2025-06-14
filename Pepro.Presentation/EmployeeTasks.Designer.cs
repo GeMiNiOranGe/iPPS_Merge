@@ -202,19 +202,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtSearchTask;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSearchProject;
-        private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.DataGridView dgvTasks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idJob;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idMng;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WorkName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccessRight;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrjPublic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DepPublic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectID;
+        private Panel panel1;
+        private TextBox txtSearchTask;
+        private Label label1;
+        private TextBox txtSearchProject;
+        private Label lblSearch;
+        private DataGridView dgvTasks;
+        private DataGridViewTextBoxColumn idJob;
+        private DataGridViewTextBoxColumn idMng;
+        private DataGridViewTextBoxColumn WorkName;
+        private DataGridViewTextBoxColumn AccessRight;
+        private DataGridViewTextBoxColumn Status;
+        private DataGridViewTextBoxColumn PrjPublic;
+        private DataGridViewTextBoxColumn DepPublic;
+        private DataGridViewTextBoxColumn ProjectID;
     }
 }

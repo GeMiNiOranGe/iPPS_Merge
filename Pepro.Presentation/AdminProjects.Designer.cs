@@ -187,19 +187,19 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvProjects;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDProject;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccessRight;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KhachHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDTask;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDPhongBan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn start;
-        private System.Windows.Forms.DataGridViewTextBoxColumn end;
-        private System.Windows.Forms.DataGridViewImageColumn Edit;
-        private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private DataGridView dgvProjects;
+        private Button btnAdd;
+        private Panel panel2;
+        private DataGridViewTextBoxColumn IDProject;
+        private DataGridViewTextBoxColumn ProjectName;
+        private DataGridViewTextBoxColumn AccessRight;
+        private DataGridViewTextBoxColumn TrangThai;
+        private DataGridViewTextBoxColumn KhachHang;
+        private DataGridViewTextBoxColumn IDTask;
+        private DataGridViewTextBoxColumn IDPhongBan;
+        private DataGridViewTextBoxColumn start;
+        private DataGridViewTextBoxColumn end;
+        private DataGridViewImageColumn Edit;
+        private DataGridViewImageColumn Delete;
     }
 }

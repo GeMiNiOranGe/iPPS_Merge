@@ -401,31 +401,31 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox tbDonVi;
-        private System.Windows.Forms.Label DonVi;
-        private System.Windows.Forms.Label tbThangSau;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtpkThang;
-        private System.Windows.Forms.TextBox tbMaN;
-        private System.Windows.Forms.ComboBox cbMaho;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnCapnhat;
-        private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numThangSau;
-        private System.Windows.Forms.NumericUpDown numThangtruoc;
-        private System.Windows.Forms.Button btnReload;
-        private System.Windows.Forms.DataGridView dtNuoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaNUOC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaHGD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Thang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HESONUOCTHANGTRUOC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HESONUOCHIENTAI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DVN;
-        private System.Windows.Forms.Button btnExit;
+        private GroupBox groupBox1;
+        private TextBox tbDonVi;
+        private Label DonVi;
+        private Label tbThangSau;
+        private Label label5;
+        private Label label4;
+        private DateTimePicker dtpkThang;
+        private TextBox tbMaN;
+        private ComboBox cbMaho;
+        private Label label3;
+        private Label label1;
+        private Button btnXoa;
+        private Button btnCapnhat;
+        private Button btnThem;
+        private Label label2;
+        private NumericUpDown numThangSau;
+        private NumericUpDown numThangtruoc;
+        private Button btnReload;
+        private DataGridView dtNuoc;
+        private DataGridViewTextBoxColumn MaNUOC;
+        private DataGridViewTextBoxColumn MaHGD;
+        private DataGridViewTextBoxColumn Thang;
+        private DataGridViewTextBoxColumn HESONUOCTHANGTRUOC;
+        private DataGridViewTextBoxColumn HESONUOCHIENTAI;
+        private DataGridViewTextBoxColumn DVN;
+        private Button btnExit;
     }
 }

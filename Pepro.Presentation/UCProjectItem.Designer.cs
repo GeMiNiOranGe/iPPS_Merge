@@ -124,9 +124,9 @@ namespace Pepro.Presentation
 
         #endregion
 
-        private System.Windows.Forms.Label lbPercent;
-        private System.Windows.Forms.Label lbName;
-        private System.Windows.Forms.Label lbId;
-        private System.Windows.Forms.Label lbDepartmentName;
+        private Label lbPercent;
+        private Label lbName;
+        private Label lbId;
+        private Label lbDepartmentName;
     }
 }

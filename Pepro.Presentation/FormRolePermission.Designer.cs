@@ -218,20 +218,20 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox txtColumnName;
-        private System.Windows.Forms.Label lblColumnName;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.TextBox txtRoleId;
-        private System.Windows.Forms.Label lblRoleId;
-        private System.Windows.Forms.TextBox txtPermissionID;
-        private System.Windows.Forms.Label lblPermissionID;
-        private System.Windows.Forms.DataGridView dgvRolePermission;
+        private GroupBox groupBox1;
+        private Button btnDelete;
+        private Button btnUpdate;
+        private Button btnAdd;
+        private TextBox txtColumnName;
+        private Label lblColumnName;
+        private TextBox txtName;
+        private Label lblName;
+        private TextBox txtID;
+        private Label lblId;
+        private TextBox txtRoleId;
+        private Label lblRoleId;
+        private TextBox txtPermissionID;
+        private Label lblPermissionID;
+        private DataGridView dgvRolePermission;
     }
 }

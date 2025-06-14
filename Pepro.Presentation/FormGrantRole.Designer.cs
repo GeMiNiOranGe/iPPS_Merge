@@ -204,17 +204,17 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dtgvGrant;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbPermission;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbRoleID;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbColumnName;
-        private System.Windows.Forms.PictureBox btnForbid;
-        private System.Windows.Forms.PictureBox btnPermiss;
+        private DataGridView dtgvGrant;
+        private GroupBox groupBox1;
+        private TextBox tbName;
+        private Label label3;
+        private Label label4;
+        private ComboBox cbPermission;
+        private Label label2;
+        private ComboBox cbRoleID;
+        private Label label1;
+        private ComboBox cbColumnName;
+        private PictureBox btnForbid;
+        private PictureBox btnPermiss;
     }
 }

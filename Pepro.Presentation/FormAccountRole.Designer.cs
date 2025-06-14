@@ -174,16 +174,16 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox txtAccountId;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label lblAccountId;
-        private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.DataGridView dgvAccountRole;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label lblRoleId;
+        private GroupBox groupBox1;
+        private Button btnDelete;
+        private Button btnUpdate;
+        private Button btnAdd;
+        private TextBox txtAccountId;
+        private TextBox txtID;
+        private Label lblAccountId;
+        private Label lblId;
+        private DataGridView dgvAccountRole;
+        private TextBox textBox1;
+        private Label lblRoleId;
     }
 }

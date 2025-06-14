@@ -335,17 +335,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlHead;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private Panel pnlHead;
+        private Label label1;
+        private PictureBox pictureBox1;
+        private Label label3;
+        private Label label2;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private Label label9;
         public System.Windows.Forms.Button btnSave;
         public System.Windows.Forms.Button btnUpdate;
         public System.Windows.Forms.Button btnClear;

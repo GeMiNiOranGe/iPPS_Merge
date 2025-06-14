@@ -101,9 +101,9 @@ namespace Pepro.Presentation
 
         #endregion
 
-        private System.Windows.Forms.Label lbProjectId;
-        private System.Windows.Forms.Label lbJobId;
-        private System.Windows.Forms.Label lbJobName;
-        private System.Windows.Forms.Label lbJobPercent;
+        private Label lbProjectId;
+        private Label lbJobId;
+        private Label lbJobName;
+        private Label lbJobPercent;
     }
 }

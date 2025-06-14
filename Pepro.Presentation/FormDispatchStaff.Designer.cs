@@ -253,22 +253,22 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSoQuyetDinh;
-        private System.Windows.Forms.TextBox txtNguoiKy;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cbChucVu;
-        private System.Windows.Forms.TextBox txtMaCV;
-        private System.Windows.Forms.TextBox txtMaPBHT;
-        private System.Windows.Forms.TextBox txtMaPBTC;
-        private System.Windows.Forms.ComboBox cbPhongBanTC;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnExit;
+        private Label label1;
+        private TextBox txtSoQuyetDinh;
+        private TextBox txtNguoiKy;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private ComboBox cbChucVu;
+        private TextBox txtMaCV;
+        private TextBox txtMaPBHT;
+        private TextBox txtMaPBTC;
+        private ComboBox cbPhongBanTC;
+        private Button btnAdd;
+        private Button btnExit;
     }
 }
