@@ -26,46 +26,46 @@ namespace Pepro.Presentation {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            PnlLeft = new Panel();
+            sidebarPanel = new Panel();
             optionPanel = new Panel();
             dormitoryButton = new Button();
             salaryButton = new Button();
             attendanceButton = new Button();
             employeeButton = new Button();
-            PnlAccount = new Panel();
-            LbUsername = new Label();
-            LbRole = new Label();
-            PcbImageUser = new PictureBox();
-            BtnProgress = new Button();
-            BtnDocument = new Button();
-            BtnProject = new Button();
-            BtnJob = new Button();
-            lbAppName = new Label();
-            PnlWorkplace = new Panel();
-            PnlLeft.SuspendLayout();
-            PnlAccount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)PcbImageUser).BeginInit();
+            accountPanel = new Panel();
+            usernameLabel = new Label();
+            roleLabel = new Label();
+            imageUserPictureBox = new PictureBox();
+            progressButton = new Button();
+            documentButton = new Button();
+            projectButton = new Button();
+            taskButton = new Button();
+            appNameLabel = new Label();
+            workplacePanel = new Panel();
+            sidebarPanel.SuspendLayout();
+            accountPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)imageUserPictureBox).BeginInit();
             SuspendLayout();
             // 
-            // PnlLeft
+            // sidebarPanel
             // 
-            PnlLeft.BackColor = Color.FromArgb(29, 29, 29);
-            PnlLeft.Controls.Add(optionPanel);
-            PnlLeft.Controls.Add(dormitoryButton);
-            PnlLeft.Controls.Add(salaryButton);
-            PnlLeft.Controls.Add(attendanceButton);
-            PnlLeft.Controls.Add(employeeButton);
-            PnlLeft.Controls.Add(PnlAccount);
-            PnlLeft.Controls.Add(BtnProgress);
-            PnlLeft.Controls.Add(BtnDocument);
-            PnlLeft.Controls.Add(BtnProject);
-            PnlLeft.Controls.Add(BtnJob);
-            PnlLeft.Controls.Add(lbAppName);
-            PnlLeft.Dock = DockStyle.Left;
-            PnlLeft.Location = new Point(0, 0);
-            PnlLeft.Name = "PnlLeft";
-            PnlLeft.Size = new Size(231, 720);
-            PnlLeft.TabIndex = 0;
+            sidebarPanel.BackColor = Color.FromArgb(29, 29, 29);
+            sidebarPanel.Controls.Add(optionPanel);
+            sidebarPanel.Controls.Add(dormitoryButton);
+            sidebarPanel.Controls.Add(salaryButton);
+            sidebarPanel.Controls.Add(attendanceButton);
+            sidebarPanel.Controls.Add(employeeButton);
+            sidebarPanel.Controls.Add(accountPanel);
+            sidebarPanel.Controls.Add(progressButton);
+            sidebarPanel.Controls.Add(documentButton);
+            sidebarPanel.Controls.Add(projectButton);
+            sidebarPanel.Controls.Add(taskButton);
+            sidebarPanel.Controls.Add(appNameLabel);
+            sidebarPanel.Dock = DockStyle.Left;
+            sidebarPanel.Location = new Point(0, 0);
+            sidebarPanel.Name = "sidebarPanel";
+            sidebarPanel.Size = new Size(231, 720);
+            sidebarPanel.TabIndex = 0;
             // 
             // optionPanel
             // 
@@ -179,208 +179,208 @@ namespace Pepro.Presentation {
             employeeButton.MouseDown += EmployeeButton_MouseDown;
             employeeButton.MouseUp += EmployeeButton_MouseUp;
             // 
-            // PnlAccount
+            // accountPanel
             // 
-            PnlAccount.BackColor = Color.Transparent;
-            PnlAccount.Controls.Add(LbUsername);
-            PnlAccount.Controls.Add(LbRole);
-            PnlAccount.Controls.Add(PcbImageUser);
-            PnlAccount.Cursor = Cursors.Hand;
-            PnlAccount.Dock = DockStyle.Bottom;
-            PnlAccount.Location = new Point(0, 648);
-            PnlAccount.Name = "PnlAccount";
-            PnlAccount.Size = new Size(231, 72);
-            PnlAccount.TabIndex = 12;
-            PnlAccount.MouseClick += Account_MouseClick;
-            PnlAccount.MouseDown += Account_MouseDown;
-            PnlAccount.MouseEnter += Account_MouseEnter;
-            PnlAccount.MouseLeave += Account_MouseLeave;
-            PnlAccount.MouseUp += Account_MouseUp;
+            accountPanel.BackColor = Color.Transparent;
+            accountPanel.Controls.Add(usernameLabel);
+            accountPanel.Controls.Add(roleLabel);
+            accountPanel.Controls.Add(imageUserPictureBox);
+            accountPanel.Cursor = Cursors.Hand;
+            accountPanel.Dock = DockStyle.Bottom;
+            accountPanel.Location = new Point(0, 648);
+            accountPanel.Name = "accountPanel";
+            accountPanel.Size = new Size(231, 72);
+            accountPanel.TabIndex = 12;
+            accountPanel.MouseClick += Account_MouseClick;
+            accountPanel.MouseDown += Account_MouseDown;
+            accountPanel.MouseEnter += Account_MouseEnter;
+            accountPanel.MouseLeave += Account_MouseLeave;
+            accountPanel.MouseUp += Account_MouseUp;
             // 
-            // LbUsername
+            // usernameLabel
             // 
-            LbUsername.AutoSize = true;
-            LbUsername.BackColor = Color.Transparent;
-            LbUsername.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LbUsername.ForeColor = Color.White;
-            LbUsername.Location = new Point(66, 12);
-            LbUsername.Name = "LbUsername";
-            LbUsername.Size = new Size(64, 25);
-            LbUsername.TabIndex = 8;
-            LbUsername.Text = "Name";
-            LbUsername.MouseClick += Account_MouseClick;
-            LbUsername.MouseDown += Account_MouseDown;
-            LbUsername.MouseEnter += Account_MouseEnter;
-            LbUsername.MouseLeave += Account_MouseLeave;
-            LbUsername.MouseUp += Account_MouseUp;
+            usernameLabel.AutoSize = true;
+            usernameLabel.BackColor = Color.Transparent;
+            usernameLabel.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            usernameLabel.ForeColor = Color.White;
+            usernameLabel.Location = new Point(66, 12);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new Size(64, 25);
+            usernameLabel.TabIndex = 8;
+            usernameLabel.Text = "Name";
+            usernameLabel.MouseClick += Account_MouseClick;
+            usernameLabel.MouseDown += Account_MouseDown;
+            usernameLabel.MouseEnter += Account_MouseEnter;
+            usernameLabel.MouseLeave += Account_MouseLeave;
+            usernameLabel.MouseUp += Account_MouseUp;
             // 
-            // LbRole
+            // roleLabel
             // 
-            LbRole.AutoSize = true;
-            LbRole.BackColor = Color.Transparent;
-            LbRole.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LbRole.ForeColor = Color.Silver;
-            LbRole.Location = new Point(67, 40);
-            LbRole.Name = "LbRole";
-            LbRole.Size = new Size(39, 20);
-            LbRole.TabIndex = 8;
-            LbRole.Text = "Role";
-            LbRole.MouseClick += Account_MouseClick;
-            LbRole.MouseDown += Account_MouseDown;
-            LbRole.MouseEnter += Account_MouseEnter;
-            LbRole.MouseLeave += Account_MouseLeave;
-            LbRole.MouseUp += Account_MouseUp;
+            roleLabel.AutoSize = true;
+            roleLabel.BackColor = Color.Transparent;
+            roleLabel.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            roleLabel.ForeColor = Color.Silver;
+            roleLabel.Location = new Point(67, 40);
+            roleLabel.Name = "roleLabel";
+            roleLabel.Size = new Size(39, 20);
+            roleLabel.TabIndex = 8;
+            roleLabel.Text = "Role";
+            roleLabel.MouseClick += Account_MouseClick;
+            roleLabel.MouseDown += Account_MouseDown;
+            roleLabel.MouseEnter += Account_MouseEnter;
+            roleLabel.MouseLeave += Account_MouseLeave;
+            roleLabel.MouseUp += Account_MouseUp;
             // 
-            // PcbImageUser
+            // imageUserPictureBox
             // 
-            PcbImageUser.Image = Properties.Resources.AccImage;
-            PcbImageUser.Location = new Point(12, 12);
-            PcbImageUser.Name = "PcbImageUser";
-            PcbImageUser.Size = new Size(48, 48);
-            PcbImageUser.SizeMode = PictureBoxSizeMode.Zoom;
-            PcbImageUser.TabIndex = 10;
-            PcbImageUser.TabStop = false;
-            PcbImageUser.MouseClick += Account_MouseClick;
-            PcbImageUser.MouseDown += Account_MouseDown;
-            PcbImageUser.MouseEnter += Account_MouseEnter;
-            PcbImageUser.MouseLeave += Account_MouseLeave;
-            PcbImageUser.MouseUp += Account_MouseUp;
+            imageUserPictureBox.Image = Properties.Resources.AccImage;
+            imageUserPictureBox.Location = new Point(12, 12);
+            imageUserPictureBox.Name = "imageUserPictureBox";
+            imageUserPictureBox.Size = new Size(48, 48);
+            imageUserPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            imageUserPictureBox.TabIndex = 10;
+            imageUserPictureBox.TabStop = false;
+            imageUserPictureBox.MouseClick += Account_MouseClick;
+            imageUserPictureBox.MouseDown += Account_MouseDown;
+            imageUserPictureBox.MouseEnter += Account_MouseEnter;
+            imageUserPictureBox.MouseLeave += Account_MouseLeave;
+            imageUserPictureBox.MouseUp += Account_MouseUp;
             // 
-            // BtnProgress
+            // progressButton
             // 
-            BtnProgress.BackColor = Color.Transparent;
-            BtnProgress.Cursor = Cursors.Hand;
-            BtnProgress.Dock = DockStyle.Top;
-            BtnProgress.FlatAppearance.BorderSize = 0;
-            BtnProgress.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
-            BtnProgress.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
-            BtnProgress.FlatStyle = FlatStyle.Flat;
-            BtnProgress.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnProgress.ForeColor = Color.White;
-            BtnProgress.Image = Properties.Resources.DoughnutChart;
-            BtnProgress.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnProgress.Location = new Point(0, 280);
-            BtnProgress.Name = "BtnProgress";
-            BtnProgress.Padding = new Padding(24, 5, 0, 5);
-            BtnProgress.Size = new Size(231, 60);
-            BtnProgress.TabIndex = 20;
-            BtnProgress.Text = "   Tiến độ";
-            BtnProgress.TextAlign = ContentAlignment.MiddleLeft;
-            BtnProgress.TextImageRelation = TextImageRelation.ImageBeforeText;
-            BtnProgress.UseVisualStyleBackColor = false;
-            BtnProgress.MouseClick += BtnProgress_MouseClick;
-            BtnProgress.MouseDown += BtnProgress_MouseDown;
-            BtnProgress.MouseUp += BtnProgress_MouseUp;
+            progressButton.BackColor = Color.Transparent;
+            progressButton.Cursor = Cursors.Hand;
+            progressButton.Dock = DockStyle.Top;
+            progressButton.FlatAppearance.BorderSize = 0;
+            progressButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
+            progressButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            progressButton.FlatStyle = FlatStyle.Flat;
+            progressButton.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            progressButton.ForeColor = Color.White;
+            progressButton.Image = Properties.Resources.DoughnutChart;
+            progressButton.ImageAlign = ContentAlignment.MiddleLeft;
+            progressButton.Location = new Point(0, 280);
+            progressButton.Name = "progressButton";
+            progressButton.Padding = new Padding(24, 5, 0, 5);
+            progressButton.Size = new Size(231, 60);
+            progressButton.TabIndex = 20;
+            progressButton.Text = "   Tiến độ";
+            progressButton.TextAlign = ContentAlignment.MiddleLeft;
+            progressButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            progressButton.UseVisualStyleBackColor = false;
+            progressButton.MouseClick += BtnProgress_MouseClick;
+            progressButton.MouseDown += BtnProgress_MouseDown;
+            progressButton.MouseUp += BtnProgress_MouseUp;
             // 
-            // BtnDocument
+            // documentButton
             // 
-            BtnDocument.BackColor = Color.Transparent;
-            BtnDocument.Cursor = Cursors.Hand;
-            BtnDocument.Dock = DockStyle.Top;
-            BtnDocument.FlatAppearance.BorderSize = 0;
-            BtnDocument.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
-            BtnDocument.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
-            BtnDocument.FlatStyle = FlatStyle.Flat;
-            BtnDocument.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnDocument.ForeColor = Color.White;
-            BtnDocument.Image = Properties.Resources.MultiplePages;
-            BtnDocument.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnDocument.Location = new Point(0, 220);
-            BtnDocument.Name = "BtnDocument";
-            BtnDocument.Padding = new Padding(24, 5, 0, 5);
-            BtnDocument.Size = new Size(231, 60);
-            BtnDocument.TabIndex = 19;
-            BtnDocument.Text = "   Tài liệu";
-            BtnDocument.TextAlign = ContentAlignment.MiddleLeft;
-            BtnDocument.TextImageRelation = TextImageRelation.ImageBeforeText;
-            BtnDocument.UseVisualStyleBackColor = false;
-            BtnDocument.MouseClick += BtnDocument_MouseClick;
-            BtnDocument.MouseDown += BtnDocument_MouseDown;
-            BtnDocument.MouseUp += BtnDocument_MouseUp;
+            documentButton.BackColor = Color.Transparent;
+            documentButton.Cursor = Cursors.Hand;
+            documentButton.Dock = DockStyle.Top;
+            documentButton.FlatAppearance.BorderSize = 0;
+            documentButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
+            documentButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            documentButton.FlatStyle = FlatStyle.Flat;
+            documentButton.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            documentButton.ForeColor = Color.White;
+            documentButton.Image = Properties.Resources.MultiplePages;
+            documentButton.ImageAlign = ContentAlignment.MiddleLeft;
+            documentButton.Location = new Point(0, 220);
+            documentButton.Name = "documentButton";
+            documentButton.Padding = new Padding(24, 5, 0, 5);
+            documentButton.Size = new Size(231, 60);
+            documentButton.TabIndex = 19;
+            documentButton.Text = "   Tài liệu";
+            documentButton.TextAlign = ContentAlignment.MiddleLeft;
+            documentButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            documentButton.UseVisualStyleBackColor = false;
+            documentButton.MouseClick += BtnDocument_MouseClick;
+            documentButton.MouseDown += BtnDocument_MouseDown;
+            documentButton.MouseUp += BtnDocument_MouseUp;
             // 
-            // BtnProject
+            // projectButton
             // 
-            BtnProject.BackColor = Color.Transparent;
-            BtnProject.Cursor = Cursors.Hand;
-            BtnProject.Dock = DockStyle.Top;
-            BtnProject.FlatAppearance.BorderSize = 0;
-            BtnProject.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
-            BtnProject.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
-            BtnProject.FlatStyle = FlatStyle.Flat;
-            BtnProject.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnProject.ForeColor = Color.White;
-            BtnProject.Image = Properties.Resources.Folder;
-            BtnProject.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnProject.Location = new Point(0, 160);
-            BtnProject.Name = "BtnProject";
-            BtnProject.Padding = new Padding(24, 5, 0, 5);
-            BtnProject.Size = new Size(231, 60);
-            BtnProject.TabIndex = 21;
-            BtnProject.Text = "   Dự án";
-            BtnProject.TextAlign = ContentAlignment.MiddleLeft;
-            BtnProject.TextImageRelation = TextImageRelation.ImageBeforeText;
-            BtnProject.UseVisualStyleBackColor = false;
-            BtnProject.MouseClick += BtnProject_MouseClick;
-            BtnProject.MouseDown += BtnProject_MouseDown;
-            BtnProject.MouseUp += BtnProject_MouseUp;
+            projectButton.BackColor = Color.Transparent;
+            projectButton.Cursor = Cursors.Hand;
+            projectButton.Dock = DockStyle.Top;
+            projectButton.FlatAppearance.BorderSize = 0;
+            projectButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
+            projectButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            projectButton.FlatStyle = FlatStyle.Flat;
+            projectButton.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            projectButton.ForeColor = Color.White;
+            projectButton.Image = Properties.Resources.Folder;
+            projectButton.ImageAlign = ContentAlignment.MiddleLeft;
+            projectButton.Location = new Point(0, 160);
+            projectButton.Name = "projectButton";
+            projectButton.Padding = new Padding(24, 5, 0, 5);
+            projectButton.Size = new Size(231, 60);
+            projectButton.TabIndex = 21;
+            projectButton.Text = "   Dự án";
+            projectButton.TextAlign = ContentAlignment.MiddleLeft;
+            projectButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            projectButton.UseVisualStyleBackColor = false;
+            projectButton.MouseClick += BtnProject_MouseClick;
+            projectButton.MouseDown += BtnProject_MouseDown;
+            projectButton.MouseUp += BtnProject_MouseUp;
             // 
-            // BtnJob
+            // taskButton
             // 
-            BtnJob.BackColor = Color.Transparent;
-            BtnJob.Cursor = Cursors.Hand;
-            BtnJob.Dock = DockStyle.Top;
-            BtnJob.FlatAppearance.BorderSize = 0;
-            BtnJob.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
-            BtnJob.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
-            BtnJob.FlatStyle = FlatStyle.Flat;
-            BtnJob.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnJob.ForeColor = Color.White;
-            BtnJob.Image = Properties.Resources.PasteClipboard;
-            BtnJob.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnJob.Location = new Point(0, 100);
-            BtnJob.Name = "BtnJob";
-            BtnJob.Padding = new Padding(24, 5, 0, 5);
-            BtnJob.Size = new Size(231, 60);
-            BtnJob.TabIndex = 18;
-            BtnJob.Text = "   Công việc";
-            BtnJob.TextAlign = ContentAlignment.MiddleLeft;
-            BtnJob.TextImageRelation = TextImageRelation.ImageBeforeText;
-            BtnJob.UseVisualStyleBackColor = false;
-            BtnJob.MouseClick += BtnJob_MouseClick;
-            BtnJob.MouseDown += BtnJob_MouseDown;
-            BtnJob.MouseUp += BtnJob_MouseUp;
+            taskButton.BackColor = Color.Transparent;
+            taskButton.Cursor = Cursors.Hand;
+            taskButton.Dock = DockStyle.Top;
+            taskButton.FlatAppearance.BorderSize = 0;
+            taskButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
+            taskButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            taskButton.FlatStyle = FlatStyle.Flat;
+            taskButton.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            taskButton.ForeColor = Color.White;
+            taskButton.Image = Properties.Resources.PasteClipboard;
+            taskButton.ImageAlign = ContentAlignment.MiddleLeft;
+            taskButton.Location = new Point(0, 100);
+            taskButton.Name = "taskButton";
+            taskButton.Padding = new Padding(24, 5, 0, 5);
+            taskButton.Size = new Size(231, 60);
+            taskButton.TabIndex = 18;
+            taskButton.Text = "   Công việc";
+            taskButton.TextAlign = ContentAlignment.MiddleLeft;
+            taskButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            taskButton.UseVisualStyleBackColor = false;
+            taskButton.MouseClick += BtnJob_MouseClick;
+            taskButton.MouseDown += BtnJob_MouseDown;
+            taskButton.MouseUp += BtnJob_MouseUp;
             // 
-            // lbAppName
+            // appNameLabel
             // 
-            lbAppName.Cursor = Cursors.Hand;
-            lbAppName.Dock = DockStyle.Top;
-            lbAppName.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbAppName.ForeColor = Color.White;
-            lbAppName.Location = new Point(0, 0);
-            lbAppName.Name = "lbAppName";
-            lbAppName.Size = new Size(231, 100);
-            lbAppName.TabIndex = 23;
-            lbAppName.Text = "iPPS Ver.0";
-            lbAppName.TextAlign = ContentAlignment.MiddleCenter;
-            lbAppName.Click += LbAppName_Click;
+            appNameLabel.Cursor = Cursors.Hand;
+            appNameLabel.Dock = DockStyle.Top;
+            appNameLabel.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            appNameLabel.ForeColor = Color.White;
+            appNameLabel.Location = new Point(0, 0);
+            appNameLabel.Name = "appNameLabel";
+            appNameLabel.Size = new Size(231, 100);
+            appNameLabel.TabIndex = 23;
+            appNameLabel.Text = "iPPS Ver.0";
+            appNameLabel.TextAlign = ContentAlignment.MiddleCenter;
+            appNameLabel.Click += LbAppName_Click;
             // 
-            // PnlWorkplace
+            // workplacePanel
             // 
-            PnlWorkplace.AccessibleRole = AccessibleRole.None;
-            PnlWorkplace.BackColor = Color.FromArgb(15, 15, 15);
-            PnlWorkplace.Dock = DockStyle.Fill;
-            PnlWorkplace.Location = new Point(231, 0);
-            PnlWorkplace.Name = "PnlWorkplace";
-            PnlWorkplace.Size = new Size(1049, 720);
-            PnlWorkplace.TabIndex = 2;
+            workplacePanel.AccessibleRole = AccessibleRole.None;
+            workplacePanel.BackColor = Color.FromArgb(15, 15, 15);
+            workplacePanel.Dock = DockStyle.Fill;
+            workplacePanel.Location = new Point(231, 0);
+            workplacePanel.Name = "workplacePanel";
+            workplacePanel.Size = new Size(1049, 720);
+            workplacePanel.TabIndex = 2;
             // 
             // FormMenuGUI
             // 
             AutoScaleDimensions = new SizeF(6F, 12F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1280, 720);
-            Controls.Add(PnlWorkplace);
-            Controls.Add(PnlLeft);
+            Controls.Add(workplacePanel);
+            Controls.Add(sidebarPanel);
             Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(2);
             Name = "FormMenuGUI";
@@ -388,27 +388,27 @@ namespace Pepro.Presentation {
             Text = "Bảng điều khiển";
             FormClosed += FormMenu_FormClosed;
             Load += FormMenu_Load;
-            PnlLeft.ResumeLayout(false);
-            PnlAccount.ResumeLayout(false);
-            PnlAccount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)PcbImageUser).EndInit();
+            sidebarPanel.ResumeLayout(false);
+            accountPanel.ResumeLayout(false);
+            accountPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)imageUserPictureBox).EndInit();
             ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel PnlLeft;
-        private System.Windows.Forms.Panel PnlWorkplace;
-        private System.Windows.Forms.PictureBox PcbImageUser;
-        private System.Windows.Forms.Label LbUsername;
-        private System.Windows.Forms.Label LbRole;
-        private System.Windows.Forms.Panel PnlAccount;
-        private System.Windows.Forms.Button BtnJob;
-        private System.Windows.Forms.Button BtnProgress;
-        private System.Windows.Forms.Button BtnDocument;
-        private System.Windows.Forms.Button BtnProject;
-        private System.Windows.Forms.Label lbAppName;
+        private System.Windows.Forms.Panel sidebarPanel;
+        private System.Windows.Forms.Panel workplacePanel;
+        private System.Windows.Forms.PictureBox imageUserPictureBox;
+        private System.Windows.Forms.Label usernameLabel;
+        private System.Windows.Forms.Label roleLabel;
+        private System.Windows.Forms.Panel accountPanel;
+        private System.Windows.Forms.Button taskButton;
+        private System.Windows.Forms.Button progressButton;
+        private System.Windows.Forms.Button documentButton;
+        private System.Windows.Forms.Button projectButton;
+        private System.Windows.Forms.Label appNameLabel;
         private Button employeeButton;
         private Button dormitoryButton;
         private Button salaryButton;
