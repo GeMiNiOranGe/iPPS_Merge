@@ -55,7 +55,7 @@ public partial class FormLogin : Form {
         switch (status) {
         case LoginStatus.Success:
             LbError.Text = "Đăng nhập thành công!";
-            FormMenuGUI formMenu = new()
+            FormMenu formMenu = new()
             {
                 UserId = TxtUserId.Text
             };

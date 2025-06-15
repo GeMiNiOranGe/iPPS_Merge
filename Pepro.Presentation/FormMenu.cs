@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation;
 
-public partial class FormMenuGUI : Form {
+public partial class FormMenu : Form {
     private readonly SqlConnection conn = new(
         @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
     );
@@ -16,7 +16,7 @@ public partial class FormMenuGUI : Form {
         set => userId = value;
     }
 
-    public FormMenuGUI() {
+    public FormMenu() {
         InitializeComponent();
     }
 
