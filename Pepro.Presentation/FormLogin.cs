@@ -1,13 +1,22 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
+using System.ComponentModel;
 
 namespace Pepro.Presentation;
 
 public partial class FormLogin : Form {
+    private string _accountName = "";
+
     public FormLogin() {
         InitializeComponent();
         ForTextbox.SetPlaceHolder(TxtUserId, AccountBusiness.USER_ID_PLACEHOLDER);
         ForTextbox.SetPlaceHolder(TxtPassword, AccountBusiness.PASSWORD_PLACEHOLDER);
+    }
+
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public string AccountName {
+        get => _accountName;
+        private set => _accountName = value;
     }
 
     /* 
@@ -54,13 +63,9 @@ public partial class FormLogin : Form {
 
         switch (status) {
         case LoginStatus.Success:
-            LbError.Text = "Đăng nhập thành công!";
-            FormMenu formMenu = new()
-            {
-                UserId = TxtUserId.Text
-            };
-            formMenu.Show();
-            Hide();
+            AccountName = accountName;
+            DialogResult = DialogResult.OK;
+            Close();
             break;
         case LoginStatus.InvalidInput:
             LbError.Text = "ID người dùng và mật khẩu không được để trống!";
@@ -143,6 +148,6 @@ public partial class FormLogin : Form {
     }
 
     private void PcbClose_Click(object sender, EventArgs e) {
-        Application.Exit();
+        Close();
     }
 }

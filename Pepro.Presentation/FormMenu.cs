@@ -61,10 +61,15 @@ public partial class FormMenu : Form {
         roleLabel.Text = GetRole();
     }
 
-    private void FormMenu_FormClosed(object sender, FormClosedEventArgs e) {
-        DialogResult dialogResulth = MessageBox.Show("Bạn có chắc muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        if (dialogResulth == DialogResult.Yes) {
-            Application.Exit();
+    private void FormMenu_FormClosing(object sender, FormClosingEventArgs e) {
+        DialogResult dialogResult = MessageBox.Show(
+            "Bạn có chắc muốn thoát không?",
+            "Thông báo",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+        );
+        if (dialogResult == DialogResult.No) {
+            e.Cancel = true;
         }
     }
 
@@ -166,5 +171,10 @@ public partial class FormMenu : Form {
 
     private void LbAppName_Click(object sender, EventArgs e) {
         currentFormChild?.Close();
+    }
+
+    private void LogoutButton_Click(object sender, EventArgs e) {
+        DialogResult = DialogResult.Retry;
+        Close();
     }
 }

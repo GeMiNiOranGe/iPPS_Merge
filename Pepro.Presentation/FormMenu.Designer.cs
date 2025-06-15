@@ -42,6 +42,7 @@ namespace Pepro.Presentation {
             taskButton = new PeproSidebarButton();
             appNameLabel = new Label();
             workplacePanel = new Panel();
+            logoutButton = new PeproSidebarButton();
             sidebarPanel.SuspendLayout();
             accountPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imageUserPictureBox).BeginInit();
@@ -50,6 +51,7 @@ namespace Pepro.Presentation {
             // sidebarPanel
             // 
             sidebarPanel.BackColor = Color.FromArgb(29, 29, 29);
+            sidebarPanel.Controls.Add(logoutButton);
             sidebarPanel.Controls.Add(optionPanel);
             sidebarPanel.Controls.Add(accountPanel);
             sidebarPanel.Controls.Add(dormitoryButton);
@@ -298,7 +300,20 @@ namespace Pepro.Presentation {
             workplacePanel.Size = new Size(1150, 729);
             workplacePanel.TabIndex = 2;
             // 
-            // FormMenuGUI
+            // logoutButton
+            // 
+            logoutButton.FlatAppearance.BorderSize = 0;
+            logoutButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
+            logoutButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            logoutButton.Location = new Point(0, 560);
+            logoutButton.Name = "logoutButton";
+            logoutButton.Size = new Size(200, 60);
+            logoutButton.TabIndex = 28;
+            logoutButton.Text = "Đăng xuất";
+            logoutButton.UseVisualStyleBackColor = false;
+            logoutButton.Click += LogoutButton_Click;
+            // 
+            // FormMenu
             // 
             AutoScaleDimensions = new SizeF(6F, 12F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -308,10 +323,10 @@ namespace Pepro.Presentation {
             Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(2);
             MinimumSize = new Size(1280, 600);
-            Name = "FormMenuGUI";
+            Name = "FormMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Bảng điều khiển";
-            FormClosed += FormMenu_FormClosed;
+            FormClosing += FormMenu_FormClosing;
             Load += FormMenu_Load;
             sidebarPanel.ResumeLayout(false);
             accountPanel.ResumeLayout(false);
@@ -339,6 +354,7 @@ namespace Pepro.Presentation {
         private PeproSidebarButton salaryButton;
         private PeproSidebarButton attendanceButton;
         private Panel optionPanel;
+        private PeproSidebarButton logoutButton;
     }
 }
 
