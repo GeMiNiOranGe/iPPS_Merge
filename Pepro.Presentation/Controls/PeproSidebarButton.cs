@@ -4,10 +4,12 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pepro.Presentation.Controls;
 
 public class PeproSidebarButton : Button {
+    private Image? _defaultImage;
+
     public PeproSidebarButton() {
         BackColor = Color.Transparent;
         Dock = DockStyle.Top;
-        Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        Font = new("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
         ForeColor = Color.White;
         TextAlign = ContentAlignment.MiddleLeft;
 
@@ -22,12 +24,33 @@ public class PeproSidebarButton : Button {
 
     protected override void OnMouseDown(MouseEventArgs mevent) {
         base.OnMouseDown(mevent);
+
+        _defaultImage ??= Image;
+
+        if (PressedImage != null) {
+            Image = PressedImage;
+        }
+
         ForeColor = Color.FromArgb(29, 29, 29);
     }
 
     protected override void OnMouseUp(MouseEventArgs mevent) {
         base.OnMouseUp(mevent);
+
+        if (_defaultImage != null) {
+            Image = _defaultImage;
+        }
+
         ForeColor = Color.White;
+    }
+
+    [Category("Appearance")]
+    [Description("The image displayed when the button is pressed.")]
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+    [DefaultValue(null)]
+    public Image? PressedImage {
+        get;
+        set;
     }
 
     [DefaultValue(typeof(Color), nameof(Color.Transparent))]
@@ -42,7 +65,7 @@ public class PeproSidebarButton : Button {
         set => base.Dock = value;
     }
 
-    [DefaultValue(typeof(Font), "Segoe UI, 12pt, style=Bold")]
+    [DefaultValue(typeof(Font), "Segoe UI, 16px, style=Bold")]
     [AllowNull]
     public override Font Font {
         get => base.Font;
