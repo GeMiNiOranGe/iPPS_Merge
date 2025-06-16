@@ -27,7 +27,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            groupBox1 = new GroupBox();
+            informationGroupBox = new GroupBox();
             cbBacLuong = new ComboBox();
             tbPhuCap = new TextBox();
             label5 = new Label();
@@ -42,9 +42,9 @@
             label6 = new Label();
             tbLCB = new TextBox();
             label4 = new Label();
-            cbMaNV = new ComboBox();
-            label1 = new Label();
-            dtgvLuongNV = new DataGridView();
+            employeeIdComboBox = new ComboBox();
+            employeeIdLabel = new Label();
+            employeeSalaryDataGridView = new DataGridView();
             MaNhanVien = new DataGridViewTextBoxColumn();
             LuongCoBan = new DataGridViewTextBoxColumn();
             HeSoBacLuong = new DataGridViewTextBoxColumn();
@@ -55,48 +55,48 @@
             TienNha = new DataGridViewTextBoxColumn();
             TongLuong = new DataGridViewTextBoxColumn();
             Thoidiem = new DataGridViewTextBoxColumn();
-            btnTinhLuong = new Button();
-            rtbLuong = new RichTextBox();
-            btnCapNhat = new Button();
-            rtbMaNhanVien = new RichTextBox();
-            btnTimKiem = new Button();
-            btnHuy = new Button();
-            label2 = new Label();
-            btnBaoCao = new Button();
-            groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgvLuongNV).BeginInit();
+            computeSalaryButton = new Button();
+            salaryRichTextBox = new RichTextBox();
+            updateButton = new Button();
+            employeeIdRichTextBox = new RichTextBox();
+            searchButton = new Button();
+            cancelButton = new Button();
+            headerLabel = new Label();
+            exportReportButton = new Button();
+            informationGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)employeeSalaryDataGridView).BeginInit();
             SuspendLayout();
             // 
-            // groupBox1
+            // informationGroupBox
             // 
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.BackColor = Color.FromArgb(255, 165, 89);
-            groupBox1.Controls.Add(cbBacLuong);
-            groupBox1.Controls.Add(tbPhuCap);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(tbTienLuong);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(tbTienNha);
-            groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(dtpkThoiDiem);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(tbSoNgayCong);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(tbLCB);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(cbMaNV);
-            groupBox1.Controls.Add(label1);
-            groupBox1.FlatStyle = FlatStyle.Popup;
-            groupBox1.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(64, 88);
-            groupBox1.Margin = new Padding(4);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(906, 150);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Thông tin lương";
+            informationGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            informationGroupBox.BackColor = Color.FromArgb(255, 165, 89);
+            informationGroupBox.Controls.Add(cbBacLuong);
+            informationGroupBox.Controls.Add(tbPhuCap);
+            informationGroupBox.Controls.Add(label5);
+            informationGroupBox.Controls.Add(tbTienLuong);
+            informationGroupBox.Controls.Add(label3);
+            informationGroupBox.Controls.Add(tbTienNha);
+            informationGroupBox.Controls.Add(label10);
+            informationGroupBox.Controls.Add(dtpkThoiDiem);
+            informationGroupBox.Controls.Add(label9);
+            informationGroupBox.Controls.Add(tbSoNgayCong);
+            informationGroupBox.Controls.Add(label7);
+            informationGroupBox.Controls.Add(label6);
+            informationGroupBox.Controls.Add(tbLCB);
+            informationGroupBox.Controls.Add(label4);
+            informationGroupBox.Controls.Add(employeeIdComboBox);
+            informationGroupBox.Controls.Add(employeeIdLabel);
+            informationGroupBox.FlatStyle = FlatStyle.Popup;
+            informationGroupBox.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            informationGroupBox.Location = new Point(64, 88);
+            informationGroupBox.Margin = new Padding(4);
+            informationGroupBox.Name = "informationGroupBox";
+            informationGroupBox.Padding = new Padding(4);
+            informationGroupBox.Size = new Size(906, 150);
+            informationGroupBox.TabIndex = 0;
+            informationGroupBox.TabStop = false;
+            informationGroupBox.Text = "Thông tin lương";
             // 
             // cbBacLuong
             // 
@@ -249,42 +249,42 @@
             label4.TabIndex = 4;
             label4.Text = "Lương Cơ Bản:";
             // 
-            // cbMaNV
+            // employeeIdComboBox
             // 
-            cbMaNV.Anchor = AnchorStyles.Top;
-            cbMaNV.FormattingEnabled = true;
-            cbMaNV.Location = new Point(117, 31);
-            cbMaNV.Margin = new Padding(4);
-            cbMaNV.Name = "cbMaNV";
-            cbMaNV.Size = new Size(140, 25);
-            cbMaNV.TabIndex = 1;
-            cbMaNV.SelectedIndexChanged += cbMaNV_SelectedIndexChanged;
+            employeeIdComboBox.Anchor = AnchorStyles.Top;
+            employeeIdComboBox.FormattingEnabled = true;
+            employeeIdComboBox.Location = new Point(117, 31);
+            employeeIdComboBox.Margin = new Padding(4);
+            employeeIdComboBox.Name = "employeeIdComboBox";
+            employeeIdComboBox.Size = new Size(140, 25);
+            employeeIdComboBox.TabIndex = 1;
+            employeeIdComboBox.SelectedIndexChanged += cbMaNV_SelectedIndexChanged;
             // 
-            // label1
+            // employeeIdLabel
             // 
-            label1.Anchor = AnchorStyles.Top;
-            label1.AutoSize = true;
-            label1.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(3, 34);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(91, 16);
-            label1.TabIndex = 0;
-            label1.Text = "Mã Nhân Viên:";
+            employeeIdLabel.Anchor = AnchorStyles.Top;
+            employeeIdLabel.AutoSize = true;
+            employeeIdLabel.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            employeeIdLabel.Location = new Point(3, 34);
+            employeeIdLabel.Margin = new Padding(4, 0, 4, 0);
+            employeeIdLabel.Name = "employeeIdLabel";
+            employeeIdLabel.Size = new Size(91, 16);
+            employeeIdLabel.TabIndex = 0;
+            employeeIdLabel.Text = "Mã Nhân Viên:";
             // 
-            // dtgvLuongNV
+            // employeeSalaryDataGridView
             // 
-            dtgvLuongNV.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dtgvLuongNV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvLuongNV.Columns.AddRange(new DataGridViewColumn[] { MaNhanVien, LuongCoBan, HeSoBacLuong, Hesophucapchucvu, Songaydilam, Songaynghibhxh, Songaynghikhonglydo, TienNha, TongLuong, Thoidiem });
-            dtgvLuongNV.Location = new Point(64, 268);
-            dtgvLuongNV.Margin = new Padding(4);
-            dtgvLuongNV.Name = "dtgvLuongNV";
-            dtgvLuongNV.RowHeadersWidth = 51;
-            dtgvLuongNV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvLuongNV.Size = new Size(906, 243);
-            dtgvLuongNV.TabIndex = 57;
-            dtgvLuongNV.CellContentClick += dtgvLuongNV_CellContentClick;
+            employeeSalaryDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            employeeSalaryDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            employeeSalaryDataGridView.Columns.AddRange(new DataGridViewColumn[] { MaNhanVien, LuongCoBan, HeSoBacLuong, Hesophucapchucvu, Songaydilam, Songaynghibhxh, Songaynghikhonglydo, TienNha, TongLuong, Thoidiem });
+            employeeSalaryDataGridView.Location = new Point(64, 268);
+            employeeSalaryDataGridView.Margin = new Padding(4);
+            employeeSalaryDataGridView.Name = "employeeSalaryDataGridView";
+            employeeSalaryDataGridView.RowHeadersWidth = 51;
+            employeeSalaryDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            employeeSalaryDataGridView.Size = new Size(906, 243);
+            employeeSalaryDataGridView.TabIndex = 57;
+            employeeSalaryDataGridView.CellContentClick += dtgvLuongNV_CellContentClick;
             // 
             // MaNhanVien
             // 
@@ -376,134 +376,134 @@
             Thoidiem.Name = "Thoidiem";
             Thoidiem.ReadOnly = true;
             // 
-            // btnTinhLuong
+            // computeSalaryButton
             // 
-            btnTinhLuong.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnTinhLuong.BackColor = Color.FromArgb(255, 96, 0);
-            btnTinhLuong.FlatStyle = FlatStyle.Popup;
-            btnTinhLuong.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTinhLuong.Location = new Point(662, 31);
-            btnTinhLuong.Margin = new Padding(4);
-            btnTinhLuong.Name = "btnTinhLuong";
-            btnTinhLuong.Size = new Size(116, 32);
-            btnTinhLuong.TabIndex = 58;
-            btnTinhLuong.Text = "Tính Lương";
-            btnTinhLuong.UseVisualStyleBackColor = false;
-            btnTinhLuong.Click += btnTinhLuong_Click;
+            computeSalaryButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            computeSalaryButton.BackColor = Color.FromArgb(255, 96, 0);
+            computeSalaryButton.FlatStyle = FlatStyle.Popup;
+            computeSalaryButton.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            computeSalaryButton.Location = new Point(662, 31);
+            computeSalaryButton.Margin = new Padding(4);
+            computeSalaryButton.Name = "computeSalaryButton";
+            computeSalaryButton.Size = new Size(116, 32);
+            computeSalaryButton.TabIndex = 58;
+            computeSalaryButton.Text = "Tính Lương";
+            computeSalaryButton.UseVisualStyleBackColor = false;
+            computeSalaryButton.Click += btnTinhLuong_Click;
             // 
-            // rtbLuong
+            // salaryRichTextBox
             // 
-            rtbLuong.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            rtbLuong.Location = new Point(798, 31);
-            rtbLuong.Margin = new Padding(4);
-            rtbLuong.Name = "rtbLuong";
-            rtbLuong.Size = new Size(172, 32);
-            rtbLuong.TabIndex = 59;
-            rtbLuong.Text = "";
+            salaryRichTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            salaryRichTextBox.Location = new Point(798, 31);
+            salaryRichTextBox.Margin = new Padding(4);
+            salaryRichTextBox.Name = "salaryRichTextBox";
+            salaryRichTextBox.Size = new Size(172, 32);
+            salaryRichTextBox.TabIndex = 59;
+            salaryRichTextBox.Text = "";
             // 
-            // btnCapNhat
+            // updateButton
             // 
-            btnCapNhat.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCapNhat.BackColor = Color.FromArgb(255, 96, 0);
-            btnCapNhat.FlatStyle = FlatStyle.Popup;
-            btnCapNhat.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCapNhat.Location = new Point(732, 524);
-            btnCapNhat.Margin = new Padding(4);
-            btnCapNhat.Name = "btnCapNhat";
-            btnCapNhat.Size = new Size(98, 32);
-            btnCapNhat.TabIndex = 60;
-            btnCapNhat.Text = "Cập Nhật";
-            btnCapNhat.UseVisualStyleBackColor = false;
-            btnCapNhat.Click += btnCapNhat_Click;
+            updateButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            updateButton.BackColor = Color.FromArgb(255, 96, 0);
+            updateButton.FlatStyle = FlatStyle.Popup;
+            updateButton.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            updateButton.Location = new Point(732, 524);
+            updateButton.Margin = new Padding(4);
+            updateButton.Name = "updateButton";
+            updateButton.Size = new Size(98, 32);
+            updateButton.TabIndex = 60;
+            updateButton.Text = "Cập Nhật";
+            updateButton.UseVisualStyleBackColor = false;
+            updateButton.Click += btnCapNhat_Click;
             // 
-            // rtbMaNhanVien
+            // employeeIdRichTextBox
             // 
-            rtbMaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            rtbMaNhanVien.Location = new Point(64, 526);
-            rtbMaNhanVien.Margin = new Padding(4);
-            rtbMaNhanVien.Name = "rtbMaNhanVien";
-            rtbMaNhanVien.Size = new Size(274, 32);
-            rtbMaNhanVien.TabIndex = 63;
-            rtbMaNhanVien.Text = "";
+            employeeIdRichTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            employeeIdRichTextBox.Location = new Point(64, 526);
+            employeeIdRichTextBox.Margin = new Padding(4);
+            employeeIdRichTextBox.Name = "employeeIdRichTextBox";
+            employeeIdRichTextBox.Size = new Size(274, 32);
+            employeeIdRichTextBox.TabIndex = 63;
+            employeeIdRichTextBox.Text = "";
             // 
-            // btnTimKiem
+            // searchButton
             // 
-            btnTimKiem.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnTimKiem.BackColor = Color.FromArgb(255, 96, 0);
-            btnTimKiem.FlatStyle = FlatStyle.Popup;
-            btnTimKiem.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTimKiem.Location = new Point(358, 526);
-            btnTimKiem.Margin = new Padding(4);
-            btnTimKiem.Name = "btnTimKiem";
-            btnTimKiem.Size = new Size(122, 32);
-            btnTimKiem.TabIndex = 64;
-            btnTimKiem.Text = "Tìm kiếm";
-            btnTimKiem.UseVisualStyleBackColor = false;
-            btnTimKiem.Click += btnTimKiem_Click;
+            searchButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            searchButton.BackColor = Color.FromArgb(255, 96, 0);
+            searchButton.FlatStyle = FlatStyle.Popup;
+            searchButton.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            searchButton.Location = new Point(358, 526);
+            searchButton.Margin = new Padding(4);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(122, 32);
+            searchButton.TabIndex = 64;
+            searchButton.Text = "Tìm kiếm";
+            searchButton.UseVisualStyleBackColor = false;
+            searchButton.Click += btnTimKiem_Click;
             // 
-            // btnHuy
+            // cancelButton
             // 
-            btnHuy.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnHuy.BackColor = Color.FromArgb(255, 96, 0);
-            btnHuy.FlatStyle = FlatStyle.Popup;
-            btnHuy.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHuy.Location = new Point(358, 575);
-            btnHuy.Margin = new Padding(4);
-            btnHuy.Name = "btnHuy";
-            btnHuy.Size = new Size(122, 32);
-            btnHuy.TabIndex = 65;
-            btnHuy.Text = "Hủy";
-            btnHuy.UseVisualStyleBackColor = false;
-            btnHuy.Click += btnHuy_Click;
+            cancelButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            cancelButton.BackColor = Color.FromArgb(255, 96, 0);
+            cancelButton.FlatStyle = FlatStyle.Popup;
+            cancelButton.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cancelButton.Location = new Point(358, 575);
+            cancelButton.Margin = new Padding(4);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(122, 32);
+            cancelButton.TabIndex = 65;
+            cancelButton.Text = "Hủy";
+            cancelButton.UseVisualStyleBackColor = false;
+            cancelButton.Click += btnHuy_Click;
             // 
-            // label2
+            // headerLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(69, 31);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(237, 31);
-            label2.TabIndex = 66;
-            label2.Text = "Lương Nhân Viên";
+            headerLabel.AutoSize = true;
+            headerLabel.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            headerLabel.Location = new Point(69, 31);
+            headerLabel.Margin = new Padding(4, 0, 4, 0);
+            headerLabel.Name = "headerLabel";
+            headerLabel.Size = new Size(237, 31);
+            headerLabel.TabIndex = 66;
+            headerLabel.Text = "Lương Nhân Viên";
             // 
-            // btnBaoCao
+            // exportReportButton
             // 
-            btnBaoCao.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnBaoCao.BackColor = Color.FromArgb(255, 96, 0);
-            btnBaoCao.FlatStyle = FlatStyle.Popup;
-            btnBaoCao.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBaoCao.Location = new Point(530, 31);
-            btnBaoCao.Margin = new Padding(4);
-            btnBaoCao.Name = "btnBaoCao";
-            btnBaoCao.Size = new Size(112, 32);
-            btnBaoCao.TabIndex = 67;
-            btnBaoCao.Text = "Xuất báo cáo";
-            btnBaoCao.UseVisualStyleBackColor = false;
-            btnBaoCao.Click += btnBaoCao_Click;
+            exportReportButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            exportReportButton.BackColor = Color.FromArgb(255, 96, 0);
+            exportReportButton.FlatStyle = FlatStyle.Popup;
+            exportReportButton.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            exportReportButton.Location = new Point(530, 31);
+            exportReportButton.Margin = new Padding(4);
+            exportReportButton.Name = "exportReportButton";
+            exportReportButton.Size = new Size(112, 32);
+            exportReportButton.TabIndex = 67;
+            exportReportButton.Text = "Xuất báo cáo";
+            exportReportButton.UseVisualStyleBackColor = false;
+            exportReportButton.Click += btnBaoCao_Click;
             // 
             // formTinhLuong
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 230, 199);
-            Controls.Add(btnBaoCao);
-            Controls.Add(label2);
-            Controls.Add(btnHuy);
-            Controls.Add(btnTimKiem);
-            Controls.Add(rtbMaNhanVien);
-            Controls.Add(btnCapNhat);
-            Controls.Add(btnTinhLuong);
-            Controls.Add(dtgvLuongNV);
-            Controls.Add(rtbLuong);
-            Controls.Add(groupBox1);
+            Controls.Add(exportReportButton);
+            Controls.Add(headerLabel);
+            Controls.Add(cancelButton);
+            Controls.Add(searchButton);
+            Controls.Add(employeeIdRichTextBox);
+            Controls.Add(updateButton);
+            Controls.Add(computeSalaryButton);
+            Controls.Add(employeeSalaryDataGridView);
+            Controls.Add(salaryRichTextBox);
+            Controls.Add(informationGroupBox);
             Margin = new Padding(4);
             Name = "formTinhLuong";
             Size = new Size(1006, 619);
             Load += formTinhLuong_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgvLuongNV).EndInit();
+            informationGroupBox.ResumeLayout(false);
+            informationGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)employeeSalaryDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -511,9 +511,9 @@
 
         #endregion
 
-        private GroupBox groupBox1;
-        private ComboBox cbMaNV;
-        private Label label1;
+        private GroupBox informationGroupBox;
+        private ComboBox employeeIdComboBox;
+        private Label employeeIdLabel;
         private Label label6;
         private TextBox tbLCB;
         private Label label4;
@@ -522,19 +522,19 @@
         private DateTimePicker dtpkThoiDiem;
         private Label label9;
         private Label label10;
-        private DataGridView dtgvLuongNV;
-        private Button btnTinhLuong;
-        private RichTextBox rtbLuong;
-        private Button btnCapNhat;
+        private DataGridView employeeSalaryDataGridView;
+        private Button computeSalaryButton;
+        private RichTextBox salaryRichTextBox;
+        private Button updateButton;
         private TextBox tbTienNha;
         private TextBox tbTienLuong;
         private Label label3;
         private TextBox tbPhuCap;
         private Label label5;
-        private RichTextBox rtbMaNhanVien;
-        private Button btnTimKiem;
-        private Button btnHuy;
-        private Label label2;
+        private RichTextBox employeeIdRichTextBox;
+        private Button searchButton;
+        private Button cancelButton;
+        private Label headerLabel;
         private ComboBox cbBacLuong;
         private DataGridViewTextBoxColumn MaNhanVien;
         private DataGridViewTextBoxColumn LuongCoBan;
@@ -546,6 +546,6 @@
         private DataGridViewTextBoxColumn TienNha;
         private DataGridViewTextBoxColumn TongLuong;
         private DataGridViewTextBoxColumn Thoidiem;
-        private Button btnBaoCao;
+        private Button exportReportButton;
     }
 }

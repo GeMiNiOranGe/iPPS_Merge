@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using Microsoft.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
+﻿using Microsoft.Data.SqlClient;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Pepro.Presentation
 {
@@ -30,7 +21,7 @@ namespace Pepro.Presentation
             InitializeComponent();
         }
 
-        private void pnlHead_MouseDown(object sender, MouseEventArgs e)
+        private void HeaderPanel_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -39,11 +30,11 @@ namespace Pepro.Presentation
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (txtPrjID.Text == "" || txtJobID.Text == "" 
-                || txtMngID.Text == "" || txtAccessR.Text == "" 
-                || txtDepPub.Text == "" || txtPrjPub.Text == "")
+            if (projectIdTextBox.Text == "" || taskIdTextBox.Text == "" 
+                || managerIdTextBox.Text == "" || accessTextBox.Text == "" 
+                || publicDepartmentTextBox.Text == "" || publicProjectTextBox.Text == "")
             {
                 MessageBox.Show("Không được để trống thông tin!");
                 return;
@@ -54,14 +45,14 @@ namespace Pepro.Presentation
                            MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     cmd = new SqlCommand("INSERT INTO JOB VALUES (@idJob,@idMng,@name,@access,@status,@prjPub,@depPub,@idPrj)", conn);
-                    cmd.Parameters.AddWithValue("@idJob", txtJobID.Text);
-                    cmd.Parameters.AddWithValue("@idMng", txtMngID.Text);
-                    cmd.Parameters.AddWithValue("@name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@access", txtAccessR.Text);
-                    cmd.Parameters.AddWithValue("@status", txtStatus.Text);
-                    cmd.Parameters.AddWithValue("@prjPub", txtPrjPub.Text);
-                    cmd.Parameters.AddWithValue("@depPub", txtDepPub.Text);
-                    cmd.Parameters.AddWithValue("@idPrj", txtPrjID.Text);
+                    cmd.Parameters.AddWithValue("@idJob", taskIdTextBox.Text);
+                    cmd.Parameters.AddWithValue("@idMng", managerIdTextBox.Text);
+                    cmd.Parameters.AddWithValue("@name", taskNameTextBox.Text);
+                    cmd.Parameters.AddWithValue("@access", accessTextBox.Text);
+                    cmd.Parameters.AddWithValue("@status", statusTextBox.Text);
+                    cmd.Parameters.AddWithValue("@prjPub", publicProjectTextBox.Text);
+                    cmd.Parameters.AddWithValue("@depPub", publicDepartmentTextBox.Text);
+                    cmd.Parameters.AddWithValue("@idPrj", projectIdTextBox.Text);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -76,11 +67,11 @@ namespace Pepro.Presentation
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void UpdateButton_Click(object sender, EventArgs e)
         {
-            if (txtPrjID.Text == "" || txtJobID.Text == ""
-                || txtMngID.Text == "" || txtAccessR.Text == ""
-                || txtDepPub.Text == "" || txtPrjPub.Text == "")
+            if (projectIdTextBox.Text == "" || taskIdTextBox.Text == ""
+                || managerIdTextBox.Text == "" || accessTextBox.Text == ""
+                || publicDepartmentTextBox.Text == "" || publicProjectTextBox.Text == "")
             {
                 MessageBox.Show("Không được để trống thông tin!");
                 return;
@@ -90,15 +81,15 @@ namespace Pepro.Presentation
                 if (MessageBox.Show("Bạn có muốn cập nhật công việc này?", "Xác nhận",
                            MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    cmd = new SqlCommand($"UPDATE JOB SET ID=@idJob, JOB_MANAGER_ID=@idMng, NAME=@name, ACCESS_RIGHT=@access, STATUS=@status, PROJECT_PUBLIC=@prjPub, DEPARTMENT_PUBLIC=@depPub, PROJECT_ID=@idPrj WHERE ID='{txtJobID.Text}'", conn);
-                    cmd.Parameters.AddWithValue("@idJob", txtJobID.Text);
-                    cmd.Parameters.AddWithValue("@idMng", txtMngID.Text);
-                    cmd.Parameters.AddWithValue("@name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@access", txtAccessR.Text);
-                    cmd.Parameters.AddWithValue("@status", txtStatus.Text);
-                    cmd.Parameters.AddWithValue("@prjPub", txtPrjPub.Text);
-                    cmd.Parameters.AddWithValue("@depPub", txtDepPub.Text);
-                    cmd.Parameters.AddWithValue("@idPrj", txtPrjID.Text);
+                    cmd = new SqlCommand($"UPDATE JOB SET ID=@idJob, JOB_MANAGER_ID=@idMng, NAME=@name, ACCESS_RIGHT=@access, STATUS=@status, PROJECT_PUBLIC=@prjPub, DEPARTMENT_PUBLIC=@depPub, PROJECT_ID=@idPrj WHERE ID='{taskIdTextBox.Text}'", conn);
+                    cmd.Parameters.AddWithValue("@idJob", taskIdTextBox.Text);
+                    cmd.Parameters.AddWithValue("@idMng", managerIdTextBox.Text);
+                    cmd.Parameters.AddWithValue("@name", taskNameTextBox.Text);
+                    cmd.Parameters.AddWithValue("@access", accessTextBox.Text);
+                    cmd.Parameters.AddWithValue("@status", statusTextBox.Text);
+                    cmd.Parameters.AddWithValue("@prjPub", publicProjectTextBox.Text);
+                    cmd.Parameters.AddWithValue("@depPub", publicDepartmentTextBox.Text);
+                    cmd.Parameters.AddWithValue("@idPrj", projectIdTextBox.Text);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -113,26 +104,26 @@ namespace Pepro.Presentation
             }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void ClearButton_Click(object sender, EventArgs e)
         {
             ResetTextBox();
-            btnSave.Enabled = true;
-            btnUpdate.Enabled = false;
+            saveButton.Enabled = true;
+            updateButton.Enabled = false;
         }
 
         private void ResetTextBox()
         {
-            txtName.ResetText();
-            txtJobID.ResetText();
-            txtMngID.ResetText();
-            txtAccessR.ResetText();
-            txtStatus.ResetText();
-            txtPrjPub.ResetText();
-            txtDepPub.ResetText();
-            txtPrjID.ResetText();
+            taskNameTextBox.ResetText();
+            taskIdTextBox.ResetText();
+            managerIdTextBox.ResetText();
+            accessTextBox.ResetText();
+            statusTextBox.ResetText();
+            publicProjectTextBox.ResetText();
+            publicDepartmentTextBox.ResetText();
+            projectIdTextBox.ResetText();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void ClosePictureBox_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }

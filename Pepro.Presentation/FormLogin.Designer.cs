@@ -24,158 +24,158 @@ namespace Pepro.Presentation {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            TxtUserId = new TextBox();
-            LbAppName = new Label();
-            TxtPassword = new TextBox();
-            BtnLogin = new Button();
-            LbError = new Label();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            PcbClose = new PictureBox();
-            PicturePassWord = new PictureBox();
-            PictureUserID = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)PcbClose).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PicturePassWord).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PictureUserID).BeginInit();
+            accountNameTextBox = new TextBox();
+            appNameLabel = new Label();
+            passwordTextBox = new TextBox();
+            loginButton = new Button();
+            errorLabel = new Label();
+            accountNamePanel = new Panel();
+            passwordPanel = new Panel();
+            closePictureBox = new PictureBox();
+            passwordPictureBox = new PictureBox();
+            accountNamePictureBox = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)closePictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)passwordPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)accountNamePictureBox).BeginInit();
             SuspendLayout();
             // 
-            // TxtUserId
+            // accountNameTextBox
             // 
-            TxtUserId.Anchor = AnchorStyles.None;
-            TxtUserId.BackColor = Color.FromArgb(29, 29, 29);
-            TxtUserId.BorderStyle = BorderStyle.None;
-            TxtUserId.ForeColor = Color.Gray;
-            TxtUserId.Location = new Point(108, 89);
-            TxtUserId.Margin = new Padding(4, 6, 4, 6);
-            TxtUserId.Name = "TxtUserId";
-            TxtUserId.Size = new Size(305, 24);
-            TxtUserId.TabIndex = 2;
-            TxtUserId.Click += TxtUserId_Click;
+            accountNameTextBox.Anchor = AnchorStyles.None;
+            accountNameTextBox.BackColor = Color.FromArgb(29, 29, 29);
+            accountNameTextBox.BorderStyle = BorderStyle.None;
+            accountNameTextBox.ForeColor = Color.Gray;
+            accountNameTextBox.Location = new Point(108, 89);
+            accountNameTextBox.Margin = new Padding(4, 6, 4, 6);
+            accountNameTextBox.Name = "accountNameTextBox";
+            accountNameTextBox.Size = new Size(305, 24);
+            accountNameTextBox.TabIndex = 2;
+            accountNameTextBox.Click += AccountNameTextBox_Click;
             // 
-            // LbAppName
+            // appNameLabel
             // 
-            LbAppName.Dock = DockStyle.Top;
-            LbAppName.Font = new Font("Segoe UI", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LbAppName.ForeColor = Color.FromArgb(248, 245, 168);
-            LbAppName.Location = new Point(0, 0);
-            LbAppName.Name = "LbAppName";
-            LbAppName.Size = new Size(468, 59);
-            LbAppName.TabIndex = 0;
-            LbAppName.Text = "iPPS Ver.0";
-            LbAppName.TextAlign = ContentAlignment.MiddleCenter;
+            appNameLabel.Dock = DockStyle.Top;
+            appNameLabel.Font = new Font("Segoe UI", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            appNameLabel.ForeColor = Color.FromArgb(248, 245, 168);
+            appNameLabel.Location = new Point(0, 0);
+            appNameLabel.Name = "appNameLabel";
+            appNameLabel.Size = new Size(468, 59);
+            appNameLabel.TabIndex = 0;
+            appNameLabel.Text = "iPPS Ver.0";
+            appNameLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // TxtPassword
+            // passwordTextBox
             // 
-            TxtPassword.Anchor = AnchorStyles.None;
-            TxtPassword.BackColor = Color.FromArgb(29, 29, 29);
-            TxtPassword.BorderStyle = BorderStyle.None;
-            TxtPassword.ForeColor = Color.Gray;
-            TxtPassword.Location = new Point(108, 164);
-            TxtPassword.Margin = new Padding(4, 6, 4, 6);
-            TxtPassword.Name = "TxtPassword";
-            TxtPassword.Size = new Size(305, 24);
-            TxtPassword.TabIndex = 3;
-            TxtPassword.Click += TxtPassword_Click;
-            TxtPassword.Enter += TxtPassword_Enter;
-            TxtPassword.Leave += TxtPassword_Leave;
+            passwordTextBox.Anchor = AnchorStyles.None;
+            passwordTextBox.BackColor = Color.FromArgb(29, 29, 29);
+            passwordTextBox.BorderStyle = BorderStyle.None;
+            passwordTextBox.ForeColor = Color.Gray;
+            passwordTextBox.Location = new Point(108, 164);
+            passwordTextBox.Margin = new Padding(4, 6, 4, 6);
+            passwordTextBox.Name = "passwordTextBox";
+            passwordTextBox.Size = new Size(305, 24);
+            passwordTextBox.TabIndex = 3;
+            passwordTextBox.Click += PasswordTextBox_Click;
+            passwordTextBox.Enter += PasswordTextBox_Enter;
+            passwordTextBox.Leave += PasswordTextBox_Leave;
             // 
-            // BtnLogin
+            // loginButton
             // 
-            BtnLogin.Anchor = AnchorStyles.None;
-            BtnLogin.Cursor = Cursors.Hand;
-            BtnLogin.Location = new Point(49, 250);
-            BtnLogin.Name = "BtnLogin";
-            BtnLogin.Size = new Size(364, 49);
-            BtnLogin.TabIndex = 1;
-            BtnLogin.Text = "Đăng nhập";
-            BtnLogin.UseVisualStyleBackColor = true;
-            BtnLogin.Click += BtnLogin_Click;
+            loginButton.Anchor = AnchorStyles.None;
+            loginButton.Cursor = Cursors.Hand;
+            loginButton.Location = new Point(49, 250);
+            loginButton.Name = "loginButton";
+            loginButton.Size = new Size(364, 49);
+            loginButton.TabIndex = 1;
+            loginButton.Text = "Đăng nhập";
+            loginButton.UseVisualStyleBackColor = true;
+            loginButton.Click += LoginButton_Click;
             // 
-            // LbError
+            // errorLabel
             // 
-            LbError.Anchor = AnchorStyles.None;
-            LbError.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LbError.ForeColor = Color.Red;
-            LbError.Location = new Point(49, 217);
-            LbError.Name = "LbError";
-            LbError.Size = new Size(364, 30);
-            LbError.TabIndex = 3;
-            LbError.TextAlign = ContentAlignment.MiddleLeft;
+            errorLabel.Anchor = AnchorStyles.None;
+            errorLabel.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            errorLabel.ForeColor = Color.Red;
+            errorLabel.Location = new Point(49, 217);
+            errorLabel.Name = "errorLabel";
+            errorLabel.Size = new Size(364, 30);
+            errorLabel.TabIndex = 3;
+            errorLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // panel1
+            // accountNamePanel
             // 
-            panel1.BackColor = Color.White;
-            panel1.Location = new Point(49, 132);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(362, 1);
-            panel1.TabIndex = 6;
+            accountNamePanel.BackColor = Color.White;
+            accountNamePanel.Location = new Point(49, 132);
+            accountNamePanel.Name = "accountNamePanel";
+            accountNamePanel.Size = new Size(362, 1);
+            accountNamePanel.TabIndex = 6;
             // 
-            // panel2
+            // passwordPanel
             // 
-            panel2.BackColor = Color.White;
-            panel2.Location = new Point(49, 207);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(362, 1);
-            panel2.TabIndex = 7;
+            passwordPanel.BackColor = Color.White;
+            passwordPanel.Location = new Point(49, 207);
+            passwordPanel.Name = "passwordPanel";
+            passwordPanel.Size = new Size(362, 1);
+            passwordPanel.TabIndex = 7;
             // 
-            // PcbClose
+            // closePictureBox
             // 
-            PcbClose.Image = Properties.Resources.CloseCircleFill;
-            PcbClose.Location = new Point(422, 14);
-            PcbClose.Margin = new Padding(5);
-            PcbClose.Name = "PcbClose";
-            PcbClose.Size = new Size(32, 32);
-            PcbClose.TabIndex = 9;
-            PcbClose.TabStop = false;
-            PcbClose.Click += PcbClose_Click;
+            closePictureBox.Image = Properties.Resources.CloseCircleFill;
+            closePictureBox.Location = new Point(422, 14);
+            closePictureBox.Margin = new Padding(5);
+            closePictureBox.Name = "closePictureBox";
+            closePictureBox.Size = new Size(32, 32);
+            closePictureBox.TabIndex = 9;
+            closePictureBox.TabStop = false;
+            closePictureBox.Click += ClosePictureBox_Click;
             // 
-            // PicturePassWord
+            // passwordPictureBox
             // 
-            PicturePassWord.BackgroundImage = Properties.Resources.CloseLockWhite;
-            PicturePassWord.BackgroundImageLayout = ImageLayout.Zoom;
-            PicturePassWord.Location = new Point(49, 151);
-            PicturePassWord.Name = "PicturePassWord";
-            PicturePassWord.Size = new Size(52, 50);
-            PicturePassWord.TabIndex = 5;
-            PicturePassWord.TabStop = false;
-            PicturePassWord.Click += PicturePassWord_Click;
+            passwordPictureBox.BackgroundImage = Properties.Resources.CloseLockWhite;
+            passwordPictureBox.BackgroundImageLayout = ImageLayout.Zoom;
+            passwordPictureBox.Location = new Point(49, 151);
+            passwordPictureBox.Name = "passwordPictureBox";
+            passwordPictureBox.Size = new Size(52, 50);
+            passwordPictureBox.TabIndex = 5;
+            passwordPictureBox.TabStop = false;
+            passwordPictureBox.Click += PasswordPictureBox_Click;
             // 
-            // PictureUserID
+            // accountNamePictureBox
             // 
-            PictureUserID.BackgroundImage = Properties.Resources.UserWhite;
-            PictureUserID.BackgroundImageLayout = ImageLayout.Zoom;
-            PictureUserID.Location = new Point(49, 76);
-            PictureUserID.Name = "PictureUserID";
-            PictureUserID.Size = new Size(52, 50);
-            PictureUserID.TabIndex = 4;
-            PictureUserID.TabStop = false;
+            accountNamePictureBox.BackgroundImage = Properties.Resources.UserWhite;
+            accountNamePictureBox.BackgroundImageLayout = ImageLayout.Zoom;
+            accountNamePictureBox.Location = new Point(49, 76);
+            accountNamePictureBox.Name = "accountNamePictureBox";
+            accountNamePictureBox.Size = new Size(52, 50);
+            accountNamePictureBox.TabIndex = 4;
+            accountNamePictureBox.TabStop = false;
             // 
             // FormLogin
             // 
-            AcceptButton = BtnLogin;
+            AcceptButton = loginButton;
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(29, 29, 29);
             ClientSize = new Size(468, 311);
-            Controls.Add(PcbClose);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(PicturePassWord);
-            Controls.Add(PictureUserID);
-            Controls.Add(TxtPassword);
-            Controls.Add(TxtUserId);
-            Controls.Add(LbError);
-            Controls.Add(BtnLogin);
-            Controls.Add(LbAppName);
+            Controls.Add(closePictureBox);
+            Controls.Add(passwordPanel);
+            Controls.Add(accountNamePanel);
+            Controls.Add(passwordPictureBox);
+            Controls.Add(accountNamePictureBox);
+            Controls.Add(passwordTextBox);
+            Controls.Add(accountNameTextBox);
+            Controls.Add(errorLabel);
+            Controls.Add(loginButton);
+            Controls.Add(appNameLabel);
             Font = new Font("Segoe UI", 13.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 6, 4, 6);
             Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng Nhập";
-            ((System.ComponentModel.ISupportInitialize)PcbClose).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PicturePassWord).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PictureUserID).EndInit();
+            ((System.ComponentModel.ISupportInitialize)closePictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)passwordPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)accountNamePictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -183,16 +183,16 @@ namespace Pepro.Presentation {
 
         #endregion
 
-        private TextBox TxtUserId;
-        private Label LbAppName;
-        private TextBox TxtPassword;
-        private Button BtnLogin;
-        private Label LbError;
-        private PictureBox PictureUserID;
-        private PictureBox PicturePassWord;
-        private Panel panel1;
-        private Panel panel2;
-        private PictureBox PcbClose;
+        private TextBox accountNameTextBox;
+        private Label appNameLabel;
+        private TextBox passwordTextBox;
+        private Button loginButton;
+        private Label errorLabel;
+        private PictureBox accountNamePictureBox;
+        private PictureBox passwordPictureBox;
+        private Panel accountNamePanel;
+        private Panel passwordPanel;
+        private PictureBox closePictureBox;
     }
 }
 

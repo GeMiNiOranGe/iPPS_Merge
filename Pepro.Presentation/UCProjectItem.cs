@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.ComponentModel;
 
 namespace Pepro.Presentation {
     public partial class UCProjectItem : UserControl {
@@ -16,29 +8,29 @@ namespace Pepro.Presentation {
         [Category("Custom Props")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Id {
-            get => lbId.Text;
-            set => lbId.Text = value;
+            get => projectIdLabel.Text;
+            set => projectIdLabel.Text = value;
         }
 
         [Category("Custom Props")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new string Name {
-            get => lbName.Text;
-            set => lbName.Text = value;
+            get => projectNameLabel.Text;
+            set => projectNameLabel.Text = value;
         }
 
         [Category("Custom Props")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string DepartmentName {
-            get => lbDepartmentName.Text;
-            set => lbDepartmentName.Text = value;
+            get => departmentNameLabel.Text;
+            set => departmentNameLabel.Text = value;
         }
 
         [Category("Custom Props")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Percent {
-            get => lbPercent.Text;
-            set => lbPercent.Text = value;
+            get => percentLabel.Text;
+            set => percentLabel.Text = value;
         }
         #endregion
 

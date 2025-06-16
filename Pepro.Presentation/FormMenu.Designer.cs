@@ -223,7 +223,7 @@ namespace Pepro.Presentation {
             progressButton.TabIndex = 20;
             progressButton.Text = "   Tiến độ";
             progressButton.UseVisualStyleBackColor = false;
-            progressButton.MouseClick += BtnProgress_MouseClick;
+            progressButton.MouseClick += ProgressButton_MouseClick;
             // 
             // documentButton
             // 
@@ -240,7 +240,7 @@ namespace Pepro.Presentation {
             documentButton.TabIndex = 19;
             documentButton.Text = "   Tài liệu";
             documentButton.UseVisualStyleBackColor = false;
-            documentButton.MouseClick += BtnDocument_MouseClick;
+            documentButton.MouseClick += DocumentButton_MouseClick;
             // 
             // projectButton
             // 
@@ -257,7 +257,7 @@ namespace Pepro.Presentation {
             projectButton.TabIndex = 21;
             projectButton.Text = "   Dự án";
             projectButton.UseVisualStyleBackColor = false;
-            projectButton.MouseClick += BtnProject_MouseClick;
+            projectButton.MouseClick += ProjectButton_MouseClick;
             // 
             // taskButton
             // 
@@ -274,7 +274,7 @@ namespace Pepro.Presentation {
             taskButton.TabIndex = 18;
             taskButton.Text = "   Công việc";
             taskButton.UseVisualStyleBackColor = false;
-            taskButton.MouseClick += BtnJob_MouseClick;
+            taskButton.MouseClick += TaskButton_MouseClick;
             // 
             // appNameLabel
             // 
@@ -288,7 +288,7 @@ namespace Pepro.Presentation {
             appNameLabel.TabIndex = 23;
             appNameLabel.Text = "iPPS Ver.0";
             appNameLabel.TextAlign = ContentAlignment.MiddleCenter;
-            appNameLabel.Click += LbAppName_Click;
+            appNameLabel.Click += AppNameLabel_Click;
             // 
             // workplacePanel
             // 
@@ -326,8 +326,8 @@ namespace Pepro.Presentation {
             Name = "FormMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Bảng điều khiển";
-            FormClosing += FormMenu_FormClosing;
-            Load += FormMenu_Load;
+            FormClosing += MenuForm_FormClosing;
+            Load += MenuForm_Load;
             sidebarPanel.ResumeLayout(false);
             accountPanel.ResumeLayout(false);
             accountPanel.PerformLayout();

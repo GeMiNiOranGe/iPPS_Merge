@@ -6,7 +6,6 @@ public partial class EmployeeProjects : UserControl
 {
     SqlConnection conn = new SqlConnection(Config.Database.CONNECTION_STRING);
     SqlCommand cmd = new SqlCommand();
-    SqlCommand cmd2 = new SqlCommand();
     SqlDataReader rd = null;
     public EmployeeProjects()
     {
@@ -20,7 +19,7 @@ public partial class EmployeeProjects : UserControl
 
     public void LoadEmployeeProjects()
     {
-        dgvProjects.Rows.Clear();
+        projectDataGridView.Rows.Clear();
         conn.Open();
         cmd = new SqlCommand("SELECT P.ID, P.NAME, P.ACCESS_RIGHT, P.STATUS, P.CUSTOMER_NAME, P.PROJECT_MANAGER_ID, IP.DEPARTMENT_ID, IP.PROJECT_START_DATE, IP.PROJECT_END_DATE FROM PROJECT AS P INNER JOIN IMPLEMENT_PROJECT AS IP ON P.ID = IP.PROJECT_ID", conn);
         rd = cmd.ExecuteReader();
@@ -29,7 +28,7 @@ public partial class EmployeeProjects : UserControl
             string strFirstDay = GetDate(rd["PROJECT_START_DATE"]);
             string strLastDay = GetDate(rd["PROJECT_END_DATE"]);
 
-            dgvProjects.Rows.Add(rd["ID"].ToString(), rd["NAME"].ToString(),
+            projectDataGridView.Rows.Add(rd["ID"].ToString(), rd["NAME"].ToString(),
                 rd["ACCESS_RIGHT"].ToString(), rd["STATUS"].ToString(),
                 rd["CUSTOMER_NAME"].ToString(), rd["PROJECT_MANAGER_ID"].ToString(),
                 rd["DEPARTMENT_ID"].ToString(), strFirstDay, strLastDay);

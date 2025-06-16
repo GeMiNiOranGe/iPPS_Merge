@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using Microsoft.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
+﻿using Microsoft.Data.SqlClient;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Pepro.Presentation
 {
@@ -30,7 +21,7 @@ namespace Pepro.Presentation
             InitializeComponent();
         }
 
-        private void pnlHead_MouseDown(object sender, MouseEventArgs e)
+        private void HeaderPanel_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -39,12 +30,12 @@ namespace Pepro.Presentation
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void SaveButton_Click(object sender, EventArgs e)
         {
-            if(txtIDPrj.Text=="" || txtName.Text == "" 
-                || txtAccess.Text == "" || txtStatus.Text == ""
-                || txtCustomer.Text == "" || txtIDManager.Text == ""
-                || txtIDDep.Text == "" || dtpStart.Text == "" || dtpEnd.Text == "")
+            if(projectIdTextBox.Text=="" || projectNameTextBox.Text == "" 
+                || accessTextBox.Text == "" || statusTextBox.Text == ""
+                || customerTextBox.Text == "" || managerIdTextBox.Text == ""
+                || departmentTextBox.Text == "" || startDateTimePicker.Text == "" || endDateTimePicker.Text == "")
             {
                 MessageBox.Show("Mời bạn nhập đầy đủ thông tin!");
                 return;
@@ -55,18 +46,18 @@ namespace Pepro.Presentation
                            MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     cmd = new SqlCommand("INSERT INTO PROJECT VALUES(@idPrj,@name,@access,@status,@cus,@idMng)", conn);
-                    cmd.Parameters.AddWithValue("@idPrj", txtIDPrj.Text);
-                    cmd.Parameters.AddWithValue("@name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@access", txtAccess.Text);
-                    cmd.Parameters.AddWithValue("@status", txtStatus.Text);
-                    cmd.Parameters.AddWithValue("@cus", txtCustomer.Text);
-                    cmd.Parameters.AddWithValue("@idMng", txtIDManager.Text);
+                    cmd.Parameters.AddWithValue("@idPrj", projectIdTextBox.Text);
+                    cmd.Parameters.AddWithValue("@name", projectNameTextBox.Text);
+                    cmd.Parameters.AddWithValue("@access", accessTextBox.Text);
+                    cmd.Parameters.AddWithValue("@status", statusTextBox.Text);
+                    cmd.Parameters.AddWithValue("@cus", customerTextBox.Text);
+                    cmd.Parameters.AddWithValue("@idMng", managerIdTextBox.Text);
 
                     cmd2 = new SqlCommand("INSERT INTO IMPLEMENT_PROJECT VALUES(@idDep,@idPrj2,@start,@end)", conn);
-                    cmd2.Parameters.AddWithValue("@idDep", txtIDDep.Text);
-                    cmd2.Parameters.AddWithValue("@idPrj2", txtIDPrj.Text);
-                    cmd2.Parameters.AddWithValue("@start", dtpStart.Text);
-                    cmd2.Parameters.AddWithValue("@end", dtpEnd.Text);
+                    cmd2.Parameters.AddWithValue("@idDep", departmentTextBox.Text);
+                    cmd2.Parameters.AddWithValue("@idPrj2", projectIdTextBox.Text);
+                    cmd2.Parameters.AddWithValue("@start", startDateTimePicker.Text);
+                    cmd2.Parameters.AddWithValue("@end", endDateTimePicker.Text);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -83,12 +74,12 @@ namespace Pepro.Presentation
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void UpdateButton_Click(object sender, EventArgs e)
         {
-            if (txtIDPrj.Text == "" || txtName.Text == ""
-                || txtAccess.Text == "" || txtStatus.Text == ""
-                || txtCustomer.Text == "" || txtIDManager.Text == ""
-                || txtIDDep.Text == "" || dtpStart.Text == "" || dtpEnd.Text == "")
+            if (projectIdTextBox.Text == "" || projectNameTextBox.Text == ""
+                || accessTextBox.Text == "" || statusTextBox.Text == ""
+                || customerTextBox.Text == "" || managerIdTextBox.Text == ""
+                || departmentTextBox.Text == "" || startDateTimePicker.Text == "" || endDateTimePicker.Text == "")
             {
                 MessageBox.Show("Mời bạn nhập đầy đủ thông tin!");
                 return;
@@ -111,12 +102,12 @@ namespace Pepro.Presentation
                         WHERE P.ID = @idPrj";
 
                     cmd = new SqlCommand(updateProjectQuery, conn);
-                    cmd.Parameters.AddWithValue("@name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@access", txtAccess.Text);
-                    cmd.Parameters.AddWithValue("@status", txtStatus.Text);
-                    cmd.Parameters.AddWithValue("@cus", txtCustomer.Text);
-                    cmd.Parameters.AddWithValue("@idMng", txtIDManager.Text);
-                    cmd.Parameters.AddWithValue("@idPrj", txtIDPrj.Text);
+                    cmd.Parameters.AddWithValue("@name", projectNameTextBox.Text);
+                    cmd.Parameters.AddWithValue("@access", accessTextBox.Text);
+                    cmd.Parameters.AddWithValue("@status", statusTextBox.Text);
+                    cmd.Parameters.AddWithValue("@cus", customerTextBox.Text);
+                    cmd.Parameters.AddWithValue("@idMng", managerIdTextBox.Text);
+                    cmd.Parameters.AddWithValue("@idPrj", projectIdTextBox.Text);
                     cmd.ExecuteNonQuery();
 
                     string updateImplementProjectQuery = @"
@@ -129,10 +120,10 @@ namespace Pepro.Presentation
                         WHERE P.ID = @idPrj";
 
                     cmd = new SqlCommand(updateImplementProjectQuery, conn);
-                    cmd.Parameters.AddWithValue("@idDep", txtIDDep.Text);
-                    cmd.Parameters.AddWithValue("@start", dtpStart.Text);
-                    cmd.Parameters.AddWithValue("@end", dtpEnd.Text);
-                    cmd.Parameters.AddWithValue("@idPrj", txtIDPrj.Text);
+                    cmd.Parameters.AddWithValue("@idDep", departmentTextBox.Text);
+                    cmd.Parameters.AddWithValue("@start", startDateTimePicker.Text);
+                    cmd.Parameters.AddWithValue("@end", endDateTimePicker.Text);
+                    cmd.Parameters.AddWithValue("@idPrj", projectIdTextBox.Text);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     ResetTextBox();
@@ -146,25 +137,25 @@ namespace Pepro.Presentation
             }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void ClearButton_Click(object sender, EventArgs e)
         {
             ResetTextBox();
-            btnSave.Enabled = true;
-            btnUpdate.Enabled = false;
+            saveButton.Enabled = true;
+            updateButton.Enabled = false;
         }
 
         public void ResetTextBox()
         {
-            txtIDPrj.ResetText();
-            txtName.ResetText();
-            txtAccess.ResetText();
-            txtStatus.ResetText();
-            txtCustomer.ResetText();
-            txtIDManager.ResetText();
-            txtIDDep.ResetText();
+            projectIdTextBox.ResetText();
+            projectNameTextBox.ResetText();
+            accessTextBox.ResetText();
+            statusTextBox.ResetText();
+            customerTextBox.ResetText();
+            managerIdTextBox.ResetText();
+            departmentTextBox.ResetText();
         }
 
-        private void ptbClose_Click(object sender, EventArgs e)
+        private void ClosePictureBox_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent() {
             panel1 = new Panel();
-            txtSearchTask = new TextBox();
-            label1 = new Label();
-            txtSearchProject = new TextBox();
-            lblSearch = new Label();
-            dgvTasks = new DataGridView();
+            taskIdTextBox = new TextBox();
+            taskIdLabel = new Label();
+            projectIdTextBox = new TextBox();
+            projectIdLabel = new Label();
+            taskDataGridView = new DataGridView();
             idJob = new DataGridViewTextBoxColumn();
             idMng = new DataGridViewTextBoxColumn();
             WorkName = new DataGridViewTextBoxColumn();
@@ -42,16 +42,16 @@
             DepPublic = new DataGridViewTextBoxColumn();
             ProjectID = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvTasks).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)taskDataGridView).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(22, 22, 22);
-            panel1.Controls.Add(txtSearchTask);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(txtSearchProject);
-            panel1.Controls.Add(lblSearch);
+            panel1.Controls.Add(taskIdTextBox);
+            panel1.Controls.Add(taskIdLabel);
+            panel1.Controls.Add(projectIdTextBox);
+            panel1.Controls.Add(projectIdLabel);
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 467);
             panel1.Margin = new Padding(3, 4, 3, 4);
@@ -59,62 +59,62 @@
             panel1.Size = new Size(984, 94);
             panel1.TabIndex = 3;
             // 
-            // txtSearchTask
+            // taskIdTextBox
             // 
-            txtSearchTask.Location = new Point(146, 52);
-            txtSearchTask.Margin = new Padding(3, 4, 3, 4);
-            txtSearchTask.Name = "txtSearchTask";
-            txtSearchTask.Size = new Size(169, 31);
-            txtSearchTask.TabIndex = 4;
-            txtSearchTask.KeyPress += txtSearchTask_KeyPress;
+            taskIdTextBox.Location = new Point(146, 52);
+            taskIdTextBox.Margin = new Padding(3, 4, 3, 4);
+            taskIdTextBox.Name = "taskIdTextBox";
+            taskIdTextBox.Size = new Size(169, 31);
+            taskIdTextBox.TabIndex = 4;
+            taskIdTextBox.KeyPress += TaskIdTextBox_KeyPress;
             // 
-            // label1
+            // taskIdLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(12, 59);
-            label1.Name = "label1";
-            label1.Size = new Size(128, 18);
-            label1.TabIndex = 3;
-            label1.Text = "Nhập ID công việc";
+            taskIdLabel.AutoSize = true;
+            taskIdLabel.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            taskIdLabel.ForeColor = Color.White;
+            taskIdLabel.Location = new Point(12, 59);
+            taskIdLabel.Name = "taskIdLabel";
+            taskIdLabel.Size = new Size(128, 18);
+            taskIdLabel.TabIndex = 3;
+            taskIdLabel.Text = "Nhập ID công việc";
             // 
-            // txtSearchProject
+            // projectIdTextBox
             // 
-            txtSearchProject.Location = new Point(146, 13);
-            txtSearchProject.Margin = new Padding(3, 4, 3, 4);
-            txtSearchProject.Name = "txtSearchProject";
-            txtSearchProject.Size = new Size(169, 31);
-            txtSearchProject.TabIndex = 1;
-            txtSearchProject.KeyPress += txtSearchProject_KeyPress;
+            projectIdTextBox.Location = new Point(146, 13);
+            projectIdTextBox.Margin = new Padding(3, 4, 3, 4);
+            projectIdTextBox.Name = "projectIdTextBox";
+            projectIdTextBox.Size = new Size(169, 31);
+            projectIdTextBox.TabIndex = 1;
+            projectIdTextBox.KeyPress += ProjectIdTextBox_KeyPress;
             // 
-            // lblSearch
+            // projectIdLabel
             // 
-            lblSearch.AutoSize = true;
-            lblSearch.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSearch.ForeColor = Color.White;
-            lblSearch.Location = new Point(39, 20);
-            lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(101, 18);
-            lblSearch.TabIndex = 0;
-            lblSearch.Text = "Nhập ID dự án";
+            projectIdLabel.AutoSize = true;
+            projectIdLabel.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            projectIdLabel.ForeColor = Color.White;
+            projectIdLabel.Location = new Point(39, 20);
+            projectIdLabel.Name = "projectIdLabel";
+            projectIdLabel.Size = new Size(101, 18);
+            projectIdLabel.TabIndex = 0;
+            projectIdLabel.Text = "Nhập ID dự án";
             // 
-            // dgvTasks
+            // taskDataGridView
             // 
-            dgvTasks.AllowUserToAddRows = false;
-            dgvTasks.AllowUserToDeleteRows = false;
-            dgvTasks.BackgroundColor = Color.FromArgb(15, 15, 15);
-            dgvTasks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTasks.Columns.AddRange(new DataGridViewColumn[] { idJob, idMng, WorkName, AccessRight, Status, PrjPublic, DepPublic, ProjectID });
-            dgvTasks.Dock = DockStyle.Fill;
-            dgvTasks.Location = new Point(0, 0);
-            dgvTasks.Margin = new Padding(3, 4, 3, 4);
-            dgvTasks.Name = "dgvTasks";
-            dgvTasks.ReadOnly = true;
-            dgvTasks.RowHeadersWidth = 51;
-            dgvTasks.RowTemplate.Height = 24;
-            dgvTasks.Size = new Size(984, 467);
-            dgvTasks.TabIndex = 2;
+            taskDataGridView.AllowUserToAddRows = false;
+            taskDataGridView.AllowUserToDeleteRows = false;
+            taskDataGridView.BackgroundColor = Color.FromArgb(15, 15, 15);
+            taskDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            taskDataGridView.Columns.AddRange(new DataGridViewColumn[] { idJob, idMng, WorkName, AccessRight, Status, PrjPublic, DepPublic, ProjectID });
+            taskDataGridView.Dock = DockStyle.Fill;
+            taskDataGridView.Location = new Point(0, 0);
+            taskDataGridView.Margin = new Padding(3, 4, 3, 4);
+            taskDataGridView.Name = "taskDataGridView";
+            taskDataGridView.ReadOnly = true;
+            taskDataGridView.RowHeadersWidth = 51;
+            taskDataGridView.RowTemplate.Height = 24;
+            taskDataGridView.Size = new Size(984, 467);
+            taskDataGridView.TabIndex = 2;
             // 
             // idJob
             // 
@@ -184,17 +184,16 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(984, 561);
-            Controls.Add(dgvTasks);
+            Controls.Add(taskDataGridView);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 13F);
             Margin = new Padding(3, 4, 3, 4);
             Name = "EmployeeTasks";
-            Text = "EmployeeTasks";
+            Size = new Size(984, 561);
             Load += EmployeeTasks_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvTasks).EndInit();
+            ((System.ComponentModel.ISupportInitialize)taskDataGridView).EndInit();
             ResumeLayout(false);
 
         }
@@ -202,11 +201,11 @@
         #endregion
 
         private Panel panel1;
-        private TextBox txtSearchTask;
-        private Label label1;
-        private TextBox txtSearchProject;
-        private Label lblSearch;
-        private DataGridView dgvTasks;
+        private TextBox taskIdTextBox;
+        private Label taskIdLabel;
+        private TextBox projectIdTextBox;
+        private Label projectIdLabel;
+        private DataGridView taskDataGridView;
         private DataGridViewTextBoxColumn idJob;
         private DataGridViewTextBoxColumn idMng;
         private DataGridViewTextBoxColumn WorkName;

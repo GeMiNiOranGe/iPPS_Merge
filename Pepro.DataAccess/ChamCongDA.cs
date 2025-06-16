@@ -80,7 +80,7 @@ namespace Pepro.DataAccess {
         public bool insertAttendance(string MaCC, string MaNV, DateTime Thang, Byte Songaynghilam, Byte SongaynghiBHXH, Byte Songaydilam) {
             try {
                 // Kiểm tra xem MANV đã có MACC hay chưa
-                if (CheckMaccExist_01(MaCC, MaNV)) {
+                if (CheckMaccExist(MaCC, MaNV)) {
                     return false;
                 }
                 // Tạo câu lệnh SQL Insert
@@ -96,13 +96,7 @@ namespace Pepro.DataAccess {
             }
         }
 
-        public bool CheckMaccExist(string macc) {
-            string query = "SELECT COUNT(*) FROM BOPHANCHAMCONG WHERE MACC = '" + macc + "'";
-            int count = Convert.ToInt32(DataProvider.Instance.ExecuteQuery(query).Rows[0][0]);
-            return count > 0;
-        }
-
-        public bool CheckMaccExist_01(string macc, string maNV) {
+        public bool CheckMaccExist(string macc, string maNV) {
             string query = "SELECT COUNT(*) FROM BOPHANCHAMCONG WHERE MACC = '" + macc + "' OR MANV = '" + maNV + "'";
 
             int count = Convert.ToInt32(DataProvider.Instance.ExecuteQuery(query).Rows[0][0]);
