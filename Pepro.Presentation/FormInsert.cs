@@ -1,5 +1,4 @@
-﻿using Config;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,7 +37,7 @@ namespace Pepro.Presentation
 
         private void FormInsert_Load(object sender, EventArgs e)
         {
-            sqlConnection = new SqlConnection(Database.CONNECTION_STRING);
+            sqlConnection = new SqlConnection(Config.CONNECTION_STRING);
             LoadData();
             loadCombobox();
             

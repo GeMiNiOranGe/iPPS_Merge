@@ -1,6 +1,6 @@
-﻿namespace Pepro.Presentation
+﻿namespace Pepro.Presentation.Controls
 {
-    partial class AdminProjects
+    partial class EmployeeProjects
     {
         /// <summary>
         /// Required designer variable.
@@ -37,42 +37,40 @@
             IDPhongBan = new DataGridViewTextBoxColumn();
             start = new DataGridViewTextBoxColumn();
             end = new DataGridViewTextBoxColumn();
-            Edit = new DataGridViewImageColumn();
-            Delete = new DataGridViewImageColumn();
-            addButton = new Button();
-            actionPanel = new Panel();
             ((System.ComponentModel.ISupportInitialize)projectDataGridView).BeginInit();
-            actionPanel.SuspendLayout();
             SuspendLayout();
             // 
             // projectDataGridView
             // 
             projectDataGridView.AllowUserToAddRows = false;
+            projectDataGridView.AllowUserToDeleteRows = false;
             projectDataGridView.BackgroundColor = Color.FromArgb(15, 15, 15);
             projectDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            projectDataGridView.Columns.AddRange(new DataGridViewColumn[] { IDProject, ProjectName, AccessRight, TrangThai, KhachHang, IDTask, IDPhongBan, start, end, Edit, Delete });
+            projectDataGridView.Columns.AddRange(new DataGridViewColumn[] { IDProject, ProjectName, AccessRight, TrangThai, KhachHang, IDTask, IDPhongBan, start, end });
             projectDataGridView.Dock = DockStyle.Fill;
             projectDataGridView.Location = new Point(0, 0);
             projectDataGridView.Margin = new Padding(3, 4, 3, 4);
             projectDataGridView.Name = "projectDataGridView";
+            projectDataGridView.ReadOnly = true;
             projectDataGridView.RowHeadersWidth = 51;
             projectDataGridView.RowTemplate.Height = 24;
-            projectDataGridView.Size = new Size(984, 482);
-            projectDataGridView.TabIndex = 0;
-            projectDataGridView.CellContentClick += ProjectDataGridView_CellContentClick;
+            projectDataGridView.Size = new Size(984, 561);
+            projectDataGridView.TabIndex = 1;
             // 
             // IDProject
             // 
             IDProject.HeaderText = "ID dự án";
             IDProject.MinimumWidth = 6;
             IDProject.Name = "IDProject";
-            IDProject.Width = 110;
+            IDProject.ReadOnly = true;
+            IDProject.Width = 150;
             // 
             // ProjectName
             // 
             ProjectName.HeaderText = "Tên dự án";
             ProjectName.MinimumWidth = 6;
             ProjectName.Name = "ProjectName";
+            ProjectName.ReadOnly = true;
             ProjectName.Width = 125;
             // 
             // AccessRight
@@ -80,13 +78,15 @@
             AccessRight.HeaderText = "Quyền truy cập";
             AccessRight.MinimumWidth = 6;
             AccessRight.Name = "AccessRight";
-            AccessRight.Width = 160;
+            AccessRight.ReadOnly = true;
+            AccessRight.Width = 180;
             // 
             // TrangThai
             // 
             TrangThai.HeaderText = "Trạng thái";
             TrangThai.MinimumWidth = 6;
             TrangThai.Name = "TrangThai";
+            TrangThai.ReadOnly = true;
             TrangThai.Width = 120;
             // 
             // KhachHang
@@ -94,6 +94,7 @@
             KhachHang.HeaderText = "Tên khách hàng";
             KhachHang.MinimumWidth = 6;
             KhachHang.Name = "KhachHang";
+            KhachHang.ReadOnly = true;
             KhachHang.Width = 160;
             // 
             // IDTask
@@ -101,20 +102,23 @@
             IDTask.HeaderText = "ID quản lý";
             IDTask.MinimumWidth = 6;
             IDTask.Name = "IDTask";
-            IDTask.Width = 130;
+            IDTask.ReadOnly = true;
+            IDTask.Width = 140;
             // 
             // IDPhongBan
             // 
             IDPhongBan.HeaderText = "ID phòng ban";
             IDPhongBan.MinimumWidth = 6;
             IDPhongBan.Name = "IDPhongBan";
-            IDPhongBan.Width = 150;
+            IDPhongBan.ReadOnly = true;
+            IDPhongBan.Width = 160;
             // 
             // start
             // 
             start.HeaderText = "Ngày bắt đầu";
             start.MinimumWidth = 6;
             start.Name = "start";
+            start.ReadOnly = true;
             start.Width = 160;
             // 
             // end
@@ -122,63 +126,20 @@
             end.HeaderText = "Ngày kết thúc";
             end.MinimumWidth = 6;
             end.Name = "end";
+            end.ReadOnly = true;
             end.Width = 160;
             // 
-            // Edit
-            // 
-            Edit.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Edit.HeaderText = "";
-            Edit.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Edit.MinimumWidth = 6;
-            Edit.Name = "Edit";
-            Edit.Width = 6;
-            // 
-            // Delete
-            // 
-            Delete.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Delete.HeaderText = "";
-            Delete.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Delete.MinimumWidth = 6;
-            Delete.Name = "Delete";
-            Delete.Width = 6;
-            // 
-            // addButton
-            // 
-            addButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            addButton.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            addButton.Location = new Point(922, 16);
-            addButton.Margin = new Padding(3, 4, 3, 4);
-            addButton.Name = "addButton";
-            addButton.Size = new Size(50, 50);
-            addButton.TabIndex = 0;
-            addButton.Text = "+";
-            addButton.UseVisualStyleBackColor = true;
-            addButton.Click += AddButton_Click;
-            // 
-            // actionPanel
-            // 
-            actionPanel.BackColor = Color.FromArgb(22, 22, 22);
-            actionPanel.Controls.Add(addButton);
-            actionPanel.Dock = DockStyle.Bottom;
-            actionPanel.Location = new Point(0, 482);
-            actionPanel.Margin = new Padding(3, 4, 3, 4);
-            actionPanel.Name = "actionPanel";
-            actionPanel.Size = new Size(984, 79);
-            actionPanel.TabIndex = 2;
-            // 
-            // AdminProjects
+            // EmployeeProjects
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(projectDataGridView);
-            Controls.Add(actionPanel);
             Font = new Font("Segoe UI", 13F);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "AdminProjects";
+            Name = "EmployeeProjects";
             Size = new Size(984, 561);
-            Load += AdminProjects_Load;
+            Load += EmployeeProjects_Load;
             ((System.ComponentModel.ISupportInitialize)projectDataGridView).EndInit();
-            actionPanel.ResumeLayout(false);
             ResumeLayout(false);
 
         }
@@ -186,8 +147,6 @@
         #endregion
 
         private DataGridView projectDataGridView;
-        private Button addButton;
-        private Panel actionPanel;
         private DataGridViewTextBoxColumn IDProject;
         private DataGridViewTextBoxColumn ProjectName;
         private DataGridViewTextBoxColumn AccessRight;
@@ -197,7 +156,5 @@
         private DataGridViewTextBoxColumn IDPhongBan;
         private DataGridViewTextBoxColumn start;
         private DataGridViewTextBoxColumn end;
-        private DataGridViewImageColumn Edit;
-        private DataGridViewImageColumn Delete;
     }
 }

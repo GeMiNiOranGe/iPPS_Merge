@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Pepro.Presentation {
+namespace Pepro.Presentation.Controls {
     public partial class UCProjectItem : UserControl {
         #region Properties
         bool isHover = false;

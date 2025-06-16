@@ -1,7 +1,7 @@
 ﻿using Pepro.Business;
 using System.Data;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Controls;
 
 public partial class FormProgress : UserControl {
     public FormProgress() {

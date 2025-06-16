@@ -1,5 +1,5 @@
 ﻿
-namespace Pepro.Presentation {
+namespace Pepro.Presentation.Controls {
     partial class FormProgress {
         /// <summary>
         /// Required designer variable.

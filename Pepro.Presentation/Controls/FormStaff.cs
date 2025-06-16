@@ -1,11 +1,10 @@
-﻿using Config;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 //using Excel = Microsoft.Office.Interop.Excel;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Controls;
 
 public partial class FormStaff : UserControl {
-    SqlConnection sqlConnection = new(Database.CONNECTION_STRING);
+    SqlConnection sqlConnection = new(Config.CONNECTION_STRING);
     SqlCommand sqlCommand;
     SqlDataReader sqlDataReader;
 

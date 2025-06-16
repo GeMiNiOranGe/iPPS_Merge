@@ -1,10 +1,10 @@
 ﻿using Microsoft.Data.SqlClient;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Controls;
 
 public partial class EmployeeTasks : UserControl
 {
-    SqlConnection conn = new SqlConnection(Config.Database.CONNECTION_STRING);
+    SqlConnection conn = new SqlConnection(Config.CONNECTION_STRING);
     SqlCommand cmd = new SqlCommand();
     SqlDataReader rd = null;
 
