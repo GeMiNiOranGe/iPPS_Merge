@@ -20,13 +20,13 @@ public partial class AdminTasks : UserControl
 
     public void LoadAdminTasks()
     {
-        dgvTasks.Rows.Clear();
+        taskDataGridView.Rows.Clear();
         conn.Open();
         cmd=new SqlCommand("SELECT * FROM JOB", conn);
         rd= cmd.ExecuteReader();
         while (rd.Read())
         {
-            dgvTasks.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
+            taskDataGridView.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
                 rd["NAME"].ToString(), rd["ACCESS_RIGHT"].ToString(), 
                 rd["STATUS"].ToString(), rd["PROJECT_PUBLIC"].ToString(),
                 rd["DEPARTMENT_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
@@ -35,46 +35,36 @@ public partial class AdminTasks : UserControl
         conn.Close();
     }
 
-    private string GetDate(object dateObj)
-    {
-        if (dateObj is DateTime)
-        {
-            DateTime date = (DateTime)dateObj;
-            return date.ToString("MM/dd/yyyy");
-        }
-        return string.Empty;
-    }
-
-    private void btnAdd_Click(object sender, EventArgs e)
+    private void AddButton_Click(object sender, EventArgs e)
     {
         AdminTasksModule adminTasksModule = new AdminTasksModule();
-        adminTasksModule.btnSave.Enabled = true;
-        adminTasksModule.btnUpdate.Enabled = false;
+        adminTasksModule.saveButton.Enabled = true;
+        adminTasksModule.updateButton.Enabled = false;
         adminTasksModule.ShowDialog();
         LoadAdminTasks();
     }
 
-    private void dgvTasks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    private void TaskDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
-        string strColName = dgvTasks.Columns[e.ColumnIndex].Name;
+        string strColName = taskDataGridView.Columns[e.ColumnIndex].Name;
         if (strColName == "Edit")
         {
             AdminTasksModule adminTasksModule = new AdminTasksModule();
-            adminTasksModule.txtJobID.Text = dgvTasks.Rows[e.RowIndex].Cells[0].Value.ToString();
-            adminTasksModule.txtMngID.Text = dgvTasks.Rows[e.RowIndex].Cells[1].Value.ToString();
-            adminTasksModule.txtName.Text = dgvTasks.Rows[e.RowIndex].Cells[2].Value.ToString();
-            adminTasksModule.txtAccessR.Text = dgvTasks.Rows[e.RowIndex].Cells[3].Value.ToString();
-            adminTasksModule.txtStatus.Text = dgvTasks.Rows[e.RowIndex].Cells[4].Value.ToString();
-            adminTasksModule.txtPrjPub.Text = dgvTasks.Rows[e.RowIndex].Cells[5].Value.ToString();
-            adminTasksModule.txtDepPub.Text = dgvTasks.Rows[e.RowIndex].Cells[6].Value.ToString();
-            adminTasksModule.txtPrjID.Text = dgvTasks.Rows[e.RowIndex].Cells[7].Value.ToString();
+            adminTasksModule.taskIdTextBox.Text = taskDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+            adminTasksModule.managerIdTextBox.Text = taskDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            adminTasksModule.taskNameTextBox.Text = taskDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+            adminTasksModule.accessTextBox.Text = taskDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+            adminTasksModule.statusTextBox.Text = taskDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+            adminTasksModule.publicProjectTextBox.Text = taskDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+            adminTasksModule.publicDepartmentTextBox.Text = taskDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
+            adminTasksModule.projectIdTextBox.Text = taskDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
 
-            adminTasksModule.btnSave.Enabled = false;
-            adminTasksModule.btnUpdate.Enabled = true;
-            adminTasksModule.btnClear.Enabled = false;
-            adminTasksModule.txtPrjID.Enabled = false;
-            adminTasksModule.txtJobID.Enabled = false;
-            adminTasksModule.txtMngID.Enabled = false;
+            adminTasksModule.saveButton.Enabled = false;
+            adminTasksModule.updateButton.Enabled = true;
+            adminTasksModule.clearButton.Enabled = false;
+            adminTasksModule.projectIdTextBox.Enabled = false;
+            adminTasksModule.taskIdTextBox.Enabled = false;
+            adminTasksModule.managerIdTextBox.Enabled = false;
             adminTasksModule.ShowDialog();
         }
         else if (strColName == "Delete")
@@ -83,7 +73,7 @@ public partial class AdminTasks : UserControl
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 conn.Open();
-                string strIDTask = dgvTasks.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string strIDTask = taskDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
                 cmd = new SqlCommand($"DELETE FROM JOIN_JOB WHERE JOB_ID = '{strIDTask}' --1", conn);
                 cmd.ExecuteNonQuery();
                 cmd = new SqlCommand($"DELETE DOCUMENT_NATIVE_FILE_FORMAT " +
@@ -100,19 +90,19 @@ public partial class AdminTasks : UserControl
         LoadAdminTasks();
     }
 
-    private void txtSearchProject_KeyPress(object sender, KeyPressEventArgs e)
+    private void ProjectIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
-        if (txtSearchProject.Text == "")
+        if (projectIdTextBox.Text == "")
             LoadAdminTasks();
         else
         {
-            dgvTasks.Rows.Clear();
+            taskDataGridView.Rows.Clear();
             conn.Open();
-            cmd = new SqlCommand($"SELECT * FROM JOB WHERE PROJECT_ID LIKE '%{txtSearchProject.Text}%'", conn);
+            cmd = new SqlCommand($"SELECT * FROM JOB WHERE PROJECT_ID LIKE '%{projectIdTextBox.Text}%'", conn);
             rd = cmd.ExecuteReader();
             while (rd.Read())
             {
-                dgvTasks.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
+                taskDataGridView.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
                     rd["NAME"].ToString(), rd["ACCESS_RIGHT"].ToString(),
                     rd["STATUS"].ToString(), rd["PROJECT_PUBLIC"].ToString(),
                     rd["DEPARTMENT_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
@@ -122,19 +112,19 @@ public partial class AdminTasks : UserControl
         }
     }
 
-    private void txtSearchTask_KeyPress(object sender, KeyPressEventArgs e)
+    private void TaskTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
-        if (txtSearchTask.Text == "")
+        if (taskIdTextBox.Text == "")
             LoadAdminTasks();
         else
         {
-            dgvTasks.Rows.Clear();
+            taskDataGridView.Rows.Clear();
             conn.Open();
-            cmd = new SqlCommand($"SELECT * FROM JOB WHERE ID LIKE '%{txtSearchTask.Text}%'", conn);
+            cmd = new SqlCommand($"SELECT * FROM JOB WHERE ID LIKE '%{taskIdTextBox.Text}%'", conn);
             rd = cmd.ExecuteReader();
             while (rd.Read())
             {
-                dgvTasks.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
+                taskDataGridView.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
                     rd["NAME"].ToString(), rd["ACCESS_RIGHT"].ToString(),
                     rd["STATUS"].ToString(), rd["PROJECT_PUBLIC"].ToString(),
                     rd["DEPARTMENT_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());

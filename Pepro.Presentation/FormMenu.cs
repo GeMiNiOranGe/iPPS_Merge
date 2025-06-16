@@ -19,12 +19,12 @@ public partial class FormMenu : Form {
         InitializeComponent();
     }
 
-    private void OpenChildForm(UserControl childForm) {
+    private void OpenChildControl(UserControl child) {
         workplacePanel.Controls.Clear();
-        childForm.Dock = DockStyle.Fill;
-        workplacePanel.Controls.Add(childForm);
-        childForm.BringToFront();
-        //childForm.Show();
+        child.Dock = DockStyle.Fill;
+        workplacePanel.Controls.Add(child);
+        child.BringToFront();
+        //child.Show();
     }
 
     public string GetFullname() {
@@ -52,12 +52,12 @@ public partial class FormMenu : Form {
         return "Test";
     }
 
-    private void FormMenu_Load(object sender, EventArgs e) {
+    private void MenuForm_Load(object sender, EventArgs e) {
         usernameLabel.Text = GetFullname();
         roleLabel.Text = GetRole();
     }
 
-    private void FormMenu_FormClosing(object sender, FormClosingEventArgs e) {
+    private void MenuForm_FormClosing(object sender, FormClosingEventArgs e) {
         DialogResult dialogResult = MessageBox.Show(
             "Bạn có chắc muốn thoát không?",
             "Thông báo",
@@ -69,7 +69,7 @@ public partial class FormMenu : Form {
         }
     }
 
-    private void BtnJob_MouseClick(object sender, MouseEventArgs e) {
+    private void TaskButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(taskButton.Location.Y);
 
         string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{userId}'";
@@ -78,16 +78,16 @@ public partial class FormMenu : Form {
         var sqlDataReader = sqlCommand.ExecuteReader();
         if (sqlDataReader.Read()) {
             if ((byte)sqlDataReader["PERMISSION_LEVEL"] <= 1) {
-                OpenChildForm(new AdminTasks());
+                OpenChildControl(new AdminTasks());
             }
             else {
-                OpenChildForm(new EmployeeTasks());
+                OpenChildControl(new EmployeeTasks());
             }
         }
         conn.Close();
     }
 
-    private void BtnProject_MouseClick(object sender, MouseEventArgs e) {
+    private void ProjectButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(projectButton.Location.Y);
 
         string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{userId}'";
@@ -96,43 +96,43 @@ public partial class FormMenu : Form {
         var sqlDataReader = sqlCommand.ExecuteReader();
         if (sqlDataReader.Read()) {
             if ((byte)sqlDataReader["PERMISSION_LEVEL"] <= 1) {
-                OpenChildForm(new AdminProjects());
+                OpenChildControl(new AdminProjects());
             }
             else {
-                OpenChildForm(new EmployeeProjects());
+                OpenChildControl(new EmployeeProjects());
             }
         }
         conn.Close();
     }
 
-    private void BtnDocument_MouseClick(object sender, MouseEventArgs e) {
+    private void DocumentButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(documentButton.Location.Y);
 
-        OpenChildForm(new FormDocument());
+        OpenChildControl(new FormDocument());
     }
 
-    private void BtnProgress_MouseClick(object sender, MouseEventArgs e) {
+    private void ProgressButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(progressButton.Location.Y);
 
-        OpenChildForm(new FormProgress());
+        OpenChildControl(new FormProgress());
     }
 
     private void EmployeeButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(employeeButton.Location.Y);
 
-        OpenChildForm(new FormStaff());
+        OpenChildControl(new FormStaff());
     }
 
     private void AttendanceButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(attendanceButton.Location.Y);
 
-        OpenChildForm(new formChamCong());
+        OpenChildControl(new formChamCong());
     }
 
     private void SalaryButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(salaryButton.Location.Y);
 
-        OpenChildForm(new formTinhLuong());
+        OpenChildControl(new formTinhLuong());
     }
 
     private void DormitoryButton_MouseClick(object sender, MouseEventArgs e) {
@@ -143,7 +143,7 @@ public partial class FormMenu : Form {
 
     #region account info
     private void Account_MouseClick(object sender, MouseEventArgs e) {
-        OpenChildForm(new frmInfo(userId));
+        OpenChildControl(new frmInfo(userId));
     }
 
     private void Account_MouseDown(object sender, MouseEventArgs e) {
@@ -165,7 +165,7 @@ public partial class FormMenu : Form {
     }
     #endregion
 
-    private void LbAppName_Click(object sender, EventArgs e) {
+    private void AppNameLabel_Click(object sender, EventArgs e) {
         workplacePanel.Controls.Clear();
     }
 

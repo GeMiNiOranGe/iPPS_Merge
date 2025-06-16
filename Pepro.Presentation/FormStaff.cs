@@ -5,21 +5,19 @@ using Microsoft.Data.SqlClient;
 namespace Pepro.Presentation;
 
 public partial class FormStaff : UserControl {
-    SqlConnection sqlConnection = new SqlConnection(Database.CONNECTION_STRING);
+    SqlConnection sqlConnection = new(Database.CONNECTION_STRING);
     SqlCommand sqlCommand;
     SqlDataReader sqlDataReader;
-    //SqlDataAdapter sqlDataAdapter;
-    //DataTable dataTable;
 
     public FormStaff() {
         InitializeComponent();
     }
 
     private void FormStaff_Load(object sender, EventArgs e) {
-        loadDataStaff();
+        LoadDataStaff();
     }
 
-    public void loadDataStaff() {
+    public void LoadDataStaff() {
         int i = 0;
 
         sqlConnection.Open();
@@ -27,7 +25,8 @@ public partial class FormStaff : UserControl {
         sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN", sqlConnection);
         sqlDataReader = sqlCommand.ExecuteReader();
         while (sqlDataReader.Read()) {
-            ListViewItem item = new ListViewItem((i + 1).ToString());
+            ListViewItem item = new((i + 1).ToString());
+
             item.SubItems.Add(sqlDataReader[0].ToString());
             item.SubItems.Add(sqlDataReader[1].ToString());
 
@@ -120,7 +119,7 @@ public partial class FormStaff : UserControl {
 
     private void btnReload_Click(object sender, EventArgs e) {
         listViewDataNV.Items.Clear();
-        loadDataStaff();
+        LoadDataStaff();
     }
     
     private void btnAdd_Click(object sender, EventArgs e) {
@@ -247,49 +246,50 @@ public partial class FormStaff : UserControl {
         saveFileDialog.Filter = "Excel Files|*.xlsx";
         saveFileDialog.Title = "Save Excel File";
 
-        if (saveFileDialog.ShowDialog() == DialogResult.OK) {
-            ExportToExcel(listViewDataNV, saveFileDialog.FileName);
+        //if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+        //    ExportToExcel(listViewDataNV, saveFileDialog.FileName);
+        //}
+    }
+
+    /*
+    private void ExportToExcel(ListView listView, string filePath) {
+        Excel.Application excelApp = new Excel.Application();
+        excelApp.Visible = true;
+        Excel.Workbook workbook = excelApp.Workbooks.Add();
+        Excel.Worksheet worksheet = workbook.Sheets[1];
+
+        int row = 1;
+        int col = 1;
+
+        // Xuất tiêu đề của các cột
+        foreach (ColumnHeader header in listView.Columns) {
+            worksheet.Cells[row, col] = header.Text;
+            col++;
         }
+
+        // Xuất dữ liệu từ ListView
+        row++;
+        foreach (ListViewItem item in listView.Items) {
+            col = 1;
+            foreach (ListViewItem.ListViewSubItem subItem in item.SubItems) {
+                worksheet.Cells[row, col] = subItem.Text;
+                col++;
+            }
+            row++;
+        }
+
+        // Lưu tệp Excel
+        workbook.SaveAs(filePath);
+        workbook.Close();
+        excelApp.Quit();
+
+        ReleaseObject(worksheet);
+        ReleaseObject(workbook);
+        ReleaseObject(excelApp);
+
+        MessageBox.Show("Dữ liệu đã được xuất ra Excel.");
     }
-    
-    private void ExportToExcel(System.Windows.Forms.ListView listView, string filePath) {
-        //Excel.Application excelApp = new Excel.Application();
-        //excelApp.Visible = true;
-        //Excel.Workbook workbook = excelApp.Workbooks.Add();
-        //Excel.Worksheet worksheet = workbook.Sheets[1];
 
-        //int row = 1;
-        //int col = 1;
-
-        //// Xuất tiêu đề của các cột
-        //foreach (ColumnHeader header in listView.Columns) {
-        //    worksheet.Cells[row, col] = header.Text;
-        //    col++;
-        //}
-
-        //// Xuất dữ liệu từ ListView
-        //row++;
-        //foreach (ListViewItem item in listView.Items) {
-        //    col = 1;
-        //    foreach (ListViewItem.ListViewSubItem subItem in item.SubItems) {
-        //        worksheet.Cells[row, col] = subItem.Text;
-        //        col++;
-        //    }
-        //    row++;
-        //}
-
-        //// Lưu tệp Excel
-        //workbook.SaveAs(filePath);
-        //workbook.Close();
-        //excelApp.Quit();
-
-        //ReleaseObject(worksheet);
-        //ReleaseObject(workbook);
-        //ReleaseObject(excelApp);
-
-        //MessageBox.Show("Dữ liệu đã được xuất ra Excel.");
-    }
-    
     private void ReleaseObject(object obj) {
         try {
             System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
@@ -303,4 +303,5 @@ public partial class FormStaff : UserControl {
             GC.Collect();
         }
     }
+    */
 }

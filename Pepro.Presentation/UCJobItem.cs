@@ -1,14 +1,6 @@
 ﻿using Pepro.Business;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace Pepro.Presentation {
     public partial class UCJobItem : UserControl {
@@ -32,22 +24,22 @@ namespace Pepro.Presentation {
         [Category("Custom Props")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Id {
-            get => lbJobId.Text;
-            set => lbJobId.Text = value;
+            get => taskIdLabel.Text;
+            set => taskIdLabel.Text = value;
         }
 
         [Category("Custom Props")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new string Name {
-            get => lbJobName.Text;
-            set => lbJobName.Text = value;
+            get => taskNameLabel.Text;
+            set => taskNameLabel.Text = value;
         }
 
         [Category("Custom Props")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Percent {
-            get => lbJobPercent.Text;
-            set => lbJobPercent.Text = value;
+            get => taskPercentLabel.Text;
+            set => taskPercentLabel.Text = value;
         }
         #endregion
 

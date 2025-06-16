@@ -13,7 +13,9 @@ public partial class FormProgress : UserControl {
     }
 
     private void ShowAllProject() {
-        if (flPnlProjectList.Controls.Count > 0) flPnlProjectList.Controls.Clear();
+        if (projectListFlowLayoutPanel.Controls.Count > 0) {
+            projectListFlowLayoutPanel.Controls.Clear();
+        }
 
         var dataTable = CProjectBLL.Instance.GetProjectList();
         string projectID;
@@ -30,19 +32,24 @@ public partial class FormProgress : UserControl {
                 };
                 projectID = projectItem.Id;
                 var dataTable1 = CJobBLL.Instance.GetAllFromProject(projectID);
-                if (dataTable1 != null && dataTable1.Rows.Count > 0)
-                    foreach (DataRow row1 in dataTable1.Rows)
+                if (dataTable1 != null && dataTable1.Rows.Count > 0) {
+                    foreach (DataRow row1 in dataTable1.Rows) {
                         totalJob += 1;
+                    }
+                }
 
-                if (dataTable1 != null && dataTable1.Rows.Count > 0)
+                if (dataTable1 != null && dataTable1.Rows.Count > 0) {
                     foreach (DataRow row1 in dataTable1.Rows) {
                         total = Convert.ToDouble(CProgressBLL.getTotalDocumentbyJobID(row1["JOB_ID"].ToString()));
                         total1 = Convert.ToDouble(CProgressBLL.getNumberofDocumentbyJobID(row1["JOB_ID"].ToString()));
-                        if (total == total1) count += 1;
+                        if (total == total1) {
+                            count += 1;
+                        }
                     }
+                }
 
-                projectItem.Percent = Math.Round((count / totalJob) * 100, 2).ToString() + "%";
-                flPnlProjectList.Controls.Add(projectItem);
+                projectItem.Percent = Math.Round(count / totalJob * 100, 2).ToString() + "%";
+                projectListFlowLayoutPanel.Controls.Add(projectItem);
                 totalJob = 0;
                 count = 0;
             }

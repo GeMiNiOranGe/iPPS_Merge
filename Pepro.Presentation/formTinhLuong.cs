@@ -17,18 +17,18 @@ public partial class formTinhLuong : UserControl {
         loadComBobBoxMaBL();
     }
     private void dtgvLuongNV_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-        if (dtgvLuongNV.SelectedRows.Count > 0) {
-            DataGridViewRow selectionrow = dtgvLuongNV.SelectedRows[0];
+        if (employeeSalaryDataGridView.SelectedRows.Count > 0) {
+            DataGridViewRow selectionrow = employeeSalaryDataGridView.SelectedRows[0];
 
             string manv = selectionrow.Cells["MaNhanVien"].Value.ToString();
             DateTime thoidiem = (DateTime)selectionrow.Cells["Thoidiem"].Value;
             byte songaydilam = (byte)selectionrow.Cells["Songaydilam"].Value;
-            Decimal hesobacluong = (Decimal)selectionrow.Cells["HeSoBacLuong"].Value;
-            Decimal hesophucap = (Decimal)selectionrow.Cells["Hesophucapchucvu"].Value;
+            decimal hesobacluong = (decimal)selectionrow.Cells["HeSoBacLuong"].Value;
+            decimal hesophucap = (decimal)selectionrow.Cells["Hesophucapchucvu"].Value;
             int luongcoban = (int)selectionrow.Cells["LuongCoBan"].Value;
             int tongluong = (int)selectionrow.Cells["TongLuong"].Value;
             int tiennha = (int)selectionrow.Cells["TienNha"].Value;
-            cbMaNV.Text = manv;
+            employeeIdComboBox.Text = manv;
             tbLCB.Text = luongcoban.ToString("#,##0") + " VND";
             tbTienLuong.Text = tongluong.ToString("#,##0") + " VND";
             tbTienNha.Text = tiennha.ToString("#,##0") + " VND";
@@ -36,12 +36,12 @@ public partial class formTinhLuong : UserControl {
             tbPhuCap.Text = hesophucap.ToString();
             tbSoNgayCong.Text = songaydilam.ToString();
             dtpkThoiDiem.Value = thoidiem;
-            rtbLuong.Text = tongluong.ToString("#,##0") + " VND";
+            salaryRichTextBox.Text = tongluong.ToString("#,##0") + " VND";
         }
     }
 
     private void dtpkThoiDiem_ValueChanged(object sender, EventArgs e) {
-        string manv = cbMaNV.Text;
+        string manv = employeeIdComboBox.Text;
         DateTime thoigian = dtpkThoiDiem.Value;
         if (LuongDA.Instance.updateSalaryForNewMonth(manv, thoigian)) {
             loadSalaryList();
@@ -53,7 +53,7 @@ public partial class formTinhLuong : UserControl {
     }
 
     private void btnTinhLuong_Click(object sender, EventArgs e) {
-        string maNhanVien = cbMaNV.Text.Trim();
+        string maNhanVien = employeeIdComboBox.Text.Trim();
         DateTime Thang =(DateTime) dtpkThoiDiem.Value;
         //Kiểm tra xem cuối tháng hay chưa 
         if (!IsEndOfMonth(Thang))
@@ -71,7 +71,7 @@ public partial class formTinhLuong : UserControl {
         int tienLuong = LuongDA.Instance.calculateSalary(maNhanVien);
 
         // Hiển thị lương trên RichTextBox
-        rtbLuong.Text = tienLuong.ToString("#,##0");
+        salaryRichTextBox.Text = tienLuong.ToString("#,##0");
 
         // Cập nhật lương trong CSDL
         if (LuongDA.Instance.updateSalary(maNhanVien, tienLuong)) {
@@ -85,7 +85,7 @@ public partial class formTinhLuong : UserControl {
     }
 
     private void btnTimKiem_Click(object sender, EventArgs e) {
-        string manv = rtbMaNhanVien.Text.ToString();
+        string manv = employeeIdRichTextBox.Text.ToString();
         if (string.IsNullOrEmpty(manv)) {
             MessageBox.Show("Vui lòng nhập Mã Nhân Viên.");
             return;
@@ -100,7 +100,7 @@ public partial class formTinhLuong : UserControl {
     
     private void btnCapNhat_Click(object sender, EventArgs e) {
         try {
-            string maNhanVien = cbMaNV.Text;
+            string maNhanVien = employeeIdComboBox.Text;
             int luongCoBan = int.Parse(Regex.Replace(tbLCB.Text, @"[^\d]", ""));
             DateTime thoiDiem = dtpkThoiDiem.Value;
 
@@ -120,7 +120,7 @@ public partial class formTinhLuong : UserControl {
  
     private void btnBaoCao_Click(object sender, EventArgs e) {
         try {
-            string maNhanVien = cbMaNV.Text;
+            string maNhanVien = employeeIdComboBox.Text;
             int luongCoBan = int.Parse(Regex.Replace(tbLCB.Text, @"[^\d]", ""));
             int tongluong = int.Parse(Regex.Replace(tbTienLuong.Text, @"[^\d]", ""));
             DateTime thoidiem = dtpkThoiDiem.Value;
@@ -152,14 +152,14 @@ public partial class formTinhLuong : UserControl {
     #region Function
     private void loadSalaryList() {
         List<Luong> tinhluong = LuongDA.Instance.loadSalaryList();
-        dtgvLuongNV.DataSource = tinhluong;
+        employeeSalaryDataGridView.DataSource = tinhluong;
     }
 
     private void loadComBoBoxMaNV() {
         DataTable data = LuongBL.Instance.getEmployeeID();
-        cbMaNV.DataSource = data;
-        cbMaNV.DisplayMember = "MANV";
-        cbMaNV.DisplayMember = "MANV";
+        employeeIdComboBox.DataSource = data;
+        employeeIdComboBox.DisplayMember = "MANV";
+        employeeIdComboBox.DisplayMember = "MANV";
     }
     
     private void loadComBobBoxMaBL() {
@@ -176,12 +176,12 @@ public partial class formTinhLuong : UserControl {
         // Kiểm tra xem có dữ liệu hay không
         if (employeeData.Rows.Count > 0) {
             // Cập nhật dữ liệu lên DataGridView
-            dtgvLuongNV.DataSource = employeeData;
+            employeeSalaryDataGridView.DataSource = employeeData;
         }
         else {
             MessageBox.Show("Không có thông tin cho nhân viên có mã: " + maNhanVien);
             loadSalaryList();
-            rtbMaNhanVien.Clear();
+            employeeIdRichTextBox.Clear();
         }
     }
 
@@ -191,7 +191,7 @@ public partial class formTinhLuong : UserControl {
             int tienLuong = LuongDA.Instance.calculateSalary(maNhanVien);
 
             // Hiển thị thông tin lương trên TextBox hoặc RichTextBox hoặc bất kỳ thành phần giao diện nào bạn mong muốn
-            rtbLuong.Text = tienLuong.ToString("#,##0");
+            salaryRichTextBox.Text = tienLuong.ToString("#,##0");
         }
         catch (Exception ex) {
             // Xử lý ngoại lệ nếu có lỗi

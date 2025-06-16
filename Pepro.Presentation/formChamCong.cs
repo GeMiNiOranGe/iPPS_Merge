@@ -6,51 +6,46 @@ using Pepro.DataAccess;
 namespace Pepro.Presentation;
 
 public partial class formChamCong : UserControl {
-    private ChamCongBL businessLogic;
-    //private ChamCong chamcong;
     #region Event
     public formChamCong() {
         InitializeComponent();
-        this.businessLogic = new ChamCongBL();
-        this.Load += fromChamCong_Load;
     }
 
-    private void fromChamCong_Load(object sender, EventArgs e) {
-       
-        loadAttendanceList();
-        loadComBoBoxMaNV();
-        numDiLam.Value = 0;
+    private void FromChamCong_Load(object sender, EventArgs e) {
+        LoadAttendanceList();
+        LoadComBoBoxMaNV();
+        numberOfAttendanceNumericUpDown.Value = 0;
         numngaynghiBHXH.Value = 0;
         numngaynghi.Value = 0;
-        
-        dataChamCong.ClearSelection();
-        
+
+        attendanceDataGridView.ClearSelection();
     }
-    private void dataChamCong_SelectionChanged(object sender, EventArgs e) {
-        if (dataChamCong.SelectedRows.Count > 0) {
-            DataGridViewRow selectionrow = dataChamCong.SelectedRows[0];
+
+    private void AttendanceDataGridView_SelectionChanged(object sender, EventArgs e) {
+        if (attendanceDataGridView.SelectedRows.Count > 0) {
+            DataGridViewRow selectionrow = attendanceDataGridView.SelectedRows[0];
             string manv = selectionrow.Cells["MANV"].Value.ToString();
             DateTime thang = (DateTime)selectionrow.Cells["THANG"].Value;
             byte songaydilam = (byte)selectionrow.Cells["SONGAYTRONGTHANG"].Value;
             byte songaynghiBHXH = (byte)selectionrow.Cells["SONGAYNGHIBHXH"].Value;
             byte songaynghikhonglydo = (byte)selectionrow.Cells["SONGAYNGHIKHONGLYDO"].Value;
-            cboManv.Text = manv;
-            dtpNgayLV.Value = thang;
-            numDiLam.Value = songaydilam;
+            employeeIdTextBox.Text = manv;
+            attendanceDateTimePicker.Value = thang;
+            numberOfAttendanceNumericUpDown.Value = songaydilam;
             numngaynghi.Value = songaynghikhonglydo;
             numngaynghiBHXH.Value = songaynghiBHXH;
         }
     }
 
-    private void btnThem_Click(object sender, EventArgs e) {
-        string MaCC = tbMaCC.Text.ToString();
-        string MaNV = cboManv.Text.ToString();
-        DateTime Thang = (DateTime)dtpNgayLV.Value;
-        Byte Songaydilam = Convert.ToByte(numDiLam.Value);
-        Byte SongaynghiBHXH = Convert.ToByte(numngaynghiBHXH.Value);
-        Byte Songaynghilam = Convert.ToByte(numngaynghi.Value);
+    private void AddButton_Click(object sender, EventArgs e) {
+        string MaCC = attendanceIdTextBox.Text.ToString();
+        string MaNV = employeeIdTextBox.Text.ToString();
+        DateTime Thang = attendanceDateTimePicker.Value;
+        //byte Songaydilam = Convert.ToByte(numberOfAttendanceNumericUpDown.Value);
+        byte SongaynghiBHXH = Convert.ToByte(numngaynghiBHXH.Value);
+        byte Songaynghilam = Convert.ToByte(numngaynghi.Value);
 
-        DatabaseHelper dbHelper = new DatabaseHelper();
+        DatabaseHelper dbHelper = new();
 
         // Kiểm tra xem mã chấm công và mã nhân viên đã tồn tại hay chưa
         bool macAndManvExists = dbHelper.CheckMACCAndMANVExists(MaNV, MaCC);
@@ -64,7 +59,7 @@ public partial class formChamCong : UserControl {
             }
             else {
                 // Kiểm tra xem mã chấm công đã tồn tại cho nhân viên hay chưa
-                bool maccExistsForNV = ChamCongDA.Instance.CheckMaccExist_01(MaCC, MaNV);
+                bool maccExistsForNV = ChamCongDA.Instance.CheckMaccExist(MaCC, MaNV);
                 if (maccExistsForNV) {
                     MessageBox.Show("Mã chấm công '" + MaCC + "' đã tồn tại cho nhân viên '" + MaNV + "'");
                 }
@@ -72,51 +67,48 @@ public partial class formChamCong : UserControl {
                     // Thêm mới chấm công
                     ChamCongDA.Instance.insertAttendance(MaCC, MaNV, Thang, Songaynghilam, SongaynghiBHXH, Songaynghilam);
                     MessageBox.Show("Thêm mới thành công!");
-                    loadAttendanceList();
+                    LoadAttendanceList();
                 }
             }
         }
     }
 
-    private void btnCapnhat_Click(object sender, EventArgs e) {
-        if (dataChamCong.SelectedRows.Count > 0)
-        {
-            string MaNV = cboManv.Text.ToString();
-            DateTime Thang = (DateTime)dtpNgayLV.Value;
-            Byte Songaydilam = Convert.ToByte(numDiLam.Value);
-            Byte SongaynghiBHXH = Convert.ToByte(numngaynghiBHXH.Value);
-            Byte Songaynghilam = Convert.ToByte(numngaynghi.Value);
-            if (ChamCongBL.Instance.updateAttendanceBL(MaNV, Thang, Songaydilam, SongaynghiBHXH, Songaynghilam))
-            {
+    private void UpdateButton_Click(object sender, EventArgs e) {
+        if (attendanceDataGridView.SelectedRows.Count > 0) {
+            string MaNV = employeeIdTextBox.Text.ToString();
+            DateTime Thang = attendanceDateTimePicker.Value;
+            byte Songaydilam = Convert.ToByte(numberOfAttendanceNumericUpDown.Value);
+            byte SongaynghiBHXH = Convert.ToByte(numngaynghiBHXH.Value);
+            byte Songaynghilam = Convert.ToByte(numngaynghi.Value);
+            if (ChamCongBL.Instance.updateAttendanceBL(MaNV, Thang, Songaydilam, SongaynghiBHXH, Songaynghilam)) {
                 MessageBox.Show("Cập nhật thành công!");
-                loadAttendanceList();
+                LoadAttendanceList();
             }
-            else
-            {
+            else {
                 MessageBox.Show("Cập nhật không thành công!");
             }
-        } else
-        {
+        }
+        else {
             MessageBox.Show("Vui lòng chọn nhân viên để cập nhật");
         }
     }
 
-    private void btnXoa_Click(object sender, EventArgs e) {
-        string manv = cboManv.Text.ToString();
+    private void DeleteButton_Click(object sender, EventArgs e) {
+        string manv = employeeIdTextBox.Text.ToString();
         ChamCongDA.Instance.deleteAttendance(manv);
-        loadAttendanceList();
+        LoadAttendanceList();
     }
 
-    private void btnChamCong_Click_1(object sender, EventArgs e) {
-        string MaNV = cboManv.Text.ToString();
-        DateTime Thang = (DateTime)dtpNgayLV.Value;
-        Byte Songaydilam = Convert.ToByte(numDiLam.Value);
-        Byte SongaynghiBHXH = Convert.ToByte(numngaynghiBHXH.Value);
-        Byte Songaynghilam = Convert.ToByte(numngaynghi.Value);
+    private void AttendanceButton_Click(object sender, EventArgs e) {
+        string MaNV = employeeIdTextBox.Text.ToString();
+        DateTime Thang = attendanceDateTimePicker.Value;
+        byte Songaydilam = Convert.ToByte(numberOfAttendanceNumericUpDown.Value);
+        byte SongaynghiBHXH = Convert.ToByte(numngaynghiBHXH.Value);
+        byte Songaynghilam = Convert.ToByte(numngaynghi.Value);
 
-      
-        int workStatusValue = workStatus(cbTinhTrang.Text);
-        int numberDaysInMonth = numberDaysinMonth(Thang.Month, Thang.Year);
+
+        int workStatusValue = WorkStatus(statusComboBox.Text);
+        int numberDaysInMonth = DateTime.DaysInMonth(Thang.Year, Thang.Month);
 
         if (workStatusValue == 0 && Songaydilam < numberDaysInMonth) {
             Songaydilam++;
@@ -141,65 +133,57 @@ public partial class formChamCong : UserControl {
         }
 
         ChamCongBL.Instance.updateAttendanceBL(MaNV, Thang, Songaydilam, SongaynghiBHXH, Songaynghilam);
-        loadAttendanceList();
+        LoadAttendanceList();
     }
 
-    private void dtpNgayLV_ValueChanged(object sender, EventArgs e) {
-        string manv = cboManv.Text;
-        DateTime thoigian = dtpNgayLV.Value;
+    private void AttendanceDateTimePicker_ValueChanged(object sender, EventArgs e) {
+        string manv = employeeIdTextBox.Text;
+        DateTime thoigian = attendanceDateTimePicker.Value;
         if (ChamCongDA.Instance.updateAttendanceForNewMonth(manv, thoigian)) {
-            loadAttendanceList();
+            LoadAttendanceList();
         }
     }
 
-    private void btnBaoCao_Click(object sender, EventArgs e) {
+    private void ExportReportButton_Click(object sender, EventArgs e) {
         DataTable dataTable = ChamCongDA.Instance.GetAllChamCongInfo();
         string filePath = ChamCongDA.Instance.ExportAlltoPdf(dataTable);
         MessageBox.Show($"File PDF đã được xuất tại:\n{filePath}", "Thông báo");
     }
-    private void numDiLam_ValueChanged(object sender, EventArgs e)
-    {
-        if (numDiLam.Value > 26)
-        {
-            numDiLam.Value = 0;
+
+    private void NumberOfAttendanceNumericUpDown_ValueChanged(object sender, EventArgs e) {
+        if (numberOfAttendanceNumericUpDown.Value > 26) {
+            numberOfAttendanceNumericUpDown.Value = 0;
         }
     }
-    private void numngaynghi_ValueChanged(object sender, EventArgs e)
-    {
-        if(numngaynghi.Value > 3)
-        {
+
+    private void Numngaynghi_ValueChanged(object sender, EventArgs e) {
+        if (numngaynghi.Value > 3) {
             numngaynghi.Value = 0;
         }
     }
-    private void numngaynghiBHXH_ValueChanged(object sender, EventArgs e)
-    {
-        if(numngaynghiBHXH.Value > 30)
-        {
+
+    private void NumngaynghiBHXH_ValueChanged(object sender, EventArgs e) {
+        if (numngaynghiBHXH.Value > 30) {
             numngaynghiBHXH.Value = 0;
         }
-    }
-  
-    private void cboManv_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      
     }
     #endregion
 
     //-------------------------------------------------------------Function------------------------------------------------
     #region Function
-    private void loadAttendanceList() {
-        List<ChamCong> chamcong = businessLogic.getAttendanceList();
-        dataChamCong.DataSource = chamcong;
+    private void LoadAttendanceList() {
+        List<ChamCong> chamcong = ChamCongBL.Instance.getAttendanceList();
+        attendanceDataGridView.DataSource = chamcong;
     }
 
-    private void loadComBoBoxMaNV() {
-        DataTable data = businessLogic.getEmployeeID();
-        cboManv.DataSource = data;
-        cboManv.DisplayMember = "MANV";
-        cboManv.ValueMember = "MANV";
+    private void LoadComBoBoxMaNV() {
+        DataTable data = ChamCongBL.Instance.getEmployeeID();
+        employeeIdTextBox.DataSource = data;
+        employeeIdTextBox.DisplayMember = "MANV";
+        employeeIdTextBox.ValueMember = "MANV";
     }
 
-    private int workStatus(string status) {
+    private int WorkStatus(string status) {
         if (status == "Đi làm") {
             return 0;
         }
@@ -210,44 +194,5 @@ public partial class formChamCong : UserControl {
             return 2;
         }
     }
-
-    private int numberDaysinMonth(int thang, int nam) {
-        int ngay = 0;
-        switch (thang) {
-        case 1:
-        case 3:
-        case 5:
-        case 7:
-        case 8:
-        case 10:
-        case 12:
-            ngay = 31;
-            break;
-        case 4:
-        case 6:
-        case 9:
-        case 11:
-            ngay = 30;
-            break;
-        case 2:
-            if (nam % 4 == 0 && (nam % 100 != 0 || nam % 400 == 0)) {
-                ngay = 29;
-                break;
-            }
-            else {
-                ngay = 28;
-                break;
-            }
-        }
-        return ngay;
-    }
-
-
-
-
-
-
     #endregion
-
-   
 }

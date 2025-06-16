@@ -27,7 +27,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            dgvProjects = new DataGridView();
+            projectDataGridView = new DataGridView();
             IDProject = new DataGridViewTextBoxColumn();
             ProjectName = new DataGridViewTextBoxColumn();
             AccessRight = new DataGridViewTextBoxColumn();
@@ -37,25 +37,25 @@
             IDPhongBan = new DataGridViewTextBoxColumn();
             start = new DataGridViewTextBoxColumn();
             end = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dgvProjects).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)projectDataGridView).BeginInit();
             SuspendLayout();
             // 
-            // dgvProjects
+            // projectDataGridView
             // 
-            dgvProjects.AllowUserToAddRows = false;
-            dgvProjects.AllowUserToDeleteRows = false;
-            dgvProjects.BackgroundColor = Color.FromArgb(15, 15, 15);
-            dgvProjects.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProjects.Columns.AddRange(new DataGridViewColumn[] { IDProject, ProjectName, AccessRight, TrangThai, KhachHang, IDTask, IDPhongBan, start, end });
-            dgvProjects.Dock = DockStyle.Fill;
-            dgvProjects.Location = new Point(0, 0);
-            dgvProjects.Margin = new Padding(3, 4, 3, 4);
-            dgvProjects.Name = "dgvProjects";
-            dgvProjects.ReadOnly = true;
-            dgvProjects.RowHeadersWidth = 51;
-            dgvProjects.RowTemplate.Height = 24;
-            dgvProjects.Size = new Size(984, 561);
-            dgvProjects.TabIndex = 1;
+            projectDataGridView.AllowUserToAddRows = false;
+            projectDataGridView.AllowUserToDeleteRows = false;
+            projectDataGridView.BackgroundColor = Color.FromArgb(15, 15, 15);
+            projectDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            projectDataGridView.Columns.AddRange(new DataGridViewColumn[] { IDProject, ProjectName, AccessRight, TrangThai, KhachHang, IDTask, IDPhongBan, start, end });
+            projectDataGridView.Dock = DockStyle.Fill;
+            projectDataGridView.Location = new Point(0, 0);
+            projectDataGridView.Margin = new Padding(3, 4, 3, 4);
+            projectDataGridView.Name = "projectDataGridView";
+            projectDataGridView.ReadOnly = true;
+            projectDataGridView.RowHeadersWidth = 51;
+            projectDataGridView.RowTemplate.Height = 24;
+            projectDataGridView.Size = new Size(984, 561);
+            projectDataGridView.TabIndex = 1;
             // 
             // IDProject
             // 
@@ -133,21 +133,20 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(984, 561);
-            Controls.Add(dgvProjects);
+            Controls.Add(projectDataGridView);
             Font = new Font("Segoe UI", 13F);
             Margin = new Padding(3, 4, 3, 4);
             Name = "EmployeeProjects";
-            Text = "EmployeeProjects";
+            Size = new Size(984, 561);
             Load += EmployeeProjects_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvProjects).EndInit();
+            ((System.ComponentModel.ISupportInitialize)projectDataGridView).EndInit();
             ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DataGridView dgvProjects;
+        private DataGridView projectDataGridView;
         private DataGridViewTextBoxColumn IDProject;
         private DataGridViewTextBoxColumn ProjectName;
         private DataGridViewTextBoxColumn AccessRight;

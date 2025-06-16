@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.ComponentModel;
 
 namespace Pepro.Presentation {
     public partial class UCManagerItem : UserControl {
@@ -17,15 +9,15 @@ namespace Pepro.Presentation {
         [Category("Custom Props")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Id {
-            get => lbManagerId.Text;
-            set => lbManagerId.Text = value;
+            get => managerIdLabel.Text;
+            set => managerIdLabel.Text = value;
         }
 
         [Category("Custom Props")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new string Name {
-            get => lbManagerName.Text;
-            set => lbManagerName.Text = value;
+            get => managerNameLabel.Text;
+            set => managerNameLabel.Text = value;
         }
     }
 }

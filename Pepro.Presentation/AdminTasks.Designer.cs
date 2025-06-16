@@ -27,11 +27,11 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            txtSearchTask = new TextBox();
-            label1 = new Label();
-            btnAdd = new Button();
-            txtSearchProject = new TextBox();
-            lblSearch = new Label();
+            taskIdTextBox = new TextBox();
+            taskIdLabel = new Label();
+            addButton = new Button();
+            projectIdTextBox = new TextBox();
+            projectIdLabel = new Label();
             Delete = new DataGridViewImageColumn();
             Edit = new DataGridViewImageColumn();
             ProjectID = new DataGridViewTextBoxColumn();
@@ -42,70 +42,70 @@
             WorkName = new DataGridViewTextBoxColumn();
             idMng = new DataGridViewTextBoxColumn();
             idJob = new DataGridViewTextBoxColumn();
-            dgvTasks = new DataGridView();
-            panel2 = new Panel();
-            ((System.ComponentModel.ISupportInitialize)dgvTasks).BeginInit();
-            panel2.SuspendLayout();
+            taskDataGridView = new DataGridView();
+            actionPanel = new Panel();
+            ((System.ComponentModel.ISupportInitialize)taskDataGridView).BeginInit();
+            actionPanel.SuspendLayout();
             SuspendLayout();
             // 
-            // txtSearchTask
+            // taskIdTextBox
             // 
-            txtSearchTask.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            txtSearchTask.Location = new Point(792, 54);
-            txtSearchTask.Margin = new Padding(2, 5, 2, 5);
-            txtSearchTask.Name = "txtSearchTask";
-            txtSearchTask.Size = new Size(112, 31);
-            txtSearchTask.TabIndex = 4;
-            txtSearchTask.KeyPress += txtSearchTask_KeyPress;
+            taskIdTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            taskIdTextBox.Location = new Point(792, 54);
+            taskIdTextBox.Margin = new Padding(2, 5, 2, 5);
+            taskIdTextBox.Name = "taskIdTextBox";
+            taskIdTextBox.Size = new Size(112, 31);
+            taskIdTextBox.TabIndex = 4;
+            taskIdTextBox.KeyPress += TaskTextBox_KeyPress;
             // 
-            // label1
+            // taskIdLabel
             // 
-            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(645, 58);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(143, 21);
-            label1.TabIndex = 3;
-            label1.Text = "Nhập mã công việc";
+            taskIdLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            taskIdLabel.AutoSize = true;
+            taskIdLabel.Font = new Font("Segoe UI", 12F);
+            taskIdLabel.ForeColor = Color.White;
+            taskIdLabel.Location = new Point(645, 58);
+            taskIdLabel.Margin = new Padding(2, 0, 2, 0);
+            taskIdLabel.Name = "taskIdLabel";
+            taskIdLabel.Size = new Size(143, 21);
+            taskIdLabel.TabIndex = 3;
+            taskIdLabel.Text = "Nhập mã công việc";
             // 
-            // btnAdd
+            // addButton
             // 
-            btnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAdd.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdd.Location = new Point(916, 22);
-            btnAdd.Margin = new Padding(2, 5, 2, 5);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(56, 57);
-            btnAdd.TabIndex = 2;
-            btnAdd.Text = "+";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
+            addButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            addButton.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            addButton.Location = new Point(916, 22);
+            addButton.Margin = new Padding(2, 5, 2, 5);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(56, 57);
+            addButton.TabIndex = 2;
+            addButton.Text = "+";
+            addButton.UseVisualStyleBackColor = true;
+            addButton.Click += AddButton_Click;
             // 
-            // txtSearchProject
+            // projectIdTextBox
             // 
-            txtSearchProject.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            txtSearchProject.Location = new Point(792, 15);
-            txtSearchProject.Margin = new Padding(2, 5, 2, 5);
-            txtSearchProject.Name = "txtSearchProject";
-            txtSearchProject.Size = new Size(112, 31);
-            txtSearchProject.TabIndex = 1;
-            txtSearchProject.KeyPress += txtSearchProject_KeyPress;
+            projectIdTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            projectIdTextBox.Location = new Point(792, 15);
+            projectIdTextBox.Margin = new Padding(2, 5, 2, 5);
+            projectIdTextBox.Name = "projectIdTextBox";
+            projectIdTextBox.Size = new Size(112, 31);
+            projectIdTextBox.TabIndex = 1;
+            projectIdTextBox.KeyPress += ProjectIdTextBox_KeyPress;
             // 
-            // lblSearch
+            // projectIdLabel
             // 
-            lblSearch.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            lblSearch.AutoSize = true;
-            lblSearch.Font = new Font("Segoe UI", 12F);
-            lblSearch.ForeColor = Color.White;
-            lblSearch.Location = new Point(671, 19);
-            lblSearch.Margin = new Padding(2, 0, 2, 0);
-            lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(117, 21);
-            lblSearch.TabIndex = 0;
-            lblSearch.Text = "Nhập mã dự án";
+            projectIdLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            projectIdLabel.AutoSize = true;
+            projectIdLabel.Font = new Font("Segoe UI", 12F);
+            projectIdLabel.ForeColor = Color.White;
+            projectIdLabel.Location = new Point(671, 19);
+            projectIdLabel.Margin = new Padding(2, 0, 2, 0);
+            projectIdLabel.Name = "projectIdLabel";
+            projectIdLabel.Size = new Size(117, 21);
+            projectIdLabel.TabIndex = 0;
+            projectIdLabel.Text = "Nhập mã dự án";
             // 
             // Delete
             // 
@@ -181,62 +181,61 @@
             idJob.Name = "idJob";
             idJob.Width = 135;
             // 
-            // dgvTasks
+            // taskDataGridView
             // 
-            dgvTasks.AllowUserToAddRows = false;
-            dgvTasks.BackgroundColor = Color.FromArgb(15, 15, 15);
-            dgvTasks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTasks.Columns.AddRange(new DataGridViewColumn[] { idJob, idMng, WorkName, AccessRight, Status, PrjPublic, DepPublic, ProjectID, Edit, Delete });
-            dgvTasks.Dock = DockStyle.Fill;
-            dgvTasks.Location = new Point(0, 0);
-            dgvTasks.Margin = new Padding(2, 5, 2, 5);
-            dgvTasks.Name = "dgvTasks";
-            dgvTasks.RowHeadersWidth = 51;
-            dgvTasks.RowTemplate.Height = 24;
-            dgvTasks.Size = new Size(984, 462);
-            dgvTasks.TabIndex = 0;
-            dgvTasks.CellContentClick += dgvTasks_CellContentClick;
+            taskDataGridView.AllowUserToAddRows = false;
+            taskDataGridView.BackgroundColor = Color.FromArgb(15, 15, 15);
+            taskDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            taskDataGridView.Columns.AddRange(new DataGridViewColumn[] { idJob, idMng, WorkName, AccessRight, Status, PrjPublic, DepPublic, ProjectID, Edit, Delete });
+            taskDataGridView.Dock = DockStyle.Fill;
+            taskDataGridView.Location = new Point(0, 0);
+            taskDataGridView.Margin = new Padding(2, 5, 2, 5);
+            taskDataGridView.Name = "taskDataGridView";
+            taskDataGridView.RowHeadersWidth = 51;
+            taskDataGridView.RowTemplate.Height = 24;
+            taskDataGridView.Size = new Size(984, 462);
+            taskDataGridView.TabIndex = 0;
+            taskDataGridView.CellContentClick += TaskDataGridView_CellContentClick;
             // 
-            // panel2
+            // actionPanel
             // 
-            panel2.BackColor = Color.FromArgb(22, 22, 22);
-            panel2.Controls.Add(txtSearchProject);
-            panel2.Controls.Add(txtSearchTask);
-            panel2.Controls.Add(lblSearch);
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(btnAdd);
-            panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 462);
-            panel2.Margin = new Padding(2, 5, 2, 5);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(984, 99);
-            panel2.TabIndex = 2;
+            actionPanel.BackColor = Color.FromArgb(22, 22, 22);
+            actionPanel.Controls.Add(projectIdTextBox);
+            actionPanel.Controls.Add(taskIdTextBox);
+            actionPanel.Controls.Add(projectIdLabel);
+            actionPanel.Controls.Add(taskIdLabel);
+            actionPanel.Controls.Add(addButton);
+            actionPanel.Dock = DockStyle.Bottom;
+            actionPanel.Location = new Point(0, 462);
+            actionPanel.Margin = new Padding(2, 5, 2, 5);
+            actionPanel.Name = "actionPanel";
+            actionPanel.Size = new Size(984, 99);
+            actionPanel.TabIndex = 2;
             // 
             // AdminTasks
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(984, 561);
-            Controls.Add(dgvTasks);
-            Controls.Add(panel2);
+            Controls.Add(taskDataGridView);
+            Controls.Add(actionPanel);
             Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(2, 5, 2, 5);
             Name = "AdminTasks";
-            Text = "Admin Tasks";
+            Size = new Size(984, 561);
             Load += AdminTasks_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvTasks).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)taskDataGridView).EndInit();
+            actionPanel.ResumeLayout(false);
+            actionPanel.PerformLayout();
             ResumeLayout(false);
 
         }
 
         #endregion
-        private Button btnAdd;
-        private TextBox txtSearchProject;
-        private Label lblSearch;
-        private TextBox txtSearchTask;
-        private Label label1;
+        private Button addButton;
+        private TextBox projectIdTextBox;
+        private Label projectIdLabel;
+        private TextBox taskIdTextBox;
+        private Label taskIdLabel;
         private DataGridViewImageColumn Delete;
         private DataGridViewImageColumn Edit;
         private DataGridViewTextBoxColumn ProjectID;
@@ -247,7 +246,7 @@
         private DataGridViewTextBoxColumn WorkName;
         private DataGridViewTextBoxColumn idMng;
         private DataGridViewTextBoxColumn idJob;
-        private DataGridView dgvTasks;
-        private Panel panel2;
+        private DataGridView taskDataGridView;
+        private Panel actionPanel;
     }
 }
