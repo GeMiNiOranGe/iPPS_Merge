@@ -13,7 +13,7 @@ namespace Pepro.Presentation
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        SqlConnection conn = new SqlConnection(Config.Database.CONNECTION_STRING);
+        SqlConnection conn = new SqlConnection(Config.CONNECTION_STRING);
         SqlCommand cmd = new SqlCommand();
 
         public AdminTasksModule()

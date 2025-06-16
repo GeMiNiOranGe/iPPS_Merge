@@ -1,8 +1,7 @@
-﻿using Config;
-using System.Data;
+﻿using System.Data;
 using Microsoft.Data.SqlClient;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Controls;
 
 public partial class FormDocument : UserControl
 {
@@ -19,7 +18,7 @@ public partial class FormDocument : UserControl
 
     private void FormDocument_Load(object sender, EventArgs e)
     {
-        sqlConnection = new SqlConnection(Database.CONNECTION_STRING);
+        sqlConnection = new SqlConnection(Config.CONNECTION_STRING);
         this.dgvDocument.DefaultCellStyle.Font = new Font("Tahoma", 10);
         this.dgvDocument.DefaultCellStyle.ForeColor = Color.Black;
         dataDocument();

@@ -1,7 +1,6 @@
-﻿namespace Config
+﻿namespace Pepro.Presentation;
+
+public static class Config
 {
-    public static class Database
-    {
-        public const string CONNECTION_STRING = @"Data Source=.;Initial Catalog=QUANLYLUONG;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
-    }
+    public const string CONNECTION_STRING = @"Data Source=.;Initial Catalog=QUANLYLUONG;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 }
