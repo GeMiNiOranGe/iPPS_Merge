@@ -27,25 +27,25 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            groupBox1 = new GroupBox();
-            cbTinhTrang = new ComboBox();
-            label6 = new Label();
-            tbMaCC = new TextBox();
-            label10 = new Label();
-            label9 = new Label();
-            numDiLam = new NumericUpDown();
+            informationGroupBox = new GroupBox();
+            statusComboBox = new ComboBox();
+            statusLabel = new Label();
+            attendanceIdTextBox = new TextBox();
+            attendanceIdLabel = new Label();
+            numberOfAttendanceLabel = new Label();
+            numberOfAttendanceNumericUpDown = new NumericUpDown();
             label5 = new Label();
             numngaynghiBHXH = new NumericUpDown();
             label4 = new Label();
             numngaynghi = new NumericUpDown();
-            dtpNgayLV = new DateTimePicker();
-            cboManv = new ComboBox();
-            label3 = new Label();
-            label1 = new Label();
-            btnThem = new Button();
-            btnCapnhat = new Button();
-            btnXoa = new Button();
-            dataChamCong = new DataGridView();
+            attendanceDateTimePicker = new DateTimePicker();
+            employeeIdTextBox = new ComboBox();
+            attendanceDateLabel = new Label();
+            employeeIdLabel = new Label();
+            addButton = new Button();
+            updateButton = new Button();
+            deleteButton = new Button();
+            attendanceDataGridView = new DataGridView();
             MACC = new DataGridViewTextBoxColumn();
             THANG = new DataGridViewTextBoxColumn();
             SONGAYTRONGTHANG = new DataGridViewTextBoxColumn();
@@ -53,106 +53,106 @@
             SONGAYNGHIKHONGLYDO = new DataGridViewTextBoxColumn();
             MANV = new DataGridViewTextBoxColumn();
             label2 = new Label();
-            btnChamCong = new Button();
-            btnBaoCao = new Button();
-            groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numDiLam).BeginInit();
+            attendanceButton = new Button();
+            exportReportButton = new Button();
+            informationGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numberOfAttendanceNumericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numngaynghiBHXH).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numngaynghi).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataChamCong).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)attendanceDataGridView).BeginInit();
             SuspendLayout();
             // 
-            // groupBox1
+            // informationGroupBox
             // 
-            groupBox1.Anchor = AnchorStyles.Top;
-            groupBox1.AutoSize = true;
-            groupBox1.BackColor = Color.FromArgb(255, 165, 89);
-            groupBox1.Controls.Add(cbTinhTrang);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(tbMaCC);
-            groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(numDiLam);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(numngaynghiBHXH);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(numngaynghi);
-            groupBox1.Controls.Add(dtpNgayLV);
-            groupBox1.Controls.Add(cboManv);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(10, 70);
-            groupBox1.Margin = new Padding(4);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(988, 163);
-            groupBox1.TabIndex = 46;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Thông Tin Chấm Công";
+            informationGroupBox.Anchor = AnchorStyles.Top;
+            informationGroupBox.AutoSize = true;
+            informationGroupBox.BackColor = Color.FromArgb(255, 165, 89);
+            informationGroupBox.Controls.Add(statusComboBox);
+            informationGroupBox.Controls.Add(statusLabel);
+            informationGroupBox.Controls.Add(attendanceIdTextBox);
+            informationGroupBox.Controls.Add(attendanceIdLabel);
+            informationGroupBox.Controls.Add(numberOfAttendanceLabel);
+            informationGroupBox.Controls.Add(numberOfAttendanceNumericUpDown);
+            informationGroupBox.Controls.Add(label5);
+            informationGroupBox.Controls.Add(numngaynghiBHXH);
+            informationGroupBox.Controls.Add(label4);
+            informationGroupBox.Controls.Add(numngaynghi);
+            informationGroupBox.Controls.Add(attendanceDateTimePicker);
+            informationGroupBox.Controls.Add(employeeIdTextBox);
+            informationGroupBox.Controls.Add(attendanceDateLabel);
+            informationGroupBox.Controls.Add(employeeIdLabel);
+            informationGroupBox.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            informationGroupBox.Location = new Point(10, 70);
+            informationGroupBox.Margin = new Padding(4);
+            informationGroupBox.Name = "informationGroupBox";
+            informationGroupBox.Padding = new Padding(4);
+            informationGroupBox.Size = new Size(988, 163);
+            informationGroupBox.TabIndex = 46;
+            informationGroupBox.TabStop = false;
+            informationGroupBox.Text = "Thông Tin Chấm Công";
             // 
-            // cbTinhTrang
+            // statusComboBox
             // 
-            cbTinhTrang.BackColor = SystemColors.Info;
-            cbTinhTrang.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbTinhTrang.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            cbTinhTrang.FormattingEnabled = true;
-            cbTinhTrang.Items.AddRange(new object[] { "Đi làm", "Nghỉ có phép", "Nghỉ không phép" });
-            cbTinhTrang.Location = new Point(162, 78);
-            cbTinhTrang.Margin = new Padding(4, 2, 4, 2);
-            cbTinhTrang.Name = "cbTinhTrang";
-            cbTinhTrang.Size = new Size(154, 25);
-            cbTinhTrang.TabIndex = 26;
+            statusComboBox.BackColor = SystemColors.Info;
+            statusComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            statusComboBox.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            statusComboBox.FormattingEnabled = true;
+            statusComboBox.Items.AddRange(new object[] { "Đi làm", "Nghỉ có phép", "Nghỉ không phép" });
+            statusComboBox.Location = new Point(162, 78);
+            statusComboBox.Margin = new Padding(4, 2, 4, 2);
+            statusComboBox.Name = "statusComboBox";
+            statusComboBox.Size = new Size(154, 25);
+            statusComboBox.TabIndex = 26;
             // 
-            // label6
+            // statusLabel
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(65, 81);
-            label6.Margin = new Padding(4, 0, 4, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(85, 18);
-            label6.TabIndex = 25;
-            label6.Text = "Tình Trạng:";
+            statusLabel.AutoSize = true;
+            statusLabel.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            statusLabel.Location = new Point(65, 81);
+            statusLabel.Margin = new Padding(4, 0, 4, 0);
+            statusLabel.Name = "statusLabel";
+            statusLabel.Size = new Size(85, 18);
+            statusLabel.TabIndex = 25;
+            statusLabel.Text = "Tình Trạng:";
             // 
-            // tbMaCC
+            // attendanceIdTextBox
             // 
-            tbMaCC.Location = new Point(162, 37);
-            tbMaCC.Margin = new Padding(4);
-            tbMaCC.Name = "tbMaCC";
-            tbMaCC.Size = new Size(154, 24);
-            tbMaCC.TabIndex = 24;
+            attendanceIdTextBox.Location = new Point(162, 37);
+            attendanceIdTextBox.Margin = new Padding(4);
+            attendanceIdTextBox.Name = "attendanceIdTextBox";
+            attendanceIdTextBox.Size = new Size(154, 24);
+            attendanceIdTextBox.TabIndex = 24;
             // 
-            // label10
+            // attendanceIdLabel
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(35, 38);
-            label10.Margin = new Padding(4, 0, 4, 0);
-            label10.Name = "label10";
-            label10.Size = new Size(114, 18);
-            label10.TabIndex = 23;
-            label10.Text = "Mã Chấm Công:";
+            attendanceIdLabel.AutoSize = true;
+            attendanceIdLabel.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            attendanceIdLabel.Location = new Point(35, 38);
+            attendanceIdLabel.Margin = new Padding(4, 0, 4, 0);
+            attendanceIdLabel.Name = "attendanceIdLabel";
+            attendanceIdLabel.Size = new Size(114, 18);
+            attendanceIdLabel.TabIndex = 23;
+            attendanceIdLabel.Text = "Mã Chấm Công:";
             // 
-            // label9
+            // numberOfAttendanceLabel
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(760, 29);
-            label9.Margin = new Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(110, 18);
-            label9.TabIndex = 22;
-            label9.Text = "Số ngày đi làm:";
+            numberOfAttendanceLabel.AutoSize = true;
+            numberOfAttendanceLabel.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            numberOfAttendanceLabel.Location = new Point(760, 29);
+            numberOfAttendanceLabel.Margin = new Padding(4, 0, 4, 0);
+            numberOfAttendanceLabel.Name = "numberOfAttendanceLabel";
+            numberOfAttendanceLabel.Size = new Size(110, 18);
+            numberOfAttendanceLabel.TabIndex = 22;
+            numberOfAttendanceLabel.Text = "Số ngày đi làm:";
             // 
-            // numDiLam
+            // numberOfAttendanceNumericUpDown
             // 
-            numDiLam.Location = new Point(893, 27);
-            numDiLam.Margin = new Padding(4);
-            numDiLam.Name = "numDiLam";
-            numDiLam.Size = new Size(80, 24);
-            numDiLam.TabIndex = 21;
-            numDiLam.ValueChanged += numDiLam_ValueChanged;
+            numberOfAttendanceNumericUpDown.Location = new Point(893, 27);
+            numberOfAttendanceNumericUpDown.Margin = new Padding(4);
+            numberOfAttendanceNumericUpDown.Name = "numberOfAttendanceNumericUpDown";
+            numberOfAttendanceNumericUpDown.Size = new Size(80, 24);
+            numberOfAttendanceNumericUpDown.TabIndex = 21;
+            numberOfAttendanceNumericUpDown.ValueChanged += NumberOfAttendanceNumericUpDown_ValueChanged;
             // 
             // label5
             // 
@@ -172,7 +172,7 @@
             numngaynghiBHXH.Name = "numngaynghiBHXH";
             numngaynghiBHXH.Size = new Size(80, 24);
             numngaynghiBHXH.TabIndex = 19;
-            numngaynghiBHXH.ValueChanged += numngaynghiBHXH_ValueChanged;
+            numngaynghiBHXH.ValueChanged += NumngaynghiBHXH_ValueChanged;
             // 
             // label4
             // 
@@ -192,112 +192,111 @@
             numngaynghi.Name = "numngaynghi";
             numngaynghi.Size = new Size(80, 24);
             numngaynghi.TabIndex = 17;
-            numngaynghi.ValueChanged += numngaynghi_ValueChanged;
+            numngaynghi.ValueChanged += Numngaynghi_ValueChanged;
             // 
-            // dtpNgayLV
+            // attendanceDateTimePicker
             // 
-            dtpNgayLV.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dtpNgayLV.Format = DateTimePickerFormat.Short;
-            dtpNgayLV.Location = new Point(462, 79);
-            dtpNgayLV.Margin = new Padding(4, 2, 4, 2);
-            dtpNgayLV.Name = "dtpNgayLV";
-            dtpNgayLV.Size = new Size(200, 25);
-            dtpNgayLV.TabIndex = 16;
-            dtpNgayLV.ValueChanged += dtpNgayLV_ValueChanged;
+            attendanceDateTimePicker.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            attendanceDateTimePicker.Format = DateTimePickerFormat.Short;
+            attendanceDateTimePicker.Location = new Point(462, 79);
+            attendanceDateTimePicker.Margin = new Padding(4, 2, 4, 2);
+            attendanceDateTimePicker.Name = "attendanceDateTimePicker";
+            attendanceDateTimePicker.Size = new Size(200, 25);
+            attendanceDateTimePicker.TabIndex = 16;
+            attendanceDateTimePicker.ValueChanged += AttendanceDateTimePicker_ValueChanged;
             // 
-            // cboManv
+            // employeeIdTextBox
             // 
-            cboManv.BackColor = SystemColors.Info;
-            cboManv.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboManv.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            cboManv.FormattingEnabled = true;
-            cboManv.Location = new Point(462, 36);
-            cboManv.Margin = new Padding(4, 2, 4, 2);
-            cboManv.Name = "cboManv";
-            cboManv.Size = new Size(200, 25);
-            cboManv.TabIndex = 15;
-            cboManv.SelectedIndexChanged += cboManv_SelectedIndexChanged;
+            employeeIdTextBox.BackColor = SystemColors.Info;
+            employeeIdTextBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            employeeIdTextBox.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            employeeIdTextBox.FormattingEnabled = true;
+            employeeIdTextBox.Location = new Point(462, 36);
+            employeeIdTextBox.Margin = new Padding(4, 2, 4, 2);
+            employeeIdTextBox.Name = "employeeIdTextBox";
+            employeeIdTextBox.Size = new Size(200, 25);
+            employeeIdTextBox.TabIndex = 15;
             // 
-            // label3
+            // attendanceDateLabel
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(345, 83);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(105, 18);
-            label3.TabIndex = 12;
-            label3.Text = "Ngày làm việc:";
+            attendanceDateLabel.AutoSize = true;
+            attendanceDateLabel.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            attendanceDateLabel.Location = new Point(345, 83);
+            attendanceDateLabel.Margin = new Padding(4, 0, 4, 0);
+            attendanceDateLabel.Name = "attendanceDateLabel";
+            attendanceDateLabel.Size = new Size(105, 18);
+            attendanceDateLabel.TabIndex = 12;
+            attendanceDateLabel.Text = "Ngày làm việc:";
             // 
-            // label1
+            // employeeIdLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(348, 40);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(101, 18);
-            label1.TabIndex = 10;
-            label1.Text = "Mã nhân viên:";
+            employeeIdLabel.AutoSize = true;
+            employeeIdLabel.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            employeeIdLabel.Location = new Point(348, 40);
+            employeeIdLabel.Margin = new Padding(4, 0, 4, 0);
+            employeeIdLabel.Name = "employeeIdLabel";
+            employeeIdLabel.Size = new Size(101, 18);
+            employeeIdLabel.TabIndex = 10;
+            employeeIdLabel.Text = "Mã nhân viên:";
             // 
-            // btnThem
+            // addButton
             // 
-            btnThem.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnThem.BackColor = Color.FromArgb(255, 96, 0);
-            btnThem.FlatStyle = FlatStyle.Popup;
-            btnThem.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThem.Location = new Point(380, 572);
-            btnThem.Margin = new Padding(4);
-            btnThem.Name = "btnThem";
-            btnThem.Size = new Size(109, 35);
-            btnThem.TabIndex = 50;
-            btnThem.Text = "Thêm mới";
-            btnThem.UseVisualStyleBackColor = false;
-            btnThem.Click += btnThem_Click;
+            addButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            addButton.BackColor = Color.FromArgb(255, 96, 0);
+            addButton.FlatStyle = FlatStyle.Popup;
+            addButton.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            addButton.Location = new Point(380, 572);
+            addButton.Margin = new Padding(4);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(109, 35);
+            addButton.TabIndex = 50;
+            addButton.Text = "Thêm mới";
+            addButton.UseVisualStyleBackColor = false;
+            addButton.Click += AddButton_Click;
             // 
-            // btnCapnhat
+            // updateButton
             // 
-            btnCapnhat.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCapnhat.BackColor = Color.FromArgb(255, 96, 0);
-            btnCapnhat.FlatStyle = FlatStyle.Popup;
-            btnCapnhat.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCapnhat.Location = new Point(517, 572);
-            btnCapnhat.Margin = new Padding(4);
-            btnCapnhat.Name = "btnCapnhat";
-            btnCapnhat.Size = new Size(109, 35);
-            btnCapnhat.TabIndex = 51;
-            btnCapnhat.Text = "Cập nhật";
-            btnCapnhat.UseVisualStyleBackColor = false;
-            btnCapnhat.Click += btnCapnhat_Click;
+            updateButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            updateButton.BackColor = Color.FromArgb(255, 96, 0);
+            updateButton.FlatStyle = FlatStyle.Popup;
+            updateButton.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            updateButton.Location = new Point(517, 572);
+            updateButton.Margin = new Padding(4);
+            updateButton.Name = "updateButton";
+            updateButton.Size = new Size(109, 35);
+            updateButton.TabIndex = 51;
+            updateButton.Text = "Cập nhật";
+            updateButton.UseVisualStyleBackColor = false;
+            updateButton.Click += UpdateButton_Click;
             // 
-            // btnXoa
+            // deleteButton
             // 
-            btnXoa.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnXoa.BackColor = Color.FromArgb(255, 96, 0);
-            btnXoa.FlatStyle = FlatStyle.Popup;
-            btnXoa.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnXoa.Location = new Point(654, 572);
-            btnXoa.Margin = new Padding(4);
-            btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(109, 35);
-            btnXoa.TabIndex = 52;
-            btnXoa.Text = "Xóa";
-            btnXoa.UseVisualStyleBackColor = false;
-            btnXoa.Click += btnXoa_Click;
+            deleteButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            deleteButton.BackColor = Color.FromArgb(255, 96, 0);
+            deleteButton.FlatStyle = FlatStyle.Popup;
+            deleteButton.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            deleteButton.Location = new Point(654, 572);
+            deleteButton.Margin = new Padding(4);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(109, 35);
+            deleteButton.TabIndex = 52;
+            deleteButton.Text = "Xóa";
+            deleteButton.UseVisualStyleBackColor = false;
+            deleteButton.Click += DeleteButton_Click;
             // 
-            // dataChamCong
+            // attendanceDataGridView
             // 
-            dataChamCong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataChamCong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataChamCong.Columns.AddRange(new DataGridViewColumn[] { MACC, THANG, SONGAYTRONGTHANG, SONGAYNGHIBHXH, SONGAYNGHIKHONGLYDO, MANV });
-            dataChamCong.Location = new Point(2, 231);
-            dataChamCong.Margin = new Padding(4);
-            dataChamCong.Name = "dataChamCong";
-            dataChamCong.RowHeadersWidth = 51;
-            dataChamCong.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataChamCong.Size = new Size(1004, 314);
-            dataChamCong.TabIndex = 54;
-            dataChamCong.SelectionChanged += dataChamCong_SelectionChanged;
+            attendanceDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            attendanceDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            attendanceDataGridView.Columns.AddRange(new DataGridViewColumn[] { MACC, THANG, SONGAYTRONGTHANG, SONGAYNGHIBHXH, SONGAYNGHIKHONGLYDO, MANV });
+            attendanceDataGridView.Location = new Point(2, 231);
+            attendanceDataGridView.Margin = new Padding(4);
+            attendanceDataGridView.Name = "attendanceDataGridView";
+            attendanceDataGridView.RowHeadersWidth = 51;
+            attendanceDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            attendanceDataGridView.Size = new Size(1004, 314);
+            attendanceDataGridView.TabIndex = 54;
+            attendanceDataGridView.SelectionChanged += AttendanceDataGridView_SelectionChanged;
             // 
             // MACC
             // 
@@ -363,35 +362,35 @@
             label2.TabIndex = 55;
             label2.Text = "Chấm Công";
             // 
-            // btnChamCong
+            // attendanceButton
             // 
-            btnChamCong.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnChamCong.BackColor = Color.FromArgb(255, 96, 0);
-            btnChamCong.FlatStyle = FlatStyle.Popup;
-            btnChamCong.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnChamCong.Location = new Point(242, 572);
-            btnChamCong.Margin = new Padding(4);
-            btnChamCong.Name = "btnChamCong";
-            btnChamCong.Size = new Size(109, 35);
-            btnChamCong.TabIndex = 56;
-            btnChamCong.Text = "Chấm công";
-            btnChamCong.UseVisualStyleBackColor = false;
-            btnChamCong.Click += btnChamCong_Click_1;
+            attendanceButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            attendanceButton.BackColor = Color.FromArgb(255, 96, 0);
+            attendanceButton.FlatStyle = FlatStyle.Popup;
+            attendanceButton.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            attendanceButton.Location = new Point(242, 572);
+            attendanceButton.Margin = new Padding(4);
+            attendanceButton.Name = "attendanceButton";
+            attendanceButton.Size = new Size(109, 35);
+            attendanceButton.TabIndex = 56;
+            attendanceButton.Text = "Chấm công";
+            attendanceButton.UseVisualStyleBackColor = false;
+            attendanceButton.Click += AttendanceButton_Click;
             // 
-            // btnBaoCao
+            // exportReportButton
             // 
-            btnBaoCao.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnBaoCao.BackColor = Color.FromArgb(255, 96, 0);
-            btnBaoCao.FlatStyle = FlatStyle.Popup;
-            btnBaoCao.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBaoCao.Location = new Point(105, 572);
-            btnBaoCao.Margin = new Padding(4);
-            btnBaoCao.Name = "btnBaoCao";
-            btnBaoCao.Size = new Size(109, 35);
-            btnBaoCao.TabIndex = 57;
-            btnBaoCao.Text = "Xuất báo cáo";
-            btnBaoCao.UseVisualStyleBackColor = false;
-            btnBaoCao.Click += btnBaoCao_Click;
+            exportReportButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            exportReportButton.BackColor = Color.FromArgb(255, 96, 0);
+            exportReportButton.FlatStyle = FlatStyle.Popup;
+            exportReportButton.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            exportReportButton.Location = new Point(105, 572);
+            exportReportButton.Margin = new Padding(4);
+            exportReportButton.Name = "exportReportButton";
+            exportReportButton.Size = new Size(109, 35);
+            exportReportButton.TabIndex = 57;
+            exportReportButton.Text = "Xuất báo cáo";
+            exportReportButton.UseVisualStyleBackColor = false;
+            exportReportButton.Click += ExportReportButton_Click;
             // 
             // formChamCong
             // 
@@ -399,57 +398,57 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.FromArgb(255, 230, 199);
-            Controls.Add(btnBaoCao);
-            Controls.Add(btnChamCong);
+            Controls.Add(exportReportButton);
+            Controls.Add(attendanceButton);
             Controls.Add(label2);
-            Controls.Add(dataChamCong);
-            Controls.Add(btnXoa);
-            Controls.Add(btnCapnhat);
-            Controls.Add(btnThem);
-            Controls.Add(groupBox1);
+            Controls.Add(attendanceDataGridView);
+            Controls.Add(deleteButton);
+            Controls.Add(updateButton);
+            Controls.Add(addButton);
+            Controls.Add(informationGroupBox);
             Margin = new Padding(4);
             Name = "formChamCong";
             Size = new Size(1006, 619);
-            Load += fromChamCong_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numDiLam).EndInit();
+            Load += FromChamCong_Load;
+            informationGroupBox.ResumeLayout(false);
+            informationGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numberOfAttendanceNumericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)numngaynghiBHXH).EndInit();
             ((System.ComponentModel.ISupportInitialize)numngaynghi).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataChamCong).EndInit();
+            ((System.ComponentModel.ISupportInitialize)attendanceDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
         }
 
         #endregion
-        private GroupBox groupBox1;
-        private Label label1;
-        private Button btnThem;
-        private Button btnCapnhat;
-        private Button btnXoa;
-        private DataGridView dataChamCong;
+        private GroupBox informationGroupBox;
+        private Label employeeIdLabel;
+        private Button addButton;
+        private Button updateButton;
+        private Button deleteButton;
+        private DataGridView attendanceDataGridView;
         private DataGridViewTextBoxColumn MACC;
         private DataGridViewTextBoxColumn THANG;
         private DataGridViewTextBoxColumn SONGAYTRONGTHANG;
         private DataGridViewTextBoxColumn SONGAYNGHIBHXH;
         private DataGridViewTextBoxColumn SONGAYNGHIKHONGLYDO;
         private DataGridViewTextBoxColumn MANV;
-        private ComboBox cboManv;
+        private ComboBox employeeIdTextBox;
         private Label label2;
         private Label label4;
         private NumericUpDown numngaynghi;
-        private DateTimePicker dtpNgayLV;
-        private Label label3;
-        private Label label9;
-        private NumericUpDown numDiLam;
+        private DateTimePicker attendanceDateTimePicker;
+        private Label attendanceDateLabel;
+        private Label numberOfAttendanceLabel;
+        private NumericUpDown numberOfAttendanceNumericUpDown;
         private Label label5;
         private NumericUpDown numngaynghiBHXH;
-        private TextBox tbMaCC;
-        private Label label10;
-        private ComboBox cbTinhTrang;
-        private Label label6;
-        private Button btnChamCong;
-        private Button btnBaoCao;
+        private TextBox attendanceIdTextBox;
+        private Label attendanceIdLabel;
+        private ComboBox statusComboBox;
+        private Label statusLabel;
+        private Button attendanceButton;
+        private Button exportReportButton;
     }
 }

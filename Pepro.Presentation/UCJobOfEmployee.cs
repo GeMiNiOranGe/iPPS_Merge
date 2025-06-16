@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.ComponentModel;
 
 namespace Pepro.Presentation {
     public partial class UCJobOfEmployee : UserControl {
@@ -17,27 +9,27 @@ namespace Pepro.Presentation {
         [Category("Custom Props")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string ProjectId {
-            get => lbProjectId.Text;
-            set => lbProjectId.Text = value;
+            get => projectIdLabel.Text;
+            set => projectIdLabel.Text = value;
         }
 
         [Category("Custom Props")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string JobName {
-            get => lbJobName.Text;
-            set => lbJobName.Text = value;
+            get => taskNameLabel.Text;
+            set => taskNameLabel.Text = value;
         }
         [Category("Custom Props")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string JobId {
-            get => lbJobId.Text;
-            set => lbJobId.Text = value;
+            get => taskIdLabel.Text;
+            set => taskIdLabel.Text = value;
         }
         [Category("Custom Props")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string JobPercent {
-            get => lbJobPercent.Text;
-            set => lbJobPercent.Text = value;
+            get => taskPercentLabel.Text;
+            set => taskPercentLabel.Text = value;
         }
     }
 }

@@ -24,28 +24,28 @@ namespace Pepro.Presentation {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            flPnlProjectList = new FlowLayoutPanel();
+            projectListFlowLayoutPanel = new FlowLayoutPanel();
             SuspendLayout();
             // 
-            // flPnlProjectList
+            // projectListFlowLayoutPanel
             // 
-            flPnlProjectList.BackColor = Color.FromArgb(15, 15, 15);
-            flPnlProjectList.Dock = DockStyle.Fill;
-            flPnlProjectList.Location = new Point(0, 0);
-            flPnlProjectList.Margin = new Padding(4, 3, 4, 3);
-            flPnlProjectList.Name = "flPnlProjectList";
-            flPnlProjectList.Padding = new Padding(14, 14, 14, 14);
-            flPnlProjectList.Size = new Size(331, 301);
-            flPnlProjectList.TabIndex = 0;
+            projectListFlowLayoutPanel.BackColor = Color.FromArgb(15, 15, 15);
+            projectListFlowLayoutPanel.Dock = DockStyle.Fill;
+            projectListFlowLayoutPanel.Location = new Point(0, 0);
+            projectListFlowLayoutPanel.Margin = new Padding(4, 3, 4, 3);
+            projectListFlowLayoutPanel.Name = "projectListFlowLayoutPanel";
+            projectListFlowLayoutPanel.Padding = new Padding(14);
+            projectListFlowLayoutPanel.Size = new Size(331, 301);
+            projectListFlowLayoutPanel.TabIndex = 0;
             // 
             // FormProgress
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(331, 301);
-            Controls.Add(flPnlProjectList);
+            Controls.Add(projectListFlowLayoutPanel);
             Margin = new Padding(4, 3, 4, 3);
             Name = "FormProgress";
+            Size = new Size(331, 301);
             Load += FormProgress_Load;
             ResumeLayout(false);
 
@@ -53,7 +53,7 @@ namespace Pepro.Presentation {
 
         #endregion
 
-        private FlowLayoutPanel flPnlProjectList;
+        private FlowLayoutPanel projectListFlowLayoutPanel;
     }
 }
 

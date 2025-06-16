@@ -20,13 +20,13 @@ public partial class EmployeeTasks : UserControl
 
     public void LoadEmployeeTasks()
     {
-        dgvTasks.Rows.Clear();
+        taskDataGridView.Rows.Clear();
         conn.Open();
         cmd = new SqlCommand("SELECT * FROM JOB", conn);
         rd = cmd.ExecuteReader();
         while (rd.Read())
         {
-            dgvTasks.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
+            taskDataGridView.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
                 rd["NAME"].ToString(), rd["ACCESS_RIGHT"].ToString(),
                 rd["STATUS"].ToString(), rd["PROJECT_PUBLIC"].ToString(),
                 rd["DEPARTMENT_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
@@ -35,29 +35,19 @@ public partial class EmployeeTasks : UserControl
         conn.Close();
     }
 
-    private string GetDate(object dateObj)
+    private void ProjectIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
-        if (dateObj is DateTime)
-        {
-            DateTime date = (DateTime)dateObj;
-            return date.ToString("MM/dd/yyyy");
-        }
-        return string.Empty;
-    }
-
-    private void txtSearchProject_KeyPress(object sender, KeyPressEventArgs e)
-    {
-        if (txtSearchProject.Text == "")
+        if (projectIdTextBox.Text == "")
             LoadEmployeeTasks();
         else
         {
-            dgvTasks.Rows.Clear();
+            taskDataGridView.Rows.Clear();
             conn.Open();
-            cmd = new SqlCommand($"SELECT * FROM JOB WHERE PROJECT_ID LIKE '%{txtSearchProject.Text}%'", conn);
+            cmd = new SqlCommand($"SELECT * FROM JOB WHERE PROJECT_ID LIKE '%{projectIdTextBox.Text}%'", conn);
             rd = cmd.ExecuteReader();
             while (rd.Read())
             {
-                dgvTasks.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
+                taskDataGridView.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
                     rd["NAME"].ToString(), rd["ACCESS_RIGHT"].ToString(),
                     rd["STATUS"].ToString(), rd["PROJECT_PUBLIC"].ToString(),
                     rd["DEPARTMENT_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());
@@ -67,19 +57,19 @@ public partial class EmployeeTasks : UserControl
         }
     }
 
-    private void txtSearchTask_KeyPress(object sender, KeyPressEventArgs e)
+    private void TaskIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
     {
-        if (txtSearchTask.Text == "")
+        if (taskIdTextBox.Text == "")
             LoadEmployeeTasks();
         else
         {
-            dgvTasks.Rows.Clear();
+            taskDataGridView.Rows.Clear();
             conn.Open();
-            cmd = new SqlCommand($"SELECT * FROM JOB WHERE ID LIKE '%{txtSearchTask.Text}%'", conn);
+            cmd = new SqlCommand($"SELECT * FROM JOB WHERE ID LIKE '%{taskIdTextBox.Text}%'", conn);
             rd = cmd.ExecuteReader();
             while (rd.Read())
             {
-                dgvTasks.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
+                taskDataGridView.Rows.Add(rd["ID"].ToString(), rd["JOB_MANAGER_ID"].ToString(),
                     rd["NAME"].ToString(), rd["ACCESS_RIGHT"].ToString(),
                     rd["STATUS"].ToString(), rd["PROJECT_PUBLIC"].ToString(),
                     rd["DEPARTMENT_PUBLIC"].ToString(), rd["PROJECT_ID"].ToString());

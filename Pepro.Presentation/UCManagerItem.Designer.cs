@@ -28,40 +28,40 @@ namespace Pepro.Presentation
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            lbManagerId = new Label();
-            lbManagerName = new Label();
+            managerIdLabel = new Label();
+            managerNameLabel = new Label();
             SuspendLayout();
             // 
-            // lbManagerId
+            // managerIdLabel
             // 
-            lbManagerId.AutoSize = true;
-            lbManagerId.ForeColor = Color.White;
-            lbManagerId.Location = new Point(8, 8);
-            lbManagerId.Margin = new Padding(8, 8, 8, 5);
-            lbManagerId.Name = "lbManagerId";
-            lbManagerId.Size = new Size(125, 20);
-            lbManagerId.TabIndex = 0;
-            lbManagerId.Text = "Mã người quản lý";
+            managerIdLabel.AutoSize = true;
+            managerIdLabel.ForeColor = Color.White;
+            managerIdLabel.Location = new Point(8, 8);
+            managerIdLabel.Margin = new Padding(8, 8, 8, 5);
+            managerIdLabel.Name = "managerIdLabel";
+            managerIdLabel.Size = new Size(125, 20);
+            managerIdLabel.TabIndex = 0;
+            managerIdLabel.Text = "Mã người quản lý";
             // 
-            // lbManagerName
+            // managerNameLabel
             // 
-            lbManagerName.AutoSize = true;
-            lbManagerName.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbManagerName.ForeColor = Color.White;
-            lbManagerName.Location = new Point(8, 33);
-            lbManagerName.Margin = new Padding(4, 0, 4, 0);
-            lbManagerName.Name = "lbManagerName";
-            lbManagerName.Size = new Size(191, 30);
-            lbManagerName.TabIndex = 1;
-            lbManagerName.Text = "Tên người quản lý";
+            managerNameLabel.AutoSize = true;
+            managerNameLabel.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            managerNameLabel.ForeColor = Color.White;
+            managerNameLabel.Location = new Point(8, 33);
+            managerNameLabel.Margin = new Padding(4, 0, 4, 0);
+            managerNameLabel.Name = "managerNameLabel";
+            managerNameLabel.Size = new Size(191, 30);
+            managerNameLabel.TabIndex = 1;
+            managerNameLabel.Text = "Tên người quản lý";
             // 
             // UCManagerItem
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(29, 29, 29);
-            Controls.Add(lbManagerName);
-            Controls.Add(lbManagerId);
+            Controls.Add(managerNameLabel);
+            Controls.Add(managerIdLabel);
             Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4, 5, 4, 5);
             Name = "UCManagerItem";
@@ -73,7 +73,7 @@ namespace Pepro.Presentation
 
         #endregion
 
-        private Label lbManagerId;
-        private Label lbManagerName;
+        private Label managerIdLabel;
+        private Label managerNameLabel;
     }
 }

@@ -28,89 +28,89 @@ namespace Pepro.Presentation
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            lbPercent = new Label();
-            lbName = new Label();
-            lbId = new Label();
-            lbDepartmentName = new Label();
+            percentLabel = new Label();
+            projectNameLabel = new Label();
+            projectIdLabel = new Label();
+            departmentNameLabel = new Label();
             SuspendLayout();
             // 
-            // lbPercent
+            // percentLabel
             // 
-            lbPercent.BackColor = Color.Transparent;
-            lbPercent.Dock = DockStyle.Fill;
-            lbPercent.Font = new Font("Segoe UI", 32F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbPercent.ForeColor = Color.FromArgb(34, 130, 253);
-            lbPercent.Location = new Point(0, 40);
-            lbPercent.Margin = new Padding(4, 0, 4, 0);
-            lbPercent.Name = "lbPercent";
-            lbPercent.Size = new Size(200, 130);
-            lbPercent.TabIndex = 0;
-            lbPercent.Text = "0%";
-            lbPercent.TextAlign = ContentAlignment.MiddleCenter;
-            lbPercent.Click += UCProject_Click;
-            lbPercent.MouseEnter += UCProject_MouseEnter;
-            lbPercent.MouseLeave += UCProject_MouseLeave;
+            percentLabel.BackColor = Color.Transparent;
+            percentLabel.Dock = DockStyle.Fill;
+            percentLabel.Font = new Font("Segoe UI", 32F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            percentLabel.ForeColor = Color.FromArgb(34, 130, 253);
+            percentLabel.Location = new Point(0, 40);
+            percentLabel.Margin = new Padding(4, 0, 4, 0);
+            percentLabel.Name = "percentLabel";
+            percentLabel.Size = new Size(200, 130);
+            percentLabel.TabIndex = 0;
+            percentLabel.Text = "0%";
+            percentLabel.TextAlign = ContentAlignment.MiddleCenter;
+            percentLabel.Click += UCProject_Click;
+            percentLabel.MouseEnter += UCProject_MouseEnter;
+            percentLabel.MouseLeave += UCProject_MouseLeave;
             // 
-            // lbName
+            // projectNameLabel
             // 
-            lbName.BackColor = Color.Transparent;
-            lbName.Dock = DockStyle.Bottom;
-            lbName.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbName.ForeColor = Color.White;
-            lbName.Location = new Point(0, 170);
-            lbName.Margin = new Padding(4, 0, 4, 0);
-            lbName.Name = "lbName";
-            lbName.Size = new Size(200, 40);
-            lbName.TabIndex = 1;
-            lbName.Text = "Tên dự án";
-            lbName.TextAlign = ContentAlignment.MiddleCenter;
-            lbName.Click += UCProject_Click;
-            lbName.MouseEnter += UCProject_MouseEnter;
-            lbName.MouseLeave += UCProject_MouseLeave;
+            projectNameLabel.BackColor = Color.Transparent;
+            projectNameLabel.Dock = DockStyle.Bottom;
+            projectNameLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            projectNameLabel.ForeColor = Color.White;
+            projectNameLabel.Location = new Point(0, 170);
+            projectNameLabel.Margin = new Padding(4, 0, 4, 0);
+            projectNameLabel.Name = "projectNameLabel";
+            projectNameLabel.Size = new Size(200, 40);
+            projectNameLabel.TabIndex = 1;
+            projectNameLabel.Text = "Tên dự án";
+            projectNameLabel.TextAlign = ContentAlignment.MiddleCenter;
+            projectNameLabel.Click += UCProject_Click;
+            projectNameLabel.MouseEnter += UCProject_MouseEnter;
+            projectNameLabel.MouseLeave += UCProject_MouseLeave;
             // 
-            // lbId
+            // projectIdLabel
             // 
-            lbId.BackColor = Color.Transparent;
-            lbId.Dock = DockStyle.Top;
-            lbId.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbId.ForeColor = Color.White;
-            lbId.Location = new Point(0, 0);
-            lbId.Margin = new Padding(4, 0, 4, 0);
-            lbId.Name = "lbId";
-            lbId.Size = new Size(200, 40);
-            lbId.TabIndex = 2;
-            lbId.Text = "Mã dự án";
-            lbId.TextAlign = ContentAlignment.MiddleCenter;
-            lbId.Click += UCProject_Click;
-            lbId.MouseEnter += UCProject_MouseEnter;
-            lbId.MouseLeave += UCProject_MouseLeave;
+            projectIdLabel.BackColor = Color.Transparent;
+            projectIdLabel.Dock = DockStyle.Top;
+            projectIdLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            projectIdLabel.ForeColor = Color.White;
+            projectIdLabel.Location = new Point(0, 0);
+            projectIdLabel.Margin = new Padding(4, 0, 4, 0);
+            projectIdLabel.Name = "projectIdLabel";
+            projectIdLabel.Size = new Size(200, 40);
+            projectIdLabel.TabIndex = 2;
+            projectIdLabel.Text = "Mã dự án";
+            projectIdLabel.TextAlign = ContentAlignment.MiddleCenter;
+            projectIdLabel.Click += UCProject_Click;
+            projectIdLabel.MouseEnter += UCProject_MouseEnter;
+            projectIdLabel.MouseLeave += UCProject_MouseLeave;
             // 
-            // lbDepartmentName
+            // departmentNameLabel
             // 
-            lbDepartmentName.BackColor = Color.Transparent;
-            lbDepartmentName.Dock = DockStyle.Bottom;
-            lbDepartmentName.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbDepartmentName.ForeColor = Color.White;
-            lbDepartmentName.Location = new Point(0, 210);
-            lbDepartmentName.Margin = new Padding(4, 0, 4, 0);
-            lbDepartmentName.Name = "lbDepartmentName";
-            lbDepartmentName.Size = new Size(200, 40);
-            lbDepartmentName.TabIndex = 3;
-            lbDepartmentName.Text = "Tên phòng ban";
-            lbDepartmentName.TextAlign = ContentAlignment.TopCenter;
-            lbDepartmentName.Click += UCProject_Click;
-            lbDepartmentName.MouseEnter += UCProject_MouseEnter;
-            lbDepartmentName.MouseLeave += UCProject_MouseLeave;
+            departmentNameLabel.BackColor = Color.Transparent;
+            departmentNameLabel.Dock = DockStyle.Bottom;
+            departmentNameLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            departmentNameLabel.ForeColor = Color.White;
+            departmentNameLabel.Location = new Point(0, 210);
+            departmentNameLabel.Margin = new Padding(4, 0, 4, 0);
+            departmentNameLabel.Name = "departmentNameLabel";
+            departmentNameLabel.Size = new Size(200, 40);
+            departmentNameLabel.TabIndex = 3;
+            departmentNameLabel.Text = "Tên phòng ban";
+            departmentNameLabel.TextAlign = ContentAlignment.TopCenter;
+            departmentNameLabel.Click += UCProject_Click;
+            departmentNameLabel.MouseEnter += UCProject_MouseEnter;
+            departmentNameLabel.MouseLeave += UCProject_MouseLeave;
             // 
             // UCProjectItem
             // 
             AutoScaleDimensions = new SizeF(6F, 12F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(29, 29, 29);
-            Controls.Add(lbPercent);
-            Controls.Add(lbName);
-            Controls.Add(lbDepartmentName);
-            Controls.Add(lbId);
+            Controls.Add(percentLabel);
+            Controls.Add(projectNameLabel);
+            Controls.Add(departmentNameLabel);
+            Controls.Add(projectIdLabel);
             Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(5);
             Name = "UCProjectItem";
@@ -124,9 +124,9 @@ namespace Pepro.Presentation
 
         #endregion
 
-        private Label lbPercent;
-        private Label lbName;
-        private Label lbId;
-        private Label lbDepartmentName;
+        private Label percentLabel;
+        private Label projectNameLabel;
+        private Label projectIdLabel;
+        private Label departmentNameLabel;
     }
 }

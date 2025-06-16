@@ -21,7 +21,7 @@ public partial class AdminProjects : UserControl
 
     public void LoadAdminProjects()
     {
-        dgvProjects.Rows.Clear();
+        projectDataGridView.Rows.Clear();
         conn.Open();
         cmd=new SqlCommand("SELECT P.ID, P.NAME, P.ACCESS_RIGHT, P.STATUS, P.CUSTOMER_NAME, P.PROJECT_MANAGER_ID, IP.DEPARTMENT_ID, IP.PROJECT_START_DATE, IP.PROJECT_END_DATE FROM PROJECT AS P INNER JOIN IMPLEMENT_PROJECT AS IP ON P.ID = IP.PROJECT_ID", conn);
         rd= cmd.ExecuteReader();
@@ -30,7 +30,7 @@ public partial class AdminProjects : UserControl
             string strFirstDay = GetDate(rd["PROJECT_START_DATE"]);
             string strLastDay = GetDate(rd["PROJECT_END_DATE"]);
 
-            dgvProjects.Rows.Add(rd["ID"].ToString(), rd["NAME"].ToString(),
+            projectDataGridView.Rows.Add(rd["ID"].ToString(), rd["NAME"].ToString(),
                 rd["ACCESS_RIGHT"].ToString(), rd["STATUS"].ToString(),
                 rd["CUSTOMER_NAME"].ToString(), rd["PROJECT_MANAGER_ID"].ToString(),
                 rd["DEPARTMENT_ID"].ToString(), strFirstDay, strLastDay);
@@ -49,37 +49,37 @@ public partial class AdminProjects : UserControl
         return string.Empty;
     }
 
-    private void btnAdd_Click(object sender, EventArgs e)
+    private void AddButton_Click(object sender, EventArgs e)
     {
         AdminProjectsModule adminProjectsModule = new AdminProjectsModule();
-        adminProjectsModule.btnUpdate.Enabled = false;
-        adminProjectsModule.btnSave.Enabled = true;
+        adminProjectsModule.updateButton.Enabled = false;
+        adminProjectsModule.saveButton.Enabled = true;
         adminProjectsModule.ShowDialog();
         LoadAdminProjects();
     }
 
-    private void dgvProjects_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    private void ProjectDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
-        string strColName = dgvProjects.Columns[e.ColumnIndex].Name;
+        string strColName = projectDataGridView.Columns[e.ColumnIndex].Name;
         if(strColName == "Edit")
         {
             AdminProjectsModule adminProjectsModule = new AdminProjectsModule();
-            adminProjectsModule.txtIDPrj.Text = dgvProjects.Rows[e.RowIndex].Cells[0].Value.ToString();
-            adminProjectsModule.txtName.Text = dgvProjects.Rows[e.RowIndex].Cells[1].Value.ToString();
-            adminProjectsModule.txtAccess.Text = dgvProjects.Rows[e.RowIndex].Cells[2].Value.ToString();
-            adminProjectsModule.txtStatus.Text = dgvProjects.Rows[e.RowIndex].Cells[3].Value.ToString();
-            adminProjectsModule.txtCustomer.Text = dgvProjects.Rows[e.RowIndex].Cells[4].Value.ToString();
-            adminProjectsModule.txtIDManager.Text = dgvProjects.Rows[e.RowIndex].Cells[5].Value.ToString();
-            adminProjectsModule.txtIDDep.Text = dgvProjects.Rows[e.RowIndex].Cells[6].Value.ToString();
-            adminProjectsModule.dtpStart.Text = dgvProjects.Rows[e.RowIndex].Cells[7].Value.ToString();
-            adminProjectsModule.dtpEnd.Text = dgvProjects.Rows[e.RowIndex].Cells[8].Value.ToString();
+            adminProjectsModule.projectIdTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+            adminProjectsModule.projectNameTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            adminProjectsModule.accessTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+            adminProjectsModule.statusTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+            adminProjectsModule.customerTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+            adminProjectsModule.managerIdTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+            adminProjectsModule.departmentTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
+            adminProjectsModule.startDateTimePicker.Text = projectDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
+            adminProjectsModule.endDateTimePicker.Text = projectDataGridView.Rows[e.RowIndex].Cells[8].Value.ToString();
 
-            adminProjectsModule.btnSave.Enabled = false;
-            adminProjectsModule.btnUpdate.Enabled = true;
-            adminProjectsModule.btnClear.Enabled = false;
-            adminProjectsModule.txtIDPrj.Enabled = false;
-            adminProjectsModule.txtIDManager.Enabled = false;
-            adminProjectsModule.txtIDDep.Enabled = false;
+            adminProjectsModule.saveButton.Enabled = false;
+            adminProjectsModule.updateButton.Enabled = true;
+            adminProjectsModule.clearButton.Enabled = false;
+            adminProjectsModule.projectIdTextBox.Enabled = false;
+            adminProjectsModule.managerIdTextBox.Enabled = false;
+            adminProjectsModule.departmentTextBox.Enabled = false;
             adminProjectsModule.ShowDialog();
         }
         else if(strColName == "Delete")
@@ -88,7 +88,7 @@ public partial class AdminProjects : UserControl
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 conn.Open();
-                string strIDProject = dgvProjects.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string strIDProject = projectDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
                 cmd2 = new SqlCommand($"DELETE FROM IMPLEMENT_PROJECT WHERE PROJECT_ID='{strIDProject}'", conn);
                 cmd2.ExecuteNonQuery();
 

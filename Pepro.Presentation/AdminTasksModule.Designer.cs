@@ -27,272 +27,273 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            pnlHead = new Panel();
-            pictureBox1 = new PictureBox();
-            label1 = new Label();
-            label3 = new Label();
-            label2 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            btnSave = new Button();
-            btnUpdate = new Button();
-            btnClear = new Button();
-            txtPrjID = new TextBox();
-            txtJobID = new TextBox();
-            txtMngID = new TextBox();
-            txtName = new TextBox();
-            txtAccessR = new TextBox();
-            txtDepPub = new TextBox();
-            txtPrjPub = new TextBox();
-            txtStatus = new TextBox();
-            pnlHead.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            headerPanel = new Panel();
+            closePictureBox = new PictureBox();
+            headerLabel = new Label();
+            projectIdLabel = new Label();
+            taskIdLabel = new Label();
+            managerIdLabel = new Label();
+            taskNameLabel = new Label();
+            accessLabel = new Label();
+            statusLabel = new Label();
+            publicProjectLabel = new Label();
+            publicDepartmentLabel = new Label();
+            saveButton = new Button();
+            updateButton = new Button();
+            clearButton = new Button();
+            projectIdTextBox = new TextBox();
+            taskIdTextBox = new TextBox();
+            managerIdTextBox = new TextBox();
+            taskNameTextBox = new TextBox();
+            accessTextBox = new TextBox();
+            publicDepartmentTextBox = new TextBox();
+            publicProjectTextBox = new TextBox();
+            statusTextBox = new TextBox();
+            headerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)closePictureBox).BeginInit();
             SuspendLayout();
             // 
-            // pnlHead
+            // headerPanel
             // 
-            pnlHead.BackColor = Color.FromArgb(34, 130, 253);
-            pnlHead.Controls.Add(pictureBox1);
-            pnlHead.Controls.Add(label1);
-            pnlHead.Dock = DockStyle.Top;
-            pnlHead.Location = new Point(0, 0);
-            pnlHead.Margin = new Padding(2);
-            pnlHead.Name = "pnlHead";
-            pnlHead.Size = new Size(569, 75);
-            pnlHead.TabIndex = 0;
-            pnlHead.MouseDown += pnlHead_MouseDown;
+            headerPanel.BackColor = Color.FromArgb(34, 130, 253);
+            headerPanel.Controls.Add(closePictureBox);
+            headerPanel.Controls.Add(headerLabel);
+            headerPanel.Dock = DockStyle.Top;
+            headerPanel.Location = new Point(0, 0);
+            headerPanel.Margin = new Padding(2);
+            headerPanel.Name = "headerPanel";
+            headerPanel.Size = new Size(569, 75);
+            headerPanel.TabIndex = 0;
+            headerPanel.MouseDown += HeaderPanel_MouseDown;
             // 
-            // pictureBox1
+            // closePictureBox
             // 
-            pictureBox1.Cursor = Cursors.Hand;
-            pictureBox1.Location = new Point(537, 12);
-            pictureBox1.Margin = new Padding(2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(22, 23);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            closePictureBox.Cursor = Cursors.Hand;
+            closePictureBox.Image = Properties.Resources.CloseCircleFill;
+            closePictureBox.Location = new Point(537, 12);
+            closePictureBox.Margin = new Padding(2);
+            closePictureBox.Name = "closePictureBox";
+            closePictureBox.Size = new Size(22, 23);
+            closePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            closePictureBox.TabIndex = 1;
+            closePictureBox.TabStop = false;
+            closePictureBox.Click += ClosePictureBox_Click;
             // 
-            // label1
+            // headerLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(35, 23);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(165, 26);
-            label1.TabIndex = 0;
-            label1.Text = "Thêm công việc";
+            headerLabel.AutoSize = true;
+            headerLabel.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            headerLabel.ForeColor = Color.White;
+            headerLabel.Location = new Point(35, 23);
+            headerLabel.Margin = new Padding(2, 0, 2, 0);
+            headerLabel.Name = "headerLabel";
+            headerLabel.Size = new Size(165, 26);
+            headerLabel.TabIndex = 0;
+            headerLabel.Text = "Thêm công việc";
             // 
-            // label3
+            // projectIdLabel
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(13, 100);
-            label3.Margin = new Padding(2, 0, 2, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(70, 20);
-            label3.TabIndex = 2;
-            label3.Text = "ID dự án";
+            projectIdLabel.AutoSize = true;
+            projectIdLabel.BackColor = Color.Transparent;
+            projectIdLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            projectIdLabel.ForeColor = Color.White;
+            projectIdLabel.Location = new Point(13, 100);
+            projectIdLabel.Margin = new Padding(2, 0, 2, 0);
+            projectIdLabel.Name = "projectIdLabel";
+            projectIdLabel.Size = new Size(70, 20);
+            projectIdLabel.TabIndex = 2;
+            projectIdLabel.Text = "ID dự án";
             // 
-            // label2
+            // taskIdLabel
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(13, 141);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(96, 20);
-            label2.TabIndex = 3;
-            label2.Text = "ID công việc";
+            taskIdLabel.AutoSize = true;
+            taskIdLabel.BackColor = Color.Transparent;
+            taskIdLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            taskIdLabel.ForeColor = Color.White;
+            taskIdLabel.Location = new Point(13, 141);
+            taskIdLabel.Margin = new Padding(2, 0, 2, 0);
+            taskIdLabel.Name = "taskIdLabel";
+            taskIdLabel.Size = new Size(96, 20);
+            taskIdLabel.TabIndex = 3;
+            taskIdLabel.Text = "ID công việc";
             // 
-            // label4
+            // managerIdLabel
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(13, 181);
-            label4.Margin = new Padding(2, 0, 2, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(80, 20);
-            label4.TabIndex = 4;
-            label4.Text = "ID quản lý";
+            managerIdLabel.AutoSize = true;
+            managerIdLabel.BackColor = Color.Transparent;
+            managerIdLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            managerIdLabel.ForeColor = Color.White;
+            managerIdLabel.Location = new Point(13, 181);
+            managerIdLabel.Margin = new Padding(2, 0, 2, 0);
+            managerIdLabel.Name = "managerIdLabel";
+            managerIdLabel.Size = new Size(80, 20);
+            managerIdLabel.TabIndex = 4;
+            managerIdLabel.Text = "ID quản lý";
             // 
-            // label5
+            // taskNameLabel
             // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(13, 222);
-            label5.Margin = new Padding(2, 0, 2, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(106, 20);
-            label5.TabIndex = 5;
-            label5.Text = "Tên công việc";
+            taskNameLabel.AutoSize = true;
+            taskNameLabel.BackColor = Color.Transparent;
+            taskNameLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            taskNameLabel.ForeColor = Color.White;
+            taskNameLabel.Location = new Point(13, 222);
+            taskNameLabel.Margin = new Padding(2, 0, 2, 0);
+            taskNameLabel.Name = "taskNameLabel";
+            taskNameLabel.Size = new Size(106, 20);
+            taskNameLabel.TabIndex = 5;
+            taskNameLabel.Text = "Tên công việc";
             // 
-            // label6
+            // accessLabel
             // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Transparent;
-            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(13, 262);
-            label6.Margin = new Padding(2, 0, 2, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(115, 20);
-            label6.TabIndex = 6;
-            label6.Text = "Quyền truy cập";
+            accessLabel.AutoSize = true;
+            accessLabel.BackColor = Color.Transparent;
+            accessLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            accessLabel.ForeColor = Color.White;
+            accessLabel.Location = new Point(13, 262);
+            accessLabel.Margin = new Padding(2, 0, 2, 0);
+            accessLabel.Name = "accessLabel";
+            accessLabel.Size = new Size(115, 20);
+            accessLabel.TabIndex = 6;
+            accessLabel.Text = "Quyền truy cập";
             // 
-            // label7
+            // statusLabel
             // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Transparent;
-            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(13, 302);
-            label7.Margin = new Padding(2, 0, 2, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(80, 20);
-            label7.TabIndex = 7;
-            label7.Text = "Trạng thái";
+            statusLabel.AutoSize = true;
+            statusLabel.BackColor = Color.Transparent;
+            statusLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            statusLabel.ForeColor = Color.White;
+            statusLabel.Location = new Point(13, 302);
+            statusLabel.Margin = new Padding(2, 0, 2, 0);
+            statusLabel.Name = "statusLabel";
+            statusLabel.Size = new Size(80, 20);
+            statusLabel.TabIndex = 7;
+            statusLabel.Text = "Trạng thái";
             // 
-            // label8
+            // publicProjectLabel
             // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.Transparent;
-            label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.White;
-            label8.Location = new Point(13, 343);
-            label8.Margin = new Padding(2, 0, 2, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(124, 20);
-            label8.TabIndex = 8;
-            label8.Text = "Công khai dự án";
+            publicProjectLabel.AutoSize = true;
+            publicProjectLabel.BackColor = Color.Transparent;
+            publicProjectLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            publicProjectLabel.ForeColor = Color.White;
+            publicProjectLabel.Location = new Point(13, 343);
+            publicProjectLabel.Margin = new Padding(2, 0, 2, 0);
+            publicProjectLabel.Name = "publicProjectLabel";
+            publicProjectLabel.Size = new Size(124, 20);
+            publicProjectLabel.TabIndex = 8;
+            publicProjectLabel.Text = "Công khai dự án";
             // 
-            // label9
+            // publicDepartmentLabel
             // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.Transparent;
-            label9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.White;
-            label9.Location = new Point(13, 383);
-            label9.Margin = new Padding(2, 0, 2, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(160, 20);
-            label9.TabIndex = 9;
-            label9.Text = "Công khai phòng ban";
+            publicDepartmentLabel.AutoSize = true;
+            publicDepartmentLabel.BackColor = Color.Transparent;
+            publicDepartmentLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            publicDepartmentLabel.ForeColor = Color.White;
+            publicDepartmentLabel.Location = new Point(13, 383);
+            publicDepartmentLabel.Margin = new Padding(2, 0, 2, 0);
+            publicDepartmentLabel.Name = "publicDepartmentLabel";
+            publicDepartmentLabel.Size = new Size(160, 20);
+            publicDepartmentLabel.TabIndex = 9;
+            publicDepartmentLabel.Text = "Công khai phòng ban";
             // 
-            // btnSave
+            // saveButton
             // 
-            btnSave.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSave.Location = new Point(216, 427);
-            btnSave.Margin = new Padding(2);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(88, 45);
-            btnSave.TabIndex = 9;
-            btnSave.Text = "Lưu";
-            btnSave.UseVisualStyleBackColor = true;
-            btnSave.Click += btnSave_Click;
+            saveButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            saveButton.Location = new Point(216, 427);
+            saveButton.Margin = new Padding(2);
+            saveButton.Name = "saveButton";
+            saveButton.Size = new Size(88, 45);
+            saveButton.TabIndex = 9;
+            saveButton.Text = "Lưu";
+            saveButton.UseVisualStyleBackColor = true;
+            saveButton.Click += SaveButton_Click;
             // 
-            // btnUpdate
+            // updateButton
             // 
-            btnUpdate.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnUpdate.Location = new Point(327, 427);
-            btnUpdate.Margin = new Padding(2);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(88, 45);
-            btnUpdate.TabIndex = 10;
-            btnUpdate.Text = "Cập nhật";
-            btnUpdate.UseVisualStyleBackColor = true;
-            btnUpdate.Click += btnUpdate_Click;
+            updateButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            updateButton.Location = new Point(327, 427);
+            updateButton.Margin = new Padding(2);
+            updateButton.Name = "updateButton";
+            updateButton.Size = new Size(88, 45);
+            updateButton.TabIndex = 10;
+            updateButton.Text = "Cập nhật";
+            updateButton.UseVisualStyleBackColor = true;
+            updateButton.Click += UpdateButton_Click;
             // 
-            // btnClear
+            // clearButton
             // 
-            btnClear.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnClear.Location = new Point(436, 427);
-            btnClear.Margin = new Padding(2);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(88, 45);
-            btnClear.TabIndex = 11;
-            btnClear.Text = "Làm mới";
-            btnClear.UseVisualStyleBackColor = true;
-            btnClear.Click += btnClear_Click;
+            clearButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            clearButton.Location = new Point(436, 427);
+            clearButton.Margin = new Padding(2);
+            clearButton.Name = "clearButton";
+            clearButton.Size = new Size(88, 45);
+            clearButton.TabIndex = 11;
+            clearButton.Text = "Làm mới";
+            clearButton.UseVisualStyleBackColor = true;
+            clearButton.Click += ClearButton_Click;
             // 
-            // txtPrjID
+            // projectIdTextBox
             // 
-            txtPrjID.Location = new Point(216, 103);
-            txtPrjID.Margin = new Padding(2);
-            txtPrjID.Name = "txtPrjID";
-            txtPrjID.Size = new Size(308, 23);
-            txtPrjID.TabIndex = 1;
+            projectIdTextBox.Location = new Point(216, 103);
+            projectIdTextBox.Margin = new Padding(2);
+            projectIdTextBox.Name = "projectIdTextBox";
+            projectIdTextBox.Size = new Size(308, 23);
+            projectIdTextBox.TabIndex = 1;
             // 
-            // txtJobID
+            // taskIdTextBox
             // 
-            txtJobID.Location = new Point(216, 143);
-            txtJobID.Margin = new Padding(2);
-            txtJobID.Name = "txtJobID";
-            txtJobID.Size = new Size(308, 23);
-            txtJobID.TabIndex = 2;
+            taskIdTextBox.Location = new Point(216, 143);
+            taskIdTextBox.Margin = new Padding(2);
+            taskIdTextBox.Name = "taskIdTextBox";
+            taskIdTextBox.Size = new Size(308, 23);
+            taskIdTextBox.TabIndex = 2;
             // 
-            // txtMngID
+            // managerIdTextBox
             // 
-            txtMngID.Location = new Point(216, 182);
-            txtMngID.Margin = new Padding(2);
-            txtMngID.Name = "txtMngID";
-            txtMngID.Size = new Size(308, 23);
-            txtMngID.TabIndex = 3;
+            managerIdTextBox.Location = new Point(216, 182);
+            managerIdTextBox.Margin = new Padding(2);
+            managerIdTextBox.Name = "managerIdTextBox";
+            managerIdTextBox.Size = new Size(308, 23);
+            managerIdTextBox.TabIndex = 3;
             // 
-            // txtName
+            // taskNameTextBox
             // 
-            txtName.Location = new Point(216, 223);
-            txtName.Margin = new Padding(2);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(308, 23);
-            txtName.TabIndex = 4;
+            taskNameTextBox.Location = new Point(216, 223);
+            taskNameTextBox.Margin = new Padding(2);
+            taskNameTextBox.Name = "taskNameTextBox";
+            taskNameTextBox.Size = new Size(308, 23);
+            taskNameTextBox.TabIndex = 4;
             // 
-            // txtAccessR
+            // accessTextBox
             // 
-            txtAccessR.Location = new Point(216, 263);
-            txtAccessR.Margin = new Padding(2);
-            txtAccessR.Name = "txtAccessR";
-            txtAccessR.Size = new Size(308, 23);
-            txtAccessR.TabIndex = 5;
+            accessTextBox.Location = new Point(216, 263);
+            accessTextBox.Margin = new Padding(2);
+            accessTextBox.Name = "accessTextBox";
+            accessTextBox.Size = new Size(308, 23);
+            accessTextBox.TabIndex = 5;
             // 
-            // txtDepPub
+            // publicDepartmentTextBox
             // 
-            txtDepPub.Location = new Point(216, 384);
-            txtDepPub.Margin = new Padding(2);
-            txtDepPub.Name = "txtDepPub";
-            txtDepPub.Size = new Size(308, 23);
-            txtDepPub.TabIndex = 8;
+            publicDepartmentTextBox.Location = new Point(216, 384);
+            publicDepartmentTextBox.Margin = new Padding(2);
+            publicDepartmentTextBox.Name = "publicDepartmentTextBox";
+            publicDepartmentTextBox.Size = new Size(308, 23);
+            publicDepartmentTextBox.TabIndex = 8;
             // 
-            // txtPrjPub
+            // publicProjectTextBox
             // 
-            txtPrjPub.Location = new Point(216, 344);
-            txtPrjPub.Margin = new Padding(2);
-            txtPrjPub.Name = "txtPrjPub";
-            txtPrjPub.Size = new Size(308, 23);
-            txtPrjPub.TabIndex = 7;
+            publicProjectTextBox.Location = new Point(216, 344);
+            publicProjectTextBox.Margin = new Padding(2);
+            publicProjectTextBox.Name = "publicProjectTextBox";
+            publicProjectTextBox.Size = new Size(308, 23);
+            publicProjectTextBox.TabIndex = 7;
             // 
-            // txtStatus
+            // statusTextBox
             // 
-            txtStatus.Location = new Point(216, 303);
-            txtStatus.Margin = new Padding(2);
-            txtStatus.Name = "txtStatus";
-            txtStatus.Size = new Size(308, 23);
-            txtStatus.TabIndex = 6;
+            statusTextBox.Location = new Point(216, 303);
+            statusTextBox.Margin = new Padding(2);
+            statusTextBox.Name = "statusTextBox";
+            statusTextBox.Size = new Size(308, 23);
+            statusTextBox.TabIndex = 6;
             // 
             // AdminTasksModule
             // 
@@ -300,34 +301,34 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(29, 29, 29);
             ClientSize = new Size(569, 516);
-            Controls.Add(txtDepPub);
-            Controls.Add(txtPrjPub);
-            Controls.Add(txtStatus);
-            Controls.Add(txtAccessR);
-            Controls.Add(txtName);
-            Controls.Add(txtMngID);
-            Controls.Add(txtJobID);
-            Controls.Add(txtPrjID);
-            Controls.Add(btnClear);
-            Controls.Add(btnUpdate);
-            Controls.Add(btnSave);
-            Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label2);
-            Controls.Add(label3);
-            Controls.Add(pnlHead);
+            Controls.Add(publicDepartmentTextBox);
+            Controls.Add(publicProjectTextBox);
+            Controls.Add(statusTextBox);
+            Controls.Add(accessTextBox);
+            Controls.Add(taskNameTextBox);
+            Controls.Add(managerIdTextBox);
+            Controls.Add(taskIdTextBox);
+            Controls.Add(projectIdTextBox);
+            Controls.Add(clearButton);
+            Controls.Add(updateButton);
+            Controls.Add(saveButton);
+            Controls.Add(publicDepartmentLabel);
+            Controls.Add(publicProjectLabel);
+            Controls.Add(statusLabel);
+            Controls.Add(accessLabel);
+            Controls.Add(taskNameLabel);
+            Controls.Add(managerIdLabel);
+            Controls.Add(taskIdLabel);
+            Controls.Add(projectIdLabel);
+            Controls.Add(headerPanel);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "AdminTasksModule";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminTasksModule";
-            pnlHead.ResumeLayout(false);
-            pnlHead.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            headerPanel.ResumeLayout(false);
+            headerPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)closePictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -335,27 +336,27 @@
 
         #endregion
 
-        private Panel pnlHead;
-        private Label label1;
-        private PictureBox pictureBox1;
-        private Label label3;
-        private Label label2;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        public System.Windows.Forms.Button btnSave;
-        public System.Windows.Forms.Button btnUpdate;
-        public System.Windows.Forms.Button btnClear;
-        public System.Windows.Forms.TextBox txtPrjID;
-        public System.Windows.Forms.TextBox txtJobID;
-        public System.Windows.Forms.TextBox txtMngID;
-        public System.Windows.Forms.TextBox txtName;
-        public System.Windows.Forms.TextBox txtAccessR;
-        public System.Windows.Forms.TextBox txtDepPub;
-        public System.Windows.Forms.TextBox txtPrjPub;
-        public System.Windows.Forms.TextBox txtStatus;
+        private Panel headerPanel;
+        private Label headerLabel;
+        private PictureBox closePictureBox;
+        private Label projectIdLabel;
+        private Label taskIdLabel;
+        private Label managerIdLabel;
+        private Label taskNameLabel;
+        private Label accessLabel;
+        private Label statusLabel;
+        private Label publicProjectLabel;
+        private Label publicDepartmentLabel;
+        public Button saveButton;
+        public Button updateButton;
+        public Button clearButton;
+        public TextBox projectIdTextBox;
+        public TextBox taskIdTextBox;
+        public TextBox managerIdTextBox;
+        public TextBox taskNameTextBox;
+        public TextBox accessTextBox;
+        public TextBox publicDepartmentTextBox;
+        public TextBox publicProjectTextBox;
+        public TextBox statusTextBox;
     }
 }
