@@ -190,7 +190,6 @@
             Font = new Font("Segoe UI", 13F);
             Margin = new Padding(3, 4, 3, 4);
             Name = "EmployeeTasks";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "EmployeeTasks";
             Load += EmployeeTasks_Load;
             panel1.ResumeLayout(false);
