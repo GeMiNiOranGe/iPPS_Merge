@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Data;
 
-namespace Pepro.Presentation {
+namespace Pepro.Presentation.Controls {
     public partial class UCJobItem : UserControl {
         #region Properties
         bool isHover = false;

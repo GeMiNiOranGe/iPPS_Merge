@@ -1,5 +1,4 @@
-﻿using Config;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Pepro.Presentation {
     public partial class FormDispatchStaff : Form {
-        SqlConnection sqlConnection = new SqlConnection(Database.CONNECTION_STRING);
+        SqlConnection sqlConnection = new SqlConnection(Config.CONNECTION_STRING);
         SqlCommand sqlCommand;
         SqlDataReader sqlDataReader;
         //SqlDataAdapter sqlDataAdapter;

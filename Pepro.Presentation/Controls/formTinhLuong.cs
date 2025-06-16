@@ -4,7 +4,7 @@ using Pepro.DataAccess;
 using System.Data;
 using System.Text.RegularExpressions;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Controls;
 
 public partial class formTinhLuong : UserControl {
     #region Event        

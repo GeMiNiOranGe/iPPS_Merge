@@ -3,7 +3,7 @@ using Pepro.DTOs;
 using System.Data;
 using Pepro.DataAccess;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Controls;
 
 public partial class formChamCong : UserControl {
     #region Event

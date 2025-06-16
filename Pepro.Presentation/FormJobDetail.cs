@@ -1,17 +1,11 @@
 ﻿using Pepro.Business;
-using System;
-using System.Collections.Generic;
+using Pepro.Presentation.Controls;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Pepro.Presentation {
     public partial class FormJobDetail : Form {
-        public string strEmployeeId;
+        public string? strEmployeeId;
 
         #region Properties
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]

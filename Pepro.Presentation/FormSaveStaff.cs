@@ -9,11 +9,10 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Config;
 
 namespace Pepro.Presentation {
     public partial class FormSaveStaff : Form {
-        SqlConnection sqlConnection = new SqlConnection(Database.CONNECTION_STRING);
+        SqlConnection sqlConnection = new SqlConnection(Config.CONNECTION_STRING);
         SqlCommand sqlCommand;
         SqlDataReader sqlDataReader;
         SqlDataAdapter sqlDataAdapter;

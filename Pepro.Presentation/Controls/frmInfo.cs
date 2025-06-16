@@ -1,7 +1,7 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Controls;
 
 public partial class frmInfo : UserControl
 {

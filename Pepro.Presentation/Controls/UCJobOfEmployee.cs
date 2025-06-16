@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Pepro.Presentation {
+namespace Pepro.Presentation.Controls {
     public partial class UCJobOfEmployee : UserControl {
         public UCJobOfEmployee() {
             InitializeComponent();
