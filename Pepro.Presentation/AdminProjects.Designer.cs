@@ -176,7 +176,6 @@
             Font = new Font("Segoe UI", 13F);
             Margin = new Padding(3, 4, 3, 4);
             Name = "AdminProjects";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "Projects";
             Load += AdminProjects_Load;
             ((System.ComponentModel.ISupportInitialize)dgvProjects).EndInit();

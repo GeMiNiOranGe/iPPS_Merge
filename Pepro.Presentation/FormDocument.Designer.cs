@@ -705,10 +705,8 @@
             Controls.Add(btnDelete);
             Controls.Add(btnInsert);
             Controls.Add(dgvDocument);
-            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "FormDocument";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormDocument";
             Load += FormDocument_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDocument).EndInit();

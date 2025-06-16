@@ -7,7 +7,6 @@ public partial class FormMenu : Form {
     private readonly SqlConnection conn = new(
         @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
     );
-    private Form? currentFormChild;
     private string? userId;
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -20,15 +19,12 @@ public partial class FormMenu : Form {
         InitializeComponent();
     }
 
-    private void OpenChildForm(Form childForm) {
-        currentFormChild?.Close();
-        currentFormChild = childForm;
-        childForm.TopLevel = false;
-        childForm.FormBorderStyle = FormBorderStyle.None;
+    private void OpenChildForm(UserControl childForm) {
+        workplacePanel.Controls.Clear();
         childForm.Dock = DockStyle.Fill;
         workplacePanel.Controls.Add(childForm);
         childForm.BringToFront();
-        childForm.Show();
+        //childForm.Show();
     }
 
     public string GetFullname() {
@@ -142,7 +138,7 @@ public partial class FormMenu : Form {
     private void DormitoryButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(dormitoryButton.Location.Y);
 
-        OpenChildForm(new formKTX());
+        //OpenChildForm(new formKTX());
     }
 
     #region account info
@@ -170,7 +166,7 @@ public partial class FormMenu : Form {
     #endregion
 
     private void LbAppName_Click(object sender, EventArgs e) {
-        currentFormChild?.Close();
+        workplacePanel.Controls.Clear();
     }
 
     private void LogoutButton_Click(object sender, EventArgs e) {

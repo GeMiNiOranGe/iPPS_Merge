@@ -58,7 +58,6 @@
             btnTinhLuong = new Button();
             rtbLuong = new RichTextBox();
             btnCapNhat = new Button();
-            btnThoat = new Button();
             rtbMaNhanVien = new RichTextBox();
             btnTimKiem = new Button();
             btnHuy = new Button();
@@ -417,21 +416,6 @@
             btnCapNhat.UseVisualStyleBackColor = false;
             btnCapNhat.Click += btnCapNhat_Click;
             // 
-            // btnThoat
-            // 
-            btnThoat.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnThoat.BackColor = Color.FromArgb(255, 96, 0);
-            btnThoat.FlatStyle = FlatStyle.Popup;
-            btnThoat.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThoat.Location = new Point(872, 524);
-            btnThoat.Margin = new Padding(4);
-            btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(98, 32);
-            btnThoat.TabIndex = 62;
-            btnThoat.Text = "Thoát";
-            btnThoat.UseVisualStyleBackColor = false;
-            btnThoat.Click += btnThoat_Click;
-            // 
             // rtbMaNhanVien
             // 
             rtbMaNhanVien.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
@@ -503,23 +487,19 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 230, 199);
-            ClientSize = new Size(1006, 619);
             Controls.Add(btnBaoCao);
             Controls.Add(label2);
             Controls.Add(btnHuy);
             Controls.Add(btnTimKiem);
             Controls.Add(rtbMaNhanVien);
-            Controls.Add(btnThoat);
             Controls.Add(btnCapNhat);
             Controls.Add(btnTinhLuong);
             Controls.Add(dtgvLuongNV);
             Controls.Add(rtbLuong);
             Controls.Add(groupBox1);
-            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4);
             Name = "formTinhLuong";
-            Text = "Tính Lương";
-            WindowState = FormWindowState.Maximized;
+            Size = new Size(1006, 619);
             Load += formTinhLuong_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -546,7 +526,6 @@
         private Button btnTinhLuong;
         private RichTextBox rtbLuong;
         private Button btnCapNhat;
-        private Button btnThoat;
         private TextBox tbTienNha;
         private TextBox tbTienLuong;
         private Label label3;

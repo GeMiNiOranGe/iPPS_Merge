@@ -222,7 +222,6 @@
             Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(2, 5, 2, 5);
             Name = "AdminTasks";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin Tasks";
             Load += AdminTasks_Load;
             ((System.ComponentModel.ISupportInitialize)dgvTasks).EndInit();

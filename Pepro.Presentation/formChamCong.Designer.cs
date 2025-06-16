@@ -45,7 +45,6 @@
             btnThem = new Button();
             btnCapnhat = new Button();
             btnXoa = new Button();
-            btnThoat = new Button();
             dataChamCong = new DataGridView();
             MACC = new DataGridViewTextBoxColumn();
             THANG = new DataGridViewTextBoxColumn();
@@ -286,21 +285,6 @@
             btnXoa.UseVisualStyleBackColor = false;
             btnXoa.Click += btnXoa_Click;
             // 
-            // btnThoat
-            // 
-            btnThoat.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnThoat.BackColor = Color.FromArgb(255, 96, 0);
-            btnThoat.FlatStyle = FlatStyle.Popup;
-            btnThoat.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnThoat.Location = new Point(792, 572);
-            btnThoat.Margin = new Padding(4);
-            btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(109, 35);
-            btnThoat.TabIndex = 53;
-            btnThoat.Text = "Thoát";
-            btnThoat.UseVisualStyleBackColor = false;
-            btnThoat.Click += btnThoat_Click;
-            // 
             // dataChamCong
             // 
             dataChamCong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -415,20 +399,17 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.FromArgb(255, 230, 199);
-            ClientSize = new Size(1006, 619);
             Controls.Add(btnBaoCao);
             Controls.Add(btnChamCong);
             Controls.Add(label2);
             Controls.Add(dataChamCong);
-            Controls.Add(btnThoat);
             Controls.Add(btnXoa);
             Controls.Add(btnCapnhat);
             Controls.Add(btnThem);
             Controls.Add(groupBox1);
-            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4);
             Name = "formChamCong";
-            Text = "Chấm Công";
+            Size = new Size(1006, 619);
             Load += fromChamCong_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -447,7 +428,6 @@
         private Button btnThem;
         private Button btnCapnhat;
         private Button btnXoa;
-        private Button btnThoat;
         private DataGridView dataChamCong;
         private DataGridViewTextBoxColumn MACC;
         private DataGridViewTextBoxColumn THANG;
