@@ -15,7 +15,7 @@ static class Program
         while (true)
         {
             string? accountName = null;
-            using (FormLogin loginForm = new())
+            using (LoginForm loginForm = new())
             {
                 if (loginForm.ShowDialog() != DialogResult.OK)
                 {
@@ -24,7 +24,7 @@ static class Program
                 accountName = loginForm.AccountName;
             }
 
-            using FormMenu menuForm = new()
+            using MenuForm menuForm = new()
             {
                 UserId = accountName
             };
