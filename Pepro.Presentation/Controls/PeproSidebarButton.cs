@@ -18,8 +18,13 @@ public class PeproSidebarButton : Button {
         TextImageRelation = TextImageRelation.ImageBeforeText;
 
         FlatAppearance.BorderSize = 0;
-        FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
-        FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+    }
+
+    // TODO: maybe should be inherited FlatButtonAppearance
+    protected override void OnHandleCreated(EventArgs e) {
+        base.OnHandleCreated(e);
+        FlatAppearance.MouseDownBackColor = ThemeColors.Secondary;
+        FlatAppearance.MouseOverBackColor = ThemeColors.Secondary;
     }
 
     protected override void OnMouseDown(MouseEventArgs mevent) {
