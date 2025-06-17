@@ -27,6 +27,7 @@ namespace Pepro.Presentation {
         /// </summary>
         private void InitializeComponent() {
             sidebarPanel = new Panel();
+            logoutButton = new PeproSidebarButton();
             optionPanel = new Panel();
             accountPanel = new Panel();
             usernameLabel = new Label();
@@ -42,7 +43,6 @@ namespace Pepro.Presentation {
             taskButton = new PeproSidebarButton();
             appNameLabel = new Label();
             workplacePanel = new Panel();
-            logoutButton = new PeproSidebarButton();
             sidebarPanel.SuspendLayout();
             accountPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imageUserPictureBox).BeginInit();
@@ -68,6 +68,19 @@ namespace Pepro.Presentation {
             sidebarPanel.Name = "sidebarPanel";
             sidebarPanel.Size = new Size(200, 729);
             sidebarPanel.TabIndex = 0;
+            // 
+            // logoutButton
+            // 
+            logoutButton.FlatAppearance.BorderSize = 0;
+            logoutButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
+            logoutButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
+            logoutButton.Location = new Point(0, 560);
+            logoutButton.Name = "logoutButton";
+            logoutButton.Size = new Size(200, 60);
+            logoutButton.TabIndex = 28;
+            logoutButton.Text = "Đăng xuất";
+            logoutButton.UseVisualStyleBackColor = false;
+            logoutButton.Click += LogoutButton_Click;
             // 
             // optionPanel
             // 
@@ -148,8 +161,8 @@ namespace Pepro.Presentation {
             // 
             dormitoryButton.Cursor = Cursors.Hand;
             dormitoryButton.FlatAppearance.BorderSize = 0;
-            dormitoryButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
-            dormitoryButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            dormitoryButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
+            dormitoryButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             dormitoryButton.Image = Properties.Resources.Dormitory;
             dormitoryButton.Location = new Point(0, 500);
             dormitoryButton.Name = "dormitoryButton";
@@ -164,8 +177,8 @@ namespace Pepro.Presentation {
             // 
             salaryButton.Cursor = Cursors.Hand;
             salaryButton.FlatAppearance.BorderSize = 0;
-            salaryButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
-            salaryButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            salaryButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
+            salaryButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             salaryButton.Image = Properties.Resources.salary;
             salaryButton.Location = new Point(0, 440);
             salaryButton.Name = "salaryButton";
@@ -180,8 +193,8 @@ namespace Pepro.Presentation {
             // 
             attendanceButton.Cursor = Cursors.Hand;
             attendanceButton.FlatAppearance.BorderSize = 0;
-            attendanceButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
-            attendanceButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            attendanceButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
+            attendanceButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             attendanceButton.Image = Properties.Resources.Chamcong;
             attendanceButton.Location = new Point(0, 380);
             attendanceButton.Name = "attendanceButton";
@@ -196,8 +209,8 @@ namespace Pepro.Presentation {
             // 
             employeeButton.Cursor = Cursors.Hand;
             employeeButton.FlatAppearance.BorderSize = 0;
-            employeeButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
-            employeeButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            employeeButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
+            employeeButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             employeeButton.Image = Properties.Resources.employee;
             employeeButton.Location = new Point(0, 320);
             employeeButton.Name = "employeeButton";
@@ -212,8 +225,8 @@ namespace Pepro.Presentation {
             // 
             progressButton.Cursor = Cursors.Hand;
             progressButton.FlatAppearance.BorderSize = 0;
-            progressButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
-            progressButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            progressButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
+            progressButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             progressButton.Image = Properties.Resources.DoughnutChart;
             progressButton.Location = new Point(0, 260);
             progressButton.Name = "progressButton";
@@ -229,8 +242,8 @@ namespace Pepro.Presentation {
             // 
             documentButton.Cursor = Cursors.Hand;
             documentButton.FlatAppearance.BorderSize = 0;
-            documentButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
-            documentButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            documentButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
+            documentButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             documentButton.Image = Properties.Resources.MultiplePages;
             documentButton.Location = new Point(0, 200);
             documentButton.Name = "documentButton";
@@ -246,8 +259,8 @@ namespace Pepro.Presentation {
             // 
             projectButton.Cursor = Cursors.Hand;
             projectButton.FlatAppearance.BorderSize = 0;
-            projectButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
-            projectButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            projectButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
+            projectButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             projectButton.Image = Properties.Resources.Folder;
             projectButton.Location = new Point(0, 140);
             projectButton.Name = "projectButton";
@@ -263,8 +276,8 @@ namespace Pepro.Presentation {
             // 
             taskButton.Cursor = Cursors.Hand;
             taskButton.FlatAppearance.BorderSize = 0;
-            taskButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
-            taskButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
+            taskButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
+            taskButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             taskButton.Image = Properties.Resources.PasteClipboard;
             taskButton.Location = new Point(0, 80);
             taskButton.Name = "taskButton";
@@ -300,20 +313,7 @@ namespace Pepro.Presentation {
             workplacePanel.Size = new Size(1150, 729);
             workplacePanel.TabIndex = 2;
             // 
-            // logoutButton
-            // 
-            logoutButton.FlatAppearance.BorderSize = 0;
-            logoutButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(34, 130, 253);
-            logoutButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(34, 130, 253);
-            logoutButton.Location = new Point(0, 560);
-            logoutButton.Name = "logoutButton";
-            logoutButton.Size = new Size(200, 60);
-            logoutButton.TabIndex = 28;
-            logoutButton.Text = "Đăng xuất";
-            logoutButton.UseVisualStyleBackColor = false;
-            logoutButton.Click += LogoutButton_Click;
-            // 
-            // FormMenu
+            // MenuForm
             // 
             AutoScaleDimensions = new SizeF(6F, 12F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -323,7 +323,7 @@ namespace Pepro.Presentation {
             Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(2);
             MinimumSize = new Size(1280, 600);
-            Name = "FormMenu";
+            Name = "MenuForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Bảng điều khiển";
             FormClosing += MenuForm_FormClosing;

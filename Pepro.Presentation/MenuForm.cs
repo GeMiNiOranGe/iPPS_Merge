@@ -25,7 +25,6 @@ public partial class MenuForm : Form {
         child.Dock = DockStyle.Fill;
         workplacePanel.Controls.Add(child);
         child.BringToFront();
-        //child.Show();
     }
 
     public string GetFullname() {

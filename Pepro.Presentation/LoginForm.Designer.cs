@@ -150,7 +150,7 @@ namespace Pepro.Presentation {
             accountNamePictureBox.TabIndex = 4;
             accountNamePictureBox.TabStop = false;
             // 
-            // FormLogin
+            // LoginForm
             // 
             AcceptButton = loginButton;
             AutoScaleDimensions = new SizeF(11F, 25F);
@@ -170,7 +170,7 @@ namespace Pepro.Presentation {
             Font = new Font("Segoe UI", 13.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 6, 4, 6);
-            Name = "FormLogin";
+            Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng Nhập";
             ((System.ComponentModel.ISupportInitialize)closePictureBox).EndInit();
