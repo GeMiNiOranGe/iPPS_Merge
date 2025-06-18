@@ -166,7 +166,7 @@ namespace Pepro.Presentation {
             dormitoryButton.Image = Properties.Resources.Dormitory;
             dormitoryButton.Location = new Point(0, 500);
             dormitoryButton.Name = "dormitoryButton";
-            dormitoryButton.Padding = new Padding(16, 4, 0, 4);
+            dormitoryButton.Padding = new Padding(16, 0, 0, 0);
             dormitoryButton.Size = new Size(200, 60);
             dormitoryButton.TabIndex = 27;
             dormitoryButton.Text = "   Ký túc xá";
@@ -182,7 +182,7 @@ namespace Pepro.Presentation {
             salaryButton.Image = Properties.Resources.salary;
             salaryButton.Location = new Point(0, 440);
             salaryButton.Name = "salaryButton";
-            salaryButton.Padding = new Padding(16, 4, 0, 4);
+            salaryButton.Padding = new Padding(16, 0, 0, 0);
             salaryButton.Size = new Size(200, 60);
             salaryButton.TabIndex = 26;
             salaryButton.Text = "   Lương";
@@ -198,7 +198,7 @@ namespace Pepro.Presentation {
             attendanceButton.Image = Properties.Resources.Chamcong;
             attendanceButton.Location = new Point(0, 380);
             attendanceButton.Name = "attendanceButton";
-            attendanceButton.Padding = new Padding(16, 4, 0, 4);
+            attendanceButton.Padding = new Padding(16, 0, 0, 0);
             attendanceButton.Size = new Size(200, 60);
             attendanceButton.TabIndex = 25;
             attendanceButton.Text = "   Chấm công";
@@ -214,7 +214,7 @@ namespace Pepro.Presentation {
             employeeButton.Image = Properties.Resources.employee;
             employeeButton.Location = new Point(0, 320);
             employeeButton.Name = "employeeButton";
-            employeeButton.Padding = new Padding(16, 4, 0, 4);
+            employeeButton.Padding = new Padding(16, 0, 0, 0);
             employeeButton.Size = new Size(200, 60);
             employeeButton.TabIndex = 24;
             employeeButton.Text = "   Nhân viên";
@@ -230,7 +230,7 @@ namespace Pepro.Presentation {
             progressButton.Image = Properties.Resources.DoughnutChart;
             progressButton.Location = new Point(0, 260);
             progressButton.Name = "progressButton";
-            progressButton.Padding = new Padding(16, 4, 0, 4);
+            progressButton.Padding = new Padding(16, 0, 0, 0);
             progressButton.PressedImage = Properties.Resources.DoughnutChartFill;
             progressButton.Size = new Size(200, 60);
             progressButton.TabIndex = 20;
@@ -247,7 +247,7 @@ namespace Pepro.Presentation {
             documentButton.Image = Properties.Resources.MultiplePages;
             documentButton.Location = new Point(0, 200);
             documentButton.Name = "documentButton";
-            documentButton.Padding = new Padding(16, 4, 0, 4);
+            documentButton.Padding = new Padding(16, 0, 0, 0);
             documentButton.PressedImage = Properties.Resources.MultiplePagesFill;
             documentButton.Size = new Size(200, 60);
             documentButton.TabIndex = 19;
@@ -264,7 +264,7 @@ namespace Pepro.Presentation {
             projectButton.Image = Properties.Resources.Folder;
             projectButton.Location = new Point(0, 140);
             projectButton.Name = "projectButton";
-            projectButton.Padding = new Padding(16, 4, 0, 4);
+            projectButton.Padding = new Padding(16, 0, 0, 0);
             projectButton.PressedImage = Properties.Resources.FolderFill;
             projectButton.Size = new Size(200, 60);
             projectButton.TabIndex = 21;
@@ -281,7 +281,7 @@ namespace Pepro.Presentation {
             taskButton.Image = Properties.Resources.PasteClipboard;
             taskButton.Location = new Point(0, 80);
             taskButton.Name = "taskButton";
-            taskButton.Padding = new Padding(16, 4, 0, 4);
+            taskButton.Padding = new Padding(16, 0, 0, 0);
             taskButton.PressedImage = Properties.Resources.PasteClipboardFill;
             taskButton.Size = new Size(200, 60);
             taskButton.TabIndex = 18;
@@ -315,13 +315,12 @@ namespace Pepro.Presentation {
             // 
             // MenuForm
             // 
-            AutoScaleDimensions = new SizeF(6F, 12F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1350, 729);
             Controls.Add(workplacePanel);
             Controls.Add(sidebarPanel);
-            Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(2);
+            Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             MinimumSize = new Size(1280, 600);
             Name = "MenuForm";
             StartPosition = FormStartPosition.CenterScreen;
