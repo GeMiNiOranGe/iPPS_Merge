@@ -1,6 +1,7 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 
 namespace Pepro.Presentation;
 
@@ -9,8 +10,6 @@ public partial class LoginForm : Form {
 
     public LoginForm() {
         InitializeComponent();
-        ForTextbox.SetPlaceHolder(accountNameTextBox, AccountBusiness.USER_ID_PLACEHOLDER);
-        ForTextbox.SetPlaceHolder(passwordTextBox, AccountBusiness.PASSWORD_PLACEHOLDER);
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -80,70 +79,78 @@ public partial class LoginForm : Form {
             errorLabel.Text = "Đã xảy ra lỗi trong quá trình đăng nhập!";
             break;
         }
-        accountNameTextBox.Text = AccountBusiness.USER_ID_PLACEHOLDER;
-        passwordTextBox.Text = AccountBusiness.PASSWORD_PLACEHOLDER;
-        accountNameTextBox.ForeColor = Color.Gray;
-        passwordTextBox.ForeColor = Color.Gray;
-        passwordTextBox.UseSystemPasswordChar = false;
+        accountNameTextBox.Clear();
+        passwordTextBox.Clear();
         accountNameTextBox.Focus();
     }
 
+    public const int WM_NCLBUTTONDOWN = 0xA1;
+    public const int HT_CAPTION = 0x2;
+
+    [DllImport("user32.dll")]
+    public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+    [DllImport("user32.dll")]
+    public static extern bool ReleaseCapture();
+
+    private void LoginForm_MouseDown(object sender, MouseEventArgs e) {
+        if (e.Button == MouseButtons.Left) {
+            ReleaseCapture();
+            _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+        }
+    }
+
+    private void AccountNameTextBox_Enter(object sender, EventArgs e) {
+        accountNameTextBox.ForeColor = Color.FromArgb(248, 245, 168);
+        accountNamePanel.BackColor = Color.FromArgb(248, 245, 168);
+    }
+
+    private void AccountNameTextBox_Leave(object sender, EventArgs e) {
+        accountNameTextBox.ForeColor = Color.White;
+        accountNamePanel.BackColor = Color.White;
+    }
+
     private void PasswordTextBox_Enter(object sender, EventArgs e) {
-        if (passwordTextBox.Text == AccountBusiness.PASSWORD_PLACEHOLDER) {
-            TextBox textBox = (TextBox)sender;
-            passwordTextBox.UseSystemPasswordChar = true;
-            textBox.ForeColor = Color.FromArgb(248, 245, 168);
+        passwordTextBox.ForeColor = Color.FromArgb(248, 245, 168);
+        passwordPanel.BackColor = Color.FromArgb(248, 245, 168);
+        if (passwordTextBox.UseSystemPasswordChar == true) {
+            passwordPictureBox.BackgroundImage = Properties.Resources.CloseLockYellow;
+        }
+        else {
+            passwordPictureBox.BackgroundImage = Properties.Resources.OpenLockYellow;
         }
     }
 
     private void PasswordTextBox_Leave(object sender, EventArgs e) {
-        if (passwordTextBox.Text == AccountBusiness.PASSWORD_PLACEHOLDER)
-            passwordTextBox.UseSystemPasswordChar = false;
-    }
-
-    private void AccountNameTextBox_Click(object sender, EventArgs e) {
-        accountNamePictureBox.BackgroundImage = Properties.Resources.UserYellow;
-        accountNamePanel.BackColor = Color.FromArgb(248, 245, 168);
+        passwordTextBox.ForeColor = Color.White;
+        passwordPanel.BackColor = Color.White;
         if (passwordTextBox.UseSystemPasswordChar == true) {
             passwordPictureBox.BackgroundImage = Properties.Resources.CloseLockWhite;
-            passwordPanel.BackColor = Color.White;
         }
         else {
             passwordPictureBox.BackgroundImage = Properties.Resources.OpenLockWhite;
-            passwordPanel.BackColor = Color.White;
-        }
-    }
-
-    private void PasswordTextBox_Click(object sender, EventArgs e) {
-        accountNamePictureBox.BackgroundImage = Properties.Resources.UserWhite;
-        accountNamePanel.BackColor = Color.White;
-
-        if (passwordTextBox.UseSystemPasswordChar == true) {
-            passwordPictureBox.BackgroundImage = Properties.Resources.CloseLockYellow;
-            passwordPanel.BackColor = Color.FromArgb(248, 245, 168);
-        }
-        else {
-            passwordPictureBox.BackgroundImage = Properties.Resources.OpenLockYellow;
-            passwordPanel.BackColor = Color.FromArgb(248, 245, 168);
         }
     }
 
     private void PasswordPictureBox_Click(object sender, EventArgs e) {
-        if (passwordTextBox.UseSystemPasswordChar == true && passwordPanel.BackColor == Color.FromArgb(248, 245, 168)) {
-            passwordTextBox.UseSystemPasswordChar = false;
-            passwordPictureBox.BackgroundImage = Properties.Resources.OpenLockYellow;
-        }
-        else if (passwordTextBox.UseSystemPasswordChar == false && passwordPanel.BackColor == Color.FromArgb(248, 245, 168)) {
-            passwordTextBox.UseSystemPasswordChar = true;
-            passwordPictureBox.BackgroundImage = Properties.Resources.CloseLockYellow;
-        }
-        else if (passwordTextBox.UseSystemPasswordChar == true && passwordPanel.BackColor == Color.White) {
-            passwordTextBox.UseSystemPasswordChar = false;
-            passwordPictureBox.BackgroundImage = Properties.Resources.OpenLockWhite;
+        if (passwordPanel.BackColor == Color.FromArgb(248, 245, 168)) {
+            if (passwordTextBox.UseSystemPasswordChar) {
+                passwordTextBox.UseSystemPasswordChar = false;
+                passwordPictureBox.BackgroundImage = Properties.Resources.OpenLockYellow;
+            }
+            else {
+                passwordTextBox.UseSystemPasswordChar = true;
+                passwordPictureBox.BackgroundImage = Properties.Resources.CloseLockYellow;
+            }
         }
         else {
-            passwordTextBox.UseSystemPasswordChar = true;
-            passwordPictureBox.BackgroundImage = Properties.Resources.CloseLockWhite;
+            if (passwordTextBox.UseSystemPasswordChar) {
+                passwordTextBox.UseSystemPasswordChar = false;
+                passwordPictureBox.BackgroundImage = Properties.Resources.OpenLockWhite;
+            }
+            else {
+                passwordTextBox.UseSystemPasswordChar = true;
+                passwordPictureBox.BackgroundImage = Properties.Resources.CloseLockWhite;
+            }
         }
     }
 
