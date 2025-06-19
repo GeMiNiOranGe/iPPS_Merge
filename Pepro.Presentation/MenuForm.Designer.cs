@@ -27,12 +27,9 @@ namespace Pepro.Presentation {
         /// </summary>
         private void InitializeComponent() {
             sidebarPanel = new Panel();
+            functionListPanel = new Panel();
             logoutButton = new PeproSidebarButton();
             optionPanel = new Panel();
-            accountPanel = new Panel();
-            usernameLabel = new Label();
-            roleLabel = new Label();
-            imageUserPictureBox = new PictureBox();
             dormitoryButton = new PeproSidebarButton();
             salaryButton = new PeproSidebarButton();
             attendanceButton = new PeproSidebarButton();
@@ -41,9 +38,14 @@ namespace Pepro.Presentation {
             documentButton = new PeproSidebarButton();
             projectButton = new PeproSidebarButton();
             taskButton = new PeproSidebarButton();
+            accountPanel = new Panel();
+            usernameLabel = new Label();
+            roleLabel = new Label();
+            imageUserPictureBox = new PictureBox();
             appNameLabel = new Label();
             workplacePanel = new Panel();
             sidebarPanel.SuspendLayout();
+            functionListPanel.SuspendLayout();
             accountPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imageUserPictureBox).BeginInit();
             SuspendLayout();
@@ -51,111 +53,56 @@ namespace Pepro.Presentation {
             // sidebarPanel
             // 
             sidebarPanel.BackColor = Color.FromArgb(29, 29, 29);
-            sidebarPanel.Controls.Add(logoutButton);
-            sidebarPanel.Controls.Add(optionPanel);
+            sidebarPanel.Controls.Add(functionListPanel);
             sidebarPanel.Controls.Add(accountPanel);
-            sidebarPanel.Controls.Add(dormitoryButton);
-            sidebarPanel.Controls.Add(salaryButton);
-            sidebarPanel.Controls.Add(attendanceButton);
-            sidebarPanel.Controls.Add(employeeButton);
-            sidebarPanel.Controls.Add(progressButton);
-            sidebarPanel.Controls.Add(documentButton);
-            sidebarPanel.Controls.Add(projectButton);
-            sidebarPanel.Controls.Add(taskButton);
             sidebarPanel.Controls.Add(appNameLabel);
             sidebarPanel.Dock = DockStyle.Left;
             sidebarPanel.Location = new Point(0, 0);
             sidebarPanel.Name = "sidebarPanel";
-            sidebarPanel.Size = new Size(200, 729);
+            sidebarPanel.Size = new Size(200, 681);
             sidebarPanel.TabIndex = 0;
+            // 
+            // functionListPanel
+            // 
+            functionListPanel.AutoScroll = true;
+            functionListPanel.Controls.Add(logoutButton);
+            functionListPanel.Controls.Add(optionPanel);
+            functionListPanel.Controls.Add(dormitoryButton);
+            functionListPanel.Controls.Add(salaryButton);
+            functionListPanel.Controls.Add(attendanceButton);
+            functionListPanel.Controls.Add(employeeButton);
+            functionListPanel.Controls.Add(progressButton);
+            functionListPanel.Controls.Add(documentButton);
+            functionListPanel.Controls.Add(projectButton);
+            functionListPanel.Controls.Add(taskButton);
+            functionListPanel.Dock = DockStyle.Fill;
+            functionListPanel.Location = new Point(0, 80);
+            functionListPanel.Name = "functionListPanel";
+            functionListPanel.Size = new Size(200, 537);
+            functionListPanel.TabIndex = 29;
             // 
             // logoutButton
             // 
             logoutButton.FlatAppearance.BorderSize = 0;
             logoutButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             logoutButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
-            logoutButton.Location = new Point(0, 560);
+            logoutButton.Image = Properties.Resources.Logout;
+            logoutButton.Location = new Point(0, 384);
             logoutButton.Name = "logoutButton";
-            logoutButton.Size = new Size(200, 60);
+            logoutButton.Padding = new Padding(16, 0, 0, 0);
+            logoutButton.Size = new Size(200, 48);
             logoutButton.TabIndex = 28;
-            logoutButton.Text = "Đăng xuất";
+            logoutButton.Text = "   Đăng xuất";
             logoutButton.UseVisualStyleBackColor = false;
             logoutButton.Click += LogoutButton_Click;
             // 
             // optionPanel
             // 
             optionPanel.BackColor = Color.White;
-            optionPanel.Location = new Point(0, 80);
+            optionPanel.Location = new Point(0, 0);
             optionPanel.Name = "optionPanel";
-            optionPanel.Size = new Size(8, 60);
+            optionPanel.Size = new Size(8, 48);
             optionPanel.TabIndex = 0;
-            // 
-            // accountPanel
-            // 
-            accountPanel.BackColor = Color.Transparent;
-            accountPanel.Controls.Add(usernameLabel);
-            accountPanel.Controls.Add(roleLabel);
-            accountPanel.Controls.Add(imageUserPictureBox);
-            accountPanel.Cursor = Cursors.Hand;
-            accountPanel.Dock = DockStyle.Bottom;
-            accountPanel.Location = new Point(0, 657);
-            accountPanel.Name = "accountPanel";
-            accountPanel.Size = new Size(200, 72);
-            accountPanel.TabIndex = 12;
-            accountPanel.MouseClick += Account_MouseClick;
-            accountPanel.MouseDown += Account_MouseDown;
-            accountPanel.MouseEnter += Account_MouseEnter;
-            accountPanel.MouseLeave += Account_MouseLeave;
-            accountPanel.MouseUp += Account_MouseUp;
-            // 
-            // usernameLabel
-            // 
-            usernameLabel.AutoSize = true;
-            usernameLabel.BackColor = Color.Transparent;
-            usernameLabel.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            usernameLabel.ForeColor = Color.White;
-            usernameLabel.Location = new Point(66, 12);
-            usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new Size(64, 25);
-            usernameLabel.TabIndex = 8;
-            usernameLabel.Text = "Name";
-            usernameLabel.MouseClick += Account_MouseClick;
-            usernameLabel.MouseDown += Account_MouseDown;
-            usernameLabel.MouseEnter += Account_MouseEnter;
-            usernameLabel.MouseLeave += Account_MouseLeave;
-            usernameLabel.MouseUp += Account_MouseUp;
-            // 
-            // roleLabel
-            // 
-            roleLabel.AutoSize = true;
-            roleLabel.BackColor = Color.Transparent;
-            roleLabel.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            roleLabel.ForeColor = Color.Silver;
-            roleLabel.Location = new Point(67, 40);
-            roleLabel.Name = "roleLabel";
-            roleLabel.Size = new Size(39, 20);
-            roleLabel.TabIndex = 8;
-            roleLabel.Text = "Role";
-            roleLabel.MouseClick += Account_MouseClick;
-            roleLabel.MouseDown += Account_MouseDown;
-            roleLabel.MouseEnter += Account_MouseEnter;
-            roleLabel.MouseLeave += Account_MouseLeave;
-            roleLabel.MouseUp += Account_MouseUp;
-            // 
-            // imageUserPictureBox
-            // 
-            imageUserPictureBox.Image = Properties.Resources.AccImage;
-            imageUserPictureBox.Location = new Point(12, 12);
-            imageUserPictureBox.Name = "imageUserPictureBox";
-            imageUserPictureBox.Size = new Size(48, 48);
-            imageUserPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            imageUserPictureBox.TabIndex = 10;
-            imageUserPictureBox.TabStop = false;
-            imageUserPictureBox.MouseClick += Account_MouseClick;
-            imageUserPictureBox.MouseDown += Account_MouseDown;
-            imageUserPictureBox.MouseEnter += Account_MouseEnter;
-            imageUserPictureBox.MouseLeave += Account_MouseLeave;
-            imageUserPictureBox.MouseUp += Account_MouseUp;
             // 
             // dormitoryButton
             // 
@@ -164,10 +111,10 @@ namespace Pepro.Presentation {
             dormitoryButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             dormitoryButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             dormitoryButton.Image = Properties.Resources.Dormitory;
-            dormitoryButton.Location = new Point(0, 500);
+            dormitoryButton.Location = new Point(0, 336);
             dormitoryButton.Name = "dormitoryButton";
             dormitoryButton.Padding = new Padding(16, 0, 0, 0);
-            dormitoryButton.Size = new Size(200, 60);
+            dormitoryButton.Size = new Size(200, 48);
             dormitoryButton.TabIndex = 27;
             dormitoryButton.Text = "   Ký túc xá";
             dormitoryButton.UseVisualStyleBackColor = false;
@@ -180,10 +127,10 @@ namespace Pepro.Presentation {
             salaryButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             salaryButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             salaryButton.Image = Properties.Resources.salary;
-            salaryButton.Location = new Point(0, 440);
+            salaryButton.Location = new Point(0, 288);
             salaryButton.Name = "salaryButton";
             salaryButton.Padding = new Padding(16, 0, 0, 0);
-            salaryButton.Size = new Size(200, 60);
+            salaryButton.Size = new Size(200, 48);
             salaryButton.TabIndex = 26;
             salaryButton.Text = "   Lương";
             salaryButton.UseVisualStyleBackColor = false;
@@ -196,10 +143,10 @@ namespace Pepro.Presentation {
             attendanceButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             attendanceButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             attendanceButton.Image = Properties.Resources.Chamcong;
-            attendanceButton.Location = new Point(0, 380);
+            attendanceButton.Location = new Point(0, 240);
             attendanceButton.Name = "attendanceButton";
             attendanceButton.Padding = new Padding(16, 0, 0, 0);
-            attendanceButton.Size = new Size(200, 60);
+            attendanceButton.Size = new Size(200, 48);
             attendanceButton.TabIndex = 25;
             attendanceButton.Text = "   Chấm công";
             attendanceButton.UseVisualStyleBackColor = false;
@@ -212,10 +159,10 @@ namespace Pepro.Presentation {
             employeeButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             employeeButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             employeeButton.Image = Properties.Resources.employee;
-            employeeButton.Location = new Point(0, 320);
+            employeeButton.Location = new Point(0, 192);
             employeeButton.Name = "employeeButton";
             employeeButton.Padding = new Padding(16, 0, 0, 0);
-            employeeButton.Size = new Size(200, 60);
+            employeeButton.Size = new Size(200, 48);
             employeeButton.TabIndex = 24;
             employeeButton.Text = "   Nhân viên";
             employeeButton.UseVisualStyleBackColor = false;
@@ -228,11 +175,11 @@ namespace Pepro.Presentation {
             progressButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             progressButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             progressButton.Image = Properties.Resources.DoughnutChart;
-            progressButton.Location = new Point(0, 260);
+            progressButton.Location = new Point(0, 144);
             progressButton.Name = "progressButton";
             progressButton.Padding = new Padding(16, 0, 0, 0);
             progressButton.PressedImage = Properties.Resources.DoughnutChartFill;
-            progressButton.Size = new Size(200, 60);
+            progressButton.Size = new Size(200, 48);
             progressButton.TabIndex = 20;
             progressButton.Text = "   Tiến độ";
             progressButton.UseVisualStyleBackColor = false;
@@ -245,11 +192,11 @@ namespace Pepro.Presentation {
             documentButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             documentButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             documentButton.Image = Properties.Resources.MultiplePages;
-            documentButton.Location = new Point(0, 200);
+            documentButton.Location = new Point(0, 96);
             documentButton.Name = "documentButton";
             documentButton.Padding = new Padding(16, 0, 0, 0);
             documentButton.PressedImage = Properties.Resources.MultiplePagesFill;
-            documentButton.Size = new Size(200, 60);
+            documentButton.Size = new Size(200, 48);
             documentButton.TabIndex = 19;
             documentButton.Text = "   Tài liệu";
             documentButton.UseVisualStyleBackColor = false;
@@ -262,11 +209,11 @@ namespace Pepro.Presentation {
             projectButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             projectButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             projectButton.Image = Properties.Resources.Folder;
-            projectButton.Location = new Point(0, 140);
+            projectButton.Location = new Point(0, 48);
             projectButton.Name = "projectButton";
             projectButton.Padding = new Padding(16, 0, 0, 0);
             projectButton.PressedImage = Properties.Resources.FolderFill;
-            projectButton.Size = new Size(200, 60);
+            projectButton.Size = new Size(200, 48);
             projectButton.TabIndex = 21;
             projectButton.Text = "   Dự án";
             projectButton.UseVisualStyleBackColor = false;
@@ -279,15 +226,84 @@ namespace Pepro.Presentation {
             taskButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             taskButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
             taskButton.Image = Properties.Resources.PasteClipboard;
-            taskButton.Location = new Point(0, 80);
+            taskButton.Location = new Point(0, 0);
             taskButton.Name = "taskButton";
             taskButton.Padding = new Padding(16, 0, 0, 0);
             taskButton.PressedImage = Properties.Resources.PasteClipboardFill;
-            taskButton.Size = new Size(200, 60);
+            taskButton.Size = new Size(200, 48);
             taskButton.TabIndex = 18;
             taskButton.Text = "   Công việc";
             taskButton.UseVisualStyleBackColor = false;
             taskButton.MouseClick += TaskButton_MouseClick;
+            // 
+            // accountPanel
+            // 
+            accountPanel.BackColor = Color.Transparent;
+            accountPanel.Controls.Add(usernameLabel);
+            accountPanel.Controls.Add(roleLabel);
+            accountPanel.Controls.Add(imageUserPictureBox);
+            accountPanel.Cursor = Cursors.Hand;
+            accountPanel.Dock = DockStyle.Bottom;
+            accountPanel.Location = new Point(0, 617);
+            accountPanel.Name = "accountPanel";
+            accountPanel.Size = new Size(200, 64);
+            accountPanel.TabIndex = 12;
+            accountPanel.MouseClick += Account_MouseClick;
+            accountPanel.MouseDown += Account_MouseDown;
+            accountPanel.MouseEnter += Account_MouseEnter;
+            accountPanel.MouseLeave += Account_MouseLeave;
+            accountPanel.MouseUp += Account_MouseUp;
+            // 
+            // usernameLabel
+            // 
+            usernameLabel.AutoSize = true;
+            usernameLabel.BackColor = Color.Transparent;
+            usernameLabel.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
+            usernameLabel.ForeColor = Color.White;
+            usernameLabel.Location = new Point(60, 11);
+            usernameLabel.Margin = new Padding(4, 0, 0, 4);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new Size(56, 21);
+            usernameLabel.TabIndex = 8;
+            usernameLabel.Text = "Name";
+            usernameLabel.MouseClick += Account_MouseClick;
+            usernameLabel.MouseDown += Account_MouseDown;
+            usernameLabel.MouseEnter += Account_MouseEnter;
+            usernameLabel.MouseLeave += Account_MouseLeave;
+            usernameLabel.MouseUp += Account_MouseUp;
+            // 
+            // roleLabel
+            // 
+            roleLabel.AutoSize = true;
+            roleLabel.BackColor = Color.Transparent;
+            roleLabel.ForeColor = Color.Silver;
+            roleLabel.Location = new Point(60, 36);
+            roleLabel.Margin = new Padding(4, 0, 0, 0);
+            roleLabel.Name = "roleLabel";
+            roleLabel.Size = new Size(35, 19);
+            roleLabel.TabIndex = 8;
+            roleLabel.Text = "Role";
+            roleLabel.MouseClick += Account_MouseClick;
+            roleLabel.MouseDown += Account_MouseDown;
+            roleLabel.MouseEnter += Account_MouseEnter;
+            roleLabel.MouseLeave += Account_MouseLeave;
+            roleLabel.MouseUp += Account_MouseUp;
+            // 
+            // imageUserPictureBox
+            // 
+            imageUserPictureBox.Image = Properties.Resources.AccImage;
+            imageUserPictureBox.Location = new Point(8, 8);
+            imageUserPictureBox.Margin = new Padding(8, 8, 0, 8);
+            imageUserPictureBox.Name = "imageUserPictureBox";
+            imageUserPictureBox.Size = new Size(48, 48);
+            imageUserPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            imageUserPictureBox.TabIndex = 10;
+            imageUserPictureBox.TabStop = false;
+            imageUserPictureBox.MouseClick += Account_MouseClick;
+            imageUserPictureBox.MouseDown += Account_MouseDown;
+            imageUserPictureBox.MouseEnter += Account_MouseEnter;
+            imageUserPictureBox.MouseLeave += Account_MouseLeave;
+            imageUserPictureBox.MouseUp += Account_MouseUp;
             // 
             // appNameLabel
             // 
@@ -310,24 +326,25 @@ namespace Pepro.Presentation {
             workplacePanel.Dock = DockStyle.Fill;
             workplacePanel.Location = new Point(200, 0);
             workplacePanel.Name = "workplacePanel";
-            workplacePanel.Size = new Size(1150, 729);
+            workplacePanel.Size = new Size(1064, 681);
             workplacePanel.TabIndex = 2;
             // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1350, 729);
+            ClientSize = new Size(1264, 681);
             Controls.Add(workplacePanel);
             Controls.Add(sidebarPanel);
             Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            MinimumSize = new Size(1280, 600);
+            MinimumSize = new Size(960, 540);
             Name = "MenuForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Bảng điều khiển";
             FormClosing += MenuForm_FormClosing;
             Load += MenuForm_Load;
             sidebarPanel.ResumeLayout(false);
+            functionListPanel.ResumeLayout(false);
             accountPanel.ResumeLayout(false);
             accountPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)imageUserPictureBox).EndInit();
@@ -354,6 +371,7 @@ namespace Pepro.Presentation {
         private PeproSidebarButton attendanceButton;
         private Panel optionPanel;
         private PeproSidebarButton logoutButton;
+        private Panel functionListPanel;
     }
 }
 
