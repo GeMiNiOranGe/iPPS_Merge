@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Pepro.Presentation.Controls;
+using Svg;
 using System.ComponentModel;
 
 namespace Pepro.Presentation;
@@ -18,6 +19,20 @@ public partial class MenuForm : Form {
 
     public MenuForm() {
         InitializeComponent();
+        LoadSidebarButtonImage();
+    }
+
+    private void LoadSidebarButtonImage() {
+        //SetSidebarButtonImages(progressButton, "DoughnutChart");
+        //SetSidebarButtonImages(documentButton, "MultiplePages");
+        //SetSidebarButtonImages(projectButton, "Folder");
+        SetSidebarButtonImages(taskButton, "Task");
+    }
+
+    private void SetSidebarButtonImages(PeproSidebarButton button, string iconName) {
+        SvgColourServer whiteColor = new(Color.White);
+        button.Image = IconProvider.GetIcon(iconName, colorServer: whiteColor);
+        button.PressedImage = IconProvider.GetIcon(iconName, "Bold", colorServer: whiteColor);
     }
 
     private void OpenChildControl(UserControl child) {
