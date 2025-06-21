@@ -174,11 +174,9 @@ namespace Pepro.Presentation {
             progressButton.FlatAppearance.BorderSize = 0;
             progressButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             progressButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
-            progressButton.Image = Properties.Resources.DoughnutChart;
             progressButton.Location = new Point(0, 144);
             progressButton.Name = "progressButton";
             progressButton.Padding = new Padding(16, 0, 0, 0);
-            progressButton.PressedImage = Properties.Resources.DoughnutChartFill;
             progressButton.Size = new Size(200, 48);
             progressButton.TabIndex = 20;
             progressButton.Text = "   Tiến độ";
@@ -191,11 +189,9 @@ namespace Pepro.Presentation {
             documentButton.FlatAppearance.BorderSize = 0;
             documentButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             documentButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
-            documentButton.Image = Properties.Resources.MultiplePages;
             documentButton.Location = new Point(0, 96);
             documentButton.Name = "documentButton";
             documentButton.Padding = new Padding(16, 0, 0, 0);
-            documentButton.PressedImage = Properties.Resources.MultiplePagesFill;
             documentButton.Size = new Size(200, 48);
             documentButton.TabIndex = 19;
             documentButton.Text = "   Tài liệu";
@@ -208,11 +204,9 @@ namespace Pepro.Presentation {
             projectButton.FlatAppearance.BorderSize = 0;
             projectButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             projectButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
-            projectButton.Image = Properties.Resources.Folder;
             projectButton.Location = new Point(0, 48);
             projectButton.Name = "projectButton";
             projectButton.Padding = new Padding(16, 0, 0, 0);
-            projectButton.PressedImage = Properties.Resources.FolderFill;
             projectButton.Size = new Size(200, 48);
             projectButton.TabIndex = 21;
             projectButton.Text = "   Dự án";
@@ -225,11 +219,9 @@ namespace Pepro.Presentation {
             taskButton.FlatAppearance.BorderSize = 0;
             taskButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             taskButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
-            taskButton.Image = Properties.Resources.PasteClipboard;
             taskButton.Location = new Point(0, 0);
             taskButton.Name = "taskButton";
             taskButton.Padding = new Padding(16, 0, 0, 0);
-            taskButton.PressedImage = Properties.Resources.PasteClipboardFill;
             taskButton.Size = new Size(200, 48);
             taskButton.TabIndex = 18;
             taskButton.Text = "   Công việc";

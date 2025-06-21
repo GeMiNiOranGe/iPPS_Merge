@@ -413,26 +413,6 @@ namespace Pepro.Presentation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PasteClipboard {
-            get {
-                object obj = ResourceManager.GetObject("PasteClipboard", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap PasteClipboardFill {
-            get {
-                object obj = ResourceManager.GetObject("PasteClipboardFill", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap person_add {
             get {
                 object obj = ResourceManager.GetObject("person_add", resourceCulture);
