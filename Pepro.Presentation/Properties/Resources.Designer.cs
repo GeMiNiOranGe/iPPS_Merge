@@ -343,26 +343,6 @@ namespace Pepro.Presentation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MultiplePages {
-            get {
-                object obj = ResourceManager.GetObject("MultiplePages", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap MultiplePagesFill {
-            get {
-                object obj = ResourceManager.GetObject("MultiplePagesFill", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap NormalScreenCircleFill {
             get {
                 object obj = ResourceManager.GetObject("NormalScreenCircleFill", resourceCulture);

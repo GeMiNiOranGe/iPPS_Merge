@@ -6,35 +6,29 @@
     fill="none"
     stroke="#000000"
     stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
     id="task-linear-icon"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:svg="http://www.w3.org/2000/svg"
 >
     <path
-        id="icon"
         d="m 4.0003295,3.0002559 15.9993815,6.44e-5 c 0.549004,2.3e-6 1,0.5103268 1,1.0554238 V 20 c 0,0.549004 -0.450707,0.999711 -0.999711,0.999711 H 4 c -0.545097,0 -0.9997117,-0.454902 -0.9997117,-1 V 4.0003202 c 0,-0.545097 0.4471319,-1.0000666 1.0000412,-1.0000643 z"
+        id="icon"
     />
     <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
         d="M 7,9.499826 7.7071068,10.206933 9.1213329,8.792706"
         id="tick-1"
     />
     <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
         d="m 11.999893,9.4997988 h 5.000044"
         id="content-1"
     />
     <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
         d="m 7,14.499889 0.7071068,0.707107 1.4142261,-1.414227"
         id="tick-2"
     />
     <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
         d="m 11.999893,14.499862 h 5.000044"
         id="content-2"
     />
