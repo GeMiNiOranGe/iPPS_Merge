@@ -25,7 +25,7 @@ public partial class MenuForm : Form {
     private void LoadSidebarButtonImage() {
         //SetSidebarButtonImages(progressButton, "DoughnutChart");
         SetSidebarButtonImages(documentButton, "MultiplePages");
-        //SetSidebarButtonImages(projectButton, "Folder");
+        SetSidebarButtonImages(projectButton, "Folder");
         SetSidebarButtonImages(taskButton, "Task");
     }
 
