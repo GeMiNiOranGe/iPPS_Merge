@@ -10,7 +10,7 @@ public static class IconProvider {
         IEnumerable<SvgElement> nodes,
         SvgPaintServer colorServer
     ) {
-        foreach (var node in nodes) {
+        foreach (SvgElement node in nodes) {
             if (node.Fill != SvgPaintServer.None) {
                 node.Fill = colorServer;
             }
@@ -40,15 +40,16 @@ public static class IconProvider {
             throw new FileNotFoundException($"Icon not found: {iconPath}");
         }
 
-        if (!_cache.TryGetValue(iconPath, out var svgDoc)) {
-            using var stream = File.OpenRead(iconPath);
-            svgDoc = SvgDocument.Open<SvgDocument>(stream);
+        string iconId = $"{colorServer}-{iconPath}";
+
+        if (!_cache.TryGetValue(iconId, out SvgDocument? svgDoc)) {
+            svgDoc = SvgDocument.Open<SvgDocument>(iconPath);
 
             if (colorServer != null) {
                 ProcessNodes(svgDoc.Descendants(), colorServer);
             }
 
-            _cache[$"{colorServer}-{iconPath}"] = svgDoc;
+            _cache[iconId] = svgDoc;
         }
 
         svgDoc.Width = size;
