@@ -158,7 +158,6 @@ namespace Pepro.Presentation {
             employeeButton.FlatAppearance.BorderSize = 0;
             employeeButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             employeeButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
-            employeeButton.Image = Properties.Resources.employee;
             employeeButton.Location = new Point(0, 192);
             employeeButton.Name = "employeeButton";
             employeeButton.Padding = new Padding(16, 0, 0, 0);
