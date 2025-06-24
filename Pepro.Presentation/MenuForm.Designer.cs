@@ -126,7 +126,6 @@ namespace Pepro.Presentation {
             salaryButton.FlatAppearance.BorderSize = 0;
             salaryButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             salaryButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
-            salaryButton.Image = Properties.Resources.salary;
             salaryButton.Location = new Point(0, 288);
             salaryButton.Name = "salaryButton";
             salaryButton.Padding = new Padding(16, 0, 0, 0);
