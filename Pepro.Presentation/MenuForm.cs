@@ -23,6 +23,7 @@ public partial class MenuForm : Form {
     }
 
     private void LoadSidebarButtonImage() {
+        SetSidebarButtonImages(salaryButton, "UserSalary");
         SetSidebarButtonImages(employeeButton, "Group");
         SetSidebarButtonImages(progressButton, "DoughnutChart");
         SetSidebarButtonImages(documentButton, "MultiplePages");
