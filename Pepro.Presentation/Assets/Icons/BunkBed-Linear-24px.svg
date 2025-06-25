@@ -1,47 +1,37 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <svg
-    width="24"
-    height="24"
+    width="24px"
+    height="24px"
     viewBox="0 0 24 24"
     fill="none"
     stroke="#000000"
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
-    id="bunk-bed-linear-icon"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:svg="http://www.w3.org/2000/svg"
 >
     <path
         d="M 3.0000414,3.0000418 V 21.000289"
-        id="frame-1"
     />
     <path
         d="m 21.000051,9.9999965 2.37e-4,11.0002925"
-        id="frame-2"
     />
     <path
         d="m 9.0002718,5.5000968 a 1.5,1.5 0 0 1 -1.5,1.5 1.5,1.5 0 0 1 -1.5,-1.5 1.5,1.5 0 0 1 1.5,-1.5 1.5,1.5 0 0 1 1.5,1.5 z"
-        id="head-1"
     />
     <path
         d="m 19.000136,4.000055 c 1.108,0 2,0.892 2,2 l -5.4e-5,3.999966 h -8.99981 V 4 Z"
-        id="body-1"
     />
     <path
         d="m 2.9998035,10 18.0002475,-3.5e-6"
-        id="bed-1"
     />
     <path
         d="m 9,15.500097 a 1.5,1.5 0 0 1 -1.5,1.5 1.5,1.5 0 0 1 -1.5,-1.5 1.5,1.5 0 0 1 1.5,-1.5 1.5,1.5 0 0 1 1.5,1.5 z"
-        id="head-2"
     />
     <path
         d="m 18.999864,14.000055 c 1.108,0 2,0.892 2,2 l -5.4e-5,3.999966 H 12 V 14 Z"
-        id="body-2"
     />
     <path
         d="m 2.9998035,20.000049 18.0002475,-4e-6"
-        id="bed-2"
     />
 </svg>

@@ -1,19 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <svg
-    width="24"
-    height="24"
+    width="24px"
+    height="24px"
     viewBox="0 0 24 24"
     fill="none"
     stroke="#000000"
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
-    id="folder-linear-icon"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:svg="http://www.w3.org/2000/svg"
 >
     <path
         d="M 3.0000277,10.999962 V 5.9999613 c 0,-0.5532764 0.4547211,-0.9999983 1.000015,-0.9999983 h 5.0000766 c 0.1508036,-1.18e-5 0.5000076,0.249998 0.5000076,0.249998 L 12.500173,7.25 13.000181,7.4999612 h 7.000105 c 0.552546,10e-7 1.000016,0.4485819 1.000016,1.00025 v 2.4997508 m -18.0002743,0 v 7.000003 c 1.36e-5,0.549924 0.4535168,0.999998 1.000015,0.999998 H 20.000286 c 0.552954,0 1.000016,-0.44982 1.000016,-0.999998 v -7.000003 m -18.0002744,0 H 21.000302"
-        id="icon"
     />
 </svg>
