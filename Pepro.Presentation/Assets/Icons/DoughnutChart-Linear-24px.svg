@@ -1,31 +1,25 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <svg
-    width="24"
-    height="24"
+    width="24px"
+    height="24px"
     viewBox="0 0 24 24"
     fill="none"
     stroke="#000000"
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
-    id="doughnut-chart-linear-icon"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:svg="http://www.w3.org/2000/svg"
 >
     <path
         d="m 21,12 a 9,9 0 0 1 -9,9 9,9 0 0 1 -9,-9 9,9 0 0 1 9,-9 9,9 0 0 1 9,9 z"
-        id="outer"
     />
     <path
         d="m 16,12 a 4,4 0 0 1 -4,4 4,4 0 0 1 -4,-4 4,4 0 0 1 4,-4 4,4 0 0 1 4,4 z"
-        id="inner"
     />
     <path
         d="m 12,3 1.7e-5,4.9999999"
-        id="line-1"
     />
     <path
         d="M 16.000018,12.000261 H 21.00002"
-        id="line-2"
     />
 </svg>
