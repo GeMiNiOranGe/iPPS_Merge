@@ -25,6 +25,7 @@ public partial class MenuForm : Form {
     private void LoadSidebarButtonImage() {
         SetSidebarButtonImages(dormitoryButton, "BunkBed");
         SetSidebarButtonImages(salaryButton, "UserSalary");
+        SetSidebarButtonImages(attendanceButton, "CalendarCheck");
         SetSidebarButtonImages(employeeButton, "Group");
         SetSidebarButtonImages(progressButton, "DoughnutChart");
         SetSidebarButtonImages(documentButton, "MultiplePages");
