@@ -140,7 +140,6 @@ namespace Pepro.Presentation {
             attendanceButton.FlatAppearance.BorderSize = 0;
             attendanceButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             attendanceButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
-            attendanceButton.Image = Properties.Resources.Chamcong;
             attendanceButton.Location = new Point(0, 240);
             attendanceButton.Name = "attendanceButton";
             attendanceButton.Padding = new Padding(16, 0, 0, 0);
