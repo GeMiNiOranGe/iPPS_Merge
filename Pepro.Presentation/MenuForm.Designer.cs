@@ -110,7 +110,6 @@ namespace Pepro.Presentation {
             dormitoryButton.FlatAppearance.BorderSize = 0;
             dormitoryButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
             dormitoryButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
-            dormitoryButton.Image = Properties.Resources.Dormitory;
             dormitoryButton.Location = new Point(0, 336);
             dormitoryButton.Name = "dormitoryButton";
             dormitoryButton.Padding = new Padding(16, 0, 0, 0);
