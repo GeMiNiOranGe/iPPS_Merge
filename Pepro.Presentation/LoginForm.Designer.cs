@@ -150,7 +150,6 @@ namespace Pepro.Presentation {
             // passwordPictureBox
             // 
             passwordPictureBox.Anchor = AnchorStyles.Right;
-            passwordPictureBox.BackgroundImage = Properties.Resources.CloseLockWhite;
             passwordPictureBox.BackgroundImageLayout = ImageLayout.Zoom;
             passwordPictureBox.Location = new Point(257, 263);
             passwordPictureBox.Margin = new Padding(0);

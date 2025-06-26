@@ -1,15 +1,22 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
+using Svg;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 namespace Pepro.Presentation;
 
 public partial class LoginForm : Form {
+    private readonly SvgColourServer passwordIconColor = new(Color.White);
     private string _accountName = "";
 
     public LoginForm() {
         InitializeComponent();
+
+        passwordPictureBox.BackgroundImage = IconProvider.GetIcon(
+            "EyeClosed",
+            colorServer: passwordIconColor
+        );
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -112,45 +119,27 @@ public partial class LoginForm : Form {
     private void PasswordTextBox_Enter(object sender, EventArgs e) {
         passwordTextBox.ForeColor = Color.FromArgb(248, 245, 168);
         passwordPanel.BackColor = Color.FromArgb(248, 245, 168);
-        if (passwordTextBox.UseSystemPasswordChar == true) {
-            passwordPictureBox.BackgroundImage = Properties.Resources.CloseLockYellow;
-        }
-        else {
-            passwordPictureBox.BackgroundImage = Properties.Resources.OpenLockYellow;
-        }
     }
 
     private void PasswordTextBox_Leave(object sender, EventArgs e) {
         passwordTextBox.ForeColor = Color.White;
         passwordPanel.BackColor = Color.White;
-        if (passwordTextBox.UseSystemPasswordChar == true) {
-            passwordPictureBox.BackgroundImage = Properties.Resources.CloseLockWhite;
-        }
-        else {
-            passwordPictureBox.BackgroundImage = Properties.Resources.OpenLockWhite;
-        }
     }
 
     private void PasswordPictureBox_Click(object sender, EventArgs e) {
-        if (passwordPanel.BackColor == Color.FromArgb(248, 245, 168)) {
-            if (passwordTextBox.UseSystemPasswordChar) {
-                passwordTextBox.UseSystemPasswordChar = false;
-                passwordPictureBox.BackgroundImage = Properties.Resources.OpenLockYellow;
-            }
-            else {
-                passwordTextBox.UseSystemPasswordChar = true;
-                passwordPictureBox.BackgroundImage = Properties.Resources.CloseLockYellow;
-            }
+        if (passwordTextBox.UseSystemPasswordChar) {
+            passwordTextBox.UseSystemPasswordChar = false;
+            passwordPictureBox.BackgroundImage = IconProvider.GetIcon(
+                "Eye",
+                colorServer: passwordIconColor
+            );
         }
         else {
-            if (passwordTextBox.UseSystemPasswordChar) {
-                passwordTextBox.UseSystemPasswordChar = false;
-                passwordPictureBox.BackgroundImage = Properties.Resources.OpenLockWhite;
-            }
-            else {
-                passwordTextBox.UseSystemPasswordChar = true;
-                passwordPictureBox.BackgroundImage = Properties.Resources.CloseLockWhite;
-            }
+            passwordTextBox.UseSystemPasswordChar = true;
+            passwordPictureBox.BackgroundImage = IconProvider.GetIcon(
+                "EyeClosed",
+                colorServer: passwordIconColor
+            );
         }
     }
 
