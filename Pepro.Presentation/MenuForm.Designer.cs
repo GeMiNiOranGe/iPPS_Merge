@@ -28,7 +28,6 @@ namespace Pepro.Presentation {
         private void InitializeComponent() {
             sidebarPanel = new Panel();
             functionListPanel = new Panel();
-            logoutButton = new PeproSidebarButton();
             optionPanel = new Panel();
             dormitoryButton = new PeproSidebarButton();
             salaryButton = new PeproSidebarButton();
@@ -38,11 +37,12 @@ namespace Pepro.Presentation {
             documentButton = new PeproSidebarButton();
             projectButton = new PeproSidebarButton();
             taskButton = new PeproSidebarButton();
+            appNameLabel = new Label();
+            logoutButton = new PeproSidebarButton();
             accountPanel = new Panel();
             usernameLabel = new Label();
             roleLabel = new Label();
             imageUserPictureBox = new PictureBox();
-            appNameLabel = new Label();
             workplacePanel = new Panel();
             sidebarPanel.SuspendLayout();
             functionListPanel.SuspendLayout();
@@ -54,8 +54,9 @@ namespace Pepro.Presentation {
             // 
             sidebarPanel.BackColor = Color.FromArgb(29, 29, 29);
             sidebarPanel.Controls.Add(functionListPanel);
-            sidebarPanel.Controls.Add(accountPanel);
             sidebarPanel.Controls.Add(appNameLabel);
+            sidebarPanel.Controls.Add(logoutButton);
+            sidebarPanel.Controls.Add(accountPanel);
             sidebarPanel.Dock = DockStyle.Left;
             sidebarPanel.Location = new Point(0, 0);
             sidebarPanel.Name = "sidebarPanel";
@@ -65,7 +66,6 @@ namespace Pepro.Presentation {
             // functionListPanel
             // 
             functionListPanel.AutoScroll = true;
-            functionListPanel.Controls.Add(logoutButton);
             functionListPanel.Controls.Add(optionPanel);
             functionListPanel.Controls.Add(dormitoryButton);
             functionListPanel.Controls.Add(salaryButton);
@@ -78,23 +78,8 @@ namespace Pepro.Presentation {
             functionListPanel.Dock = DockStyle.Fill;
             functionListPanel.Location = new Point(0, 80);
             functionListPanel.Name = "functionListPanel";
-            functionListPanel.Size = new Size(200, 537);
+            functionListPanel.Size = new Size(200, 489);
             functionListPanel.TabIndex = 29;
-            // 
-            // logoutButton
-            // 
-            logoutButton.FlatAppearance.BorderSize = 0;
-            logoutButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
-            logoutButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
-            logoutButton.Image = Properties.Resources.Logout;
-            logoutButton.Location = new Point(0, 384);
-            logoutButton.Name = "logoutButton";
-            logoutButton.Padding = new Padding(16, 0, 0, 0);
-            logoutButton.Size = new Size(200, 48);
-            logoutButton.TabIndex = 28;
-            logoutButton.Text = "   Đăng xuất";
-            logoutButton.UseVisualStyleBackColor = false;
-            logoutButton.Click += LogoutButton_Click;
             // 
             // optionPanel
             // 
@@ -224,6 +209,35 @@ namespace Pepro.Presentation {
             taskButton.UseVisualStyleBackColor = false;
             taskButton.MouseClick += TaskButton_MouseClick;
             // 
+            // appNameLabel
+            // 
+            appNameLabel.Cursor = Cursors.Hand;
+            appNameLabel.Dock = DockStyle.Top;
+            appNameLabel.Font = new Font("Segoe UI", 28F, FontStyle.Regular, GraphicsUnit.Pixel, 0);
+            appNameLabel.ForeColor = Color.White;
+            appNameLabel.Location = new Point(0, 0);
+            appNameLabel.Name = "appNameLabel";
+            appNameLabel.Size = new Size(200, 80);
+            appNameLabel.TabIndex = 23;
+            appNameLabel.Text = "iPPS Ver.0";
+            appNameLabel.TextAlign = ContentAlignment.MiddleCenter;
+            appNameLabel.Click += AppNameLabel_Click;
+            // 
+            // logoutButton
+            // 
+            logoutButton.Dock = DockStyle.Bottom;
+            logoutButton.FlatAppearance.BorderSize = 0;
+            logoutButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
+            logoutButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
+            logoutButton.Location = new Point(0, 569);
+            logoutButton.Name = "logoutButton";
+            logoutButton.Padding = new Padding(16, 0, 0, 0);
+            logoutButton.Size = new Size(200, 48);
+            logoutButton.TabIndex = 28;
+            logoutButton.Text = "   Đăng xuất";
+            logoutButton.UseVisualStyleBackColor = false;
+            logoutButton.Click += LogoutButton_Click;
+            // 
             // accountPanel
             // 
             accountPanel.BackColor = Color.Transparent;
@@ -237,10 +251,8 @@ namespace Pepro.Presentation {
             accountPanel.Size = new Size(200, 64);
             accountPanel.TabIndex = 12;
             accountPanel.MouseClick += Account_MouseClick;
-            accountPanel.MouseDown += Account_MouseDown;
             accountPanel.MouseEnter += Account_MouseEnter;
             accountPanel.MouseLeave += Account_MouseLeave;
-            accountPanel.MouseUp += Account_MouseUp;
             // 
             // usernameLabel
             // 
@@ -255,10 +267,8 @@ namespace Pepro.Presentation {
             usernameLabel.TabIndex = 8;
             usernameLabel.Text = "Name";
             usernameLabel.MouseClick += Account_MouseClick;
-            usernameLabel.MouseDown += Account_MouseDown;
             usernameLabel.MouseEnter += Account_MouseEnter;
             usernameLabel.MouseLeave += Account_MouseLeave;
-            usernameLabel.MouseUp += Account_MouseUp;
             // 
             // roleLabel
             // 
@@ -272,10 +282,8 @@ namespace Pepro.Presentation {
             roleLabel.TabIndex = 8;
             roleLabel.Text = "Role";
             roleLabel.MouseClick += Account_MouseClick;
-            roleLabel.MouseDown += Account_MouseDown;
             roleLabel.MouseEnter += Account_MouseEnter;
             roleLabel.MouseLeave += Account_MouseLeave;
-            roleLabel.MouseUp += Account_MouseUp;
             // 
             // imageUserPictureBox
             // 
@@ -288,24 +296,8 @@ namespace Pepro.Presentation {
             imageUserPictureBox.TabIndex = 10;
             imageUserPictureBox.TabStop = false;
             imageUserPictureBox.MouseClick += Account_MouseClick;
-            imageUserPictureBox.MouseDown += Account_MouseDown;
             imageUserPictureBox.MouseEnter += Account_MouseEnter;
             imageUserPictureBox.MouseLeave += Account_MouseLeave;
-            imageUserPictureBox.MouseUp += Account_MouseUp;
-            // 
-            // appNameLabel
-            // 
-            appNameLabel.Cursor = Cursors.Hand;
-            appNameLabel.Dock = DockStyle.Top;
-            appNameLabel.Font = new Font("Segoe UI", 28F, FontStyle.Regular, GraphicsUnit.Pixel, 0);
-            appNameLabel.ForeColor = Color.White;
-            appNameLabel.Location = new Point(0, 0);
-            appNameLabel.Name = "appNameLabel";
-            appNameLabel.Size = new Size(200, 80);
-            appNameLabel.TabIndex = 23;
-            appNameLabel.Text = "iPPS Ver.0";
-            appNameLabel.TextAlign = ContentAlignment.MiddleCenter;
-            appNameLabel.Click += AppNameLabel_Click;
             // 
             // workplacePanel
             // 

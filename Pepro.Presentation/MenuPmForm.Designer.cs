@@ -61,7 +61,6 @@
             // 
             // picLogout
             // 
-            picLogout.BackgroundImage = Properties.Resources.Logout;
             picLogout.BackgroundImageLayout = ImageLayout.Center;
             picLogout.Location = new Point(4, 399);
             picLogout.Margin = new Padding(4, 3, 4, 3);

@@ -9,12 +9,12 @@ public partial class MenuForm : Form {
     private readonly SqlConnection conn = new(
         @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
     );
-    private string? userId;
+    private string _userId = "";
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string? UserId {
-        get => userId;
-        set => userId = value;
+    public required string UserId {
+        get => _userId;
+        set => _userId = value;
     }
 
     public MenuForm() {
@@ -23,14 +23,19 @@ public partial class MenuForm : Form {
     }
 
     private void LoadSidebarButtonImage() {
-        SetSidebarButtonImages(dormitoryButton, "BunkBed");
-        SetSidebarButtonImages(salaryButton, "UserSalary");
-        SetSidebarButtonImages(attendanceButton, "CalendarCheck");
-        SetSidebarButtonImages(employeeButton, "Group");
-        SetSidebarButtonImages(progressButton, "DoughnutChart");
-        SetSidebarButtonImages(documentButton, "MultiplePages");
-        SetSidebarButtonImages(projectButton, "Folder");
         SetSidebarButtonImages(taskButton, "Task");
+        SetSidebarButtonImages(projectButton, "Folder");
+        SetSidebarButtonImages(documentButton, "MultiplePages");
+        SetSidebarButtonImages(progressButton, "DoughnutChart");
+        SetSidebarButtonImages(employeeButton, "Group");
+        SetSidebarButtonImages(attendanceButton, "CalendarCheck");
+        SetSidebarButtonImages(salaryButton, "UserSalary");
+        SetSidebarButtonImages(dormitoryButton, "BunkBed");
+
+        logoutButton.Image = IconProvider.GetIcon(
+            "LogOut",
+            colorServer: new SvgColourServer(Color.White)
+        );
     }
 
     private void SetSidebarButtonImages(PeproSidebarButton button, string iconName) {
@@ -48,7 +53,7 @@ public partial class MenuForm : Form {
 
     public string GetFullname() {
         string strFullname;
-        string query = $"SELECT FirstName, MiddleName, LastName FROM Employee WHERE Employee.EmployeeId = N'{userId}'";
+        string query = $"SELECT FirstName, MiddleName, LastName FROM Employee WHERE Employee.EmployeeId = N'{_userId}'";
         conn.Open();
         var sqlCommand = new SqlCommand(query, conn);
         var sqlDataReader = sqlCommand.ExecuteReader();
@@ -91,7 +96,7 @@ public partial class MenuForm : Form {
     private void TaskButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(taskButton.Location.Y);
 
-        string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{userId}'";
+        string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_userId}'";
         conn.Open();
         var sqlCommand = new SqlCommand(query, conn);
         var sqlDataReader = sqlCommand.ExecuteReader();
@@ -109,7 +114,7 @@ public partial class MenuForm : Form {
     private void ProjectButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(projectButton.Location.Y);
 
-        string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{userId}'";
+        string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_userId}'";
         conn.Open();
         var sqlCommand = new SqlCommand(query, conn);
         var sqlDataReader = sqlCommand.ExecuteReader();
@@ -160,19 +165,8 @@ public partial class MenuForm : Form {
         //OpenChildForm(new AttendanceForm());
     }
 
-    #region account info
     private void Account_MouseClick(object sender, MouseEventArgs e) {
-        OpenChildControl(new EmployeeInformationControl(userId));
-    }
-
-    private void Account_MouseDown(object sender, MouseEventArgs e) {
-        accountPanel.BackColor = Color.FromArgb(34, 130, 253);
-        usernameLabel.ForeColor = Color.Black;
-    }
-
-    private void Account_MouseUp(object sender, MouseEventArgs e) {
-        accountPanel.BackColor = Color.Transparent;
-        usernameLabel.ForeColor = Color.White;
+        OpenChildControl(new EmployeeInformationControl(_userId));
     }
 
     private void Account_MouseEnter(object sender, EventArgs e) {
@@ -182,7 +176,6 @@ public partial class MenuForm : Form {
     private void Account_MouseLeave(object sender, EventArgs e) {
         accountPanel.BackColor = Color.Transparent;
     }
-    #endregion
 
     private void AppNameLabel_Click(object sender, EventArgs e) {
         workplacePanel.Controls.Clear();
