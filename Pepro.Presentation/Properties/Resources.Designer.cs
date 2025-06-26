@@ -223,16 +223,6 @@ namespace Pepro.Presentation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Logout {
-            get {
-                object obj = ResourceManager.GetObject("Logout", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap MinimizeCircleFill {
             get {
                 object obj = ResourceManager.GetObject("MinimizeCircleFill", resourceCulture);

@@ -69,7 +69,7 @@ public partial class LoginForm : Form {
 
         switch (status) {
         case LoginStatus.Success:
-            AccountName = accountName;
+            _accountName = accountName;
             DialogResult = DialogResult.OK;
             Close();
             break;

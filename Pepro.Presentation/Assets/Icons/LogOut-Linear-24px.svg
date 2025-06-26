@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+    width="24px"
+    height="24px"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#000000"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+        d="m19 6v-2c0-0.54005-0.45371-1-1-1h-12c-0.54598 0-1 0.44621-1 1v16c0 0.55249 0.45374 1 1 1h12c0.54629 0 1-0.44751 1-1v-2"
+    />
+    <path
+        d="m12 12h7l-3 3m3-3-3-3"
+    />
+</svg>
