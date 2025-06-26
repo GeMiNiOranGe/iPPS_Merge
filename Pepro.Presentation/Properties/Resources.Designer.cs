@@ -103,26 +103,6 @@ namespace Pepro.Presentation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CloseLockWhite {
-            get {
-                object obj = ResourceManager.GetObject("CloseLockWhite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap CloseLockYellow {
-            get {
-                object obj = ResourceManager.GetObject("CloseLockYellow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap delete {
             get {
                 object obj = ResourceManager.GetObject("delete", resourceCulture);
@@ -276,26 +256,6 @@ namespace Pepro.Presentation.Properties {
         internal static System.Drawing.Bitmap NormalScreenCircleFill {
             get {
                 object obj = ResourceManager.GetObject("NormalScreenCircleFill", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OpenLockWhite {
-            get {
-                object obj = ResourceManager.GetObject("OpenLockWhite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OpenLockYellow {
-            get {
-                object obj = ResourceManager.GetObject("OpenLockYellow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
