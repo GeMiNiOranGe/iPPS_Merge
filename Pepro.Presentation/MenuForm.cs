@@ -20,6 +20,12 @@ public partial class MenuForm : Form {
     public MenuForm() {
         InitializeComponent();
         LoadSidebarButtonImage();
+        
+        imageUserPictureBox.Image = IconProvider.GetIcon(
+            "Profile",
+            colorServer: new SvgColourServer(Color.White),
+            size: 48
+        );
     }
 
     private void LoadSidebarButtonImage() {
