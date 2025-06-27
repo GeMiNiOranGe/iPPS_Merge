@@ -287,12 +287,11 @@ namespace Pepro.Presentation {
             // 
             // imageUserPictureBox
             // 
-            imageUserPictureBox.Image = Properties.Resources.AccImage;
             imageUserPictureBox.Location = new Point(8, 8);
             imageUserPictureBox.Margin = new Padding(8, 8, 0, 8);
             imageUserPictureBox.Name = "imageUserPictureBox";
             imageUserPictureBox.Size = new Size(48, 48);
-            imageUserPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            imageUserPictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
             imageUserPictureBox.TabIndex = 10;
             imageUserPictureBox.TabStop = false;
             imageUserPictureBox.MouseClick += Account_MouseClick;
