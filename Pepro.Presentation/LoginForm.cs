@@ -25,67 +25,37 @@ public partial class LoginForm : Form {
         private set => _accountName = value;
     }
 
-    /* 
-    private void BtnSignIn_Click(object sender, EventArgs e)
-    {
-        LoginStatus loginStatus = LoginStatus.None;
-        try
-        {
-            loginStatus = AccountBusiness.Instance.GetLoginStatus(TxtUserId.Text, TxtPassword.Text);
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show(ex.Message);
-        }
-
-        switch (loginStatus)
-        {
-        case LoginStatus.Success:
-            FormDashboard formDashboard = new()
-            {
-                RootForm = this
-            };
-            formDashboard.Show();
-            Hide();
-            break;
-        case LoginStatus.InvalidInput:
-            //lblError.Text = "Tên tài khoản và mật khẩu không được để trống!";
-            break;
-        case LoginStatus.InvalidAccount:
-            //lblError.Text = "Tên tài khoản hoặc mật khẩu sai!";
-            break;
-        case LoginStatus.OtherError:
-            //lblError.Text = "Đã xảy ra lỗi trong quá trình đăng nhập!";
-            break;
-        }
-    }
-     */
-
     private void LoginButton_Click(object sender, EventArgs e) {
         string accountName = accountNameTextBox.Text;
         string password = passwordTextBox.Text;
 
-        LoginStatus status = AccountBusiness.Instance.GetLoginStatus(accountName, password);
+        try
+        {
+            LoginStatus status = AccountBusiness.Instance.GetLoginStatus(accountName, password);
 
-        switch (status) {
-        case LoginStatus.Success:
-            _accountName = accountName;
-            DialogResult = DialogResult.OK;
-            Close();
-            break;
-        case LoginStatus.InvalidInput:
-            errorLabel.Text = "ID người dùng và mật khẩu không được để trống!";
-            break;
-        case LoginStatus.InvalidAccount:
-            errorLabel.Text = "ID người dùng hoặc mật khẩu sai!";
-            break;
-        case LoginStatus.LockedAccount:
-            errorLabel.Text = "Tài khoản của bạn đã bị khóa!";
-            break;
-        case LoginStatus.OtherError:
-            errorLabel.Text = "Đã xảy ra lỗi trong quá trình đăng nhập!";
-            break;
+            switch (status) {
+            case LoginStatus.Success:
+                _accountName = accountName;
+                DialogResult = DialogResult.OK;
+                Close();
+                break;
+            case LoginStatus.InvalidInput:
+                errorLabel.Text = "Tên người dùng và mật khẩu không được để trống!";
+                break;
+            case LoginStatus.InvalidAccount:
+                errorLabel.Text = "Tên người dùng hoặc mật khẩu sai!";
+                break;
+            case LoginStatus.LockedAccount:
+                errorLabel.Text = "Tài khoản của bạn đã bị khóa!";
+                break;
+            }
         }
+        catch (Exception ex)
+        {
+            errorLabel.Text = "Đã xảy ra lỗi trong quá trình đăng nhập!";
+            MessageBox.Show(ex.Message);
+        }
+
         accountNameTextBox.Clear();
         passwordTextBox.Clear();
         accountNameTextBox.Focus();

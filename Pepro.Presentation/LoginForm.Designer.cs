@@ -111,9 +111,9 @@ namespace Pepro.Presentation {
             errorLabel.Location = new Point(22, 307);
             errorLabel.Margin = new Padding(16, 4, 16, 8);
             errorLabel.Name = "errorLabel";
-            errorLabel.Size = new Size(259, 22);
+            errorLabel.Size = new Size(259, 48);
             errorLabel.TabIndex = 0;
-            errorLabel.TextAlign = ContentAlignment.MiddleLeft;
+            errorLabel.TextAlign = ContentAlignment.BottomLeft;
             errorLabel.MouseDown += LoginForm_MouseDown;
             // 
             // accountNamePanel
@@ -139,11 +139,12 @@ namespace Pepro.Presentation {
             // closePictureBox
             // 
             closePictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            closePictureBox.Cursor = Cursors.Hand;
             closePictureBox.Image = Properties.Resources.CloseCircleFill;
             closePictureBox.Location = new Point(756, 12);
             closePictureBox.Name = "closePictureBox";
             closePictureBox.Size = new Size(32, 32);
-            closePictureBox.TabIndex = 9;
+            closePictureBox.TabIndex = 0;
             closePictureBox.TabStop = false;
             closePictureBox.Click += ClosePictureBox_Click;
             // 
@@ -151,11 +152,12 @@ namespace Pepro.Presentation {
             // 
             passwordPictureBox.Anchor = AnchorStyles.Right;
             passwordPictureBox.BackgroundImageLayout = ImageLayout.Zoom;
+            passwordPictureBox.Cursor = Cursors.Hand;
             passwordPictureBox.Location = new Point(257, 263);
             passwordPictureBox.Margin = new Padding(0);
             passwordPictureBox.Name = "passwordPictureBox";
             passwordPictureBox.Size = new Size(24, 24);
-            passwordPictureBox.TabIndex = 5;
+            passwordPictureBox.TabIndex = 0;
             passwordPictureBox.TabStop = false;
             passwordPictureBox.Click += PasswordPictureBox_Click;
             // 
@@ -165,7 +167,7 @@ namespace Pepro.Presentation {
             illustrationPictureBox.Location = new Point(300, 0);
             illustrationPictureBox.Name = "illustrationPictureBox";
             illustrationPictureBox.Size = new Size(500, 480);
-            illustrationPictureBox.TabIndex = 10;
+            illustrationPictureBox.TabIndex = 0;
             illustrationPictureBox.TabStop = false;
             illustrationPictureBox.MouseDown += LoginForm_MouseDown;
             // 
