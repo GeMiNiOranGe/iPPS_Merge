@@ -93,8 +93,8 @@ namespace Pepro.Presentation {
             // 
             dormitoryButton.Cursor = Cursors.Hand;
             dormitoryButton.FlatAppearance.BorderSize = 0;
-            dormitoryButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
-            dormitoryButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
+            dormitoryButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 85, 255);
+            dormitoryButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 105, 255);
             dormitoryButton.Location = new Point(0, 336);
             dormitoryButton.Name = "dormitoryButton";
             dormitoryButton.Padding = new Padding(16, 0, 0, 0);
@@ -108,8 +108,8 @@ namespace Pepro.Presentation {
             // 
             salaryButton.Cursor = Cursors.Hand;
             salaryButton.FlatAppearance.BorderSize = 0;
-            salaryButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
-            salaryButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
+            salaryButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 85, 255);
+            salaryButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 105, 255);
             salaryButton.Location = new Point(0, 288);
             salaryButton.Name = "salaryButton";
             salaryButton.Padding = new Padding(16, 0, 0, 0);
@@ -123,8 +123,8 @@ namespace Pepro.Presentation {
             // 
             attendanceButton.Cursor = Cursors.Hand;
             attendanceButton.FlatAppearance.BorderSize = 0;
-            attendanceButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
-            attendanceButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
+            attendanceButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 85, 255);
+            attendanceButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 105, 255);
             attendanceButton.Location = new Point(0, 240);
             attendanceButton.Name = "attendanceButton";
             attendanceButton.Padding = new Padding(16, 0, 0, 0);
@@ -138,8 +138,8 @@ namespace Pepro.Presentation {
             // 
             employeeButton.Cursor = Cursors.Hand;
             employeeButton.FlatAppearance.BorderSize = 0;
-            employeeButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
-            employeeButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
+            employeeButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 85, 255);
+            employeeButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 105, 255);
             employeeButton.Location = new Point(0, 192);
             employeeButton.Name = "employeeButton";
             employeeButton.Padding = new Padding(16, 0, 0, 0);
@@ -153,8 +153,8 @@ namespace Pepro.Presentation {
             // 
             progressButton.Cursor = Cursors.Hand;
             progressButton.FlatAppearance.BorderSize = 0;
-            progressButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
-            progressButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
+            progressButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 85, 255);
+            progressButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 105, 255);
             progressButton.Location = new Point(0, 144);
             progressButton.Name = "progressButton";
             progressButton.Padding = new Padding(16, 0, 0, 0);
@@ -168,8 +168,8 @@ namespace Pepro.Presentation {
             // 
             documentButton.Cursor = Cursors.Hand;
             documentButton.FlatAppearance.BorderSize = 0;
-            documentButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
-            documentButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
+            documentButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 85, 255);
+            documentButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 105, 255);
             documentButton.Location = new Point(0, 96);
             documentButton.Name = "documentButton";
             documentButton.Padding = new Padding(16, 0, 0, 0);
@@ -183,8 +183,8 @@ namespace Pepro.Presentation {
             // 
             projectButton.Cursor = Cursors.Hand;
             projectButton.FlatAppearance.BorderSize = 0;
-            projectButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
-            projectButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
+            projectButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 85, 255);
+            projectButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 105, 255);
             projectButton.Location = new Point(0, 48);
             projectButton.Name = "projectButton";
             projectButton.Padding = new Padding(16, 0, 0, 0);
@@ -198,8 +198,8 @@ namespace Pepro.Presentation {
             // 
             taskButton.Cursor = Cursors.Hand;
             taskButton.FlatAppearance.BorderSize = 0;
-            taskButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
-            taskButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
+            taskButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 85, 255);
+            taskButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 105, 255);
             taskButton.Location = new Point(0, 0);
             taskButton.Name = "taskButton";
             taskButton.Padding = new Padding(16, 0, 0, 0);
@@ -227,8 +227,8 @@ namespace Pepro.Presentation {
             // 
             logoutButton.Dock = DockStyle.Bottom;
             logoutButton.FlatAppearance.BorderSize = 0;
-            logoutButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 145, 255);
-            logoutButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 145, 255);
+            logoutButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(35, 85, 255);
+            logoutButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(35, 105, 255);
             logoutButton.Location = new Point(0, 569);
             logoutButton.Name = "logoutButton";
             logoutButton.Padding = new Padding(16, 0, 0, 0);

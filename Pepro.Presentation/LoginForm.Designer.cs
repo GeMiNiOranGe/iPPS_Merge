@@ -27,7 +27,7 @@ namespace Pepro.Presentation {
             accountNameTextBox = new TextBox();
             appNameLabel = new Label();
             passwordTextBox = new TextBox();
-            loginButton = new Button();
+            signinButton = new Button();
             errorLabel = new Label();
             accountNamePanel = new Panel();
             passwordPanel = new Panel();
@@ -47,6 +47,7 @@ namespace Pepro.Presentation {
             accountNameTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             accountNameTextBox.BackColor = Color.FromArgb(29, 29, 29);
             accountNameTextBox.BorderStyle = BorderStyle.None;
+            accountNameTextBox.ForeColor = Color.White;
             accountNameTextBox.Location = new Point(25, 180);
             accountNameTextBox.Margin = new Padding(16, 4, 16, 8);
             accountNameTextBox.Name = "accountNameTextBox";
@@ -75,6 +76,7 @@ namespace Pepro.Presentation {
             passwordTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             passwordTextBox.BackColor = Color.FromArgb(29, 29, 29);
             passwordTextBox.BorderStyle = BorderStyle.None;
+            passwordTextBox.ForeColor = Color.White;
             passwordTextBox.Location = new Point(25, 266);
             passwordTextBox.Margin = new Padding(16, 4, 4, 8);
             passwordTextBox.Name = "passwordTextBox";
@@ -85,24 +87,22 @@ namespace Pepro.Presentation {
             passwordTextBox.Enter += PasswordTextBox_Enter;
             passwordTextBox.Leave += PasswordTextBox_Leave;
             // 
-            // loginButton
+            // signinButton
             // 
-            loginButton.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            loginButton.BackColor = Color.BlueViolet;
-            loginButton.Cursor = Cursors.Hand;
-            loginButton.FlatAppearance.BorderSize = 0;
-            loginButton.FlatAppearance.MouseDownBackColor = Color.FromArgb(138, 3, 226);
-            loginButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(138, 63, 226);
-            loginButton.FlatStyle = FlatStyle.Flat;
-            loginButton.ForeColor = Color.White;
-            loginButton.Location = new Point(25, 367);
-            loginButton.Margin = new Padding(16);
-            loginButton.Name = "loginButton";
-            loginButton.Size = new Size(256, 37);
-            loginButton.TabIndex = 1;
-            loginButton.Text = "Sign in";
-            loginButton.UseVisualStyleBackColor = false;
-            loginButton.Click += LoginButton_Click;
+            signinButton.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            signinButton.BackColor = Color.BlueViolet;
+            signinButton.Cursor = Cursors.Hand;
+            signinButton.FlatAppearance.BorderSize = 0;
+            signinButton.FlatStyle = FlatStyle.Flat;
+            signinButton.ForeColor = Color.White;
+            signinButton.Location = new Point(25, 367);
+            signinButton.Margin = new Padding(16);
+            signinButton.Name = "signinButton";
+            signinButton.Size = new Size(256, 37);
+            signinButton.TabIndex = 1;
+            signinButton.Text = "Sign in";
+            signinButton.UseVisualStyleBackColor = false;
+            signinButton.Click += LoginButton_Click;
             // 
             // errorLabel
             // 
@@ -211,7 +211,7 @@ namespace Pepro.Presentation {
             // 
             // LoginForm
             // 
-            AcceptButton = loginButton;
+            AcceptButton = signinButton;
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(29, 29, 29);
@@ -226,7 +226,7 @@ namespace Pepro.Presentation {
             Controls.Add(passwordTextBox);
             Controls.Add(accountNameTextBox);
             Controls.Add(errorLabel);
-            Controls.Add(loginButton);
+            Controls.Add(signinButton);
             Controls.Add(appNameLabel);
             Controls.Add(illustrationPictureBox);
             Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel, 0);
@@ -249,7 +249,7 @@ namespace Pepro.Presentation {
         private TextBox accountNameTextBox;
         private Label appNameLabel;
         private TextBox passwordTextBox;
-        private Button loginButton;
+        private Button signinButton;
         private Label errorLabel;
         private PictureBox passwordPictureBox;
         private Panel accountNamePanel;

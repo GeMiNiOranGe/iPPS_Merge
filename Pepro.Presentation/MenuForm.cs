@@ -40,14 +40,14 @@ public partial class MenuForm : Form {
 
         logoutButton.Image = IconProvider.GetIcon(
             "LogOut",
-            colorServer: new SvgColourServer(Color.White)
+            colorServer: new SvgColourServer(ThemeColors.Text)
         );
     }
 
     private void SetSidebarButtonImages(PeproSidebarButton button, string iconName) {
-        SvgColourServer whiteColor = new(Color.White);
-        button.Image = IconProvider.GetIcon(iconName, colorServer: whiteColor);
-        button.PressedImage = IconProvider.GetIcon(iconName, "Bold", colorServer: whiteColor);
+        SvgColourServer baseColor = new(ThemeColors.Text);
+        button.Image = IconProvider.GetIcon(iconName, colorServer: baseColor);
+        button.PressedImage = IconProvider.GetIcon(iconName, "Bold", colorServer: baseColor);
     }
 
     private void OpenChildControl(UserControl child) {
@@ -176,7 +176,7 @@ public partial class MenuForm : Form {
     }
 
     private void Account_MouseEnter(object sender, EventArgs e) {
-        accountPanel.BackColor = Color.FromArgb(34, 130, 253);
+        accountPanel.BackColor = ThemeColors.Accent.Base;
     }
 
     private void Account_MouseLeave(object sender, EventArgs e) {
