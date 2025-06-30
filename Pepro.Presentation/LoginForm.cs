@@ -13,6 +13,9 @@ public partial class LoginForm : Form {
     public LoginForm() {
         InitializeComponent();
 
+        signinButton.FlatAppearance.MouseDownBackColor = ThemeColors.Secondary.Dark;
+        signinButton.FlatAppearance.MouseOverBackColor = ThemeColors.Secondary.Light;
+
         passwordPictureBox.BackgroundImage = IconProvider.GetIcon(
             "EyeClosed",
             colorServer: passwordIconColor
@@ -77,23 +80,19 @@ public partial class LoginForm : Form {
     }
 
     private void AccountNameTextBox_Enter(object sender, EventArgs e) {
-        accountNameTextBox.ForeColor = Color.FromArgb(248, 245, 168);
-        accountNamePanel.BackColor = Color.FromArgb(248, 245, 168);
+        accountNamePanel.BackColor = ThemeColors.Secondary.Base;
     }
 
     private void AccountNameTextBox_Leave(object sender, EventArgs e) {
-        accountNameTextBox.ForeColor = Color.White;
-        accountNamePanel.BackColor = Color.White;
+        accountNamePanel.BackColor = ThemeColors.Text ;
     }
 
     private void PasswordTextBox_Enter(object sender, EventArgs e) {
-        passwordTextBox.ForeColor = Color.FromArgb(248, 245, 168);
-        passwordPanel.BackColor = Color.FromArgb(248, 245, 168);
+        passwordPanel.BackColor = ThemeColors.Secondary.Base;
     }
 
     private void PasswordTextBox_Leave(object sender, EventArgs e) {
-        passwordTextBox.ForeColor = Color.White;
-        passwordPanel.BackColor = Color.White;
+        passwordPanel.BackColor = ThemeColors.Text;
     }
 
     private void PasswordPictureBox_Click(object sender, EventArgs e) {
