@@ -20,11 +20,10 @@ public class PeproSidebarButton : Button {
         FlatAppearance.BorderSize = 0;
     }
 
-    // TODO: maybe should be inherited FlatButtonAppearance
     protected override void OnHandleCreated(EventArgs e) {
         base.OnHandleCreated(e);
-        FlatAppearance.MouseDownBackColor = ThemeColors.Secondary;
-        FlatAppearance.MouseOverBackColor = ThemeColors.Secondary;
+        FlatAppearance.MouseDownBackColor = ThemeColors.Accent.Dark;
+        FlatAppearance.MouseOverBackColor = ThemeColors.Accent.Base;
     }
 
     protected override void OnMouseDown(MouseEventArgs mevent) {
@@ -35,8 +34,6 @@ public class PeproSidebarButton : Button {
         if (PressedImage != null) {
             Image = PressedImage;
         }
-
-        ForeColor = Color.FromArgb(29, 29, 29);
     }
 
     protected override void OnMouseUp(MouseEventArgs mevent) {
@@ -45,8 +42,6 @@ public class PeproSidebarButton : Button {
         if (_defaultImage != null) {
             Image = _defaultImage;
         }
-
-        ForeColor = Color.White;
     }
 
     [Category("Appearance")]
