@@ -69,7 +69,6 @@
             // closePictureBox
             // 
             closePictureBox.Cursor = Cursors.Hand;
-            closePictureBox.Image = Properties.Resources.CloseCircleFill;
             closePictureBox.Location = new Point(537, 12);
             closePictureBox.Margin = new Padding(2);
             closePictureBox.Name = "closePictureBox";
@@ -295,7 +294,7 @@
             statusTextBox.Size = new Size(308, 23);
             statusTextBox.TabIndex = 6;
             // 
-            // AdminTasksModule
+            // AdminTaskEditorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -323,7 +322,7 @@
             Controls.Add(headerPanel);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
-            Name = "AdminTasksModule";
+            Name = "AdminTaskEditorForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminTasksModule";
             headerPanel.ResumeLayout(false);

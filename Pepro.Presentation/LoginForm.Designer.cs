@@ -142,10 +142,11 @@ namespace Pepro.Presentation {
             // 
             closePictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             closePictureBox.Cursor = Cursors.Hand;
-            closePictureBox.Image = Properties.Resources.CloseCircleFill;
-            closePictureBox.Location = new Point(756, 12);
+            closePictureBox.Location = new Point(768, 0);
+            closePictureBox.Margin = new Padding(0);
             closePictureBox.Name = "closePictureBox";
             closePictureBox.Size = new Size(32, 32);
+            closePictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
             closePictureBox.TabIndex = 0;
             closePictureBox.TabStop = false;
             closePictureBox.Click += ClosePictureBox_Click;
