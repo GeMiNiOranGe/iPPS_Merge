@@ -4,6 +4,7 @@ namespace Pepro.Presentation;
 
 public static class IconProvider {
     private static readonly string _iconFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Icons");
+    private static readonly string _logoFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Logos");
     private static readonly Dictionary<string, SvgDocument> _cache = [];
 
     private static void ProcessNodes(
@@ -50,6 +51,25 @@ public static class IconProvider {
             }
 
             _cache[iconId] = svgDoc;
+        }
+
+        svgDoc.Width = size;
+        svgDoc.Height = size;
+
+        return svgDoc.Draw();
+    }
+
+    public static Image GetLogo(int size = 24) {
+        string logoName = $"Pepro.svg";
+        string logoPath = Path.Combine(_logoFolderPath, logoName);
+
+        if (!File.Exists(logoPath)) {
+            throw new FileNotFoundException($"Logo not found: {logoPath}");
+        }
+
+        if (!_cache.TryGetValue(logoPath, out SvgDocument? svgDoc)) {
+            svgDoc = SvgDocument.Open<SvgDocument>(logoPath);
+            _cache[logoPath] = svgDoc;
         }
 
         svgDoc.Width = size;

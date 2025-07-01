@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation;
 
-public partial class MenuForm : Form {
+public partial class MenuForm : PeproForm {
     private readonly SqlConnection conn = new(
         @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
     );
