@@ -1,13 +1,14 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
+using Pepro.Presentation.Controls;
 using Svg;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 namespace Pepro.Presentation;
 
-public partial class LoginForm : Form {
-    private readonly SvgColourServer passwordIconColor = new(Color.White);
+public partial class LoginForm : PeproForm {
+    private readonly SvgColourServer textIconColor = new(ThemeColors.Text);
     private string _accountName = "";
 
     public LoginForm() {
@@ -18,8 +19,9 @@ public partial class LoginForm : Form {
 
         passwordPictureBox.BackgroundImage = IconProvider.GetIcon(
             "EyeClosed",
-            colorServer: passwordIconColor
+            colorServer: textIconColor
         );
+        logoPictureBox.BackgroundImage = IconProvider.GetLogo();
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -100,14 +102,14 @@ public partial class LoginForm : Form {
             passwordTextBox.UseSystemPasswordChar = false;
             passwordPictureBox.BackgroundImage = IconProvider.GetIcon(
                 "Eye",
-                colorServer: passwordIconColor
+                colorServer: textIconColor
             );
         }
         else {
             passwordTextBox.UseSystemPasswordChar = true;
             passwordPictureBox.BackgroundImage = IconProvider.GetIcon(
                 "EyeClosed",
-                colorServer: passwordIconColor
+                colorServer: textIconColor
             );
         }
     }
