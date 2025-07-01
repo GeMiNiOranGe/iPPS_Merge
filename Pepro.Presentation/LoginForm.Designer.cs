@@ -63,6 +63,7 @@ namespace Pepro.Presentation {
             // 
             appNameLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             appNameLabel.AutoSize = true;
+            appNameLabel.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             appNameLabel.ForeColor = Color.White;
             appNameLabel.Location = new Point(48, 48);
             appNameLabel.Margin = new Padding(0, 0, 0, 8);
@@ -96,6 +97,7 @@ namespace Pepro.Presentation {
             signinButton.Cursor = Cursors.Hand;
             signinButton.FlatAppearance.BorderSize = 0;
             signinButton.FlatStyle = FlatStyle.Flat;
+            signinButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             signinButton.ForeColor = Color.White;
             signinButton.Location = new Point(25, 367);
             signinButton.Margin = new Padding(16);
@@ -192,6 +194,7 @@ namespace Pepro.Presentation {
             // 
             accountNameLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             accountNameLabel.AutoSize = true;
+            accountNameLabel.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             accountNameLabel.ForeColor = Color.White;
             accountNameLabel.Location = new Point(22, 152);
             accountNameLabel.Margin = new Padding(0);
@@ -205,6 +208,7 @@ namespace Pepro.Presentation {
             // 
             passwordLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             passwordLabel.AutoSize = true;
+            passwordLabel.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             passwordLabel.ForeColor = Color.White;
             passwordLabel.Location = new Point(22, 243);
             passwordLabel.Name = "passwordLabel";
@@ -245,7 +249,6 @@ namespace Pepro.Presentation {
             Controls.Add(signinButton);
             Controls.Add(appNameLabel);
             Controls.Add(illustrationPictureBox);
-            Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel, 0);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             Name = "LoginForm";

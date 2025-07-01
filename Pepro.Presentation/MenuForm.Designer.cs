@@ -315,7 +315,6 @@ namespace Pepro.Presentation {
             ClientSize = new Size(1264, 681);
             Controls.Add(workplacePanel);
             Controls.Add(sidebarPanel);
-            Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             MinimumSize = new Size(960, 540);
             Name = "MenuForm";
             StartPosition = FormStartPosition.CenterScreen;
