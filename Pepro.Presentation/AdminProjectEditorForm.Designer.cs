@@ -71,7 +71,6 @@
             // closePictureBox
             // 
             closePictureBox.Cursor = Cursors.Hand;
-            closePictureBox.Image = Properties.Resources.CloseCircleFill;
             closePictureBox.Location = new Point(492, 12);
             closePictureBox.Margin = new Padding(2);
             closePictureBox.Name = "closePictureBox";
@@ -320,7 +319,7 @@
             endDateTimePicker.Size = new Size(308, 23);
             endDateTimePicker.TabIndex = 9;
             // 
-            // AdminProjectsModule
+            // AdminProjectEditorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -350,7 +349,7 @@
             Controls.Add(headerPanel);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
-            Name = "AdminProjectsModule";
+            Name = "AdminProjectEditorForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminProjectsModule";
             headerPanel.ResumeLayout(false);

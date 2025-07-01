@@ -21,6 +21,12 @@ public partial class LoginForm : PeproForm {
             "EyeClosed",
             colorServer: textIconColor
         );
+        closePictureBox.BackgroundImage = IconProvider.GetIcon(
+            "XMark",
+            colorServer: textIconColor,
+            size: 32
+        );
+
         logoPictureBox.BackgroundImage = IconProvider.GetLogo();
     }
 
