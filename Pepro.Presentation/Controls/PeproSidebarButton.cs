@@ -6,7 +6,7 @@ namespace Pepro.Presentation.Controls;
 public class PeproSidebarButton : Button {
     private Image? _defaultImage;
 
-    public PeproSidebarButton() {
+    public PeproSidebarButton() : base() {
         BackColor = Color.Transparent;
         Dock = DockStyle.Top;
         Font = new("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
