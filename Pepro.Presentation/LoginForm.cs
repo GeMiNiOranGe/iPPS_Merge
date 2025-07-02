@@ -13,19 +13,32 @@ public partial class LoginForm : PeproForm {
 
     public LoginForm() {
         InitializeComponent();
+        InitializeRuntimeComponents();
+    }
 
+    private void InitializeRuntimeComponents() {
         signinButton.FlatAppearance.MouseDownBackColor = ThemeColors.Secondary.Dark;
         signinButton.FlatAppearance.MouseOverBackColor = ThemeColors.Secondary.Light;
 
-        passwordPictureBox.BackgroundImage = IconProvider.GetIcon(
+        showPasswordButton.BackgroundImage = IconProvider.GetIcon(
             "EyeClosed",
             colorServer: textIconColor
         );
-        closePictureBox.BackgroundImage = IconProvider.GetIcon(
+        showPasswordButton.FlatAppearance.BorderSize = 0;
+        showPasswordButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+        showPasswordButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+        showPasswordButton.FlatStyle = FlatStyle.Flat;
+
+        closeButton.BackColor = ThemeColors.System.CloseButton.Normal;
+        closeButton.BackgroundImage = IconProvider.GetIcon(
             "XMark",
             colorServer: textIconColor,
             size: 32
         );
+        closeButton.FlatAppearance.BorderSize = 0;
+        closeButton.FlatAppearance.MouseDownBackColor = ThemeColors.System.CloseButton.Dark;
+        closeButton.FlatAppearance.MouseOverBackColor = ThemeColors.System.CloseButton.Light;
+        closeButton.FlatStyle = FlatStyle.Flat;
 
         logoPictureBox.BackgroundImage = IconProvider.GetLogo();
     }
@@ -106,14 +119,14 @@ public partial class LoginForm : PeproForm {
     private void PasswordPictureBox_Click(object sender, EventArgs e) {
         if (passwordTextBox.UseSystemPasswordChar) {
             passwordTextBox.UseSystemPasswordChar = false;
-            passwordPictureBox.BackgroundImage = IconProvider.GetIcon(
+            showPasswordButton.BackgroundImage = IconProvider.GetIcon(
                 "Eye",
                 colorServer: textIconColor
             );
         }
         else {
             passwordTextBox.UseSystemPasswordChar = true;
-            passwordPictureBox.BackgroundImage = IconProvider.GetIcon(
+            showPasswordButton.BackgroundImage = IconProvider.GetIcon(
                 "EyeClosed",
                 colorServer: textIconColor
             );

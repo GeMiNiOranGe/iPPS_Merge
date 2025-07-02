@@ -31,15 +31,13 @@ namespace Pepro.Presentation {
             errorLabel = new Label();
             accountNamePanel = new Panel();
             passwordPanel = new Panel();
-            closePictureBox = new PictureBox();
-            passwordPictureBox = new PictureBox();
+            closeButton = new Button();
+            showPasswordButton = new Button();
             illustrationPictureBox = new PictureBox();
             welcomeLabel = new Label();
             accountNameLabel = new Label();
             passwordLabel = new Label();
             logoPictureBox = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)closePictureBox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)passwordPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)illustrationPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logoPictureBox).BeginInit();
             SuspendLayout();
@@ -111,6 +109,7 @@ namespace Pepro.Presentation {
             // errorLabel
             // 
             errorLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            errorLabel.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             errorLabel.ForeColor = Color.Red;
             errorLabel.Location = new Point(22, 307);
             errorLabel.Margin = new Padding(16, 4, 16, 8);
@@ -129,6 +128,7 @@ namespace Pepro.Presentation {
             accountNamePanel.Name = "accountNamePanel";
             accountNamePanel.Size = new Size(256, 2);
             accountNamePanel.TabIndex = 0;
+            accountNamePanel.MouseDown += LoginForm_MouseDown;
             // 
             // passwordPanel
             // 
@@ -139,32 +139,31 @@ namespace Pepro.Presentation {
             passwordPanel.Name = "passwordPanel";
             passwordPanel.Size = new Size(256, 2);
             passwordPanel.TabIndex = 0;
+            passwordPanel.MouseDown += LoginForm_MouseDown;
             // 
-            // closePictureBox
+            // closeButton
             // 
-            closePictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            closePictureBox.Cursor = Cursors.Hand;
-            closePictureBox.Location = new Point(768, 0);
-            closePictureBox.Margin = new Padding(0);
-            closePictureBox.Name = "closePictureBox";
-            closePictureBox.Size = new Size(32, 32);
-            closePictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
-            closePictureBox.TabIndex = 0;
-            closePictureBox.TabStop = false;
-            closePictureBox.Click += ClosePictureBox_Click;
+            closeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            closeButton.Cursor = Cursors.Hand;
+            closeButton.Location = new Point(768, 0);
+            closeButton.Margin = new Padding(0);
+            closeButton.Name = "closeButton";
+            closeButton.Size = new Size(32, 32);
+            closeButton.TabIndex = 0;
+            closeButton.TabStop = false;
+            closeButton.Click += ClosePictureBox_Click;
             // 
-            // passwordPictureBox
+            // showPasswordButton
             // 
-            passwordPictureBox.Anchor = AnchorStyles.Right;
-            passwordPictureBox.Cursor = Cursors.Hand;
-            passwordPictureBox.Location = new Point(257, 263);
-            passwordPictureBox.Margin = new Padding(0);
-            passwordPictureBox.Name = "passwordPictureBox";
-            passwordPictureBox.Size = new Size(24, 24);
-            passwordPictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
-            passwordPictureBox.TabIndex = 0;
-            passwordPictureBox.TabStop = false;
-            passwordPictureBox.Click += PasswordPictureBox_Click;
+            showPasswordButton.Anchor = AnchorStyles.Right;
+            showPasswordButton.Cursor = Cursors.Hand;
+            showPasswordButton.Location = new Point(257, 263);
+            showPasswordButton.Margin = new Padding(0);
+            showPasswordButton.Name = "showPasswordButton";
+            showPasswordButton.Size = new Size(24, 24);
+            showPasswordButton.TabIndex = 0;
+            showPasswordButton.TabStop = false;
+            showPasswordButton.Click += PasswordPictureBox_Click;
             // 
             // illustrationPictureBox
             // 
@@ -203,6 +202,7 @@ namespace Pepro.Presentation {
             accountNameLabel.TabIndex = 0;
             accountNameLabel.Text = "Username or employee id";
             accountNameLabel.TextAlign = ContentAlignment.MiddleLeft;
+            accountNameLabel.MouseDown += LoginForm_MouseDown;
             // 
             // passwordLabel
             // 
@@ -215,6 +215,7 @@ namespace Pepro.Presentation {
             passwordLabel.Size = new Size(73, 19);
             passwordLabel.TabIndex = 0;
             passwordLabel.Text = "Password";
+            passwordLabel.MouseDown += LoginForm_MouseDown;
             // 
             // logoPictureBox
             // 
@@ -238,11 +239,11 @@ namespace Pepro.Presentation {
             Controls.Add(passwordLabel);
             Controls.Add(accountNameLabel);
             Controls.Add(welcomeLabel);
-            Controls.Add(closePictureBox);
+            Controls.Add(closeButton);
             Controls.Add(passwordPanel);
             Controls.Add(accountNamePanel);
             Controls.Add(logoPictureBox);
-            Controls.Add(passwordPictureBox);
+            Controls.Add(showPasswordButton);
             Controls.Add(passwordTextBox);
             Controls.Add(accountNameTextBox);
             Controls.Add(errorLabel);
@@ -255,8 +256,6 @@ namespace Pepro.Presentation {
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng Nhập";
             MouseDown += LoginForm_MouseDown;
-            ((System.ComponentModel.ISupportInitialize)closePictureBox).EndInit();
-            ((System.ComponentModel.ISupportInitialize)passwordPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)illustrationPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)logoPictureBox).EndInit();
             ResumeLayout(false);
@@ -271,10 +270,10 @@ namespace Pepro.Presentation {
         private TextBox passwordTextBox;
         private Button signinButton;
         private Label errorLabel;
-        private PictureBox passwordPictureBox;
+        private Button showPasswordButton;
         private Panel accountNamePanel;
         private Panel passwordPanel;
-        private PictureBox closePictureBox;
+        private Button closeButton;
         private PictureBox illustrationPictureBox;
         private Label welcomeLabel;
         private Label accountNameLabel;
