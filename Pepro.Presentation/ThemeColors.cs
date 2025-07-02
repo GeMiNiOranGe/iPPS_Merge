@@ -19,4 +19,11 @@ public static class ThemeColors
     public static Color Text => Color.White;
     public static Color Subtext => Color.FromArgb(128, 128, 128);
     public static Color Neutral => Color.FromArgb(208, 208, 208);
+    public static class System {
+        public static class CloseButton {
+            public static Color Light => Color.FromArgb(244, 31, 49);
+            public static Color Normal => Color.FromArgb(232, 17, 35);
+            public static Color Dark => Color.FromArgb(203, 21, 36);
+        }
+    }
 }
