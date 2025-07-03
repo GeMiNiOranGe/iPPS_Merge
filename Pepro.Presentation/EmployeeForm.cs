@@ -14,14 +14,12 @@ namespace Pepro.Presentation
 {
     public partial class EmployeeForm : Form
     {
-        private EmployeeBusiness employeeBSS;
         private DepartmentBusiness departmentBusiness;
         private int _roleID;
         public EmployeeForm(int roleID)
         {
             InitializeComponent();
             _roleID = roleID;
-            employeeBSS = new EmployeeBusiness();
             departmentBusiness = new DepartmentBusiness();
             LoadEmployeeData();
             loadDepartment();
@@ -81,7 +79,7 @@ namespace Pepro.Presentation
                     string dateOfBirth = dtpkDOB.Value.ToString("yyyy-MM-dd");
                     string gender = cbMale.Checked ? "0" : "1";
                     string valueList = $"{fullName},{gender},{dateOfBirth},{phoneNumber},{salary},{allowance},{taxCode},{departmentID}";
-                    bool result = employeeBSS.updateEmployee(_roleID, valueList, employeeID);
+                    bool result = EmployeeBusiness.Instance.updateEmployee(_roleID, valueList, employeeID);
                     if (result)
                     {
                         MessageBox.Show("Updated!", "Inform", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -122,7 +120,7 @@ namespace Pepro.Presentation
                 {
                     try
                     {
-                        bool isDeleted = employeeBSS.deleteEmployee(_roleID,employeeID);
+                        bool isDeleted = EmployeeBusiness.Instance.deleteEmployee(_roleID,employeeID);
                         if (isDeleted)
                         {
                             MessageBox.Show("Employee deleted successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -165,7 +163,7 @@ namespace Pepro.Presentation
                 {
                     gender = true; // Female corresponds to false
                 }
-                employeeBSS.InsertEmployee(employeeId, fullname, gender, dateOfBirth, phoneNumber, salary, allowance, taxCode, departmentId);
+                EmployeeBusiness.Instance.InsertEmployee(employeeId, fullname, gender, dateOfBirth, phoneNumber, salary, allowance, taxCode, departmentId);
 
                 MessageBox.Show("Employee inserted successfully!");
                 LoadEmployeeData();
@@ -197,7 +195,7 @@ namespace Pepro.Presentation
         {
             try
             {
-                DataTable dt = employeeBSS.GetEmployeesByRoleID(_roleID);
+                DataTable dt = EmployeeBusiness.Instance.GetEmployeesByRoleID(_roleID);
                 DisplayEmployees(dt);
             }
             catch (Exception ex)
