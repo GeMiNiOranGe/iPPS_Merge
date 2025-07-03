@@ -4,6 +4,7 @@ namespace Pepro.Presentation;
 
 public static class IconProvider {
     private static readonly string _iconFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Icons");
+    private static readonly string _imageFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Images");
     private static readonly string _logoFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Logos");
     private static readonly Dictionary<string, SvgDocument> _cache = [];
 
@@ -74,6 +75,28 @@ public static class IconProvider {
 
         svgDoc.Width = size;
         svgDoc.Height = size;
+
+        return svgDoc.Draw();
+    }
+
+    public static Image GetImage(string name, string frameName = "frame", SvgPaintServer? frameColor = null) {
+        string imageName = $"{name}.svg";
+        string imagePath = Path.Combine(_imageFolderPath, imageName);
+
+        if (!File.Exists(imagePath)) {
+            throw new FileNotFoundException($"Image not found: {imagePath}");
+        }
+
+        if (!_cache.TryGetValue(imagePath, out SvgDocument? svgDoc)) {
+            svgDoc = SvgDocument.Open<SvgDocument>(imagePath);
+
+            if (frameColor != null) {
+                SvgElement frame = svgDoc.GetElementById(frameName);
+                frame.Fill = frameColor;
+            }
+
+            _cache[imagePath] = svgDoc;
+        }
 
         return svgDoc.Draw();
     }

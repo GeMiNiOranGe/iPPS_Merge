@@ -51,7 +51,7 @@ namespace Pepro.Presentation {
             accountNameTextBox.Location = new Point(25, 180);
             accountNameTextBox.Margin = new Padding(16, 4, 16, 8);
             accountNameTextBox.Name = "accountNameTextBox";
-            accountNameTextBox.PlaceholderText = "employee.here";
+            accountNameTextBox.PlaceholderText = "e.g. employee.here";
             accountNameTextBox.Size = new Size(256, 19);
             accountNameTextBox.TabIndex = 2;
             accountNameTextBox.Enter += AccountNameTextBox_Enter;
@@ -81,7 +81,7 @@ namespace Pepro.Presentation {
             passwordTextBox.Location = new Point(25, 266);
             passwordTextBox.Margin = new Padding(16, 4, 4, 8);
             passwordTextBox.Name = "passwordTextBox";
-            passwordTextBox.PlaceholderText = "employee@123";
+            passwordTextBox.PlaceholderText = "e.g. employee@123";
             passwordTextBox.Size = new Size(228, 19);
             passwordTextBox.TabIndex = 3;
             passwordTextBox.UseSystemPasswordChar = true;
