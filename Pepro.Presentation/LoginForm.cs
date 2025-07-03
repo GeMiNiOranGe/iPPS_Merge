@@ -41,6 +41,11 @@ public partial class LoginForm : PeproForm {
         closeButton.FlatStyle = FlatStyle.Flat;
 
         logoPictureBox.BackgroundImage = IconProvider.GetLogo();
+
+        illustrationPictureBox.Image = IconProvider.GetImage(
+            "LoginPage",
+            frameColor: new SvgColourServer(Color.FromArgb(29, 29, 29))
+        );
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
