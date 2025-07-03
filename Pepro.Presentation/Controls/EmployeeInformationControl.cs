@@ -14,7 +14,7 @@ public partial class EmployeeInformationControl : UserControl
 
     private void frmInfo_Load(object sender, EventArgs e)
     {
-        CEmployee getEmployee = CEmployeeInfoBLL.getEmployeebyEmployeeID(strId);
+        CEmployee getEmployee = EmployeeBusiness.Instance.getEmployeebyEmployeeID(strId);
         txtEmpoyeeID.Text = getEmployee.Id;
         txtEmployeeName.Text = getEmployee.FirstName + " " + getEmployee.MiddleName + " " + getEmployee.LastName;
         bool bSex = getEmployee.Sex;
@@ -29,17 +29,17 @@ public partial class EmployeeInformationControl : UserControl
         string employeeBirthday = getEmployee.DateOfBirth.ToString();
         dtpEmployeeBirthday.Value = DateTime.Parse(employeeBirthday);
         txtCCCD.Text = getEmployee.CitizenIdNumber;
-        CRole getRole = CEmployeeInfoBLL.getRolebyEmployeeID(strId);
+        CRole getRole = EmployeeBusiness.Instance.getRolebyEmployeeID(strId);
         txtRole.Text = getRole.Name;
         string departmentID = getEmployee.DepartmentId;
-        CDepartment getDepartment = CEmployeeInfoBLL.getDepartmentbyDepartmentID(departmentID);
+        CDepartment getDepartment = EmployeeBusiness.Instance.getDepartmentbyDepartmentID(departmentID);
         txtDepartment.Text = getDepartment.Name;
-        List<CEmployeeBelongToProject> listProjectID = CEmployeeInfoBLL.getProjectIDbyEmployeeID(strId);
+        List<CEmployeeBelongToProject> listProjectID = EmployeeBusiness.Instance.getProjectIDbyEmployeeID(strId);
         if (listProjectID.Count > 0)
         {
             foreach (CEmployeeBelongToProject projectID in listProjectID)
             {
-                CProject getProject = CEmployeeInfoBLL.getProjectbyProjectID(projectID.ProjectId);
+                CProject getProject = EmployeeBusiness.Instance.getProjectbyProjectID(projectID.ProjectId);
                 cbProject.Items.Add(getProject.Name);
             }
             cbProject.Text = cbProject.Items[0].ToString();
@@ -49,7 +49,7 @@ public partial class EmployeeInformationControl : UserControl
             cbProject.Items.Add("Không có");
             cbProject.Text = cbProject.Items[0].ToString();
         }
-        List<CEmployeePhoneNumber> listPhoneNumber = CEmployeeInfoBLL.getPhoneNumberbyEmployeeID(strId);
+        List<CEmployeePhoneNumber> listPhoneNumber = EmployeeBusiness.Instance.getPhoneNumberbyEmployeeID(strId);
         foreach(CEmployeePhoneNumber phoneNumber in listPhoneNumber)
         {
             cbSDT.Items.Add(phoneNumber.PhoneNumber);

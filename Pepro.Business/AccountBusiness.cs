@@ -17,7 +17,7 @@ public class AccountBusiness
         private set => instance = value;
     }
 
-    public AccountBusiness() { }
+    private AccountBusiness() { }
 
     public LoginStatus GetLoginStatus(string accountName, string password)
     {
