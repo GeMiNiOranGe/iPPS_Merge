@@ -10,26 +10,20 @@ public partial class MenuForm : PeproForm {
     private readonly SqlConnection conn = new(
         @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
     );
-    private string _userId = "";
+    private string _accountName = "";
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required string UserId {
-        get => _userId;
-        set => _userId = value;
+    public required string AccountName {
+        get => _accountName;
+        set => _accountName = value;
     }
 
     public MenuForm() {
         InitializeComponent();
-        LoadSidebarButtonImage();
-        
-        imageUserPictureBox.Image = IconProvider.GetIcon(
-            "Profile",
-            colorServer: new SvgColourServer(Color.White),
-            size: 48
-        );
+        InitializeRuntimeComponents();
     }
 
-    private void LoadSidebarButtonImage() {
+    private void InitializeRuntimeComponents() {
         SetSidebarButtonImages(taskButton, "Task");
         SetSidebarButtonImages(projectButton, "Folder");
         SetSidebarButtonImages(documentButton, "MultiplePages");
@@ -43,12 +37,25 @@ public partial class MenuForm : PeproForm {
             "LogOut",
             colorServer: new SvgColourServer(ThemeColors.Text)
         );
+        logoutButton.FlatAppearance.BorderSize = 0;
+        logoutButton.FlatAppearance.MouseDownBackColor = ThemeColors.Accent.Dark;
+        logoutButton.FlatAppearance.MouseOverBackColor = ThemeColors.Accent.Base;
+
+        imageUserPictureBox.Image = IconProvider.GetIcon(
+            "Profile",
+            colorServer: new SvgColourServer(Color.White),
+            size: 48
+        );
     }
 
-    private void SetSidebarButtonImages(PeproSidebarButton button, string iconName) {
+    private static void SetSidebarButtonImages(PeproSidebarButton button, string iconName) {
         SvgColourServer baseColor = new(ThemeColors.Text);
         button.Image = IconProvider.GetIcon(iconName, colorServer: baseColor);
         button.PressedImage = IconProvider.GetIcon(iconName, "Bold", colorServer: baseColor);
+
+        button.FlatAppearance.BorderSize = 0;
+        button.FlatAppearance.MouseDownBackColor = ThemeColors.Accent.Dark;
+        button.FlatAppearance.MouseOverBackColor = ThemeColors.Accent.Base;
     }
 
     private void OpenChildControl(UserControl child) {
@@ -72,7 +79,7 @@ public partial class MenuForm : PeproForm {
     }
 
     private void MenuForm_Load(object sender, EventArgs e) {
-        usernameLabel.Text = EmployeeBusiness.Instance.GetFullname(_userId);
+        usernameLabel.Text = EmployeeBusiness.Instance.GetFullname(_accountName);
         roleLabel.Text = GetRole();
     }
 
@@ -91,7 +98,7 @@ public partial class MenuForm : PeproForm {
     private void TaskButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(taskButton.Location.Y);
 
-        string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_userId}'";
+        string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_accountName}'";
         conn.Open();
         var sqlCommand = new SqlCommand(query, conn);
         var sqlDataReader = sqlCommand.ExecuteReader();
@@ -109,7 +116,7 @@ public partial class MenuForm : PeproForm {
     private void ProjectButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(projectButton.Location.Y);
 
-        string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_userId}'";
+        string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_accountName}'";
         conn.Open();
         var sqlCommand = new SqlCommand(query, conn);
         var sqlDataReader = sqlCommand.ExecuteReader();
@@ -161,7 +168,7 @@ public partial class MenuForm : PeproForm {
     }
 
     private void Account_MouseClick(object sender, MouseEventArgs e) {
-        OpenChildControl(new EmployeeInformationControl(_userId));
+        OpenChildControl(new EmployeeInformationControl(_accountName));
     }
 
     private void Account_MouseEnter(object sender, EventArgs e) {

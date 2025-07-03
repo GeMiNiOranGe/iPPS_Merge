@@ -26,7 +26,7 @@ static class Program
 
             using MenuForm menuForm = new()
             {
-                UserId = accountName
+                AccountName = accountName
             };
             if (menuForm.ShowDialog() != DialogResult.Retry)
             {

@@ -14,8 +14,8 @@ public class EmployeeDataAccess {
 
     private EmployeeDataAccess() { }
 
-    public string GetFullname(string userId) {
-        string query = $"SELECT FirstName, MiddleName, LastName FROM Employee WHERE Employee.EmployeeId = N'{userId}'";
+    public string GetFullname(string accountName) {
+        string query = $"SELECT FirstName, MiddleName, LastName FROM Employee WHERE Employee.EmployeeId = N'{accountName}'";
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
         if (dataTable.Rows.Count == 0) {

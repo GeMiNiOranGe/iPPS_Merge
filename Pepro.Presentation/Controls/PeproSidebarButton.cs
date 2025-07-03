@@ -16,14 +16,6 @@ public class PeproSidebarButton : Button {
         FlatStyle = FlatStyle.Flat;
         ImageAlign = ContentAlignment.MiddleLeft;
         TextImageRelation = TextImageRelation.ImageBeforeText;
-
-        FlatAppearance.BorderSize = 0;
-    }
-
-    protected override void OnHandleCreated(EventArgs e) {
-        base.OnHandleCreated(e);
-        FlatAppearance.MouseDownBackColor = ThemeColors.Accent.Dark;
-        FlatAppearance.MouseOverBackColor = ThemeColors.Accent.Base;
     }
 
     protected override void OnMouseDown(MouseEventArgs mevent) {
