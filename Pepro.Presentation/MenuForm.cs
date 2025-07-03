@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.Business;
 using Pepro.Presentation.Controls;
 using Svg;
 using System.ComponentModel;
@@ -57,18 +58,6 @@ public partial class MenuForm : PeproForm {
         child.BringToFront();
     }
 
-    public string GetFullname() {
-        string strFullname;
-        string query = $"SELECT FirstName, MiddleName, LastName FROM Employee WHERE Employee.EmployeeId = N'{_userId}'";
-        conn.Open();
-        var sqlCommand = new SqlCommand(query, conn);
-        var sqlDataReader = sqlCommand.ExecuteReader();
-        sqlDataReader.Read();
-        strFullname = sqlDataReader["FirstName"] + ", " + sqlDataReader["LastName"];
-        conn.Close();
-        return strFullname;
-    }
-
     public string GetRole() {
         //string strRole;
         //string query = $"select NAME from ROLE where EMPLOYEE_ID = N'{userId}'";
@@ -83,7 +72,7 @@ public partial class MenuForm : PeproForm {
     }
 
     private void MenuForm_Load(object sender, EventArgs e) {
-        usernameLabel.Text = GetFullname();
+        usernameLabel.Text = EmployeeBusiness.Instance.GetFullname(_userId);
         roleLabel.Text = GetRole();
     }
 
