@@ -79,7 +79,7 @@ public partial class MenuForm : PeproForm {
     }
 
     private void MenuForm_Load(object sender, EventArgs e) {
-        usernameLabel.Text = EmployeeBusiness.Instance.GetFullname(_accountName);
+        usernameLabel.Text = EmployeeBusiness.Instance.GetDisplayName(_accountName);
         roleLabel.Text = GetRole();
     }
 

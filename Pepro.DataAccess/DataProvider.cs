@@ -38,31 +38,23 @@ internal class DataProvider {
         connection.Close();
     }
 
-    public DataTable ExecuteQuery(string query) {
-        DataTable dataTable = new();
-        using (SqlCommand command = CreateCommand(query)) {
-            using SqlDataAdapter dataAdapter = new(command);
-            dataAdapter.Fill(dataTable);
-        }
-        return dataTable;
-    }
-
     public DataTable ExecuteQuery(
         string query,
         SqlParameter[]? parameters = null,
         CommandType commandType = CommandType.Text
     ) {
-        DataTable dataTable = new();
-        using (SqlCommand command = CreateCommand(query)) {
-            command.CommandType = commandType;
+        using SqlCommand command = CreateCommand(query);
+        command.CommandType = commandType;
 
-            if (parameters != null) {
-                command.Parameters.AddRange(parameters);
-            }
-
-            using SqlDataAdapter dataAdapter = new(command);
-            dataAdapter.Fill(dataTable);
+        if (parameters != null)
+        {
+            command.Parameters.AddRange(parameters);
         }
+
+        using SqlDataAdapter dataAdapter = new(command);
+
+        DataTable dataTable = new();
+        dataAdapter.Fill(dataTable);
         return dataTable;
     }
 
@@ -86,45 +78,6 @@ internal class DataProvider {
         return numberOfRowsAffected;
     }
 
-    /* 
-    public int ExecuteNonQuery(string query) {
-        int iData = 0;
-        using (var connection = CreateConnection()) {
-            OpenConnection(connection);
-            var sqlCommand = new SqlCommand(query, connection);
-
-            // Execute CRUD
-            try { iData = sqlCommand.ExecuteNonQuery(); }
-            catch (SqlException ex) { throw ex; }
-
-            iData = sqlCommand.ExecuteNonQuery();
-            CloseConnection(connection);
-        }
-        return iData;
-    }
-
-    public int ExecuteNonQuery(string query, object[]? parameters = null) {
-        int numberOfRowsAffected = 0;
-        using (SqlCommand command = CreateCommand(query)) {
-            if (parameters != null) {
-                string[] listParam = query.Split(' ');
-                int i = 0;
-                foreach (string item in listParam) {
-                    if (item.Contains('@')) {
-                        command.Parameters.AddWithValue(item, parameters[i]);
-                        i++;
-                    }
-                }
-            }
-
-            OpenConnection(command.Connection);
-            numberOfRowsAffected = command.ExecuteNonQuery();
-            CloseConnection(command.Connection);
-        }
-        return numberOfRowsAffected;
-    }
-     */
-
     /// <summary>
     ///     Executes the query, and returns the first column of the first row in the result
     ///     set returned by the query. Additional columns or rows are ignored.
@@ -135,16 +88,10 @@ internal class DataProvider {
     ///     in Visual Basic) if the result set is empty. Returns a maximum of 2033 characters.
     /// </returns>
     public object ExecuteScalar(string query) {
-        object objData = 0;
-        using (SqlConnection connection = CreateConnection()) {
-            OpenConnection(connection);
-            SqlCommand sqlCommand = new(query, connection);
-
-            // Get data 
-            objData = sqlCommand.ExecuteScalar();
-
-            CloseConnection(connection);
-        }
+        using SqlCommand command = CreateCommand(query);
+        OpenConnection(command.Connection);
+        object objData = command.ExecuteScalar();
+        CloseConnection(command.Connection);
         return objData;
     }
 

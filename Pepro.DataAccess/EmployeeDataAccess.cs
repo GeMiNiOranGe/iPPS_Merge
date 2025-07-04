@@ -14,7 +14,7 @@ public class EmployeeDataAccess {
 
     private EmployeeDataAccess() { }
 
-    public string GetFullname(string accountName) {
+    public EmployeeFullName? GetFullname(string accountName) {
         string query = "SELECT FirstName, MiddleName, LastName FROM Employee WHERE Employee.EmployeeId = @EmployeeId";
         SqlParameter[] parameters =
         [
@@ -29,12 +29,17 @@ public class EmployeeDataAccess {
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
         if (dataTable.Rows.Count == 0) {
-            return "";
+            return null;
         }
 
         DataRow row = dataTable.Rows[0];
-
-        return row.Field<string>("FirstName") + ", " + row.Field<string>("LastName");
+        EmployeeFullName? employeeFullName = new()
+        {
+            FirstName = row.Field<string>("FirstName") ?? "",
+            MiddleName = row.Field<string>("MiddleName") ?? "",
+            LastName = row.Field<string>("LastName") ?? ""
+        };
+        return employeeFullName;
     }
 
     public DataTable GetEmployeeByRoleID(int roleID) {
