@@ -27,7 +27,11 @@ public class AccountDataAccess {
             }
         ];
 
-        DataTable dataTable = DataProvider.Instance.ExecuteProcedure(procedureName, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(
+            procedureName,
+            parameters,
+            CommandType.StoredProcedure
+        );
         if (dataTable.Rows.Count == 0)
         {
             return null;

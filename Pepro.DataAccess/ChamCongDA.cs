@@ -50,8 +50,20 @@ namespace Pepro.DataAccess {
 
         public bool deleteAttendance(string manv) {
             try {
+                string query = "usp_XoaChamCong";
+                SqlParameter[] parameters =
+                [
+                    new()
+                    {
+                        ParameterName = "MaNhanVienCanXoa",
+                        SqlDbType = SqlDbType.NVarChar,
+                        Size = 50,
+                        Value = manv
+                    }
+                ];
+
                 // Gọi stored procedure từ DataProvider và kiểm tra kết quả
-                return DataProvider.Instance.ExecuteNonQuery("exec usp_XoaChamCong @MaNhanVienCanXoa", new object[] { manv }) > 0;
+                return DataProvider.Instance.ExecuteNonQuery(query, parameters, CommandType.StoredProcedure) > 0;
             }
             catch (Exception ex) {
                 // Xử lý ngoại lệ nếu có lỗi

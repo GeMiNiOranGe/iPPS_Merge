@@ -211,7 +211,18 @@ namespace Pepro.DataAccess {
         public bool deleteSalaryInfo(string maNhanVien) {
             try {
                 string query = "DELETE FROM LUONG WHERE MANV = @MaNhanVien";
-                int rowsAffected = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maNhanVien });
+                SqlParameter[] parameters =
+                [
+                    new()
+                    {
+                        ParameterName = "MaNhanVienCanXoa",
+                        SqlDbType = SqlDbType.NVarChar,
+                        Size = 50,
+                        Value = maNhanVien
+                    }
+                ];
+
+                int rowsAffected = DataProvider.Instance.ExecuteNonQuery(query, parameters);
                 return rowsAffected > 0;
             }
             catch (Exception ex) {
