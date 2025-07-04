@@ -15,8 +15,12 @@ public class EmployeeBusiness
 
     private EmployeeBusiness() { }
 
-    public string GetFullname(string accountName) {
-        return EmployeeDataAccess.Instance.GetFullname(accountName);
+    public string GetDisplayName(string accountName)
+    {
+        EmployeeFullName? employeeFullName = EmployeeDataAccess.Instance.GetFullname(accountName);
+        return employeeFullName != null
+            ? employeeFullName.FirstName + ", " + employeeFullName.LastName
+            : "";
     }
 
     public DataTable GetEmployeesByRoleID(int roleID)
