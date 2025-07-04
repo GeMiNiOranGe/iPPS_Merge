@@ -47,6 +47,45 @@ internal class DataProvider {
         return dataTable;
     }
 
+    public DataTable ExecuteQuery(
+        string query,
+        SqlParameter[]? parameters = null,
+        CommandType commandType = CommandType.Text
+    ) {
+        DataTable dataTable = new();
+        using (SqlCommand command = CreateCommand(query)) {
+            command.CommandType = commandType;
+
+            if (parameters != null) {
+                command.Parameters.AddRange(parameters);
+            }
+
+            using SqlDataAdapter dataAdapter = new(command);
+            dataAdapter.Fill(dataTable);
+        }
+        return dataTable;
+    }
+
+    public int ExecuteNonQuery(
+        string query,
+        SqlParameter[]? parameters = null,
+        CommandType commandType = CommandType.Text
+    ) {
+        using SqlCommand command = CreateCommand(query);
+        command.CommandType = commandType;
+
+        if (parameters != null)
+        {
+            command.Parameters.AddRange(parameters);
+        }
+
+        OpenConnection(command.Connection);
+        int numberOfRowsAffected = command.ExecuteNonQuery();
+        CloseConnection(command.Connection);
+
+        return numberOfRowsAffected;
+    }
+
     /* 
     public int ExecuteNonQuery(string query) {
         int iData = 0;
@@ -63,7 +102,6 @@ internal class DataProvider {
         }
         return iData;
     }
-     */
 
     public int ExecuteNonQuery(string query, object[]? parameters = null) {
         int numberOfRowsAffected = 0;
@@ -85,6 +123,7 @@ internal class DataProvider {
         }
         return numberOfRowsAffected;
     }
+     */
 
     /// <summary>
     ///     Executes the query, and returns the first column of the first row in the result
@@ -124,20 +163,5 @@ internal class DataProvider {
             CloseConnection(connection);
         }
         */
-    }
-
-    public DataTable ExecuteProcedure(string query, SqlParameter[]? parameters = null) {
-        DataTable dataTable = new();
-        using (SqlCommand command = CreateCommand(query)) {
-            command.CommandType = CommandType.StoredProcedure;
-
-            if (parameters != null) {
-                command.Parameters.AddRange(parameters);
-            }
-
-            using SqlDataAdapter dataAdapter = new(command);
-            dataAdapter.Fill(dataTable);
-        }
-        return dataTable;
     }
 }

@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using Pepro.DataAccess;
+﻿using Pepro.DataAccess;
 using Pepro.DTOs;
 using System.Data;
 
@@ -27,15 +26,7 @@ public class EmployeeBusiness
 
     public bool UpdateEmployee(int roleID, string valueList, string employeeID)
     {
-        SqlParameter[] parameters = new SqlParameter[]
-        {
-            new SqlParameter("@RoleID", SqlDbType.Int) { Value = roleID },
-            new SqlParameter("@ValueList", SqlDbType.NVarChar) { Value = valueList },
-            new SqlParameter("@EmployeeID", SqlDbType.VarChar) { Value = employeeID }
-        };
-
-        int kq = EmployeeDataAccess.Instance.ExecuteStoredProcedure("usp_UpdateEmployee", parameters);
-        return kq > 0;
+        return EmployeeDataAccess.Instance.UpdateEmployee(roleID, valueList, employeeID);
     }
 
     public bool DeleteEmployee(int roleID, string employeeID)

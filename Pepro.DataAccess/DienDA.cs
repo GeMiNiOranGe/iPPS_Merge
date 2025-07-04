@@ -1,4 +1,5 @@
-﻿using Pepro.DTOs;
+﻿using Microsoft.Data.SqlClient;
+using Pepro.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -47,8 +48,20 @@ namespace Pepro.DataAccess
         {
             try
             {
+                string query = "usp_XoaMaDien";
+                SqlParameter[] parameters =
+                [
+                    new()
+                    {
+                        ParameterName = "MaDien",
+                        SqlDbType = SqlDbType.NVarChar,
+                        Size = 50,
+                        Value = maD
+                    }
+                ];
+
                 // Gọi stored procedure từ DataProvider và kiểm tra kết quả
-                return DataProvider.Instance.ExecuteNonQuery("exec usp_XoaMaDien @MaDien", new object[] { maD }) > 0;
+                return DataProvider.Instance.ExecuteNonQuery(query, parameters, CommandType.StoredProcedure) > 0;
             }
             catch (Exception ex)
             {

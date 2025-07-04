@@ -15,9 +15,19 @@ public class EmployeeDataAccess {
     private EmployeeDataAccess() { }
 
     public string GetFullname(string accountName) {
-        string query = $"SELECT FirstName, MiddleName, LastName FROM Employee WHERE Employee.EmployeeId = N'{accountName}'";
+        string query = "SELECT FirstName, MiddleName, LastName FROM Employee WHERE Employee.EmployeeId = @EmployeeId";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "EmployeeId",
+                SqlDbType = SqlDbType.VarChar,
+                Size = 10,
+                Value = accountName
+            }
+        ];
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
         if (dataTable.Rows.Count == 0) {
             return "";
         }
@@ -25,20 +35,6 @@ public class EmployeeDataAccess {
         DataRow row = dataTable.Rows[0];
 
         return row.Field<string>("FirstName") + ", " + row.Field<string>("LastName");
-    }
-
-    public int ExecuteStoredProcedure(string storedProcedureName, SqlParameter[] parameters) {
-        using (SqlConnection connection = new SqlConnection("")) {
-            connection.Open();
-            SqlCommand command = new SqlCommand(storedProcedureName, connection);
-            command.CommandType = CommandType.StoredProcedure;
-
-            if (parameters != null) {
-                command.Parameters.AddRange(parameters);
-            }
-
-            return command.ExecuteNonQuery();
-        }
     }
 
     public DataTable GetEmployeeByRoleID(int roleID) {
@@ -55,6 +51,23 @@ public class EmployeeDataAccess {
         return dataTable;
     }
 
+    public bool UpdateEmployee(int roleID, string valueList, string employeeID) {
+        SqlParameter[] parameters =
+        [
+            new("@RoleID", SqlDbType.Int) { Value = roleID },
+            new("@ValueList", SqlDbType.NVarChar) { Value = valueList },
+            new("@EmployeeID", SqlDbType.VarChar) { Value = employeeID }
+        ];
+
+        int numberOfRowsAffected = DataProvider.Instance.ExecuteNonQuery(
+            "usp_UpdateEmployee",
+            parameters,
+            CommandType.StoredProcedure
+        );
+        return numberOfRowsAffected > 0;
+    }
+
+    /*
     public bool UpdateEmployee(int roleID, string valueList, string employeeID) {
         try {
             using (SqlConnection connection = new SqlConnection("")) {
@@ -81,6 +94,7 @@ public class EmployeeDataAccess {
             throw new Exception("Error: " + ex.Message);
         }
     }
+    */
 
     public bool DeleteEmployee(int roleID, string employeeID) {
         using (SqlConnection connection = new SqlConnection("")) {
