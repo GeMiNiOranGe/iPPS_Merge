@@ -79,7 +79,7 @@ namespace Pepro.Presentation
                     string dateOfBirth = dtpkDOB.Value.ToString("yyyy-MM-dd");
                     string gender = cbMale.Checked ? "0" : "1";
                     string valueList = $"{fullName},{gender},{dateOfBirth},{phoneNumber},{salary},{allowance},{taxCode},{departmentID}";
-                    bool result = EmployeeBusiness.Instance.updateEmployee(_roleID, valueList, employeeID);
+                    bool result = EmployeeBusiness.Instance.UpdateEmployee(_roleID, valueList, employeeID);
                     if (result)
                     {
                         MessageBox.Show("Updated!", "Inform", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -120,7 +120,7 @@ namespace Pepro.Presentation
                 {
                     try
                     {
-                        bool isDeleted = EmployeeBusiness.Instance.deleteEmployee(_roleID,employeeID);
+                        bool isDeleted = EmployeeBusiness.Instance.DeleteEmployee(_roleID,employeeID);
                         if (isDeleted)
                         {
                             MessageBox.Show("Employee deleted successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
