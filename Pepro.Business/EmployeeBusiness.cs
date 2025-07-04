@@ -22,10 +22,10 @@ public class EmployeeBusiness
 
     public DataTable GetEmployeesByRoleID(int roleID)
     {
-        return EmployeeDataAccess.Instance.getEmployeeByRoleID(roleID);
+        return EmployeeDataAccess.Instance.GetEmployeeByRoleID(roleID);
     }
 
-    public bool updateEmployee(int roleID, string valueList, string employeeID)
+    public bool UpdateEmployee(int roleID, string valueList, string employeeID)
     {
         SqlParameter[] parameters = new SqlParameter[]
         {
@@ -38,9 +38,9 @@ public class EmployeeBusiness
         return kq > 0;
     }
 
-    public bool deleteEmployee(int roleID, string employeeID)
+    public bool DeleteEmployee(int roleID, string employeeID)
     {
-        return EmployeeDataAccess.Instance.deleteEmployee(roleID, employeeID);
+        return EmployeeDataAccess.Instance.DeleteEmployee(roleID, employeeID);
     }
 
     public void InsertEmployee(string employeeId, string fullname, bool? gender, DateTime? dateOfBirth, string phoneNumber, string salary, string allowance, string taxCode, string departmentId)
@@ -48,27 +48,27 @@ public class EmployeeBusiness
         EmployeeDataAccess.Instance.InsertEmployee(employeeId, fullname, gender, dateOfBirth, phoneNumber, salary, allowance, taxCode, departmentId);
     }
 
-    public CEmployee getEmployeebyEmployeeID(string employeeID) {
-        return EmployeeDataAccess.Instance.getEmployeebyEmployeeID(employeeID);
+    public CEmployee GetEmployeebyEmployeeID(string employeeID) {
+        return EmployeeDataAccess.Instance.GetEmployeebyEmployeeID(employeeID);
     }
 
-    public CRole getRolebyEmployeeID(string employeeID) {
-        return EmployeeDataAccess.Instance.getRolebyEmployeeID(employeeID);
+    public CRole GetRolebyEmployeeID(string employeeID) {
+        return EmployeeDataAccess.Instance.GetRolebyEmployeeID(employeeID);
     }
 
-    public CDepartment getDepartmentbyDepartmentID(string departmentID) {
-        return EmployeeDataAccess.Instance.getDepartmentbyDepartmentID(departmentID);
+    public CDepartment GetDepartmentbyDepartmentID(string departmentID) {
+        return EmployeeDataAccess.Instance.GetDepartmentbyDepartmentID(departmentID);
     }
 
-    public List<CEmployeeBelongToProject> getProjectIDbyEmployeeID(string employeeID) {
-        return EmployeeDataAccess.Instance.getProjectIDbyEmployeeID(employeeID);
+    public List<CEmployeeBelongToProject> GetProjectIDbyEmployeeID(string employeeID) {
+        return EmployeeDataAccess.Instance.GetProjectIDbyEmployeeID(employeeID);
     }
 
-    public CProject getProjectbyProjectID(string projectID) {
-        return EmployeeDataAccess.Instance.getProjectbyProjectID(projectID);
+    public CProject GetProjectbyProjectID(string projectID) {
+        return EmployeeDataAccess.Instance.GetProjectbyProjectID(projectID);
     }
 
-    public List<CEmployeePhoneNumber> getPhoneNumberbyEmployeeID(string employeeID) {
-        return EmployeeDataAccess.Instance.getPhoneNumberbyEmployeeID(employeeID);
+    public List<CEmployeePhoneNumber> GetPhoneNumberbyEmployeeID(string employeeID) {
+        return EmployeeDataAccess.Instance.GetPhoneNumberbyEmployeeID(employeeID);
     }
 }
