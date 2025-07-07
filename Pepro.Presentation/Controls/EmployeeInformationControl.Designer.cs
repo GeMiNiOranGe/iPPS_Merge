@@ -83,7 +83,6 @@
             // 
             phoneNumberComboBox.Anchor = AnchorStyles.None;
             phoneNumberComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            phoneNumberComboBox.Enabled = false;
             phoneNumberComboBox.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             phoneNumberComboBox.FormattingEnabled = true;
             phoneNumberComboBox.Location = new Point(455, 527);
@@ -229,7 +228,6 @@
             // 
             projectComboBox.Anchor = AnchorStyles.None;
             projectComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            projectComboBox.Enabled = false;
             projectComboBox.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             projectComboBox.FormattingEnabled = true;
             projectComboBox.Location = new Point(455, 482);

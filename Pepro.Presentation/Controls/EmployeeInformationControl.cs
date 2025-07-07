@@ -53,12 +53,9 @@ public partial class EmployeeInformationControl : UserControl
             projectComboBox.Items.Add("Không có");
             projectComboBox.Text = projectComboBox.Items[0].ToString();
         }
-        List<CEmployeePhoneNumber> listPhoneNumber = EmployeeBusiness.Instance.GetPhoneNumberbyEmployeeID(_employeeId);
-        foreach(CEmployeePhoneNumber phoneNumber in listPhoneNumber)
-        {
-            phoneNumberComboBox.Items.Add(phoneNumber.PhoneNumber);
-        }
-        phoneNumberComboBox.Text = phoneNumberComboBox.Items[0].ToString();
         */
+        string[] phoneNumbers = EmployeeBusiness.Instance.GetPhoneNumberListByEmployeeId(_employeeId);
+        phoneNumberComboBox.Items.AddRange(phoneNumbers);
+        phoneNumberComboBox.Text = phoneNumberComboBox.Items[0]?.ToString();
     }
 }

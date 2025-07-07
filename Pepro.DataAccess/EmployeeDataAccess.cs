@@ -228,12 +228,30 @@ public class EmployeeDataAccess {
         return null;
     }
 
-    //Lấy dữ liệu từ table EMPLOYEE_PHONE_NUMBER trong database dựa vào EMPLOYEE_ID
-    public List<CEmployeePhoneNumber> GetPhoneNumberbyEmployeeID(string employeeID) {
-        List<CEmployeePhoneNumber> listPhoneNumber = new List<CEmployeePhoneNumber>();
-        DataTable data = DataProvider.Instance.ExecuteQuery("Select * from EMPLOYEE_PHONE_NUMBER where EMPLOYEE_ID = '" + employeeID + "'");
-        foreach (DataRow item in data.Rows) {
-            CEmployeePhoneNumber phoneNumber = new CEmployeePhoneNumber(item);
+    public List<EmployeePhoneNumber> GetPhoneNumberListByEmployeeId(string employeeId) {
+        string query = "SELECT EmployeePhoneNumberId, PhoneNumber, EmployeeId FROM EmployeePhoneNumber WHERE EmployeeId = @EmployeeId";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "EmployeeId",
+                SqlDbType = SqlDbType.VarChar,
+                Size = 10,
+                Value = employeeId
+            }
+        ];
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+
+        List<EmployeePhoneNumber> listPhoneNumber = [];
+        foreach (DataRow row in dataTable.Rows)
+        {
+            EmployeePhoneNumber phoneNumber = new()
+            {
+                EmployeePhoneNumberId = row.Field<int>("EmployeePhoneNumberId"),
+                PhoneNumber = row.Field<string>("PhoneNumber") ?? "",
+                EmployeeId = row.Field<string>("EmployeeId") ?? ""
+            };
             listPhoneNumber.Add(phoneNumber);
         }
         return listPhoneNumber;

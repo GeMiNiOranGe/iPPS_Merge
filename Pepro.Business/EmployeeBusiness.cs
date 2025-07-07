@@ -67,7 +67,13 @@ public class EmployeeBusiness
         return EmployeeDataAccess.Instance.GetProjectbyProjectID(projectID);
     }
 
-    public List<CEmployeePhoneNumber> GetPhoneNumberbyEmployeeID(string employeeID) {
-        return EmployeeDataAccess.Instance.GetPhoneNumberbyEmployeeID(employeeID);
+    public string[] GetPhoneNumberListByEmployeeId(string employeeID) {
+        List<EmployeePhoneNumber> employeePhoneNumbers = EmployeeDataAccess.Instance.GetPhoneNumberListByEmployeeId(employeeID);
+        List<string> phoneNumbers = [];
+        foreach (EmployeePhoneNumber phoneNumber in employeePhoneNumbers)
+        {
+            phoneNumbers.Add(phoneNumber.PhoneNumber);
+        }
+        return [.. phoneNumbers];
     }
 }
