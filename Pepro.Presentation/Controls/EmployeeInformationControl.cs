@@ -15,25 +15,27 @@ public partial class EmployeeInformationControl : UserControl
 
     private void EmployeeInformationControl_Load(object sender, EventArgs e)
     {
+        Employee employee = EmployeeBusiness.Instance.GetEmployeeByEmployeeId(_employeeId);
+        employeeIdTextBox.Text = employee.EmployeeId;
+        employeeNameTextBox.Text = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;
+        bool? gender = employee.Gender;
+        if (gender != null) {
+            if ((bool)gender) {
+                maleRadioButton.Checked = true;
+            }
+            else {
+                femaleRadioButton.Checked = true;
+            }
+        }
+        else {
+            otherRadioButton.Checked = true;
+        }
+        dateOfBirthDateTimePicker.Value = employee.DateOfBirth;
+        citizenIdTextBox.Text = employee.CitizenId;
         /*
-        CEmployee getEmployee = EmployeeBusiness.Instance.GetEmployeebyEmployeeID(_employeeId);
-        empoyeeIdTextBox.Text = getEmployee.Id;
-        employeeNameTextBox.Text = getEmployee.FirstName + " " + getEmployee.MiddleName + " " + getEmployee.LastName;
-        bool bSex = getEmployee.Sex;
-        if (bSex)
-        {
-            maleRadioButton.Checked = true;
-        }
-        else
-        {
-            femaleRadioButton.Checked = true;
-        }
-        string employeeBirthday = getEmployee.DateOfBirth.ToString();
-        dateOfBirthDateTimePicker.Value = DateTime.Parse(employeeBirthday);
-        citizenIdTextBox.Text = getEmployee.CitizenIdNumber;
         CRole getRole = EmployeeBusiness.Instance.GetRolebyEmployeeID(_employeeId);
         roleTextBox.Text = getRole.Name;
-        string departmentID = getEmployee.DepartmentId;
+        string departmentID = employee.DepartmentId;
         CDepartment getDepartment = EmployeeBusiness.Instance.GetDepartmentbyDepartmentID(departmentID);
         departmentTextBox.Text = getDepartment.Name;
         List<CEmployeeBelongToProject> listProjectID = EmployeeBusiness.Instance.GetProjectIDbyEmployeeID(_employeeId);

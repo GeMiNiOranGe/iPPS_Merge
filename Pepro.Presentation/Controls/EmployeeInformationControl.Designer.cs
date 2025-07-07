@@ -43,7 +43,7 @@
             projectComboBox = new ComboBox();
             departmentLabel = new Label();
             projectLabel = new Label();
-            empoyeeIdTextBox = new TextBox();
+            employeeIdTextBox = new TextBox();
             departmentTextBox = new TextBox();
             employeeNameTextBox = new TextBox();
             dateOfBirthLabel = new Label();
@@ -68,14 +68,16 @@
             // 
             otherRadioButton.Anchor = AnchorStyles.None;
             otherRadioButton.AutoSize = true;
+            otherRadioButton.BackColor = Color.White;
             otherRadioButton.Enabled = false;
             otherRadioButton.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            otherRadioButton.ForeColor = Color.White;
-            otherRadioButton.Location = new Point(659, 259);
+            otherRadioButton.ForeColor = Color.Black;
+            otherRadioButton.Location = new Point(658, 259);
             otherRadioButton.Name = "otherRadioButton";
             otherRadioButton.Size = new Size(61, 25);
             otherRadioButton.TabIndex = 5;
             otherRadioButton.Text = "Khác";
+            otherRadioButton.UseVisualStyleBackColor = false;
             // 
             // phoneNumberComboBox
             // 
@@ -107,27 +109,31 @@
             // 
             femaleRadioButton.Anchor = AnchorStyles.None;
             femaleRadioButton.AutoSize = true;
+            femaleRadioButton.BackColor = Color.White;
             femaleRadioButton.Enabled = false;
             femaleRadioButton.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            femaleRadioButton.ForeColor = Color.White;
+            femaleRadioButton.ForeColor = Color.Black;
             femaleRadioButton.Location = new Point(563, 259);
             femaleRadioButton.Name = "femaleRadioButton";
             femaleRadioButton.Size = new Size(49, 25);
             femaleRadioButton.TabIndex = 4;
             femaleRadioButton.Text = "Nữ";
+            femaleRadioButton.UseVisualStyleBackColor = false;
             // 
             // maleRadioButton
             // 
             maleRadioButton.Anchor = AnchorStyles.None;
             maleRadioButton.AutoSize = true;
+            maleRadioButton.BackColor = Color.White;
             maleRadioButton.Enabled = false;
             maleRadioButton.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            maleRadioButton.ForeColor = Color.White;
+            maleRadioButton.ForeColor = Color.Black;
             maleRadioButton.Location = new Point(455, 259);
             maleRadioButton.Name = "maleRadioButton";
             maleRadioButton.Size = new Size(62, 25);
             maleRadioButton.TabIndex = 3;
             maleRadioButton.Text = "Nam";
+            maleRadioButton.UseVisualStyleBackColor = false;
             // 
             // citizenIdTextBox
             // 
@@ -258,16 +264,16 @@
             projectLabel.TabIndex = 0;
             projectLabel.Text = "Dự án tham gia";
             // 
-            // empoyeeIdTextBox
+            // employeeIdTextBox
             // 
-            empoyeeIdTextBox.Anchor = AnchorStyles.None;
-            empoyeeIdTextBox.Enabled = false;
-            empoyeeIdTextBox.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            empoyeeIdTextBox.Location = new Point(455, 167);
-            empoyeeIdTextBox.Margin = new Padding(2);
-            empoyeeIdTextBox.Name = "empoyeeIdTextBox";
-            empoyeeIdTextBox.Size = new Size(264, 29);
-            empoyeeIdTextBox.TabIndex = 1;
+            employeeIdTextBox.Anchor = AnchorStyles.None;
+            employeeIdTextBox.Enabled = false;
+            employeeIdTextBox.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            employeeIdTextBox.Location = new Point(455, 167);
+            employeeIdTextBox.Margin = new Padding(2);
+            employeeIdTextBox.Name = "employeeIdTextBox";
+            employeeIdTextBox.Size = new Size(264, 29);
+            employeeIdTextBox.TabIndex = 1;
             // 
             // departmentTextBox
             // 
@@ -333,7 +339,7 @@
             Controls.Add(dateOfBirthDateTimePicker);
             Controls.Add(departmentTextBox);
             Controls.Add(employeeIdLabel);
-            Controls.Add(empoyeeIdTextBox);
+            Controls.Add(employeeIdTextBox);
             Controls.Add(fullNameLabel);
             Controls.Add(projectLabel);
             Controls.Add(genderLabel);
@@ -360,7 +366,7 @@
         private ComboBox projectComboBox;
         private Label departmentLabel;
         private Label projectLabel;
-        private TextBox empoyeeIdTextBox;
+        private TextBox employeeIdTextBox;
         private TextBox departmentTextBox;
         private TextBox employeeNameTextBox;
         private Label dateOfBirthLabel;

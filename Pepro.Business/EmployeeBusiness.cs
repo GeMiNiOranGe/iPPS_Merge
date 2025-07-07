@@ -43,8 +43,12 @@ public class EmployeeBusiness
         EmployeeDataAccess.Instance.InsertEmployee(employeeId, fullname, gender, dateOfBirth, phoneNumber, salary, allowance, taxCode, departmentId);
     }
 
-    public CEmployee GetEmployeebyEmployeeID(string employeeID) {
-        return EmployeeDataAccess.Instance.GetEmployeebyEmployeeID(employeeID);
+    public Employee GetEmployeeByEmployeeId(string employeeID) {
+        Employee? employee = EmployeeDataAccess.Instance.GetEmployeeByEmployeeId(employeeID);
+        if (employee == null) {
+            return new Employee();
+        }
+        return employee;
     }
 
     public CRole GetRolebyEmployeeID(string employeeID) {
