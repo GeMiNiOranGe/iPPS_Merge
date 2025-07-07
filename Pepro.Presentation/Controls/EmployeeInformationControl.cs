@@ -5,55 +5,58 @@ namespace Pepro.Presentation.Controls;
 
 public partial class EmployeeInformationControl : UserControl
 {
-    string strId;
-    public EmployeeInformationControl(string employeeID)
+    private readonly string _employeeId;
+
+    public EmployeeInformationControl(string employeeId)
     {
         InitializeComponent();
-        strId = employeeID;
+        _employeeId = employeeId;
     }
 
-    private void frmInfo_Load(object sender, EventArgs e)
+    private void EmployeeInformationControl_Load(object sender, EventArgs e)
     {
-        CEmployee getEmployee = EmployeeBusiness.Instance.GetEmployeebyEmployeeID(strId);
-        txtEmpoyeeID.Text = getEmployee.Id;
-        txtEmployeeName.Text = getEmployee.FirstName + " " + getEmployee.MiddleName + " " + getEmployee.LastName;
+        /*
+        CEmployee getEmployee = EmployeeBusiness.Instance.GetEmployeebyEmployeeID(_employeeId);
+        empoyeeIdTextBox.Text = getEmployee.Id;
+        employeeNameTextBox.Text = getEmployee.FirstName + " " + getEmployee.MiddleName + " " + getEmployee.LastName;
         bool bSex = getEmployee.Sex;
         if (bSex)
         {
-            rdoMale.Checked = true;
+            maleRadioButton.Checked = true;
         }
         else
         {
-            rdoFemale.Checked = true;
+            femaleRadioButton.Checked = true;
         }
         string employeeBirthday = getEmployee.DateOfBirth.ToString();
-        dtpEmployeeBirthday.Value = DateTime.Parse(employeeBirthday);
-        txtCCCD.Text = getEmployee.CitizenIdNumber;
-        CRole getRole = EmployeeBusiness.Instance.GetRolebyEmployeeID(strId);
-        txtRole.Text = getRole.Name;
+        dateOfBirthDateTimePicker.Value = DateTime.Parse(employeeBirthday);
+        citizenIdTextBox.Text = getEmployee.CitizenIdNumber;
+        CRole getRole = EmployeeBusiness.Instance.GetRolebyEmployeeID(_employeeId);
+        roleTextBox.Text = getRole.Name;
         string departmentID = getEmployee.DepartmentId;
         CDepartment getDepartment = EmployeeBusiness.Instance.GetDepartmentbyDepartmentID(departmentID);
-        txtDepartment.Text = getDepartment.Name;
-        List<CEmployeeBelongToProject> listProjectID = EmployeeBusiness.Instance.GetProjectIDbyEmployeeID(strId);
+        departmentTextBox.Text = getDepartment.Name;
+        List<CEmployeeBelongToProject> listProjectID = EmployeeBusiness.Instance.GetProjectIDbyEmployeeID(_employeeId);
         if (listProjectID.Count > 0)
         {
             foreach (CEmployeeBelongToProject projectID in listProjectID)
             {
                 CProject getProject = EmployeeBusiness.Instance.GetProjectbyProjectID(projectID.ProjectId);
-                cbProject.Items.Add(getProject.Name);
+                projectComboBox.Items.Add(getProject.Name);
             }
-            cbProject.Text = cbProject.Items[0].ToString();
+            projectComboBox.Text = projectComboBox.Items[0].ToString();
         }
         else
         {
-            cbProject.Items.Add("Không có");
-            cbProject.Text = cbProject.Items[0].ToString();
+            projectComboBox.Items.Add("Không có");
+            projectComboBox.Text = projectComboBox.Items[0].ToString();
         }
-        List<CEmployeePhoneNumber> listPhoneNumber = EmployeeBusiness.Instance.GetPhoneNumberbyEmployeeID(strId);
+        List<CEmployeePhoneNumber> listPhoneNumber = EmployeeBusiness.Instance.GetPhoneNumberbyEmployeeID(_employeeId);
         foreach(CEmployeePhoneNumber phoneNumber in listPhoneNumber)
         {
-            cbSDT.Items.Add(phoneNumber.PhoneNumber);
+            phoneNumberComboBox.Items.Add(phoneNumber.PhoneNumber);
         }
-        cbSDT.Text = cbSDT.Items[0].ToString();
+        phoneNumberComboBox.Text = phoneNumberComboBox.Items[0].ToString();
+        */
     }
 }
