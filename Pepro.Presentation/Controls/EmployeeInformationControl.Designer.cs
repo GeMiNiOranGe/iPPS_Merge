@@ -27,354 +27,350 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            label22 = new Label();
-            panel2 = new Panel();
-            cbSDT = new ComboBox();
-            label6 = new Label();
-            rdoFemale = new RadioButton();
-            rdoMale = new RadioButton();
-            txtCCCD = new TextBox();
-            dtpEmployeeBirthday = new DateTimePicker();
-            label1 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            cbProject = new ComboBox();
-            label12 = new Label();
-            label13 = new Label();
-            txtEmpoyeeID = new TextBox();
-            txtDepartment = new TextBox();
-            txtEmployeeName = new TextBox();
-            label21 = new Label();
-            txtRole = new TextBox();
-            panel2.SuspendLayout();
+            headerLabel = new Label();
+            otherRadioButton = new RadioButton();
+            phoneNumberComboBox = new ComboBox();
+            phoneNumberLabel = new Label();
+            femaleRadioButton = new RadioButton();
+            maleRadioButton = new RadioButton();
+            citizenIdTextBox = new TextBox();
+            dateOfBirthDateTimePicker = new DateTimePicker();
+            employeeIdLabel = new Label();
+            fullNameLabel = new Label();
+            genderLabel = new Label();
+            roleLabel = new Label();
+            citizenIdLabel = new Label();
+            projectComboBox = new ComboBox();
+            departmentLabel = new Label();
+            projectLabel = new Label();
+            empoyeeIdTextBox = new TextBox();
+            departmentTextBox = new TextBox();
+            employeeNameTextBox = new TextBox();
+            dateOfBirthLabel = new Label();
+            roleTextBox = new TextBox();
             SuspendLayout();
             // 
-            // label22
+            // headerLabel
             // 
-            label22.BackColor = Color.FromArgb(22, 22, 22);
-            label22.Dock = DockStyle.Top;
-            label22.Font = new Font("Tahoma", 19.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label22.ForeColor = Color.White;
-            label22.Location = new Point(0, 0);
-            label22.Margin = new Padding(2, 0, 2, 0);
-            label22.Name = "label22";
-            label22.Size = new Size(681, 87);
-            label22.TabIndex = 42;
-            label22.Text = "Thông tin cơ bản";
-            label22.TextAlign = ContentAlignment.MiddleCenter;
+            headerLabel.BackColor = Color.FromArgb(22, 22, 22);
+            headerLabel.Dock = DockStyle.Top;
+            headerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            headerLabel.ForeColor = Color.White;
+            headerLabel.Location = new Point(0, 0);
+            headerLabel.Margin = new Padding(2, 0, 2, 0);
+            headerLabel.Name = "headerLabel";
+            headerLabel.Size = new Size(1064, 48);
+            headerLabel.TabIndex = 0;
+            headerLabel.Text = "Thông tin cơ bản";
+            headerLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // panel2
+            // otherRadioButton
             // 
-            panel2.BackColor = Color.FromArgb(15, 15, 15);
-            panel2.Controls.Add(cbSDT);
-            panel2.Controls.Add(label6);
-            panel2.Controls.Add(rdoFemale);
-            panel2.Controls.Add(rdoMale);
-            panel2.Controls.Add(txtCCCD);
-            panel2.Controls.Add(dtpEmployeeBirthday);
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(label4);
-            panel2.Controls.Add(label5);
-            panel2.Controls.Add(label10);
-            panel2.Controls.Add(label11);
-            panel2.Controls.Add(cbProject);
-            panel2.Controls.Add(label12);
-            panel2.Controls.Add(label13);
-            panel2.Controls.Add(txtEmpoyeeID);
-            panel2.Controls.Add(txtDepartment);
-            panel2.Controls.Add(txtEmployeeName);
-            panel2.Controls.Add(label21);
-            panel2.Controls.Add(txtRole);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 87);
-            panel2.Margin = new Padding(2);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(681, 560);
-            panel2.TabIndex = 43;
+            otherRadioButton.Anchor = AnchorStyles.None;
+            otherRadioButton.AutoSize = true;
+            otherRadioButton.Enabled = false;
+            otherRadioButton.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            otherRadioButton.ForeColor = Color.White;
+            otherRadioButton.Location = new Point(659, 259);
+            otherRadioButton.Name = "otherRadioButton";
+            otherRadioButton.Size = new Size(61, 25);
+            otherRadioButton.TabIndex = 5;
+            otherRadioButton.Text = "Khác";
             // 
-            // cbSDT
+            // phoneNumberComboBox
             // 
-            cbSDT.Anchor = AnchorStyles.None;
-            cbSDT.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbSDT.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbSDT.FormattingEnabled = true;
-            cbSDT.Location = new Point(282, 445);
-            cbSDT.Margin = new Padding(2);
-            cbSDT.Name = "cbSDT";
-            cbSDT.Size = new Size(264, 27);
-            cbSDT.TabIndex = 51;
+            phoneNumberComboBox.Anchor = AnchorStyles.None;
+            phoneNumberComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            phoneNumberComboBox.Enabled = false;
+            phoneNumberComboBox.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            phoneNumberComboBox.FormattingEnabled = true;
+            phoneNumberComboBox.Location = new Point(455, 527);
+            phoneNumberComboBox.Margin = new Padding(2);
+            phoneNumberComboBox.Name = "phoneNumberComboBox";
+            phoneNumberComboBox.Size = new Size(264, 29);
+            phoneNumberComboBox.TabIndex = 11;
             // 
-            // label6
+            // phoneNumberLabel
             // 
-            label6.Anchor = AnchorStyles.None;
-            label6.AutoSize = true;
-            label6.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(227, 448);
-            label6.Margin = new Padding(2, 0, 2, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(39, 19);
-            label6.TabIndex = 50;
-            label6.Text = "SĐT";
+            phoneNumberLabel.Anchor = AnchorStyles.None;
+            phoneNumberLabel.AutoSize = true;
+            phoneNumberLabel.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            phoneNumberLabel.ForeColor = Color.White;
+            phoneNumberLabel.Location = new Point(400, 531);
+            phoneNumberLabel.Margin = new Padding(2, 0, 2, 0);
+            phoneNumberLabel.Name = "phoneNumberLabel";
+            phoneNumberLabel.Size = new Size(38, 21);
+            phoneNumberLabel.TabIndex = 0;
+            phoneNumberLabel.Text = "SĐT";
             // 
-            // rdoFemale
+            // femaleRadioButton
             // 
-            rdoFemale.Anchor = AnchorStyles.None;
-            rdoFemale.AutoSize = true;
-            rdoFemale.Enabled = false;
-            rdoFemale.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rdoFemale.ForeColor = Color.White;
-            rdoFemale.Location = new Point(422, 175);
-            rdoFemale.Margin = new Padding(4, 3, 4, 3);
-            rdoFemale.Name = "rdoFemale";
-            rdoFemale.Size = new Size(48, 23);
-            rdoFemale.TabIndex = 49;
-            rdoFemale.TabStop = true;
-            rdoFemale.Text = "Nữ";
-            rdoFemale.UseVisualStyleBackColor = true;
+            femaleRadioButton.Anchor = AnchorStyles.None;
+            femaleRadioButton.AutoSize = true;
+            femaleRadioButton.Enabled = false;
+            femaleRadioButton.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            femaleRadioButton.ForeColor = Color.White;
+            femaleRadioButton.Location = new Point(563, 259);
+            femaleRadioButton.Name = "femaleRadioButton";
+            femaleRadioButton.Size = new Size(49, 25);
+            femaleRadioButton.TabIndex = 4;
+            femaleRadioButton.Text = "Nữ";
             // 
-            // rdoMale
+            // maleRadioButton
             // 
-            rdoMale.Anchor = AnchorStyles.None;
-            rdoMale.AutoSize = true;
-            rdoMale.Enabled = false;
-            rdoMale.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rdoMale.ForeColor = Color.White;
-            rdoMale.Location = new Point(282, 175);
-            rdoMale.Margin = new Padding(4, 3, 4, 3);
-            rdoMale.Name = "rdoMale";
-            rdoMale.Size = new Size(60, 23);
-            rdoMale.TabIndex = 48;
-            rdoMale.TabStop = true;
-            rdoMale.Text = "Nam";
-            rdoMale.UseVisualStyleBackColor = true;
+            maleRadioButton.Anchor = AnchorStyles.None;
+            maleRadioButton.AutoSize = true;
+            maleRadioButton.Enabled = false;
+            maleRadioButton.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            maleRadioButton.ForeColor = Color.White;
+            maleRadioButton.Location = new Point(455, 259);
+            maleRadioButton.Name = "maleRadioButton";
+            maleRadioButton.Size = new Size(62, 25);
+            maleRadioButton.TabIndex = 3;
+            maleRadioButton.Text = "Nam";
             // 
-            // txtCCCD
+            // citizenIdTextBox
             // 
-            txtCCCD.Anchor = AnchorStyles.None;
-            txtCCCD.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCCCD.Location = new Point(282, 265);
-            txtCCCD.Margin = new Padding(2);
-            txtCCCD.Name = "txtCCCD";
-            txtCCCD.ReadOnly = true;
-            txtCCCD.Size = new Size(264, 27);
-            txtCCCD.TabIndex = 47;
+            citizenIdTextBox.Anchor = AnchorStyles.None;
+            citizenIdTextBox.Enabled = false;
+            citizenIdTextBox.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            citizenIdTextBox.Location = new Point(455, 347);
+            citizenIdTextBox.Margin = new Padding(2);
+            citizenIdTextBox.Name = "citizenIdTextBox";
+            citizenIdTextBox.Size = new Size(264, 29);
+            citizenIdTextBox.TabIndex = 7;
             // 
-            // dtpEmployeeBirthday
+            // dateOfBirthDateTimePicker
             // 
-            dtpEmployeeBirthday.Anchor = AnchorStyles.None;
-            dtpEmployeeBirthday.Checked = false;
-            dtpEmployeeBirthday.CustomFormat = "yyyy-mm-dd";
-            dtpEmployeeBirthday.Enabled = false;
-            dtpEmployeeBirthday.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dtpEmployeeBirthday.Format = DateTimePickerFormat.Short;
-            dtpEmployeeBirthday.Location = new Point(282, 220);
-            dtpEmployeeBirthday.Margin = new Padding(2);
-            dtpEmployeeBirthday.Name = "dtpEmployeeBirthday";
-            dtpEmployeeBirthday.Size = new Size(264, 27);
-            dtpEmployeeBirthday.TabIndex = 46;
+            dateOfBirthDateTimePicker.Anchor = AnchorStyles.None;
+            dateOfBirthDateTimePicker.Checked = false;
+            dateOfBirthDateTimePicker.CustomFormat = "yyyy-mm-dd";
+            dateOfBirthDateTimePicker.Enabled = false;
+            dateOfBirthDateTimePicker.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dateOfBirthDateTimePicker.Format = DateTimePickerFormat.Short;
+            dateOfBirthDateTimePicker.Location = new Point(455, 302);
+            dateOfBirthDateTimePicker.Margin = new Padding(2);
+            dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
+            dateOfBirthDateTimePicker.Size = new Size(264, 29);
+            dateOfBirthDateTimePicker.TabIndex = 6;
             // 
-            // label1
+            // employeeIdLabel
             // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(153, 88);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(103, 19);
-            label1.TabIndex = 0;
-            label1.Text = "Mã nhân viên";
+            employeeIdLabel.Anchor = AnchorStyles.None;
+            employeeIdLabel.AutoSize = true;
+            employeeIdLabel.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            employeeIdLabel.ForeColor = Color.White;
+            employeeIdLabel.Location = new Point(334, 171);
+            employeeIdLabel.Margin = new Padding(2, 0, 2, 0);
+            employeeIdLabel.Name = "employeeIdLabel";
+            employeeIdLabel.Size = new Size(104, 21);
+            employeeIdLabel.TabIndex = 0;
+            employeeIdLabel.Text = "Mã nhân viên";
             // 
-            // label4
+            // fullNameLabel
             // 
-            label4.Anchor = AnchorStyles.None;
-            label4.AutoSize = true;
-            label4.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(183, 133);
-            label4.Margin = new Padding(2, 0, 2, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(77, 19);
-            label4.TabIndex = 3;
-            label4.Text = "Họ và tên";
+            fullNameLabel.Anchor = AnchorStyles.None;
+            fullNameLabel.AutoSize = true;
+            fullNameLabel.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            fullNameLabel.ForeColor = Color.White;
+            fullNameLabel.Location = new Point(362, 216);
+            fullNameLabel.Margin = new Padding(2, 0, 2, 0);
+            fullNameLabel.Name = "fullNameLabel";
+            fullNameLabel.Size = new Size(76, 21);
+            fullNameLabel.TabIndex = 0;
+            fullNameLabel.Text = "Họ và tên";
             // 
-            // label5
+            // genderLabel
             // 
-            label5.Anchor = AnchorStyles.None;
-            label5.AutoSize = true;
-            label5.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(192, 178);
-            label5.Margin = new Padding(2, 0, 2, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(69, 19);
-            label5.TabIndex = 4;
-            label5.Text = "Giới tính";
+            genderLabel.Anchor = AnchorStyles.None;
+            genderLabel.AutoSize = true;
+            genderLabel.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            genderLabel.ForeColor = Color.White;
+            genderLabel.Location = new Point(368, 261);
+            genderLabel.Margin = new Padding(2, 0, 2, 0);
+            genderLabel.Name = "genderLabel";
+            genderLabel.Size = new Size(70, 21);
+            genderLabel.TabIndex = 0;
+            genderLabel.Text = "Giới tính";
             // 
-            // label10
+            // roleLabel
             // 
-            label10.Anchor = AnchorStyles.None;
-            label10.AutoSize = true;
-            label10.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.White;
-            label10.Location = new Point(195, 313);
-            label10.Margin = new Padding(2, 0, 2, 0);
-            label10.Name = "label10";
-            label10.Size = new Size(67, 19);
-            label10.TabIndex = 9;
-            label10.Text = "Chức vụ";
+            roleLabel.Anchor = AnchorStyles.None;
+            roleLabel.AutoSize = true;
+            roleLabel.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            roleLabel.ForeColor = Color.White;
+            roleLabel.Location = new Point(372, 396);
+            roleLabel.Margin = new Padding(2, 0, 2, 0);
+            roleLabel.Name = "roleLabel";
+            roleLabel.Size = new Size(66, 21);
+            roleLabel.TabIndex = 0;
+            roleLabel.Text = "Chức vụ";
             // 
-            // label11
+            // citizenIdLabel
             // 
-            label11.Anchor = AnchorStyles.None;
-            label11.AutoSize = true;
-            label11.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.White;
-            label11.Location = new Point(215, 268);
-            label11.Margin = new Padding(2, 0, 2, 0);
-            label11.Name = "label11";
-            label11.Size = new Size(50, 19);
-            label11.TabIndex = 10;
-            label11.Text = "CCCD";
+            citizenIdLabel.Anchor = AnchorStyles.None;
+            citizenIdLabel.AutoSize = true;
+            citizenIdLabel.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            citizenIdLabel.ForeColor = Color.White;
+            citizenIdLabel.Location = new Point(387, 351);
+            citizenIdLabel.Margin = new Padding(2, 0, 2, 0);
+            citizenIdLabel.Name = "citizenIdLabel";
+            citizenIdLabel.Size = new Size(51, 21);
+            citizenIdLabel.TabIndex = 0;
+            citizenIdLabel.Text = "CCCD";
             // 
-            // cbProject
+            // projectComboBox
             // 
-            cbProject.Anchor = AnchorStyles.None;
-            cbProject.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbProject.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbProject.FormattingEnabled = true;
-            cbProject.Location = new Point(282, 400);
-            cbProject.Margin = new Padding(2);
-            cbProject.Name = "cbProject";
-            cbProject.Size = new Size(264, 27);
-            cbProject.TabIndex = 36;
+            projectComboBox.Anchor = AnchorStyles.None;
+            projectComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            projectComboBox.Enabled = false;
+            projectComboBox.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            projectComboBox.FormattingEnabled = true;
+            projectComboBox.Location = new Point(455, 482);
+            projectComboBox.Margin = new Padding(2);
+            projectComboBox.Name = "projectComboBox";
+            projectComboBox.Size = new Size(264, 29);
+            projectComboBox.TabIndex = 10;
             // 
-            // label12
+            // departmentLabel
             // 
-            label12.Anchor = AnchorStyles.None;
-            label12.AutoSize = true;
-            label12.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.ForeColor = Color.White;
-            label12.Location = new Point(174, 358);
-            label12.Margin = new Padding(2, 0, 2, 0);
-            label12.Name = "label12";
-            label12.Size = new Size(85, 19);
-            label12.TabIndex = 11;
-            label12.Text = "Phòng ban";
+            departmentLabel.Anchor = AnchorStyles.None;
+            departmentLabel.AutoSize = true;
+            departmentLabel.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            departmentLabel.ForeColor = Color.White;
+            departmentLabel.Location = new Point(353, 441);
+            departmentLabel.Margin = new Padding(2, 0, 2, 0);
+            departmentLabel.Name = "departmentLabel";
+            departmentLabel.Size = new Size(85, 21);
+            departmentLabel.TabIndex = 0;
+            departmentLabel.Text = "Phòng ban";
             // 
-            // label13
+            // projectLabel
             // 
-            label13.Anchor = AnchorStyles.None;
-            label13.AutoSize = true;
-            label13.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.ForeColor = Color.White;
-            label13.Location = new Point(134, 403);
-            label13.Margin = new Padding(2, 0, 2, 0);
-            label13.Name = "label13";
-            label13.Size = new Size(119, 19);
-            label13.TabIndex = 12;
-            label13.Text = "Dự án tham gia";
+            projectLabel.Anchor = AnchorStyles.None;
+            projectLabel.AutoSize = true;
+            projectLabel.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            projectLabel.ForeColor = Color.White;
+            projectLabel.Location = new Point(322, 486);
+            projectLabel.Margin = new Padding(2, 0, 2, 0);
+            projectLabel.Name = "projectLabel";
+            projectLabel.Size = new Size(116, 21);
+            projectLabel.TabIndex = 0;
+            projectLabel.Text = "Dự án tham gia";
             // 
-            // txtEmpoyeeID
+            // empoyeeIdTextBox
             // 
-            txtEmpoyeeID.Anchor = AnchorStyles.None;
-            txtEmpoyeeID.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtEmpoyeeID.Location = new Point(282, 85);
-            txtEmpoyeeID.Margin = new Padding(2);
-            txtEmpoyeeID.Name = "txtEmpoyeeID";
-            txtEmpoyeeID.ReadOnly = true;
-            txtEmpoyeeID.Size = new Size(264, 27);
-            txtEmpoyeeID.TabIndex = 30;
+            empoyeeIdTextBox.Anchor = AnchorStyles.None;
+            empoyeeIdTextBox.Enabled = false;
+            empoyeeIdTextBox.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            empoyeeIdTextBox.Location = new Point(455, 167);
+            empoyeeIdTextBox.Margin = new Padding(2);
+            empoyeeIdTextBox.Name = "empoyeeIdTextBox";
+            empoyeeIdTextBox.Size = new Size(264, 29);
+            empoyeeIdTextBox.TabIndex = 1;
             // 
-            // txtDepartment
+            // departmentTextBox
             // 
-            txtDepartment.Anchor = AnchorStyles.None;
-            txtDepartment.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDepartment.Location = new Point(282, 355);
-            txtDepartment.Margin = new Padding(2);
-            txtDepartment.Name = "txtDepartment";
-            txtDepartment.ReadOnly = true;
-            txtDepartment.Size = new Size(264, 27);
-            txtDepartment.TabIndex = 29;
+            departmentTextBox.Anchor = AnchorStyles.None;
+            departmentTextBox.Enabled = false;
+            departmentTextBox.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            departmentTextBox.Location = new Point(455, 437);
+            departmentTextBox.Margin = new Padding(2);
+            departmentTextBox.Name = "departmentTextBox";
+            departmentTextBox.Size = new Size(264, 29);
+            departmentTextBox.TabIndex = 9;
             // 
-            // txtEmployeeName
+            // employeeNameTextBox
             // 
-            txtEmployeeName.Anchor = AnchorStyles.None;
-            txtEmployeeName.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtEmployeeName.Location = new Point(282, 130);
-            txtEmployeeName.Margin = new Padding(2);
-            txtEmployeeName.Name = "txtEmployeeName";
-            txtEmployeeName.ReadOnly = true;
-            txtEmployeeName.Size = new Size(264, 27);
-            txtEmployeeName.TabIndex = 27;
+            employeeNameTextBox.Anchor = AnchorStyles.None;
+            employeeNameTextBox.Enabled = false;
+            employeeNameTextBox.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            employeeNameTextBox.Location = new Point(455, 212);
+            employeeNameTextBox.Margin = new Padding(2);
+            employeeNameTextBox.Name = "employeeNameTextBox";
+            employeeNameTextBox.Size = new Size(264, 29);
+            employeeNameTextBox.TabIndex = 2;
             // 
-            // label21
+            // dateOfBirthLabel
             // 
-            label21.Anchor = AnchorStyles.None;
-            label21.AutoSize = true;
-            label21.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label21.ForeColor = Color.White;
-            label21.Location = new Point(181, 223);
-            label21.Margin = new Padding(2, 0, 2, 0);
-            label21.Name = "label21";
-            label21.Size = new Size(79, 19);
-            label21.TabIndex = 20;
-            label21.Text = "Ngày sinh";
+            dateOfBirthLabel.Anchor = AnchorStyles.None;
+            dateOfBirthLabel.AutoSize = true;
+            dateOfBirthLabel.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dateOfBirthLabel.ForeColor = Color.White;
+            dateOfBirthLabel.Location = new Point(358, 306);
+            dateOfBirthLabel.Margin = new Padding(2, 0, 2, 0);
+            dateOfBirthLabel.Name = "dateOfBirthLabel";
+            dateOfBirthLabel.Size = new Size(80, 21);
+            dateOfBirthLabel.TabIndex = 0;
+            dateOfBirthLabel.Text = "Ngày sinh";
             // 
-            // txtRole
+            // roleTextBox
             // 
-            txtRole.Anchor = AnchorStyles.None;
-            txtRole.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRole.Location = new Point(282, 310);
-            txtRole.Margin = new Padding(2);
-            txtRole.Name = "txtRole";
-            txtRole.ReadOnly = true;
-            txtRole.Size = new Size(264, 27);
-            txtRole.TabIndex = 23;
+            roleTextBox.Anchor = AnchorStyles.None;
+            roleTextBox.Enabled = false;
+            roleTextBox.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            roleTextBox.Location = new Point(455, 392);
+            roleTextBox.Margin = new Padding(2);
+            roleTextBox.Name = "roleTextBox";
+            roleTextBox.Size = new Size(264, 29);
+            roleTextBox.TabIndex = 8;
             // 
-            // frmInfo
+            // EmployeeInformationControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(681, 647);
-            Controls.Add(panel2);
-            Controls.Add(label22);
-            Margin = new Padding(4, 3, 4, 3);
-            Name = "frmInfo";
-            Text = "frmInfo";
-            Load += frmInfo_Load;
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            BackColor = Color.FromArgb(15, 15, 15);
+            Controls.Add(otherRadioButton);
+            Controls.Add(phoneNumberComboBox);
+            Controls.Add(headerLabel);
+            Controls.Add(phoneNumberLabel);
+            Controls.Add(maleRadioButton);
+            Controls.Add(femaleRadioButton);
+            Controls.Add(roleTextBox);
+            Controls.Add(dateOfBirthLabel);
+            Controls.Add(citizenIdTextBox);
+            Controls.Add(employeeNameTextBox);
+            Controls.Add(dateOfBirthDateTimePicker);
+            Controls.Add(departmentTextBox);
+            Controls.Add(employeeIdLabel);
+            Controls.Add(empoyeeIdTextBox);
+            Controls.Add(fullNameLabel);
+            Controls.Add(projectLabel);
+            Controls.Add(genderLabel);
+            Controls.Add(departmentLabel);
+            Controls.Add(roleLabel);
+            Controls.Add(projectComboBox);
+            Controls.Add(citizenIdLabel);
+            Name = "EmployeeInformationControl";
+            Size = new Size(1064, 681);
+            Load += EmployeeInformationControl_Load;
             ResumeLayout(false);
+            PerformLayout();
 
         }
 
         #endregion
 
-        private Label label22;
-        private Panel panel2;
-        private Label label1;
-        private Label label4;
-        private Label label5;
-        private Label label10;
-        private Label label11;
-        private ComboBox cbProject;
-        private Label label12;
-        private Label label13;
-        private TextBox txtEmpoyeeID;
-        private TextBox txtDepartment;
-        private TextBox txtEmployeeName;
-        private Label label21;
-        private TextBox txtRole;
-        private TextBox txtCCCD;
-        private DateTimePicker dtpEmployeeBirthday;
-        private RadioButton rdoMale;
-        private RadioButton rdoFemale;
-        private Label label6;
-        private ComboBox cbSDT;
+        private Label headerLabel;
+        private Label employeeIdLabel;
+        private Label fullNameLabel;
+        private Label genderLabel;
+        private Label roleLabel;
+        private Label citizenIdLabel;
+        private ComboBox projectComboBox;
+        private Label departmentLabel;
+        private Label projectLabel;
+        private TextBox empoyeeIdTextBox;
+        private TextBox departmentTextBox;
+        private TextBox employeeNameTextBox;
+        private Label dateOfBirthLabel;
+        private TextBox roleTextBox;
+        private TextBox citizenIdTextBox;
+        private DateTimePicker dateOfBirthDateTimePicker;
+        private RadioButton maleRadioButton;
+        private RadioButton femaleRadioButton;
+        private Label phoneNumberLabel;
+        private ComboBox phoneNumberComboBox;
+        private RadioButton otherRadioButton;
     }
 }
