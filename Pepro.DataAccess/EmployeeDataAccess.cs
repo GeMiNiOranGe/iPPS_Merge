@@ -141,13 +141,53 @@ public class EmployeeDataAccess {
         }
     }
 
-    //Lấy dữ liệu từ table EMPLOYEE trong database dựa vào ID 
-    public CEmployee GetEmployeebyEmployeeID(string employeeID) {
-        DataTable data = DataProvider.Instance.ExecuteQuery("Select * from EMPLOYEE where ID = '" + employeeID + "'");
-        foreach (DataRow item in data.Rows) {
-            return new CEmployee(item);
+    public Employee? GetEmployeeByEmployeeId(string employeeId) {
+        string query = @"
+            SELECT EmployeeId
+                , FirstName
+                , MiddleName
+                , LastName
+                , DateOfBirth
+                , Gender
+                , TaxCode
+                , CitizenId
+                , DepartmentId
+                , JobPositionId
+                , SalaryLevelId
+            FROM Employee
+            WHERE EmployeeId = @EmployeeId
+        ";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "EmployeeId",
+                SqlDbType = SqlDbType.VarChar,
+                Size = 10,
+                Value = employeeId
+            }
+        ];
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        if (dataTable.Rows.Count == 0) {
+            return null;
         }
-        return null;
+
+        DataRow row = dataTable.Rows[0];
+        Employee employee = new() {
+            EmployeeId = row.Field<string>("EmployeeId") ?? "",
+            FirstName = row.Field<string>("FirstName") ?? "",
+            MiddleName = row.Field<string>("MiddleName"),
+            LastName = row.Field<string>("LastName") ?? "",
+            DateOfBirth = row.Field<DateTime>("DateOfBirth"),
+            Gender = row.Field<bool?>("Gender"),
+            TaxCode = row.Field<byte[]>("TaxCode"),
+            CitizenId = row.Field<string>("CitizenId") ?? "",
+            DepartmentId = row.Field<string>("DepartmentId") ?? "",
+            JobPositionId = row.Field<int>("JobPositionId"),
+            SalaryLevelId = row.Field<int>("SalaryLevelId")
+        };
+        return employee;
     }
 
     //Lấy dữ liệu từ table ROLE trong database dựa vào EMPLOYEE_ID
