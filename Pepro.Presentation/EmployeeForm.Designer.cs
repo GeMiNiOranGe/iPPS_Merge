@@ -99,7 +99,6 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Manage";
-            groupBox1.Enter += groupBox1_Enter;
             // 
             // btnReload
             // 
@@ -420,7 +419,6 @@
             Name = "FormEmployee";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Employee";
-            Load += FormEmployee_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvEmployee).EndInit();

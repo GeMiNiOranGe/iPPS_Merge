@@ -56,7 +56,6 @@
             dtgvDepartment.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgvDepartment.Size = new Size(780, 210);
             dtgvDepartment.TabIndex = 0;
-            dtgvDepartment.CellContentClick += dtgvDepartment_CellContentClick;
             // 
             // DepartmentID
             // 
@@ -200,7 +199,6 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "FormDepartment";
             Text = "Department";
-            Load += FormDepartment_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvDepartment).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

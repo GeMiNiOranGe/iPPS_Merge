@@ -1,53 +1,33 @@
 ﻿using Pepro.Business;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace Pepro.Presentation
+namespace Pepro.Presentation;
+
+public partial class DepartmentForm : Form
 {
-    public partial class DepartmentForm : Form
+    public DepartmentForm()
     {
-        private DepartmentBusiness departmentBusiness;
-        public DepartmentForm()
-        {
-            InitializeComponent();
-            departmentBusiness = new DepartmentBusiness();
-            loadDepartments();
-        }
+        InitializeComponent();
+        LoadDepartments();
+    }
 
-        private void FormDepartment_Load(object sender, EventArgs e)
+    private void LoadDepartments()
+    {
+        try
         {
-
-        }
-
-        private void dtgvDepartment_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        private void loadDepartments()
-        {
-            DataTable dt = departmentBusiness.GetAllDepartments();
-            try
+            DataTable dt = DepartmentBusiness.Instance.GetAllDepartments();
+           
+            if (dt == null || dt.Columns.Count == 0)
             {
-               
-                if (dt == null || dt.Columns.Count == 0)
-                {
-                    MessageBox.Show("No data returned from the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                MessageBox.Show("No data returned from the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-               dtgvDepartment.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error occurred : " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           dtgvDepartment.DataSource = dt;
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error occurred : " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

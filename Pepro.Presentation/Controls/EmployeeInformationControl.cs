@@ -35,9 +35,10 @@ public partial class EmployeeInformationControl : UserControl
         /*
         CRole getRole = EmployeeBusiness.Instance.GetRolebyEmployeeID(_employeeId);
         roleTextBox.Text = getRole.Name;
-        string departmentID = employee.DepartmentId;
-        CDepartment getDepartment = EmployeeBusiness.Instance.GetDepartmentbyDepartmentID(departmentID);
-        departmentTextBox.Text = getDepartment.Name;
+        */
+        Department department = DepartmentBusiness.Instance.GetDepartmentByDepartmentId(employee.DepartmentId);
+        departmentTextBox.Text = department.Name;
+        /*
         List<CEmployeeBelongToProject> listProjectID = EmployeeBusiness.Instance.GetProjectIDbyEmployeeID(_employeeId);
         if (listProjectID.Count > 0)
         {

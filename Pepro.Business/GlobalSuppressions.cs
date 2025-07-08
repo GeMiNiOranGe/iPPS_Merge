@@ -18,5 +18,13 @@ using System.Diagnostics.CodeAnalysis;
     "CA1822:Mark members as static",
     Justification = "Methods in this type are intentionally instance methods due to Singleton-based design.",
     Scope = "type",
+    Target = "~T:Pepro.Business.DepartmentBusiness"
+)]
+
+[assembly: SuppressMessage(
+    "Performance",
+    "CA1822:Mark members as static",
+    Justification = "Methods in this type are intentionally instance methods due to Singleton-based design.",
+    Scope = "type",
     Target = "~T:Pepro.Business.EmployeeBusiness"
 )]

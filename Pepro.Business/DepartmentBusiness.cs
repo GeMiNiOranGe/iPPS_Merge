@@ -1,27 +1,35 @@
 ﻿using Pepro.DataAccess;
-using System;
-using System.Collections.Generic;
+using Pepro.DTOs;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Pepro.Business
+namespace Pepro.Business;
+
+public class DepartmentBusiness
 {
-    public class DepartmentBusiness
+    private static DepartmentBusiness? instance;
+
+    public static DepartmentBusiness Instance {
+        get => instance ??= new();
+        private set => instance = value;
+    }
+
+    private DepartmentBusiness() { }
+
+    public Department GetDepartmentByDepartmentId(string departmentID) {
+        Department? department = DepartmentDataAccess.Instance.GetDepartmentByDepartmentId(departmentID);
+        if (department == null) {
+            return new Department();
+        }
+        return department;
+    }
+
+    public DataTable GetDepartments()
     {
-        private DepartmentData departData;
-        public DepartmentBusiness()
-        {
-            departData = new DepartmentData();
-        }
-        public DataTable GetDepartments()
-        {
-            return departData.GetDepartments();
-        }
-        public DataTable GetAllDepartments()
-        {
-            return departData.getAllDepartments();
-        }
+        return DepartmentDataAccess.Instance.GetDepartments();
+    }
+
+    public DataTable GetAllDepartments()
+    {
+        return DepartmentDataAccess.Instance.GetAllDepartments();
     }
 }

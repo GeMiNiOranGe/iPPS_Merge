@@ -55,10 +55,6 @@ public class EmployeeBusiness
         return EmployeeDataAccess.Instance.GetRolebyEmployeeID(employeeID);
     }
 
-    public CDepartment GetDepartmentbyDepartmentID(string departmentID) {
-        return EmployeeDataAccess.Instance.GetDepartmentbyDepartmentID(departmentID);
-    }
-
     public List<CEmployeeBelongToProject> GetProjectIDbyEmployeeID(string employeeID) {
         return EmployeeDataAccess.Instance.GetProjectIDbyEmployeeID(employeeID);
     }
