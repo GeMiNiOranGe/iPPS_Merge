@@ -199,15 +199,6 @@ public class EmployeeDataAccess {
         return null;
     }
 
-    //Lấy dữ liệu từ table DEPARTMENT trong database dựa vào ID
-    public CDepartment GetDepartmentbyDepartmentID(string departmentID) {
-        DataTable data = DataProvider.Instance.ExecuteQuery("Select * from DEPARTMENT where ID = '" + departmentID + "'");
-        foreach (DataRow item in data.Rows) {
-            return new CDepartment(item);
-        }
-        return null;
-    }
-
     //Lấy dữ liệu từ table EMPLOYEE_BELONG_TO_PROJECT trong database dựa vào EMPLOYEE_ID
     public List<CEmployeeBelongToProject> GetProjectIDbyEmployeeID(string employeeID) {
         List<CEmployeeBelongToProject> listProjectID = new List<CEmployeeBelongToProject>();
