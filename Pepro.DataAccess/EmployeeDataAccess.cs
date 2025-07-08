@@ -33,10 +33,10 @@ public class EmployeeDataAccess {
         }
 
         DataRow row = dataTable.Rows[0];
-        EmployeeFullName? employeeFullName = new()
+        EmployeeFullName employeeFullName = new()
         {
             FirstName = row.Field<string>("FirstName") ?? "",
-            MiddleName = row.Field<string>("MiddleName") ?? "",
+            MiddleName = row.Field<string>("MiddleName"),
             LastName = row.Field<string>("LastName") ?? ""
         };
         return employeeFullName;
