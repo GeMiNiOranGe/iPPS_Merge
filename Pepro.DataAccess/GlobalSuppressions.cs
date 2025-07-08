@@ -36,3 +36,11 @@ using System.Diagnostics.CodeAnalysis;
     Scope = "type",
     Target = "~T:Pepro.DataAccess.EmployeeDataAccess"
 )]
+
+[assembly: SuppressMessage(
+    "Performance",
+    "CA1822:Mark members as static",
+    Justification = "Methods in this type are intentionally instance methods due to Singleton-based design.",
+    Scope = "type",
+    Target = "~T:Pepro.DataAccess.ProjectDataAccess"
+)]

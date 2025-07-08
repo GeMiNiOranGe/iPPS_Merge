@@ -55,16 +55,13 @@ public class EmployeeBusiness
         return EmployeeDataAccess.Instance.GetRolebyEmployeeID(employeeID);
     }
 
-    public List<CEmployeeBelongToProject> GetProjectIDbyEmployeeID(string employeeID) {
-        return EmployeeDataAccess.Instance.GetProjectIDbyEmployeeID(employeeID);
-    }
-
-    public CProject GetProjectbyProjectID(string projectID) {
-        return EmployeeDataAccess.Instance.GetProjectbyProjectID(projectID);
-    }
-
     public string[] GetPhoneNumberListByEmployeeId(string employeeID) {
         List<EmployeePhoneNumber> employeePhoneNumbers = EmployeeDataAccess.Instance.GetPhoneNumberListByEmployeeId(employeeID);
+
+        if (employeePhoneNumbers.Count == 0) {
+            return ["Không tìm thấy"];
+        }
+
         List<string> phoneNumbers = [];
         foreach (EmployeePhoneNumber phoneNumber in employeePhoneNumbers)
         {

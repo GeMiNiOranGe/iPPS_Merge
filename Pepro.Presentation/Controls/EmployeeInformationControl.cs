@@ -18,18 +18,14 @@ public partial class EmployeeInformationControl : UserControl
         Employee employee = EmployeeBusiness.Instance.GetEmployeeByEmployeeId(_employeeId);
         employeeIdTextBox.Text = employee.EmployeeId;
         employeeNameTextBox.Text = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;
-        bool? gender = employee.Gender;
-        if (gender != null) {
-            if ((bool)gender) {
-                maleRadioButton.Checked = true;
-            }
-            else {
-                femaleRadioButton.Checked = true;
-            }
-        }
-        else {
-            otherRadioButton.Checked = true;
-        }
+
+        RadioButton genderRadioButton = employee.Gender switch {
+            true => maleRadioButton,
+            false => femaleRadioButton,
+            _ => otherRadioButton
+        };
+        genderRadioButton.Checked = true;
+
         dateOfBirthDateTimePicker.Value = employee.DateOfBirth;
         citizenIdTextBox.Text = employee.CitizenId;
         /*
@@ -38,23 +34,11 @@ public partial class EmployeeInformationControl : UserControl
         */
         Department department = DepartmentBusiness.Instance.GetDepartmentByDepartmentId(employee.DepartmentId);
         departmentTextBox.Text = department.Name;
-        /*
-        List<CEmployeeBelongToProject> listProjectID = EmployeeBusiness.Instance.GetProjectIDbyEmployeeID(_employeeId);
-        if (listProjectID.Count > 0)
-        {
-            foreach (CEmployeeBelongToProject projectID in listProjectID)
-            {
-                CProject getProject = EmployeeBusiness.Instance.GetProjectbyProjectID(projectID.ProjectId);
-                projectComboBox.Items.Add(getProject.Name);
-            }
-            projectComboBox.Text = projectComboBox.Items[0].ToString();
-        }
-        else
-        {
-            projectComboBox.Items.Add("Không có");
-            projectComboBox.Text = projectComboBox.Items[0].ToString();
-        }
-        */
+
+        string[] projectNames = ProjectBusiness.Instance.GetProjectsByEmployeeId(employee.EmployeeId);
+        projectComboBox.Items.AddRange(projectNames);
+        projectComboBox.Text = projectComboBox.Items[0]?.ToString();
+
         string[] phoneNumbers = EmployeeBusiness.Instance.GetPhoneNumberListByEmployeeId(_employeeId);
         phoneNumberComboBox.Items.AddRange(phoneNumbers);
         phoneNumberComboBox.Text = phoneNumberComboBox.Items[0]?.ToString();
