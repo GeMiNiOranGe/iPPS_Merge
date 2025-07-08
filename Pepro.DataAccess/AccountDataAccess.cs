@@ -38,7 +38,7 @@ public class AccountDataAccess {
         }
 
         DataRow row = dataTable.Rows[0];
-        Account? account = new() {
+        Account account = new() {
             AccountId = row.Field<int?>("AccountId") ?? 0,
             Username = row.Field<string>("Username") ?? "",
             Salt = row.Field<byte[]>("Salt") ?? [],
