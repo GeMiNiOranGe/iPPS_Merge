@@ -199,26 +199,6 @@ public class EmployeeDataAccess {
         return null;
     }
 
-    //Lấy dữ liệu từ table EMPLOYEE_BELONG_TO_PROJECT trong database dựa vào EMPLOYEE_ID
-    public List<CEmployeeBelongToProject> GetProjectIDbyEmployeeID(string employeeID) {
-        List<CEmployeeBelongToProject> listProjectID = new List<CEmployeeBelongToProject>();
-        DataTable data = DataProvider.Instance.ExecuteQuery("Select * from EMPLOYEE_BELONG_TO_PROJECT where EMPLOYEE_ID = '" + employeeID + "'");
-        foreach (DataRow item in data.Rows) {
-            CEmployeeBelongToProject projectID = new CEmployeeBelongToProject(item);
-            listProjectID.Add(projectID);
-        }
-        return listProjectID;
-    }
-
-    //Lấy dữ liệu từ table PROJECT trong database dựa vào ID
-    public CProject GetProjectbyProjectID(string projectID) {
-        DataTable data = DataProvider.Instance.ExecuteQuery("Select * from PROJECT where ID = '" + projectID + "'");
-        foreach (DataRow item in data.Rows) {
-            return new CProject(item);
-        }
-        return null;
-    }
-
     public List<EmployeePhoneNumber> GetPhoneNumberListByEmployeeId(string employeeId) {
         string query = "SELECT EmployeePhoneNumberId, PhoneNumber, EmployeeId FROM EmployeePhoneNumber WHERE EmployeeId = @EmployeeId";
         SqlParameter[] parameters =

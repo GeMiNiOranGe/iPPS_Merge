@@ -17,7 +17,7 @@ public partial class ProgressControl : UserControl {
             projectListFlowLayoutPanel.Controls.Clear();
         }
 
-        var dataTable = CProjectBLL.Instance.GetProjectList();
+        var dataTable = ProjectBusiness.Instance.GetProjectList();
         string projectID;
         double total;
         double total1;
