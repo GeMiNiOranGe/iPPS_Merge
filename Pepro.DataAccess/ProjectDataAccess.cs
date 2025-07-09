@@ -31,8 +31,7 @@ public class ProjectDataAccess {
 
     public List<Project> GetProjectsByEmployeeId(string employeeId) {
         string query = @"
-            SELECT DISTINCT
-                Project.ProjectId
+            SELECT DISTINCT Project.ProjectId
                 , Project.Name
                 , Project.CustomerName
                 , Project.ManagerId
@@ -44,7 +43,8 @@ public class ProjectDataAccess {
             ON TaskDetail.TaskId = Task.TaskId
             INNER JOIN Project
             ON Task.ProjectId = Project.ProjectId
-            WHERE EmployeeId = 'EMP00001'
+            WHERE EmployeeId = @EmployeeId
+            ORDER BY Project.ProjectId DESC;
         ";
         SqlParameter[] parameters =
         [
