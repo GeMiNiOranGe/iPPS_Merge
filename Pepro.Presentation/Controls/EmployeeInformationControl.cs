@@ -3,7 +3,7 @@ using Pepro.DTOs;
 
 namespace Pepro.Presentation.Controls;
 
-public partial class EmployeeInformationControl : UserControl
+public partial class EmployeeInformationControl : PeproUserControl
 {
     private readonly string _employeeId;
 
