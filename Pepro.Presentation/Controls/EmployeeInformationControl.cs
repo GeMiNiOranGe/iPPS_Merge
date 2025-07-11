@@ -16,8 +16,8 @@ public partial class EmployeeInformationControl : PeproUserControl
     private void EmployeeInformationControl_Load(object sender, EventArgs e)
     {
         Employee employee = EmployeeBusiness.Instance.GetEmployeeByEmployeeId(_employeeId);
-        employeeIdTextBox.Text = employee.EmployeeId;
-        employeeNameTextBox.Text = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;
+        employeeIdInputField.Text = employee.EmployeeId;
+        fullNameInputField.Text = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;
 
         RadioButton genderRadioButton = employee.Gender switch {
             true => maleRadioButton,
@@ -27,20 +27,20 @@ public partial class EmployeeInformationControl : PeproUserControl
         genderRadioButton.Checked = true;
 
         dateOfBirthDateTimePicker.Value = employee.DateOfBirth;
-        citizenIdTextBox.Text = employee.CitizenId;
+        citizenIdInputField.Text = employee.CitizenId;
         /*
         CRole getRole = EmployeeBusiness.Instance.GetRolebyEmployeeID(_employeeId);
         roleTextBox.Text = getRole.Name;
         */
         Department department = DepartmentBusiness.Instance.GetDepartmentByDepartmentId(employee.DepartmentId);
-        departmentTextBox.Text = department.Name;
+        departmentInputField.Text = department.Name;
 
-        string[] projectNames = ProjectBusiness.Instance.GetProjectsByEmployeeId(employee.EmployeeId);
-        projectComboBox.Items.AddRange(projectNames);
-        projectComboBox.Text = projectComboBox.Items[0]?.ToString();
+        string[] projectNames = ProjectBusiness.Instance.GetProjectsByEmployeeId(_employeeId);
+        assignedProjectsComboBoxField.Items.AddRange(projectNames);
+        assignedProjectsComboBoxField.Text = assignedProjectsComboBoxField.Items[0]?.ToString();
 
         string[] phoneNumbers = EmployeeBusiness.Instance.GetPhoneNumberListByEmployeeId(_employeeId);
-        phoneNumberComboBox.Items.AddRange(phoneNumbers);
-        phoneNumberComboBox.Text = phoneNumberComboBox.Items[0]?.ToString();
+        phoneNumberComboBoxField.Items.AddRange(phoneNumbers);
+        phoneNumberComboBoxField.Text = phoneNumberComboBoxField.Items[0]?.ToString();
     }
 }

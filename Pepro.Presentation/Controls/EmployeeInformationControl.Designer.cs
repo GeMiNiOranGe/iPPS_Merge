@@ -28,26 +28,19 @@
         /// </summary>
         private void InitializeComponent() {
             headerLabel = new Label();
-            otherRadioButton = new RadioButton();
-            phoneNumberComboBox = new ComboBox();
-            phoneNumberLabel = new Label();
-            femaleRadioButton = new RadioButton();
-            maleRadioButton = new RadioButton();
-            citizenIdTextBox = new TextBox();
-            dateOfBirthDateTimePicker = new DateTimePicker();
-            employeeIdLabel = new Label();
-            fullNameLabel = new Label();
+            fullNameInputField = new PeproInputField();
+            employeeIdInputField = new PeproInputField();
+            phoneNumberComboBoxField = new PeproComboBoxField();
             genderLabel = new Label();
-            roleLabel = new Label();
-            citizenIdLabel = new Label();
-            projectComboBox = new ComboBox();
-            departmentLabel = new Label();
-            projectLabel = new Label();
-            employeeIdTextBox = new TextBox();
-            departmentTextBox = new TextBox();
-            employeeNameTextBox = new TextBox();
+            maleRadioButton = new RadioButton();
+            femaleRadioButton = new RadioButton();
+            otherRadioButton = new RadioButton();
             dateOfBirthLabel = new Label();
-            roleTextBox = new TextBox();
+            dateOfBirthDateTimePicker = new DateTimePicker();
+            citizenIdInputField = new PeproInputField();
+            departmentInputField = new PeproInputField();
+            roleInputField = new PeproInputField();
+            assignedProjectsComboBoxField = new PeproComboBoxField();
             SuspendLayout();
             // 
             // headerLabel
@@ -63,54 +56,53 @@
             headerLabel.Text = "Thông tin cơ bản";
             headerLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // otherRadioButton
+            // fullNameInputField
             // 
-            otherRadioButton.Anchor = AnchorStyles.None;
-            otherRadioButton.AutoSize = true;
-            otherRadioButton.BackColor = Color.White;
-            otherRadioButton.Enabled = false;
-            otherRadioButton.ForeColor = Color.Black;
-            otherRadioButton.Location = new Point(662, 259);
-            otherRadioButton.Name = "otherRadioButton";
-            otherRadioButton.Size = new Size(56, 23);
-            otherRadioButton.TabIndex = 5;
-            otherRadioButton.Text = "Khác";
-            otherRadioButton.UseVisualStyleBackColor = false;
+            fullNameInputField.Anchor = AnchorStyles.None;
+            fullNameInputField.ForeColor = Color.White;
+            fullNameInputField.InputEnabled = false;
+            fullNameInputField.LabelText = "Full name";
+            fullNameInputField.Location = new Point(263, 162);
+            fullNameInputField.Margin = new Padding(0, 0, 24, 32);
+            fullNameInputField.Name = "fullNameInputField";
+            fullNameInputField.PlaceholderText = "e.g. full name";
+            fullNameInputField.Size = new Size(256, 54);
+            fullNameInputField.TabIndex = 1;
             // 
-            // phoneNumberComboBox
+            // employeeIdInputField
             // 
-            phoneNumberComboBox.Anchor = AnchorStyles.None;
-            phoneNumberComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            phoneNumberComboBox.FormattingEnabled = true;
-            phoneNumberComboBox.Location = new Point(455, 527);
-            phoneNumberComboBox.Name = "phoneNumberComboBox";
-            phoneNumberComboBox.Size = new Size(264, 27);
-            phoneNumberComboBox.TabIndex = 11;
+            employeeIdInputField.Anchor = AnchorStyles.None;
+            employeeIdInputField.ForeColor = Color.White;
+            employeeIdInputField.InputEnabled = false;
+            employeeIdInputField.LabelText = "Employee id";
+            employeeIdInputField.Location = new Point(543, 162);
+            employeeIdInputField.Margin = new Padding(0);
+            employeeIdInputField.Name = "employeeIdInputField";
+            employeeIdInputField.PlaceholderText = "e.g. employee id";
+            employeeIdInputField.Size = new Size(256, 54);
+            employeeIdInputField.TabIndex = 2;
             // 
-            // phoneNumberLabel
+            // phoneNumberComboBoxField
             // 
-            phoneNumberLabel.Anchor = AnchorStyles.None;
-            phoneNumberLabel.AutoSize = true;
-            phoneNumberLabel.ForeColor = Color.White;
-            phoneNumberLabel.Location = new Point(344, 531);
-            phoneNumberLabel.Name = "phoneNumberLabel";
-            phoneNumberLabel.Size = new Size(89, 19);
-            phoneNumberLabel.TabIndex = 0;
-            phoneNumberLabel.Text = "Số điện thoại";
+            phoneNumberComboBoxField.Anchor = AnchorStyles.None;
+            phoneNumberComboBoxField.ForeColor = Color.White;
+            phoneNumberComboBoxField.LabelText = "Phone number";
+            phoneNumberComboBoxField.Location = new Point(263, 248);
+            phoneNumberComboBoxField.Margin = new Padding(0, 0, 24, 32);
+            phoneNumberComboBoxField.Name = "phoneNumberComboBoxField";
+            phoneNumberComboBoxField.Size = new Size(256, 56);
+            phoneNumberComboBoxField.TabIndex = 3;
             // 
-            // femaleRadioButton
+            // genderLabel
             // 
-            femaleRadioButton.Anchor = AnchorStyles.None;
-            femaleRadioButton.AutoSize = true;
-            femaleRadioButton.BackColor = Color.White;
-            femaleRadioButton.Enabled = false;
-            femaleRadioButton.ForeColor = Color.Black;
-            femaleRadioButton.Location = new Point(564, 259);
-            femaleRadioButton.Name = "femaleRadioButton";
-            femaleRadioButton.Size = new Size(45, 23);
-            femaleRadioButton.TabIndex = 4;
-            femaleRadioButton.Text = "Nữ";
-            femaleRadioButton.UseVisualStyleBackColor = false;
+            genderLabel.Anchor = AnchorStyles.None;
+            genderLabel.AutoSize = true;
+            genderLabel.ForeColor = Color.White;
+            genderLabel.Location = new Point(543, 248);
+            genderLabel.Name = "genderLabel";
+            genderLabel.Size = new Size(54, 19);
+            genderLabel.TabIndex = 0;
+            genderLabel.Text = "Gender";
             // 
             // maleRadioButton
             // 
@@ -119,192 +111,131 @@
             maleRadioButton.BackColor = Color.White;
             maleRadioButton.Enabled = false;
             maleRadioButton.ForeColor = Color.Black;
-            maleRadioButton.Location = new Point(455, 259);
+            maleRadioButton.Location = new Point(547, 278);
             maleRadioButton.Name = "maleRadioButton";
-            maleRadioButton.Size = new Size(56, 23);
-            maleRadioButton.TabIndex = 3;
-            maleRadioButton.Text = "Nam";
+            maleRadioButton.Size = new Size(57, 23);
+            maleRadioButton.TabIndex = 4;
+            maleRadioButton.Text = "Male";
             maleRadioButton.UseVisualStyleBackColor = false;
             // 
-            // citizenIdTextBox
+            // femaleRadioButton
             // 
-            citizenIdTextBox.Anchor = AnchorStyles.None;
-            citizenIdTextBox.Enabled = false;
-            citizenIdTextBox.Location = new Point(455, 347);
-            citizenIdTextBox.Name = "citizenIdTextBox";
-            citizenIdTextBox.Size = new Size(264, 26);
-            citizenIdTextBox.TabIndex = 7;
+            femaleRadioButton.Anchor = AnchorStyles.None;
+            femaleRadioButton.AutoSize = true;
+            femaleRadioButton.BackColor = Color.White;
+            femaleRadioButton.Enabled = false;
+            femaleRadioButton.ForeColor = Color.Black;
+            femaleRadioButton.Location = new Point(633, 278);
+            femaleRadioButton.Name = "femaleRadioButton";
+            femaleRadioButton.Size = new Size(70, 23);
+            femaleRadioButton.TabIndex = 5;
+            femaleRadioButton.Text = "Female";
+            femaleRadioButton.UseVisualStyleBackColor = false;
             // 
-            // dateOfBirthDateTimePicker
+            // otherRadioButton
             // 
-            dateOfBirthDateTimePicker.Anchor = AnchorStyles.None;
-            dateOfBirthDateTimePicker.Checked = false;
-            dateOfBirthDateTimePicker.Enabled = false;
-            dateOfBirthDateTimePicker.Location = new Point(455, 302);
-            dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
-            dateOfBirthDateTimePicker.Size = new Size(264, 26);
-            dateOfBirthDateTimePicker.TabIndex = 6;
-            // 
-            // employeeIdLabel
-            // 
-            employeeIdLabel.Anchor = AnchorStyles.None;
-            employeeIdLabel.AutoSize = true;
-            employeeIdLabel.ForeColor = Color.White;
-            employeeIdLabel.Location = new Point(340, 171);
-            employeeIdLabel.Name = "employeeIdLabel";
-            employeeIdLabel.Size = new Size(93, 19);
-            employeeIdLabel.TabIndex = 0;
-            employeeIdLabel.Text = "Mã nhân viên";
-            // 
-            // fullNameLabel
-            // 
-            fullNameLabel.Anchor = AnchorStyles.None;
-            fullNameLabel.AutoSize = true;
-            fullNameLabel.ForeColor = Color.White;
-            fullNameLabel.Location = new Point(364, 216);
-            fullNameLabel.Name = "fullNameLabel";
-            fullNameLabel.Size = new Size(69, 19);
-            fullNameLabel.TabIndex = 0;
-            fullNameLabel.Text = "Họ và tên";
-            // 
-            // genderLabel
-            // 
-            genderLabel.Anchor = AnchorStyles.None;
-            genderLabel.AutoSize = true;
-            genderLabel.ForeColor = Color.White;
-            genderLabel.Location = new Point(372, 261);
-            genderLabel.Name = "genderLabel";
-            genderLabel.Size = new Size(61, 19);
-            genderLabel.TabIndex = 0;
-            genderLabel.Text = "Giới tính";
-            // 
-            // roleLabel
-            // 
-            roleLabel.Anchor = AnchorStyles.None;
-            roleLabel.AutoSize = true;
-            roleLabel.ForeColor = Color.White;
-            roleLabel.Location = new Point(374, 396);
-            roleLabel.Name = "roleLabel";
-            roleLabel.Size = new Size(59, 19);
-            roleLabel.TabIndex = 0;
-            roleLabel.Text = "Chức vụ";
-            // 
-            // citizenIdLabel
-            // 
-            citizenIdLabel.Anchor = AnchorStyles.None;
-            citizenIdLabel.AutoSize = true;
-            citizenIdLabel.ForeColor = Color.White;
-            citizenIdLabel.Location = new Point(352, 351);
-            citizenIdLabel.Name = "citizenIdLabel";
-            citizenIdLabel.Size = new Size(81, 19);
-            citizenIdLabel.TabIndex = 0;
-            citizenIdLabel.Text = "Số căn cước";
-            // 
-            // projectComboBox
-            // 
-            projectComboBox.Anchor = AnchorStyles.None;
-            projectComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            projectComboBox.FormattingEnabled = true;
-            projectComboBox.Location = new Point(455, 482);
-            projectComboBox.Name = "projectComboBox";
-            projectComboBox.Size = new Size(264, 27);
-            projectComboBox.TabIndex = 10;
-            // 
-            // departmentLabel
-            // 
-            departmentLabel.Anchor = AnchorStyles.None;
-            departmentLabel.AutoSize = true;
-            departmentLabel.ForeColor = Color.White;
-            departmentLabel.Location = new Point(357, 441);
-            departmentLabel.Name = "departmentLabel";
-            departmentLabel.Size = new Size(76, 19);
-            departmentLabel.TabIndex = 0;
-            departmentLabel.Text = "Phòng ban";
-            // 
-            // projectLabel
-            // 
-            projectLabel.Anchor = AnchorStyles.None;
-            projectLabel.AutoSize = true;
-            projectLabel.ForeColor = Color.White;
-            projectLabel.Location = new Point(329, 486);
-            projectLabel.Name = "projectLabel";
-            projectLabel.Size = new Size(104, 19);
-            projectLabel.TabIndex = 0;
-            projectLabel.Text = "Dự án tham gia";
-            // 
-            // employeeIdTextBox
-            // 
-            employeeIdTextBox.Anchor = AnchorStyles.None;
-            employeeIdTextBox.Enabled = false;
-            employeeIdTextBox.Location = new Point(455, 167);
-            employeeIdTextBox.Name = "employeeIdTextBox";
-            employeeIdTextBox.Size = new Size(264, 26);
-            employeeIdTextBox.TabIndex = 1;
-            // 
-            // departmentTextBox
-            // 
-            departmentTextBox.Anchor = AnchorStyles.None;
-            departmentTextBox.Enabled = false;
-            departmentTextBox.Location = new Point(455, 437);
-            departmentTextBox.Name = "departmentTextBox";
-            departmentTextBox.Size = new Size(264, 26);
-            departmentTextBox.TabIndex = 9;
-            // 
-            // employeeNameTextBox
-            // 
-            employeeNameTextBox.Anchor = AnchorStyles.None;
-            employeeNameTextBox.Enabled = false;
-            employeeNameTextBox.Location = new Point(455, 212);
-            employeeNameTextBox.Name = "employeeNameTextBox";
-            employeeNameTextBox.Size = new Size(264, 26);
-            employeeNameTextBox.TabIndex = 2;
+            otherRadioButton.Anchor = AnchorStyles.None;
+            otherRadioButton.AutoSize = true;
+            otherRadioButton.BackColor = Color.White;
+            otherRadioButton.Enabled = false;
+            otherRadioButton.ForeColor = Color.Black;
+            otherRadioButton.Location = new Point(732, 278);
+            otherRadioButton.Name = "otherRadioButton";
+            otherRadioButton.Size = new Size(63, 23);
+            otherRadioButton.TabIndex = 6;
+            otherRadioButton.Text = "Other";
+            otherRadioButton.UseVisualStyleBackColor = false;
             // 
             // dateOfBirthLabel
             // 
             dateOfBirthLabel.Anchor = AnchorStyles.None;
             dateOfBirthLabel.AutoSize = true;
             dateOfBirthLabel.ForeColor = Color.White;
-            dateOfBirthLabel.Location = new Point(363, 306);
+            dateOfBirthLabel.Location = new Point(263, 336);
             dateOfBirthLabel.Name = "dateOfBirthLabel";
-            dateOfBirthLabel.Size = new Size(70, 19);
+            dateOfBirthLabel.Size = new Size(87, 19);
             dateOfBirthLabel.TabIndex = 0;
-            dateOfBirthLabel.Text = "Ngày sinh";
+            dateOfBirthLabel.Text = "Date of Birth";
             // 
-            // roleTextBox
+            // dateOfBirthDateTimePicker
             // 
-            roleTextBox.Anchor = AnchorStyles.None;
-            roleTextBox.Enabled = false;
-            roleTextBox.Location = new Point(455, 392);
-            roleTextBox.Name = "roleTextBox";
-            roleTextBox.Size = new Size(264, 26);
-            roleTextBox.TabIndex = 8;
+            dateOfBirthDateTimePicker.Anchor = AnchorStyles.None;
+            dateOfBirthDateTimePicker.Checked = false;
+            dateOfBirthDateTimePicker.Enabled = false;
+            dateOfBirthDateTimePicker.Location = new Point(267, 364);
+            dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
+            dateOfBirthDateTimePicker.Size = new Size(248, 26);
+            dateOfBirthDateTimePicker.TabIndex = 7;
+            // 
+            // citizenIdInputField
+            // 
+            citizenIdInputField.Anchor = AnchorStyles.None;
+            citizenIdInputField.ForeColor = Color.White;
+            citizenIdInputField.InputEnabled = false;
+            citizenIdInputField.LabelText = "Citizen id";
+            citizenIdInputField.Location = new Point(543, 336);
+            citizenIdInputField.Margin = new Padding(0, 0, 0, 32);
+            citizenIdInputField.Name = "citizenIdInputField";
+            citizenIdInputField.PlaceholderText = "e.g. citizen id";
+            citizenIdInputField.Size = new Size(256, 54);
+            citizenIdInputField.TabIndex = 8;
+            // 
+            // departmentInputField
+            // 
+            departmentInputField.Anchor = AnchorStyles.None;
+            departmentInputField.ForeColor = Color.White;
+            departmentInputField.InputEnabled = false;
+            departmentInputField.LabelText = "Department";
+            departmentInputField.Location = new Point(263, 422);
+            departmentInputField.Margin = new Padding(0, 0, 24, 32);
+            departmentInputField.Name = "departmentInputField";
+            departmentInputField.PlaceholderText = "e.g. department";
+            departmentInputField.Size = new Size(256, 54);
+            departmentInputField.TabIndex = 9;
+            // 
+            // roleInputField
+            // 
+            roleInputField.Anchor = AnchorStyles.None;
+            roleInputField.ForeColor = Color.White;
+            roleInputField.InputEnabled = false;
+            roleInputField.LabelText = "Role";
+            roleInputField.Location = new Point(543, 422);
+            roleInputField.Margin = new Padding(0, 0, 0, 32);
+            roleInputField.Name = "roleInputField";
+            roleInputField.PlaceholderText = "e.g. role";
+            roleInputField.Size = new Size(256, 54);
+            roleInputField.TabIndex = 10;
+            // 
+            // assignedProjectsComboBoxField
+            // 
+            assignedProjectsComboBoxField.Anchor = AnchorStyles.None;
+            assignedProjectsComboBoxField.ForeColor = Color.White;
+            assignedProjectsComboBoxField.LabelText = "Assigned Projects";
+            assignedProjectsComboBoxField.Location = new Point(263, 508);
+            assignedProjectsComboBoxField.Margin = new Padding(0);
+            assignedProjectsComboBoxField.Name = "assignedProjectsComboBoxField";
+            assignedProjectsComboBoxField.Size = new Size(536, 56);
+            assignedProjectsComboBoxField.TabIndex = 11;
             // 
             // EmployeeInformationControl
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
-            Controls.Add(otherRadioButton);
-            Controls.Add(phoneNumberComboBox);
+            Controls.Add(assignedProjectsComboBoxField);
+            Controls.Add(phoneNumberComboBoxField);
             Controls.Add(headerLabel);
-            Controls.Add(phoneNumberLabel);
+            Controls.Add(fullNameInputField);
+            Controls.Add(employeeIdInputField);
+            Controls.Add(genderLabel);
             Controls.Add(maleRadioButton);
             Controls.Add(femaleRadioButton);
-            Controls.Add(roleTextBox);
+            Controls.Add(otherRadioButton);
             Controls.Add(dateOfBirthLabel);
-            Controls.Add(citizenIdTextBox);
-            Controls.Add(employeeNameTextBox);
             Controls.Add(dateOfBirthDateTimePicker);
-            Controls.Add(departmentTextBox);
-            Controls.Add(employeeIdLabel);
-            Controls.Add(employeeIdTextBox);
-            Controls.Add(fullNameLabel);
-            Controls.Add(projectLabel);
-            Controls.Add(genderLabel);
-            Controls.Add(departmentLabel);
-            Controls.Add(roleLabel);
-            Controls.Add(projectComboBox);
-            Controls.Add(citizenIdLabel);
+            Controls.Add(citizenIdInputField);
+            Controls.Add(departmentInputField);
+            Controls.Add(roleInputField);
             Name = "EmployeeInformationControl";
             Size = new Size(1064, 681);
             Load += EmployeeInformationControl_Load;
@@ -316,25 +247,18 @@
         #endregion
 
         private Label headerLabel;
-        private Label employeeIdLabel;
-        private Label fullNameLabel;
         private Label genderLabel;
-        private Label roleLabel;
-        private Label citizenIdLabel;
-        private ComboBox projectComboBox;
-        private Label departmentLabel;
-        private Label projectLabel;
-        private TextBox employeeIdTextBox;
-        private TextBox departmentTextBox;
-        private TextBox employeeNameTextBox;
         private Label dateOfBirthLabel;
-        private TextBox roleTextBox;
-        private TextBox citizenIdTextBox;
         private DateTimePicker dateOfBirthDateTimePicker;
         private RadioButton maleRadioButton;
         private RadioButton femaleRadioButton;
-        private Label phoneNumberLabel;
-        private ComboBox phoneNumberComboBox;
         private RadioButton otherRadioButton;
+        private PeproInputField fullNameInputField;
+        private PeproInputField employeeIdInputField;
+        private PeproInputField departmentInputField;
+        private PeproInputField roleInputField;
+        private PeproInputField citizenIdInputField;
+        private PeproComboBoxField phoneNumberComboBoxField;
+        private PeproComboBoxField assignedProjectsComboBoxField;
     }
 }
