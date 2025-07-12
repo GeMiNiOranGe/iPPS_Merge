@@ -8,14 +8,22 @@ public partial class PeproInputFieldBase : PeproUserControl {
         InitializeComponent();
     }
 
-    [AllowNull]
     [Browsable(true)]
     [Category("Appearance")]
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     [DefaultValue("")]
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public virtual string LabelText {
         get => inputFieldLabel.Text;
         set => inputFieldLabel.Text = value;
+    }
+
+    [AllowNull]
+    [Category("Appearance")]
+    [DefaultValue(typeof(Font), "Segoe UI, 14px")]
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+    public virtual Font LabelFont {
+        get => inputFieldLabel.Font;
+        set => inputFieldLabel.Font = value;
     }
 
     protected override Size DefaultSize => new(256, 128);
