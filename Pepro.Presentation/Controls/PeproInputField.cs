@@ -53,6 +53,21 @@ public partial class PeproInputField : PeproInputFieldBase {
         set => inputFieldTextBox.Enabled = value;
     }
 
+    /// <summary>
+    ///     Clears all text from the text box control.
+    /// </summary>
+    public void Clear() {
+        inputFieldTextBox.Clear();
+    }
+
+    /// <summary>
+    ///     Attempts to set focus to this control.
+    /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Advanced)]
+    public new bool Focus() {
+        return inputFieldTextBox.Focus();
+    }
+
     protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified) {
         base.SetBoundsCore(x, y, width, DefaultSize.Height, specified);
     }
