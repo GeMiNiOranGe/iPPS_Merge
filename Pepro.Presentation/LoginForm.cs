@@ -17,17 +17,20 @@ public partial class LoginForm : PeproForm {
     }
 
     private void InitializeRuntimeComponents() {
-        signinButton.FlatAppearance.MouseDownBackColor = ThemeColors.Secondary.Dark;
-        signinButton.FlatAppearance.MouseOverBackColor = ThemeColors.Secondary.Light;
+        accountNameInputField.FocusColor = ThemeColors.Secondary.Base;
 
-        showPasswordButton.BackgroundImage = IconProvider.GetIcon(
+        passwordField.FocusColor = ThemeColors.Secondary.Base;
+        passwordField.TogglePasswordImage = IconProvider.GetIcon(
             "EyeClosed",
             colorServer: textIconColor
         );
-        showPasswordButton.FlatAppearance.BorderSize = 0;
-        showPasswordButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
-        showPasswordButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
-        showPasswordButton.FlatStyle = FlatStyle.Flat;
+        passwordField.TogglePasswordPressedImage = IconProvider.GetIcon(
+            "Eye",
+            colorServer: textIconColor
+        );
+
+        signinButton.FlatAppearance.MouseDownBackColor = ThemeColors.Secondary.Dark;
+        signinButton.FlatAppearance.MouseOverBackColor = ThemeColors.Secondary.Light;
 
         closeButton.BackColor = ThemeColors.System.CloseButton.Normal;
         closeButton.BackgroundImage = IconProvider.GetIcon(
@@ -55,11 +58,10 @@ public partial class LoginForm : PeproForm {
     }
 
     private void LoginButton_Click(object sender, EventArgs e) {
-        string accountName = accountNameTextBox.Text;
-        string password = passwordTextBox.Text;
+        string accountName = accountNameInputField.Text;
+        string password = passwordField.Text;
 
-        try
-        {
+        try {
             LoginStatus status = AccountBusiness.Instance.GetLoginStatus(accountName, password);
 
             switch (status) {
@@ -69,25 +71,24 @@ public partial class LoginForm : PeproForm {
                 Close();
                 break;
             case LoginStatus.InvalidInput:
-                errorLabel.Text = "Tên người dùng và mật khẩu không được để trống!";
+                errorLabel.Text = "Username and password must not be empty!";
                 break;
             case LoginStatus.InvalidAccount:
-                errorLabel.Text = "Tên người dùng hoặc mật khẩu sai!";
+                errorLabel.Text = "Incorrect username or password!";
                 break;
             case LoginStatus.LockedAccount:
-                errorLabel.Text = "Tài khoản của bạn đã bị khóa!";
+                errorLabel.Text = "Your account has been locked!";
                 break;
             }
         }
-        catch (Exception ex)
-        {
-            errorLabel.Text = "Đã xảy ra lỗi trong quá trình đăng nhập!";
+        catch (Exception ex) {
+            errorLabel.Text = "An error occurred during the login process!";
             MessageBox.Show(ex.Message);
         }
 
-        accountNameTextBox.Clear();
-        passwordTextBox.Clear();
-        accountNameTextBox.Focus();
+        accountNameInputField.Clear();
+        passwordField.Clear();
+        accountNameInputField.Focus();
     }
 
     public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -102,39 +103,6 @@ public partial class LoginForm : PeproForm {
         if (e.Button == MouseButtons.Left) {
             ReleaseCapture();
             _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-        }
-    }
-
-    private void AccountNameTextBox_Enter(object sender, EventArgs e) {
-        accountNamePanel.BackColor = ThemeColors.Secondary.Base;
-    }
-
-    private void AccountNameTextBox_Leave(object sender, EventArgs e) {
-        accountNamePanel.BackColor = ThemeColors.Text ;
-    }
-
-    private void PasswordTextBox_Enter(object sender, EventArgs e) {
-        passwordPanel.BackColor = ThemeColors.Secondary.Base;
-    }
-
-    private void PasswordTextBox_Leave(object sender, EventArgs e) {
-        passwordPanel.BackColor = ThemeColors.Text;
-    }
-
-    private void PasswordPictureBox_Click(object sender, EventArgs e) {
-        if (passwordTextBox.UseSystemPasswordChar) {
-            passwordTextBox.UseSystemPasswordChar = false;
-            showPasswordButton.BackgroundImage = IconProvider.GetIcon(
-                "Eye",
-                colorServer: textIconColor
-            );
-        }
-        else {
-            passwordTextBox.UseSystemPasswordChar = true;
-            showPasswordButton.BackgroundImage = IconProvider.GetIcon(
-                "EyeClosed",
-                colorServer: textIconColor
-            );
         }
     }
 
