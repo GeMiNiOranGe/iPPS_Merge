@@ -31,7 +31,7 @@ public partial class ProgressControl : UserControl {
                     DepartmentName = row["DEPARTMENT_NAME"].ToString()
                 };
                 projectID = projectItem.Id;
-                var dataTable1 = CJobBLL.Instance.GetAllFromProject(projectID);
+                var dataTable1 = TaskBusiness.Instance.GetAllFromProject(projectID);
                 if (dataTable1 != null && dataTable1.Rows.Count > 0) {
                     foreach (DataRow row1 in dataTable1.Rows) {
                         totalJob += 1;
