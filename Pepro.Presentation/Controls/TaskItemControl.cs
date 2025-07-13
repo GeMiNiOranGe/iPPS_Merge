@@ -53,7 +53,7 @@ namespace Pepro.Presentation.Controls {
 
             string managerTempId = null;
 
-            var dtManager = CJobBLL.Instance.GetManager(strJobId);
+            var dtManager = TaskBusiness.Instance.GetManager(strJobId);
 
             if (dtManager != null && dtManager.Rows.Count > 0) {
                 foreach (DataRow row in dtManager.Rows) {
@@ -72,7 +72,7 @@ namespace Pepro.Presentation.Controls {
                 }
             }
 
-            var dtJobsByProject = CJobBLL.Instance.GetAllByEmployee(managerTempId);
+            var dtJobsByProject = TaskBusiness.Instance.GetAllByEmployee(managerTempId);
             double total;
             double total1;
             if (dtJobsByProject != null && dtJobsByProject.Rows.Count > 0) {

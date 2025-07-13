@@ -31,7 +31,7 @@ namespace Pepro.Presentation {
 
         private void ShowJobsFromProject(string strProjectId) {
             flPnlListJob.Controls.Clear();
-            var dataTable = CJobBLL.Instance.GetAllFromProject(strProjectId);
+            var dataTable = TaskBusiness.Instance.GetAllFromProject(strProjectId);
             double total;
             double total1;
             if (dataTable != null && dataTable.Rows.Count > 0) {
