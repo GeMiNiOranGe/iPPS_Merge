@@ -39,11 +39,11 @@ public class AccountDataAccess {
 
         DataRow row = dataTable.Rows[0];
         Account account = new() {
-            AccountId = row.Field<int?>("AccountId") ?? 0,
+            AccountId = row.Field<int>("AccountId"),
             Username = row.Field<string>("Username") ?? "",
             Salt = row.Field<byte[]>("Salt") ?? [],
             Password = row.Field<byte[]>("Password") ?? [],
-            IsActive = row.Field<bool?>("IsActive") ?? false,
+            IsActive = row.Field<bool>("IsActive"),
             EmployeeId = row.Field<string>("EmployeeId") ?? ""
         };
         return account;
