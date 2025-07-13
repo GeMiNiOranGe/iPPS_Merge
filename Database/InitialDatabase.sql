@@ -98,8 +98,8 @@ CREATE TABLE [dbo].[Account] (
 CREATE TABLE [dbo].[Task] (
     [TaskId]                [int]           NOT NULL IDENTITY(1, 1),
     [Name]                  [nvarchar](50)  NOT NULL,
-    [IsProjectPublic]       [bit]           NOT NULL,
-    [IsDepartmentPublic]    [bit]           NOT NULL,
+    [IsPublicToProject]     [bit]           NOT NULL,
+    [IsPublicToDepartment]  [bit]           NOT NULL,
     [ManagerId]             [varchar](10)   NOT NULL,
     [StartDate]             [date]          NOT NULL,
     [EndDate]               [date]          NOT NULL,
