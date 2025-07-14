@@ -14,23 +14,40 @@ public class AccountDataAccess {
 
     private AccountDataAccess() { }
 
-    public Account? GetAccountDetails(string accountName) {
-        string procedureName = "usp_GetAccountDetails";
+    /// <summary>
+    ///     Finds an account using a flexible search value (e.g., username, employee Id, or email).
+    /// </summary>
+    /// <param name="searchValue">
+    ///     The string value used to search across multiple account fields.
+    /// </param>
+    /// <returns>
+    ///     The matching <see cref="Account"/>, or null if not found.
+    /// </returns>
+    public Account? FindAccount(string searchValue) {
+        string query = @"
+            SELECT AccountId
+                , Username
+                , Salt
+                , Password
+                , EmployeeId
+                , IsActive
+            FROM Account
+            WHERE @SearchValue IN (Username, EmployeeId)
+        ";
         SqlParameter[] parameters =
         [
             new()
             {
-                ParameterName = "AccountName",
+                ParameterName = "SearchValue",
                 SqlDbType = SqlDbType.VarChar,
-                Size = 50,
-                Value = accountName
+                Size = 255,
+                Value = searchValue
             }
         ];
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(
-            procedureName,
-            parameters,
-            CommandType.StoredProcedure
+            query,
+            parameters
         );
         if (dataTable.Rows.Count == 0)
         {

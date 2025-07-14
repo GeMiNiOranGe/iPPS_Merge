@@ -62,22 +62,6 @@ AS BEGIN
 END
 GO
 
-CREATE OR ALTER PROCEDURE [dbo].[usp_GetAccountDetails]
-    @AccountName VARCHAR(50)
-AS BEGIN
-    SET NOCOUNT ON
-
-    SELECT [AccountId]
-         , [Username]
-         , [Salt]
-         , [Password]
-         , [EmployeeId]
-         , [IsActive]
-    FROM [dbo].[Account]
-    WHERE @AccountName IN ([Account].[Username], [Account].[EmployeeId])
-END
-GO
-
 CREATE OR ALTER PROCEDURE usp_XoaChamCong
     @MaNhanVienCanXoa NVARCHAR(50)
 AS BEGIN

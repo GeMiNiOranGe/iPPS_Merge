@@ -26,7 +26,7 @@ public class AccountBusiness
             return LoginStatus.InvalidInput;
         }
 
-        Account? account = AccountDataAccess.Instance.GetAccountDetails(accountName);
+        Account? account = AccountDataAccess.Instance.FindAccount(accountName);
 
         if (account == null)
         {
