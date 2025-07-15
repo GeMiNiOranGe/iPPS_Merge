@@ -24,36 +24,33 @@ namespace Pepro.Presentation.Controls {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            projectListFlowLayoutPanel = new FlowLayoutPanel();
+            projectsFlowLayoutPanel = new FlowLayoutPanel();
             SuspendLayout();
             // 
-            // projectListFlowLayoutPanel
+            // projectsFlowLayoutPanel
             // 
-            projectListFlowLayoutPanel.BackColor = Color.FromArgb(15, 15, 15);
-            projectListFlowLayoutPanel.Dock = DockStyle.Fill;
-            projectListFlowLayoutPanel.Location = new Point(0, 0);
-            projectListFlowLayoutPanel.Margin = new Padding(4, 3, 4, 3);
-            projectListFlowLayoutPanel.Name = "projectListFlowLayoutPanel";
-            projectListFlowLayoutPanel.Padding = new Padding(14);
-            projectListFlowLayoutPanel.Size = new Size(331, 301);
-            projectListFlowLayoutPanel.TabIndex = 0;
+            projectsFlowLayoutPanel.Dock = DockStyle.Fill;
+            projectsFlowLayoutPanel.Location = new Point(0, 0);
+            projectsFlowLayoutPanel.Name = "projectsFlowLayoutPanel";
+            projectsFlowLayoutPanel.Padding = new Padding(16);
+            projectsFlowLayoutPanel.Size = new Size(150, 150);
+            projectsFlowLayoutPanel.TabIndex = 0;
             // 
-            // FormProgress
+            // ProgressControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(projectListFlowLayoutPanel);
-            Margin = new Padding(4, 3, 4, 3);
-            Name = "FormProgress";
-            Size = new Size(331, 301);
-            Load += FormProgress_Load;
+            BackColor = Color.FromArgb(15, 15, 15);
+            Controls.Add(projectsFlowLayoutPanel);
+            Name = "ProgressControl";
+            Load += ProgressControl_Load;
             ResumeLayout(false);
 
         }
 
         #endregion
 
-        private FlowLayoutPanel projectListFlowLayoutPanel;
+        private FlowLayoutPanel projectsFlowLayoutPanel;
     }
 }
 
