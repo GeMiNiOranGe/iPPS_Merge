@@ -14,8 +14,29 @@ public class ProjectBusiness {
 
     private ProjectBusiness() { }
 
-    public DataTable GetProjectList() {
-        return ProjectDataAccess.Instance.GetProjectList();
+    public List<ProjectProgress> GetProjectsWithProgress() {
+        List<Project> projects = ProjectDataAccess.Instance.GetProjects();
+        List<ProjectProgress> projectsProgress = [];
+
+        foreach (Project project in projects) {
+            List<ProjectTask> tasks = TaskDataAccess.Instance.GetTasksByProjectId(project.ProjectId);
+            int total = tasks.Count;
+            int completed = tasks.Count(task => task.StatusId == 4);
+            decimal percent = total == 0 ? 0 : Math.Round(completed * 100m / total, 2);
+
+            projectsProgress.Add(new ProjectProgress {
+                ProjectId = project.ProjectId,
+                Name = project.Name,
+                CustomerName = project.CustomerName,
+                ManagerId = project.ManagerId,
+                StartDate = project.StartDate,
+                EndDate = project.EndDate,
+                StatusId = project.StatusId,
+                ProgressPercent = percent
+            });
+        }
+
+        return projectsProgress;
     }
 
     public string[] GetProjectsByEmployeeId(string employeeId) {
