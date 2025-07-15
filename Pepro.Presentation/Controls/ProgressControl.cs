@@ -3,18 +3,18 @@ using Pepro.DTOs;
 
 namespace Pepro.Presentation.Controls;
 
-public partial class ProgressControl : UserControl {
+public partial class ProgressControl : PeproUserControl {
     public ProgressControl() {
         InitializeComponent();
     }
 
-    private void FormProgress_Load(object sender, EventArgs e) {
-        ShowAllProject();
+    private void ProgressControl_Load(object sender, EventArgs e) {
+        ShowProjectsWithProgress();
     }
 
-    private void ShowAllProject() {
-        if (projectListFlowLayoutPanel.Controls.Count > 0) {
-            projectListFlowLayoutPanel.Controls.Clear();
+    private void ShowProjectsWithProgress() {
+        if (projectsFlowLayoutPanel.Controls.Count > 0) {
+            projectsFlowLayoutPanel.Controls.Clear();
         }
 
         List<ProjectProgress> projectsProgress = ProjectBusiness.Instance.GetProjectsWithProgress();
@@ -26,7 +26,7 @@ public partial class ProgressControl : UserControl {
                 Percent = item.ProgressPercent.ToString() + "%"
             };
 
-            projectListFlowLayoutPanel.Controls.Add(projectItem);
+            projectsFlowLayoutPanel.Controls.Add(projectItem);
         }
     }
 }
