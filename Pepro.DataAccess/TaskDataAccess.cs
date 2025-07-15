@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using Microsoft.Data.SqlClient;
+using Pepro.DTOs;
+using System.Data;
 
 namespace Pepro.DataAccess;
 
@@ -11,6 +13,51 @@ public class TaskDataAccess {
     }
 
     private TaskDataAccess() { }
+
+    public List<ProjectTask> GetTasksByProjectId(string projectId) {
+        string query = @"
+            SELECT TaskId
+                , Name
+                , IsPublicToProject
+                , IsPublicToDepartment
+                , ManagerId
+                , StartDate
+                , EndDate
+                , ProjectId
+                , StatusId
+            FROM Task 
+            WHERE ProjectId = @ProjectId
+        ";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "ProjectId",
+                SqlDbType = SqlDbType.VarChar,
+                Size = 10,
+                Value = projectId
+            }
+        ];
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+
+        List<ProjectTask> tasks = [];
+        foreach (DataRow row in dataTable.Rows) {
+            ProjectTask task = new() {
+                TaskId = row.Field<int>("TaskId"),
+                Name = row.Field<string>("Name") ?? "",
+                IsPublicToProject = row.Field<bool>("IsPublicToProject"),
+                IsPublicToDepartment = row.Field<bool>("IsPublicToDepartment"),
+                ManagerId = row.Field<string>("ManagerId") ?? "",
+                StartDate = row.Field<DateTime>("StartDate"),
+                EndDate = row.Field<DateTime>("EndDate"),
+                ProjectId = row.Field<string>("ProjectId") ?? "",
+                StatusId = row.Field<int>("StatusId")
+            };
+            tasks.Add(task);
+        }
+        return tasks;
+    }
 
     /// <summary>
     ///     Retrieve all project jobs
