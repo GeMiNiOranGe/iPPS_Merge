@@ -30,11 +30,13 @@ namespace Pepro.Presentation.Controls {
             // projectsFlowLayoutPanel
             // 
             projectsFlowLayoutPanel.Dock = DockStyle.Fill;
+            projectsFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
             projectsFlowLayoutPanel.Location = new Point(0, 0);
             projectsFlowLayoutPanel.Name = "projectsFlowLayoutPanel";
             projectsFlowLayoutPanel.Padding = new Padding(16);
             projectsFlowLayoutPanel.Size = new Size(150, 150);
             projectsFlowLayoutPanel.TabIndex = 0;
+            projectsFlowLayoutPanel.SizeChanged += ProjectsFlowLayoutPanel_SizeChanged;
             // 
             // ProgressControl
             // 

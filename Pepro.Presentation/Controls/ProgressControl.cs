@@ -19,14 +19,34 @@ public partial class ProgressControl : PeproUserControl {
 
         List<ProjectProgress> projectsProgress = ProjectBusiness.Instance.GetProjectsWithProgress();
 
-        foreach (ProjectProgress item in projectsProgress) {
-            ProjectItemControl projectItem = new() {
-                Id = item.ProjectId,
-                Name = item.Name,
-                Percent = item.ProgressPercent.ToString() + "%"
+        for (int i = 0; i < projectsProgress.Count; i++) {
+            ProjectProgress item = projectsProgress[i];
+
+            ProjectProgressCardControl projectCard = new() {
+                Item = item,
+                Margin = i != projectsProgress.Count - 1 ? new Padding(0, 0, 0, 8) : new Padding(0),
+                Width = projectsFlowLayoutPanel.ClientSize.Width - projectsFlowLayoutPanel.Padding.Horizontal,
+                ForeColor = ThemeColors.Text,
+                BackColor = Color.FromArgb(29, 29, 29),
+                MouseOverBackColor = ThemeColors.Accent.Base,
+                MouseDownBackColor = ThemeColors.Accent.Dark
             };
 
-            projectsFlowLayoutPanel.Controls.Add(projectItem);
+            projectCard.Click += (sender, e) => {
+                TaskDetailForm taskDetailForm = new() {
+                    ProjectId = item.ProjectId,
+                    ProjectName = item.Name
+                };
+                taskDetailForm.ShowDialog();
+            };
+
+            projectsFlowLayoutPanel.Controls.Add(projectCard);
+        }
+    }
+
+    private void ProjectsFlowLayoutPanel_SizeChanged(object sender, EventArgs e) {
+        foreach (Control control in projectsFlowLayoutPanel.Controls) {
+            control.Width = projectsFlowLayoutPanel.ClientSize.Width - projectsFlowLayoutPanel.Padding.Horizontal;
         }
     }
 }
