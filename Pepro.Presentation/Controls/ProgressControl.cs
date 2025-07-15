@@ -1,5 +1,5 @@
 ﻿using Pepro.Business;
-using System.Data;
+using Pepro.DTOs;
 
 namespace Pepro.Presentation.Controls;
 
@@ -17,42 +17,16 @@ public partial class ProgressControl : UserControl {
             projectListFlowLayoutPanel.Controls.Clear();
         }
 
-        var dataTable = ProjectBusiness.Instance.GetProjectList();
-        string projectID;
-        double total;
-        double total1;
-        double totalJob = 0;
-        double count = 0;
-        if (dataTable != null && dataTable.Rows.Count > 0) {
-            foreach (DataRow row in dataTable.Rows) {
-                var projectItem = new ProjectItemControl {
-                    Id = row["PROJECT_ID"].ToString(),
-                    Name = row["PROJECT_NAME"].ToString(),
-                    DepartmentName = row["DEPARTMENT_NAME"].ToString()
-                };
-                projectID = projectItem.Id;
-                var dataTable1 = TaskBusiness.Instance.GetAllFromProject(projectID);
-                if (dataTable1 != null && dataTable1.Rows.Count > 0) {
-                    foreach (DataRow row1 in dataTable1.Rows) {
-                        totalJob += 1;
-                    }
-                }
+        List<ProjectProgress> projectsProgress = ProjectBusiness.Instance.GetProjectsWithProgress();
 
-                if (dataTable1 != null && dataTable1.Rows.Count > 0) {
-                    foreach (DataRow row1 in dataTable1.Rows) {
-                        total = Convert.ToDouble(CProgressBLL.getTotalDocumentbyJobID(row1["JOB_ID"].ToString()));
-                        total1 = Convert.ToDouble(CProgressBLL.getNumberofDocumentbyJobID(row1["JOB_ID"].ToString()));
-                        if (total == total1) {
-                            count += 1;
-                        }
-                    }
-                }
+        foreach (ProjectProgress item in projectsProgress) {
+            ProjectItemControl projectItem = new() {
+                Id = item.ProjectId,
+                Name = item.Name,
+                Percent = item.ProgressPercent.ToString() + "%"
+            };
 
-                projectItem.Percent = Math.Round(count / totalJob * 100, 2).ToString() + "%";
-                projectListFlowLayoutPanel.Controls.Add(projectItem);
-                totalJob = 0;
-                count = 0;
-            }
+            projectListFlowLayoutPanel.Controls.Add(projectItem);
         }
     }
 }

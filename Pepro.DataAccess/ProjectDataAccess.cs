@@ -20,13 +20,36 @@ public class ProjectDataAccess {
     /// <returns>
     ///     List of projects
     /// </returns>
-    public DataTable GetProjectList() {
-        string strQuery = string.Format(@"
-            SELECT PROJECT_ID, PROJECT.NAME PROJECT_NAME, DEPARTMENT.NAME DEPARTMENT_NAME, STATUS PROJECT_STATUS 
-            FROM IMPLEMENT_PROJECT, PROJECT, DEPARTMENT 
-            WHERE IMPLEMENT_PROJECT.PROJECT_ID = PROJECT.ID AND IMPLEMENT_PROJECT.DEPARTMENT_ID = DEPARTMENT.ID
-        ");
-        return DataProvider.Instance.ExecuteQuery(strQuery);
+    public List<Project> GetProjects() {
+        string query = @"
+            SELECT ProjectId
+                , Name
+                , CustomerName
+                , ManagerId
+                , StartDate
+                , EndDate
+                , StatusId
+            FROM Project
+        ";
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
+
+        List<Project> projects = [];
+        foreach (DataRow row in dataTable.Rows)
+        {
+            Project project = new()
+            {
+                ProjectId = row.Field<string>("ProjectId") ?? "",
+                Name = row.Field<string>("Name") ?? "",
+                CustomerName = row.Field<string>("CustomerName") ?? "",
+                ManagerId = row.Field<string>("ManagerId") ?? "",
+                StartDate = row.Field<DateTime>("StartDate"),
+                EndDate = row.Field<DateTime>("EndDate"),
+                StatusId = row.Field<int>("StatusId")
+            };
+            projects.Add(project);
+        }
+        return projects;
     }
 
     public List<Project> GetProjectsByEmployeeId(string employeeId) {
