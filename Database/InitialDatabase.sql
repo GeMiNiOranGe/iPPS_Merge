@@ -103,6 +103,7 @@ CREATE TABLE [dbo].[Task] (
     [ManagerId]             [varchar](10)   NOT NULL,
     [StartDate]             [date]          NOT NULL,
     [EndDate]               [date]          NOT NULL,
+    [RequiredDocumentCount] [int]           NOT NULL,
 
     [ProjectId]             [varchar](10)   NOT NULL,
     [StatusId]              [int]           NOT NULL,
