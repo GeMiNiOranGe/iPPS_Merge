@@ -28,123 +28,124 @@ namespace Pepro.Presentation
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            lblIdProject = new Label();
-            lblNameProject = new Label();
-            lblListWorkOfProject = new Label();
-            lbManagerOfJob = new Label();
-            flPnlListJob = new FlowLayoutPanel();
-            pnlManager = new Panel();
-            flPnlJobOfEmployee = new FlowLayoutPanel();
-            lbOtherJobOfManager = new Label();
+            projectIdLabel = new Label();
+            projectNameLabel = new Label();
+            tasksOfProjectLabel = new Label();
+            tasksOfProjectFlowLayoutPanel = new FlowLayoutPanel();
+            taskManagerLabel = new Label();
+            taskManagerPanel = new Panel();
+            otherTasksOfManagerLabel = new Label();
+            otherTasksOfManagerFlowLayoutLabel = new FlowLayoutPanel();
             SuspendLayout();
             // 
-            // lblIdProject
+            // projectIdLabel
             // 
-            lblIdProject.AutoSize = true;
-            lblIdProject.ForeColor = Color.White;
-            lblIdProject.Location = new Point(12, 9);
-            lblIdProject.Name = "lblIdProject";
-            lblIdProject.Size = new Size(72, 20);
-            lblIdProject.TabIndex = 0;
-            lblIdProject.Text = "Mã dự án";
+            projectIdLabel.AutoSize = true;
+            projectIdLabel.ForeColor = Color.White;
+            projectIdLabel.Location = new Point(13, 17);
+            projectIdLabel.Margin = new Padding(8, 8, 0, 4);
+            projectIdLabel.Name = "projectIdLabel";
+            projectIdLabel.Size = new Size(66, 19);
+            projectIdLabel.TabIndex = 0;
+            projectIdLabel.Text = "Project id";
             // 
-            // lblNameProject
+            // projectNameLabel
             // 
-            lblNameProject.AutoSize = true;
-            lblNameProject.ForeColor = Color.White;
-            lblNameProject.Location = new Point(12, 39);
-            lblNameProject.Name = "lblNameProject";
-            lblNameProject.Size = new Size(74, 20);
-            lblNameProject.TabIndex = 1;
-            lblNameProject.Text = "Tên dự án";
+            projectNameLabel.AutoSize = true;
+            projectNameLabel.ForeColor = Color.White;
+            projectNameLabel.Location = new Point(13, 40);
+            projectNameLabel.Margin = new Padding(8, 0, 0, 4);
+            projectNameLabel.Name = "projectNameLabel";
+            projectNameLabel.Size = new Size(89, 19);
+            projectNameLabel.TabIndex = 0;
+            projectNameLabel.Text = "Project name";
             // 
-            // lblListWorkOfProject
+            // tasksOfProjectLabel
             // 
-            lblListWorkOfProject.AutoSize = true;
-            lblListWorkOfProject.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblListWorkOfProject.ForeColor = Color.White;
-            lblListWorkOfProject.Location = new Point(12, 89);
-            lblListWorkOfProject.Margin = new Padding(6, 0, 6, 0);
-            lblListWorkOfProject.Name = "lblListWorkOfProject";
-            lblListWorkOfProject.Size = new Size(304, 25);
-            lblListWorkOfProject.TabIndex = 2;
-            lblListWorkOfProject.Text = "Danh sách công việc trong dự án";
+            tasksOfProjectLabel.AutoSize = true;
+            tasksOfProjectLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            tasksOfProjectLabel.ForeColor = Color.White;
+            tasksOfProjectLabel.Location = new Point(12, 90);
+            tasksOfProjectLabel.Margin = new Padding(0);
+            tasksOfProjectLabel.Name = "tasksOfProjectLabel";
+            tasksOfProjectLabel.Size = new Size(161, 28);
+            tasksOfProjectLabel.TabIndex = 0;
+            tasksOfProjectLabel.Text = "Tasks of project";
             // 
-            // lbManagerOfJob
+            // tasksOfProjectFlowLayoutPanel
             // 
-            lbManagerOfJob.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lbManagerOfJob.AutoSize = true;
-            lbManagerOfJob.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbManagerOfJob.ForeColor = Color.White;
-            lbManagerOfJob.Location = new Point(693, 89);
-            lbManagerOfJob.Margin = new Padding(6, 0, 6, 0);
-            lbManagerOfJob.Name = "lbManagerOfJob";
-            lbManagerOfJob.Size = new Size(263, 25);
-            lbManagerOfJob.TabIndex = 3;
-            lbManagerOfJob.Text = "Nhân viên phụ trách quản lý";
+            tasksOfProjectFlowLayoutPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tasksOfProjectFlowLayoutPanel.AutoScroll = true;
+            tasksOfProjectFlowLayoutPanel.Location = new Point(17, 126);
+            tasksOfProjectFlowLayoutPanel.Margin = new Padding(8);
+            tasksOfProjectFlowLayoutPanel.Name = "tasksOfProjectFlowLayoutPanel";
+            tasksOfProjectFlowLayoutPanel.Size = new Size(640, 538);
+            tasksOfProjectFlowLayoutPanel.TabIndex = 0;
             // 
-            // flPnlListJob
+            // taskManagerLabel
             // 
-            flPnlListJob.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            flPnlListJob.AutoScroll = true;
-            flPnlListJob.Location = new Point(15, 126);
-            flPnlListJob.Margin = new Padding(6);
-            flPnlListJob.Name = "flPnlListJob";
-            flPnlListJob.Size = new Size(643, 540);
-            flPnlListJob.TabIndex = 4;
+            taskManagerLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            taskManagerLabel.AutoSize = true;
+            taskManagerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            taskManagerLabel.ForeColor = Color.White;
+            taskManagerLabel.Location = new Point(685, 90);
+            taskManagerLabel.Margin = new Padding(0);
+            taskManagerLabel.Name = "taskManagerLabel";
+            taskManagerLabel.Size = new Size(142, 28);
+            taskManagerLabel.TabIndex = 0;
+            taskManagerLabel.Text = "Task manager";
             // 
-            // pnlManager
+            // taskManagerPanel
             // 
-            pnlManager.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pnlManager.Location = new Point(698, 126);
-            pnlManager.Margin = new Padding(6);
-            pnlManager.Name = "pnlManager";
-            pnlManager.Size = new Size(551, 150);
-            pnlManager.TabIndex = 5;
+            taskManagerPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            taskManagerPanel.Location = new Point(689, 126);
+            taskManagerPanel.Margin = new Padding(24, 8, 8, 24);
+            taskManagerPanel.Name = "taskManagerPanel";
+            taskManagerPanel.Size = new Size(558, 155);
+            taskManagerPanel.TabIndex = 0;
             // 
-            // flPnlJobOfEmployee
+            // otherTasksOfManagerLabel
             // 
-            flPnlJobOfEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            flPnlJobOfEmployee.AutoScroll = true;
-            flPnlJobOfEmployee.Location = new Point(698, 341);
-            flPnlJobOfEmployee.Margin = new Padding(6);
-            flPnlJobOfEmployee.Name = "flPnlJobOfEmployee";
-            flPnlJobOfEmployee.Size = new Size(551, 325);
-            flPnlJobOfEmployee.TabIndex = 5;
+            otherTasksOfManagerLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            otherTasksOfManagerLabel.AutoSize = true;
+            otherTasksOfManagerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            otherTasksOfManagerLabel.ForeColor = Color.White;
+            otherTasksOfManagerLabel.Location = new Point(685, 305);
+            otherTasksOfManagerLabel.Margin = new Padding(0);
+            otherTasksOfManagerLabel.Name = "otherTasksOfManagerLabel";
+            otherTasksOfManagerLabel.Size = new Size(235, 28);
+            otherTasksOfManagerLabel.TabIndex = 0;
+            otherTasksOfManagerLabel.Text = "Other tasks of manager";
             // 
-            // lbOtherJobOfManager
+            // otherTasksOfManagerFlowLayoutLabel
             // 
-            lbOtherJobOfManager.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lbOtherJobOfManager.AutoSize = true;
-            lbOtherJobOfManager.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbOtherJobOfManager.ForeColor = Color.White;
-            lbOtherJobOfManager.Location = new Point(693, 310);
-            lbOtherJobOfManager.Margin = new Padding(6, 0, 6, 0);
-            lbOtherJobOfManager.Name = "lbOtherJobOfManager";
-            lbOtherJobOfManager.Size = new Size(463, 25);
-            lbOtherJobOfManager.TabIndex = 7;
-            lbOtherJobOfManager.Text = "Những công việc đang tham gia của người quản lý";
+            otherTasksOfManagerFlowLayoutLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            otherTasksOfManagerFlowLayoutLabel.AutoScroll = true;
+            otherTasksOfManagerFlowLayoutLabel.Location = new Point(689, 341);
+            otherTasksOfManagerFlowLayoutLabel.Margin = new Padding(24, 8, 8, 8);
+            otherTasksOfManagerFlowLayoutLabel.Name = "otherTasksOfManagerFlowLayoutLabel";
+            otherTasksOfManagerFlowLayoutLabel.Size = new Size(558, 323);
+            otherTasksOfManagerFlowLayoutLabel.TabIndex = 0;
             // 
-            // FormJobDetail
+            // TaskDetailForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
             ClientSize = new Size(1264, 681);
-            Controls.Add(lbOtherJobOfManager);
-            Controls.Add(flPnlJobOfEmployee);
-            Controls.Add(pnlManager);
-            Controls.Add(flPnlListJob);
-            Controls.Add(lbManagerOfJob);
-            Controls.Add(lblListWorkOfProject);
-            Controls.Add(lblNameProject);
-            Controls.Add(lblIdProject);
-            Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(6);
-            Name = "FormJobDetail";
+            Controls.Add(projectIdLabel);
+            Controls.Add(projectNameLabel);
+            Controls.Add(tasksOfProjectLabel);
+            Controls.Add(tasksOfProjectFlowLayoutPanel);
+            Controls.Add(taskManagerLabel);
+            Controls.Add(taskManagerPanel);
+            Controls.Add(otherTasksOfManagerLabel);
+            Controls.Add(otherTasksOfManagerFlowLayoutLabel);
+            MinimumSize = new Size(960, 540);
+            Name = "TaskDetailForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Chi tiết công việc";
-            Load += FormWorkOfProject_Load;
+            Text = "Task detail";
+            Load += TaskDetailForm_Load;
             ResumeLayout(false);
             PerformLayout();
 
@@ -152,13 +153,13 @@ namespace Pepro.Presentation
 
         #endregion
 
-        private Label lblIdProject;
-        private Label lblNameProject;
-        private Label lblListWorkOfProject;
-        private Label lbManagerOfJob;
-        private FlowLayoutPanel flPnlListJob;
-        private Panel pnlManager;
-        private FlowLayoutPanel flPnlJobOfEmployee;
-        private Label lbOtherJobOfManager;
+        private Label projectIdLabel;
+        private Label projectNameLabel;
+        private Label tasksOfProjectLabel;
+        private Label taskManagerLabel;
+        private FlowLayoutPanel tasksOfProjectFlowLayoutPanel;
+        private Panel taskManagerPanel;
+        private FlowLayoutPanel otherTasksOfManagerFlowLayoutLabel;
+        private Label otherTasksOfManagerLabel;
     }
 }
