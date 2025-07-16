@@ -87,12 +87,23 @@ internal class DataProvider {
     ///     The first column of the first row in the result set, or a null reference (Nothing
     ///     in Visual Basic) if the result set is empty. Returns a maximum of 2033 characters.
     /// </returns>
-    public object ExecuteScalar(string query) {
+    public object ExecuteScalar(
+        string query,
+        SqlParameter[]? parameters = null,
+        CommandType commandType = CommandType.Text
+    ) {
         using SqlCommand command = CreateCommand(query);
+        command.CommandType = commandType;
+
+        if (parameters != null) {
+            command.Parameters.AddRange(parameters);
+        }
+
         OpenConnection(command.Connection);
-        object objData = command.ExecuteScalar();
+        object obj = command.ExecuteScalar();
         CloseConnection(command.Connection);
-        return objData;
+
+        return obj;
     }
 
     public void ExecuteReader(string query, out SqlDataReader dataReader) {

@@ -22,7 +22,9 @@ public class ProjectBusiness {
             List<ProjectTask> tasks = TaskDataAccess.Instance.GetTasksByProjectId(project.ProjectId);
             int total = tasks.Count;
             int completed = tasks.Count(task => task.StatusId == 4);
-            decimal percent = total == 0 ? 0 : Math.Round(completed * 100m / total, 2);
+            decimal percent = total != 0
+                ? Math.Round(completed * 100m / total, 2)
+                : 0;
 
             projectsProgress.Add(new ProjectProgress {
                 ProjectId = project.ProjectId,
