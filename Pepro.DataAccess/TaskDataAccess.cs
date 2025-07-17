@@ -14,6 +14,21 @@ public class TaskDataAccess {
 
     private TaskDataAccess() { }
 
+    public int GetRequiredDocumentCount(int taskId) {
+        string query = "SELECT RequiredDocumentCount FROM Task WHERE TaskId = @TaskId";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "TaskId",
+                SqlDbType = SqlDbType.Int,
+                Value = taskId
+            }
+        ];
+
+        return (int)DataProvider.Instance.ExecuteScalar(query, parameters);
+    }
+
     public List<ProjectTask> GetTasksByProjectId(string projectId) {
         string query = @"
             SELECT TaskId
@@ -57,22 +72,6 @@ public class TaskDataAccess {
             tasks.Add(task);
         }
         return tasks;
-    }
-
-    /// <summary>
-    ///     Retrieve all project jobs
-    /// </summary>
-    /// <param name="strProjectId">Project id</param>
-    /// <returns>
-    ///     List of jobs of a project
-    /// </returns>
-    public DataTable GetAllFromProject(string strProjectId) {
-        string strQuery = string.Format(@"
-            SELECT ID JOB_ID, NAME JOB_NAME, STATUS JOB_STATUS 
-            FROM JOB 
-            WHERE PROJECT_ID = '{0}'
-        ", strProjectId);
-        return DataProvider.Instance.ExecuteQuery(strQuery);
     }
 
     /// <summary>
