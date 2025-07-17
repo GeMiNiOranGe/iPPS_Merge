@@ -46,7 +46,11 @@ public class TaskBusiness {
         return TaskDataAccess.Instance.GetAllByEmployee(strEmployeeId);
     }
 
-    public DataTable GetManager(string strJobId) {
-        return TaskDataAccess.Instance.GetManager(strJobId);
+    public Employee GetTaskManager(int taskId) {
+        Employee? employee = TaskDataAccess.Instance.GetTaskManager(taskId);
+        if (employee == null) {
+            return new Employee();
+        }
+        return employee;
     }
 }

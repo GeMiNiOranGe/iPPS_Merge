@@ -91,18 +91,60 @@ public class TaskDataAccess {
     }
 
     /// <summary>
-    ///     Take out the manager of the job
+    ///     Take out the manager of the task
     /// </summary>
-    /// <param name="strJobId">Job id</param>
+    /// <param name="taskId">Task id</param>
     /// <returns>
     ///     Manager
     /// </returns>
-    public DataTable GetManager(string strJobId) {
-        string strQuery = string.Format(@"
-            SELECT EMPLOYEE.ID EMPLOYEE_ID, LAST_NAME + ' ' + MIDDLE_NAME + ' ' + FIRST_NAME EMPLOYEE_FULLNAME 
-            FROM EMPLOYEE, JOB 
-            WHERE EMPLOYEE.ID = JOB.JOB_MANAGER_ID AND JOB.ID = '{0}'
-        ", strJobId);
-        return DataProvider.Instance.ExecuteQuery(strQuery);
+    public Employee? GetTaskManager(int taskId) {
+        string query = @"
+            SELECT EmployeeId
+                , FirstName
+                , MiddleName
+                , LastName
+                , DateOfBirth
+                , Gender
+                , TaxCode
+                , CitizenId
+                , DepartmentId
+                , JobPositionId
+                , SalaryLevelId
+            FROM Task
+            INNER JOIN Employee
+                    ON Employee.EmployeeId = Task.ManagerId
+            WHERE TaskId = @TaskId
+        ";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "TaskId",
+                SqlDbType = SqlDbType.VarChar,
+                Size = 10,
+                Value = taskId
+            }
+        ];
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        if (dataTable.Rows.Count == 0) {
+            return null;
+        }
+
+        DataRow row = dataTable.Rows[0];
+        Employee employee = new() {
+            EmployeeId = row.Field<string>("EmployeeId") ?? "",
+            FirstName = row.Field<string>("FirstName") ?? "",
+            MiddleName = row.Field<string>("MiddleName"),
+            LastName = row.Field<string>("LastName") ?? "",
+            DateOfBirth = row.Field<DateTime>("DateOfBirth"),
+            Gender = row.Field<bool?>("Gender"),
+            TaxCode = row.Field<byte[]>("TaxCode"),
+            CitizenId = row.Field<string>("CitizenId") ?? "",
+            DepartmentId = row.Field<string>("DepartmentId") ?? "",
+            JobPositionId = row.Field<int>("JobPositionId"),
+            SalaryLevelId = row.Field<int>("SalaryLevelId")
+        };
+        return employee;
     }
 }
