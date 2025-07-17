@@ -76,6 +76,7 @@ namespace Pepro.Presentation
             // 
             tasksOfProjectFlowLayoutPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tasksOfProjectFlowLayoutPanel.AutoScroll = true;
+            tasksOfProjectFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
             tasksOfProjectFlowLayoutPanel.Location = new Point(17, 126);
             tasksOfProjectFlowLayoutPanel.Margin = new Padding(8);
             tasksOfProjectFlowLayoutPanel.Name = "tasksOfProjectFlowLayoutPanel";
@@ -121,6 +122,7 @@ namespace Pepro.Presentation
             // 
             otherTasksOfManagerFlowLayoutLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             otherTasksOfManagerFlowLayoutLabel.AutoScroll = true;
+            otherTasksOfManagerFlowLayoutLabel.FlowDirection = FlowDirection.TopDown;
             otherTasksOfManagerFlowLayoutLabel.Location = new Point(689, 341);
             otherTasksOfManagerFlowLayoutLabel.Margin = new Padding(24, 8, 8, 8);
             otherTasksOfManagerFlowLayoutLabel.Name = "otherTasksOfManagerFlowLayoutLabel";
