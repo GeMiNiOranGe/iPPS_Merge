@@ -48,14 +48,14 @@ public partial class TaskDetailForm : PeproForm {
             };
 
             taskCard.Click += (sender, e) => {
-                RetrieveInfomation(item.TaskId.ToString());
+                RetrieveInfomation(item.TaskId);
             };
 
             tasksOfProjectFlowLayoutPanel.Controls.Add(taskCard);
         }
     }
 
-    public void RetrieveInfomation(string taskId) {
+    public void RetrieveInfomation(int taskId) {
         if (taskManagerPanel.Controls.Count > 0) {
             taskManagerPanel.Controls.Clear();
         }
@@ -64,28 +64,17 @@ public partial class TaskDetailForm : PeproForm {
             otherTasksOfManagerFlowLayoutLabel.Controls.Clear();
         }
 
-        string managerTempId = null;
+        Employee employee = TaskBusiness.Instance.GetTaskManager(taskId);
 
-        var dtManager = TaskBusiness.Instance.GetManager(taskId);
+        ManagerItemControl managerCard = new() {
+            Id = employee.EmployeeId,
+            Name = employee.FirstName + ", " + employee.MiddleName + " " + employee.LastName,
+            Width = taskManagerPanel.ClientSize.Width - taskManagerPanel.Padding.Horizontal,
+        };
 
-        if (dtManager != null && dtManager.Rows.Count > 0) {
-            foreach (DataRow row in dtManager.Rows) {
-                var managerItem = new ManagerItemControl {
-                    Id = row["EMPLOYEE_ID"].ToString(),
-                    Name = row["EMPLOYEE_FULLNAME"].ToString()
-                };
+        taskManagerPanel.Controls.Add(managerCard);
 
-                managerTempId = managerItem.Id;
-
-                managerItem.Size = new Size() {
-                    Width = taskManagerPanel.Size.Width,
-                    Height = managerItem.Size.Height
-                };
-                taskManagerPanel.Controls.Add(managerItem);
-            }
-        }
-
-        var dtJobsByProject = TaskBusiness.Instance.GetAllByEmployee(managerTempId);
+        var dtJobsByProject = TaskBusiness.Instance.GetAllByEmployee(employee.EmployeeId);
         double total;
         double total1;
         if (dtJobsByProject != null && dtJobsByProject.Rows.Count > 0) {
