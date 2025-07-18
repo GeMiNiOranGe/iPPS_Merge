@@ -40,6 +40,7 @@ public partial class TaskDetailForm : PeproForm {
                 Item = item,
                 Margin = i != tasksProgress.Count - 1 ? new Padding(0, 0, 0, 8) : new Padding(0),
                 Width = tasksOfProjectFlowLayoutPanel.ClientSize.Width - tasksOfProjectFlowLayoutPanel.Padding.Horizontal,
+                Cursor = Cursors.Hand,
                 ForeColor = ThemeColors.Text,
                 BackColor = Color.FromArgb(29, 29, 29),
                 MouseOverBackColor = ThemeColors.Accent.Base,
