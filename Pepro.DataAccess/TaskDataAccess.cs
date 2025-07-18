@@ -74,20 +74,51 @@ public class TaskDataAccess {
         return tasks;
     }
 
-    /// <summary>
-    ///     Retrieve all jobs engaged by employees
-    /// </summary>
-    /// <param name="strEmployeeId">Employee id</param>
-    /// <returns>
-    ///     List of jobs by a employee
-    /// </returns>
-    public DataTable GetAllByEmployee(string strEmployeeId) {
-        string strQuery = string.Format(@"
-            SELECT PROJECT_ID, ID JOB_ID, NAME JOB_NAME, STATUS JOB_STATUS 
-            FROM JOB 
-            WHERE JOB_MANAGER_ID = '{0}'
-        ", strEmployeeId);
-        return DataProvider.Instance.ExecuteQuery(strQuery);
+    public List<ProjectTask> GetTasksByEmployeeId(string employeeId) {
+        string query = @"
+            SELECT Task.TaskId
+                , Name
+                , IsPublicToProject
+                , IsPublicToDepartment
+                , ManagerId
+                , StartDate
+                , EndDate
+                , ProjectId
+                , StatusId
+            FROM Task
+            INNER JOIN TaskDetail
+                    ON TaskDetail.TaskId = Task.TaskId
+            WHERE EmployeeId = @EmployeeId
+        ";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "EmployeeId",
+                SqlDbType = SqlDbType.VarChar,
+                Size = 10,
+                Value = employeeId
+            }
+        ];
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+
+        List<ProjectTask> tasks = [];
+        foreach (DataRow row in dataTable.Rows) {
+            ProjectTask task = new() {
+                TaskId = row.Field<int>("TaskId"),
+                Name = row.Field<string>("Name") ?? "",
+                IsPublicToProject = row.Field<bool>("IsPublicToProject"),
+                IsPublicToDepartment = row.Field<bool>("IsPublicToDepartment"),
+                ManagerId = row.Field<string>("ManagerId") ?? "",
+                StartDate = row.Field<DateTime>("StartDate"),
+                EndDate = row.Field<DateTime>("EndDate"),
+                ProjectId = row.Field<string>("ProjectId") ?? "",
+                StatusId = row.Field<int>("StatusId")
+            };
+            tasks.Add(task);
+        }
+        return tasks;
     }
 
     /// <summary>

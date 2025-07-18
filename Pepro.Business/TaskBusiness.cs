@@ -42,8 +42,32 @@ public class TaskBusiness {
         return tasksProgress;
     }
 
-    public DataTable GetAllByEmployee(string strEmployeeId) {
-        return TaskDataAccess.Instance.GetAllByEmployee(strEmployeeId);
+    public List<ProjectTaskProgress> GetTasksWithProgressByEmployeeId(string employeeId) {
+        List<ProjectTask> tasks = TaskDataAccess.Instance.GetTasksByEmployeeId(employeeId);
+        List<ProjectTaskProgress> tasksProgress = [];
+
+        foreach (ProjectTask task in tasks) {
+            int requiredDocumentCount = TaskDataAccess.Instance.GetRequiredDocumentCount(task.TaskId);
+            int documentCount = DocumentDataAccess.Instance.CountDocumentsByTaskId(task.TaskId);
+            decimal percent = requiredDocumentCount != 0
+                ? Math.Round(documentCount * 100m / requiredDocumentCount, 2)
+                : 0;
+
+            tasksProgress.Add(new ProjectTaskProgress {
+                TaskId = task.TaskId,
+                Name = task.Name,
+                IsPublicToProject = task.IsPublicToProject,
+                IsPublicToDepartment = task.IsPublicToDepartment,
+                ManagerId = task.ManagerId,
+                StartDate = task.StartDate,
+                EndDate = task.EndDate,
+                ProjectId = task.ProjectId,
+                StatusId = task.StatusId,
+                ProgressPercent = percent
+            });
+        }
+
+        return tasksProgress;
     }
 
     public Employee GetTaskManager(int taskId) {
