@@ -24,11 +24,10 @@ public partial class TaskProgressCardControl : PeproUserControl {
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required ProjectTaskProgress Item {
+    public ProjectTaskProgress Item {
         get => _item;
         set {
-            ArgumentNullException.ThrowIfNull(value, nameof(Item));
-            _item = value;
+            _item = value ?? throw new ArgumentNullException(nameof(Item));
             taskIdLabel.Text = _item.TaskId.ToString();
             taskNameLabel.Text = _item.Name;
             taskPercentLabel.Text = _item.ProgressPercent.ToString() + "%";
