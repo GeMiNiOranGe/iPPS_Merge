@@ -2,7 +2,6 @@
 using Pepro.DTOs;
 using Pepro.Presentation.Controls;
 using System.ComponentModel;
-using System.Data;
 
 namespace Pepro.Presentation;
 
@@ -74,21 +73,21 @@ public partial class TaskDetailForm : PeproForm {
 
         taskManagerPanel.Controls.Add(managerCard);
 
-        var dtJobsByProject = TaskBusiness.Instance.GetAllByEmployee(employee.EmployeeId);
-        double total;
-        double total1;
-        if (dtJobsByProject != null && dtJobsByProject.Rows.Count > 0) {
-            foreach (DataRow row in dtJobsByProject.Rows) {
-                var jobOfEmployeeItem = new TaskOfEmployeeControl {
-                    ProjectId = row["PROJECT_ID"].ToString(),
-                    JobId = row["JOB_ID"].ToString(),
-                    JobName = row["JOB_NAME"].ToString()
-                };
-                total = Convert.ToDouble(CProgressBLL.getTotalDocumentbyJobID(jobOfEmployeeItem.JobId));
-                total1 = Convert.ToDouble(CProgressBLL.getNumberofDocumentbyJobID(jobOfEmployeeItem.JobId));
-                jobOfEmployeeItem.JobPercent = Math.Round((total / total1) * 100, 2).ToString() + "%";
-                otherTasksOfManagerFlowLayoutLabel.Controls.Add(jobOfEmployeeItem);
-            }
+        List<ProjectTaskProgress> tasksProgress = TaskBusiness.Instance.GetTasksWithProgressByEmployeeId(employee.EmployeeId);
+
+        for (int i = 0; i < tasksProgress.Count; i++) {
+            ProjectTaskProgress item = tasksProgress[i];
+
+            TaskOfEmployeeControl taskOfEmployeeItem = new() {
+                ProjectId = item.ProjectId,
+                JobId = item.TaskId.ToString(),
+                JobName = item.Name,
+                JobPercent = item.ProgressPercent.ToString() + "%",
+                Margin = i != tasksProgress.Count - 1 ? new Padding(0, 0, 0, 8) : new Padding(0),
+                Width = otherTasksOfManagerFlowLayoutLabel.ClientSize.Width - otherTasksOfManagerFlowLayoutLabel.Padding.Horizontal,
+            };
+
+            otherTasksOfManagerFlowLayoutLabel.Controls.Add(taskOfEmployeeItem);
         }
     }
 }
