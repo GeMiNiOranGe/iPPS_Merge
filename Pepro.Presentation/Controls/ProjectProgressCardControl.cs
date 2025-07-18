@@ -24,11 +24,10 @@ public partial class ProjectProgressCardControl : PeproUserControl {
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required ProjectProgress Item {
+    public ProjectProgress Item {
         get => _item;
         set {
-            ArgumentNullException.ThrowIfNull(value, nameof(Item));
-            _item = value;
+            _item = value ?? throw new ArgumentNullException(nameof(Item));
             projectIdLabel.Text = _item.ProjectId;
             projectNameLabel.Text = _item.Name;
             projectPercentLabel.Text = _item.ProgressPercent.ToString() + "%";
