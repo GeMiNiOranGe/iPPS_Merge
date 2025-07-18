@@ -82,7 +82,6 @@
             Controls.Add(taskIdLabel);
             Controls.Add(taskNameLabel);
             Controls.Add(taskPercentLabel);
-            Cursor = Cursors.Hand;
             Margin = new Padding(0);
             Name = "TaskProgressCardControl";
             Size = new Size(512, 64);

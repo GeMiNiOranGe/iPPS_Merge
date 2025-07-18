@@ -83,7 +83,6 @@ namespace Pepro.Presentation.Controls
             Controls.Add(projectIdLabel);
             Controls.Add(projectNameLabel);
             Controls.Add(projectPercentLabel);
-            Cursor = Cursors.Hand;
             Margin = new Padding(0);
             Name = "ProjectProgressCardControl";
             Size = new Size(512, 64);

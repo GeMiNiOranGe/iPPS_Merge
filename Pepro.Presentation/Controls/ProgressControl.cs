@@ -26,6 +26,7 @@ public partial class ProgressControl : PeproUserControl {
                 Item = item,
                 Margin = i != projectsProgress.Count - 1 ? new Padding(0, 0, 0, 8) : new Padding(0),
                 Width = projectsFlowLayoutPanel.ClientSize.Width - projectsFlowLayoutPanel.Padding.Horizontal,
+                Cursor = Cursors.Hand,
                 ForeColor = ThemeColors.Text,
                 BackColor = Color.FromArgb(29, 29, 29),
                 MouseOverBackColor = ThemeColors.Accent.Base,
