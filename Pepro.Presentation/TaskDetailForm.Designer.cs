@@ -1,4 +1,6 @@
 ﻿
+using Pepro.Presentation.Controls;
+
 namespace Pepro.Presentation
 {
     partial class TaskDetailForm
@@ -33,7 +35,7 @@ namespace Pepro.Presentation
             tasksOfProjectLabel = new Label();
             tasksOfProjectFlowLayoutPanel = new FlowLayoutPanel();
             taskManagerLabel = new Label();
-            taskManagerPanel = new Panel();
+            taskManagerCard = new EmployeeCardControl();
             otherTasksOfManagerLabel = new Label();
             otherTasksOfManagerFlowLayoutLabel = new FlowLayoutPanel();
             SuspendLayout();
@@ -96,14 +98,15 @@ namespace Pepro.Presentation
             taskManagerLabel.TabIndex = 0;
             taskManagerLabel.Text = "Task manager";
             // 
-            // taskManagerPanel
+            // taskManagerCard
             // 
-            taskManagerPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            taskManagerPanel.Location = new Point(689, 126);
-            taskManagerPanel.Margin = new Padding(24, 8, 8, 24);
-            taskManagerPanel.Name = "taskManagerPanel";
-            taskManagerPanel.Size = new Size(558, 155);
-            taskManagerPanel.TabIndex = 0;
+            taskManagerCard.BackColor = Color.FromArgb(29, 29, 29);
+            taskManagerCard.ForeColor = Color.White;
+            taskManagerCard.Location = new Point(689, 126);
+            taskManagerCard.Margin = new Padding(0, 0, 0, 24);
+            taskManagerCard.Name = "taskManagerCard";
+            taskManagerCard.Size = new Size(558, 61);
+            taskManagerCard.TabIndex = 0;
             // 
             // otherTasksOfManagerLabel
             // 
@@ -111,7 +114,7 @@ namespace Pepro.Presentation
             otherTasksOfManagerLabel.AutoSize = true;
             otherTasksOfManagerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
             otherTasksOfManagerLabel.ForeColor = Color.White;
-            otherTasksOfManagerLabel.Location = new Point(685, 305);
+            otherTasksOfManagerLabel.Location = new Point(685, 211);
             otherTasksOfManagerLabel.Margin = new Padding(0);
             otherTasksOfManagerLabel.Name = "otherTasksOfManagerLabel";
             otherTasksOfManagerLabel.Size = new Size(235, 28);
@@ -123,10 +126,10 @@ namespace Pepro.Presentation
             otherTasksOfManagerFlowLayoutLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             otherTasksOfManagerFlowLayoutLabel.AutoScroll = true;
             otherTasksOfManagerFlowLayoutLabel.FlowDirection = FlowDirection.TopDown;
-            otherTasksOfManagerFlowLayoutLabel.Location = new Point(689, 341);
+            otherTasksOfManagerFlowLayoutLabel.Location = new Point(689, 247);
             otherTasksOfManagerFlowLayoutLabel.Margin = new Padding(24, 8, 8, 8);
             otherTasksOfManagerFlowLayoutLabel.Name = "otherTasksOfManagerFlowLayoutLabel";
-            otherTasksOfManagerFlowLayoutLabel.Size = new Size(558, 323);
+            otherTasksOfManagerFlowLayoutLabel.Size = new Size(558, 417);
             otherTasksOfManagerFlowLayoutLabel.TabIndex = 0;
             // 
             // TaskDetailForm
@@ -140,7 +143,7 @@ namespace Pepro.Presentation
             Controls.Add(tasksOfProjectLabel);
             Controls.Add(tasksOfProjectFlowLayoutPanel);
             Controls.Add(taskManagerLabel);
-            Controls.Add(taskManagerPanel);
+            Controls.Add(taskManagerCard);
             Controls.Add(otherTasksOfManagerLabel);
             Controls.Add(otherTasksOfManagerFlowLayoutLabel);
             MinimumSize = new Size(960, 540);
@@ -160,7 +163,7 @@ namespace Pepro.Presentation
         private Label tasksOfProjectLabel;
         private Label taskManagerLabel;
         private FlowLayoutPanel tasksOfProjectFlowLayoutPanel;
-        private Panel taskManagerPanel;
+        private EmployeeCardControl taskManagerCard;
         private FlowLayoutPanel otherTasksOfManagerFlowLayoutLabel;
         private Label otherTasksOfManagerLabel;
     }
