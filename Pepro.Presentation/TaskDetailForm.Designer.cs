@@ -76,7 +76,6 @@ namespace Pepro.Presentation
             // 
             // tasksOfProjectFlowLayoutPanel
             // 
-            tasksOfProjectFlowLayoutPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tasksOfProjectFlowLayoutPanel.AutoScroll = true;
             tasksOfProjectFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
             tasksOfProjectFlowLayoutPanel.Location = new Point(17, 126);
@@ -87,7 +86,6 @@ namespace Pepro.Presentation
             // 
             // taskManagerLabel
             // 
-            taskManagerLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             taskManagerLabel.AutoSize = true;
             taskManagerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
             taskManagerLabel.ForeColor = Color.White;
@@ -110,7 +108,6 @@ namespace Pepro.Presentation
             // 
             // otherTasksOfManagerLabel
             // 
-            otherTasksOfManagerLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             otherTasksOfManagerLabel.AutoSize = true;
             otherTasksOfManagerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
             otherTasksOfManagerLabel.ForeColor = Color.White;
@@ -123,7 +120,6 @@ namespace Pepro.Presentation
             // 
             // otherTasksOfManagerFlowLayoutLabel
             // 
-            otherTasksOfManagerFlowLayoutLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             otherTasksOfManagerFlowLayoutLabel.AutoScroll = true;
             otherTasksOfManagerFlowLayoutLabel.FlowDirection = FlowDirection.TopDown;
             otherTasksOfManagerFlowLayoutLabel.Location = new Point(689, 247);

@@ -69,16 +69,17 @@ public partial class TaskDetailForm : PeproForm {
         for (int i = 0; i < tasksProgress.Count; i++) {
             ProjectTaskProgress item = tasksProgress[i];
 
-            TaskOfEmployeeControl taskOfEmployeeItem = new() {
-                ProjectId = item.ProjectId,
-                JobId = item.TaskId.ToString(),
-                JobName = item.Name,
-                JobPercent = item.ProgressPercent.ToString() + "%",
+            TaskProgressCardControl taskCard = new() {
+                Item = item,
                 Margin = i != tasksProgress.Count - 1 ? new Padding(0, 0, 0, 8) : new Padding(0),
                 Width = otherTasksOfManagerFlowLayoutLabel.ClientSize.Width - otherTasksOfManagerFlowLayoutLabel.Padding.Horizontal,
+                ForeColor = ThemeColors.Text,
+                BackColor = Color.FromArgb(29, 29, 29),
+                MouseOverBackColor = ThemeColors.Accent.Base,
+                MouseDownBackColor = ThemeColors.Accent.Dark
             };
 
-            otherTasksOfManagerFlowLayoutLabel.Controls.Add(taskOfEmployeeItem);
+            otherTasksOfManagerFlowLayoutLabel.Controls.Add(taskCard);
         }
     }
 }
