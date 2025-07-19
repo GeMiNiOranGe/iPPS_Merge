@@ -47,6 +47,10 @@ public partial class TaskProgressCardControl : PeproUserControl {
         BackColor = MouseDownBackColor;
     }
 
+    private void TaskProgressCardControl_MouseUp(object sender, MouseEventArgs e) {
+        BackColor = MouseOverBackColor;
+    }
+
     private void TaskProgressCardControl_Click(object sender, EventArgs e) {
         OnClick(e);
     }
