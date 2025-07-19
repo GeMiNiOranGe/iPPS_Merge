@@ -45,6 +45,7 @@
             taskIdLabel.MouseDown += TaskProgressCardControl_MouseDown;
             taskIdLabel.MouseEnter += TaskProgressCardControl_MouseEnter;
             taskIdLabel.MouseLeave += TaskProgressCardControl_MouseLeave;
+            taskIdLabel.MouseUp += TaskProgressCardControl_MouseUp;
             // 
             // taskNameLabel
             // 
@@ -59,6 +60,7 @@
             taskNameLabel.MouseDown += TaskProgressCardControl_MouseDown;
             taskNameLabel.MouseEnter += TaskProgressCardControl_MouseEnter;
             taskNameLabel.MouseLeave += TaskProgressCardControl_MouseLeave;
+            taskNameLabel.MouseUp += TaskProgressCardControl_MouseUp;
             // 
             // taskPercentLabel
             // 
@@ -74,6 +76,7 @@
             taskPercentLabel.MouseDown += TaskProgressCardControl_MouseDown;
             taskPercentLabel.MouseEnter += TaskProgressCardControl_MouseEnter;
             taskPercentLabel.MouseLeave += TaskProgressCardControl_MouseLeave;
+            taskPercentLabel.MouseUp += TaskProgressCardControl_MouseUp;
             // 
             // TaskProgressCardControl
             // 
@@ -88,6 +91,7 @@
             MouseDown += TaskProgressCardControl_MouseDown;
             MouseEnter += TaskProgressCardControl_MouseEnter;
             MouseLeave += TaskProgressCardControl_MouseLeave;
+            MouseUp += TaskProgressCardControl_MouseUp;
             ResumeLayout(false);
 
         }
