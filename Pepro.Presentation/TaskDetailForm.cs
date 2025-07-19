@@ -56,23 +56,13 @@ public partial class TaskDetailForm : PeproForm {
     }
 
     public void RetrieveInfomation(int taskId) {
-        if (taskManagerPanel.Controls.Count > 0) {
-            taskManagerPanel.Controls.Clear();
-        }
-
         if (otherTasksOfManagerFlowLayoutLabel.Controls.Count > 0) {
             otherTasksOfManagerFlowLayoutLabel.Controls.Clear();
         }
 
         Employee employee = TaskBusiness.Instance.GetTaskManager(taskId);
 
-        ManagerItemControl managerCard = new() {
-            Id = employee.EmployeeId,
-            Name = employee.FirstName + ", " + employee.MiddleName + " " + employee.LastName,
-            Width = taskManagerPanel.ClientSize.Width - taskManagerPanel.Padding.Horizontal,
-        };
-
-        taskManagerPanel.Controls.Add(managerCard);
+        taskManagerCard.Item = employee;
 
         List<ProjectTaskProgress> tasksProgress = TaskBusiness.Instance.GetTasksWithProgressByEmployeeId(employee.EmployeeId);
 
