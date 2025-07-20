@@ -97,4 +97,46 @@ public class ProjectDataAccess {
         }
         return projects;
     }
+
+    public Project? GetProjectByTaskId(int taskId) {
+        string query = @"
+            SELECT Project.ProjectId
+                , Project.Name
+                , Project.CustomerName
+                , Project.ManagerId
+                , Project.StartDate
+                , Project.EndDate
+                , Project.StatusId
+            FROM Project
+            INNER JOIN Task
+                    ON Task.ProjectId = Project.ProjectId
+            WHERE Task.TaskId = @TaskId
+        ";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "TaskId",
+                SqlDbType = SqlDbType.Int,
+                Value = taskId
+            }
+        ];
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        if (dataTable.Rows.Count == 0) {
+            return null;
+        }
+
+        DataRow row = dataTable.Rows[0];
+        Project project = new() {
+            ProjectId = row.Field<string>("ProjectId") ?? "",
+            Name = row.Field<string>("Name") ?? "",
+            CustomerName = row.Field<string>("CustomerName") ?? "",
+            ManagerId = row.Field<string>("ManagerId") ?? "",
+            StartDate = row.Field<DateTime>("StartDate"),
+            EndDate = row.Field<DateTime>("EndDate"),
+            StatusId = row.Field<int>("StatusId"),
+        };
+        return project;
+    }
 }
