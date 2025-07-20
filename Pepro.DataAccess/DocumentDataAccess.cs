@@ -66,4 +66,57 @@ public class DocumentDataAccess {
         }
         return documents;
     }
+
+    public List<TaskDocument> SearchDocuments(string searchValue) {
+        string query = @"
+            SELECT DocumentId
+                , Title
+                , CreateAt
+                , RevisionNumber
+                , RevisionStatus
+                , DocumentUrl
+                , NativeFileFormat
+                , PreparedBy
+                , CheckedBy
+                , ApprovedBy
+                , TaskId
+            FROM Document
+            WHERE (
+                DocumentId LIKE '%' + @SearchValue + '%'
+                OR Title LIKE '%' + @SearchValue + '%'
+                OR TaskId LIKE '%' + @SearchValue + '%'
+            )
+        ";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "SearchValue",
+                SqlDbType = SqlDbType.VarChar,
+                Size = DatabaseConstants.SEARCH_SIZE,
+                Value = searchValue
+            }
+        ];
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+
+        List<TaskDocument> documents = [];
+        foreach (DataRow row in dataTable.Rows) {
+            TaskDocument document = new() {
+                DocumentId = row.Field<int>("DocumentId"),
+                Title = row.Field<string>("Title") ?? "",
+                CreateAt = row.Field<DateTime>("CreateAt"),
+                RevisionNumber = row.Field<int>("RevisionNumber"),
+                RevisionStatus = row.Field<string>("RevisionStatus") ?? "",
+                DocumentUrl = row.Field<string>("DocumentUrl") ?? "",
+                NativeFileFormat = row.Field<string>("NativeFileFormat") ?? "",
+                PreparedBy = row.Field<string>("PreparedBy") ?? "",
+                CheckedBy = row.Field<string>("CheckedBy") ?? "",
+                ApprovedBy = row.Field<string>("ApprovedBy") ?? "",
+                TaskId = row.Field<int>("TaskId")
+            };
+            documents.Add(document);
+        }
+        return documents;
+    }
 }
