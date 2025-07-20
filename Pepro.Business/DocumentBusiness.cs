@@ -16,4 +16,8 @@ public class DocumentBusiness {
     public List<TaskDocument> GetDocuments() {
         return DocumentDataAccess.Instance.GetDocuments();
     }
+
+    public List<TaskDocument> SearchDocuments(string searchValue) {
+        return DocumentDataAccess.Instance.SearchDocuments(searchValue);
+    }
 }
