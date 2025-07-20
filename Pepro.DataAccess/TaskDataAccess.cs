@@ -178,4 +178,50 @@ public class TaskDataAccess {
         };
         return employee;
     }
+
+    public ProjectTask? GetTaskByDocumentId(int documentId) {
+        string query = @"
+            SELECT Task.TaskId
+                , Name
+                , IsPublicToProject
+                , IsPublicToDepartment
+                , ManagerId
+                , StartDate
+                , EndDate
+                , ProjectId
+                , StatusId
+            FROM Task
+            INNER JOIN Document
+                    ON Document.TaskId = Task.TaskId
+            WHERE Document.DocumentId = @DocumentId
+        ";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "DocumentId",
+                SqlDbType = SqlDbType.Int,
+                Value = documentId
+            }
+        ];
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        if (dataTable.Rows.Count == 0) {
+            return null;
+        }
+
+        DataRow row = dataTable.Rows[0];
+        ProjectTask task = new() {
+            TaskId = row.Field<int>("TaskId"),
+            Name = row.Field<string>("Name") ?? "",
+            IsPublicToProject = row.Field<bool>("IsPublicToProject"),
+            IsPublicToDepartment = row.Field<bool>("IsPublicToDepartment"),
+            ManagerId = row.Field<string>("ManagerId") ?? "",
+            StartDate = row.Field<DateTime>("StartDate"),
+            EndDate = row.Field<DateTime>("EndDate"),
+            ProjectId = row.Field<string>("ProjectId") ?? "",
+            StatusId = row.Field<int>("StatusId")
+        };
+        return task;
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using Pepro.DataAccess;
 using Pepro.DTOs;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace Pepro.Business;
 
@@ -76,5 +77,18 @@ public class TaskBusiness {
             return new Employee();
         }
         return employee;
+    }
+
+    public ProjectTask GetTaskByDocumentId(int documentId) {
+        ProjectTask? task = TaskDataAccess.Instance.GetTaskByDocumentId(documentId);
+        if (task == null) {
+            return new ProjectTask();
+        }
+        return task;
+    }
+
+    public ProjectTask GetTaskByDocumentId(string documentId) {
+        int id = Convert.ToInt32(documentId);
+        return Instance.GetTaskByDocumentId(id);
     }
 }

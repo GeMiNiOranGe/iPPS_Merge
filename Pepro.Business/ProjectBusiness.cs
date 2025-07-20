@@ -54,4 +54,17 @@ public class ProjectBusiness {
         }
         return [.. projectNames];
     }
+
+    public Project GetProjectByTaskId(int taskId) {
+        Project? project = ProjectDataAccess.Instance.GetProjectByTaskId(taskId);
+        if (project == null) {
+            return new Project();
+        }
+        return project;
+    }
+
+    public Project GetProjectByTaskId(string taskId) {
+        int id = Convert.ToInt32(taskId);
+        return Instance.GetProjectByTaskId(id);
+    }
 }
