@@ -43,17 +43,6 @@
             Column9 = new DataGridViewTextBoxColumn();
             Column10 = new DataGridViewTextBoxColumn();
             Column11 = new DataGridViewTextBoxColumn();
-            Column12 = new DataGridViewTextBoxColumn();
-            Column13 = new DataGridViewTextBoxColumn();
-            Column14 = new DataGridViewTextBoxColumn();
-            Column15 = new DataGridViewTextBoxColumn();
-            Column16 = new DataGridViewTextBoxColumn();
-            Column17 = new DataGridViewTextBoxColumn();
-            Column18 = new DataGridViewTextBoxColumn();
-            Column19 = new DataGridViewTextBoxColumn();
-            Column20 = new DataGridViewTextBoxColumn();
-            Column21 = new DataGridViewTextBoxColumn();
-            Column22 = new DataGridViewTextBoxColumn();
             btnInsert = new Button();
             btnDelete = new Button();
             btnEdit = new Button();
@@ -105,7 +94,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvDocument.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvDocument.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDocument.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11, Column12, Column13, Column14, Column15, Column16, Column17, Column18, Column19, Column20, Column21, Column22 });
+            dgvDocument.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11 });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(25, 25, 25);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -136,201 +125,102 @@
             // 
             // Column1
             // 
-            Column1.DataPropertyName = "ID";
+            Column1.DataPropertyName = "DocumentId";
             Column1.HeaderText = "Mã tài liệu";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
-            Column1.Width = 125;
+            Column1.Width = 150;
             // 
             // Column2
             // 
-            Column2.DataPropertyName = "JOB_ID";
-            Column2.HeaderText = "Mã công việc";
+            Column2.DataPropertyName = "Title";
+            Column2.HeaderText = "Tên công việc";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
-            Column2.Width = 125;
+            Column2.Width = 150;
             // 
             // Column3
             // 
-            Column3.DataPropertyName = "PACKAGE";
-            Column3.HeaderText = "Bưu kiện";
+            Column3.DataPropertyName = "CreateAt";
+            Column3.HeaderText = "Ngày tạo";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
-            Column3.Width = 125;
+            Column3.Width = 150;
             // 
             // Column4
             // 
-            Column4.DataPropertyName = "WORK_ITEM";
-            Column4.HeaderText = "Mục công việc";
+            Column4.DataPropertyName = "RevisionNumber";
+            Column4.HeaderText = "Số sửa đổi";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
-            Column4.Width = 200;
+            Column4.Width = 150;
             // 
             // Column5
             // 
-            Column5.DataPropertyName = "TYPE";
-            Column5.HeaderText = "Loại";
+            Column5.DataPropertyName = "RevisionStatus";
+            Column5.HeaderText = "Loại sửa đổi";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
-            Column5.Width = 125;
+            Column5.Width = 150;
             // 
             // Column6
             // 
-            Column6.DataPropertyName = "PARTNER_CODE";
-            Column6.HeaderText = "Mã đối tác";
+            Column6.DataPropertyName = "DocumentUrl";
+            Column6.HeaderText = "Đường dẫn tài liệu";
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
             Column6.ReadOnly = true;
-            Column6.Width = 125;
+            Column6.Width = 150;
             // 
             // Column7
             // 
-            Column7.DataPropertyName = "REVISION_NUMBER";
-            Column7.HeaderText = "Số sửa đổi";
+            Column7.DataPropertyName = "NativeFileFormat";
+            Column7.HeaderText = "loại tệp gốc";
             Column7.MinimumWidth = 6;
             Column7.Name = "Column7";
             Column7.ReadOnly = true;
-            Column7.Width = 125;
+            Column7.Width = 150;
             // 
             // Column8
             // 
-            Column8.DataPropertyName = "LASTEST_REVISION";
-            Column8.HeaderText = "Sửa đổi mới nhất";
+            Column8.DataPropertyName = "PreparedBy";
+            Column8.HeaderText = "Chuẩn bị bởi";
             Column8.MinimumWidth = 6;
             Column8.Name = "Column8";
             Column8.ReadOnly = true;
-            Column8.Width = 125;
+            Column8.Width = 150;
             // 
             // Column9
             // 
-            Column9.DataPropertyName = "DATE";
-            Column9.HeaderText = "Ngày";
+            Column9.DataPropertyName = "CheckedBy";
+            Column9.HeaderText = "Kiểm tra bởi";
             Column9.MinimumWidth = 6;
             Column9.Name = "Column9";
             Column9.ReadOnly = true;
-            Column9.Width = 125;
+            Column9.Width = 150;
             // 
             // Column10
             // 
-            Column10.DataPropertyName = "ISSUE_PURPOSE";
-            Column10.HeaderText = "Mục đích phát hành";
+            Column10.DataPropertyName = "ApprovedBy";
+            Column10.HeaderText = "Chấp thuận bởi";
             Column10.MinimumWidth = 6;
             Column10.Name = "Column10";
             Column10.ReadOnly = true;
-            Column10.Width = 155;
+            Column10.Width = 150;
             // 
             // Column11
             // 
-            Column11.DataPropertyName = "PREPARED_BY";
-            Column11.HeaderText = "Được soạn bởi";
+            Column11.DataPropertyName = "TaskId";
+            Column11.HeaderText = "Mã nhiệm vụ";
             Column11.MinimumWidth = 6;
             Column11.Name = "Column11";
             Column11.ReadOnly = true;
-            Column11.Width = 300;
-            // 
-            // Column12
-            // 
-            Column12.DataPropertyName = "CHECKED_BY";
-            Column12.HeaderText = "Kiểm tra bằng";
-            Column12.MinimumWidth = 6;
-            Column12.Name = "Column12";
-            Column12.ReadOnly = true;
-            Column12.Width = 300;
-            // 
-            // Column13
-            // 
-            Column13.DataPropertyName = "APPROVED_BY";
-            Column13.HeaderText = "Được chấp nhận bởi";
-            Column13.MinimumWidth = 6;
-            Column13.Name = "Column13";
-            Column13.ReadOnly = true;
-            Column13.Width = 300;
-            // 
-            // Column14
-            // 
-            Column14.DataPropertyName = "ACTION";
-            Column14.HeaderText = "Hoạt động";
-            Column14.MinimumWidth = 6;
-            Column14.Name = "Column14";
-            Column14.ReadOnly = true;
-            Column14.Width = 125;
-            // 
-            // Column15
-            // 
-            Column15.DataPropertyName = "SUPPORT";
-            Column15.HeaderText = "Hỗ trợ";
-            Column15.MinimumWidth = 6;
-            Column15.Name = "Column15";
-            Column15.ReadOnly = true;
-            Column15.Width = 125;
-            // 
-            // Column16
-            // 
-            Column16.DataPropertyName = "REFERRENCE";
-            Column16.HeaderText = "Tham khảo";
-            Column16.MinimumWidth = 6;
-            Column16.Name = "Column16";
-            Column16.ReadOnly = true;
-            Column16.Width = 125;
-            // 
-            // Column17
-            // 
-            Column17.DataPropertyName = "TO_COMPANY";
-            Column17.HeaderText = "Công ty";
-            Column17.MinimumWidth = 6;
-            Column17.Name = "Column17";
-            Column17.ReadOnly = true;
-            Column17.Width = 400;
-            // 
-            // Column18
-            // 
-            Column18.DataPropertyName = "ISSUSED_ON";
-            Column18.HeaderText = "Ban hành ngày";
-            Column18.MinimumWidth = 6;
-            Column18.Name = "Column18";
-            Column18.ReadOnly = true;
-            Column18.Width = 125;
-            // 
-            // Column19
-            // 
-            Column19.DataPropertyName = "ISSUSED_VIA";
-            Column19.HeaderText = "Cấp";
-            Column19.MinimumWidth = 6;
-            Column19.Name = "Column19";
-            Column19.ReadOnly = true;
-            Column19.Width = 300;
-            // 
-            // Column20
-            // 
-            Column20.DataPropertyName = "TITLE";
-            Column20.HeaderText = "Tựa đề";
-            Column20.MinimumWidth = 6;
-            Column20.Name = "Column20";
-            Column20.ReadOnly = true;
-            Column20.Width = 1000;
-            // 
-            // Column21
-            // 
-            Column21.DataPropertyName = "NAME";
-            Column21.HeaderText = "Tên tệp";
-            Column21.MinimumWidth = 6;
-            Column21.Name = "Column21";
-            Column21.ReadOnly = true;
-            Column21.Width = 125;
-            // 
-            // Column22
-            // 
-            Column22.DataPropertyName = "NATIVE_FILE_FORMAT";
-            Column22.HeaderText = "Kiểu tệp";
-            Column22.MinimumWidth = 6;
-            Column22.Name = "Column22";
-            Column22.ReadOnly = true;
-            Column22.Width = 125;
+            Column11.Width = 150;
             // 
             // btnInsert
             // 
@@ -674,12 +564,11 @@
             btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += btnSearch_Click;
             // 
-            // FormDocument
+            // DocumentControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(22, 22, 22);
-            ClientSize = new Size(1202, 711);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(label6);
@@ -706,9 +595,9 @@
             Controls.Add(btnInsert);
             Controls.Add(dgvDocument);
             Margin = new Padding(2);
-            Name = "FormDocument";
-            Text = "FormDocument";
-            Load += FormDocument_Load;
+            Name = "DocumentControl";
+            Size = new Size(1202, 711);
+            Load += DocumentControl_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDocument).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -741,17 +630,6 @@
         private DataGridViewTextBoxColumn Column9;
         private DataGridViewTextBoxColumn Column10;
         private DataGridViewTextBoxColumn Column11;
-        private DataGridViewTextBoxColumn Column12;
-        private DataGridViewTextBoxColumn Column13;
-        private DataGridViewTextBoxColumn Column14;
-        private DataGridViewTextBoxColumn Column15;
-        private DataGridViewTextBoxColumn Column16;
-        private DataGridViewTextBoxColumn Column17;
-        private DataGridViewTextBoxColumn Column18;
-        private DataGridViewTextBoxColumn Column19;
-        private DataGridViewTextBoxColumn Column20;
-        private DataGridViewTextBoxColumn Column21;
-        private DataGridViewTextBoxColumn Column22;
         private Button btnOpenFile;
         private Button btnDownload;
         private TextBox txtIDDoc;
