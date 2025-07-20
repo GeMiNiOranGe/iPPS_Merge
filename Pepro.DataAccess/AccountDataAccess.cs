@@ -40,7 +40,7 @@ public class AccountDataAccess {
             {
                 ParameterName = "SearchValue",
                 SqlDbType = SqlDbType.VarChar,
-                Size = 255,
+                Size = DatabaseConstants.SEARCH_SIZE,
                 Value = searchValue
             }
         ];

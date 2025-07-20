@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
 using Pepro.Business;
+using Pepro.DTOs;
 
 namespace Pepro.Presentation.Controls;
 
@@ -106,35 +107,7 @@ public partial class DocumentControl : UserControl
 
     private void btnSearch_Click(object sender, EventArgs e)
     {
-        sqlConnection.Open();
-        if (radioIDDoc.Checked == true)
-        {
-            sqlCommand = new SqlCommand("SELECT ID,JOB_ID,PACKAGE,WORK_ITEM,TYPE,PARTNER_CODE,REVISION_NUMBER,LASTEST_REVISION,DATE,ISSUE_PURPOSE,PREPARED_BY,CHECKED_BY,APPROVED_BY,ACTION,SUPPORT,REFERRENCE,TO_COMPANY,ISSUSED_ON,ISSUSED_VIA,TITLE FROM DOCUMENT WHERE ID LIKE '%" + txtSearch.Text + "%'", sqlConnection);
-            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-            dgvDocument.DataSource = dataTable;
-            txtSearch.Clear();
-        }
-        else if(radioISSUSED_ON.Checked == true)
-        {
-            sqlCommand = new SqlCommand("SELECT ID,JOB_ID,PACKAGE,WORK_ITEM,TYPE,PARTNER_CODE,REVISION_NUMBER,LASTEST_REVISION,DATE,ISSUE_PURPOSE,PREPARED_BY,CHECKED_BY,APPROVED_BY,ACTION,SUPPORT,REFERRENCE,TO_COMPANY,ISSUSED_ON,ISSUSED_VIA,TITLE FROM DOCUMENT WHERE ISSUSED_ON LIKE '%" + txtSearch.Text + "%'", sqlConnection);
-            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-            dgvDocument.DataSource = dataTable;
-            txtSearch.Clear();
-        }
-        else if(radioIDJob.Checked == true)
-        {
-            sqlCommand = new SqlCommand("SELECT ID,JOB_ID,PACKAGE,WORK_ITEM,TYPE,PARTNER_CODE,REVISION_NUMBER,LASTEST_REVISION,DATE,ISSUE_PURPOSE,PREPARED_BY,CHECKED_BY,APPROVED_BY,ACTION,SUPPORT,REFERRENCE,TO_COMPANY,ISSUSED_ON,ISSUSED_VIA,TITLE FROM DOCUMENT WHERE JOB_ID LIKE '%" + txtSearch.Text + "%'", sqlConnection);
-            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-            dgvDocument.DataSource = dataTable;
-            txtSearch.Clear();
-        }
-        sqlConnection.Close();
+        dgvDocument.DataSource = DocumentBusiness.Instance.SearchDocuments(txtSearch.Text);
     }
 
     private void btnReload_Click(object sender, EventArgs e)
