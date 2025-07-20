@@ -23,20 +23,29 @@ public partial class DocumentControl : UserControl
         this.dgvDocument.DefaultCellStyle.Font = new Font("Tahoma", 10);
         this.dgvDocument.DefaultCellStyle.ForeColor = Color.Black;
         LoadDocuments();
-
     }
 
-    public void LoadDocuments()
+    private void LoadDocuments()
     {
         dgvDocument.DataSource = DocumentBusiness.Instance.GetDocuments();
     }
-    private void dgvDocument_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+    private void DocumentDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-        DataGridViewRow dataGridViewRow = new DataGridViewRow();
-        dataGridViewRow = dgvDocument.Rows[e.RowIndex];
-        txtIDDoc.Text = Convert.ToString(dataGridViewRow.Cells[0].Value);
-        txtIDJob.Text = Convert.ToString(dataGridViewRow.Cells[1].Value);
-        txtTypeFile.Text = Convert.ToString(dataGridViewRow.Cells[21].Value);
+        // Ignore clicks on the column header or invalid row indices
+        if (e.RowIndex < 0 || e.RowIndex >= dgvDocument.Rows.Count)
+        {
+            return;
+        }
+
+        DataGridViewRow row = dgvDocument.Rows[e.RowIndex];
+
+        if (row.DataBoundItem is TaskDocument document)
+        {
+            txtIDDoc.Text = document.DocumentId.ToString();
+            txtIDJob.Text = document.TaskId.ToString();
+            txtTypeFile.Text = document.NativeFileFormat;
+        }
     }
     private void btnInsert_Click(object sender, EventArgs e)
     {
@@ -210,25 +219,14 @@ public partial class DocumentControl : UserControl
 
     private void txtIDDoc_TextChanged(object sender, EventArgs e)
     {
-        sqlConnection.Open();
-        sqlCommand = new SqlCommand("SELECT JOB.NAME FROM JOB,DOCUMENT WHERE JOB.ID=JOB_ID AND DOCUMENT.ID like '" + txtIDDoc.Text + "' ", sqlConnection);
-        txtNameJob.Text = Convert.ToString(sqlCommand.ExecuteScalar());
-        sqlConnection.Close();
+        ProjectTask task = TaskBusiness.Instance.GetTaskByDocumentId(txtIDDoc.Text);
+        txtNameJob.Text = task.Name;
     }
 
     private void txtIDJob_TextChanged(object sender, EventArgs e)
     {
-        sqlConnection.Open();
-        sqlCommand = new SqlCommand("SELECT PROJECT.ID FROM JOB,PROJECT WHERE PROJECT.ID=JOB.PROJECT_ID AND JOB.ID like '" + txtIDJob.Text + "' ", sqlConnection);
-        txtIDPro.Text = Convert.ToString(sqlCommand.ExecuteScalar());
-        sqlConnection.Close();
-        
-        sqlConnection.Open();
-        sqlCommand = new SqlCommand("SELECT PROJECT.NAME FROM JOB,PROJECT WHERE PROJECT.ID=JOB.PROJECT_ID AND JOB.ID like '" + txtIDJob.Text + "' ", sqlConnection);
-        txtNameProject.Text = Convert.ToString(sqlCommand.ExecuteScalar());
-        sqlConnection.Close();
-        
+        Project project = ProjectBusiness.Instance.GetProjectByTaskId(txtIDJob.Text);
+        txtIDPro.Text = project.ProjectId;
+        txtNameProject.Text = project.Name;
     }
-
 }
-

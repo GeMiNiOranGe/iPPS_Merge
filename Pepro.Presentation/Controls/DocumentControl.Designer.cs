@@ -121,7 +121,7 @@
             dgvDocument.RowTemplate.Height = 24;
             dgvDocument.Size = new Size(1181, 502);
             dgvDocument.TabIndex = 0;
-            dgvDocument.CellContentClick += dgvDocument_CellContentClick;
+            dgvDocument.CellClick += DocumentDataGridView_CellClick;
             // 
             // Column1
             // 
