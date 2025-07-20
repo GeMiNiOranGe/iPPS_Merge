@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
+using Pepro.Business;
 
 namespace Pepro.Presentation.Controls;
 
@@ -16,21 +17,18 @@ public partial class DocumentControl : UserControl
         InitializeComponent();
     }
 
-    private void FormDocument_Load(object sender, EventArgs e)
+    private void DocumentControl_Load(object sender, EventArgs e)
     {
-        sqlConnection = new SqlConnection(Config.CONNECTION_STRING);
+        sqlConnection = new SqlConnection("Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
         this.dgvDocument.DefaultCellStyle.Font = new Font("Tahoma", 10);
         this.dgvDocument.DefaultCellStyle.ForeColor = Color.Black;
-        dataDocument();
+        LoadDocuments();
 
     }
-    public void dataDocument()
+
+    public void LoadDocuments()
     {
-        sqlCommand = new SqlCommand("SELECT DOCUMENT.ID,JOB_ID,PACKAGE,WORK_ITEM,TYPE,PARTNER_CODE,REVISION_NUMBER,LASTEST_REVISION,DATE,ISSUE_PURPOSE,PREPARED_BY,CHECKED_BY,APPROVED_BY,ACTION,SUPPORT,REFERRENCE,TO_COMPANY,ISSUSED_ON,ISSUSED_VIA,TITLE,NAME,NATIVE_FILE_FORMAT FROM DOCUMENT,DOCUMENT_NATIVE_FILE_FORMAT WHERE DOCUMENT.ID=DOCUMENT_NATIVE_FILE_FORMAT.ID", sqlConnection);
-        sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-        dataTable = new DataTable();
-        sqlDataAdapter.Fill(dataTable);
-        dgvDocument.DataSource = dataTable;
+        dgvDocument.DataSource = DocumentBusiness.Instance.GetDocuments();
     }
     private void dgvDocument_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
@@ -62,7 +60,7 @@ public partial class DocumentControl : UserControl
                 MessageBox.Show("Xóa tài liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
-                dataDocument();
+                LoadDocuments();
             }
         }
         else
@@ -132,7 +130,7 @@ public partial class DocumentControl : UserControl
 
     private void btnReload_Click(object sender, EventArgs e)
     {
-        dataDocument();
+        LoadDocuments();
     }
 
     private void btnOpenFile_Click(object sender, EventArgs e)
