@@ -20,4 +20,13 @@ public class DocumentBusiness {
     public List<TaskDocument> SearchDocuments(string searchValue) {
         return DocumentDataAccess.Instance.SearchDocuments(searchValue);
     }
+
+    public int DeleteDocument(int documentId) {
+        return DocumentDataAccess.Instance.DeleteDocument(documentId);
+    }
+
+    public int DeleteDocument(string documentId) {
+        int id = Convert.ToInt32(documentId);
+        return Instance.DeleteDocument(id);
+    }
 }

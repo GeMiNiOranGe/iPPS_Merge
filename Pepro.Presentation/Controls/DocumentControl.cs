@@ -1,7 +1,7 @@
-﻿using System.Data;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using Pepro.Business;
 using Pepro.DTOs;
+using System.Data;
 
 namespace Pepro.Presentation.Controls;
 
@@ -56,26 +56,18 @@ public partial class DocumentControl : UserControl
 
     private void btnDelete_Click(object sender, EventArgs e)
     {
-        if (!(string.IsNullOrEmpty(txtIDDoc.Text)))
+        string documentId = txtIDDoc.Text;
+        if (string.IsNullOrEmpty(documentId))
         {
-            if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE DOCUMENT_NATIVE_FILE_FORMAT WHERE ID='" + txtIDDoc.Text + "'", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE DOCUMENT WHERE ID='" + txtIDDoc.Text + "'", sqlConnection);
-                MessageBox.Show("Xóa tài liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                LoadDocuments();
-            }
+            MessageBoxWrapper.ShowInformation("SelectDocument");
+            return;
         }
-        else
+
+        if (MessageBoxWrapper.ConfirmDelete() == DialogResult.Yes)
         {
-            MessageBox.Show("Vui chọn tài liệu để xoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            int numberOfRowsAffected = DocumentBusiness.Instance.DeleteDocument(documentId);
+            MessageBoxWrapper.ShowInformation("DeleteDocumentSuccess", numberOfRowsAffected);
+            LoadDocuments();
         }
     }
 
