@@ -1,23 +1,19 @@
 ﻿using System.ComponentModel;
 using System.Data;
 using Microsoft.Data.SqlClient;
+using Pepro.DTOs;
 using Pepro.Presentation.Controls;
 
 namespace Pepro.Presentation;
 
 public partial class DocumentEditorForm : PeproForm
 {
+    private TaskDocument _item = null!;
     SqlConnection sqlConnection;
     SqlCommand sqlCommand;
     SqlDataReader sqlDataReader;
     SqlDataAdapter sqlDataAdapter;
     DataTable dataTable;
-    
-    private readonly string iID0000 = "DOC0000";
-    private readonly string iID000 = "DOC000";
-    private readonly string iID00 = "DOC00";
-    private readonly string iID0 = "DOC0";
-    private readonly string iID = "DOC";
 
     public DocumentEditorForm()
     {
@@ -33,86 +29,7 @@ public partial class DocumentEditorForm : PeproForm
     private void FormInsert_Load(object sender, EventArgs e)
     {
         sqlConnection = new SqlConnection("Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
-        LoadData();
-        loadCombobox();
-        
-        if (label24.Text == "Thêm tài liệu")
-        {
-            IDDocument();
-        }
-        else
-        {
 
-        }
-    }
-
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string ID { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string JOB_ID { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string PACKAGE { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string WORK_ITEM { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string TYPE { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string PARTNER_CODE { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string REVISION_NUMBER { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string LASTEST_REVISION { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string DATE { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string ISSUE_PURPOSE { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string PREPARED_BY { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string CHECKED_BY { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string APPROVED_BY { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string ACTION { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string SUPPORT { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string REFERRENCE { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string TO_COMPANY { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string ISSUSED_ON { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string ISSUSED_VIA { set; get; }
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string TITLE { set; get; }
-
-    public void LoadData()
-    {
-        txtIDDoc.Text = ID;
-        txtIDJob.Text = JOB_ID;
-        cbPackage.Text = PACKAGE;
-        txtWork_Item.Text = WORK_ITEM;
-        cbType.Text = TYPE;
-        cbPartner_Code.Text = PARTNER_CODE;
-        cbRevision_Number.Text = REVISION_NUMBER;
-        cbLastest_Revision.Text = LASTEST_REVISION;
-        dateDate.Text = DATE;
-        cbIssue_Purpose.Text = ISSUE_PURPOSE;
-        txtPrepared_By.Text = PREPARED_BY;
-        txtChecked_By.Text = CHECKED_BY;
-        txtApproved_By.Text = APPROVED_BY;
-        cbAction.Text = ACTION;
-        cbSupport.Text = SUPPORT;
-        cbReference.Text = REFERRENCE;
-        txtTo_Company.Text = TO_COMPANY;
-        dateIssused_On.Text = ISSUSED_ON;
-        txtIssused_Via.Text = ISSUSED_VIA;
-        txtTitle.Text = TITLE;
-    }
-
-    public void loadCombobox()
-    {
         sqlConnection.Open();
         sqlCommand = new SqlCommand("SELECT * FROM PROJECT", sqlConnection);
         sqlDataReader = sqlCommand.ExecuteReader();
@@ -121,15 +38,27 @@ public partial class DocumentEditorForm : PeproForm
             cbNameProject.Items.Add(sqlDataReader["NAME"]);
         }
         sqlConnection.Close();
+    }
 
-        sqlConnection.Open();
-        sqlCommand = new SqlCommand("SELECT * FROM PARTNER", sqlConnection);
-        sqlDataReader = sqlCommand.ExecuteReader();
-        while (sqlDataReader.Read())
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public required TaskDocument Item
+    {
+        get => _item;
+        set
         {
-            cbPartner_Code.Items.Add(sqlDataReader["CODE"]);
+            _item = value ?? throw new ArgumentNullException(nameof(Item));
+            txtIDDoc.Text = _item.DocumentId.ToString();
+            txtTitle.Text = _item.Title;
+            dateDate.Value = _item.CreateAt <= dateDate.MinDate ? dateDate.MinDate : _item.CreateAt;
+            cbRevision_Number.Text = _item.RevisionNumber.ToString();
+            cbLastest_Revision.Text = _item.RevisionStatus;
+
+
+            txtPrepared_By.Text = _item.PreparedBy;
+            txtChecked_By.Text = _item.CheckedBy;
+            txtApproved_By.Text = _item.ApprovedBy;
+            txtIDJob.Text = _item.TaskId.ToString();
         }
-        sqlConnection.Close();
     }
 
     private void cbNameProject_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,56 +85,21 @@ public partial class DocumentEditorForm : PeproForm
         sqlConnection.Close();
     }
 
-    public void IDDocument()
-    {
-        sqlConnection.Open();
-        sqlCommand = new SqlCommand("SELECT TOP 1 * FROM DOCUMENT ORDER BY ID DESC ", sqlConnection);
-        string? strID = Convert.ToString(sqlCommand.ExecuteScalar());
-        strID = strID?.Substring(3, 5);
-        strID = strID?.TrimStart('0');
-        int iIDDoc = Convert.ToInt32(strID);
-        sqlConnection.Close();
-        iIDDoc++;
-        if (iIDDoc < 10)
-        {
-            txtIDDoc.Text = iID0000 + iIDDoc.ToString();
-        }
-        else if (iIDDoc < 100)
-        {
-            txtIDDoc.Text = iID000 + iIDDoc.ToString();
-        }
-        else if (iIDDoc < 1000)
-        {
-            txtIDDoc.Text = iID00 + iIDDoc.ToString();
-        }
-        else if (iIDDoc < 10000)
-        {
-            txtIDDoc.Text = iID0 + iIDDoc.ToString();
-        }
-        else
-        {
-            txtIDDoc.Text = iID + iIDDoc.ToString();
-        }
-    }
-
     private void btnSave_Click(object sender, EventArgs e)
     {
         if (label24.Text == "1")
         {
-            if (string.IsNullOrEmpty(cbNameProject.Text) ||
-                string.IsNullOrEmpty(cbPackage.Text) ||
-                string.IsNullOrEmpty(txtWork_Item.Text) ||
-                string.IsNullOrEmpty(cbType.Text) ||
-                string.IsNullOrEmpty(cbPartner_Code.Text) ||
-                string.IsNullOrEmpty(cbRevision_Number.Text) ||
-                string.IsNullOrEmpty(cbIssue_Purpose.Text))
+            if (string.IsNullOrEmpty(cbNameProject.Text) || string.IsNullOrEmpty(cbRevision_Number.Text)) 
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("INSERT INTO DOCUMENT (ID, JOB_ID, PACKAGE, WORK_ITEM, TYPE, PARTNER_CODE, REVISION_NUMBER, LASTEST_REVISION, DATE, ISSUE_PURPOSE, PREPARED_BY, CHECKED_BY, APPROVED_BY, ACTION, SUPPORT, REFERRENCE, TO_COMPANY, ISSUSED_ON, ISSUSED_VIA, TITLE) VALUES ('" + txtIDDoc.Text + "', '" + txtIDJob.Text + "', '" + cbPackage.Text + "', '" + txtWork_Item.Text + "', '" + cbType.Text + "', '" + cbPartner_Code.Text + "', '" + cbRevision_Number.Text + "', '" + cbLastest_Revision.Text + "', '" + dateDate.Text + "', '" + cbIssue_Purpose.Text + "', '" + txtPrepared_By.Text + "', '" + txtChecked_By.Text + "', '" + txtApproved_By.Text + "', '" + cbAction.Text + "', '" + cbSupport.Text + "', '" + cbReference.Text + "', '" + txtTo_Company.Text + "', '" + dateIssused_On.Text + "', '" + txtIssused_Via.Text + "', N'" + txtTitle.Text + "')", sqlConnection);
+                sqlCommand = new SqlCommand(@"
+                    INSERT INTO DOCUMENT
+                           (JOB_ID, REVISION_NUMBER, LASTEST_REVISION, DATE, PREPARED_BY, CHECKED_BY, APPROVED_BY, TITLE)
+                    VALUES ('" + "', '" + txtIDJob.Text + "', '" + cbRevision_Number.Text + "', '" + cbLastest_Revision.Text + "', '" + dateDate.Text + "', '" + txtPrepared_By.Text + "', '" + txtChecked_By.Text + "', '" + txtApproved_By.Text + "', '" + "', N'" + txtTitle.Text + "')", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
 
@@ -226,7 +120,19 @@ public partial class DocumentEditorForm : PeproForm
         else
         {
             sqlConnection.Open();
-            sqlCommand = new SqlCommand("UPDATE DOCUMENT SET JOB_ID='" + txtIDJob.Text + "', PACKAGE='" + cbPackage.Text + "', WORK_ITEM='" + txtWork_Item.Text + "', TYPE='" + cbType.Text + "', PARTNER_CODE='" + cbPartner_Code.Text + "', REVISION_NUMBER='" + cbRevision_Number.Text + "', LASTEST_REVISION='" + cbLastest_Revision.Text + "', DATE='" + dateDate.Text + "', ISSUE_PURPOSE='" + cbIssue_Purpose.Text + "', PREPARED_BY='" + txtPrepared_By.Text + "', CHECKED_BY='" + txtChecked_By.Text + "', APPROVED_BY='" + txtApproved_By.Text + "', ACTION='" + cbAction.Text + "', SUPPORT='" + cbSupport.Text + "', REFERRENCE='" + cbReference.Text + "', TO_COMPANY='" + txtTo_Company.Text + "', ISSUSED_ON='" + dateIssused_On.Text + "', ISSUSED_VIA='" + txtIssused_Via.Text + "', TITLE=N'" + txtTitle.Text + "' where ID='" + txtIDDoc.Text + "'", sqlConnection);
+            sqlCommand = new SqlCommand(@"
+                UPDATE DOCUMENT
+                SET JOB_ID='" + txtIDJob.Text +
+                "', REVISION_NUMBER='" + cbRevision_Number.Text +
+                "', LASTEST_REVISION='" + cbLastest_Revision.Text +
+                "', DATE='" + dateDate.Text +
+                "', PREPARED_BY='" + txtPrepared_By.Text +
+                "', CHECKED_BY='" + txtChecked_By.Text +
+                "', APPROVED_BY='" + txtApproved_By.Text +
+                "', TITLE=N'" + txtTitle.Text +
+                "' where ID='" + txtIDDoc.Text +
+                "'", sqlConnection
+            );
             MessageBox.Show("Cập nhật tài liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
