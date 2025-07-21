@@ -50,9 +50,12 @@ public partial class DocumentControl : UserControl
     }
     private void btnInsert_Click(object sender, EventArgs e)
     {
-        DocumentEditorForm  formInsert = new DocumentEditorForm("Thêm tài liệu");
+        DocumentEditorForm formInsert = new("Thêm tài liệu")
+        {
+            Item = new()
+        };
         formInsert.ShowDialog();
-;        }
+    }
 
     private void btnDelete_Click(object sender, EventArgs e)
     {
@@ -73,28 +76,22 @@ public partial class DocumentControl : UserControl
 
     private void btnEdit_Click(object sender, EventArgs e)
     {
-        DocumentEditorForm formInsert = new DocumentEditorForm("Sửa tài liệu");
-        formInsert.ID = dgvDocument.CurrentRow.Cells[0].Value.ToString();
-        formInsert.JOB_ID = dgvDocument.CurrentRow.Cells[1].Value.ToString();
-        formInsert.PACKAGE = dgvDocument.CurrentRow.Cells[2].Value.ToString();
-        formInsert.WORK_ITEM = dgvDocument.CurrentRow.Cells[3].Value.ToString();
-        formInsert.TYPE = dgvDocument.CurrentRow.Cells[4].Value.ToString();
-        formInsert.PARTNER_CODE = dgvDocument.CurrentRow.Cells[5].Value.ToString();
-        formInsert.REVISION_NUMBER = dgvDocument.CurrentRow.Cells[6].Value.ToString();
-        formInsert.LASTEST_REVISION = dgvDocument.CurrentRow.Cells[7].Value.ToString();
-        formInsert.DATE = dgvDocument.CurrentRow.Cells[8].Value.ToString();
-        formInsert.ISSUE_PURPOSE = dgvDocument.CurrentRow.Cells[9].Value.ToString();
-        formInsert.PREPARED_BY = dgvDocument.CurrentRow.Cells[10].Value.ToString();
-        formInsert.CHECKED_BY = dgvDocument.CurrentRow.Cells[11].Value.ToString();
-        formInsert.APPROVED_BY = dgvDocument.CurrentRow.Cells[12].Value.ToString();
-        formInsert.ACTION = dgvDocument.CurrentRow.Cells[13].Value.ToString();
-        formInsert.SUPPORT = dgvDocument.CurrentRow.Cells[14].Value.ToString();
-        formInsert.REFERRENCE = dgvDocument.CurrentRow.Cells[15].Value.ToString();
-        formInsert.TO_COMPANY = dgvDocument.CurrentRow.Cells[16].Value.ToString();
-        formInsert.ISSUSED_ON = dgvDocument.CurrentRow.Cells[17].Value.ToString();
-        formInsert.ISSUSED_VIA = dgvDocument.CurrentRow.Cells[18].Value.ToString();
-        formInsert.TITLE = dgvDocument.CurrentRow.Cells[19].Value.ToString();
-        formInsert.Show();
+        DataGridViewRow? row = dgvDocument.CurrentRow;
+        if (row != null && row.DataBoundItem is TaskDocument document)
+        {
+            DocumentEditorForm editorForm = new("Sửa tài liệu")
+            {
+                Item = document,
+            };
+            editorForm.ShowDialog();
+            //editorForm.TopLevel = false;
+            //editorForm.FormBorderStyle = FormBorderStyle.None;
+            //editorForm.Dock = DockStyle.Fill;
+            //editorForm.Opacity = 0.5;
+            //Controls.Add(editorForm);
+            //editorForm.BringToFront();
+            //editorForm.Show();
+        }
     }
 
     private void btnSearch_Click(object sender, EventArgs e)
