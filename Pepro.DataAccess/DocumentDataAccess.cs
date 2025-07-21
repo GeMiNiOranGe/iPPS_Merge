@@ -15,7 +15,12 @@ public class DocumentDataAccess {
     private DocumentDataAccess() { }
 
     public int CountDocumentsByTaskId(int taskId) {
-        string query = "SELECT Count(TaskId) FROM Document WHERE TaskId = @TaskId";
+        string query = @"
+            SELECT Count(TaskId)
+            FROM Document
+            WHERE TaskId = @TaskId
+                AND IsDeleted = 0
+        ";
         SqlParameter[] parameters =
         [
             new()
@@ -43,6 +48,7 @@ public class DocumentDataAccess {
                 , ApprovedBy
                 , TaskId
             FROM Document
+            WHERE IsDeleted = 0
         ";
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
@@ -81,11 +87,13 @@ public class DocumentDataAccess {
                 , ApprovedBy
                 , TaskId
             FROM Document
-            WHERE (
-                DocumentId LIKE '%' + @SearchValue + '%'
-                OR Title LIKE '%' + @SearchValue + '%'
-                OR TaskId LIKE '%' + @SearchValue + '%'
-            )
+            WHERE
+                (
+                    DocumentId LIKE '%' + @SearchValue + '%'
+                    OR Title LIKE '%' + @SearchValue + '%'
+                    OR TaskId LIKE '%' + @SearchValue + '%'
+                )
+                AND IsDeleted = 0
         ";
         SqlParameter[] parameters =
         [

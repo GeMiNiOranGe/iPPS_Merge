@@ -1,3 +1,8 @@
+-- NOTE:
+-- For each `IsDeleted` column:
+-- + IsDeleted = 0 → the record is active (i.e., not deleted). This is the default value.
+-- + IsDeleted = 1 → the record is soft-deleted (logically deleted).
+
 USE [Master]
 GO
 
@@ -122,6 +127,8 @@ CREATE TABLE [dbo].[Document] (
     [ApprovedBy]        [nvarchar](100),
 
     [TaskId]            [int]           NOT NULL,
+
+    [IsDeleted]         [bit]           NOT NULL,
 );
 
 -- many-to-many relationship --------------------
@@ -229,4 +236,10 @@ CONSTRAINT [FK_DepartmentProject_Project]
 CONSTRAINT [FK_DepartmentProject_Department]
     FOREIGN KEY ([DepartmentId])
     REFERENCES [dbo].[Department]([DepartmentId]);
+GO
+
+-- default ---------------------------------------------------------------
+ALTER TABLE Document ADD
+    CONSTRAINT DF_Document_IsDeleted DEFAULT 0
+    FOR IsDeleted;
 GO
