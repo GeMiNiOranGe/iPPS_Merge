@@ -127,4 +127,23 @@ public class DocumentDataAccess {
         }
         return documents;
     }
+
+    public int DeleteDocument(int documentId) {
+        string query = @"
+            UPDATE Document
+            SET IsDeleted = 1
+            WHERE DocumentId = @DocumentId;
+        ";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "DocumentId",
+                SqlDbType = SqlDbType.Int,
+                Value = documentId
+            }
+        ];
+
+        return DataProvider.Instance.ExecuteNonQuery(query, parameters);
+    }
 }
