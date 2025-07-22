@@ -1,18 +1,10 @@
-﻿using Microsoft.Data.SqlClient;
-using Pepro.Business;
+﻿using Pepro.Business;
 using Pepro.DTOs;
-using System.Data;
 
 namespace Pepro.Presentation.Controls;
 
 public partial class DocumentControl : UserControl
 {
-    SqlConnection sqlConnection;
-    SqlCommand sqlCommand;
-    SqlDataReader sqlDataReader;
-    SqlDataAdapter sqlDataAdapter;
-    DataTable dataTable;
-
     public DocumentControl()
     {
         InitializeComponent();
@@ -20,7 +12,6 @@ public partial class DocumentControl : UserControl
 
     private void DocumentControl_Load(object sender, EventArgs e)
     {
-        sqlConnection = new SqlConnection("Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
         this.dgvDocument.DefaultCellStyle.Font = new Font("Tahoma", 10);
         this.dgvDocument.DefaultCellStyle.ForeColor = Color.Black;
         LoadDocuments();
@@ -48,6 +39,7 @@ public partial class DocumentControl : UserControl
             txtTypeFile.Text = document.NativeFileFormat;
         }
     }
+
     private void btnInsert_Click(object sender, EventArgs e)
     {
         DocumentEditorForm formInsert = new("Thêm tài liệu")
@@ -104,79 +96,9 @@ public partial class DocumentControl : UserControl
         LoadDocuments();
     }
 
-    private void btnOpenFile_Click(object sender, EventArgs e)
-    {
-        string id = txtIDDoc.Text;
-        OpenFile(id);
-    }
-    public void OpenFile(string id)
-    {
-        sqlConnection.Open();
-        using (sqlCommand = new SqlCommand("SELECT NAME,NATIVE_FILE_FORMAT,LINK FROM DOCUMENT_NATIVE_FILE_FORMAT WHERE ID=@id", sqlConnection))
-        {
-            sqlCommand.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
-            sqlDataReader = sqlCommand.ExecuteReader();
-            if (sqlDataReader.Read())
-            {
-                var name = sqlDataReader["NAME"].ToString();
-                var type = sqlDataReader["NATIVE_FILE_FORMAT"].ToString();
-                if (!Convert.IsDBNull(sqlDataReader["LINK"])) {
-                    var link = (byte[])sqlDataReader["LINK"];
-                    var newFile = name.Replace(type, DateTime.Now.ToString("ddMMyyyyhhmmss")) + type;
-                    File.WriteAllBytes(newFile, link);
-                    System.Diagnostics.Process.Start(newFile);
-                }
-                else
-                    MessageBox.Show("Không có Data", "Thông báo", MessageBoxButtons.OK);
-            }
-        }
-        sqlConnection.Close();
-    }
-
     private void btnDownload_Click(object sender, EventArgs e)
     {
-        using (SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter = "Text DOCUMENT_NATIVE_FILE_FORMAT ('"+txtTypeFile.Text+ "') | *'"+ txtTypeFile.Text +"'", ValidateNames = true })
-        {
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                DialogResult dialogResult = MessageBox.Show("Bạn có muốn DownLoad?", "Thông báo", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    string strFile = saveFileDialog.FileName;
-                    Download(strFile);
-                }
-            }
-        }
-    }
-    public void Download(string strFile)
-    {
-        sqlConnection.Open();
-        bool bFlag = false;
-        using (sqlCommand = new SqlCommand("select LINK from  DOCUMENT_NATIVE_FILE_FORMAT where ID='" + txtIDDoc.Text + "'", sqlConnection))
-        {
-            using (sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.Default))
-            {
-                if (sqlDataReader.Read())
-                {
-                    bFlag = true;
-                    byte[] link = (byte[])sqlDataReader.GetValue(0);
-                    using (FileStream fileStream = new FileStream(strFile, FileMode.Create, FileAccess.ReadWrite))
-                    {
-                        using (BinaryWriter binaryWriter = new BinaryWriter(fileStream))
-                        {
-                            binaryWriter.Write(link);
-                            binaryWriter.Close();
-                        }
-                    }
-                }
-                if (bFlag == false)
-                {
-                    MessageBox.Show("Không có Data", "Thông báo", MessageBoxButtons.OK);
-                }
-                sqlDataReader.Close();
-            }
-        }
-        sqlConnection.Close();
+        MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock");
     }
 
     private void txtIDDoc_TextChanged(object sender, EventArgs e)

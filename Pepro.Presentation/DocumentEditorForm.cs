@@ -151,9 +151,7 @@ public partial class DocumentEditorForm : PeproForm
 
     private void btnBroser_Click(object sender, EventArgs e)
     {
-        OpenFileDialog openFileDialog = new();
-        openFileDialog.ShowDialog();
-        txtLink.Text = openFileDialog.FileName;
+        MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock1");
     }
 
     public void SaveFile(string fileName)

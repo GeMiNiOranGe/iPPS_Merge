@@ -46,10 +46,6 @@
             btnInsert = new Button();
             btnDelete = new Button();
             btnEdit = new Button();
-            radioIDDoc = new RadioButton();
-            radioISSUSED_ON = new RadioButton();
-            radioIDJob = new RadioButton();
-            btnOpenFile = new Button();
             btnDownload = new Button();
             txtIDDoc = new TextBox();
             txtSearch = new TextBox();
@@ -69,6 +65,9 @@
             panel2 = new Panel();
             btnReload = new Button();
             btnSearch = new Button();
+            radioIDJob = new RadioButton();
+            radioISSUSED_ON = new RadioButton();
+            radioIDDoc = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)dgvDocument).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -119,7 +118,7 @@
             dgvDocument.RowHeadersVisible = false;
             dgvDocument.RowHeadersWidth = 51;
             dgvDocument.RowTemplate.Height = 24;
-            dgvDocument.Size = new Size(1181, 502);
+            dgvDocument.Size = new Size(1060, 511);
             dgvDocument.TabIndex = 0;
             dgvDocument.CellClick += DocumentDataGridView_CellClick;
             // 
@@ -261,69 +260,14 @@
             btnEdit.UseVisualStyleBackColor = false;
             btnEdit.Click += btnEdit_Click;
             // 
-            // radioIDDoc
-            // 
-            radioIDDoc.AutoSize = true;
-            radioIDDoc.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radioIDDoc.ForeColor = Color.FromArgb(34, 130, 253);
-            radioIDDoc.Location = new Point(329, 52);
-            radioIDDoc.Margin = new Padding(2);
-            radioIDDoc.Name = "radioIDDoc";
-            radioIDDoc.Size = new Size(79, 17);
-            radioIDDoc.TabIndex = 7;
-            radioIDDoc.TabStop = true;
-            radioIDDoc.Text = "Mã tài liệu";
-            radioIDDoc.UseVisualStyleBackColor = true;
-            // 
-            // radioISSUSED_ON
-            // 
-            radioISSUSED_ON.AutoSize = true;
-            radioISSUSED_ON.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radioISSUSED_ON.ForeColor = Color.FromArgb(34, 130, 253);
-            radioISSUSED_ON.Location = new Point(434, 52);
-            radioISSUSED_ON.Margin = new Padding(2);
-            radioISSUSED_ON.Name = "radioISSUSED_ON";
-            radioISSUSED_ON.Size = new Size(108, 17);
-            radioISSUSED_ON.TabIndex = 8;
-            radioISSUSED_ON.TabStop = true;
-            radioISSUSED_ON.Text = "Ngày phát hành";
-            radioISSUSED_ON.UseVisualStyleBackColor = true;
-            // 
-            // radioIDJob
-            // 
-            radioIDJob.AutoSize = true;
-            radioIDJob.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radioIDJob.ForeColor = Color.FromArgb(34, 130, 253);
-            radioIDJob.Location = new Point(573, 52);
-            radioIDJob.Margin = new Padding(2);
-            radioIDJob.Name = "radioIDJob";
-            radioIDJob.Size = new Size(92, 17);
-            radioIDJob.TabIndex = 9;
-            radioIDJob.TabStop = true;
-            radioIDJob.Text = "Mã công việc";
-            radioIDJob.UseVisualStyleBackColor = true;
-            // 
-            // btnOpenFile
-            // 
-            btnOpenFile.BackColor = Color.FromArgb(34, 130, 253);
-            btnOpenFile.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnOpenFile.Location = new Point(948, 38);
-            btnOpenFile.Margin = new Padding(2);
-            btnOpenFile.Name = "btnOpenFile";
-            btnOpenFile.Size = new Size(65, 47);
-            btnOpenFile.TabIndex = 11;
-            btnOpenFile.Text = "Mở tệp";
-            btnOpenFile.UseVisualStyleBackColor = false;
-            btnOpenFile.Click += btnOpenFile_Click;
-            // 
             // btnDownload
             // 
             btnDownload.BackColor = Color.FromArgb(34, 130, 253);
             btnDownload.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDownload.Location = new Point(1036, 38);
+            btnDownload.Location = new Point(948, 37);
             btnDownload.Margin = new Padding(2);
             btnDownload.Name = "btnDownload";
-            btnDownload.Size = new Size(153, 47);
+            btnDownload.Size = new Size(122, 47);
             btnDownload.TabIndex = 12;
             btnDownload.Text = "DownLoad";
             btnDownload.UseVisualStyleBackColor = false;
@@ -336,7 +280,7 @@
             txtIDDoc.Enabled = false;
             txtIDDoc.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtIDDoc.ForeColor = Color.White;
-            txtIDDoc.Location = new Point(97, 622);
+            txtIDDoc.Location = new Point(97, 631);
             txtIDDoc.Margin = new Padding(2);
             txtIDDoc.Name = "txtIDDoc";
             txtIDDoc.Size = new Size(88, 21);
@@ -363,7 +307,7 @@
             txtTypeFile.Enabled = false;
             txtTypeFile.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtTypeFile.ForeColor = Color.White;
-            txtTypeFile.Location = new Point(97, 668);
+            txtTypeFile.Location = new Point(97, 677);
             txtTypeFile.Margin = new Padding(2);
             txtTypeFile.Name = "txtTypeFile";
             txtTypeFile.Size = new Size(88, 21);
@@ -376,7 +320,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(13, 627);
+            label1.Location = new Point(13, 636);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(61, 13);
@@ -390,7 +334,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(13, 673);
+            label2.Location = new Point(13, 682);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(49, 13);
@@ -404,7 +348,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(246, 673);
+            label3.Location = new Point(246, 682);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(57, 13);
@@ -418,7 +362,7 @@
             txtNameProject.Enabled = false;
             txtNameProject.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNameProject.ForeColor = Color.White;
-            txtNameProject.Location = new Point(332, 668);
+            txtNameProject.Location = new Point(332, 677);
             txtNameProject.Margin = new Padding(2);
             txtNameProject.Name = "txtNameProject";
             txtNameProject.Size = new Size(88, 21);
@@ -431,7 +375,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(485, 673);
+            label4.Location = new Point(485, 682);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
             label4.Size = new Size(75, 13);
@@ -445,7 +389,7 @@
             txtNameJob.Enabled = false;
             txtNameJob.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNameJob.ForeColor = Color.White;
-            txtNameJob.Location = new Point(593, 668);
+            txtNameJob.Location = new Point(593, 677);
             txtNameJob.Margin = new Padding(2);
             txtNameJob.Name = "txtNameJob";
             txtNameJob.Size = new Size(88, 21);
@@ -458,7 +402,7 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(485, 627);
+            label5.Location = new Point(485, 636);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
             label5.Size = new Size(74, 13);
@@ -472,7 +416,7 @@
             txtIDJob.Enabled = false;
             txtIDJob.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtIDJob.ForeColor = Color.White;
-            txtIDJob.Location = new Point(593, 622);
+            txtIDJob.Location = new Point(593, 631);
             txtIDJob.Margin = new Padding(2);
             txtIDJob.Name = "txtIDJob";
             txtIDJob.Size = new Size(88, 21);
@@ -486,7 +430,7 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(246, 627);
+            label6.Location = new Point(246, 636);
             label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
             label6.Size = new Size(56, 13);
@@ -500,7 +444,7 @@
             txtIDPro.Enabled = false;
             txtIDPro.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtIDPro.ForeColor = Color.White;
-            txtIDPro.Location = new Point(332, 622);
+            txtIDPro.Location = new Point(332, 631);
             txtIDPro.Margin = new Padding(2);
             txtIDPro.Name = "txtIDPro";
             txtIDPro.Size = new Size(88, 21);
@@ -514,7 +458,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1202, 29);
+            panel1.Size = new Size(1080, 29);
             panel1.TabIndex = 27;
             // 
             // label7
@@ -564,6 +508,48 @@
             btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += btnSearch_Click;
             // 
+            // radioIDJob
+            // 
+            radioIDJob.AutoSize = true;
+            radioIDJob.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            radioIDJob.ForeColor = Color.FromArgb(34, 130, 253);
+            radioIDJob.Location = new Point(573, 52);
+            radioIDJob.Margin = new Padding(2);
+            radioIDJob.Name = "radioIDJob";
+            radioIDJob.Size = new Size(92, 17);
+            radioIDJob.TabIndex = 9;
+            radioIDJob.TabStop = true;
+            radioIDJob.Text = "Mã công việc";
+            radioIDJob.UseVisualStyleBackColor = true;
+            // 
+            // radioISSUSED_ON
+            // 
+            radioISSUSED_ON.AutoSize = true;
+            radioISSUSED_ON.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            radioISSUSED_ON.ForeColor = Color.FromArgb(34, 130, 253);
+            radioISSUSED_ON.Location = new Point(434, 52);
+            radioISSUSED_ON.Margin = new Padding(2);
+            radioISSUSED_ON.Name = "radioISSUSED_ON";
+            radioISSUSED_ON.Size = new Size(108, 17);
+            radioISSUSED_ON.TabIndex = 8;
+            radioISSUSED_ON.TabStop = true;
+            radioISSUSED_ON.Text = "Ngày phát hành";
+            radioISSUSED_ON.UseVisualStyleBackColor = true;
+            // 
+            // radioIDDoc
+            // 
+            radioIDDoc.AutoSize = true;
+            radioIDDoc.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            radioIDDoc.ForeColor = Color.FromArgb(34, 130, 253);
+            radioIDDoc.Location = new Point(329, 52);
+            radioIDDoc.Margin = new Padding(2);
+            radioIDDoc.Name = "radioIDDoc";
+            radioIDDoc.Size = new Size(79, 17);
+            radioIDDoc.TabIndex = 7;
+            radioIDDoc.TabStop = true;
+            radioIDDoc.Text = "Mã tài liệu";
+            radioIDDoc.UseVisualStyleBackColor = true;
+            // 
             // DocumentControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -584,7 +570,6 @@
             Controls.Add(txtTypeFile);
             Controls.Add(txtIDDoc);
             Controls.Add(btnDownload);
-            Controls.Add(btnOpenFile);
             Controls.Add(btnReload);
             Controls.Add(radioIDJob);
             Controls.Add(radioISSUSED_ON);
@@ -596,7 +581,7 @@
             Controls.Add(dgvDocument);
             Margin = new Padding(2);
             Name = "DocumentControl";
-            Size = new Size(1202, 711);
+            Size = new Size(1080, 720);
             Load += DocumentControl_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDocument).EndInit();
             panel1.ResumeLayout(false);
@@ -615,9 +600,6 @@
         private Button btnDelete;
         private Button btnEdit;
         private Button btnSearch;
-        private RadioButton radioIDDoc;
-        private RadioButton radioISSUSED_ON;
-        private RadioButton radioIDJob;
         private Button btnReload;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
@@ -630,7 +612,6 @@
         private DataGridViewTextBoxColumn Column9;
         private DataGridViewTextBoxColumn Column10;
         private DataGridViewTextBoxColumn Column11;
-        private Button btnOpenFile;
         private Button btnDownload;
         private TextBox txtIDDoc;
         private TextBox txtSearch;
@@ -648,5 +629,8 @@
         private Panel panel1;
         private Label label7;
         private Panel panel2;
+        private RadioButton radioIDJob;
+        private RadioButton radioISSUSED_ON;
+        private RadioButton radioIDDoc;
     }
 }
