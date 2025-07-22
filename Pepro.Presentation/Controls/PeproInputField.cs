@@ -4,6 +4,8 @@ using System.Diagnostics.CodeAnalysis;
 namespace Pepro.Presentation.Controls;
 
 public partial class PeproInputField : PeproInputFieldBase {
+    private static readonly object s_textChangedEventKey = new();
+
     public PeproInputField() {
         InitializeComponent();
 
@@ -51,6 +53,13 @@ public partial class PeproInputField : PeproInputFieldBase {
     public bool InputEnabled {
         get => inputFieldTextBox.Enabled;
         set => inputFieldTextBox.Enabled = value;
+    }
+
+    [Browsable(true)]
+    [Category("Property Changed")]
+    public new event EventHandler TextChanged {
+        add => Events.AddHandler(s_textChangedEventKey, value);
+        remove => Events.RemoveHandler(s_textChangedEventKey, value);
     }
 
     /// <summary>
@@ -102,6 +111,12 @@ public partial class PeproInputField : PeproInputFieldBase {
         // Make the BackColor of the panel the same color as the text color
         if (inputFieldPanel != null) {
             inputFieldPanel.BackColor = ForeColor;
+        }
+    }
+
+    private void InputFieldTextBox_TextChanged(object sender, EventArgs e) {
+        if (Events[s_textChangedEventKey] is EventHandler handler) {
+            handler(this, e);
         }
     }
 }
