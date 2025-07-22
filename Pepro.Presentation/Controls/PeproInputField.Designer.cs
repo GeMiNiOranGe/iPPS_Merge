@@ -37,6 +37,7 @@
             inputFieldTextBox.Name = "inputFieldTextBox";
             inputFieldTextBox.Size = new Size(248, 19);
             inputFieldTextBox.TabIndex = 1;
+            inputFieldTextBox.TextChanged += InputFieldTextBox_TextChanged;
             // 
             // inputFieldPanel
             // 
