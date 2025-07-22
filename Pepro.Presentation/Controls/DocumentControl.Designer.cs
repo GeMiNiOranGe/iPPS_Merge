@@ -27,9 +27,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             documentDataGridView = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -63,28 +60,13 @@
             // 
             documentDataGridView.AllowUserToAddRows = false;
             documentDataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(70, 70, 70);
-            documentDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             documentDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             documentDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             documentDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             documentDataGridView.BackgroundColor = Color.FromArgb(15, 15, 15);
             documentDataGridView.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(34, 130, 253);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            documentDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             documentDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             documentDataGridView.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11 });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(25, 25, 25);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            documentDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             documentDataGridView.EnableHeadersVisualStyles = false;
             documentDataGridView.Location = new Point(16, 280);
             documentDataGridView.Margin = new Padding(16);
@@ -101,20 +83,20 @@
             // Column1
             // 
             Column1.DataPropertyName = "DocumentId";
-            Column1.HeaderText = "Mã tài liệu";
+            Column1.HeaderText = "Mã";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
-            Column1.Width = 96;
+            Column1.Width = 49;
             // 
             // Column2
             // 
             Column2.DataPropertyName = "Title";
-            Column2.HeaderText = "Tên công việc";
+            Column2.HeaderText = "Tiêu đề";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
-            Column2.Width = 115;
+            Column2.Width = 66;
             // 
             // Column3
             // 
@@ -123,7 +105,7 @@
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
-            Column3.Width = 88;
+            Column3.Width = 74;
             // 
             // Column4
             // 
@@ -132,7 +114,7 @@
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
-            Column4.Width = 96;
+            Column4.Width = 79;
             // 
             // Column5
             // 
@@ -141,7 +123,7 @@
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
-            Column5.Width = 86;
+            Column5.Width = 72;
             // 
             // Column6
             // 
@@ -150,7 +132,7 @@
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
             Column6.ReadOnly = true;
-            Column6.Width = 122;
+            Column6.Width = 101;
             // 
             // Column7
             // 
@@ -159,7 +141,7 @@
             Column7.MinimumWidth = 6;
             Column7.Name = "Column7";
             Column7.ReadOnly = true;
-            Column7.Width = 105;
+            Column7.Width = 87;
             // 
             // Column8
             // 
@@ -168,7 +150,7 @@
             Column8.MinimumWidth = 6;
             Column8.Name = "Column8";
             Column8.ReadOnly = true;
-            Column8.Width = 88;
+            Column8.Width = 77;
             // 
             // Column9
             // 
@@ -177,7 +159,7 @@
             Column9.MinimumWidth = 6;
             Column9.Name = "Column9";
             Column9.ReadOnly = true;
-            Column9.Width = 88;
+            Column9.Width = 73;
             // 
             // Column10
             // 
@@ -186,7 +168,7 @@
             Column10.MinimumWidth = 6;
             Column10.Name = "Column10";
             Column10.ReadOnly = true;
-            Column10.Width = 104;
+            Column10.Width = 89;
             // 
             // Column11
             // 
@@ -195,7 +177,7 @@
             Column11.MinimumWidth = 6;
             Column11.Name = "Column11";
             Column11.ReadOnly = true;
-            Column11.Width = 96;
+            Column11.Width = 82;
             // 
             // insertButton
             // 
@@ -208,7 +190,7 @@
             insertButton.TabIndex = 4;
             insertButton.Text = "Thêm";
             insertButton.UseVisualStyleBackColor = false;
-            insertButton.Click += btnInsert_Click;
+            insertButton.Click += InsertButton_Click;
             // 
             // deleteButton
             // 
@@ -221,7 +203,7 @@
             deleteButton.TabIndex = 6;
             deleteButton.Text = "Xoá";
             deleteButton.UseVisualStyleBackColor = false;
-            deleteButton.Click += btnDelete_Click;
+            deleteButton.Click += DeleteButton_Click;
             // 
             // editButton
             // 
@@ -234,7 +216,7 @@
             editButton.TabIndex = 5;
             editButton.Text = "Sửa";
             editButton.UseVisualStyleBackColor = false;
-            editButton.Click += btnEdit_Click;
+            editButton.Click += EditButton_Click;
             // 
             // downloadButton
             // 
@@ -247,7 +229,7 @@
             downloadButton.TabIndex = 7;
             downloadButton.Text = "Download";
             downloadButton.UseVisualStyleBackColor = false;
-            downloadButton.Click += btnDownload_Click;
+            downloadButton.Click += DownloadButton_Click;
             // 
             // headerLabel
             // 
@@ -274,7 +256,7 @@
             reloadButton.Size = new Size(32, 32);
             reloadButton.TabIndex = 3;
             reloadButton.UseVisualStyleBackColor = false;
-            reloadButton.Click += btnReload_Click;
+            reloadButton.Click += ReloadButton_Click;
             // 
             // searchButton
             // 
@@ -287,13 +269,12 @@
             searchButton.Size = new Size(32, 32);
             searchButton.TabIndex = 2;
             searchButton.UseVisualStyleBackColor = false;
-            searchButton.Click += btnSearch_Click;
+            searchButton.Click += SearchButton_Click;
             // 
             // searchTextBox
             // 
             searchTextBox.BorderStyle = BorderStyle.None;
             searchTextBox.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            searchTextBox.ForeColor = Color.White;
             searchTextBox.Location = new Point(16, 232);
             searchTextBox.Margin = new Padding(2);
             searchTextBox.Name = "searchTextBox";
@@ -312,7 +293,7 @@
             documentIdInputField.PlaceholderText = "e.g. document id";
             documentIdInputField.Size = new Size(192, 54);
             documentIdInputField.TabIndex = 0;
-            documentIdInputField.TextChanged += txtIDDoc_TextChanged;
+            documentIdInputField.TextChanged += DocumentIdInputField_TextChanged;
             // 
             // projectIdInputField
             // 
@@ -337,7 +318,7 @@
             taskIdInputField.PlaceholderText = "e.g. task id";
             taskIdInputField.Size = new Size(192, 54);
             taskIdInputField.TabIndex = 0;
-            taskIdInputField.TextChanged += txtIDJob_TextChanged;
+            taskIdInputField.TextChanged += TaskIdInputField_TextChanged;
             // 
             // fileTypeInputField
             // 

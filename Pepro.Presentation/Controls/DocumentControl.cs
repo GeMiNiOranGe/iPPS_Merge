@@ -8,6 +8,7 @@ public partial class DocumentControl : UserControl
     public DocumentControl()
     {
         InitializeComponent();
+        documentDataGridView.SetupCellStyle();
     }
 
     private void DocumentControl_Load(object sender, EventArgs e)
@@ -38,7 +39,7 @@ public partial class DocumentControl : UserControl
         }
     }
 
-    private void btnInsert_Click(object sender, EventArgs e)
+    private void InsertButton_Click(object sender, EventArgs e)
     {
         DocumentEditorForm formInsert = new("Thêm tài liệu")
         {
@@ -47,7 +48,7 @@ public partial class DocumentControl : UserControl
         formInsert.ShowDialog();
     }
 
-    private void btnDelete_Click(object sender, EventArgs e)
+    private void DeleteButton_Click(object sender, EventArgs e)
     {
         string documentId = documentIdInputField.Text;
         if (string.IsNullOrEmpty(documentId))
@@ -64,7 +65,7 @@ public partial class DocumentControl : UserControl
         }
     }
 
-    private void btnEdit_Click(object sender, EventArgs e)
+    private void EditButton_Click(object sender, EventArgs e)
     {
         DataGridViewRow? row = documentDataGridView.CurrentRow;
         if (row != null && row.DataBoundItem is TaskDocument document)
@@ -84,28 +85,28 @@ public partial class DocumentControl : UserControl
         }
     }
 
-    private void btnSearch_Click(object sender, EventArgs e)
+    private void SearchButton_Click(object sender, EventArgs e)
     {
         documentDataGridView.DataSource = DocumentBusiness.Instance.SearchDocuments(searchTextBox.Text);
     }
 
-    private void btnReload_Click(object sender, EventArgs e)
+    private void ReloadButton_Click(object sender, EventArgs e)
     {
         LoadDocuments();
     }
 
-    private void btnDownload_Click(object sender, EventArgs e)
+    private void DownloadButton_Click(object sender, EventArgs e)
     {
         MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock");
     }
 
-    private void txtIDDoc_TextChanged(object sender, EventArgs e)
+    private void DocumentIdInputField_TextChanged(object sender, EventArgs e)
     {
         ProjectTask task = TaskBusiness.Instance.GetTaskByDocumentId(documentIdInputField.Text);
         taskNameInputField.Text = task.Name;
     }
 
-    private void txtIDJob_TextChanged(object sender, EventArgs e)
+    private void TaskIdInputField_TextChanged(object sender, EventArgs e)
     {
         Project project = ProjectBusiness.Instance.GetProjectByTaskId(taskIdInputField.Text);
         projectIdInputField.Text = project.ProjectId;
