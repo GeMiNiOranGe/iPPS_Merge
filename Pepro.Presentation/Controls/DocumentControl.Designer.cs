@@ -27,11 +27,10 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            dgvDocument = new DataGridView();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            documentDataGridView = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
@@ -43,84 +42,61 @@
             Column9 = new DataGridViewTextBoxColumn();
             Column10 = new DataGridViewTextBoxColumn();
             Column11 = new DataGridViewTextBoxColumn();
-            btnInsert = new Button();
-            btnDelete = new Button();
-            btnEdit = new Button();
-            btnDownload = new Button();
-            txtIDDoc = new TextBox();
-            txtSearch = new TextBox();
-            txtTypeFile = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            txtNameProject = new TextBox();
-            label4 = new Label();
-            txtNameJob = new TextBox();
-            label5 = new Label();
-            txtIDJob = new TextBox();
-            label6 = new Label();
-            txtIDPro = new TextBox();
-            panel1 = new Panel();
-            label7 = new Label();
-            panel2 = new Panel();
-            btnReload = new Button();
-            btnSearch = new Button();
-            radioIDJob = new RadioButton();
-            radioISSUSED_ON = new RadioButton();
-            radioIDDoc = new RadioButton();
-            ((System.ComponentModel.ISupportInitialize)dgvDocument).BeginInit();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            insertButton = new Button();
+            deleteButton = new Button();
+            editButton = new Button();
+            downloadButton = new Button();
+            headerLabel = new Label();
+            reloadButton = new Button();
+            searchButton = new Button();
+            searchTextBox = new TextBox();
+            documentIdInputField = new PeproInputField();
+            projectIdInputField = new PeproInputField();
+            taskIdInputField = new PeproInputField();
+            fileTypeInputField = new PeproInputField();
+            projectNameInputField = new PeproInputField();
+            taskNameInputField = new PeproInputField();
+            ((System.ComponentModel.ISupportInitialize)documentDataGridView).BeginInit();
             SuspendLayout();
             // 
-            // dgvDocument
+            // documentDataGridView
             // 
-            dgvDocument.AllowUserToAddRows = false;
-            dgvDocument.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(70, 70, 70);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dgvDocument.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvDocument.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvDocument.BackgroundColor = Color.FromArgb(15, 15, 15);
-            dgvDocument.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(34, 130, 253);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(34, 130, 253);
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvDocument.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvDocument.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDocument.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11 });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(25, 25, 25);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(34, 130, 253);
-            dataGridViewCellStyle3.SelectionForeColor = Color.White;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvDocument.DefaultCellStyle = dataGridViewCellStyle3;
-            dgvDocument.EnableHeadersVisualStyles = false;
-            dgvDocument.Location = new Point(10, 100);
-            dgvDocument.Margin = new Padding(2);
-            dgvDocument.Name = "dgvDocument";
-            dgvDocument.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvDocument.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dgvDocument.RowHeadersVisible = false;
-            dgvDocument.RowHeadersWidth = 51;
-            dgvDocument.RowTemplate.Height = 24;
-            dgvDocument.Size = new Size(1060, 511);
-            dgvDocument.TabIndex = 0;
-            dgvDocument.CellClick += DocumentDataGridView_CellClick;
+            documentDataGridView.AllowUserToAddRows = false;
+            documentDataGridView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(70, 70, 70);
+            documentDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            documentDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            documentDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            documentDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            documentDataGridView.BackgroundColor = Color.FromArgb(15, 15, 15);
+            documentDataGridView.BorderStyle = BorderStyle.Fixed3D;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(34, 130, 253);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            documentDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            documentDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            documentDataGridView.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11 });
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(25, 25, 25);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            documentDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            documentDataGridView.EnableHeadersVisualStyles = false;
+            documentDataGridView.Location = new Point(16, 280);
+            documentDataGridView.Margin = new Padding(16);
+            documentDataGridView.Name = "documentDataGridView";
+            documentDataGridView.ReadOnly = true;
+            documentDataGridView.RowHeadersVisible = false;
+            documentDataGridView.RowHeadersWidth = 51;
+            documentDataGridView.RowTemplate.Height = 24;
+            documentDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            documentDataGridView.Size = new Size(1032, 385);
+            documentDataGridView.TabIndex = 0;
+            documentDataGridView.CellClick += DocumentDataGridView_CellClick;
             // 
             // Column1
             // 
@@ -129,7 +105,7 @@
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
-            Column1.Width = 150;
+            Column1.Width = 96;
             // 
             // Column2
             // 
@@ -138,7 +114,7 @@
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
-            Column2.Width = 150;
+            Column2.Width = 115;
             // 
             // Column3
             // 
@@ -147,7 +123,7 @@
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
-            Column3.Width = 150;
+            Column3.Width = 88;
             // 
             // Column4
             // 
@@ -156,7 +132,7 @@
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
-            Column4.Width = 150;
+            Column4.Width = 96;
             // 
             // Column5
             // 
@@ -165,7 +141,7 @@
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
-            Column5.Width = 150;
+            Column5.Width = 86;
             // 
             // Column6
             // 
@@ -174,7 +150,7 @@
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
             Column6.ReadOnly = true;
-            Column6.Width = 150;
+            Column6.Width = 122;
             // 
             // Column7
             // 
@@ -183,7 +159,7 @@
             Column7.MinimumWidth = 6;
             Column7.Name = "Column7";
             Column7.ReadOnly = true;
-            Column7.Width = 150;
+            Column7.Width = 105;
             // 
             // Column8
             // 
@@ -192,7 +168,7 @@
             Column8.MinimumWidth = 6;
             Column8.Name = "Column8";
             Column8.ReadOnly = true;
-            Column8.Width = 150;
+            Column8.Width = 88;
             // 
             // Column9
             // 
@@ -201,7 +177,7 @@
             Column9.MinimumWidth = 6;
             Column9.Name = "Column9";
             Column9.ReadOnly = true;
-            Column9.Width = 150;
+            Column9.Width = 88;
             // 
             // Column10
             // 
@@ -210,7 +186,7 @@
             Column10.MinimumWidth = 6;
             Column10.Name = "Column10";
             Column10.ReadOnly = true;
-            Column10.Width = 150;
+            Column10.Width = 104;
             // 
             // Column11
             // 
@@ -219,375 +195,213 @@
             Column11.MinimumWidth = 6;
             Column11.Name = "Column11";
             Column11.ReadOnly = true;
-            Column11.Width = 150;
+            Column11.Width = 96;
             // 
-            // btnInsert
+            // insertButton
             // 
-            btnInsert.BackColor = Color.FromArgb(34, 130, 253);
-            btnInsert.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnInsert.Location = new Point(686, 38);
-            btnInsert.Margin = new Padding(2);
-            btnInsert.Name = "btnInsert";
-            btnInsert.Size = new Size(65, 47);
-            btnInsert.TabIndex = 1;
-            btnInsert.Text = "Thêm";
-            btnInsert.UseVisualStyleBackColor = false;
-            btnInsert.Click += btnInsert_Click;
+            insertButton.BackColor = Color.FromArgb(34, 130, 253);
+            insertButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            insertButton.Location = new Point(445, 215);
+            insertButton.Margin = new Padding(2);
+            insertButton.Name = "insertButton";
+            insertButton.Size = new Size(65, 47);
+            insertButton.TabIndex = 4;
+            insertButton.Text = "Thêm";
+            insertButton.UseVisualStyleBackColor = false;
+            insertButton.Click += btnInsert_Click;
             // 
-            // btnDelete
+            // deleteButton
             // 
-            btnDelete.BackColor = Color.FromArgb(34, 130, 253);
-            btnDelete.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDelete.Location = new Point(861, 38);
-            btnDelete.Margin = new Padding(2);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(65, 47);
-            btnDelete.TabIndex = 2;
-            btnDelete.Text = "Xoá";
-            btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
+            deleteButton.BackColor = Color.FromArgb(34, 130, 253);
+            deleteButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            deleteButton.Location = new Point(627, 215);
+            deleteButton.Margin = new Padding(2);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(65, 47);
+            deleteButton.TabIndex = 6;
+            deleteButton.Text = "Xoá";
+            deleteButton.UseVisualStyleBackColor = false;
+            deleteButton.Click += btnDelete_Click;
             // 
-            // btnEdit
+            // editButton
             // 
-            btnEdit.BackColor = Color.FromArgb(34, 130, 253);
-            btnEdit.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEdit.Location = new Point(774, 38);
-            btnEdit.Margin = new Padding(2);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(65, 47);
-            btnEdit.TabIndex = 4;
-            btnEdit.Text = "Sửa";
-            btnEdit.UseVisualStyleBackColor = false;
-            btnEdit.Click += btnEdit_Click;
+            editButton.BackColor = Color.FromArgb(34, 130, 253);
+            editButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            editButton.Location = new Point(538, 215);
+            editButton.Margin = new Padding(2);
+            editButton.Name = "editButton";
+            editButton.Size = new Size(65, 47);
+            editButton.TabIndex = 5;
+            editButton.Text = "Sửa";
+            editButton.UseVisualStyleBackColor = false;
+            editButton.Click += btnEdit_Click;
             // 
-            // btnDownload
+            // downloadButton
             // 
-            btnDownload.BackColor = Color.FromArgb(34, 130, 253);
-            btnDownload.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDownload.Location = new Point(948, 37);
-            btnDownload.Margin = new Padding(2);
-            btnDownload.Name = "btnDownload";
-            btnDownload.Size = new Size(122, 47);
-            btnDownload.TabIndex = 12;
-            btnDownload.Text = "DownLoad";
-            btnDownload.UseVisualStyleBackColor = false;
-            btnDownload.Click += btnDownload_Click;
+            downloadButton.BackColor = Color.FromArgb(34, 130, 253);
+            downloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            downloadButton.Location = new Point(715, 215);
+            downloadButton.Margin = new Padding(2);
+            downloadButton.Name = "downloadButton";
+            downloadButton.Size = new Size(122, 47);
+            downloadButton.TabIndex = 7;
+            downloadButton.Text = "Download";
+            downloadButton.UseVisualStyleBackColor = false;
+            downloadButton.Click += btnDownload_Click;
             // 
-            // txtIDDoc
+            // headerLabel
             // 
-            txtIDDoc.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            txtIDDoc.BackColor = Color.FromArgb(15, 15, 15);
-            txtIDDoc.Enabled = false;
-            txtIDDoc.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtIDDoc.ForeColor = Color.White;
-            txtIDDoc.Location = new Point(97, 631);
-            txtIDDoc.Margin = new Padding(2);
-            txtIDDoc.Name = "txtIDDoc";
-            txtIDDoc.Size = new Size(88, 21);
-            txtIDDoc.TabIndex = 14;
-            txtIDDoc.TextChanged += txtIDDoc_TextChanged;
+            headerLabel.BackColor = Color.FromArgb(22, 22, 22);
+            headerLabel.Dock = DockStyle.Top;
+            headerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            headerLabel.ForeColor = Color.White;
+            headerLabel.Location = new Point(0, 0);
+            headerLabel.Margin = new Padding(2, 0, 2, 0);
+            headerLabel.Name = "headerLabel";
+            headerLabel.Size = new Size(1064, 48);
+            headerLabel.TabIndex = 28;
+            headerLabel.Text = "Document";
+            headerLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // txtSearch
+            // reloadButton
             // 
-            txtSearch.BackColor = Color.FromArgb(29, 29, 29);
-            txtSearch.BorderStyle = BorderStyle.None;
-            txtSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSearch.ForeColor = Color.White;
-            txtSearch.Location = new Point(4, 3);
-            txtSearch.Margin = new Padding(2);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(177, 19);
-            txtSearch.TabIndex = 15;
-            txtSearch.Text = "Search";
+            reloadButton.BackColor = Color.FromArgb(34, 130, 253);
+            reloadButton.FlatStyle = FlatStyle.Flat;
+            reloadButton.Image = Properties.Resources.reload;
+            reloadButton.Location = new Point(392, 223);
+            reloadButton.Margin = new Padding(2);
+            reloadButton.Name = "reloadButton";
+            reloadButton.Size = new Size(32, 32);
+            reloadButton.TabIndex = 3;
+            reloadButton.UseVisualStyleBackColor = false;
+            reloadButton.Click += btnReload_Click;
             // 
-            // txtTypeFile
+            // searchButton
             // 
-            txtTypeFile.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            txtTypeFile.BackColor = Color.FromArgb(15, 15, 15);
-            txtTypeFile.Enabled = false;
-            txtTypeFile.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTypeFile.ForeColor = Color.White;
-            txtTypeFile.Location = new Point(97, 677);
-            txtTypeFile.Margin = new Padding(2);
-            txtTypeFile.Name = "txtTypeFile";
-            txtTypeFile.Size = new Size(88, 21);
-            txtTypeFile.TabIndex = 16;
+            searchButton.BackColor = Color.FromArgb(34, 130, 253);
+            searchButton.FlatStyle = FlatStyle.Flat;
+            searchButton.Image = Properties.Resources.search;
+            searchButton.Location = new Point(347, 223);
+            searchButton.Margin = new Padding(2);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(32, 32);
+            searchButton.TabIndex = 2;
+            searchButton.UseVisualStyleBackColor = false;
+            searchButton.Click += btnSearch_Click;
             // 
-            // label1
+            // searchTextBox
             // 
-            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(13, 636);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(61, 13);
-            label1.TabIndex = 17;
-            label1.Text = "Mã tài liệu";
+            searchTextBox.BorderStyle = BorderStyle.None;
+            searchTextBox.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            searchTextBox.ForeColor = Color.White;
+            searchTextBox.Location = new Point(16, 232);
+            searchTextBox.Margin = new Padding(2);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.PlaceholderText = "Search for document title, id, and task id";
+            searchTextBox.Size = new Size(316, 19);
+            searchTextBox.TabIndex = 1;
             // 
-            // label2
+            // documentIdInputField
             // 
-            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(13, 682);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(49, 13);
-            label2.TabIndex = 18;
-            label2.Text = "Kiểu tệp";
+            documentIdInputField.ForeColor = Color.White;
+            documentIdInputField.InputEnabled = false;
+            documentIdInputField.LabelText = "Document id";
+            documentIdInputField.Location = new Point(16, 64);
+            documentIdInputField.Margin = new Padding(16, 16, 0, 24);
+            documentIdInputField.Name = "documentIdInputField";
+            documentIdInputField.PlaceholderText = "e.g. document id";
+            documentIdInputField.Size = new Size(192, 54);
+            documentIdInputField.TabIndex = 0;
+            documentIdInputField.TextChanged += txtIDDoc_TextChanged;
             // 
-            // label3
+            // projectIdInputField
             // 
-            label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(246, 682);
-            label3.Margin = new Padding(2, 0, 2, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(57, 13);
-            label3.TabIndex = 20;
-            label3.Text = "Tên dự án";
+            projectIdInputField.ForeColor = Color.White;
+            projectIdInputField.InputEnabled = false;
+            projectIdInputField.LabelText = "Project id";
+            projectIdInputField.Location = new Point(232, 142);
+            projectIdInputField.Margin = new Padding(24, 0, 0, 0);
+            projectIdInputField.Name = "projectIdInputField";
+            projectIdInputField.PlaceholderText = "e.g. project id";
+            projectIdInputField.Size = new Size(192, 54);
+            projectIdInputField.TabIndex = 0;
             // 
-            // txtNameProject
+            // taskIdInputField
             // 
-            txtNameProject.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            txtNameProject.BackColor = Color.FromArgb(15, 15, 15);
-            txtNameProject.Enabled = false;
-            txtNameProject.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNameProject.ForeColor = Color.White;
-            txtNameProject.Location = new Point(332, 677);
-            txtNameProject.Margin = new Padding(2);
-            txtNameProject.Name = "txtNameProject";
-            txtNameProject.Size = new Size(88, 21);
-            txtNameProject.TabIndex = 19;
+            taskIdInputField.ForeColor = Color.White;
+            taskIdInputField.InputEnabled = false;
+            taskIdInputField.LabelText = "Task id";
+            taskIdInputField.Location = new Point(232, 64);
+            taskIdInputField.Margin = new Padding(24, 16, 0, 24);
+            taskIdInputField.Name = "taskIdInputField";
+            taskIdInputField.PlaceholderText = "e.g. task id";
+            taskIdInputField.Size = new Size(192, 54);
+            taskIdInputField.TabIndex = 0;
+            taskIdInputField.TextChanged += txtIDJob_TextChanged;
             // 
-            // label4
+            // fileTypeInputField
             // 
-            label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(485, 682);
-            label4.Margin = new Padding(2, 0, 2, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(75, 13);
-            label4.TabIndex = 22;
-            label4.Text = "Tên công việc";
+            fileTypeInputField.ForeColor = Color.White;
+            fileTypeInputField.InputEnabled = false;
+            fileTypeInputField.LabelText = "File type";
+            fileTypeInputField.Location = new Point(16, 142);
+            fileTypeInputField.Margin = new Padding(16, 0, 0, 0);
+            fileTypeInputField.Name = "fileTypeInputField";
+            fileTypeInputField.PlaceholderText = "e.g. docx, xlsx, pptx, ...";
+            fileTypeInputField.Size = new Size(192, 54);
+            fileTypeInputField.TabIndex = 0;
             // 
-            // txtNameJob
+            // projectNameInputField
             // 
-            txtNameJob.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            txtNameJob.BackColor = Color.FromArgb(15, 15, 15);
-            txtNameJob.Enabled = false;
-            txtNameJob.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNameJob.ForeColor = Color.White;
-            txtNameJob.Location = new Point(593, 677);
-            txtNameJob.Margin = new Padding(2);
-            txtNameJob.Name = "txtNameJob";
-            txtNameJob.Size = new Size(88, 21);
-            txtNameJob.TabIndex = 21;
+            projectNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            projectNameInputField.ForeColor = Color.White;
+            projectNameInputField.InputEnabled = false;
+            projectNameInputField.LabelText = "Project name";
+            projectNameInputField.Location = new Point(448, 142);
+            projectNameInputField.Margin = new Padding(24, 0, 16, 0);
+            projectNameInputField.Name = "projectNameInputField";
+            projectNameInputField.PlaceholderText = "e.g. project name";
+            projectNameInputField.Size = new Size(600, 54);
+            projectNameInputField.TabIndex = 0;
             // 
-            // label5
+            // taskNameInputField
             // 
-            label5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(485, 636);
-            label5.Margin = new Padding(2, 0, 2, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(74, 13);
-            label5.TabIndex = 24;
-            label5.Text = "Mã công việc";
-            // 
-            // txtIDJob
-            // 
-            txtIDJob.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            txtIDJob.BackColor = Color.FromArgb(15, 15, 15);
-            txtIDJob.Enabled = false;
-            txtIDJob.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtIDJob.ForeColor = Color.White;
-            txtIDJob.Location = new Point(593, 631);
-            txtIDJob.Margin = new Padding(2);
-            txtIDJob.Name = "txtIDJob";
-            txtIDJob.Size = new Size(88, 21);
-            txtIDJob.TabIndex = 23;
-            txtIDJob.TextChanged += txtIDJob_TextChanged;
-            // 
-            // label6
-            // 
-            label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            label6.AutoSize = true;
-            label6.BackColor = Color.Transparent;
-            label6.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(246, 636);
-            label6.Margin = new Padding(2, 0, 2, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(56, 13);
-            label6.TabIndex = 26;
-            label6.Text = "Mã dự án";
-            // 
-            // txtIDPro
-            // 
-            txtIDPro.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            txtIDPro.BackColor = Color.FromArgb(15, 15, 15);
-            txtIDPro.Enabled = false;
-            txtIDPro.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtIDPro.ForeColor = Color.White;
-            txtIDPro.Location = new Point(332, 631);
-            txtIDPro.Margin = new Padding(2);
-            txtIDPro.Name = "txtIDPro";
-            txtIDPro.Size = new Size(88, 21);
-            txtIDPro.TabIndex = 25;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(34, 130, 253);
-            panel1.Controls.Add(label7);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1080, 29);
-            panel1.TabIndex = 27;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(35, 0);
-            label7.Margin = new Padding(2, 0, 2, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(65, 21);
-            label7.TabIndex = 28;
-            label7.Text = "Tài liệu";
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(34, 130, 253);
-            panel2.Controls.Add(txtSearch);
-            panel2.Location = new Point(74, 47);
-            panel2.Margin = new Padding(2);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(183, 28);
-            panel2.TabIndex = 28;
-            // 
-            // btnReload
-            // 
-            btnReload.BackColor = Color.FromArgb(34, 130, 253);
-            btnReload.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnReload.Image = Properties.Resources.reload;
-            btnReload.Location = new Point(10, 39);
-            btnReload.Margin = new Padding(2);
-            btnReload.Name = "btnReload";
-            btnReload.Size = new Size(43, 44);
-            btnReload.TabIndex = 10;
-            btnReload.UseVisualStyleBackColor = false;
-            btnReload.Click += btnReload_Click;
-            // 
-            // btnSearch
-            // 
-            btnSearch.BackColor = Color.FromArgb(34, 130, 253);
-            btnSearch.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSearch.Image = Properties.Resources.search;
-            btnSearch.Location = new Point(271, 39);
-            btnSearch.Margin = new Padding(2);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(43, 44);
-            btnSearch.TabIndex = 6;
-            btnSearch.UseVisualStyleBackColor = false;
-            btnSearch.Click += btnSearch_Click;
-            // 
-            // radioIDJob
-            // 
-            radioIDJob.AutoSize = true;
-            radioIDJob.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radioIDJob.ForeColor = Color.FromArgb(34, 130, 253);
-            radioIDJob.Location = new Point(573, 52);
-            radioIDJob.Margin = new Padding(2);
-            radioIDJob.Name = "radioIDJob";
-            radioIDJob.Size = new Size(92, 17);
-            radioIDJob.TabIndex = 9;
-            radioIDJob.TabStop = true;
-            radioIDJob.Text = "Mã công việc";
-            radioIDJob.UseVisualStyleBackColor = true;
-            // 
-            // radioISSUSED_ON
-            // 
-            radioISSUSED_ON.AutoSize = true;
-            radioISSUSED_ON.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radioISSUSED_ON.ForeColor = Color.FromArgb(34, 130, 253);
-            radioISSUSED_ON.Location = new Point(434, 52);
-            radioISSUSED_ON.Margin = new Padding(2);
-            radioISSUSED_ON.Name = "radioISSUSED_ON";
-            radioISSUSED_ON.Size = new Size(108, 17);
-            radioISSUSED_ON.TabIndex = 8;
-            radioISSUSED_ON.TabStop = true;
-            radioISSUSED_ON.Text = "Ngày phát hành";
-            radioISSUSED_ON.UseVisualStyleBackColor = true;
-            // 
-            // radioIDDoc
-            // 
-            radioIDDoc.AutoSize = true;
-            radioIDDoc.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radioIDDoc.ForeColor = Color.FromArgb(34, 130, 253);
-            radioIDDoc.Location = new Point(329, 52);
-            radioIDDoc.Margin = new Padding(2);
-            radioIDDoc.Name = "radioIDDoc";
-            radioIDDoc.Size = new Size(79, 17);
-            radioIDDoc.TabIndex = 7;
-            radioIDDoc.TabStop = true;
-            radioIDDoc.Text = "Mã tài liệu";
-            radioIDDoc.UseVisualStyleBackColor = true;
+            taskNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            taskNameInputField.ForeColor = Color.White;
+            taskNameInputField.InputEnabled = false;
+            taskNameInputField.LabelText = "Task name";
+            taskNameInputField.Location = new Point(448, 64);
+            taskNameInputField.Margin = new Padding(24, 16, 16, 24);
+            taskNameInputField.Name = "taskNameInputField";
+            taskNameInputField.PlaceholderText = "e.g. task name";
+            taskNameInputField.Size = new Size(600, 54);
+            taskNameInputField.TabIndex = 0;
             // 
             // DocumentControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(22, 22, 22);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(label6);
-            Controls.Add(txtIDPro);
-            Controls.Add(label5);
-            Controls.Add(txtIDJob);
-            Controls.Add(label4);
-            Controls.Add(txtNameJob);
-            Controls.Add(label3);
-            Controls.Add(txtNameProject);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(txtTypeFile);
-            Controls.Add(txtIDDoc);
-            Controls.Add(btnDownload);
-            Controls.Add(btnReload);
-            Controls.Add(radioIDJob);
-            Controls.Add(radioISSUSED_ON);
-            Controls.Add(radioIDDoc);
-            Controls.Add(btnSearch);
-            Controls.Add(btnEdit);
-            Controls.Add(btnDelete);
-            Controls.Add(btnInsert);
-            Controls.Add(dgvDocument);
+            BackColor = Color.FromArgb(15, 15, 15);
+            Controls.Add(documentDataGridView);
+            Controls.Add(downloadButton);
+            Controls.Add(deleteButton);
+            Controls.Add(editButton);
+            Controls.Add(insertButton);
+            Controls.Add(reloadButton);
+            Controls.Add(searchButton);
+            Controls.Add(searchTextBox);
+            Controls.Add(projectNameInputField);
+            Controls.Add(projectIdInputField);
+            Controls.Add(fileTypeInputField);
+            Controls.Add(taskNameInputField);
+            Controls.Add(taskIdInputField);
+            Controls.Add(documentIdInputField);
+            Controls.Add(headerLabel);
             Margin = new Padding(2);
             Name = "DocumentControl";
-            Size = new Size(1080, 720);
+            Size = new Size(1064, 681);
             Load += DocumentControl_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvDocument).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)documentDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -595,12 +409,12 @@
 
         #endregion
 
-        private DataGridView dgvDocument;
-        private Button btnInsert;
-        private Button btnDelete;
-        private Button btnEdit;
-        private Button btnSearch;
-        private Button btnReload;
+        private DataGridView documentDataGridView;
+        private Button insertButton;
+        private Button deleteButton;
+        private Button editButton;
+        private Button searchButton;
+        private Button reloadButton;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
@@ -612,25 +426,14 @@
         private DataGridViewTextBoxColumn Column9;
         private DataGridViewTextBoxColumn Column10;
         private DataGridViewTextBoxColumn Column11;
-        private Button btnDownload;
-        private TextBox txtIDDoc;
-        private TextBox txtSearch;
-        private TextBox txtTypeFile;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private TextBox txtNameProject;
-        private Label label4;
-        private TextBox txtNameJob;
-        private Label label5;
-        private TextBox txtIDJob;
-        private Label label6;
-        private TextBox txtIDPro;
-        private Panel panel1;
-        private Label label7;
-        private Panel panel2;
-        private RadioButton radioIDJob;
-        private RadioButton radioISSUSED_ON;
-        private RadioButton radioIDDoc;
+        private Button downloadButton;
+        private Label headerLabel;
+        private TextBox searchTextBox;
+        private PeproInputField documentIdInputField;
+        private PeproInputField projectIdInputField;
+        private PeproInputField taskIdInputField;
+        private PeproInputField fileTypeInputField;
+        private PeproInputField projectNameInputField;
+        private PeproInputField taskNameInputField;
     }
 }
