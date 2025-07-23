@@ -14,6 +14,47 @@ public class ProjectDataAccess {
 
     private ProjectDataAccess() { }
 
+    public Project? GetProjectByProjectId(string projectId) {
+        string query = @"
+            SELECT Project.ProjectId
+                , Project.Name
+                , Project.CustomerName
+                , Project.ManagerId
+                , Project.StartDate
+                , Project.EndDate
+                , Project.StatusId
+            FROM Project
+            WHERE ProjectId = @ProjectId
+        ";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "ProjectId",
+                SqlDbType = SqlDbType.VarChar,
+                Size = 10,
+                Value = projectId
+            }
+        ];
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        if (dataTable.Rows.Count == 0) {
+            return null;
+        }
+
+        DataRow row = dataTable.Rows[0];
+        Project project = new() {
+            ProjectId = row.Field<string>("ProjectId") ?? "",
+            Name = row.Field<string>("Name") ?? "",
+            CustomerName = row.Field<string>("CustomerName") ?? "",
+            ManagerId = row.Field<string>("ManagerId") ?? "",
+            StartDate = row.Field<DateTime>("StartDate"),
+            EndDate = row.Field<DateTime>("EndDate"),
+            StatusId = row.Field<int>("StatusId"),
+        };
+        return project;
+    }
+
     /// <summary>
     ///     Retrieve all projects
     /// </summary>
