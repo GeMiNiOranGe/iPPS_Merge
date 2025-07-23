@@ -14,6 +14,18 @@ public class ProjectBusiness {
 
     private ProjectBusiness() { }
 
+    public Project GetProjectByProjectId(string projectId) {
+        Project? project = ProjectDataAccess.Instance.GetProjectByProjectId(projectId);
+        if (project == null) {
+            return new Project();
+        }
+        return project;
+    }
+
+    public List<Project> GetProjects() {
+        return ProjectDataAccess.Instance.GetProjects();
+    }
+
     public List<ProjectProgress> GetProjectsWithProgress() {
         List<Project> projects = ProjectDataAccess.Instance.GetProjects();
         List<ProjectProgress> projectsProgress = [];

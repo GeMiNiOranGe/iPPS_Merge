@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
-using System.Data;
-using Microsoft.Data.SqlClient;
+using Pepro.Business;
 using Pepro.DTOs;
 using Pepro.Presentation.Controls;
 
@@ -9,11 +8,6 @@ namespace Pepro.Presentation;
 public partial class DocumentEditorForm : PeproForm
 {
     private TaskDocument _item = null!;
-    SqlConnection sqlConnection;
-    SqlCommand sqlCommand;
-    SqlDataReader sqlDataReader;
-    SqlDataAdapter sqlDataAdapter;
-    DataTable dataTable;
 
     public DocumentEditorForm()
     {
@@ -28,16 +22,22 @@ public partial class DocumentEditorForm : PeproForm
 
     private void FormInsert_Load(object sender, EventArgs e)
     {
-        sqlConnection = new SqlConnection("Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
+        txtIDPro.DataBindings.Add(
+            nameof(txtIDPro.Text),
+            cbNameProject,
+            nameof(cbNameProject.SelectedValue)
+        );
+        txtIDJob.DataBindings.Add(
+            nameof(txtIDJob.Text),
+            cbNameJob,
+            nameof(cbNameJob.SelectedValue)
+        );
 
-        sqlConnection.Open();
-        sqlCommand = new SqlCommand("SELECT * FROM PROJECT", sqlConnection);
-        sqlDataReader = sqlCommand.ExecuteReader();
-        while (sqlDataReader.Read())
-        {
-            cbNameProject.Items.Add(sqlDataReader["NAME"]);
-        }
-        sqlConnection.Close();
+        List<Project> projects = ProjectBusiness.Instance.GetProjects();
+        cbNameProject.DataSource = projects;
+        cbNameProject.DisplayMember = nameof(Project.Name);
+        cbNameProject.ValueMember = nameof(Project.ProjectId);
+        cbNameProject.SelectedIndex = -1;
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -52,7 +52,7 @@ public partial class DocumentEditorForm : PeproForm
             dateDate.Value = _item.CreateAt <= dateDate.MinDate ? dateDate.MinDate : _item.CreateAt;
             cbRevision_Number.Text = _item.RevisionNumber.ToString();
             cbLastest_Revision.Text = _item.RevisionStatus;
-
+            txtLink.Text = _item.DocumentUrl;
 
             txtPrepared_By.Text = _item.PreparedBy;
             txtChecked_By.Text = _item.CheckedBy;
@@ -63,26 +63,11 @@ public partial class DocumentEditorForm : PeproForm
 
     private void cbNameProject_SelectedIndexChanged(object sender, EventArgs e)
     {
-        sqlConnection.Open();
-        sqlCommand = new SqlCommand("SELECT * FROM Project WHERE NAME = @Name", sqlConnection);
-        sqlCommand.Parameters.AddWithValue("@Name", cbNameProject.Text);
-        sqlDataReader = sqlCommand.ExecuteReader();
-        while (sqlDataReader.Read())
-        {
-            txtIDPro.Text = sqlDataReader["ProjectId"].ToString();
-        }
-        sqlConnection.Close();
-
-        sqlConnection.Open();
-        sqlDataAdapter = new SqlDataAdapter("SELECT * FROM Task WHERE ProjectId = '" + txtIDPro.Text + "'", sqlConnection);
-        dataTable = new DataTable();
-        sqlDataAdapter.Fill(dataTable);
-        cbNameJob.DisplayMember = "Name";
-        cbNameJob.ValueMember = "TaskId";
-        cbNameJob.DataSource = dataTable;
-        txtIDJob.DataBindings.Clear();
-        txtIDJob.DataBindings.Add("Text", cbNameJob.DataSource, "TaskId");
-        sqlConnection.Close();
+        string projectId = cbNameProject.SelectedValue?.ToString() ?? "";
+        List<ProjectTask> tasks = TaskBusiness.Instance.GetTasksByProjectId(projectId);
+        cbNameJob.DataSource = tasks;
+        cbNameJob.DisplayMember = nameof(ProjectTask.Name);
+        cbNameJob.ValueMember = nameof(ProjectTask.TaskId);
     }
 
     private void btnSave_Click(object sender, EventArgs e)
