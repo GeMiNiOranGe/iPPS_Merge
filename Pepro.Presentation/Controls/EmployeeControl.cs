@@ -3,7 +3,7 @@
 
 namespace Pepro.Presentation.Controls;
 
-public partial class EmployeeControl : UserControl {
+public partial class EmployeeControl : PeproUserControl {
     SqlConnection sqlConnection = new(Config.CONNECTION_STRING);
     SqlCommand sqlCommand;
     SqlDataReader sqlDataReader;
@@ -12,11 +12,11 @@ public partial class EmployeeControl : UserControl {
         InitializeComponent();
     }
 
-    private void FormStaff_Load(object sender, EventArgs e) {
-        LoadDataStaff();
+    private void EmployeeControl_Load(object sender, EventArgs e) {
+        LoadEmployees();
     }
 
-    public void LoadDataStaff() {
+    public void LoadEmployees() {
         int i = 0;
 
         sqlConnection.Open();
@@ -50,33 +50,35 @@ public partial class EmployeeControl : UserControl {
             string CongDoanVien = (bool)sqlDataReader[11] ? "Có" : "Không";
             item.SubItems.Add(CongDoanVien);
 
-            listViewDataNV.Items.Add(item);
+            //employeeDataGridView.Items.Add(item);
             i++;
         }
-        lbSLNV.Text = i.ToString();
+        numberOfEmployeesInputField.Text = i.ToString();
 
         sqlConnection.Close();
     }
 
+    /*
     private void listViewDataNV_SelectedIndexChanged(object sender, EventArgs e) {
-        if (listViewDataNV.SelectedItems.Count > 0) {
-            ListViewItem item = listViewDataNV.SelectedItems[0];
-            lbMaNV.Text = item.SubItems[1].Text;
+        if (employeeDataGridView.SelectedItems.Count > 0) {
+            ListViewItem item = employeeDataGridView.SelectedItems[0];
+            employeeIdInputField.Text = item.SubItems[1].Text;
         }
     }
+    */
 
-    private void btnSearch_Click(object sender, EventArgs e) {
-        if (string.IsNullOrEmpty(txtSearch.Text)) {
+    private void SearchButton_Click(object sender, EventArgs e) {
+        if (string.IsNullOrEmpty(searchTextBox.Text)) {
             MessageBox.Show("Vui lòng nhập thông tin cần tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         else {
-            listViewDataNV.Items.Clear();
+            //employeeDataGridView.Items.Clear();
             sqlConnection.Open();
-            if (radioSearchMa.Checked) {
-                sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN WHERE MANV LIKE '%" + txtSearch.Text + "%'", sqlConnection);
+            if (true) {
+                sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN WHERE MANV LIKE '%" + searchTextBox.Text + "%'", sqlConnection);
             }
-            else if (radioSearchTen.Checked) {
-                sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN WHERE HOTENNV LIKE '%" + txtSearch.Text + "%'", sqlConnection);
+            else if (true) {
+                sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN WHERE HOTENNV LIKE '%" + searchTextBox.Text + "%'", sqlConnection);
             }
             else {
                 MessageBox.Show("Vui lòng chọn mục tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -84,7 +86,7 @@ public partial class EmployeeControl : UserControl {
             sqlDataReader = sqlCommand.ExecuteReader();
             int i = 0;
             while (sqlDataReader.Read()) {
-                ListViewItem item = new ListViewItem((i + 1).ToString());
+                ListViewItem item = new((i + 1).ToString());
                 item.SubItems.Add(sqlDataReader[0].ToString());
                 item.SubItems.Add(sqlDataReader[1].ToString());
 
@@ -108,127 +110,128 @@ public partial class EmployeeControl : UserControl {
 
                 string CongDoanVien = (bool)sqlDataReader[11] ? "Có" : "Không";
                 item.SubItems.Add(CongDoanVien);
-                listViewDataNV.Items.Add(item);
+                //employeeDataGridView.Items.Add(item);
                 i++;
             }
             sqlConnection.Close();
         }
-        txtSearch.Text = null;
+        searchTextBox.Text = null;
     }
 
-    private void btnReload_Click(object sender, EventArgs e) {
-        listViewDataNV.Items.Clear();
-        LoadDataStaff();
+    private void ReloadButton_Click(object sender, EventArgs e) {
+        LoadEmployees();
     }
     
-    private void btnAdd_Click(object sender, EventArgs e) {
-        EmployeeEditorForm formInsertNhanVien = new EmployeeEditorForm();
-        formInsertNhanVien.formStaff_TieuDe = "Thêm nhân viên";
+    private void InsertButton_Click(object sender, EventArgs e) {
+        EmployeeEditorForm formInsertNhanVien = new() {
+            formStaff_TieuDe = "Thêm nhân viên"
+        };
         formInsertNhanVien.Show();
     }
     
-    private void btnEdit_Click(object sender, EventArgs e) {
-        if (lbMaNV.Text == "null") {
+    private void UpdateButton_Click(object sender, EventArgs e) {
+        if (employeeIdInputField.Text == "null") {
             MessageBox.Show("Vui lòng chọn nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         else {
-            EmployeeEditorForm formInsertNhanVien = new EmployeeEditorForm();
-            formInsertNhanVien.formStaff_MaNV = lbMaNV.Text;
-            formInsertNhanVien.formStaff_TieuDe = "Cập nhật nhân viên";
+            EmployeeEditorForm formInsertNhanVien = new() {
+                formStaff_MaNV = employeeIdInputField.Text,
+                formStaff_TieuDe = "Cập nhật nhân viên"
+            };
             formInsertNhanVien.Show();
         }
     }
     
-    private void btnDel_Click(object sender, EventArgs e) {
-        if (lbMaNV.Text != "null") {
+    private void DeleteButton_Click(object sender, EventArgs e) {
+        if (employeeIdInputField.Text != "null") {
             if (MessageBox.Show("Bạn có chắc là muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes) {
                 // Xoá Lương
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM LUONG WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM LUONG WHERE MANV = '" + employeeIdInputField.Text + "'", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Xoá Bộ phận chấm công
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM BOPHANCHAMCONG WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM BOPHANCHAMCONG WHERE MANV = '" + employeeIdInputField.Text + "'", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Nếu 2 nhân viên cùng sống chung 1 Hộ gia đình thì update NULL ở nhân viên bị xoá
                 // Khi MANV1
                 sqlConnection.Open();
                 sqlCommand = new SqlCommand("UPDATE HOGIADINH SET MANV1 = NULL WHERE MANV1 = @MANV1 AND MANV2 IS NOT NULL", sqlConnection);
-                sqlCommand.Parameters.AddWithValue("@MANV1", lbMaNV.Text);
+                sqlCommand.Parameters.AddWithValue("@MANV1", employeeIdInputField.Text);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Khi MANV2
                 sqlConnection.Open();
                 sqlCommand = new SqlCommand("UPDATE HOGIADINH SET MANV2 = NULL WHERE MANV2 = @MANV2 AND MANV1 IS NOT NULL", sqlConnection);
-                sqlCommand.Parameters.AddWithValue("@MANV2", lbMaNV.Text);
+                sqlCommand.Parameters.AddWithValue("@MANV2", employeeIdInputField.Text);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Nếu 1 nhân viên thì xoá theo thứ tự Tiền nhà -> Nước -> Điện -> Hộ gia đình
                 // Khi MANV1
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM TIENNHA WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV1 = '" + lbMaNV.Text + "' AND MANV2 IS NULL)", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM TIENNHA WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV1 = '" + employeeIdInputField.Text + "' AND MANV2 IS NULL)", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
 
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM NUOC WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV1 = '" + lbMaNV.Text + "' AND MANV2 IS NULL)", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM NUOC WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV1 = '" + employeeIdInputField.Text + "' AND MANV2 IS NULL)", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
 
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM DIEN WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV1 = '" + lbMaNV.Text + "' AND MANV2 IS NULL)", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM DIEN WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV1 = '" + employeeIdInputField.Text + "' AND MANV2 IS NULL)", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
 
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM HOGIADINH WHERE MANV1 = '" + lbMaNV.Text + "' AND MANV2 IS NULL", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM HOGIADINH WHERE MANV1 = '" + employeeIdInputField.Text + "' AND MANV2 IS NULL", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Khi MANV2
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM TIENNHA WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV2 = '" + lbMaNV.Text + "' AND MANV1 IS NULL)", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM TIENNHA WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV2 = '" + employeeIdInputField.Text + "' AND MANV1 IS NULL)", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
 
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM NUOC WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV2 = '" + lbMaNV.Text + "' AND MANV1 IS NULL)", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM NUOC WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV2 = '" + employeeIdInputField.Text + "' AND MANV1 IS NULL)", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
 
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM DIEN WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV2 = '" + lbMaNV.Text + "' AND MANV1 IS NULL)", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM DIEN WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV2 = '" + employeeIdInputField.Text + "' AND MANV1 IS NULL)", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
 
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM HOGIADINH WHERE MANV2 = '" + lbMaNV.Text + "' AND MANV1 IS NULL", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM HOGIADINH WHERE MANV2 = '" + employeeIdInputField.Text + "' AND MANV1 IS NULL", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Xoá Nhân viên - Phòng tổ chức
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM NHANVIEN_PHONGTOCHUC WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM NHANVIEN_PHONGTOCHUC WHERE MANV = '" + employeeIdInputField.Text + "'", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Xoá Nhân viên - Chuyên môn
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM NHANVIEN_CHUYENMON WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM NHANVIEN_CHUYENMON WHERE MANV = '" + employeeIdInputField.Text + "'", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Xoá nhân viên - Ngoại ngữ
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM NHANVIEN_NGOAINGU WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM NHANVIEN_NGOAINGU WHERE MANV = '" + employeeIdInputField.Text + "'", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Xoá Người thân
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM NGUOITHAN WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM NGUOITHAN WHERE MANV = '" + employeeIdInputField.Text + "'", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Xoá nhân viên
                 sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM NHANVIEN WHERE MANV = '" + lbMaNV.Text + "'", sqlConnection);
+                sqlCommand = new SqlCommand("DELETE FROM NHANVIEN WHERE MANV = '" + employeeIdInputField.Text + "'", sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
 
@@ -240,14 +243,15 @@ public partial class EmployeeControl : UserControl {
         }
     }
     
-    private void btnExport_Click(object sender, EventArgs e) {
-        SaveFileDialog saveFileDialog = new SaveFileDialog();
-        saveFileDialog.Filter = "Excel Files|*.xlsx";
-        saveFileDialog.Title = "Save Excel File";
+    private void ExportButton_Click(object sender, EventArgs e) {
+        SaveFileDialog saveFileDialog = new() {
+            Filter = "Excel Files|*.xlsx",
+            Title = "Save Excel File"
+        };
 
-        //if (saveFileDialog.ShowDialog() == DialogResult.OK) {
-        //    ExportToExcel(listViewDataNV, saveFileDialog.FileName);
-        //}
+        if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+            //ExportToExcel(listViewDataNV, saveFileDialog.FileName);
+        }
     }
 
     /*

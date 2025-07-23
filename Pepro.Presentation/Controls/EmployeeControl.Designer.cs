@@ -27,340 +27,322 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            txtSearch = new TextBox();
-            radioSearchMa = new RadioButton();
-            radioSearchTen = new RadioButton();
-            lbSLNV = new Label();
-            lbMaNV = new Label();
-            listViewDataNV = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
-            columnHeader5 = new ColumnHeader();
-            columnHeader6 = new ColumnHeader();
-            columnHeader7 = new ColumnHeader();
-            columnHeader8 = new ColumnHeader();
-            columnHeader9 = new ColumnHeader();
-            columnHeader10 = new ColumnHeader();
-            columnHeader11 = new ColumnHeader();
-            columnHeader12 = new ColumnHeader();
-            columnHeader13 = new ColumnHeader();
-            label1 = new Label();
-            label2 = new Label();
-            btnReload = new Button();
-            btnExport = new Button();
-            btnDel = new Button();
-            btnEdit = new Button();
-            btnAdd = new Button();
-            btnSearch = new Button();
-            label3 = new Label();
+            searchTextBox = new TextBox();
+            employeeDataGridView = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
+            Column8 = new DataGridViewTextBoxColumn();
+            Column9 = new DataGridViewTextBoxColumn();
+            Column10 = new DataGridViewTextBoxColumn();
+            Column11 = new DataGridViewTextBoxColumn();
+            Column12 = new DataGridViewTextBoxColumn();
+            Column13 = new DataGridViewTextBoxColumn();
+            reloadButton = new Button();
+            exportButton = new Button();
+            deleteButton = new Button();
+            updateButton = new Button();
+            insertButton = new Button();
+            searchButton = new Button();
+            headerLabel = new Label();
+            employeeIdInputField = new PeproInputField();
+            numberOfEmployeesInputField = new PeproInputField();
+            ((System.ComponentModel.ISupportInitialize)employeeDataGridView).BeginInit();
             SuspendLayout();
             // 
-            // txtSearch
+            // searchTextBox
             // 
-            txtSearch.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSearch.Location = new Point(17, 92);
-            txtSearch.Margin = new Padding(3, 2, 3, 2);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(211, 26);
-            txtSearch.TabIndex = 1;
+            searchTextBox.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            searchTextBox.Location = new Point(16, 78);
+            searchTextBox.Margin = new Padding(3, 2, 3, 2);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.Size = new Size(211, 26);
+            searchTextBox.TabIndex = 1;
             // 
-            // radioSearchMa
+            // employeeDataGridView
             // 
-            radioSearchMa.AutoSize = true;
-            radioSearchMa.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radioSearchMa.Location = new Point(314, 97);
-            radioSearchMa.Margin = new Padding(3, 2, 3, 2);
-            radioSearchMa.Name = "radioSearchMa";
-            radioSearchMa.Size = new Size(108, 23);
-            radioSearchMa.TabIndex = 8;
-            radioSearchMa.TabStop = true;
-            radioSearchMa.Text = "Mã nhân viên";
-            radioSearchMa.UseVisualStyleBackColor = true;
+            employeeDataGridView.AllowUserToAddRows = false;
+            employeeDataGridView.AllowUserToDeleteRows = false;
+            employeeDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            employeeDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            employeeDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            employeeDataGridView.BackgroundColor = Color.FromArgb(15, 15, 15);
+            employeeDataGridView.BorderStyle = BorderStyle.Fixed3D;
+            employeeDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            employeeDataGridView.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11, Column12, Column13 });
+            employeeDataGridView.EnableHeadersVisualStyles = false;
+            employeeDataGridView.Location = new Point(16, 150);
+            employeeDataGridView.Margin = new Padding(16);
+            employeeDataGridView.Name = "employeeDataGridView";
+            employeeDataGridView.ReadOnly = true;
+            employeeDataGridView.RowHeadersVisible = false;
+            employeeDataGridView.RowHeadersWidth = 51;
+            employeeDataGridView.RowTemplate.Height = 24;
+            employeeDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            employeeDataGridView.Size = new Size(1032, 515);
+            employeeDataGridView.TabIndex = 0;
             // 
-            // radioSearchTen
+            // Column1
             // 
-            radioSearchTen.AutoSize = true;
-            radioSearchTen.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radioSearchTen.Location = new Point(455, 97);
-            radioSearchTen.Margin = new Padding(3, 2, 3, 2);
-            radioSearchTen.Name = "radioSearchTen";
-            radioSearchTen.Size = new Size(110, 23);
-            radioSearchTen.TabIndex = 9;
-            radioSearchTen.TabStop = true;
-            radioSearchTen.Text = "Tên nhân viên";
-            radioSearchTen.UseVisualStyleBackColor = true;
+            Column1.HeaderText = "STT";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Width = 55;
             // 
-            // lbSLNV
+            // Column2
             // 
-            lbSLNV.AutoSize = true;
-            lbSLNV.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbSLNV.Location = new Point(945, 98);
-            lbSLNV.Name = "lbSLNV";
-            lbSLNV.Size = new Size(33, 22);
-            lbSLNV.TabIndex = 10;
-            lbSLNV.Text = "SL";
+            Column2.HeaderText = "Mã nhân viên";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Width = 118;
             // 
-            // lbMaNV
+            // Column3
             // 
-            lbMaNV.AutoSize = true;
-            lbMaNV.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbMaNV.Location = new Point(737, 98);
-            lbMaNV.Name = "lbMaNV";
-            lbMaNV.Size = new Size(40, 22);
-            lbMaNV.TabIndex = 11;
-            lbMaNV.Text = "null";
+            Column3.HeaderText = "Họ và tên";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Width = 94;
             // 
-            // listViewDataNV
+            // Column4
             // 
-            listViewDataNV.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7, columnHeader8, columnHeader9, columnHeader10, columnHeader11, columnHeader12, columnHeader13 });
-            listViewDataNV.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            listViewDataNV.FullRowSelect = true;
-            listViewDataNV.GridLines = true;
-            listViewDataNV.Location = new Point(3, 144);
-            listViewDataNV.Margin = new Padding(3, 2, 3, 2);
-            listViewDataNV.Name = "listViewDataNV";
-            listViewDataNV.Size = new Size(1002, 474);
-            listViewDataNV.TabIndex = 12;
-            listViewDataNV.UseCompatibleStateImageBehavior = false;
-            listViewDataNV.View = View.Details;
-            listViewDataNV.SelectedIndexChanged += listViewDataNV_SelectedIndexChanged;
+            Column4.HeaderText = "Giới tính";
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.Width = 86;
             // 
-            // columnHeader1
+            // Column5
             // 
-            columnHeader1.Text = "STT";
+            Column5.HeaderText = "Ngày sinh";
+            Column5.Name = "Column5";
+            Column5.ReadOnly = true;
+            Column5.Width = 95;
             // 
-            // columnHeader2
+            // Column6
             // 
-            columnHeader2.Text = "Mã nhân viên";
-            columnHeader2.Width = 118;
+            Column6.HeaderText = "Nơi sinh";
+            Column6.Name = "Column6";
+            Column6.ReadOnly = true;
+            Column6.Width = 84;
             // 
-            // columnHeader3
+            // Column7
             // 
-            columnHeader3.Text = "Họ và tên";
-            columnHeader3.Width = 177;
+            Column7.HeaderText = "Quê quán";
+            Column7.Name = "Column7";
+            Column7.ReadOnly = true;
+            Column7.Width = 95;
             // 
-            // columnHeader4
+            // Column8
             // 
-            columnHeader4.Text = "Giới tính";
-            columnHeader4.Width = 117;
+            Column8.HeaderText = "Trình độ văn hoá";
+            Column8.Name = "Column8";
+            Column8.ReadOnly = true;
+            Column8.Width = 137;
             // 
-            // columnHeader5
+            // Column9
             // 
-            columnHeader5.Text = "Ngày sinh";
-            columnHeader5.Width = 117;
+            Column9.HeaderText = "Dân tộc";
+            Column9.Name = "Column9";
+            Column9.ReadOnly = true;
+            Column9.Width = 82;
             // 
-            // columnHeader6
+            // Column10
             // 
-            columnHeader6.Text = "Nơi sinh";
-            columnHeader6.Width = 117;
+            Column10.HeaderText = "Tôn giáo";
+            Column10.Name = "Column10";
+            Column10.ReadOnly = true;
+            Column10.Width = 86;
             // 
-            // columnHeader7
+            // Column11
             // 
-            columnHeader7.Text = "Quê quán";
-            columnHeader7.Width = 116;
+            Column11.HeaderText = "Đoàn viên ";
+            Column11.Name = "Column11";
+            Column11.ReadOnly = true;
             // 
-            // columnHeader8
+            // Column12
             // 
-            columnHeader8.Text = "Trình độ văn hoá";
-            columnHeader8.Width = 175;
+            Column12.HeaderText = "Đảng viên";
+            Column12.Name = "Column12";
+            Column12.ReadOnly = true;
+            Column12.Width = 96;
             // 
-            // columnHeader9
+            // Column13
             // 
-            columnHeader9.Text = "Dân tộc";
-            columnHeader9.Width = 121;
+            Column13.HeaderText = "Công đoàn viên";
+            Column13.Name = "Column13";
+            Column13.ReadOnly = true;
+            Column13.Width = 131;
             // 
-            // columnHeader10
+            // reloadButton
             // 
-            columnHeader10.Text = "Tôn giáo";
-            columnHeader10.Width = 119;
+            reloadButton.BackColor = Color.FromArgb(34, 130, 253);
+            reloadButton.BackgroundImage = Properties.Resources.reload;
+            reloadButton.BackgroundImageLayout = ImageLayout.Center;
+            reloadButton.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            reloadButton.Location = new Point(282, 75);
+            reloadButton.Margin = new Padding(3, 2, 3, 2);
+            reloadButton.Name = "reloadButton";
+            reloadButton.Size = new Size(32, 32);
+            reloadButton.TabIndex = 13;
+            reloadButton.UseVisualStyleBackColor = false;
+            reloadButton.Click += ReloadButton_Click;
             // 
-            // columnHeader11
+            // exportButton
             // 
-            columnHeader11.Text = "Đoàn viên ";
-            columnHeader11.Width = 116;
+            exportButton.BackColor = Color.FromArgb(34, 130, 253);
+            exportButton.BackgroundImageLayout = ImageLayout.Center;
+            exportButton.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            exportButton.Location = new Point(462, 75);
+            exportButton.Margin = new Padding(3, 2, 3, 2);
+            exportButton.Name = "exportButton";
+            exportButton.Size = new Size(32, 32);
+            exportButton.TabIndex = 7;
+            exportButton.UseVisualStyleBackColor = false;
+            exportButton.Click += ExportButton_Click;
             // 
-            // columnHeader12
+            // deleteButton
             // 
-            columnHeader12.Text = "Đảng viên";
-            columnHeader12.Width = 121;
+            deleteButton.BackColor = Color.FromArgb(34, 130, 253);
+            deleteButton.BackgroundImageLayout = ImageLayout.Center;
+            deleteButton.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            deleteButton.Location = new Point(417, 75);
+            deleteButton.Margin = new Padding(3, 2, 3, 2);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(32, 32);
+            deleteButton.TabIndex = 5;
+            deleteButton.UseVisualStyleBackColor = false;
+            deleteButton.Click += DeleteButton_Click;
             // 
-            // columnHeader13
+            // updateButton
             // 
-            columnHeader13.Text = "Công đoàn viên";
-            columnHeader13.Width = 145;
+            updateButton.BackColor = Color.FromArgb(34, 130, 253);
+            updateButton.BackgroundImageLayout = ImageLayout.Center;
+            updateButton.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            updateButton.ForeColor = Color.Black;
+            updateButton.Location = new Point(372, 75);
+            updateButton.Margin = new Padding(3, 2, 3, 2);
+            updateButton.Name = "updateButton";
+            updateButton.Size = new Size(32, 32);
+            updateButton.TabIndex = 4;
+            updateButton.UseVisualStyleBackColor = false;
+            updateButton.Click += UpdateButton_Click;
             // 
-            // label1
+            // insertButton
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(840, 98);
-            label1.Name = "label1";
-            label1.Size = new Size(88, 22);
-            label1.TabIndex = 14;
-            label1.Text = "Số lượng:";
+            insertButton.BackColor = Color.FromArgb(34, 130, 253);
+            insertButton.BackgroundImageLayout = ImageLayout.Center;
+            insertButton.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            insertButton.ForeColor = Color.Black;
+            insertButton.Location = new Point(327, 75);
+            insertButton.Margin = new Padding(3, 2, 3, 2);
+            insertButton.Name = "insertButton";
+            insertButton.Size = new Size(32, 32);
+            insertButton.TabIndex = 3;
+            insertButton.UseVisualStyleBackColor = false;
+            insertButton.Click += InsertButton_Click;
             // 
-            // label2
+            // searchButton
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(593, 98);
-            label2.Name = "label2";
-            label2.Size = new Size(126, 22);
-            label2.TabIndex = 15;
-            label2.Text = "Mã nhân viên:";
+            searchButton.BackColor = Color.FromArgb(34, 130, 253);
+            searchButton.BackgroundImage = Properties.Resources.search;
+            searchButton.BackgroundImageLayout = ImageLayout.Center;
+            searchButton.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            searchButton.Location = new Point(237, 75);
+            searchButton.Margin = new Padding(3, 2, 3, 2);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(32, 32);
+            searchButton.TabIndex = 2;
+            searchButton.UseVisualStyleBackColor = false;
+            searchButton.Click += SearchButton_Click;
             // 
-            // btnReload
+            // headerLabel
             // 
-            btnReload.BackColor = Color.FromArgb(255, 96, 0);
-            btnReload.BackgroundImage = Properties.Resources.reload;
-            btnReload.BackgroundImageLayout = ImageLayout.Center;
-            btnReload.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnReload.Location = new Point(649, 14);
-            btnReload.Margin = new Padding(3, 2, 3, 2);
-            btnReload.Name = "btnReload";
-            btnReload.Size = new Size(46, 47);
-            btnReload.TabIndex = 13;
-            btnReload.UseVisualStyleBackColor = false;
-            btnReload.Click += btnReload_Click;
+            headerLabel.BackColor = Color.FromArgb(22, 22, 22);
+            headerLabel.Dock = DockStyle.Top;
+            headerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
+            headerLabel.ForeColor = Color.White;
+            headerLabel.Location = new Point(0, 0);
+            headerLabel.Name = "headerLabel";
+            headerLabel.Size = new Size(1064, 48);
+            headerLabel.TabIndex = 16;
+            headerLabel.Text = "Employee";
+            headerLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // btnExport
+            // employeeIdInputField
             // 
-            btnExport.BackColor = Color.FromArgb(255, 96, 0);
-            btnExport.BackgroundImageLayout = ImageLayout.Center;
-            btnExport.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnExport.Location = new Point(942, 14);
-            btnExport.Margin = new Padding(3, 2, 3, 2);
-            btnExport.Name = "btnExport";
-            btnExport.Size = new Size(42, 47);
-            btnExport.TabIndex = 7;
-            btnExport.UseVisualStyleBackColor = false;
-            btnExport.Click += btnExport_Click;
+            employeeIdInputField.ForeColor = Color.White;
+            employeeIdInputField.LabelText = "Employee id";
+            employeeIdInputField.Location = new Point(792, 64);
+            employeeIdInputField.Margin = new Padding(24, 16, 16, 16);
+            employeeIdInputField.Name = "employeeIdInputField";
+            employeeIdInputField.PlaceholderText = "e.g. employee id";
+            employeeIdInputField.Size = new Size(256, 54);
+            employeeIdInputField.TabIndex = 17;
             // 
-            // btnDel
+            // numberOfEmployeesInputField
             // 
-            btnDel.BackColor = Color.FromArgb(255, 96, 0);
-            btnDel.BackgroundImageLayout = ImageLayout.Center;
-            btnDel.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnDel.Location = new Point(869, 14);
-            btnDel.Margin = new Padding(3, 2, 3, 2);
-            btnDel.Name = "btnDel";
-            btnDel.Size = new Size(45, 47);
-            btnDel.TabIndex = 5;
-            btnDel.UseVisualStyleBackColor = false;
-            btnDel.Click += btnDel_Click;
+            numberOfEmployeesInputField.ForeColor = Color.White;
+            numberOfEmployeesInputField.LabelText = "Number of employees";
+            numberOfEmployeesInputField.Location = new Point(512, 64);
+            numberOfEmployeesInputField.Margin = new Padding(16, 16, 0, 24);
+            numberOfEmployeesInputField.Name = "numberOfEmployeesInputField";
+            numberOfEmployeesInputField.PlaceholderText = "e.g. number of employees";
+            numberOfEmployeesInputField.Size = new Size(256, 54);
+            numberOfEmployeesInputField.TabIndex = 18;
             // 
-            // btnEdit
+            // EmployeeControl
             // 
-            btnEdit.BackColor = Color.FromArgb(255, 96, 0);
-            btnEdit.BackgroundImageLayout = ImageLayout.Center;
-            btnEdit.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEdit.ForeColor = Color.Black;
-            btnEdit.Location = new Point(796, 14);
-            btnEdit.Margin = new Padding(3, 2, 3, 2);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(45, 47);
-            btnEdit.TabIndex = 4;
-            btnEdit.UseVisualStyleBackColor = false;
-            btnEdit.Click += btnEdit_Click;
-            // 
-            // btnAdd
-            // 
-            btnAdd.BackColor = Color.FromArgb(255, 96, 0);
-            btnAdd.BackgroundImageLayout = ImageLayout.Center;
-            btnAdd.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAdd.ForeColor = Color.Black;
-            btnAdd.Location = new Point(724, 14);
-            btnAdd.Margin = new Padding(3, 2, 3, 2);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(45, 47);
-            btnAdd.TabIndex = 3;
-            btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
-            // 
-            // btnSearch
-            // 
-            btnSearch.BackColor = Color.FromArgb(255, 96, 0);
-            btnSearch.BackgroundImage = Properties.Resources.search;
-            btnSearch.BackgroundImageLayout = ImageLayout.Center;
-            btnSearch.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSearch.Location = new Point(248, 82);
-            btnSearch.Margin = new Padding(3, 2, 3, 2);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(45, 47);
-            btnSearch.TabIndex = 2;
-            btnSearch.UseVisualStyleBackColor = false;
-            btnSearch.Click += btnSearch_Click;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Tahoma", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label3.Location = new Point(56, 18);
-            label3.Name = "label3";
-            label3.Size = new Size(123, 27);
-            label3.TabIndex = 16;
-            label3.Text = "Nhân viên";
-            // 
-            // FormStaff
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(255, 230, 199);
-            ClientSize = new Size(1006, 619);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(btnReload);
-            Controls.Add(listViewDataNV);
-            Controls.Add(lbMaNV);
-            Controls.Add(lbSLNV);
-            Controls.Add(radioSearchTen);
-            Controls.Add(radioSearchMa);
-            Controls.Add(btnExport);
-            Controls.Add(btnDel);
-            Controls.Add(btnEdit);
-            Controls.Add(btnAdd);
-            Controls.Add(btnSearch);
-            Controls.Add(txtSearch);
+            BackColor = Color.FromArgb(15, 15, 15);
+            Controls.Add(headerLabel);
+            Controls.Add(searchTextBox);
+            Controls.Add(searchButton);
+            Controls.Add(reloadButton);
+            Controls.Add(insertButton);
+            Controls.Add(updateButton);
+            Controls.Add(deleteButton);
+            Controls.Add(exportButton);
+            Controls.Add(numberOfEmployeesInputField);
+            Controls.Add(employeeIdInputField);
+            Controls.Add(employeeDataGridView);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "FormStaff";
-            Text = "NhanVien";
-            Load += FormStaff_Load;
+            Name = "EmployeeControl";
+            Size = new Size(1064, 681);
+            Load += EmployeeControl_Load;
+            ((System.ComponentModel.ISupportInitialize)employeeDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
         }
 
         #endregion
-        private TextBox txtSearch;
-        private Button btnSearch;
-        private Button btnAdd;
-        private Button btnEdit;
-        private Button btnDel;
-        private Button btnExport;
-        private RadioButton radioSearchMa;
-        private RadioButton radioSearchTen;
-        private Label lbSLNV;
-        private Label lbMaNV;
-        private ListView listViewDataNV;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
-        private ColumnHeader columnHeader5;
-        private ColumnHeader columnHeader6;
-        private ColumnHeader columnHeader7;
-        private ColumnHeader columnHeader8;
-        private ColumnHeader columnHeader9;
-        private ColumnHeader columnHeader10;
-        private ColumnHeader columnHeader11;
-        private ColumnHeader columnHeader12;
-        private ColumnHeader columnHeader13;
-        private Button btnReload;
-        private Label label1;
-        private Label label2;
-        private Label label3;
+        private TextBox searchTextBox;
+        private Button searchButton;
+        private Button insertButton;
+        private Button updateButton;
+        private Button deleteButton;
+        private Button exportButton;
+        private DataGridView employeeDataGridView;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewTextBoxColumn Column8;
+        private DataGridViewTextBoxColumn Column9;
+        private DataGridViewTextBoxColumn Column10;
+        private DataGridViewTextBoxColumn Column11;
+        private DataGridViewTextBoxColumn Column12;
+        private DataGridViewTextBoxColumn Column13;
+        private Button reloadButton;
+        private Label headerLabel;
+        private PeproInputField employeeIdInputField;
+        private PeproInputField numberOfEmployeesInputField;
     }
 }
