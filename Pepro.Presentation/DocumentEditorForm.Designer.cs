@@ -84,6 +84,7 @@
             cbNameProject.Name = "cbNameProject";
             cbNameProject.Size = new Size(196, 27);
             cbNameProject.TabIndex = 189;
+            cbNameProject.SelectedIndexChanged += cbNameProject_SelectedIndexChanged;
             // 
             // txtIDJob
             // 
