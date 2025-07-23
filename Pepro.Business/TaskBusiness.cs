@@ -15,6 +15,10 @@ public class TaskBusiness {
 
     private TaskBusiness() { }
 
+    public List<ProjectTask> GetTasksByProjectId(string projectId) {
+        return TaskDataAccess.Instance.GetTasksByProjectId(projectId);
+    }
+
     public List<ProjectTaskProgress> GetTasksWithProgressByProjectId(string projectId) {
         List<ProjectTask> tasks = TaskDataAccess.Instance.GetTasksByProjectId(projectId);
         List<ProjectTaskProgress> tasksProgress = [];
