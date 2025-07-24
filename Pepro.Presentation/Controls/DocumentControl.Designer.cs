@@ -84,7 +84,6 @@
             // 
             Column1.DataPropertyName = "DocumentId";
             Column1.HeaderText = "Mã";
-            Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
             Column1.Width = 49;
@@ -93,7 +92,6 @@
             // 
             Column2.DataPropertyName = "Title";
             Column2.HeaderText = "Tiêu đề";
-            Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
             Column2.Width = 66;
@@ -102,7 +100,6 @@
             // 
             Column3.DataPropertyName = "CreateAt";
             Column3.HeaderText = "Ngày tạo";
-            Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
             Column3.Width = 74;
@@ -111,7 +108,6 @@
             // 
             Column4.DataPropertyName = "RevisionNumber";
             Column4.HeaderText = "Số sửa đổi";
-            Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
             Column4.Width = 79;
@@ -120,7 +116,6 @@
             // 
             Column5.DataPropertyName = "RevisionStatus";
             Column5.HeaderText = "Loại sửa đổi";
-            Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
             Column5.Width = 72;
@@ -129,7 +124,6 @@
             // 
             Column6.DataPropertyName = "DocumentUrl";
             Column6.HeaderText = "Đường dẫn tài liệu";
-            Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
             Column6.ReadOnly = true;
             Column6.Width = 101;
@@ -138,7 +132,6 @@
             // 
             Column7.DataPropertyName = "NativeFileFormat";
             Column7.HeaderText = "loại tệp gốc";
-            Column7.MinimumWidth = 6;
             Column7.Name = "Column7";
             Column7.ReadOnly = true;
             Column7.Width = 87;
@@ -147,7 +140,6 @@
             // 
             Column8.DataPropertyName = "PreparedBy";
             Column8.HeaderText = "Chuẩn bị bởi";
-            Column8.MinimumWidth = 6;
             Column8.Name = "Column8";
             Column8.ReadOnly = true;
             Column8.Width = 77;
@@ -156,7 +148,6 @@
             // 
             Column9.DataPropertyName = "CheckedBy";
             Column9.HeaderText = "Kiểm tra bởi";
-            Column9.MinimumWidth = 6;
             Column9.Name = "Column9";
             Column9.ReadOnly = true;
             Column9.Width = 73;
@@ -165,7 +156,6 @@
             // 
             Column10.DataPropertyName = "ApprovedBy";
             Column10.HeaderText = "Chấp thuận bởi";
-            Column10.MinimumWidth = 6;
             Column10.Name = "Column10";
             Column10.ReadOnly = true;
             Column10.Width = 89;
@@ -174,7 +164,6 @@
             // 
             Column11.DataPropertyName = "TaskId";
             Column11.HeaderText = "Mã nhiệm vụ";
-            Column11.MinimumWidth = 6;
             Column11.Name = "Column11";
             Column11.ReadOnly = true;
             Column11.Width = 82;
@@ -360,7 +349,7 @@
             // 
             // DocumentControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
             Controls.Add(documentDataGridView);

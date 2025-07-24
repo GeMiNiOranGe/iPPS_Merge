@@ -3,7 +3,7 @@ using Pepro.DTOs;
 
 namespace Pepro.Presentation.Controls;
 
-public partial class DocumentControl : UserControl
+public partial class DocumentControl : PeproUserControl
 {
     public DocumentControl()
     {
