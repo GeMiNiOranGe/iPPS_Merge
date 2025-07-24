@@ -5,78 +5,69 @@ using Pepro.Presentation.Controls;
 
 namespace Pepro.Presentation;
 
-public partial class DocumentEditorForm : PeproForm
-{
+public partial class DocumentEditorForm : PeproForm {
     private TaskDocument _item = null!;
 
-    public DocumentEditorForm()
-    {
+    public DocumentEditorForm() {
         InitializeComponent();
     }
 
-    public DocumentEditorForm(string name)
-    {
+    public DocumentEditorForm(string name) {
         InitializeComponent();
-        label24.Text = name;
+        headerLabel.Text = name;
     }
 
-    private void FormInsert_Load(object sender, EventArgs e)
-    {
-        txtIDPro.DataBindings.Add(
-            nameof(txtIDPro.Text),
-            cbNameProject,
-            nameof(cbNameProject.SelectedValue)
+    private void FormInsert_Load(object sender, EventArgs e) {
+        projectIdInputField.DataBindings.Add(
+            nameof(projectIdInputField.Text),
+            projectNameComboBoxField.InnerComboBox,
+            nameof(projectNameComboBoxField.InnerComboBox.SelectedValue)
         );
-        txtIDJob.DataBindings.Add(
-            nameof(txtIDJob.Text),
-            cbNameJob,
-            nameof(cbNameJob.SelectedValue)
+        taskIdInputField.DataBindings.Add(
+            nameof(taskIdInputField.Text),
+            taskNameComboBoxField.InnerComboBox,
+            nameof(taskNameComboBoxField.InnerComboBox.SelectedValue)
         );
 
         List<Project> projects = ProjectBusiness.Instance.GetProjects();
-        cbNameProject.DataSource = projects;
-        cbNameProject.DisplayMember = nameof(Project.Name);
-        cbNameProject.ValueMember = nameof(Project.ProjectId);
-        cbNameProject.SelectedIndex = -1;
+        projectNameComboBoxField.InnerComboBox.DataSource = projects;
+        projectNameComboBoxField.InnerComboBox.DisplayMember = nameof(Project.Name);
+        projectNameComboBoxField.InnerComboBox.ValueMember = nameof(Project.ProjectId);
+        projectNameComboBoxField.InnerComboBox.SelectedIndex = -1;
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required TaskDocument Item
-    {
+    public required TaskDocument Item {
         get => _item;
-        set
-        {
+        set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
-            txtIDDoc.Text = _item.DocumentId.ToString();
-            txtTitle.Text = _item.Title;
-            dateDate.Value = _item.CreateAt <= dateDate.MinDate ? dateDate.MinDate : _item.CreateAt;
-            cbRevision_Number.Text = _item.RevisionNumber.ToString();
-            cbLastest_Revision.Text = _item.RevisionStatus;
-            txtLink.Text = _item.DocumentUrl;
-
-            txtPrepared_By.Text = _item.PreparedBy;
-            txtChecked_By.Text = _item.CheckedBy;
-            txtApproved_By.Text = _item.ApprovedBy;
-            txtIDJob.Text = _item.TaskId.ToString();
+            documentIdInputField.Text = _item.DocumentId.ToString();
+            titleInputField.Text = _item.Title;
+            createdAtDateTimePicker.Value = _item.CreateAt <= createdAtDateTimePicker.MinDate ? createdAtDateTimePicker.MinDate : _item.CreateAt;
+            revisionNumberInputField.Text = _item.RevisionNumber.ToString();
+            revisionStatusInputField.Text = _item.RevisionStatus;
+            filePathInputField.Text = _item.DocumentUrl;
+            fileTypeInputField.Text = _item.NativeFileFormat;
+            preparedByInputField.Text = _item.PreparedBy;
+            checkedByInputField.Text = _item.CheckedBy;
+            approvedByInputField.Text = _item.ApprovedBy;
+            taskIdInputField.Text = _item.TaskId.ToString();
         }
     }
 
-    private void cbNameProject_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        string projectId = cbNameProject.SelectedValue?.ToString() ?? "";
+    private void ProjectNameComboBoxField_SelectedIndexChanged(object sender, EventArgs e) {
+        string projectId = projectNameComboBoxField.InnerComboBox.SelectedValue?.ToString() ?? "";
         List<ProjectTask> tasks = TaskBusiness.Instance.GetTasksByProjectId(projectId);
-        cbNameJob.DataSource = tasks;
-        cbNameJob.DisplayMember = nameof(ProjectTask.Name);
-        cbNameJob.ValueMember = nameof(ProjectTask.TaskId);
+        taskNameComboBoxField.InnerComboBox.DataSource = tasks;
+        taskNameComboBoxField.InnerComboBox.DisplayMember = nameof(ProjectTask.Name);
+        taskNameComboBoxField.InnerComboBox.ValueMember = nameof(ProjectTask.TaskId);
     }
 
-    private void btnSave_Click(object sender, EventArgs e)
-    {
+    private void SaveButton_Click(object sender, EventArgs e) {
         MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock2");
     }
 
-    private void btnBroser_Click(object sender, EventArgs e)
-    {
+    private void BrowseButton_Click(object sender, EventArgs e) {
         MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock1");
     }
 }

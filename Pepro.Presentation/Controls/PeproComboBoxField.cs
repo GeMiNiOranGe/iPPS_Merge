@@ -5,6 +5,8 @@ using static System.Windows.Forms.ComboBox;
 namespace Pepro.Presentation.Controls;
 
 public partial class PeproComboBoxField : PeproInputFieldBase {
+    private static readonly object s_selectedIndexChangedEvent = new();
+
     public PeproComboBoxField() {
         InitializeComponent();
     }
@@ -34,6 +36,17 @@ public partial class PeproComboBoxField : PeproInputFieldBase {
         set => inputFieldComboBox.Text = value;
     }
 
+    [Browsable(true)]
+    [Category("Behavior")]
+    public event EventHandler? SelectedIndexChanged {
+        add => Events.AddHandler(s_selectedIndexChangedEvent, value);
+        remove => Events.RemoveHandler(s_selectedIndexChangedEvent, value);
+    }
+
+    [Browsable(false)]
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public ComboBox InnerComboBox => inputFieldComboBox;
+
     protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified) {
         base.SetBoundsCore(x, y, width, DefaultSize.Height, specified);
     }
@@ -49,6 +62,12 @@ public partial class PeproComboBoxField : PeproInputFieldBase {
         base.OnForeColorChanged(e);
         if (inputFieldComboBox != null) {
             inputFieldComboBox.ForeColor = ForeColor;
+        }
+    }
+
+    private void InputFieldComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+        if (Events[s_selectedIndexChangedEvent] is EventHandler handler) {
+            handler(this, e);
         }
     }
 }
