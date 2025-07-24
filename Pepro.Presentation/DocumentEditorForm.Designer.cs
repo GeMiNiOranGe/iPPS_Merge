@@ -53,7 +53,7 @@ namespace Pepro.Presentation
             // 
             createdAtDateTimePicker.Anchor = AnchorStyles.None;
             createdAtDateTimePicker.Checked = false;
-            createdAtDateTimePicker.Location = new Point(777, 436);
+            createdAtDateTimePicker.Location = new Point(769, 436);
             createdAtDateTimePicker.Margin = new Padding(24, 8, 16, 16);
             createdAtDateTimePicker.Name = "createdAtDateTimePicker";
             createdAtDateTimePicker.Size = new Size(224, 26);
@@ -65,7 +65,7 @@ namespace Pepro.Presentation
             browseButton.BackColor = Color.FromArgb(34, 130, 253);
             browseButton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             browseButton.ForeColor = Color.Black;
-            browseButton.Location = new Point(777, 498);
+            browseButton.Location = new Point(769, 498);
             browseButton.Margin = new Padding(8);
             browseButton.Name = "browseButton";
             browseButton.Size = new Size(96, 47);
@@ -94,7 +94,7 @@ namespace Pepro.Presentation
             saveButton.BackColor = Color.FromArgb(34, 130, 253);
             saveButton.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             saveButton.ForeColor = Color.Black;
-            saveButton.Location = new Point(905, 498);
+            saveButton.Location = new Point(897, 498);
             saveButton.Margin = new Padding(8);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(96, 47);
@@ -108,7 +108,7 @@ namespace Pepro.Presentation
             createdAtLabel.Anchor = AnchorStyles.None;
             createdAtLabel.AutoSize = true;
             createdAtLabel.ForeColor = Color.White;
-            createdAtLabel.Location = new Point(777, 408);
+            createdAtLabel.Location = new Point(769, 408);
             createdAtLabel.Margin = new Padding(16, 24, 8, 0);
             createdAtLabel.Name = "createdAtLabel";
             createdAtLabel.Size = new Size(38, 19);
@@ -121,8 +121,8 @@ namespace Pepro.Presentation
             fileTypeInputField.ForeColor = Color.White;
             fileTypeInputField.InputEnabled = false;
             fileTypeInputField.LabelText = "File type";
-            fileTypeInputField.Location = new Point(529, 408);
-            fileTypeInputField.Margin = new Padding(0);
+            fileTypeInputField.Location = new Point(521, 408);
+            fileTypeInputField.Margin = new Padding(24, 16, 0, 16);
             fileTypeInputField.Name = "fileTypeInputField";
             fileTypeInputField.PlaceholderText = "e.g. docx, xlsx, pptx";
             fileTypeInputField.Size = new Size(224, 54);
@@ -134,7 +134,7 @@ namespace Pepro.Presentation
             filePathInputField.ForeColor = Color.White;
             filePathInputField.InputEnabled = false;
             filePathInputField.LabelText = "File path";
-            filePathInputField.Location = new Point(529, 494);
+            filePathInputField.Location = new Point(521, 494);
             filePathInputField.Margin = new Padding(0);
             filePathInputField.Name = "filePathInputField";
             filePathInputField.PlaceholderText = "e.g. path/to/file.ext";
@@ -159,7 +159,7 @@ namespace Pepro.Presentation
             checkedByInputField.Anchor = AnchorStyles.None;
             checkedByInputField.ForeColor = Color.White;
             checkedByInputField.LabelText = "Checked by";
-            checkedByInputField.Location = new Point(529, 322);
+            checkedByInputField.Location = new Point(521, 322);
             checkedByInputField.Margin = new Padding(24, 16, 0, 16);
             checkedByInputField.Name = "checkedByInputField";
             checkedByInputField.PlaceholderText = "e.g. Mike";
@@ -175,7 +175,7 @@ namespace Pepro.Presentation
             titleInputField.Margin = new Padding(24, 16, 16, 16);
             titleInputField.Name = "titleInputField";
             titleInputField.PlaceholderText = "e.g. title";
-            titleInputField.Size = new Size(728, 54);
+            titleInputField.Size = new Size(720, 54);
             titleInputField.TabIndex = 197;
             // 
             // approvedByInputField
@@ -236,7 +236,7 @@ namespace Pepro.Presentation
             projectNameComboBoxField.Location = new Point(273, 64);
             projectNameComboBoxField.Margin = new Padding(24, 16, 16, 16);
             projectNameComboBoxField.Name = "projectNameComboBoxField";
-            projectNameComboBoxField.Size = new Size(728, 56);
+            projectNameComboBoxField.Size = new Size(720, 56);
             projectNameComboBoxField.TabIndex = 202;
             projectNameComboBoxField.SelectedIndexChanged += ProjectNameComboBoxField_SelectedIndexChanged;
             // 
@@ -248,7 +248,7 @@ namespace Pepro.Presentation
             taskNameComboBoxField.Location = new Point(273, 152);
             taskNameComboBoxField.Margin = new Padding(24, 16, 16, 16);
             taskNameComboBoxField.Name = "taskNameComboBoxField";
-            taskNameComboBoxField.Size = new Size(728, 56);
+            taskNameComboBoxField.Size = new Size(720, 56);
             taskNameComboBoxField.TabIndex = 202;
             // 
             // revisionNumberInputField
