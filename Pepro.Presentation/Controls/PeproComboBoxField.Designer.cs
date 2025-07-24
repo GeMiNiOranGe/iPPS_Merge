@@ -29,6 +29,7 @@
             // inputFieldComboBox
             // 
             inputFieldComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            inputFieldComboBox.Cursor = Cursors.Hand;
             inputFieldComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             inputFieldComboBox.FlatStyle = FlatStyle.Flat;
             inputFieldComboBox.FormattingEnabled = true;
@@ -37,6 +38,7 @@
             inputFieldComboBox.Name = "inputFieldComboBox";
             inputFieldComboBox.Size = new Size(248, 27);
             inputFieldComboBox.TabIndex = 1;
+            inputFieldComboBox.SelectedIndexChanged += InputFieldComboBox_SelectedIndexChanged;
             // 
             // PeproComboBoxField
             // 
