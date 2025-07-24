@@ -63,6 +63,14 @@ public partial class PeproInputField : PeproInputFieldBase {
     }
 
     /// <summary>
+    ///     Retrieves the bindings for this control.
+    /// </summary>
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+    public new ControlBindingsCollection DataBindings {
+        get => inputFieldTextBox.DataBindings;
+    }
+
+    /// <summary>
     ///     Clears all text from the text box control.
     /// </summary>
     public void Clear() {
