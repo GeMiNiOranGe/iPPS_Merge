@@ -1,20 +1,30 @@
-﻿using System.ComponentModel;
-using Pepro.Business;
+﻿using Pepro.Business;
 using Pepro.DTOs;
 using Pepro.Presentation.Controls;
+using Svg;
+using System.ComponentModel;
 
 namespace Pepro.Presentation;
 
-public partial class DocumentEditorForm : PeproForm {
+public partial class DocumentEditorForm : PeproMediatedUserControl {
     private TaskDocument _item = null!;
 
     public DocumentEditorForm() {
-        InitializeComponent();
+        Initialize();
     }
 
-    public DocumentEditorForm(string name) {
+    public DocumentEditorForm(IMediator mediator) : base(mediator) {
+        Initialize();
+    }
+
+    private void Initialize() {
         InitializeComponent();
-        headerLabel.Text = name;
+
+        returnButton.Image = IconProvider.GetIcon(
+            "Xmark",
+            colorServer: new SvgColourServer(Color.White),
+            size: 48
+        );
     }
 
     private void FormInsert_Load(object sender, EventArgs e) {
@@ -53,6 +63,16 @@ public partial class DocumentEditorForm : PeproForm {
             approvedByInputField.Text = _item.ApprovedBy;
             taskIdInputField.Text = _item.TaskId.ToString();
         }
+    }
+
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public string HeaderText {
+        get => headerLabel.Text;
+        set => headerLabel.Text = value;
+    }
+
+    private void ReturnButton_Click(object sender, EventArgs e) {
+        Parent?.Controls.Remove(this);
     }
 
     private void ProjectNameComboBoxField_SelectedIndexChanged(object sender, EventArgs e) {

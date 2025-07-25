@@ -11,6 +11,7 @@ public partial class MenuForm : PeproForm {
         @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
     );
     private string _accountName = "";
+    private readonly ControlUiMediator _mediator;
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public required string AccountName {
@@ -21,6 +22,8 @@ public partial class MenuForm : PeproForm {
     public MenuForm() {
         InitializeComponent();
         InitializeRuntimeComponents();
+
+        _mediator = new ControlUiMediator(workplacePanel);
     }
 
     private void InitializeRuntimeComponents() {
@@ -134,7 +137,7 @@ public partial class MenuForm : PeproForm {
     private void DocumentButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(documentButton.Location.Y);
 
-        OpenChildControl(new DocumentControl());
+        _mediator.Notify(this, ControlUiEvent.OpenDocumentControl);
     }
 
     private void ProgressButton_MouseClick(object sender, MouseEventArgs e) {

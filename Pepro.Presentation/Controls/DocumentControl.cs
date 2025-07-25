@@ -3,9 +3,19 @@ using Pepro.DTOs;
 
 namespace Pepro.Presentation.Controls;
 
-public partial class DocumentControl : PeproUserControl
+public partial class DocumentControl : PeproMediatedUserControl
 {
     public DocumentControl()
+    {
+        Initialize();
+    }
+
+    public DocumentControl(IMediator mediator) : base(mediator)
+    {
+        Initialize();
+    }
+
+    private void Initialize()
     {
         InitializeComponent();
         documentDataGridView.SetupCellStyle();
@@ -41,11 +51,11 @@ public partial class DocumentControl : PeproUserControl
 
     private void InsertButton_Click(object sender, EventArgs e)
     {
-        DocumentEditorForm formInsert = new("Thêm tài liệu")
+        _mediator.Notify(this, ControlUiEvent.OpenDocumentEditorForm, new OpenDocumentEditorFormPayload()
         {
-            Item = new()
-        };
-        formInsert.ShowDialog();
+            Item = new(),
+            HeaderText = "Thêm tài liệu",
+        });
     }
 
     private void DeleteButton_Click(object sender, EventArgs e)
@@ -68,21 +78,16 @@ public partial class DocumentControl : PeproUserControl
     private void EditButton_Click(object sender, EventArgs e)
     {
         DataGridViewRow? row = documentDataGridView.CurrentRow;
-        if (row != null && row.DataBoundItem is TaskDocument document)
+        if (row == null || row.DataBoundItem is not TaskDocument document)
         {
-            DocumentEditorForm editorForm = new("Sửa tài liệu")
-            {
-                Item = document,
-            };
-            editorForm.ShowDialog();
-            //editorForm.TopLevel = false;
-            //editorForm.FormBorderStyle = FormBorderStyle.None;
-            //editorForm.Dock = DockStyle.Fill;
-            //editorForm.Opacity = 0.5;
-            //Controls.Add(editorForm);
-            //editorForm.BringToFront();
-            //editorForm.Show();
+            return;
         }
+
+        _mediator.Notify(this, ControlUiEvent.OpenDocumentEditorForm, new OpenDocumentEditorFormPayload()
+        {
+            Item = document,
+            HeaderText = "Sửa tài liệu",
+        });
     }
 
     private void SearchButton_Click(object sender, EventArgs e)
