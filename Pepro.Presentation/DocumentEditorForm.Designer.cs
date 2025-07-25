@@ -47,6 +47,7 @@ namespace Pepro.Presentation
             taskNameComboBoxField = new PeproComboBoxField();
             revisionNumberInputField = new PeproInputField();
             revisionStatusInputField = new PeproInputField();
+            returnButton = new Button();
             SuspendLayout();
             // 
             // createdAtDateTimePicker
@@ -277,12 +278,24 @@ namespace Pepro.Presentation
             revisionStatusInputField.Size = new Size(224, 54);
             revisionStatusInputField.TabIndex = 202;
             // 
+            // returnButton
+            // 
+            returnButton.BackColor = Color.FromArgb(34, 130, 253);
+            returnButton.FlatStyle = FlatStyle.Flat;
+            returnButton.Location = new Point(0, 0);
+            returnButton.Margin = new Padding(0);
+            returnButton.Name = "returnButton";
+            returnButton.Size = new Size(48, 48);
+            returnButton.TabIndex = 203;
+            returnButton.UseVisualStyleBackColor = false;
+            returnButton.Click += ReturnButton_Click;
+            // 
             // DocumentEditorForm
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
-            ClientSize = new Size(1064, 681);
+            Controls.Add(returnButton);
             Controls.Add(headerLabel);
             Controls.Add(taskIdInputField);
             Controls.Add(taskNameComboBoxField);
@@ -303,8 +316,7 @@ namespace Pepro.Presentation
             Controls.Add(browseButton);
             Margin = new Padding(2);
             Name = "DocumentEditorForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormInsert";
+            Size = new Size(1064, 681);
             Load += FormInsert_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -330,5 +342,6 @@ namespace Pepro.Presentation
         private PeproInputField revisionStatusInputField;
         private PeproComboBoxField projectNameComboBoxField;
         private PeproComboBoxField taskNameComboBoxField;
+        private Button returnButton;
     }
 }
