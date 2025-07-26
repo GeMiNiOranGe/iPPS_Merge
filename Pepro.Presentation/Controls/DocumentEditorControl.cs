@@ -1,42 +1,18 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
-using Pepro.Presentation.Controls;
 using System.ComponentModel;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Controls;
 
-public partial class DocumentEditorForm : PeproMediatedUserControl {
+public partial class DocumentEditorControl : PeproMediatedUserControl {
     private TaskDocument _item = null!;
 
-    public DocumentEditorForm() {
+    public DocumentEditorControl() {
         Initialize();
     }
 
-    public DocumentEditorForm(IMediator mediator) : base(mediator) {
+    public DocumentEditorControl(IMediator mediator) : base(mediator) {
         Initialize();
-    }
-
-    private void Initialize() {
-        InitializeComponent();
-    }
-
-    private void FormInsert_Load(object sender, EventArgs e) {
-        projectIdInputField.DataBindings.Add(
-            nameof(projectIdInputField.Text),
-            projectNameComboBoxField.InnerComboBox,
-            nameof(projectNameComboBoxField.InnerComboBox.SelectedValue)
-        );
-        taskIdInputField.DataBindings.Add(
-            nameof(taskIdInputField.Text),
-            taskNameComboBoxField.InnerComboBox,
-            nameof(taskNameComboBoxField.InnerComboBox.SelectedValue)
-        );
-
-        List<Project> projects = ProjectBusiness.Instance.GetProjects();
-        projectNameComboBoxField.InnerComboBox.DataSource = projects;
-        projectNameComboBoxField.InnerComboBox.DisplayMember = nameof(Project.Name);
-        projectNameComboBoxField.InnerComboBox.ValueMember = nameof(Project.ProjectId);
-        projectNameComboBoxField.InnerComboBox.SelectedIndex = -1;
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -56,6 +32,29 @@ public partial class DocumentEditorForm : PeproMediatedUserControl {
             approvedByInputField.Text = _item.ApprovedBy;
             taskIdInputField.Text = _item.TaskId.ToString();
         }
+    }
+
+    private void Initialize() {
+        InitializeComponent();
+    }
+
+    private void DocumentEditorControl_Load(object sender, EventArgs e) {
+        projectIdInputField.DataBindings.Add(
+            nameof(projectIdInputField.Text),
+            projectNameComboBoxField.InnerComboBox,
+            nameof(projectNameComboBoxField.InnerComboBox.SelectedValue)
+        );
+        taskIdInputField.DataBindings.Add(
+            nameof(taskIdInputField.Text),
+            taskNameComboBoxField.InnerComboBox,
+            nameof(taskNameComboBoxField.InnerComboBox.SelectedValue)
+        );
+
+        List<Project> projects = ProjectBusiness.Instance.GetProjects();
+        projectNameComboBoxField.InnerComboBox.DataSource = projects;
+        projectNameComboBoxField.InnerComboBox.DisplayMember = nameof(Project.Name);
+        projectNameComboBoxField.InnerComboBox.ValueMember = nameof(Project.ProjectId);
+        projectNameComboBoxField.InnerComboBox.SelectedIndex = -1;
     }
 
     private void ProjectNameComboBoxField_SelectedIndexChanged(object sender, EventArgs e) {
