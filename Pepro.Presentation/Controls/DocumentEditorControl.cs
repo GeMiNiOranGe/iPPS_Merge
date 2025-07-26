@@ -36,6 +36,18 @@ public partial class DocumentEditorControl : PeproMediatedUserControl {
 
     private void Initialize() {
         InitializeComponent();
+
+        SetupRuntimeFlatStyle(saveButton);
+        SetupRuntimeFlatStyle(browseButton);
+    }
+
+    private static void SetupRuntimeFlatStyle(Button button)
+    {
+        button.BackColor = ThemeColors.Accent.Base;
+        button.FlatStyle = FlatStyle.Flat;
+        button.FlatAppearance.BorderSize = 0;
+        button.FlatAppearance.MouseOverBackColor = ThemeColors.Accent.Light;
+        button.FlatAppearance.MouseDownBackColor = ThemeColors.Accent.Dark;
     }
 
     private void DocumentEditorControl_Load(object sender, EventArgs e) {
