@@ -1,8 +1,6 @@
-﻿using Pepro.Presentation.Controls;
-
-namespace Pepro.Presentation
+﻿namespace Pepro.Presentation.Controls
 {
-    partial class DocumentEditorForm
+    partial class DocumentEditorControl
     {
         /// <summary>
         /// Required designer variable.
@@ -262,7 +260,7 @@ namespace Pepro.Presentation
             revisionStatusInputField.Size = new Size(224, 54);
             revisionStatusInputField.TabIndex = 202;
             // 
-            // DocumentEditorForm
+            // DocumentEditorControl
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -285,8 +283,8 @@ namespace Pepro.Presentation
             Controls.Add(browseButton);
             HeaderText = "Document Editor";
             Margin = new Padding(2);
-            Name = "DocumentEditorForm";
-            Load += FormInsert_Load;
+            Name = "DocumentEditorControl";
+            Load += DocumentEditorControl_Load;
             Controls.SetChildIndex(browseButton, 0);
             Controls.SetChildIndex(saveButton, 0);
             Controls.SetChildIndex(createdAtDateTimePicker, 0);

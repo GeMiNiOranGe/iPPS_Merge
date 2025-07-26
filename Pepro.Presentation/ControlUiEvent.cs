@@ -2,5 +2,5 @@
 
 public enum ControlUiEvent {
     OpenDocumentControl,
-    OpenDocumentEditorForm,
+    OpenDocumentEditorControl,
 }

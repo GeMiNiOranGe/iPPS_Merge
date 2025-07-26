@@ -51,7 +51,7 @@ public partial class DocumentControl : PeproMediatedUserControl
 
     private void InsertButton_Click(object sender, EventArgs e)
     {
-        _mediator.Notify(this, ControlUiEvent.OpenDocumentEditorForm, new OpenDocumentEditorFormPayload()
+        _mediator.Notify(this, ControlUiEvent.OpenDocumentEditorControl, new OpenDocumentEditorControlPayload()
         {
             Item = new(),
             HeaderText = "Create a new document",
@@ -83,7 +83,7 @@ public partial class DocumentControl : PeproMediatedUserControl
             return;
         }
 
-        _mediator.Notify(this, ControlUiEvent.OpenDocumentEditorForm, new OpenDocumentEditorFormPayload()
+        _mediator.Notify(this, ControlUiEvent.OpenDocumentEditorControl, new OpenDocumentEditorControlPayload()
         {
             Item = document,
             HeaderText = "Edit document",
