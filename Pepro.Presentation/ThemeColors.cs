@@ -11,9 +11,9 @@ public static class ThemeColors
     }
     public static class Accent
     {
-        public static Color Light => Color.FromArgb(35, 125, 255);
-        public static Color Base => Color.FromArgb(35, 105, 255);
-        public static Color Dark => Color.FromArgb(35, 85, 255);
+        public static Color Light => Color.FromArgb(59, 104, 255);
+        public static Color Base => Color.FromArgb(0, 58, 250);
+        public static Color Dark => Color.FromArgb(0, 36, 156);
     }
     public static Color Background => Color.Empty;
     public static Color Text => Color.White;

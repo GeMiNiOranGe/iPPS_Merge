@@ -54,7 +54,7 @@ public partial class DocumentControl : PeproMediatedUserControl
         _mediator.Notify(this, ControlUiEvent.OpenDocumentEditorForm, new OpenDocumentEditorFormPayload()
         {
             Item = new(),
-            HeaderText = "Thêm tài liệu",
+            HeaderText = "Create a new document",
         });
     }
 
@@ -86,7 +86,7 @@ public partial class DocumentControl : PeproMediatedUserControl
         _mediator.Notify(this, ControlUiEvent.OpenDocumentEditorForm, new OpenDocumentEditorFormPayload()
         {
             Item = document,
-            HeaderText = "Sửa tài liệu",
+            HeaderText = "Edit document",
         });
     }
 
