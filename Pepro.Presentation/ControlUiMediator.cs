@@ -11,13 +11,13 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
             DocumentControl documentControl = new(this);
             OpenControl(documentControl);
             break;
-        case ControlUiEvent.OpenDocumentEditorForm:
-            if (data is OpenDocumentEditorFormPayload payload) {
-                DocumentEditorForm documentEditorForm = new(this) {
+        case ControlUiEvent.OpenDocumentEditorControl:
+            if (data is OpenDocumentEditorControlPayload payload) {
+                DocumentEditorControl documentEditorControl = new(this) {
                     Item = payload.Item,
                     HeaderText = payload.HeaderText,
                 };
-                PushControl(documentEditorForm); 
+                PushControl(documentEditorControl); 
             }
             break;
         }
