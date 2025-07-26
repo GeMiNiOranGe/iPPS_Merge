@@ -27,6 +27,19 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            documentIdInputField = new PeproInputField();
+            taskIdInputField = new PeproInputField();
+            taskNameInputField = new PeproInputField();
+            fileTypeInputField = new PeproInputField();
+            projectIdInputField = new PeproInputField();
+            projectNameInputField = new PeproInputField();
+            searchTextBox = new TextBox();
+            searchButton = new Button();
+            reloadButton = new Button();
+            downloadButton = new Button();
+            deleteButton = new Button();
+            updateButton = new Button();
+            insertButton = new Button();
             documentDataGridView = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -39,21 +52,170 @@
             Column9 = new DataGridViewTextBoxColumn();
             Column10 = new DataGridViewTextBoxColumn();
             Column11 = new DataGridViewTextBoxColumn();
-            insertButton = new Button();
-            deleteButton = new Button();
-            editButton = new Button();
-            downloadButton = new Button();
-            reloadButton = new Button();
-            searchButton = new Button();
-            searchTextBox = new TextBox();
-            documentIdInputField = new PeproInputField();
-            projectIdInputField = new PeproInputField();
-            taskIdInputField = new PeproInputField();
-            fileTypeInputField = new PeproInputField();
-            projectNameInputField = new PeproInputField();
-            taskNameInputField = new PeproInputField();
             ((System.ComponentModel.ISupportInitialize)documentDataGridView).BeginInit();
             SuspendLayout();
+            // 
+            // documentIdInputField
+            // 
+            documentIdInputField.ForeColor = Color.White;
+            documentIdInputField.InputEnabled = false;
+            documentIdInputField.LabelText = "Document id";
+            documentIdInputField.Location = new Point(16, 64);
+            documentIdInputField.Margin = new Padding(16, 16, 0, 24);
+            documentIdInputField.Name = "documentIdInputField";
+            documentIdInputField.PlaceholderText = "e.g. document id";
+            documentIdInputField.Size = new Size(240, 54);
+            documentIdInputField.TabIndex = 0;
+            documentIdInputField.TabStop = false;
+            documentIdInputField.TextChanged += DocumentIdInputField_TextChanged;
+            // 
+            // taskIdInputField
+            // 
+            taskIdInputField.ForeColor = Color.White;
+            taskIdInputField.InputEnabled = false;
+            taskIdInputField.LabelText = "Task id";
+            taskIdInputField.Location = new Point(280, 64);
+            taskIdInputField.Margin = new Padding(24, 16, 0, 24);
+            taskIdInputField.Name = "taskIdInputField";
+            taskIdInputField.PlaceholderText = "e.g. task id";
+            taskIdInputField.Size = new Size(240, 54);
+            taskIdInputField.TabIndex = 0;
+            taskIdInputField.TabStop = false;
+            taskIdInputField.TextChanged += TaskIdInputField_TextChanged;
+            // 
+            // taskNameInputField
+            // 
+            taskNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            taskNameInputField.ForeColor = Color.White;
+            taskNameInputField.InputEnabled = false;
+            taskNameInputField.LabelText = "Task name";
+            taskNameInputField.Location = new Point(544, 64);
+            taskNameInputField.Margin = new Padding(24, 16, 16, 24);
+            taskNameInputField.Name = "taskNameInputField";
+            taskNameInputField.PlaceholderText = "e.g. task name";
+            taskNameInputField.Size = new Size(504, 54);
+            taskNameInputField.TabIndex = 0;
+            taskNameInputField.TabStop = false;
+            // 
+            // fileTypeInputField
+            // 
+            fileTypeInputField.ForeColor = Color.White;
+            fileTypeInputField.InputEnabled = false;
+            fileTypeInputField.LabelText = "File type";
+            fileTypeInputField.Location = new Point(16, 142);
+            fileTypeInputField.Margin = new Padding(16, 0, 0, 16);
+            fileTypeInputField.Name = "fileTypeInputField";
+            fileTypeInputField.PlaceholderText = "e.g. docx, xlsx, pptx, ...";
+            fileTypeInputField.Size = new Size(240, 54);
+            fileTypeInputField.TabIndex = 0;
+            fileTypeInputField.TabStop = false;
+            // 
+            // projectIdInputField
+            // 
+            projectIdInputField.ForeColor = Color.White;
+            projectIdInputField.InputEnabled = false;
+            projectIdInputField.LabelText = "Project id";
+            projectIdInputField.Location = new Point(280, 142);
+            projectIdInputField.Margin = new Padding(24, 0, 0, 16);
+            projectIdInputField.Name = "projectIdInputField";
+            projectIdInputField.PlaceholderText = "e.g. project id";
+            projectIdInputField.Size = new Size(240, 54);
+            projectIdInputField.TabIndex = 0;
+            projectIdInputField.TabStop = false;
+            // 
+            // projectNameInputField
+            // 
+            projectNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            projectNameInputField.ForeColor = Color.White;
+            projectNameInputField.InputEnabled = false;
+            projectNameInputField.LabelText = "Project name";
+            projectNameInputField.Location = new Point(544, 142);
+            projectNameInputField.Margin = new Padding(24, 0, 16, 16);
+            projectNameInputField.Name = "projectNameInputField";
+            projectNameInputField.PlaceholderText = "e.g. project name";
+            projectNameInputField.Size = new Size(504, 54);
+            projectNameInputField.TabIndex = 0;
+            projectNameInputField.TabStop = false;
+            // 
+            // searchTextBox
+            // 
+            searchTextBox.BorderStyle = BorderStyle.None;
+            searchTextBox.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            searchTextBox.Location = new Point(16, 224);
+            searchTextBox.Margin = new Padding(2);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.PlaceholderText = "Search for document title, id, and task id";
+            searchTextBox.Size = new Size(502, 19);
+            searchTextBox.TabIndex = 1;
+            // 
+            // searchButton
+            // 
+            searchButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            searchButton.Image = Properties.Resources.search;
+            searchButton.Location = new Point(536, 212);
+            searchButton.Margin = new Padding(16, 0, 0, 0);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(40, 40);
+            searchButton.TabIndex = 2;
+            searchButton.Click += SearchButton_Click;
+            // 
+            // reloadButton
+            // 
+            reloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            reloadButton.Image = Properties.Resources.reload;
+            reloadButton.Location = new Point(592, 212);
+            reloadButton.Margin = new Padding(16, 0, 0, 0);
+            reloadButton.Name = "reloadButton";
+            reloadButton.Size = new Size(40, 40);
+            reloadButton.TabIndex = 3;
+            reloadButton.Click += ReloadButton_Click;
+            // 
+            // downloadButton
+            // 
+            downloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            downloadButton.Location = new Point(648, 212);
+            downloadButton.Margin = new Padding(16, 0, 0, 0);
+            downloadButton.Name = "downloadButton";
+            downloadButton.Size = new Size(112, 40);
+            downloadButton.TabIndex = 7;
+            downloadButton.Text = "Download";
+            downloadButton.Click += DownloadButton_Click;
+            // 
+            // deleteButton
+            // 
+            deleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            deleteButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            deleteButton.Location = new Point(776, 212);
+            deleteButton.Margin = new Padding(16, 0, 0, 0);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(80, 40);
+            deleteButton.TabIndex = 6;
+            deleteButton.Text = "Delete";
+            deleteButton.Click += DeleteButton_Click;
+            // 
+            // updateButton
+            // 
+            updateButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            updateButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            updateButton.Location = new Point(872, 212);
+            updateButton.Margin = new Padding(16, 0, 0, 0);
+            updateButton.Name = "updateButton";
+            updateButton.Size = new Size(80, 40);
+            updateButton.TabIndex = 5;
+            updateButton.Text = "Edit";
+            updateButton.Click += EditButton_Click;
+            // 
+            // insertButton
+            // 
+            insertButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            insertButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            insertButton.Location = new Point(968, 212);
+            insertButton.Margin = new Padding(16, 0, 0, 0);
+            insertButton.Name = "insertButton";
+            insertButton.Size = new Size(80, 40);
+            insertButton.TabIndex = 4;
+            insertButton.Text = "Add";
+            insertButton.Click += InsertButton_Click;
             // 
             // documentDataGridView
             // 
@@ -167,202 +329,43 @@
             Column11.ReadOnly = true;
             Column11.Width = 92;
             // 
-            // insertButton
-            // 
-            insertButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            insertButton.Location = new Point(648, 212);
-            insertButton.Margin = new Padding(16, 0, 0, 0);
-            insertButton.Name = "insertButton";
-            insertButton.Size = new Size(80, 40);
-            insertButton.TabIndex = 4;
-            insertButton.Text = "Add";
-            insertButton.Click += InsertButton_Click;
-            // 
-            // deleteButton
-            // 
-            deleteButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            deleteButton.Location = new Point(840, 212);
-            deleteButton.Margin = new Padding(16, 0, 0, 0);
-            deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(80, 40);
-            deleteButton.TabIndex = 6;
-            deleteButton.Text = "Delete";
-            deleteButton.Click += DeleteButton_Click;
-            // 
-            // editButton
-            // 
-            editButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            editButton.Location = new Point(744, 212);
-            editButton.Margin = new Padding(16, 0, 0, 0);
-            editButton.Name = "editButton";
-            editButton.Size = new Size(80, 40);
-            editButton.TabIndex = 5;
-            editButton.Text = "Edit";
-            editButton.Click += EditButton_Click;
-            // 
-            // downloadButton
-            // 
-            downloadButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            downloadButton.Location = new Point(936, 212);
-            downloadButton.Margin = new Padding(16, 0, 0, 0);
-            downloadButton.Name = "downloadButton";
-            downloadButton.Size = new Size(112, 40);
-            downloadButton.TabIndex = 7;
-            downloadButton.Text = "Download";
-            downloadButton.Click += DownloadButton_Click;
-            // 
-            // reloadButton
-            // 
-            reloadButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            reloadButton.Image = Properties.Resources.reload;
-            reloadButton.Location = new Point(592, 212);
-            reloadButton.Margin = new Padding(16, 0, 0, 0);
-            reloadButton.Name = "reloadButton";
-            reloadButton.Size = new Size(40, 40);
-            reloadButton.TabIndex = 3;
-            reloadButton.Click += ReloadButton_Click;
-            // 
-            // searchButton
-            // 
-            searchButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            searchButton.Image = Properties.Resources.search;
-            searchButton.Location = new Point(536, 212);
-            searchButton.Margin = new Padding(16, 0, 0, 0);
-            searchButton.Name = "searchButton";
-            searchButton.Size = new Size(40, 40);
-            searchButton.TabIndex = 2;
-            searchButton.Click += SearchButton_Click;
-            // 
-            // searchTextBox
-            // 
-            searchTextBox.BorderStyle = BorderStyle.None;
-            searchTextBox.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            searchTextBox.Location = new Point(16, 224);
-            searchTextBox.Margin = new Padding(2);
-            searchTextBox.Name = "searchTextBox";
-            searchTextBox.PlaceholderText = "Search for document title, id, and task id";
-            searchTextBox.Size = new Size(502, 19);
-            searchTextBox.TabIndex = 1;
-            // 
-            // documentIdInputField
-            // 
-            documentIdInputField.ForeColor = Color.White;
-            documentIdInputField.InputEnabled = false;
-            documentIdInputField.LabelText = "Document id";
-            documentIdInputField.Location = new Point(16, 64);
-            documentIdInputField.Margin = new Padding(16, 16, 0, 24);
-            documentIdInputField.Name = "documentIdInputField";
-            documentIdInputField.PlaceholderText = "e.g. document id";
-            documentIdInputField.Size = new Size(240, 54);
-            documentIdInputField.TabIndex = 0;
-            documentIdInputField.TabStop = false;
-            documentIdInputField.TextChanged += DocumentIdInputField_TextChanged;
-            // 
-            // projectIdInputField
-            // 
-            projectIdInputField.ForeColor = Color.White;
-            projectIdInputField.InputEnabled = false;
-            projectIdInputField.LabelText = "Project id";
-            projectIdInputField.Location = new Point(280, 142);
-            projectIdInputField.Margin = new Padding(24, 0, 0, 16);
-            projectIdInputField.Name = "projectIdInputField";
-            projectIdInputField.PlaceholderText = "e.g. project id";
-            projectIdInputField.Size = new Size(240, 54);
-            projectIdInputField.TabIndex = 0;
-            projectIdInputField.TabStop = false;
-            // 
-            // taskIdInputField
-            // 
-            taskIdInputField.ForeColor = Color.White;
-            taskIdInputField.InputEnabled = false;
-            taskIdInputField.LabelText = "Task id";
-            taskIdInputField.Location = new Point(280, 64);
-            taskIdInputField.Margin = new Padding(24, 16, 0, 24);
-            taskIdInputField.Name = "taskIdInputField";
-            taskIdInputField.PlaceholderText = "e.g. task id";
-            taskIdInputField.Size = new Size(240, 54);
-            taskIdInputField.TabIndex = 0;
-            taskIdInputField.TabStop = false;
-            taskIdInputField.TextChanged += TaskIdInputField_TextChanged;
-            // 
-            // fileTypeInputField
-            // 
-            fileTypeInputField.ForeColor = Color.White;
-            fileTypeInputField.InputEnabled = false;
-            fileTypeInputField.LabelText = "File type";
-            fileTypeInputField.Location = new Point(16, 142);
-            fileTypeInputField.Margin = new Padding(16, 0, 0, 16);
-            fileTypeInputField.Name = "fileTypeInputField";
-            fileTypeInputField.PlaceholderText = "e.g. docx, xlsx, pptx, ...";
-            fileTypeInputField.Size = new Size(240, 54);
-            fileTypeInputField.TabIndex = 0;
-            fileTypeInputField.TabStop = false;
-            // 
-            // projectNameInputField
-            // 
-            projectNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            projectNameInputField.ForeColor = Color.White;
-            projectNameInputField.InputEnabled = false;
-            projectNameInputField.LabelText = "Project name";
-            projectNameInputField.Location = new Point(544, 142);
-            projectNameInputField.Margin = new Padding(24, 0, 16, 16);
-            projectNameInputField.Name = "projectNameInputField";
-            projectNameInputField.PlaceholderText = "e.g. project name";
-            projectNameInputField.Size = new Size(504, 54);
-            projectNameInputField.TabIndex = 0;
-            projectNameInputField.TabStop = false;
-            // 
-            // taskNameInputField
-            // 
-            taskNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            taskNameInputField.ForeColor = Color.White;
-            taskNameInputField.InputEnabled = false;
-            taskNameInputField.LabelText = "Task name";
-            taskNameInputField.Location = new Point(544, 64);
-            taskNameInputField.Margin = new Padding(24, 16, 16, 24);
-            taskNameInputField.Name = "taskNameInputField";
-            taskNameInputField.PlaceholderText = "e.g. task name";
-            taskNameInputField.Size = new Size(504, 54);
-            taskNameInputField.TabIndex = 0;
-            taskNameInputField.TabStop = false;
-            // 
             // DocumentControl
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(documentDataGridView);
+            Controls.Add(documentIdInputField);
+            Controls.Add(taskIdInputField);
+            Controls.Add(taskNameInputField);
+            Controls.Add(fileTypeInputField);
+            Controls.Add(projectIdInputField);
+            Controls.Add(projectNameInputField);
+            Controls.Add(searchTextBox);
+            Controls.Add(searchButton);
+            Controls.Add(reloadButton);
             Controls.Add(downloadButton);
             Controls.Add(deleteButton);
-            Controls.Add(editButton);
+            Controls.Add(updateButton);
             Controls.Add(insertButton);
-            Controls.Add(reloadButton);
-            Controls.Add(searchButton);
-            Controls.Add(searchTextBox);
-            Controls.Add(projectNameInputField);
-            Controls.Add(projectIdInputField);
-            Controls.Add(fileTypeInputField);
-            Controls.Add(taskNameInputField);
-            Controls.Add(taskIdInputField);
-            Controls.Add(documentIdInputField);
+            Controls.Add(documentDataGridView);
             HeaderText = "Document";
             Margin = new Padding(2);
             Name = "DocumentControl";
             ReturnButtonVisible = false;
             Load += DocumentControl_Load;
-            Controls.SetChildIndex(documentIdInputField, 0);
-            Controls.SetChildIndex(taskIdInputField, 0);
-            Controls.SetChildIndex(taskNameInputField, 0);
-            Controls.SetChildIndex(fileTypeInputField, 0);
-            Controls.SetChildIndex(projectIdInputField, 0);
-            Controls.SetChildIndex(projectNameInputField, 0);
-            Controls.SetChildIndex(searchTextBox, 0);
-            Controls.SetChildIndex(searchButton, 0);
-            Controls.SetChildIndex(reloadButton, 0);
+            Controls.SetChildIndex(documentDataGridView, 0);
             Controls.SetChildIndex(insertButton, 0);
-            Controls.SetChildIndex(editButton, 0);
+            Controls.SetChildIndex(updateButton, 0);
             Controls.SetChildIndex(deleteButton, 0);
             Controls.SetChildIndex(downloadButton, 0);
-            Controls.SetChildIndex(documentDataGridView, 0);
+            Controls.SetChildIndex(reloadButton, 0);
+            Controls.SetChildIndex(searchButton, 0);
+            Controls.SetChildIndex(searchTextBox, 0);
+            Controls.SetChildIndex(projectNameInputField, 0);
+            Controls.SetChildIndex(projectIdInputField, 0);
+            Controls.SetChildIndex(fileTypeInputField, 0);
+            Controls.SetChildIndex(taskNameInputField, 0);
+            Controls.SetChildIndex(taskIdInputField, 0);
+            Controls.SetChildIndex(documentIdInputField, 0);
             ((System.ComponentModel.ISupportInitialize)documentDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -374,7 +377,7 @@
         private DataGridView documentDataGridView;
         private Button insertButton;
         private Button deleteButton;
-        private Button editButton;
+        private Button updateButton;
         private Button searchButton;
         private Button reloadButton;
         private DataGridViewTextBoxColumn Column1;
