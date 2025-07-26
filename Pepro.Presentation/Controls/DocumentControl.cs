@@ -1,5 +1,6 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
+using Svg;
 
 namespace Pepro.Presentation.Controls;
 
@@ -20,21 +21,12 @@ public partial class DocumentControl : PeproMediatedUserControl
         InitializeComponent();
         documentDataGridView.SetupCellStyle();
 
-        SetupRuntimeFlatStyle(searchButton);
-        SetupRuntimeFlatStyle(reloadButton);
-        SetupRuntimeFlatStyle(insertButton);
-        SetupRuntimeFlatStyle(deleteButton);
-        SetupRuntimeFlatStyle(editButton);
-        SetupRuntimeFlatStyle(downloadButton);
-    }
-
-    private static void SetupRuntimeFlatStyle(Button button)
-    {
-        button.BackColor = ThemeColors.Accent.Base;
-        button.FlatStyle = FlatStyle.Flat;
-        button.FlatAppearance.BorderSize = 0;
-        button.FlatAppearance.MouseOverBackColor = ThemeColors.Accent.Light;
-        button.FlatAppearance.MouseDownBackColor = ThemeColors.Accent.Dark;
+        searchButton.SetupRuntimeFlatStyle();
+        reloadButton.SetupRuntimeFlatStyle();
+        insertButton.SetupRuntimeFlatStyle();
+        deleteButton.SetupRuntimeFlatStyle();
+        updateButton.SetupRuntimeFlatStyle();
+        downloadButton.SetupRuntimeFlatStyle();
     }
 
     private void DocumentControl_Load(object sender, EventArgs e)
