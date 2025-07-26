@@ -15,7 +15,14 @@ public static class ThemeColors
         public static Color Base => Color.FromArgb(0, 58, 250);
         public static Color Dark => Color.FromArgb(0, 36, 156);
     }
-    public static Color Background => Color.Empty;
+    public static class Background
+    {
+        public static Color Lighter => Color.FromArgb(43, 43, 43);
+        public static Color Light => Color.FromArgb(36, 36, 36);
+        public static Color Base => Color.FromArgb(29, 29, 29);
+        public static Color Dark => Color.FromArgb(22, 22, 22);
+        public static Color Darker => Color.FromArgb(15, 15, 15);
+    }
     public static Color Text => Color.White;
     public static Color Subtext => Color.FromArgb(128, 128, 128);
     public static Color Neutral => Color.FromArgb(208, 208, 208);
