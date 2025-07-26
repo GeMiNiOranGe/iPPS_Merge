@@ -3,23 +3,23 @@
 public static class DataGridViewExtensions {
     public static void SetupCellStyle(this DataGridView dataGridView) {
         dataGridView.AlternatingRowsDefaultCellStyle = new() {
-            BackColor = Color.FromArgb(70, 70, 70),
+            BackColor = ThemeColors.Background.Lighter,
         };
 
         dataGridView.ColumnHeadersDefaultCellStyle = new() {
             Alignment = DataGridViewContentAlignment.MiddleCenter,
-            BackColor = Color.FromArgb(34, 130, 253),
+            BackColor = ThemeColors.Accent.Base,
             Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel),
             ForeColor = Color.White,
         };
 
         dataGridView.DefaultCellStyle = new () {
             Alignment = DataGridViewContentAlignment.MiddleLeft,
-            BackColor = Color.FromArgb(25, 25, 25),
+            BackColor = ThemeColors.Background.Base,
             Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Pixel),
             ForeColor = Color.White,
-            SelectionBackColor = SystemColors.Highlight,
-            SelectionForeColor = SystemColors.HighlightText,
+            SelectionBackColor = ThemeColors.Accent.Dark,
+            SelectionForeColor = ThemeColors.Text,
             WrapMode = DataGridViewTriState.True,
         };
     }
