@@ -240,7 +240,7 @@
             // browseButton
             // 
             browseButton.Anchor = AnchorStyles.None;
-            browseButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
+            browseButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             browseButton.Location = new Point(808, 501);
             browseButton.Margin = new Padding(16);
             browseButton.Name = "browseButton";
