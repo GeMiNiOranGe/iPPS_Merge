@@ -43,7 +43,6 @@
             deleteButton = new Button();
             editButton = new Button();
             downloadButton = new Button();
-            headerLabel = new Label();
             reloadButton = new Button();
             searchButton = new Button();
             searchTextBox = new TextBox();
@@ -86,7 +85,7 @@
             Column1.HeaderText = "Mã";
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
-            Column1.Width = 49;
+            Column1.Width = 54;
             // 
             // Column2
             // 
@@ -94,7 +93,7 @@
             Column2.HeaderText = "Tiêu đề";
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
-            Column2.Width = 66;
+            Column2.Width = 59;
             // 
             // Column3
             // 
@@ -102,7 +101,7 @@
             Column3.HeaderText = "Ngày tạo";
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
-            Column3.Width = 74;
+            Column3.Width = 83;
             // 
             // Column4
             // 
@@ -110,7 +109,7 @@
             Column4.HeaderText = "Số sửa đổi";
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
-            Column4.Width = 79;
+            Column4.Width = 89;
             // 
             // Column5
             // 
@@ -118,7 +117,7 @@
             Column5.HeaderText = "Loại sửa đổi";
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
-            Column5.Width = 72;
+            Column5.Width = 81;
             // 
             // Column6
             // 
@@ -126,7 +125,7 @@
             Column6.HeaderText = "Đường dẫn tài liệu";
             Column6.Name = "Column6";
             Column6.ReadOnly = true;
-            Column6.Width = 101;
+            Column6.Width = 115;
             // 
             // Column7
             // 
@@ -134,7 +133,7 @@
             Column7.HeaderText = "loại tệp gốc";
             Column7.Name = "Column7";
             Column7.ReadOnly = true;
-            Column7.Width = 87;
+            Column7.Width = 97;
             // 
             // Column8
             // 
@@ -142,7 +141,7 @@
             Column8.HeaderText = "Chuẩn bị bởi";
             Column8.Name = "Column8";
             Column8.ReadOnly = true;
-            Column8.Width = 77;
+            Column8.Width = 86;
             // 
             // Column9
             // 
@@ -150,7 +149,7 @@
             Column9.HeaderText = "Kiểm tra bởi";
             Column9.Name = "Column9";
             Column9.ReadOnly = true;
-            Column9.Width = 73;
+            Column9.Width = 82;
             // 
             // Column10
             // 
@@ -158,7 +157,7 @@
             Column10.HeaderText = "Chấp thuận bởi";
             Column10.Name = "Column10";
             Column10.ReadOnly = true;
-            Column10.Width = 89;
+            Column10.Width = 101;
             // 
             // Column11
             // 
@@ -166,7 +165,7 @@
             Column11.HeaderText = "Mã nhiệm vụ";
             Column11.Name = "Column11";
             Column11.ReadOnly = true;
-            Column11.Width = 82;
+            Column11.Width = 92;
             // 
             // insertButton
             // 
@@ -219,20 +218,6 @@
             downloadButton.Text = "Download";
             downloadButton.UseVisualStyleBackColor = false;
             downloadButton.Click += DownloadButton_Click;
-            // 
-            // headerLabel
-            // 
-            headerLabel.BackColor = Color.FromArgb(22, 22, 22);
-            headerLabel.Dock = DockStyle.Top;
-            headerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
-            headerLabel.ForeColor = Color.White;
-            headerLabel.Location = new Point(0, 0);
-            headerLabel.Margin = new Padding(2, 0, 2, 0);
-            headerLabel.Name = "headerLabel";
-            headerLabel.Size = new Size(1064, 48);
-            headerLabel.TabIndex = 28;
-            headerLabel.Text = "Document";
-            headerLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // reloadButton
             // 
@@ -351,7 +336,6 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(15, 15, 15);
             Controls.Add(documentDataGridView);
             Controls.Add(downloadButton);
             Controls.Add(deleteButton);
@@ -366,11 +350,25 @@
             Controls.Add(taskNameInputField);
             Controls.Add(taskIdInputField);
             Controls.Add(documentIdInputField);
-            Controls.Add(headerLabel);
+            HeaderText = "Document";
             Margin = new Padding(2);
             Name = "DocumentControl";
-            Size = new Size(1064, 681);
+            ReturnButtonVisible = false;
             Load += DocumentControl_Load;
+            Controls.SetChildIndex(documentIdInputField, 0);
+            Controls.SetChildIndex(taskIdInputField, 0);
+            Controls.SetChildIndex(taskNameInputField, 0);
+            Controls.SetChildIndex(fileTypeInputField, 0);
+            Controls.SetChildIndex(projectIdInputField, 0);
+            Controls.SetChildIndex(projectNameInputField, 0);
+            Controls.SetChildIndex(searchTextBox, 0);
+            Controls.SetChildIndex(searchButton, 0);
+            Controls.SetChildIndex(reloadButton, 0);
+            Controls.SetChildIndex(insertButton, 0);
+            Controls.SetChildIndex(editButton, 0);
+            Controls.SetChildIndex(deleteButton, 0);
+            Controls.SetChildIndex(downloadButton, 0);
+            Controls.SetChildIndex(documentDataGridView, 0);
             ((System.ComponentModel.ISupportInitialize)documentDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -397,7 +395,6 @@
         private DataGridViewTextBoxColumn Column10;
         private DataGridViewTextBoxColumn Column11;
         private Button downloadButton;
-        private Label headerLabel;
         private TextBox searchTextBox;
         private PeproInputField documentIdInputField;
         private PeproInputField projectIdInputField;

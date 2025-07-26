@@ -31,7 +31,6 @@ namespace Pepro.Presentation
         private void InitializeComponent() {
             createdAtDateTimePicker = new DateTimePicker();
             browseButton = new Button();
-            headerLabel = new Label();
             saveButton = new Button();
             createdAtLabel = new Label();
             fileTypeInputField = new PeproInputField();
@@ -47,7 +46,6 @@ namespace Pepro.Presentation
             taskNameComboBoxField = new PeproComboBoxField();
             revisionNumberInputField = new PeproInputField();
             revisionStatusInputField = new PeproInputField();
-            returnButton = new Button();
             SuspendLayout();
             // 
             // createdAtDateTimePicker
@@ -74,20 +72,6 @@ namespace Pepro.Presentation
             browseButton.Text = "Browse";
             browseButton.UseVisualStyleBackColor = false;
             browseButton.Click += BrowseButton_Click;
-            // 
-            // headerLabel
-            // 
-            headerLabel.BackColor = Color.FromArgb(22, 22, 22);
-            headerLabel.Dock = DockStyle.Top;
-            headerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
-            headerLabel.ForeColor = Color.White;
-            headerLabel.Location = new Point(0, 0);
-            headerLabel.Margin = new Padding(2, 0, 2, 0);
-            headerLabel.Name = "headerLabel";
-            headerLabel.Size = new Size(1064, 48);
-            headerLabel.TabIndex = 182;
-            headerLabel.Text = "Header Text";
-            headerLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // saveButton
             // 
@@ -278,25 +262,10 @@ namespace Pepro.Presentation
             revisionStatusInputField.Size = new Size(224, 54);
             revisionStatusInputField.TabIndex = 202;
             // 
-            // returnButton
-            // 
-            returnButton.BackColor = Color.FromArgb(34, 130, 253);
-            returnButton.FlatStyle = FlatStyle.Flat;
-            returnButton.Location = new Point(0, 0);
-            returnButton.Margin = new Padding(0);
-            returnButton.Name = "returnButton";
-            returnButton.Size = new Size(48, 48);
-            returnButton.TabIndex = 203;
-            returnButton.UseVisualStyleBackColor = false;
-            returnButton.Click += ReturnButton_Click;
-            // 
             // DocumentEditorForm
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(15, 15, 15);
-            Controls.Add(returnButton);
-            Controls.Add(headerLabel);
             Controls.Add(taskIdInputField);
             Controls.Add(taskNameComboBoxField);
             Controls.Add(projectIdInputField);
@@ -314,10 +283,27 @@ namespace Pepro.Presentation
             Controls.Add(createdAtDateTimePicker);
             Controls.Add(saveButton);
             Controls.Add(browseButton);
+            HeaderText = "Document Editor";
             Margin = new Padding(2);
             Name = "DocumentEditorForm";
-            Size = new Size(1064, 681);
             Load += FormInsert_Load;
+            Controls.SetChildIndex(browseButton, 0);
+            Controls.SetChildIndex(saveButton, 0);
+            Controls.SetChildIndex(createdAtDateTimePicker, 0);
+            Controls.SetChildIndex(createdAtLabel, 0);
+            Controls.SetChildIndex(approvedByInputField, 0);
+            Controls.SetChildIndex(fileTypeInputField, 0);
+            Controls.SetChildIndex(filePathInputField, 0);
+            Controls.SetChildIndex(checkedByInputField, 0);
+            Controls.SetChildIndex(preparedByInputField, 0);
+            Controls.SetChildIndex(revisionStatusInputField, 0);
+            Controls.SetChildIndex(revisionNumberInputField, 0);
+            Controls.SetChildIndex(titleInputField, 0);
+            Controls.SetChildIndex(documentIdInputField, 0);
+            Controls.SetChildIndex(projectNameComboBoxField, 0);
+            Controls.SetChildIndex(projectIdInputField, 0);
+            Controls.SetChildIndex(taskNameComboBoxField, 0);
+            Controls.SetChildIndex(taskIdInputField, 0);
             ResumeLayout(false);
             PerformLayout();
 
@@ -326,7 +312,6 @@ namespace Pepro.Presentation
         #endregion
         private Label createdAtLabel;
         private Button saveButton;
-        private Label headerLabel;
         private Button browseButton;
         private DateTimePicker createdAtDateTimePicker;
         private PeproInputField fileTypeInputField;
@@ -342,6 +327,5 @@ namespace Pepro.Presentation
         private PeproInputField revisionStatusInputField;
         private PeproComboBoxField projectNameComboBoxField;
         private PeproComboBoxField taskNameComboBoxField;
-        private Button returnButton;
     }
 }
