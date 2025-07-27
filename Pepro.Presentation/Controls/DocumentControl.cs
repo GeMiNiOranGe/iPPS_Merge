@@ -22,6 +22,10 @@ public partial class DocumentControl : PeproMediatedUserControl
         documentDataGridView.SetupCellStyle();
 
         searchButton.SetupRuntimeFlatStyle();
+        searchButton.SetupRuntimeIcon(
+            "Search",
+            colorServer: new SvgColourServer(ThemeColors.Text)
+        );
         reloadButton.SetupRuntimeFlatStyle();
         insertButton.SetupRuntimeFlatStyle();
         deleteButton.SetupRuntimeFlatStyle();
