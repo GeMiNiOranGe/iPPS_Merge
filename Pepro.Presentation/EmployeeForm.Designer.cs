@@ -307,7 +307,6 @@
             // btnUpdate
             // 
             btnUpdate.BackColor = SystemColors.ControlLightLight;
-            btnUpdate.BackgroundImage = Properties.Resources.update;
             btnUpdate.BackgroundImageLayout = ImageLayout.Stretch;
             btnUpdate.Location = new Point(324, 167);
             btnUpdate.Margin = new Padding(4, 3, 4, 3);
@@ -320,7 +319,6 @@
             // btnAdd
             // 
             btnAdd.BackColor = SystemColors.ControlLightLight;
-            btnAdd.BackgroundImage = Properties.Resources.updateicon;
             btnAdd.BackgroundImageLayout = ImageLayout.Stretch;
             btnAdd.Location = new Point(164, 167);
             btnAdd.Margin = new Padding(4, 3, 4, 3);
