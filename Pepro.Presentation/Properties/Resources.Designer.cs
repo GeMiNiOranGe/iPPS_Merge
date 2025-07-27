@@ -173,16 +173,6 @@ namespace Pepro.Presentation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap insert {
-            get {
-                object obj = ResourceManager.GetObject("insert", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Laptop {
             get {
                 object obj = ResourceManager.GetObject("Laptop", resourceCulture);
@@ -246,16 +236,6 @@ namespace Pepro.Presentation.Properties {
         internal static System.Drawing.Bitmap passwork {
             get {
                 object obj = ResourceManager.GetObject("passwork", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap person_add {
-            get {
-                object obj = ResourceManager.GetObject("person_add", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
