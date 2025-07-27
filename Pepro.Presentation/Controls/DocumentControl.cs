@@ -38,6 +38,10 @@ public partial class DocumentControl : PeproMediatedUserControl
         );
         deleteButton.SetupRuntimeFlatStyle();
         updateButton.SetupRuntimeFlatStyle();
+        updateButton.SetupRuntimeIcon(
+            "EditPencil",
+            colorServer: new SvgColourServer(ThemeColors.Text)
+        );
         downloadButton.SetupRuntimeFlatStyle();
     }
 
