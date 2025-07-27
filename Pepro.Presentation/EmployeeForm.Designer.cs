@@ -103,7 +103,6 @@
             // btnReload
             // 
             btnReload.BackColor = SystemColors.ControlLightLight;
-            btnReload.BackgroundImage = Properties.Resources.reloadIcon;
             btnReload.BackgroundImageLayout = ImageLayout.Stretch;
             btnReload.Location = new Point(626, 167);
             btnReload.Margin = new Padding(4, 3, 4, 3);
