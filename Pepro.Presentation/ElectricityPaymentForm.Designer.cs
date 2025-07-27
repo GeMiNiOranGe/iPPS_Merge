@@ -329,7 +329,6 @@
             // 
             btnReload.BackColor = Color.FromArgb(255, 96, 0);
             btnReload.ForeColor = SystemColors.ButtonHighlight;
-            btnReload.Image = Properties.Resources.reload;
             btnReload.Location = new Point(864, 54);
             btnReload.Margin = new Padding(4);
             btnReload.Name = "btnReload";

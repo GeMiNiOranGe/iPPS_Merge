@@ -161,7 +161,6 @@
             // reloadButton
             // 
             reloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            reloadButton.Image = Properties.Resources.reload;
             reloadButton.Location = new Point(592, 212);
             reloadButton.Margin = new Padding(16, 0, 0, 0);
             reloadButton.Name = "reloadButton";

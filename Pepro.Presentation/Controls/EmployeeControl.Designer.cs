@@ -179,7 +179,6 @@
             // reloadButton
             // 
             reloadButton.BackColor = Color.FromArgb(34, 130, 253);
-            reloadButton.BackgroundImage = Properties.Resources.reload;
             reloadButton.BackgroundImageLayout = ImageLayout.Center;
             reloadButton.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             reloadButton.Location = new Point(282, 75);

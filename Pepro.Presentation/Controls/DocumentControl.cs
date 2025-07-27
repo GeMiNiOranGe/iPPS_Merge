@@ -27,6 +27,10 @@ public partial class DocumentControl : PeproMediatedUserControl
             colorServer: new SvgColourServer(ThemeColors.Text)
         );
         reloadButton.SetupRuntimeFlatStyle();
+        reloadButton.SetupRuntimeIcon(
+            "Refresh",
+            colorServer: new SvgColourServer(ThemeColors.Text)
+        );
         insertButton.SetupRuntimeFlatStyle();
         deleteButton.SetupRuntimeFlatStyle();
         updateButton.SetupRuntimeFlatStyle();
