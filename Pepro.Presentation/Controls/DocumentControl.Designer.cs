@@ -151,7 +151,6 @@
             // searchButton
             // 
             searchButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            searchButton.Image = Properties.Resources.search;
             searchButton.Location = new Point(536, 212);
             searchButton.Margin = new Padding(16, 0, 0, 0);
             searchButton.Name = "searchButton";

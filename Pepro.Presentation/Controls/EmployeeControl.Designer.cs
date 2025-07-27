@@ -247,7 +247,6 @@
             // searchButton
             // 
             searchButton.BackColor = Color.FromArgb(34, 130, 253);
-            searchButton.BackgroundImage = Properties.Resources.search;
             searchButton.BackgroundImageLayout = ImageLayout.Center;
             searchButton.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             searchButton.Location = new Point(237, 75);
