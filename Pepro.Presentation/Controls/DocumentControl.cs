@@ -32,6 +32,10 @@ public partial class DocumentControl : PeproMediatedUserControl
             colorServer: new SvgColourServer(ThemeColors.Text)
         );
         insertButton.SetupRuntimeFlatStyle();
+        insertButton.SetupRuntimeIcon(
+            "Plus",
+            colorServer: new SvgColourServer(ThemeColors.Text)
+        );
         deleteButton.SetupRuntimeFlatStyle();
         updateButton.SetupRuntimeFlatStyle();
         downloadButton.SetupRuntimeFlatStyle();
