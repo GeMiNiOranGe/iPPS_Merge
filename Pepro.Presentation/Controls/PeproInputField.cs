@@ -46,11 +46,8 @@ public partial class PeproInputField : PeproInputFieldBase {
         set => inputFieldTextBox.Text = value;
     }
 
-    [Browsable(true)]
-    [Category("Behavior")]
-    [DefaultValue(true)]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-    public bool InputEnabled {
+    public new bool Enabled {
         get => inputFieldTextBox.Enabled;
         set => inputFieldTextBox.Enabled = value;
     }
@@ -91,14 +88,14 @@ public partial class PeproInputField : PeproInputFieldBase {
 
     protected override void OnEnter(EventArgs e) {
         base.OnEnter(e);
-        if (InputEnabled) {
+        if (Enabled) {
             inputFieldPanel.BackColor = FocusColor.IsEmpty ? Color.Gray : FocusColor;
         }
     }
 
     protected override void OnLeave(EventArgs e) {
         base.OnLeave(e);
-        if (InputEnabled) {
+        if (Enabled) {
             inputFieldPanel.BackColor = ForeColor;
         }
     }
