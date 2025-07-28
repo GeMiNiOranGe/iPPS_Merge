@@ -82,7 +82,7 @@ public partial class DocumentControl : PeproMediatedUserControl
         _mediator.Notify(this, ControlUiEvent.OpenDocumentEditorControl, new OpenDocumentEditorControlPayload()
         {
             Item = new(),
-            HeaderText = "Create a new document",
+            Mode = EditorMode.Create,
         });
     }
 
@@ -114,7 +114,7 @@ public partial class DocumentControl : PeproMediatedUserControl
         _mediator.Notify(this, ControlUiEvent.OpenDocumentEditorControl, new OpenDocumentEditorControlPayload()
         {
             Item = document,
-            HeaderText = "Edit document",
+            Mode = EditorMode.Edit,
         });
     }
 
