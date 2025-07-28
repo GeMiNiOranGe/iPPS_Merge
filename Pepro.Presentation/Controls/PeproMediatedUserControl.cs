@@ -47,9 +47,9 @@ public partial class PeproMediatedUserControl : PeproUserControlBase {
 
         if (!DesignMode) {
             headerReturnButton.Image = IconProvider.GetIcon(
-                "Xmark",
+                "ArrowLeft",
                 colorServer: new SvgColourServer(Color.White),
-                size: 48
+                size: 24
             );
         }
     }
