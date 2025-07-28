@@ -37,6 +37,10 @@ public partial class DocumentControl : PeproMediatedUserControl
             colorServer: new SvgColourServer(ThemeColors.Text)
         );
         deleteButton.SetupRuntimeFlatStyle();
+        deleteButton.SetupRuntimeIcon(
+            "Trash",
+            colorServer: new SvgColourServer(ThemeColors.Text)
+        );
         updateButton.SetupRuntimeFlatStyle();
         updateButton.SetupRuntimeIcon(
             "EditPencil",
