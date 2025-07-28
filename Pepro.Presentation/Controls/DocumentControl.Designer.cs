@@ -57,8 +57,8 @@
             // 
             // documentIdInputField
             // 
+            documentIdInputField.Enabled = false;
             documentIdInputField.ForeColor = Color.White;
-            documentIdInputField.InputEnabled = false;
             documentIdInputField.LabelText = "Document id";
             documentIdInputField.Location = new Point(16, 64);
             documentIdInputField.Margin = new Padding(16, 16, 0, 24);
@@ -71,8 +71,8 @@
             // 
             // taskIdInputField
             // 
+            taskIdInputField.Enabled = false;
             taskIdInputField.ForeColor = Color.White;
-            taskIdInputField.InputEnabled = false;
             taskIdInputField.LabelText = "Task id";
             taskIdInputField.Location = new Point(280, 64);
             taskIdInputField.Margin = new Padding(24, 16, 0, 24);
@@ -86,8 +86,8 @@
             // taskNameInputField
             // 
             taskNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            taskNameInputField.Enabled = false;
             taskNameInputField.ForeColor = Color.White;
-            taskNameInputField.InputEnabled = false;
             taskNameInputField.LabelText = "Task name";
             taskNameInputField.Location = new Point(544, 64);
             taskNameInputField.Margin = new Padding(24, 16, 16, 24);
@@ -99,8 +99,8 @@
             // 
             // fileTypeInputField
             // 
+            fileTypeInputField.Enabled = false;
             fileTypeInputField.ForeColor = Color.White;
-            fileTypeInputField.InputEnabled = false;
             fileTypeInputField.LabelText = "File type";
             fileTypeInputField.Location = new Point(16, 142);
             fileTypeInputField.Margin = new Padding(16, 0, 0, 16);
@@ -112,8 +112,8 @@
             // 
             // projectIdInputField
             // 
+            projectIdInputField.Enabled = false;
             projectIdInputField.ForeColor = Color.White;
-            projectIdInputField.InputEnabled = false;
             projectIdInputField.LabelText = "Project id";
             projectIdInputField.Location = new Point(280, 142);
             projectIdInputField.Margin = new Padding(24, 0, 0, 16);
@@ -126,8 +126,8 @@
             // projectNameInputField
             // 
             projectNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            projectNameInputField.Enabled = false;
             projectNameInputField.ForeColor = Color.White;
-            projectNameInputField.InputEnabled = false;
             projectNameInputField.LabelText = "Project name";
             projectNameInputField.Location = new Point(544, 142);
             projectNameInputField.Margin = new Padding(24, 0, 16, 16);

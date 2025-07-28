@@ -49,8 +49,8 @@
             // projectIdInputField
             // 
             projectIdInputField.Anchor = AnchorStyles.None;
+            projectIdInputField.Enabled = false;
             projectIdInputField.ForeColor = Color.White;
-            projectIdInputField.InputEnabled = false;
             projectIdInputField.LabelText = "Project id";
             projectIdInputField.Location = new Point(16, 64);
             projectIdInputField.Margin = new Padding(16, 16, 0, 16);
@@ -75,8 +75,8 @@
             // taskIdInputField
             // 
             taskIdInputField.Anchor = AnchorStyles.None;
+            taskIdInputField.Enabled = false;
             taskIdInputField.ForeColor = Color.White;
-            taskIdInputField.InputEnabled = false;
             taskIdInputField.LabelText = "Task id";
             taskIdInputField.Location = new Point(16, 150);
             taskIdInputField.Margin = new Padding(16, 16, 0, 16);
@@ -100,8 +100,8 @@
             // documentIdInputField
             // 
             documentIdInputField.Anchor = AnchorStyles.None;
+            documentIdInputField.Enabled = false;
             documentIdInputField.ForeColor = Color.White;
-            documentIdInputField.InputEnabled = false;
             documentIdInputField.LabelText = "Document id";
             documentIdInputField.Location = new Point(16, 236);
             documentIdInputField.Margin = new Padding(16, 16, 0, 16);
@@ -162,8 +162,8 @@
             // fileTypeInputField
             // 
             fileTypeInputField.Anchor = AnchorStyles.None;
+            fileTypeInputField.Enabled = false;
             fileTypeInputField.ForeColor = Color.White;
-            fileTypeInputField.InputEnabled = false;
             fileTypeInputField.LabelText = "File type";
             fileTypeInputField.Location = new Point(544, 408);
             fileTypeInputField.Margin = new Padding(24, 16, 0, 16);
@@ -198,8 +198,8 @@
             // revisionNumberInputField
             // 
             revisionNumberInputField.Anchor = AnchorStyles.None;
+            revisionNumberInputField.Enabled = false;
             revisionNumberInputField.ForeColor = Color.White;
-            revisionNumberInputField.InputEnabled = false;
             revisionNumberInputField.LabelText = "Revision number";
             revisionNumberInputField.Location = new Point(16, 494);
             revisionNumberInputField.Margin = new Padding(24, 16, 0, 16);
@@ -212,8 +212,8 @@
             // revisionStatusInputField
             // 
             revisionStatusInputField.Anchor = AnchorStyles.None;
+            revisionStatusInputField.Enabled = false;
             revisionStatusInputField.ForeColor = Color.White;
-            revisionStatusInputField.InputEnabled = false;
             revisionStatusInputField.LabelText = "Revision status";
             revisionStatusInputField.Location = new Point(280, 494);
             revisionStatusInputField.Margin = new Padding(24, 16, 0, 16);
@@ -226,8 +226,8 @@
             // filePathInputField
             // 
             filePathInputField.Anchor = AnchorStyles.None;
+            filePathInputField.Enabled = false;
             filePathInputField.ForeColor = Color.White;
-            filePathInputField.InputEnabled = false;
             filePathInputField.LabelText = "File path";
             filePathInputField.Location = new Point(544, 494);
             filePathInputField.Margin = new Padding(24, 16, 0, 16);
