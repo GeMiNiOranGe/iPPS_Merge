@@ -15,7 +15,7 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
             if (data is OpenDocumentEditorControlPayload payload) {
                 DocumentEditorControl documentEditorControl = new(this) {
                     Item = payload.Item,
-                    HeaderText = payload.HeaderText,
+                    Mode = payload.Mode,
                 };
                 PushControl(documentEditorControl); 
             }

@@ -43,6 +43,12 @@ public partial class PeproComboBoxField : PeproInputFieldBase {
         remove => Events.RemoveHandler(s_selectedIndexChangedEvent, value);
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+    public new bool Enabled {
+        get => inputFieldComboBox.Enabled;
+        set => inputFieldComboBox.Enabled = value;
+    }
+
     [Browsable(false)]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public ComboBox InnerComboBox => inputFieldComboBox;

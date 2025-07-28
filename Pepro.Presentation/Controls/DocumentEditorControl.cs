@@ -6,6 +6,8 @@ namespace Pepro.Presentation.Controls;
 
 public partial class DocumentEditorControl : PeproMediatedUserControl {
     private TaskDocument _item = null!;
+    private EditorMode _mode;
+    private bool _suppressTaskReload = false;
 
     public DocumentEditorControl() {
         Initialize();
@@ -34,11 +36,36 @@ public partial class DocumentEditorControl : PeproMediatedUserControl {
         }
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public required EditorMode Mode {
+        get => _mode;
+        set {
+            _mode = value;
+            HeaderText = _mode switch {
+                EditorMode.Create => "Create a new document",
+                EditorMode.Edit => "Edit document",
+                _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
+            };
+        }
+    }
+
     private void Initialize() {
         InitializeComponent();
 
         saveButton.SetupRuntimeFlatStyle();
         browseButton.SetupRuntimeFlatStyle();
+        
+        projectIdInputField.FocusColor = ThemeColors.Accent.Base;
+        taskIdInputField.FocusColor = ThemeColors.Accent.Base;
+        documentIdInputField.FocusColor = ThemeColors.Accent.Base;
+        titleInputField.FocusColor = ThemeColors.Accent.Base;
+        preparedByInputField.FocusColor = ThemeColors.Accent.Base;
+        checkedByInputField.FocusColor = ThemeColors.Accent.Base;
+        approvedByInputField.FocusColor = ThemeColors.Accent.Base;
+        fileTypeInputField.FocusColor = ThemeColors.Accent.Base;
+        revisionNumberInputField.FocusColor = ThemeColors.Accent.Base;
+        revisionStatusInputField.FocusColor = ThemeColors.Accent.Base;
+        filePathInputField.FocusColor = ThemeColors.Accent.Base;
     }
 
     private void DocumentEditorControl_Load(object sender, EventArgs e) {
@@ -53,19 +80,44 @@ public partial class DocumentEditorControl : PeproMediatedUserControl {
             nameof(taskNameComboBoxField.InnerComboBox.SelectedValue)
         );
 
-        List<Project> projects = ProjectBusiness.Instance.GetProjects();
-        projectNameComboBoxField.InnerComboBox.DataSource = projects;
-        projectNameComboBoxField.InnerComboBox.DisplayMember = nameof(Project.Name);
-        projectNameComboBoxField.InnerComboBox.ValueMember = nameof(Project.ProjectId);
-        projectNameComboBoxField.InnerComboBox.SelectedIndex = -1;
+        switch (_mode) {
+        case EditorMode.Create:
+            List<Project> projects = ProjectBusiness.Instance.GetProjects();
+            projectNameComboBoxField.InnerComboBox.DataSource = projects;
+            projectNameComboBoxField.InnerComboBox.DisplayMember = nameof(Project.Name);
+            projectNameComboBoxField.InnerComboBox.ValueMember = nameof(Project.ProjectId);
+            projectNameComboBoxField.InnerComboBox.SelectedIndex = -1;
+            break;
+        case EditorMode.Edit:
+            taskNameComboBoxField.Enabled = false;
+            projectNameComboBoxField.Enabled = false;
+
+            _suppressTaskReload = true;
+            ProjectTask task = TaskBusiness.Instance.GetTaskByDocumentId(documentIdInputField.Text);
+            taskNameComboBoxField.InnerComboBox.DataSource = (List<ProjectTask>)[task];
+            taskNameComboBoxField.InnerComboBox.DisplayMember = nameof(ProjectTask.Name);
+            taskNameComboBoxField.InnerComboBox.ValueMember = nameof(ProjectTask.TaskId);
+
+            Project project = ProjectBusiness.Instance.GetProjectByTaskId(task.TaskId);
+            projectNameComboBoxField.InnerComboBox.DataSource = (List<Project>)[project];
+            projectNameComboBoxField.InnerComboBox.DisplayMember = nameof(Project.Name);
+            projectNameComboBoxField.InnerComboBox.ValueMember = nameof(Project.ProjectId);
+            _suppressTaskReload = false;
+            break;
+        }
     }
 
     private void ProjectNameComboBoxField_SelectedIndexChanged(object sender, EventArgs e) {
+        if (_suppressTaskReload) {
+            return;
+        }
+
         string projectId = projectNameComboBoxField.InnerComboBox.SelectedValue?.ToString() ?? "";
         List<ProjectTask> tasks = TaskBusiness.Instance.GetTasksByProjectId(projectId);
         taskNameComboBoxField.InnerComboBox.DataSource = tasks;
         taskNameComboBoxField.InnerComboBox.DisplayMember = nameof(ProjectTask.Name);
         taskNameComboBoxField.InnerComboBox.ValueMember = nameof(ProjectTask.TaskId);
+        taskNameComboBoxField.InnerComboBox.SelectedIndex = -1;
     }
 
     private void SaveButton_Click(object sender, EventArgs e) {
