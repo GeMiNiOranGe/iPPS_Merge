@@ -294,7 +294,6 @@
             // btnDelete
             // 
             btnDelete.BackColor = SystemColors.ControlLightLight;
-            btnDelete.BackgroundImage = Properties.Resources.deleteicon;
             btnDelete.BackgroundImageLayout = ImageLayout.Stretch;
             btnDelete.Location = new Point(475, 167);
             btnDelete.Margin = new Padding(4, 3, 4, 3);
