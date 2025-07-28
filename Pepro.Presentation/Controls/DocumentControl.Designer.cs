@@ -145,13 +145,13 @@
             searchTextBox.Margin = new Padding(2);
             searchTextBox.Name = "searchTextBox";
             searchTextBox.PlaceholderText = "Search for document title, id, and task id";
-            searchTextBox.Size = new Size(502, 19);
+            searchTextBox.Size = new Size(432, 19);
             searchTextBox.TabIndex = 1;
             // 
             // searchButton
             // 
             searchButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            searchButton.Location = new Point(536, 212);
+            searchButton.Location = new Point(466, 212);
             searchButton.Margin = new Padding(16, 0, 0, 0);
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(40, 40);
@@ -161,7 +161,7 @@
             // reloadButton
             // 
             reloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            reloadButton.Location = new Point(592, 212);
+            reloadButton.Location = new Point(522, 212);
             reloadButton.Margin = new Padding(16, 0, 0, 0);
             reloadButton.Name = "reloadButton";
             reloadButton.Size = new Size(40, 40);
@@ -171,7 +171,7 @@
             // downloadButton
             // 
             downloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            downloadButton.Location = new Point(648, 212);
+            downloadButton.Location = new Point(578, 212);
             downloadButton.Margin = new Padding(16, 0, 0, 0);
             downloadButton.Name = "downloadButton";
             downloadButton.Size = new Size(112, 40);
@@ -183,36 +183,39 @@
             // 
             deleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             deleteButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            deleteButton.Location = new Point(776, 212);
+            deleteButton.Location = new Point(706, 212);
             deleteButton.Margin = new Padding(16, 0, 0, 0);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(80, 40);
+            deleteButton.Padding = new Padding(12, 0, 12, 0);
+            deleteButton.Size = new Size(112, 40);
             deleteButton.TabIndex = 6;
-            deleteButton.Text = "Delete";
+            deleteButton.Text = " Delete";
             deleteButton.Click += DeleteButton_Click;
             // 
             // updateButton
             // 
             updateButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             updateButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            updateButton.Location = new Point(872, 212);
+            updateButton.Location = new Point(834, 212);
             updateButton.Margin = new Padding(16, 0, 0, 0);
             updateButton.Name = "updateButton";
-            updateButton.Size = new Size(80, 40);
+            updateButton.Padding = new Padding(12, 0, 12, 0);
+            updateButton.Size = new Size(98, 40);
             updateButton.TabIndex = 5;
-            updateButton.Text = "Edit";
+            updateButton.Text = " Edit";
             updateButton.Click += EditButton_Click;
             // 
             // insertButton
             // 
             insertButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             insertButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            insertButton.Location = new Point(968, 212);
+            insertButton.Location = new Point(948, 212);
             insertButton.Margin = new Padding(16, 0, 0, 0);
             insertButton.Name = "insertButton";
-            insertButton.Size = new Size(80, 40);
+            insertButton.Padding = new Padding(12, 0, 12, 0);
+            insertButton.Size = new Size(100, 40);
             insertButton.TabIndex = 4;
-            insertButton.Text = "Add";
+            insertButton.Text = " Add";
             insertButton.Click += InsertButton_Click;
             // 
             // documentDataGridView
