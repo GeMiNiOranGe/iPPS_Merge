@@ -59,8 +59,8 @@
             // fullNameInputField
             // 
             fullNameInputField.Anchor = AnchorStyles.None;
+            fullNameInputField.Enabled = false;
             fullNameInputField.ForeColor = Color.White;
-            fullNameInputField.InputEnabled = false;
             fullNameInputField.LabelText = "Full name";
             fullNameInputField.Location = new Point(263, 162);
             fullNameInputField.Margin = new Padding(0, 0, 24, 32);
@@ -72,8 +72,8 @@
             // employeeIdInputField
             // 
             employeeIdInputField.Anchor = AnchorStyles.None;
+            employeeIdInputField.Enabled = false;
             employeeIdInputField.ForeColor = Color.White;
-            employeeIdInputField.InputEnabled = false;
             employeeIdInputField.LabelText = "Employee id";
             employeeIdInputField.Location = new Point(543, 162);
             employeeIdInputField.Margin = new Padding(0);
@@ -170,8 +170,8 @@
             // citizenIdInputField
             // 
             citizenIdInputField.Anchor = AnchorStyles.None;
+            citizenIdInputField.Enabled = false;
             citizenIdInputField.ForeColor = Color.White;
-            citizenIdInputField.InputEnabled = false;
             citizenIdInputField.LabelText = "Citizen id";
             citizenIdInputField.Location = new Point(543, 336);
             citizenIdInputField.Margin = new Padding(0, 0, 0, 32);
@@ -183,8 +183,8 @@
             // departmentInputField
             // 
             departmentInputField.Anchor = AnchorStyles.None;
+            departmentInputField.Enabled = false;
             departmentInputField.ForeColor = Color.White;
-            departmentInputField.InputEnabled = false;
             departmentInputField.LabelText = "Department";
             departmentInputField.Location = new Point(263, 422);
             departmentInputField.Margin = new Padding(0, 0, 24, 32);
@@ -196,8 +196,8 @@
             // roleInputField
             // 
             roleInputField.Anchor = AnchorStyles.None;
+            roleInputField.Enabled = false;
             roleInputField.ForeColor = Color.White;
-            roleInputField.InputEnabled = false;
             roleInputField.LabelText = "Role";
             roleInputField.Location = new Point(543, 422);
             roleInputField.Margin = new Padding(0, 0, 0, 32);
