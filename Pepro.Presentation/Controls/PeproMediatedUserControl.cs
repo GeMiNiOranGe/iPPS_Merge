@@ -48,8 +48,7 @@ public partial class PeproMediatedUserControl : PeproUserControlBase {
         if (!DesignMode) {
             headerReturnButton.Image = IconProvider.GetIcon(
                 "ArrowLeft",
-                colorServer: new SvgColourServer(Color.White),
-                size: 24
+                colorServer: new SvgColourServer(Color.White)
             );
         }
     }
