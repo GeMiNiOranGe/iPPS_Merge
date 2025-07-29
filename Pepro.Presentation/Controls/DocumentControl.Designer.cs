@@ -203,7 +203,7 @@
             updateButton.Size = new Size(98, 40);
             updateButton.TabIndex = 5;
             updateButton.Text = " Edit";
-            updateButton.Click += EditButton_Click;
+            updateButton.Click += UpdateButton_Click;
             // 
             // insertButton
             // 

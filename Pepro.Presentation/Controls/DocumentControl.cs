@@ -103,7 +103,7 @@ public partial class DocumentControl : PeproMediatedUserControl
         }
     }
 
-    private void EditButton_Click(object sender, EventArgs e)
+    private void UpdateButton_Click(object sender, EventArgs e)
     {
         DataGridViewRow? row = documentDataGridView.CurrentRow;
         if (row == null || row.DataBoundItem is not TaskDocument document)
