@@ -71,22 +71,22 @@ public partial class DocumentEditorControl : PeproMediatedUserControl {
     private void DocumentEditorControl_Load(object sender, EventArgs e) {
         projectIdInputField.DataBindings.Add(
             nameof(projectIdInputField.Text),
-            projectNameComboBoxField.InnerComboBox,
-            nameof(projectNameComboBoxField.InnerComboBox.SelectedValue)
+            projectNameComboBoxField,
+            nameof(projectNameComboBoxField.SelectedValue)
         );
         taskIdInputField.DataBindings.Add(
             nameof(taskIdInputField.Text),
-            taskNameComboBoxField.InnerComboBox,
-            nameof(taskNameComboBoxField.InnerComboBox.SelectedValue)
+            taskNameComboBoxField,
+            nameof(taskNameComboBoxField.SelectedValue)
         );
 
         switch (_mode) {
         case EditorMode.Create:
             List<Project> projects = ProjectBusiness.Instance.GetProjects();
-            projectNameComboBoxField.InnerComboBox.DataSource = projects;
-            projectNameComboBoxField.InnerComboBox.DisplayMember = nameof(Project.Name);
-            projectNameComboBoxField.InnerComboBox.ValueMember = nameof(Project.ProjectId);
-            projectNameComboBoxField.InnerComboBox.SelectedIndex = -1;
+            projectNameComboBoxField.DataSource = projects;
+            projectNameComboBoxField.DisplayMember = nameof(Project.Name);
+            projectNameComboBoxField.ValueMember = nameof(Project.ProjectId);
+            projectNameComboBoxField.SelectedIndex = -1;
             break;
         case EditorMode.Edit:
             taskNameComboBoxField.Enabled = false;
@@ -94,14 +94,14 @@ public partial class DocumentEditorControl : PeproMediatedUserControl {
 
             _suppressTaskReload = true;
             ProjectTask task = TaskBusiness.Instance.GetTaskByDocumentId(documentIdInputField.Text);
-            taskNameComboBoxField.InnerComboBox.DataSource = (List<ProjectTask>)[task];
-            taskNameComboBoxField.InnerComboBox.DisplayMember = nameof(ProjectTask.Name);
-            taskNameComboBoxField.InnerComboBox.ValueMember = nameof(ProjectTask.TaskId);
+            taskNameComboBoxField.DataSource = (List<ProjectTask>)[task];
+            taskNameComboBoxField.DisplayMember = nameof(ProjectTask.Name);
+            taskNameComboBoxField.ValueMember = nameof(ProjectTask.TaskId);
 
             Project project = ProjectBusiness.Instance.GetProjectByTaskId(task.TaskId);
-            projectNameComboBoxField.InnerComboBox.DataSource = (List<Project>)[project];
-            projectNameComboBoxField.InnerComboBox.DisplayMember = nameof(Project.Name);
-            projectNameComboBoxField.InnerComboBox.ValueMember = nameof(Project.ProjectId);
+            projectNameComboBoxField.DataSource = (List<Project>)[project];
+            projectNameComboBoxField.DisplayMember = nameof(Project.Name);
+            projectNameComboBoxField.ValueMember = nameof(Project.ProjectId);
             _suppressTaskReload = false;
             break;
         }
@@ -112,12 +112,12 @@ public partial class DocumentEditorControl : PeproMediatedUserControl {
             return;
         }
 
-        string projectId = projectNameComboBoxField.InnerComboBox.SelectedValue?.ToString() ?? "";
+        string projectId = projectNameComboBoxField.SelectedValue?.ToString() ?? "";
         List<ProjectTask> tasks = TaskBusiness.Instance.GetTasksByProjectId(projectId);
-        taskNameComboBoxField.InnerComboBox.DataSource = tasks;
-        taskNameComboBoxField.InnerComboBox.DisplayMember = nameof(ProjectTask.Name);
-        taskNameComboBoxField.InnerComboBox.ValueMember = nameof(ProjectTask.TaskId);
-        taskNameComboBoxField.InnerComboBox.SelectedIndex = -1;
+        taskNameComboBoxField.DataSource = tasks;
+        taskNameComboBoxField.DisplayMember = nameof(ProjectTask.Name);
+        taskNameComboBoxField.ValueMember = nameof(ProjectTask.TaskId);
+        taskNameComboBoxField.SelectedIndex = -1;
     }
 
     private void SaveButton_Click(object sender, EventArgs e) {

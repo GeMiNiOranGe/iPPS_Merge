@@ -4,8 +4,9 @@ using static System.Windows.Forms.ComboBox;
 
 namespace Pepro.Presentation.Controls;
 
-public partial class PeproComboBoxField : PeproInputFieldBase {
+public partial class PeproComboBoxField : PeproInputFieldBase, INotifyPropertyChanged {
     private static readonly object s_selectedIndexChangedEvent = new();
+    public event PropertyChangedEventHandler? PropertyChanged;
 
     public PeproComboBoxField() {
         InitializeComponent();
@@ -51,7 +52,57 @@ public partial class PeproComboBoxField : PeproInputFieldBase {
 
     [Browsable(false)]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public ComboBox InnerComboBox => inputFieldComboBox;
+    public object? DataSource {
+        get => inputFieldComboBox.DataSource;
+        set => inputFieldComboBox.DataSource = value;
+    }
+
+    [Browsable(false)]
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public string DisplayMember {
+        get => inputFieldComboBox.DisplayMember;
+        set => inputFieldComboBox.DisplayMember = value;
+    }
+
+    [Browsable(false)]
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public string ValueMember {
+        get => inputFieldComboBox.ValueMember;
+        set => inputFieldComboBox.ValueMember = value;
+    }
+
+    [Bindable(true)]
+    [Browsable(false)]
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    [DisallowNull]
+    public object? SelectedValue {
+        get => inputFieldComboBox.SelectedValue;
+        set => inputFieldComboBox.SelectedValue = value;
+    }
+
+    [Browsable(false)]
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public int SelectedIndex {
+        get => inputFieldComboBox.SelectedIndex;
+        set => inputFieldComboBox.SelectedIndex = value;
+    }
+
+    [Browsable(false)]
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public object? SelectedItem {
+        get => inputFieldComboBox.SelectedItem;
+        set => inputFieldComboBox.SelectedItem = value;
+    }
+
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+    public new ControlBindingsCollection DataBindings => inputFieldComboBox.DataBindings;
+
+    [Browsable(false)]
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public new BindingContext? BindingContext {
+        get => inputFieldComboBox.BindingContext;
+        set => inputFieldComboBox.BindingContext = value;
+    }
 
     protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified) {
         base.SetBoundsCore(x, y, width, DefaultSize.Height, specified);
@@ -71,9 +122,15 @@ public partial class PeproComboBoxField : PeproInputFieldBase {
         }
     }
 
+    protected void OnPropertyChanged(string propertyName) {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
     private void InputFieldComboBox_SelectedIndexChanged(object sender, EventArgs e) {
         if (Events[s_selectedIndexChangedEvent] is EventHandler handler) {
             handler(this, e);
         }
+
+        OnPropertyChanged(nameof(SelectedValue));
     }
 }
