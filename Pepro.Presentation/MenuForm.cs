@@ -27,38 +27,26 @@ public partial class MenuForm : PeproForm {
     }
 
     private void InitializeRuntimeComponents() {
-        SetSidebarButtonImages(taskButton, "Task");
-        SetSidebarButtonImages(projectButton, "Folder");
-        SetSidebarButtonImages(documentButton, "MultiplePages");
-        SetSidebarButtonImages(progressButton, "DoughnutChart");
-        SetSidebarButtonImages(employeeButton, "Group");
-        SetSidebarButtonImages(attendanceButton, "CalendarCheck");
-        SetSidebarButtonImages(salaryButton, "UserSalary");
-        SetSidebarButtonImages(dormitoryButton, "BunkBed");
+        taskButton.SetSidebarButtonImages("Task");
+        projectButton.SetSidebarButtonImages("Folder");
+        documentButton.SetSidebarButtonImages("MultiplePages");
+        progressButton.SetSidebarButtonImages("DoughnutChart");
+        employeeButton.SetSidebarButtonImages("Group");
+        attendanceButton.SetSidebarButtonImages("CalendarCheck");
+        salaryButton.SetSidebarButtonImages("UserSalary");
+        dormitoryButton.SetSidebarButtonImages("BunkBed");
 
-        logoutButton.Image = IconProvider.GetIcon(
+        logoutButton.SetupRuntimeFlatStyleNoBackColor();
+        logoutButton.SetupRuntimeIcon(
             "LogOut",
             colorServer: new SvgColourServer(ThemeColors.Text)
         );
-        logoutButton.FlatAppearance.BorderSize = 0;
-        logoutButton.FlatAppearance.MouseDownBackColor = ThemeColors.Accent.Dark;
-        logoutButton.FlatAppearance.MouseOverBackColor = ThemeColors.Accent.Base;
 
         imageUserPictureBox.Image = IconProvider.GetIcon(
             "Profile",
             colorServer: new SvgColourServer(Color.White),
             size: 48
         );
-    }
-
-    private static void SetSidebarButtonImages(PeproSidebarButton button, string iconName) {
-        SvgColourServer baseColor = new(ThemeColors.Text);
-        button.Image = IconProvider.GetIcon(iconName, colorServer: baseColor);
-        button.PressedImage = IconProvider.GetIcon(iconName, "Bold", colorServer: baseColor);
-
-        button.FlatAppearance.BorderSize = 0;
-        button.FlatAppearance.MouseDownBackColor = ThemeColors.Accent.Dark;
-        button.FlatAppearance.MouseOverBackColor = ThemeColors.Accent.Base;
     }
 
     private void OpenChildControl(UserControl child) {

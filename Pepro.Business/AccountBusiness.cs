@@ -3,7 +3,6 @@ using Pepro.Business.Utilities;
 using Pepro.Business.Security;
 using Pepro.DataAccess;
 using Pepro.DTOs;
-using Microsoft.IdentityModel.Tokens;
 
 namespace Pepro.Business;
 
@@ -21,7 +20,7 @@ public class AccountBusiness
 
     public LoginStatus GetLoginStatus(string accountName, string password)
     {
-        if (accountName.IsNullOrEmpty() || password.IsNullOrEmpty())
+        if (string.IsNullOrEmpty(accountName) || string.IsNullOrEmpty(password))
         {
             return LoginStatus.InvalidInput;
         }
