@@ -1,16 +1,33 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
+using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls;
 
-public partial class EmployeeInformationControl : PeproUserControl
+public partial class EmployeeInformationControl : PeproMediatedUserControl
 {
-    private readonly string _employeeId;
+    private string _employeeId = "";
 
-    public EmployeeInformationControl(string employeeId)
+    public EmployeeInformationControl()
+    {
+        Initialize();
+    }
+
+    public EmployeeInformationControl(IMediator mediator) : base(mediator)
+    {
+        Initialize();
+    }
+
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public required string EmployeeId
+    {
+        get => _employeeId;
+        set => _employeeId = value;
+    }
+
+    private void Initialize()
     {
         InitializeComponent();
-        _employeeId = employeeId;
     }
 
     private void EmployeeInformationControl_Load(object sender, EventArgs e)

@@ -22,6 +22,9 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
         case ControlUiEvent.OpenTaskDetailControl:
             OpenTaskDetailControl(data);
             break;
+        case ControlUiEvent.OpenEmployeeInformationControl:
+            OpenEmployeeInformationControl(data);
+            break;
         }
     }
 
@@ -75,5 +78,16 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
             ProjectName = payload.ProjectName,
         };
         PushControl(taskDetailControl);
+    }
+
+    private void OpenEmployeeInformationControl(object? data) {
+        if (data is not OpenEmployeeInformationControlPayload payload) {
+            return;
+        }
+
+        EmployeeInformationControl employeeInformationControl = new(this) {
+            EmployeeId = payload.EmployeeId,
+        };
+        OpenControl(employeeInformationControl);
     }
 }

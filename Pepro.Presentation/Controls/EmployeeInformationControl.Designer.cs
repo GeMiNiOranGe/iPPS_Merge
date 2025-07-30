@@ -27,7 +27,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            headerLabel = new Label();
             fullNameInputField = new PeproInputField();
             employeeIdInputField = new PeproInputField();
             phoneNumberComboBoxField = new PeproComboBoxField();
@@ -42,19 +41,6 @@
             roleInputField = new PeproInputField();
             assignedProjectsComboBoxField = new PeproComboBoxField();
             SuspendLayout();
-            // 
-            // headerLabel
-            // 
-            headerLabel.BackColor = Color.FromArgb(22, 22, 22);
-            headerLabel.Dock = DockStyle.Top;
-            headerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
-            headerLabel.ForeColor = Color.White;
-            headerLabel.Location = new Point(0, 0);
-            headerLabel.Name = "headerLabel";
-            headerLabel.Size = new Size(1064, 48);
-            headerLabel.TabIndex = 0;
-            headerLabel.Text = "Thông tin cơ bản";
-            headerLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // fullNameInputField
             // 
@@ -224,7 +210,6 @@
             BackColor = Color.FromArgb(15, 15, 15);
             Controls.Add(assignedProjectsComboBoxField);
             Controls.Add(phoneNumberComboBoxField);
-            Controls.Add(headerLabel);
             Controls.Add(fullNameInputField);
             Controls.Add(employeeIdInputField);
             Controls.Add(genderLabel);
@@ -236,17 +221,29 @@
             Controls.Add(citizenIdInputField);
             Controls.Add(departmentInputField);
             Controls.Add(roleInputField);
+            HeaderText = "Personal Information";
             Name = "EmployeeInformationControl";
-            Size = new Size(1064, 681);
+            ReturnButtonVisible = false;
             Load += EmployeeInformationControl_Load;
+            Controls.SetChildIndex(roleInputField, 0);
+            Controls.SetChildIndex(departmentInputField, 0);
+            Controls.SetChildIndex(citizenIdInputField, 0);
+            Controls.SetChildIndex(dateOfBirthDateTimePicker, 0);
+            Controls.SetChildIndex(dateOfBirthLabel, 0);
+            Controls.SetChildIndex(otherRadioButton, 0);
+            Controls.SetChildIndex(femaleRadioButton, 0);
+            Controls.SetChildIndex(maleRadioButton, 0);
+            Controls.SetChildIndex(genderLabel, 0);
+            Controls.SetChildIndex(employeeIdInputField, 0);
+            Controls.SetChildIndex(fullNameInputField, 0);
+            Controls.SetChildIndex(phoneNumberComboBoxField, 0);
+            Controls.SetChildIndex(assignedProjectsComboBoxField, 0);
             ResumeLayout(false);
             PerformLayout();
 
         }
 
         #endregion
-
-        private Label headerLabel;
         private Label genderLabel;
         private Label dateOfBirthLabel;
         private DateTimePicker dateOfBirthDateTimePicker;
