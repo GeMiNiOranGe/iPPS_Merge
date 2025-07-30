@@ -40,8 +40,6 @@
             Column9 = new DataGridViewTextBoxColumn();
             Column10 = new DataGridViewTextBoxColumn();
             Column11 = new DataGridViewTextBoxColumn();
-            Column12 = new DataGridViewTextBoxColumn();
-            Column13 = new DataGridViewTextBoxColumn();
             reloadButton = new Button();
             exportButton = new Button();
             deleteButton = new Button();
@@ -72,7 +70,7 @@
             employeeDataGridView.BackgroundColor = Color.FromArgb(15, 15, 15);
             employeeDataGridView.BorderStyle = BorderStyle.Fixed3D;
             employeeDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            employeeDataGridView.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11, Column12, Column13 });
+            employeeDataGridView.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11 });
             employeeDataGridView.EnableHeadersVisualStyles = false;
             employeeDataGridView.Location = new Point(16, 150);
             employeeDataGridView.Margin = new Padding(16);
@@ -87,34 +85,39 @@
             // 
             // Column1
             // 
-            Column1.HeaderText = "STT";
+            Column1.DataPropertyName = "EmployeeId";
+            Column1.HeaderText = "Mã nhân viên";
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
             Column1.Width = 55;
             // 
             // Column2
             // 
-            Column2.HeaderText = "Mã nhân viên";
+            Column2.DataPropertyName = "FirstName";
+            Column2.HeaderText = "Tên";
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
             Column2.Width = 118;
             // 
             // Column3
             // 
-            Column3.HeaderText = "Họ và tên";
+            Column3.DataPropertyName = "MiddleName";
+            Column3.HeaderText = "Tên đệm";
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
             Column3.Width = 94;
             // 
             // Column4
             // 
-            Column4.HeaderText = "Giới tính";
+            Column4.DataPropertyName = "LastName";
+            Column4.HeaderText = "Họ";
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
             Column4.Width = 86;
             // 
             // Column5
             // 
+            Column5.DataPropertyName = "DateOfBirth";
             Column5.HeaderText = "Ngày sinh";
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
@@ -122,58 +125,50 @@
             // 
             // Column6
             // 
-            Column6.HeaderText = "Nơi sinh";
+            Column6.DataPropertyName = "Gender";
+            Column6.HeaderText = "Giới tính";
             Column6.Name = "Column6";
             Column6.ReadOnly = true;
             Column6.Width = 84;
             // 
             // Column7
             // 
-            Column7.HeaderText = "Quê quán";
+            Column7.DataPropertyName = "TaxCode";
+            Column7.HeaderText = "Mã số thuế";
             Column7.Name = "Column7";
             Column7.ReadOnly = true;
             Column7.Width = 95;
             // 
             // Column8
             // 
-            Column8.HeaderText = "Trình độ văn hoá";
+            Column8.DataPropertyName = "CitizenId";
+            Column8.HeaderText = "Căn cước";
             Column8.Name = "Column8";
             Column8.ReadOnly = true;
             Column8.Width = 137;
             // 
             // Column9
             // 
-            Column9.HeaderText = "Dân tộc";
+            Column9.DataPropertyName = "DepartmentId";
+            Column9.HeaderText = "Mã phòng ban";
             Column9.Name = "Column9";
             Column9.ReadOnly = true;
             Column9.Width = 82;
             // 
             // Column10
             // 
-            Column10.HeaderText = "Tôn giáo";
+            Column10.DataPropertyName = "JobPositionId";
+            Column10.HeaderText = "Mã chức vụ";
             Column10.Name = "Column10";
             Column10.ReadOnly = true;
             Column10.Width = 86;
             // 
             // Column11
             // 
-            Column11.HeaderText = "Đoàn viên ";
+            Column11.DataPropertyName = "SalaryLevelId";
+            Column11.HeaderText = "Mã bậc lương ";
             Column11.Name = "Column11";
             Column11.ReadOnly = true;
-            // 
-            // Column12
-            // 
-            Column12.HeaderText = "Đảng viên";
-            Column12.Name = "Column12";
-            Column12.ReadOnly = true;
-            Column12.Width = 96;
-            // 
-            // Column13
-            // 
-            Column13.HeaderText = "Công đoàn viên";
-            Column13.Name = "Column13";
-            Column13.ReadOnly = true;
-            Column13.Width = 131;
             // 
             // reloadButton
             // 
@@ -332,8 +327,6 @@
         private DataGridViewTextBoxColumn Column9;
         private DataGridViewTextBoxColumn Column10;
         private DataGridViewTextBoxColumn Column11;
-        private DataGridViewTextBoxColumn Column12;
-        private DataGridViewTextBoxColumn Column13;
         private Button reloadButton;
         private PeproInputField employeeIdInputField;
         private PeproInputField numberOfEmployeesInputField;
