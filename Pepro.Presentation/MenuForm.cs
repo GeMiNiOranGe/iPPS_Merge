@@ -159,7 +159,9 @@ public partial class MenuForm : PeproForm {
     }
 
     private void Account_MouseClick(object sender, MouseEventArgs e) {
-        OpenChildControl(new EmployeeInformationControl(_accountName));
+        _mediator.Notify(this, ControlUiEvent.OpenEmployeeInformationControl, new OpenEmployeeInformationControlPayload() {
+            EmployeeId = _accountName,
+        });
     }
 
     private void Account_MouseEnter(object sender, EventArgs e) {
