@@ -3,8 +3,16 @@ using Pepro.DTOs;
 
 namespace Pepro.Presentation.Controls;
 
-public partial class ProgressControl : PeproUserControl {
+public partial class ProgressControl : PeproMediatedUserControl {
     public ProgressControl() {
+        Initialize();
+    }
+
+    public ProgressControl(IMediator mediator) : base(mediator) {
+        Initialize();
+    }
+
+    private void Initialize() {
         InitializeComponent();
     }
 

@@ -31,10 +31,10 @@ namespace Pepro.Presentation.Controls {
             // 
             projectsFlowLayoutPanel.Dock = DockStyle.Fill;
             projectsFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            projectsFlowLayoutPanel.Location = new Point(0, 0);
+            projectsFlowLayoutPanel.Location = new Point(0, 48);
             projectsFlowLayoutPanel.Name = "projectsFlowLayoutPanel";
             projectsFlowLayoutPanel.Padding = new Padding(16);
-            projectsFlowLayoutPanel.Size = new Size(150, 150);
+            projectsFlowLayoutPanel.Size = new Size(1064, 633);
             projectsFlowLayoutPanel.TabIndex = 0;
             projectsFlowLayoutPanel.SizeChanged += ProjectsFlowLayoutPanel_SizeChanged;
             // 
@@ -44,8 +44,11 @@ namespace Pepro.Presentation.Controls {
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
             Controls.Add(projectsFlowLayoutPanel);
+            HeaderText = "Progress";
             Name = "ProgressControl";
+            ReturnButtonVisible = false;
             Load += ProgressControl_Load;
+            Controls.SetChildIndex(projectsFlowLayoutPanel, 0);
             ResumeLayout(false);
 
         }

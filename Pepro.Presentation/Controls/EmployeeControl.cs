@@ -3,12 +3,20 @@
 
 namespace Pepro.Presentation.Controls;
 
-public partial class EmployeeControl : PeproUserControl {
+public partial class EmployeeControl : PeproMediatedUserControl {
     SqlConnection sqlConnection = new(Config.CONNECTION_STRING);
     SqlCommand sqlCommand;
     SqlDataReader sqlDataReader;
 
     public EmployeeControl() {
+        Initialize();
+    }
+
+    public EmployeeControl(IMediator mediator) : base(mediator) {
+        Initialize();
+    }
+
+    private void Initialize() {
         InitializeComponent();
     }
 

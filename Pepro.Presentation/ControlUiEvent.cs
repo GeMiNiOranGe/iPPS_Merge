@@ -3,4 +3,6 @@
 public enum ControlUiEvent {
     OpenDocumentControl,
     OpenDocumentEditorControl,
+    OpenProgressControl,
+    OpenEmployeeControl,
 }

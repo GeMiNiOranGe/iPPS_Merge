@@ -131,13 +131,13 @@ public partial class MenuForm : PeproForm {
     private void ProgressButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(progressButton.Location.Y);
 
-        OpenChildControl(new ProgressControl());
+        _mediator.Notify(this, ControlUiEvent.OpenProgressControl);
     }
 
     private void EmployeeButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(employeeButton.Location.Y);
 
-        OpenChildControl(new EmployeeControl());
+        _mediator.Notify(this, ControlUiEvent.OpenEmployeeControl);
     }
 
     private void AttendanceButton_MouseClick(object sender, MouseEventArgs e) {
