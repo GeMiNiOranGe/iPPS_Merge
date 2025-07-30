@@ -1,9 +1,6 @@
-﻿
-using Pepro.Presentation.Controls;
-
-namespace Pepro.Presentation
+﻿namespace Pepro.Presentation.Controls
 {
-    partial class TaskDetailForm
+    partial class TaskDetailControl
     {
         /// <summary>
         /// Required designer variable.
@@ -44,7 +41,7 @@ namespace Pepro.Presentation
             // 
             projectIdLabel.AutoSize = true;
             projectIdLabel.ForeColor = Color.White;
-            projectIdLabel.Location = new Point(13, 17);
+            projectIdLabel.Location = new Point(13, 59);
             projectIdLabel.Margin = new Padding(8, 8, 0, 4);
             projectIdLabel.Name = "projectIdLabel";
             projectIdLabel.Size = new Size(66, 19);
@@ -55,7 +52,7 @@ namespace Pepro.Presentation
             // 
             projectNameLabel.AutoSize = true;
             projectNameLabel.ForeColor = Color.White;
-            projectNameLabel.Location = new Point(13, 40);
+            projectNameLabel.Location = new Point(13, 82);
             projectNameLabel.Margin = new Padding(8, 0, 0, 4);
             projectNameLabel.Name = "projectNameLabel";
             projectNameLabel.Size = new Size(89, 19);
@@ -67,7 +64,7 @@ namespace Pepro.Presentation
             tasksOfProjectLabel.AutoSize = true;
             tasksOfProjectLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
             tasksOfProjectLabel.ForeColor = Color.White;
-            tasksOfProjectLabel.Location = new Point(12, 90);
+            tasksOfProjectLabel.Location = new Point(13, 108);
             tasksOfProjectLabel.Margin = new Padding(0);
             tasksOfProjectLabel.Name = "tasksOfProjectLabel";
             tasksOfProjectLabel.Size = new Size(161, 28);
@@ -78,10 +75,10 @@ namespace Pepro.Presentation
             // 
             tasksOfProjectFlowLayoutPanel.AutoScroll = true;
             tasksOfProjectFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            tasksOfProjectFlowLayoutPanel.Location = new Point(17, 126);
+            tasksOfProjectFlowLayoutPanel.Location = new Point(17, 144);
             tasksOfProjectFlowLayoutPanel.Margin = new Padding(8);
             tasksOfProjectFlowLayoutPanel.Name = "tasksOfProjectFlowLayoutPanel";
-            tasksOfProjectFlowLayoutPanel.Size = new Size(640, 538);
+            tasksOfProjectFlowLayoutPanel.Size = new Size(504, 520);
             tasksOfProjectFlowLayoutPanel.TabIndex = 0;
             // 
             // taskManagerLabel
@@ -89,7 +86,7 @@ namespace Pepro.Presentation
             taskManagerLabel.AutoSize = true;
             taskManagerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
             taskManagerLabel.ForeColor = Color.White;
-            taskManagerLabel.Location = new Point(685, 90);
+            taskManagerLabel.Location = new Point(549, 108);
             taskManagerLabel.Margin = new Padding(0);
             taskManagerLabel.Name = "taskManagerLabel";
             taskManagerLabel.Size = new Size(142, 28);
@@ -100,10 +97,10 @@ namespace Pepro.Presentation
             // 
             taskManagerCard.BackColor = Color.FromArgb(29, 29, 29);
             taskManagerCard.ForeColor = Color.White;
-            taskManagerCard.Location = new Point(689, 126);
+            taskManagerCard.Location = new Point(553, 144);
             taskManagerCard.Margin = new Padding(0, 0, 0, 24);
             taskManagerCard.Name = "taskManagerCard";
-            taskManagerCard.Size = new Size(558, 61);
+            taskManagerCard.Size = new Size(495, 61);
             taskManagerCard.TabIndex = 0;
             // 
             // otherTasksOfManagerLabel
@@ -111,7 +108,7 @@ namespace Pepro.Presentation
             otherTasksOfManagerLabel.AutoSize = true;
             otherTasksOfManagerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
             otherTasksOfManagerLabel.ForeColor = Color.White;
-            otherTasksOfManagerLabel.Location = new Point(685, 211);
+            otherTasksOfManagerLabel.Location = new Point(549, 229);
             otherTasksOfManagerLabel.Margin = new Padding(0);
             otherTasksOfManagerLabel.Name = "otherTasksOfManagerLabel";
             otherTasksOfManagerLabel.Size = new Size(235, 28);
@@ -122,18 +119,17 @@ namespace Pepro.Presentation
             // 
             otherTasksOfManagerFlowLayoutLabel.AutoScroll = true;
             otherTasksOfManagerFlowLayoutLabel.FlowDirection = FlowDirection.TopDown;
-            otherTasksOfManagerFlowLayoutLabel.Location = new Point(689, 247);
-            otherTasksOfManagerFlowLayoutLabel.Margin = new Padding(24, 8, 8, 8);
+            otherTasksOfManagerFlowLayoutLabel.Location = new Point(553, 265);
+            otherTasksOfManagerFlowLayoutLabel.Margin = new Padding(24, 8, 16, 8);
             otherTasksOfManagerFlowLayoutLabel.Name = "otherTasksOfManagerFlowLayoutLabel";
-            otherTasksOfManagerFlowLayoutLabel.Size = new Size(558, 417);
+            otherTasksOfManagerFlowLayoutLabel.Size = new Size(495, 399);
             otherTasksOfManagerFlowLayoutLabel.TabIndex = 0;
             // 
-            // TaskDetailForm
+            // TaskDetailControl
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
-            ClientSize = new Size(1264, 681);
             Controls.Add(projectIdLabel);
             Controls.Add(projectNameLabel);
             Controls.Add(tasksOfProjectLabel);
@@ -142,11 +138,17 @@ namespace Pepro.Presentation
             Controls.Add(taskManagerCard);
             Controls.Add(otherTasksOfManagerLabel);
             Controls.Add(otherTasksOfManagerFlowLayoutLabel);
-            MinimumSize = new Size(960, 540);
-            Name = "TaskDetailForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Task detail";
-            Load += TaskDetailForm_Load;
+            HeaderText = "Task Detail";
+            Name = "TaskDetailControl";
+            Load += TaskDetailControl_Load;
+            Controls.SetChildIndex(otherTasksOfManagerFlowLayoutLabel, 0);
+            Controls.SetChildIndex(otherTasksOfManagerLabel, 0);
+            Controls.SetChildIndex(taskManagerCard, 0);
+            Controls.SetChildIndex(taskManagerLabel, 0);
+            Controls.SetChildIndex(tasksOfProjectFlowLayoutPanel, 0);
+            Controls.SetChildIndex(tasksOfProjectLabel, 0);
+            Controls.SetChildIndex(projectNameLabel, 0);
+            Controls.SetChildIndex(projectIdLabel, 0);
             ResumeLayout(false);
             PerformLayout();
 
