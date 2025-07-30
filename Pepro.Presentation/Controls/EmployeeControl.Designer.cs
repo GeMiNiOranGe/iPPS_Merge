@@ -48,7 +48,6 @@
             updateButton = new Button();
             insertButton = new Button();
             searchButton = new Button();
-            headerLabel = new Label();
             employeeIdInputField = new PeproInputField();
             numberOfEmployeesInputField = new PeproInputField();
             ((System.ComponentModel.ISupportInitialize)employeeDataGridView).BeginInit();
@@ -256,19 +255,6 @@
             searchButton.UseVisualStyleBackColor = false;
             searchButton.Click += SearchButton_Click;
             // 
-            // headerLabel
-            // 
-            headerLabel.BackColor = Color.FromArgb(22, 22, 22);
-            headerLabel.Dock = DockStyle.Top;
-            headerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
-            headerLabel.ForeColor = Color.White;
-            headerLabel.Location = new Point(0, 0);
-            headerLabel.Name = "headerLabel";
-            headerLabel.Size = new Size(1064, 48);
-            headerLabel.TabIndex = 16;
-            headerLabel.Text = "Employee";
-            headerLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // employeeIdInputField
             // 
             employeeIdInputField.ForeColor = Color.White;
@@ -296,7 +282,6 @@
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
-            Controls.Add(headerLabel);
             Controls.Add(searchTextBox);
             Controls.Add(searchButton);
             Controls.Add(reloadButton);
@@ -307,10 +292,21 @@
             Controls.Add(numberOfEmployeesInputField);
             Controls.Add(employeeIdInputField);
             Controls.Add(employeeDataGridView);
+            HeaderText = "Employee";
             Margin = new Padding(3, 2, 3, 2);
             Name = "EmployeeControl";
-            Size = new Size(1064, 681);
+            ReturnButtonVisible = false;
             Load += EmployeeControl_Load;
+            Controls.SetChildIndex(employeeDataGridView, 0);
+            Controls.SetChildIndex(employeeIdInputField, 0);
+            Controls.SetChildIndex(numberOfEmployeesInputField, 0);
+            Controls.SetChildIndex(exportButton, 0);
+            Controls.SetChildIndex(deleteButton, 0);
+            Controls.SetChildIndex(updateButton, 0);
+            Controls.SetChildIndex(insertButton, 0);
+            Controls.SetChildIndex(reloadButton, 0);
+            Controls.SetChildIndex(searchButton, 0);
+            Controls.SetChildIndex(searchTextBox, 0);
             ((System.ComponentModel.ISupportInitialize)employeeDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -339,7 +335,6 @@
         private DataGridViewTextBoxColumn Column12;
         private DataGridViewTextBoxColumn Column13;
         private Button reloadButton;
-        private Label headerLabel;
         private PeproInputField employeeIdInputField;
         private PeproInputField numberOfEmployeesInputField;
     }

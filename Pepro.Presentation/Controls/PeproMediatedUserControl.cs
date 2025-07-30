@@ -18,9 +18,7 @@ public partial class PeproMediatedUserControl : PeproUserControlBase {
     private void Initialize() {
         InitializeComponent();
 
-        headerReturnButton.FlatAppearance.BorderSize = 0;
-        headerReturnButton.FlatAppearance.MouseOverBackColor = ThemeColors.Accent.Base;
-        headerReturnButton.FlatAppearance.MouseDownBackColor = ThemeColors.Accent.Dark;
+        headerReturnButton.SetupRuntimeFlatStyleNoBackColor();
     }
 
     [Browsable(true)]
