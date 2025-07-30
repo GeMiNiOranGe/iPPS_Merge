@@ -1,4 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.Business;
+using Pepro.DTOs;
 //using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Pepro.Presentation.Controls;
@@ -25,45 +27,9 @@ public partial class EmployeeControl : PeproMediatedUserControl {
     }
 
     public void LoadEmployees() {
-        int i = 0;
-
-        sqlConnection.Open();
-
-        sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN", sqlConnection);
-        sqlDataReader = sqlCommand.ExecuteReader();
-        while (sqlDataReader.Read()) {
-            ListViewItem item = new((i + 1).ToString());
-
-            item.SubItems.Add(sqlDataReader[0].ToString());
-            item.SubItems.Add(sqlDataReader[1].ToString());
-
-            string gender = (bool)sqlDataReader[2] ? "Nam" : "Nữ";
-            item.SubItems.Add(gender);
-
-            var date = DateTime.Parse(sqlDataReader[3].ToString());
-            item.SubItems.Add(date.ToString("dd/MM/yyyy"));
-
-            item.SubItems.Add(sqlDataReader[4].ToString());
-            item.SubItems.Add(sqlDataReader[5].ToString());
-            item.SubItems.Add(sqlDataReader[6].ToString());
-            item.SubItems.Add(sqlDataReader[7].ToString());
-            item.SubItems.Add(sqlDataReader[8].ToString());
-
-            string DoanVien = (bool)sqlDataReader[9] ? "Có" : "Không";
-            item.SubItems.Add(DoanVien);
-
-            string DangVien = (bool)sqlDataReader[10] ? "Có" : "Không";
-            item.SubItems.Add(DangVien);
-
-            string CongDoanVien = (bool)sqlDataReader[11] ? "Có" : "Không";
-            item.SubItems.Add(CongDoanVien);
-
-            //employeeDataGridView.Items.Add(item);
-            i++;
-        }
-        numberOfEmployeesInputField.Text = i.ToString();
-
-        sqlConnection.Close();
+        List<Employee> employees = EmployeeBusiness.Instance.GetEmployees();
+        employeeDataGridView.DataSource = employees;
+        numberOfEmployeesInputField.Text = employees.Count.ToString();
     }
 
     /*
