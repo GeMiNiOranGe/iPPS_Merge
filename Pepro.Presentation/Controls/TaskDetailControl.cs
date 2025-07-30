@@ -1,12 +1,19 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
-using Pepro.Presentation.Controls;
 using System.ComponentModel;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Controls;
 
-public partial class TaskDetailForm : PeproForm {
-    public TaskDetailForm() {
+public partial class TaskDetailControl : PeproMediatedUserControl {
+    public TaskDetailControl() {
+        Initialize();
+    }
+
+    public TaskDetailControl(IMediator mediator) : base(mediator) {
+        Initialize();
+    }
+
+    private void Initialize() {
         InitializeComponent();
     }
 
@@ -22,7 +29,7 @@ public partial class TaskDetailForm : PeproForm {
         set => projectNameLabel.Text = value;
     }
 
-    private void TaskDetailForm_Load(object sender, EventArgs e) {
+    private void TaskDetailControl_Load(object sender, EventArgs e) {
         ShowTasksByProject();
     }
 

@@ -8,25 +8,19 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
     public void Notify(object sender, ControlUiEvent ev, object? data = null) {
         switch (ev) {
         case ControlUiEvent.OpenDocumentControl:
-            DocumentControl documentControl = new(this);
-            OpenControl(documentControl);
+            OpenDocumentControl();
             break;
         case ControlUiEvent.OpenDocumentEditorControl:
-            if (data is OpenDocumentEditorControlPayload payload) {
-                DocumentEditorControl documentEditorControl = new(this) {
-                    Item = payload.Item,
-                    Mode = payload.Mode,
-                };
-                PushControl(documentEditorControl); 
-            }
+            OpenDocumentEditorControl(data);
             break;
         case ControlUiEvent.OpenProgressControl:
-            ProgressControl progressControl = new(this);
-            OpenControl(progressControl);
+            OpenProgressControl();
             break;
         case ControlUiEvent.OpenEmployeeControl:
-            EmployeeControl employeeControl = new(this);
-            OpenControl(employeeControl);
+            OpenEmployeeControl();
+            break;
+        case ControlUiEvent.OpenTaskDetailControl:
+            OpenTaskDetailControl(data);
             break;
         }
     }
@@ -42,5 +36,44 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
         control.Dock = DockStyle.Fill;
         _workplacePanel.Controls.Add(control);
         control.BringToFront();
+    }
+
+    private void OpenDocumentControl() {
+        DocumentControl documentControl = new(this);
+        OpenControl(documentControl);
+    }
+
+    private void OpenDocumentEditorControl(object? data) {
+        if (data is not OpenDocumentEditorControlPayload payload) {
+            return;
+        }
+
+        DocumentEditorControl documentEditorControl = new(this) {
+            Item = payload.Item,
+            Mode = payload.Mode,
+        };
+        PushControl(documentEditorControl);
+    }
+
+    private void OpenProgressControl() {
+        ProgressControl progressControl = new(this);
+        OpenControl(progressControl);
+    }
+
+    private void OpenEmployeeControl() {
+        EmployeeControl employeeControl = new(this);
+        OpenControl(employeeControl);
+    }
+
+    private void OpenTaskDetailControl(object? data) {
+        if (data is not OpenTaskDetailControlPayload payload) {
+            return;
+        }
+
+        TaskDetailControl taskDetailControl = new(this) {
+            ProjectId = payload.ProjectId,
+            ProjectName = payload.ProjectName,
+        };
+        PushControl(taskDetailControl);
     }
 }
