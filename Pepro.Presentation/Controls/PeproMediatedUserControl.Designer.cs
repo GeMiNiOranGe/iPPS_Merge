@@ -45,7 +45,6 @@
             // headerReturnButton
             // 
             headerReturnButton.Dock = DockStyle.Left;
-            headerReturnButton.FlatStyle = FlatStyle.Flat;
             headerReturnButton.Location = new Point(0, 0);
             headerReturnButton.Name = "headerReturnButton";
             headerReturnButton.Size = new Size(48, 48);

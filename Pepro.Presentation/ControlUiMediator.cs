@@ -20,6 +20,14 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
                 PushControl(documentEditorControl); 
             }
             break;
+        case ControlUiEvent.OpenProgressControl:
+            ProgressControl progressControl = new(this);
+            OpenControl(progressControl);
+            break;
+        case ControlUiEvent.OpenEmployeeControl:
+            EmployeeControl employeeControl = new(this);
+            OpenControl(employeeControl);
+            break;
         }
     }
 
