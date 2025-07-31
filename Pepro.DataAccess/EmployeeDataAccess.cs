@@ -29,6 +29,7 @@ public class EmployeeDataAccess {
                 , JobPositionId
                 , SalaryLevelId
             FROM Employee
+            WHERE IsDeleted = 0
         ";
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
@@ -74,6 +75,7 @@ public class EmployeeDataAccess {
                     EmployeeId LIKE '%' + @SearchValue + '%'
                     OR LastName + ' ' + IsNull(MiddleName + ' ', '') + FirstName LIKE '%' + @SearchValue + '%'
                 )
+                AND IsDeleted = 0
         ";
         SqlParameter[] parameters =
         [
@@ -109,7 +111,14 @@ public class EmployeeDataAccess {
     }
 
     public EmployeeFullName? GetFullname(string accountName) {
-        string query = "SELECT FirstName, MiddleName, LastName FROM Employee WHERE Employee.EmployeeId = @EmployeeId";
+        string query = @"
+            SELECT FirstName
+                , MiddleName
+                , LastName
+            FROM Employee
+            WHERE Employee.EmployeeId = @EmployeeId
+            AND IsDeleted = 0
+        ";
         SqlParameter[] parameters =
         [
             new()
@@ -195,6 +204,26 @@ public class EmployeeDataAccess {
     }
     */
 
+    public int DeleteEmployee(string employeeId) {
+        string query = @"
+            UPDATE Employee
+            SET IsDeleted = 1
+            WHERE EmployeeId = @EmployeeId;
+        ";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "EmployeeId",
+                SqlDbType = SqlDbType.VarChar,
+                Size = 10,
+                Value = employeeId
+            }
+        ];
+
+        return DataProvider.Instance.ExecuteNonQuery(query, parameters);
+    }
+
     public bool DeleteEmployee(int roleID, string employeeID) {
         using (SqlConnection connection = new SqlConnection("")) {
             try {
@@ -250,6 +279,7 @@ public class EmployeeDataAccess {
                 , SalaryLevelId
             FROM Employee
             WHERE EmployeeId = @EmployeeId
+            AND IsDeleted = 0
         ";
         SqlParameter[] parameters =
         [
@@ -294,7 +324,16 @@ public class EmployeeDataAccess {
     }
 
     public List<EmployeePhoneNumber> GetPhoneNumberListByEmployeeId(string employeeId) {
-        string query = "SELECT EmployeePhoneNumberId, PhoneNumber, EmployeeId FROM EmployeePhoneNumber WHERE EmployeeId = @EmployeeId";
+        string query = @"
+            SELECT EmployeePhoneNumberId
+                , PhoneNumber
+                , Employee.EmployeeID
+            FROM EmployeePhoneNumber
+            INNER JOIN Employee
+                    ON Employee.EmployeeID = EmployeePhoneNumber.EmployeeID
+            WHERE Employee.EmployeeID = @EmployeeId
+            AND IsDeleted = 0
+        ";
         SqlParameter[] parameters =
         [
             new()

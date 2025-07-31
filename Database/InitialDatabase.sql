@@ -80,6 +80,8 @@ CREATE TABLE [dbo].[Employee] (
     [DepartmentId]  [varchar](10)   NOT NULL,
     [JobPositionId] [int]           NOT NULL,
     [SalaryLevelId] [int]           NOT NULL,
+
+    [IsDeleted]     [bit]           NOT NULL,
 );
 
 CREATE TABLE [dbo].[EmployeePhoneNumber] (
@@ -239,6 +241,11 @@ CONSTRAINT [FK_DepartmentProject_Department]
 GO
 
 -- default ---------------------------------------------------------------
+ALTER TABLE Employee ADD
+    CONSTRAINT DF_Employee_IsDeleted DEFAULT 0
+    FOR IsDeleted;
+GO
+
 ALTER TABLE Document ADD
     CONSTRAINT DF_Document_IsDeleted DEFAULT 0
     FOR IsDeleted;
