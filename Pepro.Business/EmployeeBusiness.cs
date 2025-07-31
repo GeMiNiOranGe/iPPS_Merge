@@ -43,6 +43,11 @@ public class EmployeeBusiness
         return EmployeeDataAccess.Instance.UpdateEmployee(roleID, valueList, employeeID);
     }
 
+    public int DeleteEmployee(string employeeId)
+    {
+        return EmployeeDataAccess.Instance.DeleteEmployee(employeeId);
+    }
+
     public bool DeleteEmployee(int roleID, string employeeID)
     {
         return EmployeeDataAccess.Instance.DeleteEmployee(roleID, employeeID);
