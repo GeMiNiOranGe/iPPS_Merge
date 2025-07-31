@@ -20,6 +20,11 @@ public class EmployeeBusiness
         return EmployeeDataAccess.Instance.GetEmployees();
     }
 
+    public List<Employee> SearchEmployees(string searchValue)
+    {
+        return EmployeeDataAccess.Instance.SearchEmployees(searchValue);
+    }
+
     public string GetDisplayName(string accountName)
     {
         EmployeeFullName? employeeFullName = EmployeeDataAccess.Instance.GetFullname(accountName);

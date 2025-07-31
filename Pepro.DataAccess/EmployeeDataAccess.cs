@@ -55,6 +55,59 @@ public class EmployeeDataAccess {
         return employees;
     }
 
+    public List<Employee> SearchEmployees(string searchValue) {
+        string query = @"
+            SELECT EmployeeId
+                , FirstName
+                , MiddleName
+                , LastName
+                , DateOfBirth
+                , Gender
+                , TaxCode
+                , CitizenId
+                , DepartmentId
+                , JobPositionId
+                , SalaryLevelId
+            FROM Employee
+            WHERE
+                (
+                    EmployeeId LIKE '%' + @SearchValue + '%'
+                    OR LastName + ' ' + IsNull(MiddleName + ' ', '') + FirstName LIKE '%' + @SearchValue + '%'
+                )
+        ";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "SearchValue",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = DatabaseConstants.SEARCH_SIZE,
+                Value = searchValue
+            }
+        ];
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+
+        List<Employee> employees = [];
+        foreach (DataRow row in dataTable.Rows) {
+            Employee employee = new() {
+                EmployeeId = row.Field<string>("EmployeeId") ?? "",
+                FirstName = row.Field<string>("FirstName") ?? "",
+                MiddleName = row.Field<string>("MiddleName"),
+                LastName = row.Field<string>("LastName") ?? "",
+                DateOfBirth = row.Field<DateTime>("DateOfBirth"),
+                Gender = row.Field<bool?>("Gender"),
+                TaxCode = row.Field<byte[]>("TaxCode"),
+                CitizenId = row.Field<string>("CitizenId") ?? "",
+                DepartmentId = row.Field<string>("DepartmentId") ?? "",
+                JobPositionId = row.Field<int>("JobPositionId"),
+                SalaryLevelId = row.Field<int>("SalaryLevelId")
+            };
+            employees.Add(employee);
+        }
+        return employees;
+    }
+
     public EmployeeFullName? GetFullname(string accountName) {
         string query = "SELECT FirstName, MiddleName, LastName FROM Employee WHERE Employee.EmployeeId = @EmployeeId";
         SqlParameter[] parameters =
