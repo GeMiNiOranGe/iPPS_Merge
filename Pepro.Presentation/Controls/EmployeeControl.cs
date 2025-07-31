@@ -2,6 +2,7 @@
 using Pepro.Business;
 using Pepro.DTOs;
 using Svg;
+using System.Reflection.Metadata;
 //using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Pepro.Presentation.Controls;
@@ -90,14 +91,14 @@ public partial class EmployeeControl : PeproMediatedUserControl {
     private void ReloadButton_Click(object sender, EventArgs e) {
         LoadEmployees();
     }
-    
+
     private void InsertButton_Click(object sender, EventArgs e) {
         EmployeeEditorForm formInsertNhanVien = new() {
             formStaff_TieuDe = "Thêm nhân viên"
         };
         formInsertNhanVien.Show();
     }
-    
+
     private void UpdateButton_Click(object sender, EventArgs e) {
         if (employeeIdInputField.Text == "null") {
             MessageBox.Show("Vui lòng chọn nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -110,108 +111,21 @@ public partial class EmployeeControl : PeproMediatedUserControl {
             formInsertNhanVien.Show();
         }
     }
-    
+
     private void DeleteButton_Click(object sender, EventArgs e) {
-        if (employeeIdInputField.Text != "null") {
-            if (MessageBox.Show("Bạn có chắc là muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes) {
-                // Xoá Lương
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM LUONG WHERE MANV = '" + employeeIdInputField.Text + "'", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                // Xoá Bộ phận chấm công
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM BOPHANCHAMCONG WHERE MANV = '" + employeeIdInputField.Text + "'", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                // Nếu 2 nhân viên cùng sống chung 1 Hộ gia đình thì update NULL ở nhân viên bị xoá
-                // Khi MANV1
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("UPDATE HOGIADINH SET MANV1 = NULL WHERE MANV1 = @MANV1 AND MANV2 IS NOT NULL", sqlConnection);
-                sqlCommand.Parameters.AddWithValue("@MANV1", employeeIdInputField.Text);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                // Khi MANV2
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("UPDATE HOGIADINH SET MANV2 = NULL WHERE MANV2 = @MANV2 AND MANV1 IS NOT NULL", sqlConnection);
-                sqlCommand.Parameters.AddWithValue("@MANV2", employeeIdInputField.Text);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                // Nếu 1 nhân viên thì xoá theo thứ tự Tiền nhà -> Nước -> Điện -> Hộ gia đình
-                // Khi MANV1
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM TIENNHA WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV1 = '" + employeeIdInputField.Text + "' AND MANV2 IS NULL)", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM NUOC WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV1 = '" + employeeIdInputField.Text + "' AND MANV2 IS NULL)", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM DIEN WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV1 = '" + employeeIdInputField.Text + "' AND MANV2 IS NULL)", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM HOGIADINH WHERE MANV1 = '" + employeeIdInputField.Text + "' AND MANV2 IS NULL", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                // Khi MANV2
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM TIENNHA WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV2 = '" + employeeIdInputField.Text + "' AND MANV1 IS NULL)", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM NUOC WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV2 = '" + employeeIdInputField.Text + "' AND MANV1 IS NULL)", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM DIEN WHERE MAHGD IN (SELECT MAHGD FROM HOGIADINH WHERE MANV2 = '" + employeeIdInputField.Text + "' AND MANV1 IS NULL)", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM HOGIADINH WHERE MANV2 = '" + employeeIdInputField.Text + "' AND MANV1 IS NULL", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                // Xoá Nhân viên - Phòng tổ chức
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM NHANVIEN_PHONGTOCHUC WHERE MANV = '" + employeeIdInputField.Text + "'", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                // Xoá Nhân viên - Chuyên môn
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM NHANVIEN_CHUYENMON WHERE MANV = '" + employeeIdInputField.Text + "'", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                // Xoá nhân viên - Ngoại ngữ
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM NHANVIEN_NGOAINGU WHERE MANV = '" + employeeIdInputField.Text + "'", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                // Xoá Người thân
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM NGUOITHAN WHERE MANV = '" + employeeIdInputField.Text + "'", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                // Xoá nhân viên
-                sqlConnection.Open();
-                sqlCommand = new SqlCommand("DELETE FROM NHANVIEN WHERE MANV = '" + employeeIdInputField.Text + "'", sqlConnection);
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-
-                MessageBox.Show("Bạn đã xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+        string employeeId = employeeIdInputField.Text;
+        if (string.IsNullOrEmpty(employeeId)) {
+            MessageBoxWrapper.ShowInformation("SelectEmployee");
+            return;
         }
-        else {
-            MessageBox.Show("Vui lòng chọn nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        if (MessageBoxWrapper.ConfirmDelete() == DialogResult.Yes) {
+            int numberOfRowsAffected = EmployeeBusiness.Instance.DeleteEmployee(employeeId);
+            MessageBoxWrapper.ShowInformation("DeleteEmployeeSuccess", numberOfRowsAffected);
+            LoadEmployees();
         }
     }
-    
+
     private void ExportButton_Click(object sender, EventArgs e) {
         SaveFileDialog saveFileDialog = new() {
             Filter = "Excel Files|*.xlsx",
