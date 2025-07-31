@@ -12,7 +12,6 @@ public class Employee {
     private string _departmentId = "";
     private int _jobPositionId;
     private int _salaryLevelId;
-    private EmployeeType type;
 
     public string EmployeeId {
         get => _employeeId;
@@ -67,10 +66,5 @@ public class Employee {
     public int SalaryLevelId {
         get => _salaryLevelId;
         set => _salaryLevelId = value;
-    }
-
-    public EmployeeType Type {
-        get => type;
-        set => type = value;
     }
 }
