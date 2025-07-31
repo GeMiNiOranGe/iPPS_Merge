@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Pepro.Business;
 using Pepro.DTOs;
+using Svg;
 //using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Pepro.Presentation.Controls;
@@ -21,6 +22,33 @@ public partial class EmployeeControl : PeproMediatedUserControl {
     private void Initialize() {
         InitializeComponent();
         employeeDataGridView.SetupCellStyle();
+
+        searchButton.SetupRuntimeFlatStyle();
+        searchButton.SetupRuntimeIcon(
+            "Search",
+            colorServer: new SvgColourServer(ThemeColors.Text)
+        );
+        reloadButton.SetupRuntimeFlatStyle();
+        reloadButton.SetupRuntimeIcon(
+            "Refresh",
+            colorServer: new SvgColourServer(ThemeColors.Text)
+        );
+        insertButton.SetupRuntimeFlatStyle();
+        insertButton.SetupRuntimeIcon(
+            "Plus",
+            colorServer: new SvgColourServer(ThemeColors.Text)
+        );
+        deleteButton.SetupRuntimeFlatStyle();
+        deleteButton.SetupRuntimeIcon(
+            "Trash",
+            colorServer: new SvgColourServer(ThemeColors.Text)
+        );
+        updateButton.SetupRuntimeFlatStyle();
+        updateButton.SetupRuntimeIcon(
+            "EditPencil",
+            colorServer: new SvgColourServer(ThemeColors.Text)
+        );
+        exportButton.SetupRuntimeFlatStyle();
     }
 
     private void EmployeeControl_Load(object sender, EventArgs e) {
@@ -33,14 +61,21 @@ public partial class EmployeeControl : PeproMediatedUserControl {
         numberOfEmployeesInputField.Text = employees.Count.ToString();
     }
 
-    /*
-    private void listViewDataNV_SelectedIndexChanged(object sender, EventArgs e) {
-        if (employeeDataGridView.SelectedItems.Count > 0) {
-            ListViewItem item = employeeDataGridView.SelectedItems[0];
-            employeeIdInputField.Text = item.SubItems[1].Text;
+    private void EmployeeDataGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
+        // Ignore clicks on the column header or invalid row indices
+        if (e.RowIndex < 0 || e.RowIndex >= employeeDataGridView.Rows.Count) {
+            return;
+        }
+
+        DataGridViewRow row = employeeDataGridView.Rows[e.RowIndex];
+
+        if (row.DataBoundItem is Employee employee) {
+            employeeIdInputField.Text = employee.EmployeeId;
+            employeeNameInputField.Text = employee.LastName + " "
+                + (employee.MiddleName != null ? employee.MiddleName + " " : "")
+                + employee.FirstName;
         }
     }
-    */
 
     private void SearchButton_Click(object sender, EventArgs e) {
         if (string.IsNullOrEmpty(searchTextBox.Text)) {
