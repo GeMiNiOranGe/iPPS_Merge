@@ -1,17 +1,10 @@
-﻿using Microsoft.Data.SqlClient;
-using Pepro.Business;
+﻿using Pepro.Business;
 using Pepro.DTOs;
 using Svg;
-using System.Reflection.Metadata;
-//using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Pepro.Presentation.Controls;
 
 public partial class EmployeeControl : PeproMediatedUserControl {
-    SqlConnection sqlConnection = new(Config.CONNECTION_STRING);
-    SqlCommand sqlCommand;
-    SqlDataReader sqlDataReader;
-
     public EmployeeControl() {
         Initialize();
     }
@@ -128,66 +121,13 @@ public partial class EmployeeControl : PeproMediatedUserControl {
 
     private void ExportButton_Click(object sender, EventArgs e) {
         SaveFileDialog saveFileDialog = new() {
+            FileName = "Employees-" + DateTime.Now.ToString("ddMMyyyy-HHmmss"),
             Filter = "Excel Files|*.xlsx",
             Title = "Save Excel File"
         };
 
         if (saveFileDialog.ShowDialog() == DialogResult.OK) {
-            //ExportToExcel(listViewDataNV, saveFileDialog.FileName);
+            ExcelExporter.Export(saveFileDialog.FileName, employeeDataGridView);
         }
     }
-
-    /*
-    private void ExportToExcel(ListView listView, string filePath) {
-        Excel.Application excelApp = new Excel.Application();
-        excelApp.Visible = true;
-        Excel.Workbook workbook = excelApp.Workbooks.Add();
-        Excel.Worksheet worksheet = workbook.Sheets[1];
-
-        int row = 1;
-        int col = 1;
-
-        // Xuất tiêu đề của các cột
-        foreach (ColumnHeader header in listView.Columns) {
-            worksheet.Cells[row, col] = header.Text;
-            col++;
-        }
-
-        // Xuất dữ liệu từ ListView
-        row++;
-        foreach (ListViewItem item in listView.Items) {
-            col = 1;
-            foreach (ListViewItem.ListViewSubItem subItem in item.SubItems) {
-                worksheet.Cells[row, col] = subItem.Text;
-                col++;
-            }
-            row++;
-        }
-
-        // Lưu tệp Excel
-        workbook.SaveAs(filePath);
-        workbook.Close();
-        excelApp.Quit();
-
-        ReleaseObject(worksheet);
-        ReleaseObject(workbook);
-        ReleaseObject(excelApp);
-
-        MessageBox.Show("Dữ liệu đã được xuất ra Excel.");
-    }
-
-    private void ReleaseObject(object obj) {
-        try {
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
-            obj = null;
-        }
-        catch (Exception ex) {
-            obj = null;
-            MessageBox.Show("Lỗi" + ex.ToString());
-        }
-        finally {
-            GC.Collect();
-        }
-    }
-    */
 }
