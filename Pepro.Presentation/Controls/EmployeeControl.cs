@@ -20,6 +20,7 @@ public partial class EmployeeControl : PeproMediatedUserControl {
 
     private void Initialize() {
         InitializeComponent();
+        employeeDataGridView.SetupCellStyle();
     }
 
     private void EmployeeControl_Load(object sender, EventArgs e) {
@@ -44,52 +45,11 @@ public partial class EmployeeControl : PeproMediatedUserControl {
     private void SearchButton_Click(object sender, EventArgs e) {
         if (string.IsNullOrEmpty(searchTextBox.Text)) {
             MessageBox.Show("Vui lòng nhập thông tin cần tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return;
         }
-        else {
-            //employeeDataGridView.Items.Clear();
-            sqlConnection.Open();
-            if (true) {
-                sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN WHERE MANV LIKE '%" + searchTextBox.Text + "%'", sqlConnection);
-            }
-            else if (true) {
-                sqlCommand = new SqlCommand("SELECT * FROM NHANVIEN WHERE HOTENNV LIKE '%" + searchTextBox.Text + "%'", sqlConnection);
-            }
-            else {
-                MessageBox.Show("Vui lòng chọn mục tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            sqlDataReader = sqlCommand.ExecuteReader();
-            int i = 0;
-            while (sqlDataReader.Read()) {
-                ListViewItem item = new((i + 1).ToString());
-                item.SubItems.Add(sqlDataReader[0].ToString());
-                item.SubItems.Add(sqlDataReader[1].ToString());
-
-                string gender = (bool)sqlDataReader[2] ? "Nam" : "Nữ";
-                item.SubItems.Add(gender);
-
-                var date = DateTime.Parse(sqlDataReader[3].ToString());
-                item.SubItems.Add(date.ToString("dd/MM/yyyy"));
-
-                item.SubItems.Add(sqlDataReader[4].ToString());
-                item.SubItems.Add(sqlDataReader[5].ToString());
-                item.SubItems.Add(sqlDataReader[6].ToString());
-                item.SubItems.Add(sqlDataReader[7].ToString());
-                item.SubItems.Add(sqlDataReader[8].ToString());
-
-                string DoanVien = (bool)sqlDataReader[9] ? "Có" : "Không";
-                item.SubItems.Add(DoanVien);
-
-                string DangVien = (bool)sqlDataReader[10] ? "Có" : "Không";
-                item.SubItems.Add(DangVien);
-
-                string CongDoanVien = (bool)sqlDataReader[11] ? "Có" : "Không";
-                item.SubItems.Add(CongDoanVien);
-                //employeeDataGridView.Items.Add(item);
-                i++;
-            }
-            sqlConnection.Close();
-        }
-        searchTextBox.Text = null;
+        List<Employee> employees = EmployeeBusiness.Instance.SearchEmployees(searchTextBox.Text);
+        employeeDataGridView.DataSource = employees;
+        numberOfEmployeesInputField.Text = employees.Count.ToString();
     }
 
     private void ReloadButton_Click(object sender, EventArgs e) {

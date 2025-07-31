@@ -100,7 +100,7 @@ public class DocumentDataAccess {
             new()
             {
                 ParameterName = "SearchValue",
-                SqlDbType = SqlDbType.VarChar,
+                SqlDbType = SqlDbType.NVarChar,
                 Size = DatabaseConstants.SEARCH_SIZE,
                 Value = searchValue
             }
