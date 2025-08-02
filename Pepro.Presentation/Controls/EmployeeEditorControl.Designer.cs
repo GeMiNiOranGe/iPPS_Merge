@@ -1,6 +1,6 @@
-﻿namespace Pepro.Presentation
+﻿namespace Pepro.Presentation.Controls
 {
-    partial class EmployeeEditorForm
+    partial class EmployeeEditorControl
     {
         /// <summary>
         /// Required designer variable.
@@ -1032,7 +1032,6 @@
             btnExit.TabIndex = 102;
             btnExit.Text = "X";
             btnExit.UseVisualStyleBackColor = false;
-            btnExit.Click += btnExit_Click;
             // 
             // btnTCNV
             // 
@@ -1067,9 +1066,9 @@
             lbPhongBan.TabIndex = 104;
             lbPhongBan.Text = "Phòng ban";
             // 
-            // FormSaveStaff
+            // EmployeeEditorControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(255, 230, 199);
@@ -1167,11 +1166,9 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(lbTieuDe);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "FormSaveStaff";
-            StartPosition = FormStartPosition.CenterScreen;
+            Name = "EmployeeEditorControl";
             Text = "Nhân viên";
-            Load += FormSaveStaff_Load;
+            Load += EmployeeEditorControl_Load;
             ResumeLayout(false);
             PerformLayout();
 
