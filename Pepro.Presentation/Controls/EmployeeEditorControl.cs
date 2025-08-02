@@ -5,7 +5,7 @@ using System.Data;
 
 namespace Pepro.Presentation.Controls;
 
-public partial class EmployeeEditorControl : PeproEditorControlBase<Employee> {
+public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUserControl<Employee> {
     private Employee _item = null!;
     private EditorMode _mode;
     SqlConnection sqlConnection = new SqlConnection(Config.CONNECTION_STRING);
@@ -22,7 +22,8 @@ public partial class EmployeeEditorControl : PeproEditorControlBase<Employee> {
         Initialize();
     }
 
-    public override required Employee Item {
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public required Employee Item {
         get => _item;
         set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
@@ -30,7 +31,8 @@ public partial class EmployeeEditorControl : PeproEditorControlBase<Employee> {
         }
     }
 
-    public override required EditorMode Mode {
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public required EditorMode Mode {
         get => _mode;
         set {
             _mode = value;
@@ -484,7 +486,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase<Employee> {
     }
 
     private void btnSaveNV_Click(object sender, EventArgs e) {
-        if (lbTieuDe.Text == "Thêm nhân viên") {
+        if (Mode == EditorMode.Create) {
             if ((string.IsNullOrEmpty(txtMaPB.Text)) || (string.IsNullOrEmpty(txtMaCV.Text)) || (string.IsNullOrEmpty(txtMaNL.Text)) || (string.IsNullOrEmpty(txtMaBL.Text))) {
                 MessageBox.Show("Mời điền đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
