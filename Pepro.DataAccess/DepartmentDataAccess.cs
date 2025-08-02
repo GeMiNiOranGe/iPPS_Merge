@@ -42,7 +42,7 @@ public class DepartmentDataAccess
         return department;
     }
 
-    public DataTable GetDepartments()
+    public DataTable GetDepartmentList()
     {
         DataTable dataTable = new DataTable();
 

@@ -23,9 +23,9 @@ public class DepartmentBusiness
         return department;
     }
 
-    public DataTable GetDepartments()
+    public DataTable GetDepartmentList()
     {
-        return DepartmentDataAccess.Instance.GetDepartments();
+        return DepartmentDataAccess.Instance.GetDepartmentList();
     }
 
     public DataTable GetAllDepartments()
