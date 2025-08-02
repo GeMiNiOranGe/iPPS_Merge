@@ -86,10 +86,10 @@ public partial class EmployeeControl : PeproMediatedUserControl {
     }
 
     private void InsertButton_Click(object sender, EventArgs e) {
-        EmployeeEditorForm formInsertNhanVien = new() {
-            formStaff_TieuDe = "Thêm nhân viên"
-        };
-        formInsertNhanVien.Show();
+        _mediator.Notify(this, ControlUiEvent.OpenEmployeeEditorControl, new OpenEmployeeEditorControlPayload() {
+            Item = new(),
+            Mode = EditorMode.Create,
+        });
     }
 
     private void UpdateButton_Click(object sender, EventArgs e) {
@@ -97,11 +97,15 @@ public partial class EmployeeControl : PeproMediatedUserControl {
             MessageBox.Show("Vui lòng chọn nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         else {
-            EmployeeEditorForm formInsertNhanVien = new() {
-                formStaff_MaNV = employeeIdInputField.Text,
-                formStaff_TieuDe = "Cập nhật nhân viên"
-            };
-            formInsertNhanVien.Show();
+            DataGridViewRow? row = employeeDataGridView.CurrentRow;
+            if (row == null || row.DataBoundItem is not Employee employee) {
+                return;
+            }
+
+            _mediator.Notify(this, ControlUiEvent.OpenEmployeeEditorControl, new OpenEmployeeEditorControlPayload() {
+                Item = employee,
+                Mode = EditorMode.Edit,
+            });
         }
     }
 
