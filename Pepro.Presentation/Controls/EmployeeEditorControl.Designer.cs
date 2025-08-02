@@ -27,7 +27,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            lbTieuDe = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -120,21 +119,10 @@
             lbCheck2 = new Label();
             lbCheck3 = new Label();
             lbCheck4 = new Label();
-            btnExit = new Button();
             btnTCNV = new Button();
             cbPhongBan = new ComboBox();
             lbPhongBan = new Label();
             SuspendLayout();
-            // 
-            // lbTieuDe
-            // 
-            lbTieuDe.AutoSize = true;
-            lbTieuDe.Font = new Font("Tahoma", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbTieuDe.Location = new Point(457, 14);
-            lbTieuDe.Name = "lbTieuDe";
-            lbTieuDe.Size = new Size(187, 27);
-            lbTieuDe.TabIndex = 0;
-            lbTieuDe.Text = "Thêm nhân viên";
             // 
             // label2
             // 
@@ -1022,17 +1010,6 @@
             lbCheck4.TabIndex = 101;
             lbCheck4.Text = "*";
             // 
-            // btnExit
-            // 
-            btnExit.BackColor = Color.FromArgb(255, 230, 199);
-            btnExit.Font = new Font("Tahoma", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnExit.Location = new Point(1064, -1);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(44, 47);
-            btnExit.TabIndex = 102;
-            btnExit.Text = "X";
-            btnExit.UseVisualStyleBackColor = false;
-            // 
             // btnTCNV
             // 
             btnTCNV.BackColor = Color.FromArgb(255, 96, 0);
@@ -1072,11 +1049,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(255, 230, 199);
-            ClientSize = new Size(1108, 989);
             Controls.Add(cbPhongBan);
             Controls.Add(lbPhongBan);
             Controls.Add(btnTCNV);
-            Controls.Add(btnExit);
             Controls.Add(lbCheck4);
             Controls.Add(lbCheck3);
             Controls.Add(lbCheck2);
@@ -1165,18 +1140,106 @@
             Controls.Add(label6);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(lbTieuDe);
             Name = "EmployeeEditorControl";
-            Text = "Nhân viên";
+            Size = new Size(1108, 989);
             Load += EmployeeEditorControl_Load;
+            Controls.SetChildIndex(label3, 0);
+            Controls.SetChildIndex(label4, 0);
+            Controls.SetChildIndex(label6, 0);
+            Controls.SetChildIndex(label7, 0);
+            Controls.SetChildIndex(label9, 0);
+            Controls.SetChildIndex(label10, 0);
+            Controls.SetChildIndex(label12, 0);
+            Controls.SetChildIndex(label13, 0);
+            Controls.SetChildIndex(txtMaNV, 0);
+            Controls.SetChildIndex(txtHoTenNV, 0);
+            Controls.SetChildIndex(txtNoiSinh, 0);
+            Controls.SetChildIndex(txtQueQuan, 0);
+            Controls.SetChildIndex(radioNam, 0);
+            Controls.SetChildIndex(radioNu, 0);
+            Controls.SetChildIndex(dateNgaySinhNV, 0);
+            Controls.SetChildIndex(cbTDVH, 0);
+            Controls.SetChildIndex(cbDanToc, 0);
+            Controls.SetChildIndex(cbTonGiao, 0);
+            Controls.SetChildIndex(checkDoanVien, 0);
+            Controls.SetChildIndex(checkDangVien, 0);
+            Controls.SetChildIndex(checkCongDoanVien, 0);
+            Controls.SetChildIndex(label15, 0);
+            Controls.SetChildIndex(label16, 0);
+            Controls.SetChildIndex(label17, 0);
+            Controls.SetChildIndex(label18, 0);
+            Controls.SetChildIndex(label19, 0);
+            Controls.SetChildIndex(txtHoTenCha, 0);
+            Controls.SetChildIndex(txtNgheNghiepCha, 0);
+            Controls.SetChildIndex(txtHoTenMe, 0);
+            Controls.SetChildIndex(txtNgheNghiepMe, 0);
+            Controls.SetChildIndex(dateNgaySinhCha, 0);
+            Controls.SetChildIndex(dateNgaySinhMe, 0);
+            Controls.SetChildIndex(label22, 0);
+            Controls.SetChildIndex(label21, 0);
+            Controls.SetChildIndex(label20, 0);
+            Controls.SetChildIndex(txtHoTenVC, 0);
+            Controls.SetChildIndex(txtNgheNghiepVC, 0);
+            Controls.SetChildIndex(dateNgaySinhVC, 0);
+            Controls.SetChildIndex(label25, 0);
+            Controls.SetChildIndex(label24, 0);
+            Controls.SetChildIndex(label23, 0);
+            Controls.SetChildIndex(txtHoTenCon1, 0);
+            Controls.SetChildIndex(txtNgheNghiepCon1, 0);
+            Controls.SetChildIndex(dateNgaySinhCon1, 0);
+            Controls.SetChildIndex(label28, 0);
+            Controls.SetChildIndex(label27, 0);
+            Controls.SetChildIndex(label26, 0);
+            Controls.SetChildIndex(txtHoTenCon2, 0);
+            Controls.SetChildIndex(txtNgheNghiepCon2, 0);
+            Controls.SetChildIndex(dateNgaySinhCon2, 0);
+            Controls.SetChildIndex(label30, 0);
+            Controls.SetChildIndex(label31, 0);
+            Controls.SetChildIndex(label32, 0);
+            Controls.SetChildIndex(cbChucVu, 0);
+            Controls.SetChildIndex(cbNgachLuong, 0);
+            Controls.SetChildIndex(cbBacLuong, 0);
+            Controls.SetChildIndex(label33, 0);
+            Controls.SetChildIndex(cbChuyenMon, 0);
+            Controls.SetChildIndex(label38, 0);
+            Controls.SetChildIndex(label37, 0);
+            Controls.SetChildIndex(label36, 0);
+            Controls.SetChildIndex(label35, 0);
+            Controls.SetChildIndex(label34, 0);
+            Controls.SetChildIndex(cbNgoaiNgu, 0);
+            Controls.SetChildIndex(txtMaBL, 0);
+            Controls.SetChildIndex(txtMaNL, 0);
+            Controls.SetChildIndex(txtMaCV, 0);
+            Controls.SetChildIndex(txtMaPB, 0);
+            Controls.SetChildIndex(label2, 0);
+            Controls.SetChildIndex(label5, 0);
+            Controls.SetChildIndex(label8, 0);
+            Controls.SetChildIndex(label11, 0);
+            Controls.SetChildIndex(label14, 0);
+            Controls.SetChildIndex(btnSaveNV, 0);
+            Controls.SetChildIndex(btnThemCM, 0);
+            Controls.SetChildIndex(label39, 0);
+            Controls.SetChildIndex(txtMaCM, 0);
+            Controls.SetChildIndex(label40, 0);
+            Controls.SetChildIndex(txtMaNN, 0);
+            Controls.SetChildIndex(btnXoaCM, 0);
+            Controls.SetChildIndex(btnThemNN, 0);
+            Controls.SetChildIndex(btnXoaNN, 0);
+            Controls.SetChildIndex(listViewChuyenMon, 0);
+            Controls.SetChildIndex(listViewNgoaiNgu, 0);
+            Controls.SetChildIndex(lbCheck1, 0);
+            Controls.SetChildIndex(lbCheck2, 0);
+            Controls.SetChildIndex(lbCheck3, 0);
+            Controls.SetChildIndex(lbCheck4, 0);
+            Controls.SetChildIndex(btnTCNV, 0);
+            Controls.SetChildIndex(lbPhongBan, 0);
+            Controls.SetChildIndex(cbPhongBan, 0);
             ResumeLayout(false);
             PerformLayout();
 
         }
 
         #endregion
-
-        private Label lbTieuDe;
         private Label label2;
         private Label label3;
         private Label label4;
@@ -1269,7 +1332,6 @@
         private Label lbCheck2;
         private Label lbCheck3;
         private Label lbCheck4;
-        private Button btnExit;
         private Button btnTCNV;
         private ComboBox cbPhongBan;
         private Label lbPhongBan;
