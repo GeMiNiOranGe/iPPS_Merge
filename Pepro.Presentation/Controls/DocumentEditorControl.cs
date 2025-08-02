@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls;
 
-public partial class DocumentEditorControl : PeproEditorControlBase<TaskDocument> {
+public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUserControl<TaskDocument> {
     private TaskDocument _item = null!;
     private EditorMode _mode;
     private bool _suppressTaskReload = false;
@@ -18,7 +18,7 @@ public partial class DocumentEditorControl : PeproEditorControlBase<TaskDocument
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public override required TaskDocument Item {
+    public required TaskDocument Item {
         get => _item;
         set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
@@ -37,7 +37,7 @@ public partial class DocumentEditorControl : PeproEditorControlBase<TaskDocument
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public override required EditorMode Mode {
+    public required EditorMode Mode {
         get => _mode;
         set {
             _mode = value;
