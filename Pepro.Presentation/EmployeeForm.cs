@@ -203,7 +203,7 @@ namespace Pepro.Presentation
         {
             try
             {
-                DataTable dt = DepartmentBusiness.Instance.GetDepartments();
+                DataTable dt = DepartmentBusiness.Instance.GetDepartmentList();
 
                 foreach (DataRow row in dt.Rows)
                 {

@@ -46,6 +46,8 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
 
     private void Initialize() {
         InitializeComponent();
+
+        saveButton.SetupRuntimeFlatStyle();
     }
 
     private void EmployeeEditorControl_Load(object sender, EventArgs e) {
