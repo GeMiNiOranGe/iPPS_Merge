@@ -12,7 +12,7 @@ CREATE OR ALTER PROCEDURE [dbo].[usp_InsertEmployee]
     @CitizenId          VARCHAR(12),
     @PhoneNumberList    VARCHAR(MAX)    = NULL,
     @DepartmentId       VARCHAR(10),
-    @JobPositionId      INT,
+    @PositionId         INT,
     @SalaryLevelId      INT
 AS BEGIN
     SET NOCOUNT ON
@@ -27,8 +27,8 @@ AS BEGIN
     CLOSE SYMMETRIC KEY [PeproSymKey]
 
     INSERT INTO [dbo].[Employee]
-            ([EmployeeId], [FirstName], [MiddleName], [LastName], [DateOfBirth], [Gender], [TaxCode],         [CitizenId], [DepartmentId], [JobPositionId], [SalaryLevelId])
-    VALUES  (@EmployeeId,  @FirstName,  @MiddleName,  @LastName,  @DateOfBirth,  @Gender,  @EncryptedTaxCode, @CitizenId,  @DepartmentId,  @JobPositionId,  @SalaryLevelId)
+            ([EmployeeId], [FirstName], [MiddleName], [LastName], [DateOfBirth], [Gender], [TaxCode],         [CitizenId], [DepartmentId], [PositionId], [SalaryLevelId])
+    VALUES  (@EmployeeId,  @FirstName,  @MiddleName,  @LastName,  @DateOfBirth,  @Gender,  @EncryptedTaxCode, @CitizenId,  @DepartmentId,  @PositionId,  @SalaryLevelId)
 
     IF (@PhoneNumberList IS NOT NULL) BEGIN
         INSERT INTO [dbo].[EmployeePhoneNumber]

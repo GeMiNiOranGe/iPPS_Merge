@@ -160,7 +160,7 @@
             // 
             // Column10
             // 
-            Column10.DataPropertyName = "JobPositionId";
+            Column10.DataPropertyName = "PositionId";
             Column10.HeaderText = "Mã chức vụ";
             Column10.Name = "Column10";
             Column10.ReadOnly = true;

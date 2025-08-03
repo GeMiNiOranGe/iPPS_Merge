@@ -10,7 +10,7 @@ public class Employee {
     private byte[]? _taxCode;
     private string _citizenId = "";
     private string _departmentId = "";
-    private int _jobPositionId;
+    private int _PositionId;
     private int _salaryLevelId;
 
     public string EmployeeId {
@@ -58,9 +58,9 @@ public class Employee {
         set => _departmentId = value;
     }
 
-    public int JobPositionId {
-        get => _jobPositionId;
-        set => _jobPositionId = value;
+    public int PositionId {
+        get => _PositionId;
+        set => _PositionId = value;
     }
 
     public int SalaryLevelId {
