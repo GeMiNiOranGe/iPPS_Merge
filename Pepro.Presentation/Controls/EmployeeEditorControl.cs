@@ -68,6 +68,12 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             nameof(departmentComboBoxField.SelectedValue)
         );
 
+        positionIdInputField.DataBindings.Add(
+            nameof(positionIdInputField.Text),
+            positionComboBoxField,
+            nameof(positionComboBoxField.SelectedValue)
+        );
+
         salaryScaleIdInputField.DataBindings.Add(
             nameof(departmentIdInputField.Text),
             salaryScaleComboBoxField,
@@ -77,6 +83,9 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         departmentComboBoxField.DisplayMember = nameof(Department.Name);
         departmentComboBoxField.ValueMember = nameof(Department.DepartmentId);
 
+        positionComboBoxField.DisplayMember = nameof(EmployeePosition.Title);
+        positionComboBoxField.ValueMember = nameof(EmployeePosition.PositionId);
+
         salaryScaleComboBoxField.DisplayMember = nameof(SalaryScale.Name);
         salaryScaleComboBoxField.ValueMember = nameof(SalaryScale.SalaryScaleId);
 
@@ -84,13 +93,9 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         departmentComboBoxField.DataSource = departments;
         departmentComboBoxField.SelectedIndex = -1;
 
-        sqlConnection.Open();
-        sqlCommand = new SqlCommand("SELECT * FROM CHUCVU", sqlConnection);
-        sqlDataReader = sqlCommand.ExecuteReader();
-        while (sqlDataReader.Read()) {
-            positionComboBoxField.Items.Add(sqlDataReader["TENCV"]);
-        }
-        sqlConnection.Close();
+        List<EmployeePosition> positions = PositionBusiness.Instance.GetPositions();
+        positionComboBoxField.DataSource = positions;
+        positionComboBoxField.SelectedIndex = -1;
 
         List<SalaryScale> salaryScale = SalaryScaleBusiness.Instance.GetSalaryScales();
         salaryScaleComboBoxField.DataSource = salaryScale;
