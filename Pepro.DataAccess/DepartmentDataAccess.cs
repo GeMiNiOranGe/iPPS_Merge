@@ -42,6 +42,28 @@ public class DepartmentDataAccess
         return department;
     }
 
+    public List<Department> GetDepartments() {
+        string query = @"
+            SELECT DepartmentId
+                , Name
+                , ManagerId
+            FROM Department
+        ";
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
+
+        List<Department> departments = [];
+        foreach (DataRow row in dataTable.Rows) {
+            Department department = new() {
+                DepartmentId = row.Field<string>("DepartmentId") ?? "",
+                Name = row.Field<string>("Name") ?? "",
+                ManagerId = row.Field<string>("ManagerId") ?? "",
+            };
+            departments.Add(department);
+        }
+        return departments;
+    }
+
     public DataTable GetDepartmentList()
     {
         DataTable dataTable = new DataTable();
