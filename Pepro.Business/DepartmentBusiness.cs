@@ -23,6 +23,11 @@ public class DepartmentBusiness
         return department;
     }
 
+    public List<Department> GetDepartments()
+    {
+        return DepartmentDataAccess.Instance.GetDepartments();
+    }
+
     public DataTable GetDepartmentList()
     {
         return DepartmentDataAccess.Instance.GetDepartmentList();

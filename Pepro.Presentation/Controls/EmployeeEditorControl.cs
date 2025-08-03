@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.Business;
 using Pepro.DTOs;
 using System.ComponentModel;
 using System.Data;
@@ -61,13 +62,18 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             lbCheck4.ForeColor = Color.Red;
         }
 
-        sqlConnection.Open();
-        sqlCommand = new SqlCommand("SELECT * FROM PHONGBAN", sqlConnection);
-        sqlDataReader = sqlCommand.ExecuteReader();
-        while (sqlDataReader.Read()) {
-            departmentComboBoxField.Items.Add(sqlDataReader["TENPB"]);
-        }
-        sqlConnection.Close();
+        departmentIdInputField.DataBindings.Add(
+            nameof(departmentIdInputField.Text),
+            departmentComboBoxField,
+            nameof(departmentComboBoxField.SelectedValue)
+        );
+
+        departmentComboBoxField.DisplayMember = nameof(Department.Name);
+        departmentComboBoxField.ValueMember = nameof(Department.DepartmentId);
+
+        List<Department> departments = DepartmentBusiness.Instance.GetDepartments();
+        departmentComboBoxField.DataSource = departments;
+        departmentComboBoxField.SelectedIndex = -1;
 
         sqlConnection.Open();
         sqlCommand = new SqlCommand("SELECT * FROM CHUCVU", sqlConnection);
