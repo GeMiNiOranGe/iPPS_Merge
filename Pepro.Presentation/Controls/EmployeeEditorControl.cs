@@ -53,7 +53,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
 
     private void EmployeeEditorControl_Load(object sender, EventArgs e) {
         if (string.IsNullOrEmpty(departmentIdInputField.Text) ||
-            string.IsNullOrEmpty(jobPositionIdInputField.Text) ||
+            string.IsNullOrEmpty(positionIdInputField.Text) ||
             string.IsNullOrEmpty(salaryScaleIdInputField.Text) ||
             string.IsNullOrEmpty(salaryLevelIdInputField.Text)) {
             lbCheck1.ForeColor = Color.Red;
@@ -88,7 +88,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         sqlCommand = new SqlCommand("SELECT * FROM CHUCVU", sqlConnection);
         sqlDataReader = sqlCommand.ExecuteReader();
         while (sqlDataReader.Read()) {
-            jobPositionComboBoxField.Items.Add(sqlDataReader["TENCV"]);
+            positionComboBoxField.Items.Add(sqlDataReader["TENCV"]);
         }
         sqlConnection.Close();
 
@@ -110,13 +110,13 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         lbCheck1.ForeColor = Color.Black;
     }
 
-    private void JobPositionComboBoxField_SelectedIndexChanged(object sender, EventArgs e) {
+    private void PositionComboBoxField_SelectedIndexChanged(object sender, EventArgs e) {
         sqlConnection.Open();
         sqlCommand = new SqlCommand("SELECT * FROM CHUCVU WHERE TENCV = @TENCV", sqlConnection);
-        sqlCommand.Parameters.AddWithValue("@TENCV", jobPositionComboBoxField.Text);
+        sqlCommand.Parameters.AddWithValue("@TENCV", positionComboBoxField.Text);
         sqlDataReader = sqlCommand.ExecuteReader();
         while (sqlDataReader.Read()) {
-            jobPositionIdInputField.Text = sqlDataReader["MACV"].ToString();
+            positionIdInputField.Text = sqlDataReader["MACV"].ToString();
         }
         sqlConnection.Close();
 
@@ -166,7 +166,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         dateOfBirthDateTimePicker.CustomFormat = "yyyyMMdd";
         sqlCommand.Parameters.AddWithValue("@NGAYSINH", dateOfBirthDateTimePicker.Text);
         sqlCommand.Parameters.AddWithValue("@MAPB", departmentIdInputField.Text);
-        sqlCommand.Parameters.AddWithValue("@MACV", jobPositionIdInputField.Text);
+        sqlCommand.Parameters.AddWithValue("@MACV", positionIdInputField.Text);
         sqlCommand.Parameters.AddWithValue("@MANL", salaryScaleIdInputField.Text);
         sqlCommand.Parameters.AddWithValue("@MABL", salaryLevelIdInputField.Text);
         sqlCommand.ExecuteNonQuery();
@@ -177,7 +177,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
     private void SaveButton_Click(object sender, EventArgs e) {
         if (Mode == EditorMode.Create) {
             if (string.IsNullOrEmpty(departmentIdInputField.Text) ||
-                string.IsNullOrEmpty(jobPositionIdInputField.Text) ||
+                string.IsNullOrEmpty(positionIdInputField.Text) ||
                 string.IsNullOrEmpty(salaryScaleIdInputField.Text) ||
                 string.IsNullOrEmpty(salaryLevelIdInputField.Text)) {
                 MessageBox.Show("Mời điền đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -208,7 +208,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         dateOfBirthDateTimePicker.CustomFormat = "yyyyMMdd";
         sqlCommand.Parameters.AddWithValue("@NGAYSINH", dateOfBirthDateTimePicker.Text);
         sqlCommand.Parameters.AddWithValue("@MAPB", departmentIdInputField.Text);
-        sqlCommand.Parameters.AddWithValue("@MACV", jobPositionIdInputField.Text);
+        sqlCommand.Parameters.AddWithValue("@MACV", positionIdInputField.Text);
         sqlCommand.Parameters.AddWithValue("@MANL", salaryScaleIdInputField.Text);
         sqlCommand.Parameters.AddWithValue("@MABL", salaryLevelIdInputField.Text);
         sqlCommand.ExecuteNonQuery();

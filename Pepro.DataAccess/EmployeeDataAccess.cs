@@ -26,7 +26,7 @@ public class EmployeeDataAccess {
                 , TaxCode
                 , CitizenId
                 , DepartmentId
-                , JobPositionId
+                , PositionId
                 , SalaryLevelId
             FROM Employee
             WHERE IsDeleted = 0
@@ -48,7 +48,7 @@ public class EmployeeDataAccess {
                 TaxCode = row.Field<byte[]>("TaxCode"),
                 CitizenId = row.Field<string>("CitizenId") ?? "",
                 DepartmentId = row.Field<string>("DepartmentId") ?? "",
-                JobPositionId = row.Field<int>("JobPositionId"),
+                PositionId = row.Field<int>("PositionId"),
                 SalaryLevelId = row.Field<int>("SalaryLevelId")
             };
             employees.Add(employee);
@@ -67,7 +67,7 @@ public class EmployeeDataAccess {
                 , TaxCode
                 , CitizenId
                 , DepartmentId
-                , JobPositionId
+                , PositionId
                 , SalaryLevelId
             FROM Employee
             WHERE
@@ -102,7 +102,7 @@ public class EmployeeDataAccess {
                 TaxCode = row.Field<byte[]>("TaxCode"),
                 CitizenId = row.Field<string>("CitizenId") ?? "",
                 DepartmentId = row.Field<string>("DepartmentId") ?? "",
-                JobPositionId = row.Field<int>("JobPositionId"),
+                PositionId = row.Field<int>("PositionId"),
                 SalaryLevelId = row.Field<int>("SalaryLevelId")
             };
             employees.Add(employee);
@@ -275,7 +275,7 @@ public class EmployeeDataAccess {
                 , TaxCode
                 , CitizenId
                 , DepartmentId
-                , JobPositionId
+                , PositionId
                 , SalaryLevelId
             FROM Employee
             WHERE EmployeeId = @EmployeeId
@@ -308,7 +308,7 @@ public class EmployeeDataAccess {
             TaxCode = row.Field<byte[]>("TaxCode"),
             CitizenId = row.Field<string>("CitizenId") ?? "",
             DepartmentId = row.Field<string>("DepartmentId") ?? "",
-            JobPositionId = row.Field<int>("JobPositionId"),
+            PositionId = row.Field<int>("PositionId"),
             SalaryLevelId = row.Field<int>("SalaryLevelId")
         };
         return employee;
