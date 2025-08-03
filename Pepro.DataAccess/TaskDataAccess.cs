@@ -139,7 +139,7 @@ public class TaskDataAccess {
                 , TaxCode
                 , CitizenId
                 , DepartmentId
-                , JobPositionId
+                , PositionId
                 , SalaryLevelId
             FROM Task
             INNER JOIN Employee
@@ -173,7 +173,7 @@ public class TaskDataAccess {
             TaxCode = row.Field<byte[]>("TaxCode"),
             CitizenId = row.Field<string>("CitizenId") ?? "",
             DepartmentId = row.Field<string>("DepartmentId") ?? "",
-            JobPositionId = row.Field<int>("JobPositionId"),
+            PositionId = row.Field<int>("PositionId"),
             SalaryLevelId = row.Field<int>("SalaryLevelId")
         };
         return employee;

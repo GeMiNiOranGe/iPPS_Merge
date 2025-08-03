@@ -36,8 +36,8 @@
             fullNameInputField = new PeproInputField();
             departmentComboBoxField = new PeproComboBoxField();
             departmentIdInputField = new PeproInputField();
-            jobPositionIdInputField = new PeproInputField();
-            jobPositionComboBoxField = new PeproComboBoxField();
+            positionIdInputField = new PeproInputField();
+            positionComboBoxField = new PeproComboBoxField();
             salaryScaleIdInputField = new PeproInputField();
             salaryScaleComboBoxField = new PeproComboBoxField();
             salaryLevelIdInputField = new PeproInputField();
@@ -147,27 +147,27 @@
             departmentIdInputField.Size = new Size(240, 54);
             departmentIdInputField.TabIndex = 106;
             // 
-            // jobPositionIdInputField
+            // positionIdInputField
             // 
-            jobPositionIdInputField.Anchor = AnchorStyles.None;
-            jobPositionIdInputField.LabelText = "Job position id";
-            jobPositionIdInputField.Location = new Point(808, 153);
-            jobPositionIdInputField.Margin = new Padding(24, 16, 16, 16);
-            jobPositionIdInputField.Name = "jobPositionIdInputField";
-            jobPositionIdInputField.PlaceholderText = "e.g. job position id";
-            jobPositionIdInputField.Size = new Size(240, 54);
-            jobPositionIdInputField.TabIndex = 106;
+            positionIdInputField.Anchor = AnchorStyles.None;
+            positionIdInputField.LabelText = "Job position id";
+            positionIdInputField.Location = new Point(808, 153);
+            positionIdInputField.Margin = new Padding(24, 16, 16, 16);
+            positionIdInputField.Name = "positionIdInputField";
+            positionIdInputField.PlaceholderText = "e.g. job position id";
+            positionIdInputField.Size = new Size(240, 54);
+            positionIdInputField.TabIndex = 106;
             // 
-            // jobPositionComboBoxField
+            // positionComboBoxField
             // 
-            jobPositionComboBoxField.Anchor = AnchorStyles.None;
-            jobPositionComboBoxField.LabelText = "Job position";
-            jobPositionComboBoxField.Location = new Point(544, 153);
-            jobPositionComboBoxField.Margin = new Padding(24, 16, 0, 16);
-            jobPositionComboBoxField.Name = "jobPositionComboBoxField";
-            jobPositionComboBoxField.Size = new Size(240, 56);
-            jobPositionComboBoxField.TabIndex = 107;
-            jobPositionComboBoxField.SelectedIndexChanged += JobPositionComboBoxField_SelectedIndexChanged;
+            positionComboBoxField.Anchor = AnchorStyles.None;
+            positionComboBoxField.LabelText = "Job position";
+            positionComboBoxField.Location = new Point(544, 153);
+            positionComboBoxField.Margin = new Padding(24, 16, 0, 16);
+            positionComboBoxField.Name = "positionComboBoxField";
+            positionComboBoxField.Size = new Size(240, 56);
+            positionComboBoxField.TabIndex = 107;
+            positionComboBoxField.SelectedIndexChanged += PositionComboBoxField_SelectedIndexChanged;
             // 
             // salaryScaleIdInputField
             // 
@@ -289,10 +289,10 @@
             Controls.Add(salaryLevelComboBoxField);
             Controls.Add(salaryScaleComboBoxField);
             Controls.Add(salaryLevelIdInputField);
-            Controls.Add(jobPositionComboBoxField);
+            Controls.Add(positionComboBoxField);
             Controls.Add(salaryScaleIdInputField);
             Controls.Add(departmentComboBoxField);
-            Controls.Add(jobPositionIdInputField);
+            Controls.Add(positionIdInputField);
             Controls.Add(fullNameInputField);
             Controls.Add(departmentIdInputField);
             Controls.Add(employeeIdInputField);
@@ -314,10 +314,10 @@
             Controls.SetChildIndex(employeeIdInputField, 0);
             Controls.SetChildIndex(departmentIdInputField, 0);
             Controls.SetChildIndex(fullNameInputField, 0);
-            Controls.SetChildIndex(jobPositionIdInputField, 0);
+            Controls.SetChildIndex(positionIdInputField, 0);
             Controls.SetChildIndex(departmentComboBoxField, 0);
             Controls.SetChildIndex(salaryScaleIdInputField, 0);
-            Controls.SetChildIndex(jobPositionComboBoxField, 0);
+            Controls.SetChildIndex(positionComboBoxField, 0);
             Controls.SetChildIndex(salaryLevelIdInputField, 0);
             Controls.SetChildIndex(salaryScaleComboBoxField, 0);
             Controls.SetChildIndex(salaryLevelComboBoxField, 0);
@@ -341,8 +341,8 @@
         private PeproInputField fullNameInputField;
         private PeproComboBoxField departmentComboBoxField;
         private PeproInputField departmentIdInputField;
-        private PeproInputField jobPositionIdInputField;
-        private PeproComboBoxField jobPositionComboBoxField;
+        private PeproInputField positionIdInputField;
+        private PeproComboBoxField positionComboBoxField;
         private PeproInputField salaryScaleIdInputField;
         private PeproComboBoxField salaryScaleComboBoxField;
         private PeproInputField salaryLevelIdInputField;

@@ -10,7 +10,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @CitizenId       = '012735687326'
   , @PhoneNumberList = '0192381297,0284724665,0423874468,0623748736'
   , @DepartmentId    = 'Director'
-  , @JobPositionId   = 1
+  , @PositionId      = 1
   , @SalaryLevelId   = 30
 
 -- trưởng phòng ---------------------------------
@@ -25,7 +25,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @CitizenId       = '071273681763'
   , @PhoneNumberList = '0264837482,0323487687'
   , @DepartmentId    = 'HR'
-  , @JobPositionId   = 3
+  , @PositionId      = 3
   , @SalaryLevelId   = 30
 
 EXECUTE [dbo].[usp_InsertEmployee]
@@ -39,7 +39,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @CitizenId       = '034784236487'
   , @PhoneNumberList = '0213756238'
   , @DepartmentId    = 'Financial'
-  , @JobPositionId   = 3
+  , @PositionId      = 3
   , @SalaryLevelId   = 19
 
 -- nhân viên ---------------------------------
@@ -55,7 +55,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @CitizenId       = '060770287103'
   , @PhoneNumberList = NULL
   , @DepartmentId    = 'HR'
-  , @JobPositionId   = 4
+  , @PositionId      = 4
   , @SalaryLevelId   = 49
 
 EXECUTE [dbo].[usp_InsertEmployee]
@@ -69,7 +69,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @CitizenId       = '063530240085'
   , @PhoneNumberList = '0234716538'
   , @DepartmentId    = 'HR'
-  , @JobPositionId   = 4
+  , @PositionId      = 4
   , @SalaryLevelId   = 48
 
 EXECUTE [dbo].[usp_InsertEmployee]
@@ -83,7 +83,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @CitizenId       = '070251041576'
   , @PhoneNumberList = '0952387759'
   , @DepartmentId    = 'HR'
-  , @JobPositionId   = 4
+  , @PositionId      = 4
   , @SalaryLevelId   = 55
 
 EXECUTE [dbo].[usp_InsertEmployee]
@@ -97,7 +97,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @CitizenId       = '057713588258'
   , @PhoneNumberList = '0480399240'
   , @DepartmentId    = 'HR'
-  , @JobPositionId   = 4
+  , @PositionId      = 4
   , @SalaryLevelId   = 52
 
 -- phòng tài vụ
@@ -112,7 +112,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @CitizenId       = '047853010347'
   , @PhoneNumberList = '0157863874'
   , @DepartmentId    = 'Financial'
-  , @JobPositionId   = 4
+  , @PositionId      = 4
   , @SalaryLevelId   = 48
 
 EXECUTE [dbo].[usp_InsertEmployee]
@@ -126,7 +126,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @CitizenId       = '064223204085'
   , @PhoneNumberList = NULL
   , @DepartmentId    = 'Financial'
-  , @JobPositionId   = 4
+  , @PositionId      = 4
   , @SalaryLevelId   = 50
 
 EXECUTE [dbo].[usp_InsertEmployee]
@@ -140,7 +140,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @CitizenId       = '066283772230'
   , @PhoneNumberList = '0458237568'
   , @DepartmentId    = 'Financial'
-  , @JobPositionId   = 4
+  , @PositionId      = 4
   , @SalaryLevelId   = 57
 
 EXECUTE [dbo].[usp_InsertEmployee]
@@ -154,6 +154,6 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @CitizenId       = '027260138574'
   , @PhoneNumberList = '0593487298'
   , @DepartmentId    = 'Financial'
-  , @JobPositionId   = 4
+  , @PositionId      = 4
   , @SalaryLevelId   = 48
 GO

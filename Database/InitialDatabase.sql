@@ -34,9 +34,9 @@ CREATE TABLE [dbo].[Status] (
     [StatusValue]   [varchar](10)   NOT NULL,
 );
 
-CREATE TABLE [dbo].[JobPosition] (
-    [JobPositionId]         [int]           NOT NULL IDENTITY(1, 1),
-    [JobTitle]              [nvarchar](20)  NOT NULL,
+CREATE TABLE [dbo].[Position] (
+    [PositionId]            [int]           NOT NULL IDENTITY(1, 1),
+    [Title]                 [nvarchar](20)  NOT NULL,
     [AllowanceCoefficient]  [decimal](4, 2) NOT NULL, --TODO: Encrypt
 );
 
@@ -78,7 +78,7 @@ CREATE TABLE [dbo].[Employee] (
     -- TODO: add address column
 
     [DepartmentId]  [varchar](10)   NOT NULL,
-    [JobPositionId] [int]           NOT NULL,
+    [PositionId]    [int]           NOT NULL,
     [SalaryLevelId] [int]           NOT NULL,
 
     [IsDeleted]     [bit]           NOT NULL,
@@ -158,7 +158,7 @@ GO
 -- add primary key -------------------------------------------------------
 ALTER TABLE [dbo].[Department]          ADD CONSTRAINT [PK_Department]          PRIMARY KEY ([DepartmentId])
 ALTER TABLE [dbo].[Status]              ADD CONSTRAINT [PK_Status]              PRIMARY KEY ([StatusId])
-ALTER TABLE [dbo].[JobPosition]         ADD CONSTRAINT [PK_JobPosition]         PRIMARY KEY ([JobPositionId])
+ALTER TABLE [dbo].[Position]            ADD CONSTRAINT [PK_Position]            PRIMARY KEY ([PositionId])
 ALTER TABLE [dbo].[SalaryScale]         ADD CONSTRAINT [PK_SalaryScale]         PRIMARY KEY ([SalaryScaleId]);
 ALTER TABLE [dbo].[Project]             ADD CONSTRAINT [PK_Project]             PRIMARY KEY ([ProjectId])
 ALTER TABLE [dbo].[SalaryLevel]         ADD CONSTRAINT [PK_SalaryLevel]         PRIMARY KEY ([SalaryLevelId]);
@@ -193,9 +193,9 @@ ALTER TABLE [dbo].[Employee] ADD
 CONSTRAINT [FK_Employee_Department]
     FOREIGN KEY ([DepartmentId])
     REFERENCES [dbo].[Department]([DepartmentId]),
-CONSTRAINT [FK_Employee_JobPosition]
-    FOREIGN KEY ([JobPositionId])
-    REFERENCES [dbo].[JobPosition]([JobPositionId]),
+CONSTRAINT [FK_Employee_Position]
+    FOREIGN KEY ([PositionId])
+    REFERENCES [dbo].[Position]([PositionId]),
 CONSTRAINT [FK_Employee_SalaryLevel]
     FOREIGN KEY ([SalaryLevelId])
     REFERENCES [dbo].[SalaryLevel]([SalaryLevelId]);
