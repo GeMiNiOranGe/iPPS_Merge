@@ -16,4 +16,12 @@ public class SalaryScaleBusiness {
     public List<SalaryScale> GetSalaryScales() {
         return SalaryScaleDataAccess.Instance.GetSalaryScales();
     }
+
+    public SalaryScale GetSalaryScaleBySalaryLevelId(int salaryLevelId) {
+        SalaryScale? salaryScale = SalaryScaleDataAccess.Instance.GetSalaryScaleBySalaryLevelId(salaryLevelId);
+        if (salaryScale == null) {
+            return new SalaryScale();
+        }
+        return salaryScale;
+    }
 }
