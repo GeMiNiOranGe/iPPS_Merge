@@ -114,21 +114,27 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         List<EmployeePosition> positions = PositionBusiness.Instance.GetPositions();
         positionComboBoxField.DataSource = positions;
 
+        List<SalaryScale> salaryScales = SalaryScaleBusiness.Instance.GetSalaryScales();
+
         if (_mode == EditorMode.Create) {
             departmentComboBoxField.SelectedIndex = -1;
-
             positionComboBoxField.SelectedIndex = -1;
 
             _suppressSalaryLevelReload = true;
-            List<SalaryScale> salaryScale = SalaryScaleBusiness.Instance.GetSalaryScales();
-            salaryScaleComboBoxField.DataSource = salaryScale;
+            salaryScaleComboBoxField.DataSource = salaryScales;
             salaryScaleComboBoxField.SelectedIndex = -1;
             _suppressSalaryLevelReload = false;
         }
         if (_mode == EditorMode.Edit) {
             departmentComboBoxField.SelectedValue = _item.DepartmentId;
-
             positionComboBoxField.SelectedValue = _item.PositionId;
+
+            SalaryScale salaryScale = SalaryScaleBusiness.Instance.GetSalaryScaleBySalaryLevelId(
+                _item.SalaryLevelId
+            );
+            salaryScaleComboBoxField.DataSource = salaryScales;
+            salaryScaleComboBoxField.SelectedValue = salaryScale.SalaryScaleId;
+            salaryLevelComboBoxField.SelectedValue = _item.SalaryLevelId;
         }
     }
 
