@@ -26,6 +26,19 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
             employeeIdInputField.Text = _item.EmployeeId;
+            firstNameInputField.Text = _item.FirstName;
+            middleNameInputField.Text = _item.MiddleName;
+            lastNameInputField.Text = _item.LastName;
+            dateOfBirthDateTimePicker.SetValue(_item.DateOfBirth);
+            RadioButton genderRadioButton = _item.Gender switch {
+                true => maleRadioButton,
+                false => femaleRadioButton,
+                _ => otherRadioButton,
+            };
+            genderRadioButton.Checked = true;
+            // TODO: handle `_item.TaxCode`;
+            taxCodeInputField.Text = "0000000000";
+            citizenIdInputField.Text = _item.CitizenId;
         }
     }
 
@@ -97,17 +110,26 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
 
         List<Department> departments = DepartmentBusiness.Instance.GetDepartments();
         departmentComboBoxField.DataSource = departments;
-        departmentComboBoxField.SelectedIndex = -1;
 
         List<EmployeePosition> positions = PositionBusiness.Instance.GetPositions();
         positionComboBoxField.DataSource = positions;
-        positionComboBoxField.SelectedIndex = -1;
 
-        _suppressSalaryLevelReload = true;
-        List<SalaryScale> salaryScale = SalaryScaleBusiness.Instance.GetSalaryScales();
-        salaryScaleComboBoxField.DataSource = salaryScale;
-        salaryScaleComboBoxField.SelectedIndex = -1;
-        _suppressSalaryLevelReload = false;
+        if (_mode == EditorMode.Create) {
+            departmentComboBoxField.SelectedIndex = -1;
+
+            positionComboBoxField.SelectedIndex = -1;
+
+            _suppressSalaryLevelReload = true;
+            List<SalaryScale> salaryScale = SalaryScaleBusiness.Instance.GetSalaryScales();
+            salaryScaleComboBoxField.DataSource = salaryScale;
+            salaryScaleComboBoxField.SelectedIndex = -1;
+            _suppressSalaryLevelReload = false;
+        }
+        if (_mode == EditorMode.Edit) {
+            departmentComboBoxField.SelectedValue = _item.DepartmentId;
+
+            positionComboBoxField.SelectedValue = _item.PositionId;
+        }
     }
 
     private void SalaryScaleComboBoxField_SelectedIndexChanged(object sender, EventArgs e) {
@@ -132,7 +154,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
 
         sqlCommand = new SqlCommand(insertQuery, sqlConnection);
         sqlCommand.Parameters.AddWithValue("@MANV", employeeIdInputField.Text);
-        sqlCommand.Parameters.AddWithValue("@HOTENNV", fullNameInputField.Text);
+        sqlCommand.Parameters.AddWithValue("@HOTENNV", firstNameInputField.Text);
         if (maleRadioButton.Checked) {
             sqlCommand.Parameters.AddWithValue("@GIOITINH", "1");
         }
@@ -174,7 +196,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         sqlConnection.Open();
         sqlCommand = new SqlCommand("UPDATE NHANVIEN SET HOTENNV = @HOTENNV, GIOITINH = @GIOITINH, NGAYSINH = @NGAYSINH, @NOISINH = NOISINH, QUEQUAN = @QUEQUAN, TRINHDOVANHOA = @TRINHDOVANHOA, DANTOC = @DANTOC, TONGIAO = @TONGIAO, DOANVIEN = @DOANVIEN, DANGVIEN = @DANGVIEN, CONGDOANVIEN = @CONGDOANVIEN, MAPB = @MAPB, MACV = @MACV, MANL = @MANL, MABL = @MABL WHERE MANV = @MANV", sqlConnection);
         sqlCommand.Parameters.AddWithValue("@MANV", employeeIdInputField.Text);
-        sqlCommand.Parameters.AddWithValue("@HOTENNV", fullNameInputField.Text);
+        sqlCommand.Parameters.AddWithValue("@HOTENNV", firstNameInputField.Text);
         if (maleRadioButton.Checked) {
             sqlCommand.Parameters.AddWithValue("@GIOITINH", "1");
         }
