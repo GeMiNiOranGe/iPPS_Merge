@@ -11,7 +11,6 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
     private bool _suppressSalaryLevelReload = false;
     SqlConnection sqlConnection = new(Config.CONNECTION_STRING);
     SqlCommand sqlCommand;
-    SqlDataReader sqlDataReader;
 
     public EmployeeEditorControl() {
         Initialize();
@@ -109,32 +108,6 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         salaryScaleComboBoxField.DataSource = salaryScale;
         salaryScaleComboBoxField.SelectedIndex = -1;
         _suppressSalaryLevelReload = false;
-    }
-
-    private void DepartmentComboBoxField_SelectedIndexChanged(object sender, EventArgs e) {
-        sqlConnection.Open();
-        sqlCommand = new SqlCommand("SELECT * FROM PHONGBAN WHERE TENPB = @TENPB", sqlConnection);
-        sqlCommand.Parameters.AddWithValue("@TENPB", departmentComboBoxField.Text);
-        sqlDataReader = sqlCommand.ExecuteReader();
-        while (sqlDataReader.Read()) {
-            departmentIdInputField.Text = sqlDataReader["MAPB"].ToString();
-        }
-        sqlConnection.Close();
-
-        lbCheck1.ForeColor = Color.Black;
-    }
-
-    private void PositionComboBoxField_SelectedIndexChanged(object sender, EventArgs e) {
-        sqlConnection.Open();
-        sqlCommand = new SqlCommand("SELECT * FROM CHUCVU WHERE TENCV = @TENCV", sqlConnection);
-        sqlCommand.Parameters.AddWithValue("@TENCV", positionComboBoxField.Text);
-        sqlDataReader = sqlCommand.ExecuteReader();
-        while (sqlDataReader.Read()) {
-            positionIdInputField.Text = sqlDataReader["MACV"].ToString();
-        }
-        sqlConnection.Close();
-
-        lbCheck2.ForeColor = Color.Black;
     }
 
     private void SalaryScaleComboBoxField_SelectedIndexChanged(object sender, EventArgs e) {
