@@ -134,7 +134,6 @@
             departmentComboBoxField.Name = "departmentComboBoxField";
             departmentComboBoxField.Size = new Size(240, 56);
             departmentComboBoxField.TabIndex = 107;
-            departmentComboBoxField.SelectedIndexChanged += DepartmentComboBoxField_SelectedIndexChanged;
             // 
             // departmentIdInputField
             // 
@@ -150,24 +149,23 @@
             // positionIdInputField
             // 
             positionIdInputField.Anchor = AnchorStyles.None;
-            positionIdInputField.LabelText = "Job position id";
+            positionIdInputField.LabelText = "Position id";
             positionIdInputField.Location = new Point(808, 153);
             positionIdInputField.Margin = new Padding(24, 16, 16, 16);
             positionIdInputField.Name = "positionIdInputField";
-            positionIdInputField.PlaceholderText = "e.g. job position id";
+            positionIdInputField.PlaceholderText = "e.g. position id";
             positionIdInputField.Size = new Size(240, 54);
             positionIdInputField.TabIndex = 106;
             // 
             // positionComboBoxField
             // 
             positionComboBoxField.Anchor = AnchorStyles.None;
-            positionComboBoxField.LabelText = "Job position";
+            positionComboBoxField.LabelText = "Position";
             positionComboBoxField.Location = new Point(544, 153);
             positionComboBoxField.Margin = new Padding(24, 16, 0, 16);
             positionComboBoxField.Name = "positionComboBoxField";
             positionComboBoxField.Size = new Size(240, 56);
             positionComboBoxField.TabIndex = 107;
-            positionComboBoxField.SelectedIndexChanged += PositionComboBoxField_SelectedIndexChanged;
             // 
             // salaryScaleIdInputField
             // 
