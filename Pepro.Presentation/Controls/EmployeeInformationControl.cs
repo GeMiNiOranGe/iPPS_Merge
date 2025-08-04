@@ -39,7 +39,7 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
         RadioButton genderRadioButton = employee.Gender switch {
             true => maleRadioButton,
             false => femaleRadioButton,
-            _ => otherRadioButton
+            _ => otherRadioButton,
         };
         genderRadioButton.Checked = true;
 
