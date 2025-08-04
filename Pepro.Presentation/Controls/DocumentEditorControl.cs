@@ -24,7 +24,7 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
             _item = value ?? throw new ArgumentNullException(nameof(Item));
             documentIdInputField.Text = _item.DocumentId.ToString();
             titleInputField.Text = _item.Title;
-            createdAtDateTimePicker.Value = _item.CreateAt <= createdAtDateTimePicker.MinDate ? createdAtDateTimePicker.MinDate : _item.CreateAt;
+            createdAtDateTimePicker.SetValue(_item.CreateAt);
             revisionNumberInputField.Text = _item.RevisionNumber.ToString();
             revisionStatusInputField.Text = _item.RevisionStatus;
             filePathInputField.Text = _item.DocumentUrl;
