@@ -1,4 +1,5 @@
-﻿using Pepro.DTOs;
+﻿using Microsoft.Data.SqlClient;
+using Pepro.DTOs;
 using System.Data;
 
 namespace Pepro.DataAccess;
@@ -33,5 +34,39 @@ public class SalaryScaleDataAccess {
             salaryScales.Add(salaryScale);
         }
         return salaryScales;
+    }
+
+    public SalaryScale? GetSalaryScaleBySalaryLevelId(int salaryLevelId) {
+        string query = @"
+            SELECT SalaryScale.SalaryScaleId
+                , [Group]
+                , Name
+            FROM SalaryScale
+            INNER JOIN SalaryLevel
+                    ON SalaryLevel.SalaryScaleId = SalaryScale.SalaryScaleId
+            WHERE SalaryLevelId = @SalaryLevelId
+        ";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "SalaryLevelId",
+                SqlDbType = SqlDbType.Int,
+                Value = salaryLevelId
+            }
+        ];
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        if (dataTable.Rows.Count == 0) {
+            return null;
+        }
+
+        DataRow row = dataTable.Rows[0];
+        SalaryScale salaryScale = new() {
+            SalaryScaleId = row.Field<int>("SalaryScaleId"),
+            Group = row.Field<string>("Group") ?? "",
+            Name = row.Field<string>("Name") ?? "",
+        };
+        return salaryScale;
     }
 }
