@@ -56,7 +56,7 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
         assignedProjectsComboBoxField.Items.AddRange(projectNames);
         assignedProjectsComboBoxField.Text = assignedProjectsComboBoxField.Items[0]?.ToString();
 
-        string[] phoneNumbers = EmployeeBusiness.Instance.GetPhoneNumberListByEmployeeId(_employeeId);
+        string[] phoneNumbers = EmployeeBusiness.Instance.GetPhoneNumbersByEmployeeId(_employeeId);
         phoneNumberComboBoxField.Items.AddRange(phoneNumbers);
         phoneNumberComboBoxField.Text = phoneNumberComboBoxField.Items[0]?.ToString();
     }
