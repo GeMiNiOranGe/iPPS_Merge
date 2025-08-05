@@ -70,8 +70,8 @@ public class EmployeeBusiness
         return EmployeeDataAccess.Instance.GetRolebyEmployeeID(employeeID);
     }
 
-    public string[] GetPhoneNumberListByEmployeeId(string employeeID) {
-        List<EmployeePhoneNumber> employeePhoneNumbers = EmployeeDataAccess.Instance.GetPhoneNumberListByEmployeeId(employeeID);
+    public string[] GetPhoneNumbersByEmployeeId(string employeeID) {
+        List<EmployeePhoneNumber> employeePhoneNumbers = EmployeeDataAccess.Instance.GetEmployeePhoneNumbersByEmployeeId(employeeID);
 
         if (employeePhoneNumbers.Count == 0) {
             return ["Không tìm thấy"];

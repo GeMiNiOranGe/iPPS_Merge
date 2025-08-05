@@ -323,7 +323,7 @@ public class EmployeeDataAccess {
         return null;
     }
 
-    public List<EmployeePhoneNumber> GetPhoneNumberListByEmployeeId(string employeeId) {
+    public List<EmployeePhoneNumber> GetEmployeePhoneNumbersByEmployeeId(string employeeId) {
         string query = @"
             SELECT EmployeePhoneNumberId
                 , PhoneNumber
