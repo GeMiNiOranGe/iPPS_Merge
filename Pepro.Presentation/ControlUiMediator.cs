@@ -57,6 +57,7 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
         DocumentEditorControl documentEditorControl = new(this) {
             Item = payload.Item,
             Mode = payload.Mode,
+            OnDataChanged = payload.OnDataChanged,
         };
         PushControl(documentEditorControl);
     }
@@ -79,6 +80,7 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
         EmployeeEditorControl employeeEditorControl = new(this) {
             Item = payload.Item,
             Mode = payload.Mode,
+            OnDataChanged = payload.OnDataChanged,
         };
         PushControl(employeeEditorControl);
     }

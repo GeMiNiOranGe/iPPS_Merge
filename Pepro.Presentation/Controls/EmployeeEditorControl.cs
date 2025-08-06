@@ -197,6 +197,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             }
             else {
                 InsertStaff();
+                NotifyDataChanged();
                 Close();
 
                 MessageBox.Show("Thêm Nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -204,6 +205,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         }
         else {
             UpdateStaff();
+            NotifyDataChanged();
             Close();
         }
     }
