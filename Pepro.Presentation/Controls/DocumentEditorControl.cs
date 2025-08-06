@@ -120,6 +120,7 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
 
     private void SaveButton_Click(object sender, EventArgs e) {
         MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock2");
+        NotifyDataChanged();
         Close();
     }
 
