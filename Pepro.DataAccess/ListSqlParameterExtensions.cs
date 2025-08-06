@@ -1,0 +1,36 @@
+using Microsoft.Data.SqlClient;
+using System.Data;
+
+namespace Pepro.DataAccess;
+
+static class ListSqlParameterExtensions
+{
+    public static void Add(
+        this List<SqlParameter> parameters,
+        string parameterName,
+        SqlDbType dbType,
+        int size,
+        object? value
+    )
+    {
+        SqlParameter parameter = new(parameterName, dbType, size)
+        {
+            Value = value ?? DBNull.Value
+        };
+        parameters.Add(parameter);
+    }
+
+    public static void Add(
+        this List<SqlParameter> parameters,
+        string parameterName,
+        SqlDbType dbType,
+        object? value
+    )
+    {
+        SqlParameter parameter = new(parameterName, dbType)
+        {
+            Value = value ?? DBNull.Value
+        };
+        parameters.Add(parameter);
+    }
+}
