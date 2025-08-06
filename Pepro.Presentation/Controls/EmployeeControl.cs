@@ -89,6 +89,7 @@ public partial class EmployeeControl : PeproMediatedUserControl {
         _mediator.Notify(this, ControlUiEvent.OpenEmployeeEditorControl, new OpenEmployeeEditorControlPayload() {
             Item = new(),
             Mode = EditorMode.Create,
+            OnDataChanged = LoadEmployees,
         });
     }
 
@@ -105,6 +106,7 @@ public partial class EmployeeControl : PeproMediatedUserControl {
             _mediator.Notify(this, ControlUiEvent.OpenEmployeeEditorControl, new OpenEmployeeEditorControlPayload() {
                 Item = employee,
                 Mode = EditorMode.Edit,
+                OnDataChanged = LoadEmployees,
             });
         }
     }

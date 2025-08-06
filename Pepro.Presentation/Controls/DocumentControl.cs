@@ -83,6 +83,7 @@ public partial class DocumentControl : PeproMediatedUserControl
         {
             Item = new(),
             Mode = EditorMode.Create,
+            OnDataChanged = LoadDocuments,
         });
     }
 
@@ -115,6 +116,7 @@ public partial class DocumentControl : PeproMediatedUserControl
         {
             Item = document,
             Mode = EditorMode.Edit,
+            OnDataChanged = LoadDocuments,
         });
     }
 
