@@ -264,6 +264,29 @@ public class EmployeeDataAccess {
         }
     }
 
+    public int InsertEmployee(Employee employee)
+    {
+        string query = @"
+            INSERT INTO [dbo].[Employee]
+                    ([EmployeeId], [FirstName], [MiddleName], [LastName], [DateOfBirth], [Gender], [TaxCode], [CitizenId], [DepartmentId], [PositionId], [SalaryLevelId])
+            VALUES  (@EmployeeId,  @FirstName,  @MiddleName,  @LastName,  @DateOfBirth,  @Gender,  @TaxCode,  @CitizenId,  @DepartmentId,  @PositionId,  @SalaryLevelId)
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, employee.EmployeeId);
+        parameters.Add("FirstName", SqlDbType.NVarChar, 10, employee.FirstName);
+        parameters.Add("MiddleName", SqlDbType.NVarChar, 30, employee.MiddleName);
+        parameters.Add("LastName", SqlDbType.NVarChar, 10, employee.LastName);
+        parameters.Add("DateOfBirth", SqlDbType.Date, employee.DateOfBirth);
+        parameters.Add("Gender", SqlDbType.Bit, employee.Gender);
+        parameters.Add("TaxCode", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, employee.TaxCode);
+        parameters.Add("CitizenId", SqlDbType.VarChar, 12, employee.CitizenId);
+        parameters.Add("DepartmentId", SqlDbType.VarChar, 10, employee.DepartmentId);
+        parameters.Add("PositionId", SqlDbType.Int, employee.PositionId);
+        parameters.Add("SalaryLevelId", SqlDbType.Int, employee.SalaryLevelId);
+
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
     public Employee? GetEmployeeByEmployeeId(string employeeId) {
         string query = @"
             SELECT EmployeeId
