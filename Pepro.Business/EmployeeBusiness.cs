@@ -58,6 +58,10 @@ public class EmployeeBusiness
         EmployeeDataAccess.Instance.InsertEmployee(employeeId, fullname, gender, dateOfBirth, phoneNumber, salary, allowance, taxCode, departmentId);
     }
 
+    public int InsertEmployee(Employee employee) {
+        return EmployeeDataAccess.Instance.InsertEmployee(employee);
+    }
+
     public Employee GetEmployeeByEmployeeId(string employeeID) {
         Employee? employee = EmployeeDataAccess.Instance.GetEmployeeByEmployeeId(employeeID);
         if (employee == null) {

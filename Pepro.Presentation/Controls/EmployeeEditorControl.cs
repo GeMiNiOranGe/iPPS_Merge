@@ -153,35 +153,43 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
     }
 
     public void InsertStaff() {
-        string insertQuery = "INSERT INTO NHANVIEN (MANV, HOTENNV, GIOITINH, NGAYSINH, NOISINH, QUEQUAN, TRINHDOVANHOA, DANTOC, TONGIAO, DOANVIEN, DANGVIEN, CONGDOANVIEN, MAPB, MACV, MANL, MABL) " +
-                             "VALUES (@MANV, @HOTENNV, @GIOITINH, @NGAYSINH, @NOISINH, @QUEQUAN, @TRINHDOVANHOA, @DANTOC, @TONGIAO, @DOANVIEN, @DANGVIEN, @CONGDOANVIEN, @MAPB, @MACV, @MANL, @MABL)";
-
-        sqlConnection.Open();
-
-        sqlCommand = new SqlCommand(insertQuery, sqlConnection);
-        sqlCommand.Parameters.AddWithValue("@MANV", employeeIdInputField.Text);
-        sqlCommand.Parameters.AddWithValue("@HOTENNV", firstNameInputField.Text);
+        bool? gender = null;
         if (maleRadioButton.Checked) {
-            sqlCommand.Parameters.AddWithValue("@GIOITINH", "1");
+            gender = true;
         }
-        else {
-            sqlCommand.Parameters.AddWithValue("@GIOITINH", "0");
+        if (femaleRadioButton.Checked) {
+            gender = false;
         }
-        dateOfBirthDateTimePicker.Format = DateTimePickerFormat.Custom;
-        dateOfBirthDateTimePicker.CustomFormat = "yyyyMMdd";
-        sqlCommand.Parameters.AddWithValue("@NGAYSINH", dateOfBirthDateTimePicker.Text);
-        sqlCommand.Parameters.AddWithValue("@MAPB", departmentIdInputField.Text);
-        sqlCommand.Parameters.AddWithValue("@MACV", positionIdInputField.Text);
-        sqlCommand.Parameters.AddWithValue("@MANL", salaryScaleIdInputField.Text);
-        sqlCommand.Parameters.AddWithValue("@MABL", salaryLevelIdInputField.Text);
-        sqlCommand.ExecuteNonQuery();
 
-        sqlConnection.Close();
+        if (!int.TryParse(positionComboBoxField.SelectedValue?.ToString(), out int positionId)) {
+            positionId = 0;
+        }
+
+        if (!int.TryParse(salaryLevelComboBoxField.SelectedValue?.ToString(), out int salaryLevelId)) {
+            salaryLevelId = 0;
+        }
+
+        Employee employee = new() {
+            EmployeeId = employeeIdInputField.Text,
+            FirstName = firstNameInputField.Text,
+            MiddleName = middleNameInputField.Text,
+            LastName = lastNameInputField.Text,
+            DateOfBirth = dateOfBirthDateTimePicker.Value,
+            Gender = gender,
+            // TODO: handle `_item.TaxCode`;
+            TaxCode = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            CitizenId = citizenIdInputField.Text,
+            DepartmentId = departmentComboBoxField.SelectedValue?.ToString() ?? "",
+            PositionId = positionId,
+            SalaryLevelId = salaryLevelId,
+        };
+        _ = EmployeeBusiness.Instance.InsertEmployee(employee);
     }
 
     private void SaveButton_Click(object sender, EventArgs e) {
         if (Mode == EditorMode.Create) {
-            if (string.IsNullOrEmpty(departmentIdInputField.Text) ||
+            if (string.IsNullOrWhiteSpace(citizenIdInputField.Text) ||
+                string.IsNullOrEmpty(departmentIdInputField.Text) ||
                 string.IsNullOrEmpty(positionIdInputField.Text) ||
                 string.IsNullOrEmpty(salaryScaleIdInputField.Text) ||
                 string.IsNullOrEmpty(salaryLevelIdInputField.Text)) {
