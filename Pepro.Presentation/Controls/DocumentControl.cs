@@ -77,6 +77,11 @@ public partial class DocumentControl : PeproMediatedUserControl
         }
     }
 
+    private void DocumentDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
+        documentDataGridView.ClearSelection();
+        documentDataGridView.CurrentCell = null;
+    }
+
     private void InsertButton_Click(object sender, EventArgs e)
     {
         _mediator.Notify(this, ControlUiEvent.OpenDocumentEditorControl, new OpenDocumentEditorControlPayload()

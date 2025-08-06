@@ -71,6 +71,11 @@ public partial class EmployeeControl : PeproMediatedUserControl {
         }
     }
 
+    private void EmployeeDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
+        employeeDataGridView.ClearSelection();
+        employeeDataGridView.CurrentCell = null;
+    }
+
     private void SearchButton_Click(object sender, EventArgs e) {
         if (string.IsNullOrEmpty(searchTextBox.Text)) {
             MessageBox.Show("Vui lòng nhập thông tin cần tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -94,21 +99,21 @@ public partial class EmployeeControl : PeproMediatedUserControl {
     }
 
     private void UpdateButton_Click(object sender, EventArgs e) {
-        if (employeeIdInputField.Text == "null") {
+        if (employeeDataGridView.CurrentRow == null) {
             MessageBox.Show("Vui lòng chọn nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return;
         }
-        else {
-            DataGridViewRow? row = employeeDataGridView.CurrentRow;
-            if (row == null || row.DataBoundItem is not Employee employee) {
-                return;
-            }
 
-            _mediator.Notify(this, ControlUiEvent.OpenEmployeeEditorControl, new OpenEmployeeEditorControlPayload() {
-                Item = employee,
-                Mode = EditorMode.Edit,
-                OnDataChanged = LoadEmployees,
-            });
+        DataGridViewRow row = employeeDataGridView.CurrentRow;
+        if (row.DataBoundItem is not Employee employee) {
+            return;
         }
+
+        _mediator.Notify(this, ControlUiEvent.OpenEmployeeEditorControl, new OpenEmployeeEditorControlPayload() {
+            Item = employee,
+            Mode = EditorMode.Edit,
+            OnDataChanged = LoadEmployees,
+        });
     }
 
     private void DeleteButton_Click(object sender, EventArgs e) {
