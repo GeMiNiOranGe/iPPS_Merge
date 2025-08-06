@@ -197,12 +197,14 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             }
             else {
                 InsertStaff();
+                Close();
 
                 MessageBox.Show("Thêm Nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         else {
             UpdateStaff();
+            Close();
         }
     }
 

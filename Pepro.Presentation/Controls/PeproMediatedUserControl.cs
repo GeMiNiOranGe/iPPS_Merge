@@ -51,7 +51,11 @@ public partial class PeproMediatedUserControl : PeproUserControlBase {
         }
     }
 
-    private void HeaderReturnButton_Click(object sender, EventArgs e) {
+    protected void Close() {
         Parent?.Controls.Remove(this);
+    }
+
+    private void HeaderReturnButton_Click(object sender, EventArgs e) {
+        Close();
     }
 }
