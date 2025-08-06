@@ -85,6 +85,7 @@
             employeeDataGridView.Size = new Size(1032, 475);
             employeeDataGridView.TabIndex = 8;
             employeeDataGridView.CellClick += EmployeeDataGridView_CellClick;
+            employeeDataGridView.DataBindingComplete += EmployeeDataGridView_DataBindingComplete;
             // 
             // Column1
             // 

@@ -241,6 +241,7 @@
             documentDataGridView.Size = new Size(1032, 397);
             documentDataGridView.TabIndex = 8;
             documentDataGridView.CellClick += DocumentDataGridView_CellClick;
+            documentDataGridView.DataBindingComplete += DocumentDataGridView_DataBindingComplete;
             // 
             // Column1
             // 
