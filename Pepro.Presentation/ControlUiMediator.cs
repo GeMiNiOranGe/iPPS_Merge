@@ -1,4 +1,5 @@
-﻿using Pepro.Presentation.Controls;
+﻿using Pepro.DTOs;
+using Pepro.Presentation.Controls;
 
 namespace Pepro.Presentation;
 
@@ -50,7 +51,7 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
     }
 
     private void OpenDocumentEditorControl(object? data) {
-        if (data is not OpenDocumentEditorControlPayload payload) {
+        if (data is not OpenEditorControlPayload<TaskDocument> payload) {
             return;
         }
 
@@ -73,7 +74,7 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
     }
 
     private void OpenEmployeeEditorControl(object? data) {
-        if (data is not OpenEmployeeEditorControlPayload payload) {
+        if (data is not OpenEditorControlPayload<Employee> payload) {
             return;
         }
 

@@ -4,7 +4,7 @@ using Svg;
 
 namespace Pepro.Presentation.Controls;
 
-public partial class EmployeeControl : PeproMediatedUserControl {
+public partial class EmployeeControl : PeproCrudControlBase {
     public EmployeeControl() {
         Initialize();
     }
@@ -91,29 +91,19 @@ public partial class EmployeeControl : PeproMediatedUserControl {
     }
 
     private void InsertButton_Click(object sender, EventArgs e) {
-        _mediator.Notify(this, ControlUiEvent.OpenEmployeeEditorControl, new OpenEmployeeEditorControlPayload() {
-            Item = new(),
-            Mode = EditorMode.Create,
-            OnDataChanged = LoadEmployees,
-        });
+        BindInsertButtonClick<Employee>(
+            new(),
+            ControlUiEvent.OpenEmployeeEditorControl,
+            LoadEmployees
+        );
     }
 
     private void UpdateButton_Click(object sender, EventArgs e) {
-        if (employeeDataGridView.CurrentRow == null) {
-            MessageBox.Show("Vui lòng chọn nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            return;
-        }
-
-        DataGridViewRow row = employeeDataGridView.CurrentRow;
-        if (row.DataBoundItem is not Employee employee) {
-            return;
-        }
-
-        _mediator.Notify(this, ControlUiEvent.OpenEmployeeEditorControl, new OpenEmployeeEditorControlPayload() {
-            Item = employee,
-            Mode = EditorMode.Edit,
-            OnDataChanged = LoadEmployees,
-        });
+        BindUpdateButtonClick<Employee>(
+            employeeDataGridView,
+            ControlUiEvent.OpenEmployeeEditorControl,
+            LoadEmployees
+        );
     }
 
     private void DeleteButton_Click(object sender, EventArgs e) {
