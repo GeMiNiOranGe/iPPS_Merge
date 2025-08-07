@@ -56,22 +56,9 @@ public partial class MenuForm : PeproForm {
         child.BringToFront();
     }
 
-    public string GetRole() {
-        //string strRole;
-        //string query = $"select NAME from ROLE where EMPLOYEE_ID = N'{userId}'";
-        //conn.Open();
-        //var sqlCommand = new SqlCommand(query, conn);
-        //var sqlDataReader = sqlCommand.ExecuteReader();
-        //sqlDataReader.Read();
-        //strRole = sqlDataReader["NAME"].ToString();
-        //conn.Close();
-        //return strRole;
-        return "Test";
-    }
-
     private void MenuForm_Load(object sender, EventArgs e) {
         usernameLabel.Text = EmployeeBusiness.Instance.GetDisplayNameByEmployeeId(_employeeId);
-        roleLabel.Text = GetRole();
+        roleLabel.Text = PositionBusiness.Instance.GetPositionTitleByEmployeeId(_employeeId);
     }
 
     private void MenuForm_FormClosing(object sender, FormClosingEventArgs e) {

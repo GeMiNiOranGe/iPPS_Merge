@@ -1,4 +1,5 @@
-﻿using Pepro.DTOs;
+﻿using Microsoft.Data.SqlClient;
+using Pepro.DTOs;
 using System.Data;
 
 namespace Pepro.DataAccess;
@@ -33,5 +34,40 @@ public class PositionDataAccess {
             positions.Add(position);
         }
         return positions;
+    }
+
+    public EmployeePosition? GetPositionByEmployeeId(string employeeId) {
+        string query = @"
+            SELECT Position.PositionId
+                , Position.Title
+                , Position.AllowanceCoefficient
+            FROM Position
+            INNER JOIN Employee
+                    ON Employee.PositionId = Position.PositionId
+            WHERE EmployeeId = @EmployeeId
+        ";
+        SqlParameter[] parameters =
+        [
+            new()
+            {
+                ParameterName = "EmployeeId",
+                SqlDbType = SqlDbType.VarChar,
+                Size = 10,
+                Value = employeeId
+            }
+        ];
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        if (dataTable.Rows.Count == 0) {
+            return null;
+        }
+
+        DataRow row = dataTable.Rows[0];
+        EmployeePosition employeePosition = new() {
+            PositionId = row.Field<int>("PositionId"),
+            Title = row.Field<string>("Title") ?? "",
+            AllowanceCoefficient = row.Field<decimal>("AllowanceCoefficient"),
+        };
+        return employeePosition;
     }
 }
