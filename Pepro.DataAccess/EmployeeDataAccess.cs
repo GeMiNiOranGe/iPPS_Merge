@@ -311,7 +311,7 @@ public class EmployeeDataAccess {
         return null;
     }
 
-    public List<EmployeePhoneNumber> GetEmployeePhoneNumbersByEmployeeId(string employeeId) {
+    public List<EmployeePhoneNumber> GetPhoneNumbersByEmployeeId(string employeeId) {
         string query = @"
             SELECT EmployeePhoneNumberId
                 , PhoneNumber
