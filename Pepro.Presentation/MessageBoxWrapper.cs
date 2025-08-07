@@ -7,6 +7,8 @@ public static class MessageBoxWrapper
     {
         return key switch
         {
+            "SelectData" => "Vui lòng chọn trường dữ liệu",
+            "DataReadError" => "Không thể đọc dữ liệu",
             "SelectDocument" => "Vui lòng chọn tài liệu để xoá",
             "SelectEmployee" => "Vui lòng chọn nhân viên để xoá",
             "DeleteDocumentSuccess" => "Xóa {0} tài liệu thành công",
@@ -28,6 +30,18 @@ public static class MessageBoxWrapper
             "Thông báo",
             MessageBoxButtons.OK,
             MessageBoxIcon.Information
+        );
+    }
+
+    public static DialogResult ShowError(string key, params object[] args)
+    {
+        string raw = GetMessage(key);
+
+        return MessageBox.Show(
+            string.Format(raw, args),
+            "Lỗi",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Error
         );
     }
 
