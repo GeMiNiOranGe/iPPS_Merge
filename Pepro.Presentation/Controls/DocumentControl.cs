@@ -4,7 +4,7 @@ using Svg;
 
 namespace Pepro.Presentation.Controls;
 
-public partial class DocumentControl : PeproMediatedUserControl
+public partial class DocumentControl : PeproCrudControlBase
 {
     public DocumentControl()
     {
@@ -84,12 +84,20 @@ public partial class DocumentControl : PeproMediatedUserControl
 
     private void InsertButton_Click(object sender, EventArgs e)
     {
-        _mediator.Notify(this, ControlUiEvent.OpenDocumentEditorControl, new OpenDocumentEditorControlPayload()
-        {
-            Item = new(),
-            Mode = EditorMode.Create,
-            OnDataChanged = LoadDocuments,
-        });
+        BindInsertButtonClick<TaskDocument>(
+            new(),
+            ControlUiEvent.OpenDocumentEditorControl,
+            LoadDocuments
+        );
+    }
+
+    private void UpdateButton_Click(object sender, EventArgs e)
+    {
+        BindUpdateButtonClick<TaskDocument>(
+            documentDataGridView,
+            ControlUiEvent.OpenDocumentEditorControl,
+            LoadDocuments
+        );
     }
 
     private void DeleteButton_Click(object sender, EventArgs e)
@@ -107,22 +115,6 @@ public partial class DocumentControl : PeproMediatedUserControl
             MessageBoxWrapper.ShowInformation("DeleteDocumentSuccess", numberOfRowsAffected);
             LoadDocuments();
         }
-    }
-
-    private void UpdateButton_Click(object sender, EventArgs e)
-    {
-        DataGridViewRow? row = documentDataGridView.CurrentRow;
-        if (row == null || row.DataBoundItem is not TaskDocument document)
-        {
-            return;
-        }
-
-        _mediator.Notify(this, ControlUiEvent.OpenDocumentEditorControl, new OpenDocumentEditorControlPayload()
-        {
-            Item = document,
-            Mode = EditorMode.Edit,
-            OnDataChanged = LoadDocuments,
-        });
     }
 
     private void SearchButton_Click(object sender, EventArgs e)
