@@ -25,11 +25,11 @@ public class EmployeeBusiness
         return EmployeeDataAccess.Instance.SearchEmployees(searchValue);
     }
 
-    public string GetDisplayName(string accountName)
+    public string GetDisplayNameByEmployeeId(string employeeId)
     {
-        EmployeeFullName? employeeFullName = EmployeeDataAccess.Instance.GetFullname(accountName);
-        return employeeFullName != null
-            ? employeeFullName.FirstName + ", " + employeeFullName.LastName
+        Employee? employee = EmployeeDataAccess.Instance.GetEmployeeByEmployeeId(employeeId);
+        return employee != null
+            ? employee.FirstName + ", " + employee.LastName
             : "";
     }
 
