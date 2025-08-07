@@ -110,41 +110,6 @@ public class EmployeeDataAccess {
         return employees;
     }
 
-    public EmployeeFullName? GetFullname(string accountName) {
-        string query = @"
-            SELECT FirstName
-                , MiddleName
-                , LastName
-            FROM Employee
-            WHERE Employee.EmployeeId = @EmployeeId
-            AND IsDeleted = 0
-        ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "EmployeeId",
-                SqlDbType = SqlDbType.VarChar,
-                Size = 10,
-                Value = accountName
-            }
-        ];
-
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
-        if (dataTable.Rows.Count == 0) {
-            return null;
-        }
-
-        DataRow row = dataTable.Rows[0];
-        EmployeeFullName employeeFullName = new()
-        {
-            FirstName = row.Field<string>("FirstName") ?? "",
-            MiddleName = row.Field<string>("MiddleName"),
-            LastName = row.Field<string>("LastName") ?? ""
-        };
-        return employeeFullName;
-    }
-
     public DataTable GetEmployeeByRoleID(int roleID) {
         DataTable dataTable = new DataTable();
         using (SqlConnection conn = new SqlConnection("")) {
