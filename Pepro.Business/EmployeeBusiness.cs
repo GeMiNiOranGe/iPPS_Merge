@@ -75,12 +75,7 @@ public class EmployeeBusiness
     }
 
     public string[] GetPhoneNumbersByEmployeeId(string employeeID) {
-        List<EmployeePhoneNumber> employeePhoneNumbers = EmployeeDataAccess.Instance.GetEmployeePhoneNumbersByEmployeeId(employeeID);
-
-        if (employeePhoneNumbers.Count == 0) {
-            return ["Không tìm thấy"];
-        }
-
+        List<EmployeePhoneNumber> employeePhoneNumbers = EmployeeDataAccess.Instance.GetPhoneNumbersByEmployeeId(employeeID);
         List<string> phoneNumbers = [];
         foreach (EmployeePhoneNumber phoneNumber in employeePhoneNumbers)
         {

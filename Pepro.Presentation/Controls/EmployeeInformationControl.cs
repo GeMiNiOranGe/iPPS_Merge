@@ -57,7 +57,6 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
         assignedProjectsComboBoxField.Text = assignedProjectsComboBoxField.Items[0]?.ToString();
 
         string[] phoneNumbers = EmployeeBusiness.Instance.GetPhoneNumbersByEmployeeId(_employeeId);
-        phoneNumberComboBoxField.Items.AddRange(phoneNumbers);
-        phoneNumberComboBoxField.Text = phoneNumberComboBoxField.Items[0]?.ToString();
+        phoneNumberComboBoxField.DataSource = phoneNumbers.Length != 0 ? phoneNumbers : ["Không tìm thấy"];
     }
 }
