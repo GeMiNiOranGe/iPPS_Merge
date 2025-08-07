@@ -10,13 +10,13 @@ public partial class MenuForm : PeproForm {
     private readonly SqlConnection conn = new(
         @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
     );
-    private string _accountName = "";
+    private string _employeeId = "";
     private readonly ControlUiMediator _mediator;
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required string AccountName {
-        get => _accountName;
-        set => _accountName = value;
+    public required string EmployeeId {
+        get => _employeeId;
+        set => _employeeId = value;
     }
 
     public MenuForm() {
@@ -70,7 +70,7 @@ public partial class MenuForm : PeproForm {
     }
 
     private void MenuForm_Load(object sender, EventArgs e) {
-        usernameLabel.Text = EmployeeBusiness.Instance.GetDisplayNameByEmployeeId(_accountName);
+        usernameLabel.Text = EmployeeBusiness.Instance.GetDisplayNameByEmployeeId(_employeeId);
         roleLabel.Text = GetRole();
     }
 
@@ -89,7 +89,7 @@ public partial class MenuForm : PeproForm {
     private void TaskButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(taskButton.Location.Y);
 
-        string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_accountName}'";
+        string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_employeeId}'";
         conn.Open();
         var sqlCommand = new SqlCommand(query, conn);
         var sqlDataReader = sqlCommand.ExecuteReader();
@@ -107,7 +107,7 @@ public partial class MenuForm : PeproForm {
     private void ProjectButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(projectButton.Location.Y);
 
-        string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_accountName}'";
+        string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_employeeId}'";
         conn.Open();
         var sqlCommand = new SqlCommand(query, conn);
         var sqlDataReader = sqlCommand.ExecuteReader();
@@ -160,7 +160,7 @@ public partial class MenuForm : PeproForm {
 
     private void Account_MouseClick(object sender, MouseEventArgs e) {
         _mediator.Notify(this, ControlUiEvent.OpenEmployeeInformationControl, new OpenEmployeeInformationControlPayload() {
-            EmployeeId = _accountName,
+            EmployeeId = _employeeId,
         });
     }
 

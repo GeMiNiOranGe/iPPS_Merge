@@ -14,19 +14,19 @@ static class Program
 
         while (true)
         {
-            string? accountName = null;
+            string? employeeId = null;
             using (LoginForm loginForm = new())
             {
                 if (loginForm.ShowDialog() != DialogResult.OK)
                 {
                     break;
                 }
-                accountName = loginForm.AccountName;
+                employeeId = loginForm.EmployeeId;
             }
 
             using MenuForm menuForm = new()
             {
-                AccountName = accountName
+                EmployeeId = employeeId
             };
             if (menuForm.ShowDialog() != DialogResult.Retry)
             {
