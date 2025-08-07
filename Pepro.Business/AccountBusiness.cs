@@ -18,18 +18,22 @@ public class AccountBusiness
 
     private AccountBusiness() { }
 
-    public LoginStatus GetLoginStatus(string accountName, string password)
+    public LoginResult TryLogin(string accountName, string password)
     {
+        LoginResult loginResult = new();
+
         if (string.IsNullOrEmpty(accountName) || string.IsNullOrEmpty(password))
         {
-            return LoginStatus.InvalidInput;
+            loginResult.Status = LoginStatus.InvalidInput;
+            return loginResult;
         }
 
         Account? account = AccountDataAccess.Instance.FindAccount(accountName);
 
         if (account == null)
         {
-            return LoginStatus.InvalidAccount;
+            loginResult.Status = LoginStatus.InvalidAccount;
+            return loginResult;
         }
 
         byte[] castPassword = DefaultConverter.GetBytes(password);
@@ -42,9 +46,12 @@ public class AccountBusiness
 
         if (!isSamePassword)
         {
-            return LoginStatus.InvalidAccount;
+            loginResult.Status = LoginStatus.InvalidAccount;
+            return loginResult;
         }
 
-        return account.IsActive ? LoginStatus.Success : LoginStatus.LockedAccount;
+        loginResult.EmployeeId = account.EmployeeId;
+        loginResult.Status = account.IsActive ? LoginStatus.Success : LoginStatus.LockedAccount;
+        return loginResult;
     }
 }

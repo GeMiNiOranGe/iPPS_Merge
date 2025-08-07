@@ -9,7 +9,7 @@ namespace Pepro.Presentation;
 
 public partial class LoginForm : PeproForm {
     private readonly SvgColourServer textIconColor = new(ThemeColors.Text);
-    private string _accountName = "";
+    private string _employeeId = "";
 
     public LoginForm() {
         InitializeComponent();
@@ -52,9 +52,9 @@ public partial class LoginForm : PeproForm {
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string AccountName {
-        get => _accountName;
-        private set => _accountName = value;
+    public string EmployeeId {
+        get => _employeeId;
+        private set => _employeeId = value;
     }
 
     private void LoginButton_Click(object sender, EventArgs e) {
@@ -62,11 +62,11 @@ public partial class LoginForm : PeproForm {
         string password = passwordField.Text;
 
         try {
-            LoginStatus status = AccountBusiness.Instance.GetLoginStatus(accountName, password);
+            LoginResult loginResult = AccountBusiness.Instance.TryLogin(accountName, password);
 
-            switch (status) {
+            switch (loginResult.Status) {
             case LoginStatus.Success:
-                _accountName = accountName;
+                _employeeId = loginResult.EmployeeId;
                 DialogResult = DialogResult.OK;
                 Close();
                 break;
