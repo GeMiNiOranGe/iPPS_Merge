@@ -16,4 +16,9 @@ public class PositionBusiness {
     public List<EmployeePosition> GetPositions() {
         return PositionDataAccess.Instance.GetPositions();
     }
+
+    public string GetPositionTitleByEmployeeId(string employeeId) {
+        EmployeePosition? employeePosition = PositionDataAccess.Instance.GetPositionByEmployeeId(employeeId);
+        return employeePosition != null ? employeePosition.Title : "";
+    }
 }
