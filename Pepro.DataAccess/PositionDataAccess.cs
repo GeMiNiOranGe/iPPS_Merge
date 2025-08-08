@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Mappings;
 using Pepro.DTOs;
 using System.Data;
 
@@ -26,11 +27,7 @@ public class PositionDataAccess {
 
         List<EmployeePosition> positions = [];
         foreach (DataRow row in dataTable.Rows) {
-            EmployeePosition position = new() {
-                PositionId = row.Field<int>("PositionId"),
-                Title = row.Field<string>("Title") ?? "",
-                AllowanceCoefficient = row.Field<decimal>("AllowanceCoefficient"),
-            };
+            EmployeePosition position = PositionMapper.FromDataRow(row);
             positions.Add(position);
         }
         return positions;
@@ -63,11 +60,7 @@ public class PositionDataAccess {
         }
 
         DataRow row = dataTable.Rows[0];
-        EmployeePosition employeePosition = new() {
-            PositionId = row.Field<int>("PositionId"),
-            Title = row.Field<string>("Title") ?? "",
-            AllowanceCoefficient = row.Field<decimal>("AllowanceCoefficient"),
-        };
+        EmployeePosition employeePosition = PositionMapper.FromDataRow(row);
         return employeePosition;
     }
 }
