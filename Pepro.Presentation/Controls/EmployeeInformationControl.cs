@@ -52,9 +52,8 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
         Department department = DepartmentBusiness.Instance.GetDepartmentByDepartmentId(employee.DepartmentId);
         departmentInputField.Text = department.Name;
 
-        string[] projectNames = ProjectBusiness.Instance.GetProjectsByEmployeeId(_employeeId);
-        assignedProjectsComboBoxField.Items.AddRange(projectNames);
-        assignedProjectsComboBoxField.Text = assignedProjectsComboBoxField.Items[0]?.ToString();
+        string[] projectNames = ProjectBusiness.Instance.GetProjectNamesByEmployeeId(_employeeId);
+        assignedProjectsComboBoxField.DataSource = projectNames.Length != 0 ? projectNames : ["Không tìm thấy"];
 
         string[] phoneNumbers = EmployeeBusiness.Instance.GetPhoneNumbersByEmployeeId(_employeeId);
         phoneNumberComboBoxField.DataSource = phoneNumbers.Length != 0 ? phoneNumbers : ["Không tìm thấy"];

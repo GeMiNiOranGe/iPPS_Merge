@@ -53,13 +53,8 @@ public class ProjectBusiness {
         return projectsProgress;
     }
 
-    public string[] GetProjectsByEmployeeId(string employeeId) {
+    public string[] GetProjectNamesByEmployeeId(string employeeId) {
         List<Project> projects = ProjectDataAccess.Instance.GetProjectsByEmployeeId(employeeId);
-
-        if (projects.Count == 0) {
-            return ["Không tìm thấy"];
-        }
-
         List<string> projectNames = [];
         foreach (Project project in projects) {
             projectNames.Add(project.Name);
