@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Mappings;
 using Pepro.DTOs;
 using System.Data;
 
@@ -55,19 +56,7 @@ public class DocumentDataAccess {
 
         List<TaskDocument> documents = [];
         foreach (DataRow row in dataTable.Rows) {
-            TaskDocument document = new() {
-                DocumentId = row.Field<int>("DocumentId"),
-                Title = row.Field<string>("Title") ?? "",
-                CreateAt = row.Field<DateTime>("CreateAt"),
-                RevisionNumber = row.Field<int>("RevisionNumber"),
-                RevisionStatus = row.Field<string>("RevisionStatus") ?? "",
-                DocumentUrl = row.Field<string>("DocumentUrl") ?? "",
-                NativeFileFormat = row.Field<string>("NativeFileFormat") ?? "",
-                PreparedBy = row.Field<string>("PreparedBy") ?? "",
-                CheckedBy = row.Field<string>("CheckedBy") ?? "",
-                ApprovedBy = row.Field<string>("ApprovedBy") ?? "",
-                TaskId = row.Field<int>("TaskId")
-            };
+            TaskDocument document = DocumentMapper.FromDataRow(row);
             documents.Add(document);
         }
         return documents;
@@ -110,19 +99,7 @@ public class DocumentDataAccess {
 
         List<TaskDocument> documents = [];
         foreach (DataRow row in dataTable.Rows) {
-            TaskDocument document = new() {
-                DocumentId = row.Field<int>("DocumentId"),
-                Title = row.Field<string>("Title") ?? "",
-                CreateAt = row.Field<DateTime>("CreateAt"),
-                RevisionNumber = row.Field<int>("RevisionNumber"),
-                RevisionStatus = row.Field<string>("RevisionStatus") ?? "",
-                DocumentUrl = row.Field<string>("DocumentUrl") ?? "",
-                NativeFileFormat = row.Field<string>("NativeFileFormat") ?? "",
-                PreparedBy = row.Field<string>("PreparedBy") ?? "",
-                CheckedBy = row.Field<string>("CheckedBy") ?? "",
-                ApprovedBy = row.Field<string>("ApprovedBy") ?? "",
-                TaskId = row.Field<int>("TaskId")
-            };
+            TaskDocument document = DocumentMapper.FromDataRow(row);
             documents.Add(document);
         }
         return documents;
