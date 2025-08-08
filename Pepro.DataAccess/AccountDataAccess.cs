@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Mappings;
 using Pepro.DTOs;
 
 namespace Pepro.DataAccess;
@@ -55,14 +56,6 @@ public class AccountDataAccess {
         }
 
         DataRow row = dataTable.Rows[0];
-        Account account = new() {
-            AccountId = row.Field<int>("AccountId"),
-            Username = row.Field<string>("Username") ?? "",
-            Salt = row.Field<byte[]>("Salt") ?? [],
-            Password = row.Field<byte[]>("Password") ?? [],
-            IsActive = row.Field<bool>("IsActive"),
-            EmployeeId = row.Field<string>("EmployeeId") ?? ""
-        };
-        return account;
+        return AccountMapper.FromDataRow(row);
     }
 }
