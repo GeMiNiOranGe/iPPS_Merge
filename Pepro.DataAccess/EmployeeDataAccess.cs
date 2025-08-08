@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Mappings;
 using Pepro.DTOs;
 using System.Data;
 
@@ -37,20 +38,7 @@ public class EmployeeDataAccess {
         List<Employee> employees = [];
         foreach (DataRow row in dataTable.Rows)
         {
-            Employee employee = new()
-            {
-                EmployeeId = row.Field<string>("EmployeeId") ?? "",
-                FirstName = row.Field<string>("FirstName") ?? "",
-                MiddleName = row.Field<string>("MiddleName"),
-                LastName = row.Field<string>("LastName") ?? "",
-                DateOfBirth = row.Field<DateTime>("DateOfBirth"),
-                Gender = row.Field<bool?>("Gender"),
-                TaxCode = row.Field<byte[]>("TaxCode"),
-                CitizenId = row.Field<string>("CitizenId") ?? "",
-                DepartmentId = row.Field<string>("DepartmentId") ?? "",
-                PositionId = row.Field<int>("PositionId"),
-                SalaryLevelId = row.Field<int>("SalaryLevelId")
-            };
+            Employee employee = EmployeeMapper.FromDataRow(row);
             employees.Add(employee);
         }
         return employees;
@@ -92,19 +80,7 @@ public class EmployeeDataAccess {
 
         List<Employee> employees = [];
         foreach (DataRow row in dataTable.Rows) {
-            Employee employee = new() {
-                EmployeeId = row.Field<string>("EmployeeId") ?? "",
-                FirstName = row.Field<string>("FirstName") ?? "",
-                MiddleName = row.Field<string>("MiddleName"),
-                LastName = row.Field<string>("LastName") ?? "",
-                DateOfBirth = row.Field<DateTime>("DateOfBirth"),
-                Gender = row.Field<bool?>("Gender"),
-                TaxCode = row.Field<byte[]>("TaxCode"),
-                CitizenId = row.Field<string>("CitizenId") ?? "",
-                DepartmentId = row.Field<string>("DepartmentId") ?? "",
-                PositionId = row.Field<int>("PositionId"),
-                SalaryLevelId = row.Field<int>("SalaryLevelId")
-            };
+            Employee employee = EmployeeMapper.FromDataRow(row);
             employees.Add(employee);
         }
         return employees;
@@ -286,20 +262,7 @@ public class EmployeeDataAccess {
         }
 
         DataRow row = dataTable.Rows[0];
-        Employee employee = new() {
-            EmployeeId = row.Field<string>("EmployeeId") ?? "",
-            FirstName = row.Field<string>("FirstName") ?? "",
-            MiddleName = row.Field<string>("MiddleName"),
-            LastName = row.Field<string>("LastName") ?? "",
-            DateOfBirth = row.Field<DateTime>("DateOfBirth"),
-            Gender = row.Field<bool?>("Gender"),
-            TaxCode = row.Field<byte[]>("TaxCode"),
-            CitizenId = row.Field<string>("CitizenId") ?? "",
-            DepartmentId = row.Field<string>("DepartmentId") ?? "",
-            PositionId = row.Field<int>("PositionId"),
-            SalaryLevelId = row.Field<int>("SalaryLevelId")
-        };
-        return employee;
+        return EmployeeMapper.FromDataRow(row);
     }
 
     //Lấy dữ liệu từ table ROLE trong database dựa vào EMPLOYEE_ID
@@ -338,12 +301,7 @@ public class EmployeeDataAccess {
         List<EmployeePhoneNumber> listPhoneNumber = [];
         foreach (DataRow row in dataTable.Rows)
         {
-            EmployeePhoneNumber phoneNumber = new()
-            {
-                EmployeePhoneNumberId = row.Field<int>("EmployeePhoneNumberId"),
-                PhoneNumber = row.Field<string>("PhoneNumber") ?? "",
-                EmployeeId = row.Field<string>("EmployeeId") ?? ""
-            };
+            EmployeePhoneNumber phoneNumber = EmployeePhoneNumberMapper.FromDataRow(row);
             listPhoneNumber.Add(phoneNumber);
         }
         return listPhoneNumber;
