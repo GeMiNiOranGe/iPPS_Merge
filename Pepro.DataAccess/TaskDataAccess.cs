@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Mappings;
 using Pepro.DTOs;
 using System.Data;
 
@@ -58,17 +59,7 @@ public class TaskDataAccess {
 
         List<ProjectTask> tasks = [];
         foreach (DataRow row in dataTable.Rows) {
-            ProjectTask task = new() {
-                TaskId = row.Field<int>("TaskId"),
-                Name = row.Field<string>("Name") ?? "",
-                IsPublicToProject = row.Field<bool>("IsPublicToProject"),
-                IsPublicToDepartment = row.Field<bool>("IsPublicToDepartment"),
-                ManagerId = row.Field<string>("ManagerId") ?? "",
-                StartDate = row.Field<DateTime>("StartDate"),
-                EndDate = row.Field<DateTime>("EndDate"),
-                ProjectId = row.Field<string>("ProjectId") ?? "",
-                StatusId = row.Field<int>("StatusId")
-            };
+            ProjectTask task = TaskMapper.FromDataRow(row);
             tasks.Add(task);
         }
         return tasks;
@@ -105,17 +96,7 @@ public class TaskDataAccess {
 
         List<ProjectTask> tasks = [];
         foreach (DataRow row in dataTable.Rows) {
-            ProjectTask task = new() {
-                TaskId = row.Field<int>("TaskId"),
-                Name = row.Field<string>("Name") ?? "",
-                IsPublicToProject = row.Field<bool>("IsPublicToProject"),
-                IsPublicToDepartment = row.Field<bool>("IsPublicToDepartment"),
-                ManagerId = row.Field<string>("ManagerId") ?? "",
-                StartDate = row.Field<DateTime>("StartDate"),
-                EndDate = row.Field<DateTime>("EndDate"),
-                ProjectId = row.Field<string>("ProjectId") ?? "",
-                StatusId = row.Field<int>("StatusId")
-            };
+            ProjectTask task = TaskMapper.FromDataRow(row);
             tasks.Add(task);
         }
         return tasks;
@@ -163,20 +144,7 @@ public class TaskDataAccess {
         }
 
         DataRow row = dataTable.Rows[0];
-        Employee employee = new() {
-            EmployeeId = row.Field<string>("EmployeeId") ?? "",
-            FirstName = row.Field<string>("FirstName") ?? "",
-            MiddleName = row.Field<string>("MiddleName"),
-            LastName = row.Field<string>("LastName") ?? "",
-            DateOfBirth = row.Field<DateTime>("DateOfBirth"),
-            Gender = row.Field<bool?>("Gender"),
-            TaxCode = row.Field<byte[]>("TaxCode"),
-            CitizenId = row.Field<string>("CitizenId") ?? "",
-            DepartmentId = row.Field<string>("DepartmentId") ?? "",
-            PositionId = row.Field<int>("PositionId"),
-            SalaryLevelId = row.Field<int>("SalaryLevelId")
-        };
-        return employee;
+        return EmployeeMapper.FromDataRow(row);
     }
 
     public ProjectTask? GetTaskByDocumentId(int documentId) {
@@ -211,17 +179,6 @@ public class TaskDataAccess {
         }
 
         DataRow row = dataTable.Rows[0];
-        ProjectTask task = new() {
-            TaskId = row.Field<int>("TaskId"),
-            Name = row.Field<string>("Name") ?? "",
-            IsPublicToProject = row.Field<bool>("IsPublicToProject"),
-            IsPublicToDepartment = row.Field<bool>("IsPublicToDepartment"),
-            ManagerId = row.Field<string>("ManagerId") ?? "",
-            StartDate = row.Field<DateTime>("StartDate"),
-            EndDate = row.Field<DateTime>("EndDate"),
-            ProjectId = row.Field<string>("ProjectId") ?? "",
-            StatusId = row.Field<int>("StatusId")
-        };
-        return task;
+        return TaskMapper.FromDataRow(row);
     }
 }

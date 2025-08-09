@@ -87,9 +87,9 @@ public class ProjectDataAccess {
                 , Project.StatusId
             FROM TaskDetail
             INNER JOIN Task
-            ON TaskDetail.TaskId = Task.TaskId
+                    ON TaskDetail.TaskId = Task.TaskId
             INNER JOIN Project
-            ON Task.ProjectId = Project.ProjectId
+                    ON Task.ProjectId = Project.ProjectId
             WHERE EmployeeId = @EmployeeId
             ORDER BY Project.ProjectId DESC;
         ";
