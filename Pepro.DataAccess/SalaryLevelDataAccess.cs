@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Mappings;
 using Pepro.DTOs;
 using System.Data;
 
@@ -37,12 +38,7 @@ public class SalaryLevelDataAccess {
 
         List<SalaryLevel> salaryLevels = [];
         foreach (DataRow row in dataTable.Rows) {
-            SalaryLevel salaryLevel = new() {
-                SalaryLevelId = row.Field<int>("SalaryLevelId"),
-                Level = row.Field<string>("Level") ?? "",
-                Coefficient = row.Field<decimal>("Coefficient"),
-                SalaryScaleId = row.Field<int>("SalaryScaleId"),
-            };
+            SalaryLevel salaryLevel = SalaryLevelMapper.FromDataRow(row);
             salaryLevels.Add(salaryLevel);
         }
         return salaryLevels;
