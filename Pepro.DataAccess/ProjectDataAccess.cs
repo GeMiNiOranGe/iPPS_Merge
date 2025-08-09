@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Mappings;
 using Pepro.DTOs;
 using System.Data;
 
@@ -43,16 +44,7 @@ public class ProjectDataAccess {
         }
 
         DataRow row = dataTable.Rows[0];
-        Project project = new() {
-            ProjectId = row.Field<string>("ProjectId") ?? "",
-            Name = row.Field<string>("Name") ?? "",
-            CustomerName = row.Field<string>("CustomerName") ?? "",
-            ManagerId = row.Field<string>("ManagerId") ?? "",
-            StartDate = row.Field<DateTime>("StartDate"),
-            EndDate = row.Field<DateTime>("EndDate"),
-            StatusId = row.Field<int>("StatusId"),
-        };
-        return project;
+        return ProjectMapper.FromDataRow(row);
     }
 
     /// <summary>
@@ -78,16 +70,7 @@ public class ProjectDataAccess {
         List<Project> projects = [];
         foreach (DataRow row in dataTable.Rows)
         {
-            Project project = new()
-            {
-                ProjectId = row.Field<string>("ProjectId") ?? "",
-                Name = row.Field<string>("Name") ?? "",
-                CustomerName = row.Field<string>("CustomerName") ?? "",
-                ManagerId = row.Field<string>("ManagerId") ?? "",
-                StartDate = row.Field<DateTime>("StartDate"),
-                EndDate = row.Field<DateTime>("EndDate"),
-                StatusId = row.Field<int>("StatusId")
-            };
+            Project project = ProjectMapper.FromDataRow(row);
             projects.Add(project);
         }
         return projects;
@@ -125,15 +108,7 @@ public class ProjectDataAccess {
 
         List<Project> projects = [];
         foreach (DataRow row in dataTable.Rows) {
-            Project project = new() {
-                ProjectId = row.Field<string>("ProjectId") ?? "",
-                Name = row.Field<string>("Name") ?? "",
-                CustomerName = row.Field<string>("CustomerName") ?? "",
-                ManagerId = row.Field<string>("ManagerId") ?? "",
-                StartDate = row.Field<DateTime>("StartDate"),
-                EndDate = row.Field<DateTime>("EndDate"),
-                StatusId = row.Field<int>("StatusId")
-            };
+            Project project = ProjectMapper.FromDataRow(row);
             projects.Add(project);
         }
         return projects;
@@ -169,15 +144,6 @@ public class ProjectDataAccess {
         }
 
         DataRow row = dataTable.Rows[0];
-        Project project = new() {
-            ProjectId = row.Field<string>("ProjectId") ?? "",
-            Name = row.Field<string>("Name") ?? "",
-            CustomerName = row.Field<string>("CustomerName") ?? "",
-            ManagerId = row.Field<string>("ManagerId") ?? "",
-            StartDate = row.Field<DateTime>("StartDate"),
-            EndDate = row.Field<DateTime>("EndDate"),
-            StatusId = row.Field<int>("StatusId"),
-        };
-        return project;
+        return ProjectMapper.FromDataRow(row);
     }
 }
