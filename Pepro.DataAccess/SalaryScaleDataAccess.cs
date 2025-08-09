@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Mappings;
 using Pepro.DTOs;
 using System.Data;
 
@@ -26,11 +27,7 @@ public class SalaryScaleDataAccess {
 
         List<SalaryScale> salaryScales = [];
         foreach (DataRow row in dataTable.Rows) {
-            SalaryScale salaryScale = new() {
-                SalaryScaleId = row.Field<int>("SalaryScaleId"),
-                Group = row.Field<string>("Group") ?? "",
-                Name = row.Field<string>("Name") ?? "",
-            };
+            SalaryScale salaryScale = SalaryScaleMapper.FromDataRow(row);
             salaryScales.Add(salaryScale);
         }
         return salaryScales;
@@ -62,11 +59,6 @@ public class SalaryScaleDataAccess {
         }
 
         DataRow row = dataTable.Rows[0];
-        SalaryScale salaryScale = new() {
-            SalaryScaleId = row.Field<int>("SalaryScaleId"),
-            Group = row.Field<string>("Group") ?? "",
-            Name = row.Field<string>("Name") ?? "",
-        };
-        return salaryScale;
+        return SalaryScaleMapper.FromDataRow(row);
     }
 }
