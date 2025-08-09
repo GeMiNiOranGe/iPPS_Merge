@@ -60,7 +60,6 @@ public class PositionDataAccess {
         }
 
         DataRow row = dataTable.Rows[0];
-        EmployeePosition employeePosition = PositionMapper.FromDataRow(row);
-        return employeePosition;
+        return PositionMapper.FromDataRow(row);
     }
 }
