@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Mappings;
 using Pepro.DTOs;
 using System.Data;
 
@@ -16,7 +17,13 @@ public class DepartmentDataAccess
     private DepartmentDataAccess() { }
 
     public Department? GetDepartmentByDepartmentId(string departmentId) {
-        string query = "SELECT DepartmentId, Name, ManagerId FROM Department WHERE DepartmentId = @DepartmentId";
+        string query = @"
+            SELECT DepartmentId
+                , Name
+                , ManagerId
+            FROM Department
+            WHERE DepartmentId = @DepartmentId
+        ";
         SqlParameter[] parameters =
         [
             new()
@@ -34,12 +41,7 @@ public class DepartmentDataAccess
         }
 
         DataRow row = dataTable.Rows[0];
-        Department department = new() {
-            DepartmentId = row.Field<string>("DepartmentId") ?? "",
-            Name = row.Field<string>("Name") ?? "",
-            ManagerId = row.Field<string>("ManagerId") ?? ""
-        };
-        return department;
+        return DepartmentMapper.FromDataRow(row);
     }
 
     public List<Department> GetDepartments() {
@@ -54,11 +56,7 @@ public class DepartmentDataAccess
 
         List<Department> departments = [];
         foreach (DataRow row in dataTable.Rows) {
-            Department department = new() {
-                DepartmentId = row.Field<string>("DepartmentId") ?? "",
-                Name = row.Field<string>("Name") ?? "",
-                ManagerId = row.Field<string>("ManagerId") ?? "",
-            };
+            Department department = DepartmentMapper.FromDataRow(row);
             departments.Add(department);
         }
         return departments;
