@@ -22,17 +22,10 @@ public class DocumentDataAccess {
             WHERE TaskId = @TaskId
                 AND IsDeleted = 0
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "TaskId",
-                SqlDbType = SqlDbType.Int,
-                Value = taskId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("TaskId", SqlDbType.Int, taskId);
 
-        return (int)DataProvider.Instance.ExecuteScalar(query, parameters);
+        return (int)DataProvider.Instance.ExecuteScalar(query, [.. parameters]);
     }
 
     public List<TaskDocument> GetDocuments() {
@@ -84,18 +77,10 @@ public class DocumentDataAccess {
                 )
                 AND IsDeleted = 0
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "SearchValue",
-                SqlDbType = SqlDbType.NVarChar,
-                Size = DatabaseConstants.SEARCH_SIZE,
-                Value = searchValue
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 
         List<TaskDocument> documents = [];
         foreach (DataRow row in dataTable.Rows) {
@@ -111,16 +96,9 @@ public class DocumentDataAccess {
             SET IsDeleted = 1
             WHERE DocumentId = @DocumentId;
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "DocumentId",
-                SqlDbType = SqlDbType.Int,
-                Value = documentId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("DocumentId", SqlDbType.Int, documentId);
 
-        return DataProvider.Instance.ExecuteNonQuery(query, parameters);
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 }

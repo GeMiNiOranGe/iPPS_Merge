@@ -43,18 +43,10 @@ public class PositionDataAccess {
                     ON Employee.PositionId = Position.PositionId
             WHERE EmployeeId = @EmployeeId
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "EmployeeId",
-                SqlDbType = SqlDbType.VarChar,
-                Size = 10,
-                Value = employeeId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, employeeId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
         if (dataTable.Rows.Count == 0) {
             return null;
         }
