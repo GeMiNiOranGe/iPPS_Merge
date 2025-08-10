@@ -24,17 +24,10 @@ public class SalaryLevelDataAccess {
             FROM SalaryLevel
             WHERE SalaryScaleId = @SalaryScaleId
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "SalaryScaleId",
-                SqlDbType = SqlDbType.Int,
-                Value = salaryScaleId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("SalaryScaleId", SqlDbType.Int, salaryScaleId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 
         List<SalaryLevel> salaryLevels = [];
         foreach (DataRow row in dataTable.Rows) {
