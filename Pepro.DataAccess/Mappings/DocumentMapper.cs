@@ -5,9 +5,9 @@ namespace Pepro.DataAccess.Mappings;
 
 static class DocumentMapper
 {
-    public static TaskDocument FromDataRow(DataRow row)
+    public static Document FromDataRow(DataRow row)
     {
-        return new TaskDocument()
+        return new Document()
         {
             DocumentId = row.Field<int>("DocumentId"),
             Title = row.Field<string>("Title") ?? "",

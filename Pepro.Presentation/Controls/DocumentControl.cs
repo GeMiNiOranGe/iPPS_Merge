@@ -69,7 +69,7 @@ public partial class DocumentControl : PeproCrudControlBase
 
         DataGridViewRow row = documentDataGridView.Rows[e.RowIndex];
 
-        if (row.DataBoundItem is TaskDocumentDto document)
+        if (row.DataBoundItem is DocumentDto document)
         {
             documentIdInputField.Text = document.DocumentId.ToString();
             taskIdInputField.Text = document.TaskId.ToString();
@@ -84,7 +84,7 @@ public partial class DocumentControl : PeproCrudControlBase
 
     private void InsertButton_Click(object sender, EventArgs e)
     {
-        BindInsertButtonClick<TaskDocumentDto>(
+        BindInsertButtonClick<DocumentDto>(
             new(),
             ControlUiEvent.OpenDocumentEditorControl,
             LoadDocuments
@@ -93,7 +93,7 @@ public partial class DocumentControl : PeproCrudControlBase
 
     private void UpdateButton_Click(object sender, EventArgs e)
     {
-        BindUpdateButtonClick<TaskDocumentDto>(
+        BindUpdateButtonClick<DocumentDto>(
             documentDataGridView,
             ControlUiEvent.OpenDocumentEditorControl,
             LoadDocuments

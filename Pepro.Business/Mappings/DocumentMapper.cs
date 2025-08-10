@@ -5,9 +5,9 @@ namespace Pepro.Business.Mappings;
 
 static class DocumentMapper
 {
-    public static TaskDocumentDto ToDto(this TaskDocument entity)
+    public static DocumentDto ToDto(this Document entity)
     {
-        return new TaskDocumentDto()
+        return new DocumentDto()
         {
             DocumentId = entity.DocumentId,
             Title = entity.Title,
@@ -23,10 +23,10 @@ static class DocumentMapper
         };
     }
 
-    public static List<TaskDocumentDto> ToDtos(this List<TaskDocument> entities)
+    public static List<DocumentDto> ToDtos(this List<Document> entities)
     {
-        List<TaskDocumentDto> dtos = [];
-        foreach (TaskDocument entity in entities)
+        List<DocumentDto> dtos = [];
+        foreach (Document entity in entities)
         {
             dtos.Add(entity.ToDto());
         }
