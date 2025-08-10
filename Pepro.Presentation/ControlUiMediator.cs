@@ -51,7 +51,7 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
     }
 
     private void OpenDocumentEditorControl(object? data) {
-        if (data is not OpenEditorControlPayload<TaskDocumentDto> payload) {
+        if (data is not OpenEditorControlPayload<DocumentDto> payload) {
             return;
         }
 
