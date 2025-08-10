@@ -1,11 +1,10 @@
 ﻿namespace Pepro.DTOs;
 
-public class Department
+public class DepartmentDto
 {
     private string _departmentId = "";
     private string _name = "";
     private string _managerId = "";
-    private AccessLevel _accessRight;
 
     public string DepartmentId
     {
@@ -23,11 +22,5 @@ public class Department
     {
         get => _managerId;
         set => _managerId = value;
-    }
-
-    public AccessLevel AccessRight
-    {
-        get => _accessRight;
-        set => _accessRight = value;
     }
 }

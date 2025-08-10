@@ -49,8 +49,15 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
         CRole getRole = EmployeeBusiness.Instance.GetRolebyEmployeeID(_employeeId);
         roleTextBox.Text = getRole.Name;
         */
-        Department department = DepartmentBusiness.Instance.GetDepartmentByDepartmentId(employee.DepartmentId);
-        departmentInputField.Text = department.Name;
+        DepartmentDto? department = DepartmentBusiness.Instance.GetDepartmentByDepartmentId(employee.DepartmentId);
+        if (department != null)
+        {
+            departmentInputField.Text = department.Name;
+        }
+        else
+        {
+            departmentInputField.Text = "Department not found";
+        }
 
         string[] projectNames = ProjectBusiness.Instance.GetProjectNamesByEmployeeId(_employeeId);
         assignedProjectsComboBoxField.DataSource = projectNames.Length != 0 ? projectNames : ["Không tìm thấy"];
