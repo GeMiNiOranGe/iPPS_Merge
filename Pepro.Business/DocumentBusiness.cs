@@ -1,4 +1,6 @@
-﻿using Pepro.DataAccess;
+﻿using Pepro.Business.Mappings;
+using Pepro.DataAccess;
+using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 
 namespace Pepro.Business;
@@ -13,12 +15,14 @@ public class DocumentBusiness {
 
     private DocumentBusiness() { }
 
-    public List<TaskDocument> GetDocuments() {
-        return DocumentDataAccess.Instance.GetDocuments();
+    public List<TaskDocumentDto> GetDocuments() {
+        List<TaskDocument> documents =  DocumentDataAccess.Instance.GetDocuments();
+        return documents.ToDtos();
     }
 
-    public List<TaskDocument> SearchDocuments(string searchValue) {
-        return DocumentDataAccess.Instance.SearchDocuments(searchValue);
+    public List<TaskDocumentDto> SearchDocuments(string searchValue) {
+        List<TaskDocument> documents = DocumentDataAccess.Instance.SearchDocuments(searchValue);
+        return documents.ToDtos();
     }
 
     public int DeleteDocument(int documentId) {

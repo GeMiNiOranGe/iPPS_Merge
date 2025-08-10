@@ -1,5 +1,5 @@
 using System.Data;
-using Pepro.DTOs;
+using Pepro.DataAccess.Entities;
 
 namespace Pepro.DataAccess.Mappings;
 
@@ -19,7 +19,7 @@ static class DocumentMapper
             PreparedBy = row.Field<string>("PreparedBy") ?? "",
             CheckedBy = row.Field<string>("CheckedBy") ?? "",
             ApprovedBy = row.Field<string>("ApprovedBy") ?? "",
-            TaskId = row.Field<int>("TaskId")
+            TaskId = row.Field<int>("TaskId"),
         };
     }
 }
