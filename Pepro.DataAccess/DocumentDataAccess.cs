@@ -28,7 +28,7 @@ public class DocumentDataAccess {
         return (int)DataProvider.Instance.ExecuteScalar(query, [.. parameters]);
     }
 
-    public List<TaskDocument> GetDocuments() {
+    public List<Document> GetDocuments() {
         string query = @"
             SELECT DocumentId
                 , Title
@@ -47,15 +47,15 @@ public class DocumentDataAccess {
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
 
-        List<TaskDocument> documents = [];
+        List<Document> documents = [];
         foreach (DataRow row in dataTable.Rows) {
-            TaskDocument document = DocumentMapper.FromDataRow(row);
+            Document document = DocumentMapper.FromDataRow(row);
             documents.Add(document);
         }
         return documents;
     }
 
-    public List<TaskDocument> SearchDocuments(string searchValue) {
+    public List<Document> SearchDocuments(string searchValue) {
         string query = @"
             SELECT DocumentId
                 , Title
@@ -82,9 +82,9 @@ public class DocumentDataAccess {
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 
-        List<TaskDocument> documents = [];
+        List<Document> documents = [];
         foreach (DataRow row in dataTable.Rows) {
-            TaskDocument document = DocumentMapper.FromDataRow(row);
+            Document document = DocumentMapper.FromDataRow(row);
             documents.Add(document);
         }
         return documents;

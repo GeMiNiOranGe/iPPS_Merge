@@ -1,6 +1,6 @@
 namespace Pepro.DataAccess.Entities;
 
-public class TaskDocument
+public class Document
 {
     private int _documentId;
     private string _title = "";

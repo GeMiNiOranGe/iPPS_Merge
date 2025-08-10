@@ -1,6 +1,6 @@
 ﻿namespace Pepro.DTOs;
 
-public class TaskDocumentDto {
+public class DocumentDto {
     private int _documentId;
     private string _title = "";
     private DateTime _createAt;
