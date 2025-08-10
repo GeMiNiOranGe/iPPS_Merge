@@ -96,8 +96,8 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             nameof(salaryLevelComboBoxField.SelectedValue)
         );
 
-        departmentComboBoxField.DisplayMember = nameof(Department.Name);
-        departmentComboBoxField.ValueMember = nameof(Department.DepartmentId);
+        departmentComboBoxField.DisplayMember = nameof(DepartmentDto.Name);
+        departmentComboBoxField.ValueMember = nameof(DepartmentDto.DepartmentId);
 
         positionComboBoxField.DisplayMember = nameof(EmployeePosition.Title);
         positionComboBoxField.ValueMember = nameof(EmployeePosition.PositionId);
@@ -108,7 +108,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         salaryLevelComboBoxField.DisplayMember = nameof(SalaryLevel.Level);
         salaryLevelComboBoxField.ValueMember = nameof(SalaryLevel.SalaryLevelId);
 
-        List<Department> departments = DepartmentBusiness.Instance.GetDepartments();
+        List<DepartmentDto> departments = DepartmentBusiness.Instance.GetDepartments();
         departmentComboBoxField.DataSource = departments;
 
         List<EmployeePosition> positions = PositionBusiness.Instance.GetPositions();

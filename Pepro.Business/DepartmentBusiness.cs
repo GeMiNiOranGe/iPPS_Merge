@@ -1,4 +1,6 @@
-﻿using Pepro.DataAccess;
+﻿using Pepro.Business.Mappings;
+using Pepro.DataAccess;
+using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 using System.Data;
 
@@ -15,17 +17,15 @@ public class DepartmentBusiness
 
     private DepartmentBusiness() { }
 
-    public Department GetDepartmentByDepartmentId(string departmentID) {
+    public DepartmentDto? GetDepartmentByDepartmentId(string departmentID) {
         Department? department = DepartmentDataAccess.Instance.GetDepartmentByDepartmentId(departmentID);
-        if (department == null) {
-            return new Department();
-        }
-        return department;
+        return department?.ToDto();
     }
 
-    public List<Department> GetDepartments()
+    public List<DepartmentDto> GetDepartments()
     {
-        return DepartmentDataAccess.Instance.GetDepartments();
+        List<Department> departments = DepartmentDataAccess.Instance.GetDepartments();
+        return departments.ToDtos();
     }
 
     public DataTable GetDepartmentList()
