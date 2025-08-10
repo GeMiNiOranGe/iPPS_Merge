@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Entities;
 using Pepro.DataAccess.Mappings;
-using Pepro.DTOs;
 
 namespace Pepro.DataAccess;
 
@@ -24,7 +24,8 @@ public class AccountDataAccess {
     /// <returns>
     ///     The matching <see cref="Account"/>, or null if not found.
     /// </returns>
-    public Account? FindAccount(string searchValue) {
+    public Account? FindAccount(string searchValue)
+    {
         string query = @"
             SELECT AccountId
                 , Username
