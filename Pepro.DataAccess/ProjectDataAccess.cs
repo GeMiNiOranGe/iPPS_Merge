@@ -27,18 +27,10 @@ public class ProjectDataAccess {
             FROM Project
             WHERE ProjectId = @ProjectId
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "ProjectId",
-                SqlDbType = SqlDbType.VarChar,
-                Size = 10,
-                Value = projectId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("ProjectId", SqlDbType.VarChar, 10, projectId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
         if (dataTable.Rows.Count == 0) {
             return null;
         }
@@ -93,18 +85,10 @@ public class ProjectDataAccess {
             WHERE EmployeeId = @EmployeeId
             ORDER BY Project.ProjectId DESC;
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "EmployeeId",
-                SqlDbType = SqlDbType.VarChar,
-                Size = 10,
-                Value = employeeId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, employeeId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 
         List<Project> projects = [];
         foreach (DataRow row in dataTable.Rows) {
@@ -128,17 +112,10 @@ public class ProjectDataAccess {
                     ON Task.ProjectId = Project.ProjectId
             WHERE Task.TaskId = @TaskId
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "TaskId",
-                SqlDbType = SqlDbType.Int,
-                Value = taskId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("TaskId", SqlDbType.Int, taskId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
         if (dataTable.Rows.Count == 0) {
             return null;
         }

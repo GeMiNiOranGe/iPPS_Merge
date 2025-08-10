@@ -17,17 +17,10 @@ public class TaskDataAccess {
 
     public int GetRequiredDocumentCount(int taskId) {
         string query = "SELECT RequiredDocumentCount FROM Task WHERE TaskId = @TaskId";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "TaskId",
-                SqlDbType = SqlDbType.Int,
-                Value = taskId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("TaskId", SqlDbType.Int, taskId);
 
-        return (int)DataProvider.Instance.ExecuteScalar(query, parameters);
+        return (int)DataProvider.Instance.ExecuteScalar(query, [.. parameters]);
     }
 
     public List<ProjectTask> GetTasksByProjectId(string projectId) {
@@ -44,18 +37,10 @@ public class TaskDataAccess {
             FROM Task 
             WHERE ProjectId = @ProjectId
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "ProjectId",
-                SqlDbType = SqlDbType.VarChar,
-                Size = 10,
-                Value = projectId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("ProjectId", SqlDbType.VarChar, 10, projectId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 
         List<ProjectTask> tasks = [];
         foreach (DataRow row in dataTable.Rows) {
@@ -81,18 +66,10 @@ public class TaskDataAccess {
                     ON TaskDetail.TaskId = Task.TaskId
             WHERE EmployeeId = @EmployeeId
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "EmployeeId",
-                SqlDbType = SqlDbType.VarChar,
-                Size = 10,
-                Value = employeeId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, employeeId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 
         List<ProjectTask> tasks = [];
         foreach (DataRow row in dataTable.Rows) {
@@ -127,18 +104,10 @@ public class TaskDataAccess {
                     ON Employee.EmployeeId = Task.ManagerId
             WHERE TaskId = @TaskId
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "TaskId",
-                SqlDbType = SqlDbType.VarChar,
-                Size = 10,
-                Value = taskId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("TaskId", SqlDbType.VarChar, 10, taskId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
         if (dataTable.Rows.Count == 0) {
             return null;
         }
@@ -163,17 +132,10 @@ public class TaskDataAccess {
                     ON Document.TaskId = Task.TaskId
             WHERE Document.DocumentId = @DocumentId
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "DocumentId",
-                SqlDbType = SqlDbType.Int,
-                Value = documentId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("DocumentId", SqlDbType.Int, documentId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
         if (dataTable.Rows.Count == 0) {
             return null;
         }

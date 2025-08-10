@@ -43,17 +43,10 @@ public class SalaryScaleDataAccess {
                     ON SalaryLevel.SalaryScaleId = SalaryScale.SalaryScaleId
             WHERE SalaryLevelId = @SalaryLevelId
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "SalaryLevelId",
-                SqlDbType = SqlDbType.Int,
-                Value = salaryLevelId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("SalaryLevelId", SqlDbType.Int, salaryLevelId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
         if (dataTable.Rows.Count == 0) {
             return null;
         }

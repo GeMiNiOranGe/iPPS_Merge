@@ -65,18 +65,10 @@ public class EmployeeDataAccess {
                 )
                 AND IsDeleted = 0
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "SearchValue",
-                SqlDbType = SqlDbType.NVarChar,
-                Size = DatabaseConstants.SEARCH_SIZE,
-                Value = searchValue
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 
         List<Employee> employees = [];
         foreach (DataRow row in dataTable.Rows) {
@@ -151,18 +143,10 @@ public class EmployeeDataAccess {
             SET IsDeleted = 1
             WHERE EmployeeId = @EmployeeId;
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "EmployeeId",
-                SqlDbType = SqlDbType.VarChar,
-                Size = 10,
-                Value = employeeId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, employeeId);
 
-        return DataProvider.Instance.ExecuteNonQuery(query, parameters);
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
     public bool DeleteEmployee(int roleID, string employeeID) {
@@ -245,18 +229,10 @@ public class EmployeeDataAccess {
             WHERE EmployeeId = @EmployeeId
             AND IsDeleted = 0
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "EmployeeId",
-                SqlDbType = SqlDbType.VarChar,
-                Size = 10,
-                Value = employeeId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, employeeId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
         if (dataTable.Rows.Count == 0) {
             return null;
         }
@@ -285,18 +261,10 @@ public class EmployeeDataAccess {
             WHERE Employee.EmployeeID = @EmployeeId
             AND IsDeleted = 0
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "EmployeeId",
-                SqlDbType = SqlDbType.VarChar,
-                Size = 10,
-                Value = employeeId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, employeeId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 
         List<EmployeePhoneNumber> listPhoneNumber = [];
         foreach (DataRow row in dataTable.Rows)

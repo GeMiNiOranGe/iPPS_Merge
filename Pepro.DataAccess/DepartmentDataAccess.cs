@@ -24,18 +24,10 @@ public class DepartmentDataAccess
             FROM Department
             WHERE DepartmentId = @DepartmentId
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "DepartmentId",
-                SqlDbType = SqlDbType.VarChar,
-                Size = 10,
-                Value = departmentId
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("DepartmentId", SqlDbType.VarChar, 10, departmentId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, parameters);
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
         if (dataTable.Rows.Count == 0) {
             return null;
         }

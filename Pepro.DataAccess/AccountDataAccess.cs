@@ -35,20 +35,12 @@ public class AccountDataAccess {
             FROM Account
             WHERE @SearchValue IN (Username, EmployeeId)
         ";
-        SqlParameter[] parameters =
-        [
-            new()
-            {
-                ParameterName = "SearchValue",
-                SqlDbType = SqlDbType.VarChar,
-                Size = DatabaseConstants.SEARCH_SIZE,
-                Value = searchValue
-            }
-        ];
+        List<SqlParameter> parameters = [];
+        parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(
             query,
-            parameters
+            [.. parameters]
         );
         if (dataTable.Rows.Count == 0)
         {
