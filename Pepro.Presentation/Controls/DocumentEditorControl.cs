@@ -4,8 +4,8 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls;
 
-public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUserControl<TaskDocument> {
-    private TaskDocument _item = null!;
+public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUserControl<TaskDocumentDto> {
+    private TaskDocumentDto _item = null!;
     private EditorMode _mode;
     private bool _suppressTaskReload = false;
 
@@ -18,7 +18,7 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required TaskDocument Item {
+    public required TaskDocumentDto Item {
         get => _item;
         set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
