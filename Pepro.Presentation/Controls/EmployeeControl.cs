@@ -50,7 +50,7 @@ public partial class EmployeeControl : PeproCrudControlBase {
     }
 
     public void LoadEmployees() {
-        List<Employee> employees = EmployeeBusiness.Instance.GetEmployees();
+        List<EmployeeDto> employees = EmployeeBusiness.Instance.GetEmployees();
         employeeDataGridView.DataSource = employees;
         numberOfEmployeesInputField.Text = employees.Count.ToString();
     }
@@ -63,7 +63,7 @@ public partial class EmployeeControl : PeproCrudControlBase {
 
         DataGridViewRow row = employeeDataGridView.Rows[e.RowIndex];
 
-        if (row.DataBoundItem is Employee employee) {
+        if (row.DataBoundItem is EmployeeDto employee) {
             employeeIdInputField.Text = employee.EmployeeId;
             employeeNameInputField.Text = employee.LastName + " "
                 + (employee.MiddleName != null ? employee.MiddleName + " " : "")
@@ -81,7 +81,7 @@ public partial class EmployeeControl : PeproCrudControlBase {
             MessageBox.Show("Vui lòng nhập thông tin cần tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return;
         }
-        List<Employee> employees = EmployeeBusiness.Instance.SearchEmployees(searchTextBox.Text);
+        List<EmployeeDto> employees = EmployeeBusiness.Instance.SearchEmployees(searchTextBox.Text);
         employeeDataGridView.DataSource = employees;
         numberOfEmployeesInputField.Text = employees.Count.ToString();
     }
@@ -91,7 +91,7 @@ public partial class EmployeeControl : PeproCrudControlBase {
     }
 
     private void InsertButton_Click(object sender, EventArgs e) {
-        BindInsertButtonClick<Employee>(
+        BindInsertButtonClick<EmployeeDto>(
             new(),
             ControlUiEvent.OpenEmployeeEditorControl,
             LoadEmployees
@@ -99,7 +99,7 @@ public partial class EmployeeControl : PeproCrudControlBase {
     }
 
     private void UpdateButton_Click(object sender, EventArgs e) {
-        BindUpdateButtonClick<Employee>(
+        BindUpdateButtonClick<EmployeeDto>(
             employeeDataGridView,
             ControlUiEvent.OpenEmployeeEditorControl,
             LoadEmployees

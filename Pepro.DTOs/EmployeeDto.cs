@@ -1,12 +1,12 @@
 ﻿namespace Pepro.DTOs;
 
-public class Employee {
+public class EmployeeDto {
     private string _employeeId = "";
     private string _firstName = "";
     private string? _middleName;
     private string _lastName = "";
     private DateTime _dateOfBirth;
-    private bool? _gender; // true is male, false is female, null is other
+    private bool? _gender;
     private byte[]? _taxCode;
     private string _citizenId = "";
     private string _departmentId = "";

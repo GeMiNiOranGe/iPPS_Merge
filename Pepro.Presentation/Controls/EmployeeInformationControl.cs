@@ -32,7 +32,13 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
 
     private void EmployeeInformationControl_Load(object sender, EventArgs e)
     {
-        Employee employee = EmployeeBusiness.Instance.GetEmployeeByEmployeeId(_employeeId);
+        EmployeeDto? employee = EmployeeBusiness.Instance.GetEmployeeByEmployeeId(_employeeId);
+        if (employee == null)
+        {
+            MessageBox.Show("Employee not found");
+            return;
+        }
+
         employeeIdInputField.Text = employee.EmployeeId;
         fullNameInputField.Text = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;
 

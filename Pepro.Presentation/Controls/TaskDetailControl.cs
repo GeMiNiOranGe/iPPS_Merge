@@ -67,7 +67,12 @@ public partial class TaskDetailControl : PeproMediatedUserControl {
             otherTasksOfManagerFlowLayoutLabel.Controls.Clear();
         }
 
-        Employee employee = TaskBusiness.Instance.GetTaskManager(taskId);
+        EmployeeDto? employee = TaskBusiness.Instance.GetTaskManager(taskId);
+        if (employee == null)
+        {
+            MessageBox.Show("Task manager not found");
+            return;
+        }
 
         taskManagerCard.Item = employee;
 

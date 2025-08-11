@@ -1,4 +1,6 @@
-﻿using Pepro.DataAccess;
+﻿using Pepro.Business.Mappings;
+using Pepro.DataAccess;
+using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 using System.Data;
 
@@ -15,14 +17,16 @@ public class EmployeeBusiness
 
     private EmployeeBusiness() { }
 
-    public List<Employee> GetEmployees()
+    public List<EmployeeDto> GetEmployees()
     {
-        return EmployeeDataAccess.Instance.GetEmployees();
+        List<Employee> employees = EmployeeDataAccess.Instance.GetEmployees();
+        return employees.ToDtos();
     }
 
-    public List<Employee> SearchEmployees(string searchValue)
+    public List<EmployeeDto> SearchEmployees(string searchValue)
     {
-        return EmployeeDataAccess.Instance.SearchEmployees(searchValue);
+        List<Employee> employees = EmployeeDataAccess.Instance.SearchEmployees(searchValue);
+        return employees.ToDtos();
     }
 
     public string GetDisplayNameByEmployeeId(string employeeId)
@@ -58,16 +62,14 @@ public class EmployeeBusiness
         EmployeeDataAccess.Instance.InsertEmployee(employeeId, fullname, gender, dateOfBirth, phoneNumber, salary, allowance, taxCode, departmentId);
     }
 
-    public int InsertEmployee(Employee employee) {
+    public int InsertEmployee(EmployeeDto dto) {
+        Employee employee = EmployeeMapper.FromDto(dto);
         return EmployeeDataAccess.Instance.InsertEmployee(employee);
     }
 
-    public Employee GetEmployeeByEmployeeId(string employeeID) {
+    public EmployeeDto? GetEmployeeByEmployeeId(string employeeID) {
         Employee? employee = EmployeeDataAccess.Instance.GetEmployeeByEmployeeId(employeeID);
-        if (employee == null) {
-            return new Employee();
-        }
-        return employee;
+        return employee?.ToDto();
     }
 
     public CRole GetRolebyEmployeeID(string employeeID) {
