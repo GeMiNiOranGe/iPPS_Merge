@@ -1,6 +1,6 @@
 ﻿namespace Pepro.DTOs;
 
-public class EmployeePosition {
+public class EmployeePositionDto {
     private int _positionId;
     private string _title = "";
     private decimal _allowanceCoefficient;

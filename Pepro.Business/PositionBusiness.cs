@@ -1,4 +1,6 @@
-﻿using Pepro.DataAccess;
+﻿using Pepro.Business.Mappings;
+using Pepro.DataAccess;
+using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 
 namespace Pepro.Business;
@@ -13,8 +15,9 @@ public class PositionBusiness {
 
     private PositionBusiness() { }
 
-    public List<EmployeePosition> GetPositions() {
-        return PositionDataAccess.Instance.GetPositions();
+    public List<EmployeePositionDto> GetPositions() {
+        List<EmployeePosition> position = PositionDataAccess.Instance.GetPositions();
+        return position.ToDtos();
     }
 
     public string GetPositionTitleByEmployeeId(string employeeId) {
