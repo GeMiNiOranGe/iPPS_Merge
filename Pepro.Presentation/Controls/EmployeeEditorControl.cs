@@ -143,13 +143,15 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             return;
         }
 
-        if (int.TryParse(salaryScaleComboBoxField.SelectedValue?.ToString(), out int salaryScaleId)) {
-            List<SalaryLevel> salaryLevels = SalaryLevelBusiness.Instance.GetSalaryLevelsBySalaryScaleId(
-                salaryScaleId
-            );
-            salaryLevelComboBoxField.DataSource = salaryLevels;
-            salaryLevelComboBoxField.SelectedIndex = -1;
+        if (!int.TryParse(salaryScaleComboBoxField.SelectedValue?.ToString(), out int salaryScaleId)) {
+            return;
         }
+
+        List<SalaryLevel> salaryLevels = SalaryLevelBusiness.Instance.GetSalaryLevelsBySalaryScaleId(
+            salaryScaleId
+        );
+        salaryLevelComboBoxField.DataSource = salaryLevels;
+        salaryLevelComboBoxField.SelectedIndex = -1;
     }
 
     public void InsertStaff() {
@@ -162,11 +164,11 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         }
 
         if (!int.TryParse(positionComboBoxField.SelectedValue?.ToString(), out int positionId)) {
-            positionId = 0;
+            return;
         }
 
         if (!int.TryParse(salaryLevelComboBoxField.SelectedValue?.ToString(), out int salaryLevelId)) {
-            salaryLevelId = 0;
+            return;
         }
 
         EmployeeDto employee = new() {
