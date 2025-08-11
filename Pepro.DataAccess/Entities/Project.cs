@@ -1,4 +1,4 @@
-﻿namespace Pepro.DTOs;
+namespace Pepro.DataAccess.Entities;
 
 public class Project {
     private string _projectId = "";
@@ -8,45 +8,39 @@ public class Project {
     private DateTime _startDate;
     private DateTime _endDate;
     private int _statusId;
-    private AccessLevel _accessRight;
 
-    public string ProjectId {
+    public required string ProjectId {
         get => _projectId;
         set => _projectId = value;
     }
 
-    public string Name {
+    public required string Name {
         get => _name;
         set => _name = value;
     }
 
-    public string CustomerName {
+    public required string CustomerName {
         get => _customerName;
         set => _customerName = value;
     }
 
-    public string ManagerId {
+    public required string ManagerId {
         get => _managerId;
         set => _managerId = value;
     }
 
-    public DateTime StartDate {
+    public required DateTime StartDate {
         get => _startDate;
         set => _startDate = value;
     }
 
-    public DateTime EndDate {
+    public required DateTime EndDate {
         get => _endDate;
         set => _endDate = value;
     }
 
-    public int StatusId {
+    public required int StatusId {
         get => _statusId;
         set => _statusId = value;
-    }
-
-    public AccessLevel AccessRight {
-        get => _accessRight;
-        set => _accessRight = value;
     }
 }
