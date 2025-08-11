@@ -1,4 +1,4 @@
-﻿namespace Pepro.DTOs;
+namespace Pepro.DataAccess.Entities;
 
 public class SalaryLevel {
     private int _salaryLevelId;
@@ -6,23 +6,24 @@ public class SalaryLevel {
     private decimal _coefficient;
     private int _salaryScaleId;
 
-    public int SalaryLevelId {
+    public required int SalaryLevelId {
         get => _salaryLevelId;
         set => _salaryLevelId = value;
     }
 
-    public string Level {
+    public required string Level {
         get => _level;
         set => _level = value;
     }
 
-    public decimal Coefficient {
+    public required decimal Coefficient {
         get => _coefficient;
         set => _coefficient = value;
     }
 
-    public int SalaryScaleId {
+    public required int SalaryScaleId {
         get => _salaryScaleId;
         set => _salaryScaleId = value;
     }
 }
+

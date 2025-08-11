@@ -105,8 +105,8 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         salaryScaleComboBoxField.DisplayMember = nameof(SalaryScale.Name);
         salaryScaleComboBoxField.ValueMember = nameof(SalaryScale.SalaryScaleId);
 
-        salaryLevelComboBoxField.DisplayMember = nameof(SalaryLevel.Level);
-        salaryLevelComboBoxField.ValueMember = nameof(SalaryLevel.SalaryLevelId);
+        salaryLevelComboBoxField.DisplayMember = nameof(SalaryLevelDto.Level);
+        salaryLevelComboBoxField.ValueMember = nameof(SalaryLevelDto.SalaryLevelId);
 
         List<DepartmentDto> departments = DepartmentBusiness.Instance.GetDepartments();
         departmentComboBoxField.DataSource = departments;
@@ -147,7 +147,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             return;
         }
 
-        List<SalaryLevel> salaryLevels = SalaryLevelBusiness.Instance.GetSalaryLevelsBySalaryScaleId(
+        List<SalaryLevelDto> salaryLevels = SalaryLevelBusiness.Instance.GetSalaryLevelsBySalaryScaleId(
             salaryScaleId
         );
         salaryLevelComboBoxField.DataSource = salaryLevels;
