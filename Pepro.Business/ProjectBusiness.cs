@@ -1,6 +1,7 @@
-﻿using Pepro.DataAccess;
+﻿using Pepro.Business.Mappings;
+using Pepro.DataAccess;
+using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
-using System.Data;
 
 namespace Pepro.Business;
 
@@ -14,16 +15,14 @@ public class ProjectBusiness {
 
     private ProjectBusiness() { }
 
-    public Project GetProjectByProjectId(string projectId) {
+    public ProjectDto? GetProjectByProjectId(string projectId) {
         Project? project = ProjectDataAccess.Instance.GetProjectByProjectId(projectId);
-        if (project == null) {
-            return new Project();
-        }
-        return project;
+        return project?.ToDto();
     }
 
-    public List<Project> GetProjects() {
-        return ProjectDataAccess.Instance.GetProjects();
+    public List<ProjectDto> GetProjects() {
+        List<Project> projects = ProjectDataAccess.Instance.GetProjects();
+        return projects.ToDtos();
     }
 
     public List<ProjectProgress> GetProjectsWithProgress() {
@@ -62,16 +61,8 @@ public class ProjectBusiness {
         return [.. projectNames];
     }
 
-    public Project GetProjectByTaskId(int taskId) {
+    public ProjectDto? GetProjectByTaskId(int taskId) {
         Project? project = ProjectDataAccess.Instance.GetProjectByTaskId(taskId);
-        if (project == null) {
-            return new Project();
-        }
-        return project;
-    }
-
-    public Project GetProjectByTaskId(string taskId) {
-        int id = Convert.ToInt32(taskId);
-        return Instance.GetProjectByTaskId(id);
+        return project?.ToDto();
     }
 }

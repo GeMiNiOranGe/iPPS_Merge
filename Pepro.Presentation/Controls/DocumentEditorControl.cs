@@ -80,19 +80,18 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
             nameof(taskNameComboBoxField.SelectedValue)
         );
 
-        projectNameComboBoxField.DisplayMember = nameof(Project.Name);
-        projectNameComboBoxField.ValueMember = nameof(Project.ProjectId);
+        projectNameComboBoxField.DisplayMember = nameof(ProjectDto.Name);
+        projectNameComboBoxField.ValueMember = nameof(ProjectDto.ProjectId);
 
         taskNameComboBoxField.DisplayMember = nameof(ProjectTask.Name);
         taskNameComboBoxField.ValueMember = nameof(ProjectTask.TaskId);
 
-        switch (_mode) {
-        case EditorMode.Create:
-            List<Project> projects = ProjectBusiness.Instance.GetProjects();
+        if (_mode == EditorMode.Create) {
+            List<ProjectDto> projects = ProjectBusiness.Instance.GetProjects();
             projectNameComboBoxField.DataSource = projects;
             projectNameComboBoxField.SelectedIndex = -1;
-            break;
-        case EditorMode.Edit:
+        }
+        if (_mode == EditorMode.Edit) {
             taskNameComboBoxField.Enabled = false;
             projectNameComboBoxField.Enabled = false;
 
@@ -100,10 +99,12 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
             ProjectTask task = TaskBusiness.Instance.GetTaskByDocumentId(documentIdInputField.Text);
             taskNameComboBoxField.DataSource = (List<ProjectTask>)[task];
 
-            Project project = ProjectBusiness.Instance.GetProjectByTaskId(task.TaskId);
-            projectNameComboBoxField.DataSource = (List<Project>)[project];
+            ProjectDto? project = ProjectBusiness.Instance.GetProjectByTaskId(task.TaskId);
+            if (project != null)
+            {
+                projectNameComboBoxField.DataSource = (List<ProjectDto>)[project];
+            }
             _suppressTaskReload = false;
-            break;
         }
     }
 
