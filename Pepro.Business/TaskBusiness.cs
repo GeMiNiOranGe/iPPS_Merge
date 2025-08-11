@@ -1,7 +1,7 @@
-﻿using Pepro.DataAccess;
+﻿using Pepro.Business.Mappings;
+using Pepro.DataAccess;
+using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
-using System.Data;
-using System.Threading.Tasks;
 
 namespace Pepro.Business;
 
@@ -75,12 +75,9 @@ public class TaskBusiness {
         return tasksProgress;
     }
 
-    public Employee GetTaskManager(int taskId) {
+    public EmployeeDto? GetTaskManager(int taskId) {
         Employee? employee = TaskDataAccess.Instance.GetTaskManager(taskId);
-        if (employee == null) {
-            return new Employee();
-        }
-        return employee;
+        return employee?.ToDto();
     }
 
     public ProjectTask GetTaskByDocumentId(int documentId) {

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Entities;
 using Pepro.DataAccess.Mappings;
 using Pepro.DTOs;
 using System.Data;

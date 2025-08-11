@@ -5,8 +5,8 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls;
 
-public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUserControl<Employee> {
-    private Employee _item = null!;
+public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUserControl<EmployeeDto> {
+    private EmployeeDto _item = null!;
     private EditorMode _mode;
     private bool _suppressSalaryLevelReload = false;
     SqlConnection sqlConnection = new(Config.CONNECTION_STRING);
@@ -21,7 +21,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required Employee Item {
+    public required EmployeeDto Item {
         get => _item;
         set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
@@ -169,7 +169,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             salaryLevelId = 0;
         }
 
-        Employee employee = new() {
+        EmployeeDto employee = new() {
             EmployeeId = employeeIdInputField.Text,
             FirstName = firstNameInputField.Text,
             MiddleName = middleNameInputField.Text,
