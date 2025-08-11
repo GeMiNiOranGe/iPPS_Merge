@@ -5,9 +5,9 @@ namespace Pepro.DataAccess.Mappings;
 
 static class PositionMapper
 {
-    public static EmployeePosition FromDataRow(DataRow row)
+    public static Position FromDataRow(DataRow row)
     {
-        return new EmployeePosition()
+        return new Position()
         {
             PositionId = row.Field<int>("PositionId"),
             Title = row.Field<string>("Title") ?? "",

@@ -15,13 +15,13 @@ public class PositionBusiness {
 
     private PositionBusiness() { }
 
-    public List<EmployeePositionDto> GetPositions() {
-        List<EmployeePosition> position = PositionDataAccess.Instance.GetPositions();
+    public List<PositionDto> GetPositions() {
+        List<Position> position = PositionDataAccess.Instance.GetPositions();
         return position.ToDtos();
     }
 
     public string GetPositionTitleByEmployeeId(string employeeId) {
-        EmployeePosition? employeePosition = PositionDataAccess.Instance.GetPositionByEmployeeId(employeeId);
+        Position? employeePosition = PositionDataAccess.Instance.GetPositionByEmployeeId(employeeId);
         return employeePosition != null ? employeePosition.Title : "";
     }
 }

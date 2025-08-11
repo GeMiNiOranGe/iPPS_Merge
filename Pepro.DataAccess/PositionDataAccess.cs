@@ -15,7 +15,7 @@ public class PositionDataAccess {
 
     private PositionDataAccess() { }
 
-    public List<EmployeePosition> GetPositions() {
+    public List<Position> GetPositions() {
         string query = @"
             SELECT PositionId
                 , Title
@@ -25,15 +25,15 @@ public class PositionDataAccess {
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
 
-        List<EmployeePosition> positions = [];
+        List<Position> positions = [];
         foreach (DataRow row in dataTable.Rows) {
-            EmployeePosition position = PositionMapper.FromDataRow(row);
+            Position position = PositionMapper.FromDataRow(row);
             positions.Add(position);
         }
         return positions;
     }
 
-    public EmployeePosition? GetPositionByEmployeeId(string employeeId) {
+    public Position? GetPositionByEmployeeId(string employeeId) {
         string query = @"
             SELECT Position.PositionId
                 , Position.Title

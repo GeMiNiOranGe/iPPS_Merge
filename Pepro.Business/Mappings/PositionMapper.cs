@@ -5,9 +5,9 @@ namespace Pepro.Business.Mappings;
 
 static class PositionMapper
 {
-    public static EmployeePositionDto ToDto(this EmployeePosition entity)
+    public static PositionDto ToDto(this Position entity)
     {
-        return new EmployeePositionDto()
+        return new PositionDto()
         {
             PositionId = entity.PositionId,
             Title = entity.Title,
@@ -15,10 +15,10 @@ static class PositionMapper
         };
     }
 
-    public static List<EmployeePositionDto> ToDtos(this List<EmployeePosition> entities)
+    public static List<PositionDto> ToDtos(this List<Position> entities)
     {
-        List<EmployeePositionDto> dtos = [];
-        foreach (EmployeePosition entity in entities)
+        List<PositionDto> dtos = [];
+        foreach (Position entity in entities)
         {
             dtos.Add(entity.ToDto());
         }

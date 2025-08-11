@@ -1,6 +1,6 @@
 namespace Pepro.DataAccess.Entities;
 
-public class EmployeePosition
+public class Position
 {
     private int _positionId;
     private string _title = "";
