@@ -74,7 +74,7 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
     }
 
     private void OpenEmployeeEditorControl(object? data) {
-        if (data is not OpenEditorControlPayload<Employee> payload) {
+        if (data is not OpenEditorControlPayload<EmployeeDto> payload) {
             return;
         }
 

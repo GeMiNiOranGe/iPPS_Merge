@@ -1,4 +1,7 @@
 -- NOTE:
+-- For `Gender` column:
+-- 1 is male, 0 is female and null is other
+
 -- For each `IsDeleted` column:
 -- + IsDeleted = 0 → the record is active (i.e., not deleted). This is the default value.
 -- + IsDeleted = 1 → the record is soft-deleted (logically deleted).
@@ -72,7 +75,7 @@ CREATE TABLE [dbo].[Employee] (
     [MiddleName]    [nvarchar](30),
     [LastName]      [nvarchar](10)  NOT NULL,
     [DateOfBirth]   [date]          NOT NULL,
-    [Gender]        [bit], -- 1 is male, 0 is female and null is other
+    [Gender]        [bit],
     [TaxCode]       [varbinary](max),
     [CitizenId]     [varchar](12)   NOT NULL,
     -- TODO: add address column

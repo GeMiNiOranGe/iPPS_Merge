@@ -4,14 +4,14 @@ using System.ComponentModel;
 namespace Pepro.Presentation.Controls;
 
 public partial class EmployeeCardControl : PeproUserControl {
-    private Employee _item = null!;
+    private EmployeeDto _item = null!;
 
     public EmployeeCardControl() {
         InitializeComponent();
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public Employee Item {
+    public EmployeeDto Item {
         get => _item;
         set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
