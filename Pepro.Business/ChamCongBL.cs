@@ -1,16 +1,10 @@
 ﻿using Pepro.DataAccess;
 using Pepro.DTOs;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Pepro.Business {
     public class ChamCongBL {
-        private static ChamCongBL instance;
+        private static ChamCongBL? instance;
         public static ChamCongBL Instance {
             get => instance ?? (instance = new ChamCongBL());
         }

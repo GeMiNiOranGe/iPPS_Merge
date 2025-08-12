@@ -1,13 +1,6 @@
 ﻿using Pepro.DTOs;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using Microsoft.Data.SqlClient;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 //using iText.Kernel.Colors;
 //using iText.Kernel.Pdf;
 //using iText.Layout;

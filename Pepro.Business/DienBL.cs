@@ -1,17 +1,12 @@
 ﻿using Pepro.DataAccess;
 using Pepro.DTOs;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pepro.Business
 {
     public class DienBL
     {
-        private static DienBL instance;
+        private static DienBL? instance;
         public static DienBL Instance
         {
             get => instance ?? (instance = new DienBL());

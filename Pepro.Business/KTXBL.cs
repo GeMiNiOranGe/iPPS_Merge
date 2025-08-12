@@ -1,17 +1,12 @@
 ﻿using Pepro.DataAccess;
 using Pepro.DTOs;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pepro.Business
 {
     public class KTXBL
     {
-        private static KTXBL instance;
+        private static KTXBL? instance;
         public static KTXBL Instance
         {
             get => instance ?? (instance = new KTXBL());
