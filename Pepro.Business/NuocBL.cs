@@ -1,17 +1,12 @@
 ﻿using Pepro.DataAccess;
 using Pepro.DTOs;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pepro.Business
 {
     public class NuocBL
     {
-        private static NuocBL instance;
+        private static NuocBL? instance;
         public static NuocBL Instance
         {
             get => instance ?? (instance = new NuocBL());
