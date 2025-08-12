@@ -1,6 +1,6 @@
 ﻿namespace Pepro.DTOs;
 
-public class SalaryScale {
+public class SalaryScaleDto {
     private int _salaryScaleId;
     private string _group = "";
     private string _name = "";

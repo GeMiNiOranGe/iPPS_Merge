@@ -5,20 +5,20 @@ namespace Pepro.Business.Mappings;
 
 static class DepartmentMapper
 {
-    public static DepartmentDto ToDto(this Department department)
+    public static DepartmentDto ToDto(this Department entity)
     {
         return new DepartmentDto()
         {
-            DepartmentId = department.DepartmentId,
-            Name = department.Name,
-            ManagerId = department.ManagerId,
+            DepartmentId = entity.DepartmentId,
+            Name = entity.Name,
+            ManagerId = entity.ManagerId,
         };
     }
 
-    public static List<DepartmentDto> ToDtos(this List<Department> departments)
+    public static List<DepartmentDto> ToDtos(this List<Department> entities)
     {
         List<DepartmentDto> dtos = [];
-        foreach (Department item in departments)
+        foreach (Department item in entities)
         {
             dtos.Add(item.ToDto());
         }

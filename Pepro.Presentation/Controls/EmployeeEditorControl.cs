@@ -102,8 +102,8 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         positionComboBoxField.DisplayMember = nameof(PositionDto.Title);
         positionComboBoxField.ValueMember = nameof(PositionDto.PositionId);
 
-        salaryScaleComboBoxField.DisplayMember = nameof(SalaryScale.Name);
-        salaryScaleComboBoxField.ValueMember = nameof(SalaryScale.SalaryScaleId);
+        salaryScaleComboBoxField.DisplayMember = nameof(SalaryScaleDto.Name);
+        salaryScaleComboBoxField.ValueMember = nameof(SalaryScaleDto.SalaryScaleId);
 
         salaryLevelComboBoxField.DisplayMember = nameof(SalaryLevelDto.Level);
         salaryLevelComboBoxField.ValueMember = nameof(SalaryLevelDto.SalaryLevelId);
@@ -114,26 +114,27 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         List<PositionDto> positions = PositionBusiness.Instance.GetPositions();
         positionComboBoxField.DataSource = positions;
 
-        List<SalaryScale> salaryScales = SalaryScaleBusiness.Instance.GetSalaryScales();
+        _suppressSalaryLevelReload = true;
+        List<SalaryScaleDto> salaryScales = SalaryScaleBusiness.Instance.GetSalaryScales();
+        salaryScaleComboBoxField.DataSource = salaryScales;
+        _suppressSalaryLevelReload = false;
 
         if (_mode == EditorMode.Create) {
             departmentComboBoxField.SelectedIndex = -1;
             positionComboBoxField.SelectedIndex = -1;
-
-            _suppressSalaryLevelReload = true;
-            salaryScaleComboBoxField.DataSource = salaryScales;
             salaryScaleComboBoxField.SelectedIndex = -1;
-            _suppressSalaryLevelReload = false;
         }
         if (_mode == EditorMode.Edit) {
             departmentComboBoxField.SelectedValue = _item.DepartmentId;
             positionComboBoxField.SelectedValue = _item.PositionId;
 
-            SalaryScale salaryScale = SalaryScaleBusiness.Instance.GetSalaryScaleBySalaryLevelId(
+            SalaryScaleDto? salaryScale = SalaryScaleBusiness.Instance.GetSalaryScaleBySalaryLevelId(
                 _item.SalaryLevelId
             );
-            salaryScaleComboBoxField.DataSource = salaryScales;
-            salaryScaleComboBoxField.SelectedValue = salaryScale.SalaryScaleId;
+            if (salaryScale != null)
+            {
+                salaryScaleComboBoxField.SelectedValue = salaryScale.SalaryScaleId;
+            }
             salaryLevelComboBoxField.SelectedValue = _item.SalaryLevelId;
         }
     }
