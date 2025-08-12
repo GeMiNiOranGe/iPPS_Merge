@@ -5,7 +5,7 @@ public enum ControlUiEvent {
     OpenDocumentEditorControl,
     OpenProgressControl,
     OpenEmployeeControl,
-    OpenTaskDetailControl,
+    OpenAssignmentDetailControl,
     OpenEmployeeInformationControl,
     OpenEmployeeEditorControl,
 }

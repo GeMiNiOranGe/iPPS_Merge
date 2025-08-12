@@ -15,15 +15,15 @@ public class DocumentDataAccess {
 
     private DocumentDataAccess() { }
 
-    public int CountDocumentsByTaskId(int taskId) {
+    public int CountDocumentsByAssignmentId(int assignmentId) {
         string query = @"
-            SELECT Count(TaskId)
+            SELECT Count(AssignmentId)
             FROM Document
-            WHERE TaskId = @TaskId
+            WHERE AssignmentId = @AssignmentId
                 AND IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("TaskId", SqlDbType.Int, taskId);
+        parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
 
         return (int)DataProvider.Instance.ExecuteScalar(query, [.. parameters]);
     }
@@ -40,7 +40,7 @@ public class DocumentDataAccess {
                 , PreparedBy
                 , CheckedBy
                 , ApprovedBy
-                , TaskId
+                , AssignmentId
             FROM Document
             WHERE IsDeleted = 0
         ";
@@ -67,13 +67,13 @@ public class DocumentDataAccess {
                 , PreparedBy
                 , CheckedBy
                 , ApprovedBy
-                , TaskId
+                , AssignmentId
             FROM Document
             WHERE
                 (
                     DocumentId LIKE '%' + @SearchValue + '%'
                     OR Title LIKE '%' + @SearchValue + '%'
-                    OR TaskId LIKE '%' + @SearchValue + '%'
+                    OR AssignmentId LIKE '%' + @SearchValue + '%'
                 )
                 AND IsDeleted = 0
         ";

@@ -11,7 +11,7 @@ public class DocumentDto {
     private string _preparedBy = "";
     private string _checkedBy = "";
     private string _approvedBy = "";
-    private int _taskId;
+    private int _assignmentId;
 
     public int DocumentId {
         get => _documentId;
@@ -63,8 +63,8 @@ public class DocumentDto {
         set => _approvedBy = value;
     }
 
-    public int TaskId {
-        get => _taskId;
-        set => _taskId = value;
+    public int AssignmentId {
+        get => _assignmentId;
+        set => _assignmentId = value;
     }
 }
