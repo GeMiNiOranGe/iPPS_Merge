@@ -1,4 +1,6 @@
-﻿using Pepro.DataAccess;
+﻿using Pepro.Business.Mappings;
+using Pepro.DataAccess;
+using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 
 namespace Pepro.Business;
@@ -13,15 +15,13 @@ public class SalaryScaleBusiness {
 
     private SalaryScaleBusiness() { }
 
-    public List<SalaryScale> GetSalaryScales() {
-        return SalaryScaleDataAccess.Instance.GetSalaryScales();
+    public List<SalaryScaleDto> GetSalaryScales() {
+        List<SalaryScale> salaryScales = SalaryScaleDataAccess.Instance.GetSalaryScales();
+        return salaryScales.ToDtos();
     }
 
-    public SalaryScale GetSalaryScaleBySalaryLevelId(int salaryLevelId) {
+    public SalaryScaleDto? GetSalaryScaleBySalaryLevelId(int salaryLevelId) {
         SalaryScale? salaryScale = SalaryScaleDataAccess.Instance.GetSalaryScaleBySalaryLevelId(salaryLevelId);
-        if (salaryScale == null) {
-            return new SalaryScale();
-        }
-        return salaryScale;
+        return salaryScale?.ToDto();
     }
 }
