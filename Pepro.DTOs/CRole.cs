@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System;
 
 namespace Pepro.DTOs {
     public class CRole {
