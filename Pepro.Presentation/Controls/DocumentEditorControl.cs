@@ -83,8 +83,8 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
         projectNameComboBoxField.DisplayMember = nameof(ProjectDto.Name);
         projectNameComboBoxField.ValueMember = nameof(ProjectDto.ProjectId);
 
-        taskNameComboBoxField.DisplayMember = nameof(ProjectTask.Name);
-        taskNameComboBoxField.ValueMember = nameof(ProjectTask.TaskId);
+        taskNameComboBoxField.DisplayMember = nameof(ProjectTaskDto.Name);
+        taskNameComboBoxField.ValueMember = nameof(ProjectTaskDto.TaskId);
 
         if (_mode == EditorMode.Create) {
             List<ProjectDto> projects = ProjectBusiness.Instance.GetProjects();
@@ -96,9 +96,18 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
             projectNameComboBoxField.Enabled = false;
 
             _suppressTaskReload = true;
-            ProjectTask task = TaskBusiness.Instance.GetTaskByDocumentId(documentIdInputField.Text);
-            taskNameComboBoxField.DataSource = (List<ProjectTask>)[task];
+            if (!int.TryParse(documentIdInputField.Text, out int documentId))
+            {
+                return;
+            }
 
+            ProjectTaskDto? task = TaskBusiness.Instance.GetTaskByDocumentId(documentId);
+            if (task == null)
+            {
+                return;
+            }
+
+            taskNameComboBoxField.DataSource = (List<ProjectTaskDto>)[task];
             ProjectDto? project = ProjectBusiness.Instance.GetProjectByTaskId(task.TaskId);
             if (project != null)
             {
@@ -114,7 +123,7 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
         }
 
         string projectId = projectNameComboBoxField.SelectedValue?.ToString() ?? "";
-        List<ProjectTask> tasks = TaskBusiness.Instance.GetTasksByProjectId(projectId);
+        List<ProjectTaskDto> tasks = TaskBusiness.Instance.GetTasksByProjectId(projectId);
         taskNameComboBoxField.DataSource = tasks;
         taskNameComboBoxField.SelectedIndex = -1;
     }
