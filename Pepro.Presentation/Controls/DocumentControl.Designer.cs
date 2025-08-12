@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent() {
             documentIdInputField = new PeproInputField();
-            taskIdInputField = new PeproInputField();
-            taskNameInputField = new PeproInputField();
+            assignmentIdInputField = new PeproInputField();
+            assignmentNameInputField = new PeproInputField();
             fileTypeInputField = new PeproInputField();
             projectIdInputField = new PeproInputField();
             projectNameInputField = new PeproInputField();
@@ -69,33 +69,33 @@
             documentIdInputField.TabStop = false;
             documentIdInputField.TextChanged += DocumentIdInputField_TextChanged;
             // 
-            // taskIdInputField
+            // assignmentIdInputField
             // 
-            taskIdInputField.Enabled = false;
-            taskIdInputField.ForeColor = Color.White;
-            taskIdInputField.LabelText = "Task id";
-            taskIdInputField.Location = new Point(280, 64);
-            taskIdInputField.Margin = new Padding(24, 16, 0, 24);
-            taskIdInputField.Name = "taskIdInputField";
-            taskIdInputField.PlaceholderText = "e.g. task id";
-            taskIdInputField.Size = new Size(240, 54);
-            taskIdInputField.TabIndex = 0;
-            taskIdInputField.TabStop = false;
-            taskIdInputField.TextChanged += TaskIdInputField_TextChanged;
+            assignmentIdInputField.Enabled = false;
+            assignmentIdInputField.ForeColor = Color.White;
+            assignmentIdInputField.LabelText = "Assignment id";
+            assignmentIdInputField.Location = new Point(280, 64);
+            assignmentIdInputField.Margin = new Padding(24, 16, 0, 24);
+            assignmentIdInputField.Name = "assignmentIdInputField";
+            assignmentIdInputField.PlaceholderText = "e.g. assignment id";
+            assignmentIdInputField.Size = new Size(240, 54);
+            assignmentIdInputField.TabIndex = 0;
+            assignmentIdInputField.TabStop = false;
+            assignmentIdInputField.TextChanged += AssignmentIdInputField_TextChanged;
             // 
-            // taskNameInputField
+            // assignmentNameInputField
             // 
-            taskNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            taskNameInputField.Enabled = false;
-            taskNameInputField.ForeColor = Color.White;
-            taskNameInputField.LabelText = "Task name";
-            taskNameInputField.Location = new Point(544, 64);
-            taskNameInputField.Margin = new Padding(24, 16, 16, 24);
-            taskNameInputField.Name = "taskNameInputField";
-            taskNameInputField.PlaceholderText = "e.g. task name";
-            taskNameInputField.Size = new Size(504, 54);
-            taskNameInputField.TabIndex = 0;
-            taskNameInputField.TabStop = false;
+            assignmentNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            assignmentNameInputField.Enabled = false;
+            assignmentNameInputField.ForeColor = Color.White;
+            assignmentNameInputField.LabelText = "Assignment name";
+            assignmentNameInputField.Location = new Point(544, 64);
+            assignmentNameInputField.Margin = new Padding(24, 16, 16, 24);
+            assignmentNameInputField.Name = "assignmentNameInputField";
+            assignmentNameInputField.PlaceholderText = "e.g. assignment name";
+            assignmentNameInputField.Size = new Size(504, 54);
+            assignmentNameInputField.TabIndex = 0;
+            assignmentNameInputField.TabStop = false;
             // 
             // fileTypeInputField
             // 
@@ -144,7 +144,7 @@
             searchTextBox.Location = new Point(16, 224);
             searchTextBox.Margin = new Padding(2);
             searchTextBox.Name = "searchTextBox";
-            searchTextBox.PlaceholderText = "Search for document title, id, and task id";
+            searchTextBox.PlaceholderText = "Search for document title, id, and assignment id";
             searchTextBox.Size = new Size(432, 19);
             searchTextBox.TabIndex = 1;
             // 
@@ -325,7 +325,7 @@
             // 
             // Column11
             // 
-            Column11.DataPropertyName = "TaskId";
+            Column11.DataPropertyName = "AssignmentId";
             Column11.HeaderText = "Mã nhiệm vụ";
             Column11.Name = "Column11";
             Column11.ReadOnly = true;
@@ -336,8 +336,8 @@
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(documentIdInputField);
-            Controls.Add(taskIdInputField);
-            Controls.Add(taskNameInputField);
+            Controls.Add(assignmentIdInputField);
+            Controls.Add(assignmentNameInputField);
             Controls.Add(fileTypeInputField);
             Controls.Add(projectIdInputField);
             Controls.Add(projectNameInputField);
@@ -365,8 +365,8 @@
             Controls.SetChildIndex(projectNameInputField, 0);
             Controls.SetChildIndex(projectIdInputField, 0);
             Controls.SetChildIndex(fileTypeInputField, 0);
-            Controls.SetChildIndex(taskNameInputField, 0);
-            Controls.SetChildIndex(taskIdInputField, 0);
+            Controls.SetChildIndex(assignmentNameInputField, 0);
+            Controls.SetChildIndex(assignmentIdInputField, 0);
             Controls.SetChildIndex(documentIdInputField, 0);
             ((System.ComponentModel.ISupportInitialize)documentDataGridView).EndInit();
             ResumeLayout(false);
@@ -397,9 +397,9 @@
         private TextBox searchTextBox;
         private PeproInputField documentIdInputField;
         private PeproInputField projectIdInputField;
-        private PeproInputField taskIdInputField;
+        private PeproInputField assignmentIdInputField;
         private PeproInputField fileTypeInputField;
         private PeproInputField projectNameInputField;
-        private PeproInputField taskNameInputField;
+        private PeproInputField assignmentNameInputField;
     }
 }

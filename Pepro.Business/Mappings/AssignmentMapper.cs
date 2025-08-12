@@ -3,13 +3,13 @@ using Pepro.DTOs;
 
 namespace Pepro.Business.Mappings;
 
-static class TaskMapper
+static class AssignmentMapper
 {
-    public static ProjectTaskDto ToDto(this ProjectTask entity)
+    public static AssignmentDto ToDto(this Assignment entity)
     {
-        return new ProjectTaskDto()
+        return new AssignmentDto()
         {
-            TaskId = entity.TaskId,
+            AssignmentId = entity.AssignmentId,
             Name = entity.Name,
             IsPublicToProject = entity.IsPublicToProject,
             IsPublicToDepartment = entity.IsPublicToDepartment,
@@ -21,10 +21,10 @@ static class TaskMapper
         };
     }
 
-    public static List<ProjectTaskDto> ToDtos(this List<ProjectTask> entities)
+    public static List<AssignmentDto> ToDtos(this List<Assignment> entities)
     {
-        List<ProjectTaskDto> dtos = [];
-        foreach (ProjectTask entity in entities)
+        List<AssignmentDto> dtos = [];
+        foreach (Assignment entity in entities)
         {
             dtos.Add(entity.ToDto());
         }

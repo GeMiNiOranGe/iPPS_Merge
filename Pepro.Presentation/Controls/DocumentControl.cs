@@ -72,7 +72,7 @@ public partial class DocumentControl : PeproCrudControlBase
         if (row.DataBoundItem is DocumentDto document)
         {
             documentIdInputField.Text = document.DocumentId.ToString();
-            taskIdInputField.Text = document.TaskId.ToString();
+            assignmentIdInputField.Text = document.AssignmentId.ToString();
             fileTypeInputField.Text = document.NativeFileFormat;
         }
     }
@@ -139,23 +139,23 @@ public partial class DocumentControl : PeproCrudControlBase
             return;
         }
 
-        ProjectTaskDto? task = TaskBusiness.Instance.GetTaskByDocumentId(documentId);
-        if (task == null)
+        AssignmentDto? assignment = AssignmentBusiness.Instance.GetAssignmentByDocumentId(documentId);
+        if (assignment == null)
         {
             return;
         }
 
-        taskNameInputField.Text = task.Name;
+        assignmentNameInputField.Text = assignment.Name;
     }
 
-    private void TaskIdInputField_TextChanged(object sender, EventArgs e)
+    private void AssignmentIdInputField_TextChanged(object sender, EventArgs e)
     {
-        if (!int.TryParse(taskIdInputField.Text, out int taskId))
+        if (!int.TryParse(assignmentIdInputField.Text, out int assignmentId))
         {
             return;
         }
 
-        ProjectDto? project = ProjectBusiness.Instance.GetProjectByTaskId(taskId);
+        ProjectDto? project = ProjectBusiness.Instance.GetProjectByAssignmentId(assignmentId);
         if (project == null)
         {
             return;

@@ -42,7 +42,7 @@ public partial class ProgressControl : PeproMediatedUserControl {
             };
 
             projectCard.Click += (sender, e) => {
-                _mediator.Notify(this, ControlUiEvent.OpenTaskDetailControl, new OpenTaskDetailControlPayload() {
+                _mediator.Notify(this, ControlUiEvent.OpenAssignmentDetailControl, new OpenAssignmentDetailControlPayload() {
                     ProjectId = item.ProjectId,
                     ProjectName = item.Name
                 });

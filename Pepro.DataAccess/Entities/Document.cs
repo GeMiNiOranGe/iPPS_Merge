@@ -12,7 +12,7 @@ public class Document
     private string _preparedBy = "";
     private string _checkedBy = "";
     private string _approvedBy = "";
-    private int _taskId;
+    private int _assignmentId;
 
     public required int DocumentId
     {
@@ -74,9 +74,9 @@ public class Document
         set => _approvedBy = value;
     }
 
-    public required int TaskId
+    public required int AssignmentId
     {
-        get => _taskId;
-        set => _taskId = value;
+        get => _assignmentId;
+        set => _assignmentId = value;
     }
 }

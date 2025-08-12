@@ -7,7 +7,7 @@ namespace Pepro.Presentation.Controls;
 public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUserControl<DocumentDto> {
     private DocumentDto _item = null!;
     private EditorMode _mode;
-    private bool _suppressTaskReload = false;
+    private bool _suppressAssignmentReload = false;
 
     public DocumentEditorControl() {
         Initialize();
@@ -32,7 +32,7 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
             preparedByInputField.Text = _item.PreparedBy;
             checkedByInputField.Text = _item.CheckedBy;
             approvedByInputField.Text = _item.ApprovedBy;
-            taskIdInputField.Text = _item.TaskId.ToString();
+            assignmentIdInputField.Text = _item.AssignmentId.ToString();
         }
     }
 
@@ -56,7 +56,7 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
         browseButton.SetupRuntimeFlatStyle();
 
         projectIdInputField.FocusColor = ThemeColors.Accent.Base;
-        taskIdInputField.FocusColor = ThemeColors.Accent.Base;
+        assignmentIdInputField.FocusColor = ThemeColors.Accent.Base;
         documentIdInputField.FocusColor = ThemeColors.Accent.Base;
         titleInputField.FocusColor = ThemeColors.Accent.Base;
         preparedByInputField.FocusColor = ThemeColors.Accent.Base;
@@ -74,17 +74,17 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
             projectNameComboBoxField,
             nameof(projectNameComboBoxField.SelectedValue)
         );
-        taskIdInputField.DataBindings.Add(
-            nameof(taskIdInputField.Text),
-            taskNameComboBoxField,
-            nameof(taskNameComboBoxField.SelectedValue)
+        assignmentIdInputField.DataBindings.Add(
+            nameof(assignmentIdInputField.Text),
+            assignmentNameComboBoxField,
+            nameof(assignmentNameComboBoxField.SelectedValue)
         );
 
         projectNameComboBoxField.DisplayMember = nameof(ProjectDto.Name);
         projectNameComboBoxField.ValueMember = nameof(ProjectDto.ProjectId);
 
-        taskNameComboBoxField.DisplayMember = nameof(ProjectTaskDto.Name);
-        taskNameComboBoxField.ValueMember = nameof(ProjectTaskDto.TaskId);
+        assignmentNameComboBoxField.DisplayMember = nameof(AssignmentDto.Name);
+        assignmentNameComboBoxField.ValueMember = nameof(AssignmentDto.AssignmentId);
 
         if (_mode == EditorMode.Create) {
             List<ProjectDto> projects = ProjectBusiness.Instance.GetProjects();
@@ -92,40 +92,40 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
             projectNameComboBoxField.SelectedIndex = -1;
         }
         if (_mode == EditorMode.Edit) {
-            taskNameComboBoxField.Enabled = false;
+            assignmentNameComboBoxField.Enabled = false;
             projectNameComboBoxField.Enabled = false;
 
-            _suppressTaskReload = true;
+            _suppressAssignmentReload = true;
             if (!int.TryParse(documentIdInputField.Text, out int documentId))
             {
                 return;
             }
 
-            ProjectTaskDto? task = TaskBusiness.Instance.GetTaskByDocumentId(documentId);
-            if (task == null)
+            AssignmentDto? assignment = AssignmentBusiness.Instance.GetAssignmentByDocumentId(documentId);
+            if (assignment == null)
             {
                 return;
             }
 
-            taskNameComboBoxField.DataSource = (List<ProjectTaskDto>)[task];
-            ProjectDto? project = ProjectBusiness.Instance.GetProjectByTaskId(task.TaskId);
+            assignmentNameComboBoxField.DataSource = (List<AssignmentDto>)[assignment];
+            ProjectDto? project = ProjectBusiness.Instance.GetProjectByAssignmentId(assignment.AssignmentId);
             if (project != null)
             {
                 projectNameComboBoxField.DataSource = (List<ProjectDto>)[project];
             }
-            _suppressTaskReload = false;
+            _suppressAssignmentReload = false;
         }
     }
 
     private void ProjectNameComboBoxField_SelectedIndexChanged(object sender, EventArgs e) {
-        if (_suppressTaskReload) {
+        if (_suppressAssignmentReload) {
             return;
         }
 
         string projectId = projectNameComboBoxField.SelectedValue?.ToString() ?? "";
-        List<ProjectTaskDto> tasks = TaskBusiness.Instance.GetTasksByProjectId(projectId);
-        taskNameComboBoxField.DataSource = tasks;
-        taskNameComboBoxField.SelectedIndex = -1;
+        List<AssignmentDto> assignments = AssignmentBusiness.Instance.GetAssignmentsByProjectId(projectId);
+        assignmentNameComboBoxField.DataSource = assignments;
+        assignmentNameComboBoxField.SelectedIndex = -1;
     }
 
     private void SaveButton_Click(object sender, EventArgs e) {

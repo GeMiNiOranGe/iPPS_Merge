@@ -19,7 +19,7 @@ static class DocumentMapper
             PreparedBy = entity.PreparedBy,
             CheckedBy = entity.CheckedBy,
             ApprovedBy = entity.ApprovedBy,
-            TaskId = entity.TaskId,
+            AssignmentId = entity.AssignmentId,
         };
     }
 

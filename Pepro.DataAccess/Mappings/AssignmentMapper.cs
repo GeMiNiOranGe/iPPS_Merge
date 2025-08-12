@@ -3,13 +3,13 @@ using Pepro.DataAccess.Entities;
 
 namespace Pepro.DataAccess.Mappings;
 
-static class TaskMapper
+static class AssignmentMapper
 {
-    public static ProjectTask FromDataRow(DataRow row)
+    public static Assignment FromDataRow(DataRow row)
     {
-        return new ProjectTask()
+        return new Assignment()
         {
-            TaskId = row.Field<int>("TaskId"),
+            AssignmentId = row.Field<int>("AssignmentId"),
             Name = row.Field<string>("Name") ?? "",
             IsPublicToProject = row.Field<bool>("IsPublicToProject"),
             IsPublicToDepartment = row.Field<bool>("IsPublicToDepartment"),

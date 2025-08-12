@@ -19,7 +19,7 @@ static class DocumentMapper
             PreparedBy = row.Field<string>("PreparedBy") ?? "",
             CheckedBy = row.Field<string>("CheckedBy") ?? "",
             ApprovedBy = row.Field<string>("ApprovedBy") ?? "",
-            TaskId = row.Field<int>("TaskId"),
+            AssignmentId = row.Field<int>("AssignmentId"),
         };
     }
 }

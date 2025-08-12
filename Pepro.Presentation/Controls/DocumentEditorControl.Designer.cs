@@ -29,8 +29,8 @@
         private void InitializeComponent() {
             projectIdInputField = new PeproInputField();
             projectNameComboBoxField = new PeproComboBoxField();
-            taskIdInputField = new PeproInputField();
-            taskNameComboBoxField = new PeproComboBoxField();
+            assignmentIdInputField = new PeproInputField();
+            assignmentNameComboBoxField = new PeproComboBoxField();
             documentIdInputField = new PeproInputField();
             titleInputField = new PeproInputField();
             preparedByInputField = new PeproInputField();
@@ -72,30 +72,30 @@
             projectNameComboBoxField.TabIndex = 2;
             projectNameComboBoxField.SelectedIndexChanged += ProjectNameComboBoxField_SelectedIndexChanged;
             // 
-            // taskIdInputField
+            // assignmentIdInputField
             // 
-            taskIdInputField.Anchor = AnchorStyles.None;
-            taskIdInputField.Enabled = false;
-            taskIdInputField.ForeColor = Color.White;
-            taskIdInputField.LabelText = "Task id";
-            taskIdInputField.Location = new Point(16, 150);
-            taskIdInputField.Margin = new Padding(16, 16, 0, 16);
-            taskIdInputField.Name = "taskIdInputField";
-            taskIdInputField.PlaceholderText = "e.g. task id";
-            taskIdInputField.Size = new Size(240, 54);
-            taskIdInputField.TabIndex = 3;
-            taskIdInputField.TabStop = false;
+            assignmentIdInputField.Anchor = AnchorStyles.None;
+            assignmentIdInputField.Enabled = false;
+            assignmentIdInputField.ForeColor = Color.White;
+            assignmentIdInputField.LabelText = "Assignment id";
+            assignmentIdInputField.Location = new Point(16, 150);
+            assignmentIdInputField.Margin = new Padding(16, 16, 0, 16);
+            assignmentIdInputField.Name = "assignmentIdInputField";
+            assignmentIdInputField.PlaceholderText = "e.g. assignment id";
+            assignmentIdInputField.Size = new Size(240, 54);
+            assignmentIdInputField.TabIndex = 3;
+            assignmentIdInputField.TabStop = false;
             // 
-            // taskNameComboBoxField
+            // assignmentNameComboBoxField
             // 
-            taskNameComboBoxField.Anchor = AnchorStyles.None;
-            taskNameComboBoxField.ForeColor = Color.White;
-            taskNameComboBoxField.LabelText = "Task name";
-            taskNameComboBoxField.Location = new Point(280, 152);
-            taskNameComboBoxField.Margin = new Padding(24, 16, 16, 16);
-            taskNameComboBoxField.Name = "taskNameComboBoxField";
-            taskNameComboBoxField.Size = new Size(768, 56);
-            taskNameComboBoxField.TabIndex = 4;
+            assignmentNameComboBoxField.Anchor = AnchorStyles.None;
+            assignmentNameComboBoxField.ForeColor = Color.White;
+            assignmentNameComboBoxField.LabelText = "Assignment name";
+            assignmentNameComboBoxField.Location = new Point(280, 152);
+            assignmentNameComboBoxField.Margin = new Padding(24, 16, 16, 16);
+            assignmentNameComboBoxField.Name = "assignmentNameComboBoxField";
+            assignmentNameComboBoxField.Size = new Size(768, 56);
+            assignmentNameComboBoxField.TabIndex = 4;
             // 
             // documentIdInputField
             // 
@@ -267,8 +267,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(projectIdInputField);
             Controls.Add(projectNameComboBoxField);
-            Controls.Add(taskIdInputField);
-            Controls.Add(taskNameComboBoxField);
+            Controls.Add(assignmentIdInputField);
+            Controls.Add(assignmentNameComboBoxField);
             Controls.Add(documentIdInputField);
             Controls.Add(titleInputField);
             Controls.Add(preparedByInputField);
@@ -298,8 +298,8 @@
             Controls.SetChildIndex(preparedByInputField, 0);
             Controls.SetChildIndex(titleInputField, 0);
             Controls.SetChildIndex(documentIdInputField, 0);
-            Controls.SetChildIndex(taskNameComboBoxField, 0);
-            Controls.SetChildIndex(taskIdInputField, 0);
+            Controls.SetChildIndex(assignmentNameComboBoxField, 0);
+            Controls.SetChildIndex(assignmentIdInputField, 0);
             Controls.SetChildIndex(projectNameComboBoxField, 0);
             Controls.SetChildIndex(projectIdInputField, 0);
             ResumeLayout(false);
@@ -320,10 +320,10 @@
         private PeproInputField approvedByInputField;
         private PeproInputField preparedByInputField;
         private PeproInputField documentIdInputField;
-        private PeproInputField taskIdInputField;
+        private PeproInputField assignmentIdInputField;
         private PeproInputField revisionNumberInputField;
         private PeproInputField revisionStatusInputField;
         private PeproComboBoxField projectNameComboBoxField;
-        private PeproComboBoxField taskNameComboBoxField;
+        private PeproComboBoxField assignmentNameComboBoxField;
     }
 }

@@ -27,7 +27,7 @@ public partial class MenuForm : PeproForm {
     }
 
     private void InitializeRuntimeComponents() {
-        taskButton.SetSidebarButtonImages("Task");
+        assignmentButton.SetSidebarButtonImages("Task");
         projectButton.SetSidebarButtonImages("Folder");
         documentButton.SetSidebarButtonImages("MultiplePages");
         progressButton.SetSidebarButtonImages("DoughnutChart");
@@ -73,8 +73,8 @@ public partial class MenuForm : PeproForm {
         }
     }
 
-    private void TaskButton_MouseClick(object sender, MouseEventArgs e) {
-        optionPanel.SetLocationY(taskButton.Location.Y);
+    private void AssignmentButton_MouseClick(object sender, MouseEventArgs e) {
+        optionPanel.SetLocationY(assignmentButton.Location.Y);
 
         string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_employeeId}'";
         conn.Open();

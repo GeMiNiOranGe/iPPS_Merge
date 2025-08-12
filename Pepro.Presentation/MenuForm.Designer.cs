@@ -36,7 +36,7 @@ namespace Pepro.Presentation {
             progressButton = new PeproIconButton();
             documentButton = new PeproIconButton();
             projectButton = new PeproIconButton();
-            taskButton = new PeproIconButton();
+            assignmentButton = new PeproIconButton();
             appNameLabel = new Label();
             logoutButton = new PeproIconButton();
             accountPanel = new Panel();
@@ -74,7 +74,7 @@ namespace Pepro.Presentation {
             functionListPanel.Controls.Add(progressButton);
             functionListPanel.Controls.Add(documentButton);
             functionListPanel.Controls.Add(projectButton);
-            functionListPanel.Controls.Add(taskButton);
+            functionListPanel.Controls.Add(assignmentButton);
             functionListPanel.Dock = DockStyle.Fill;
             functionListPanel.Location = new Point(0, 80);
             functionListPanel.Name = "functionListPanel";
@@ -173,17 +173,17 @@ namespace Pepro.Presentation {
             projectButton.Text = "   Dự án";
             projectButton.MouseClick += ProjectButton_MouseClick;
             // 
-            // taskButton
+            // assignmentButton
             // 
-            taskButton.Dock = DockStyle.Top;
-            taskButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            taskButton.Location = new Point(0, 0);
-            taskButton.Name = "taskButton";
-            taskButton.Padding = new Padding(16, 0, 0, 0);
-            taskButton.Size = new Size(200, 48);
-            taskButton.TabIndex = 1;
-            taskButton.Text = "   Công việc";
-            taskButton.MouseClick += TaskButton_MouseClick;
+            assignmentButton.Dock = DockStyle.Top;
+            assignmentButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
+            assignmentButton.Location = new Point(0, 0);
+            assignmentButton.Name = "assignmentButton";
+            assignmentButton.Padding = new Padding(16, 0, 0, 0);
+            assignmentButton.Size = new Size(200, 48);
+            assignmentButton.TabIndex = 1;
+            assignmentButton.Text = "   Công việc";
+            assignmentButton.MouseClick += AssignmentButton_MouseClick;
             // 
             // appNameLabel
             // 
@@ -310,7 +310,7 @@ namespace Pepro.Presentation {
         private Label usernameLabel;
         private Label roleLabel;
         private Panel accountPanel;
-        private PeproIconButton taskButton;
+        private PeproIconButton assignmentButton;
         private PeproIconButton progressButton;
         private PeproIconButton documentButton;
         private PeproIconButton projectButton;

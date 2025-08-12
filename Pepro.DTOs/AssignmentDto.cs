@@ -1,7 +1,7 @@
 ﻿namespace Pepro.DTOs;
 
-public class ProjectTaskDto {
-    private int _taskId;
+public class AssignmentDto {
+    private int _assignmentId;
     private string _name = "";
     private bool _isPublicToProject;
     private bool _isPublicToDepartment;
@@ -12,9 +12,9 @@ public class ProjectTaskDto {
     private int _statusId;
     private AccessLevel _accessRight;
 
-    public int TaskId {
-        get => _taskId;
-        set => _taskId = value;
+    public int AssignmentId {
+        get => _assignmentId;
+        set => _assignmentId = value;
     }
 
     public string Name {

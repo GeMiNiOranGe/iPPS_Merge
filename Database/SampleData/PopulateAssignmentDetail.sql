@@ -1,5 +1,5 @@
-INSERT INTO [dbo].[TaskDetail]
-        ([EmployeeId],  [TaskId])
+INSERT INTO [dbo].[AssignmentDetail]
+        ([EmployeeId],  [AssignmentId])
 VALUES  ('EMP00004',    1)
      ,  ('EMP00004',    2)
      ,  ('EMP00004',    7)

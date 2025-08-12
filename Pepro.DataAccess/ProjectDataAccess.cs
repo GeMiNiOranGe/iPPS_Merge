@@ -77,11 +77,11 @@ public class ProjectDataAccess {
                 , Project.StartDate
                 , Project.EndDate
                 , Project.StatusId
-            FROM TaskDetail
-            INNER JOIN Task
-                    ON TaskDetail.TaskId = Task.TaskId
+            FROM AssignmentDetail
+            INNER JOIN Assignment
+                    ON AssignmentDetail.AssignmentId = Assignment.AssignmentId
             INNER JOIN Project
-                    ON Task.ProjectId = Project.ProjectId
+                    ON Assignment.ProjectId = Project.ProjectId
             WHERE EmployeeId = @EmployeeId
             ORDER BY Project.ProjectId DESC;
         ";
@@ -98,7 +98,7 @@ public class ProjectDataAccess {
         return projects;
     }
 
-    public Project? GetProjectByTaskId(int taskId) {
+    public Project? GetProjectByAssignmentId(int assignmentId) {
         string query = @"
             SELECT Project.ProjectId
                 , Project.Name
@@ -108,12 +108,12 @@ public class ProjectDataAccess {
                 , Project.EndDate
                 , Project.StatusId
             FROM Project
-            INNER JOIN Task
-                    ON Task.ProjectId = Project.ProjectId
-            WHERE Task.TaskId = @TaskId
+            INNER JOIN Assignment
+                    ON Assignment.ProjectId = Project.ProjectId
+            WHERE Assignment.AssignmentId = @AssignmentId
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("TaskId", SqlDbType.Int, taskId);
+        parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
         if (dataTable.Rows.Count == 0) {
