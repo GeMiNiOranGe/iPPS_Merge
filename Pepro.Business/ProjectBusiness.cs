@@ -30,9 +30,9 @@ public class ProjectBusiness {
         List<ProjectProgress> projectsProgress = [];
 
         foreach (Project project in projects) {
-            List<ProjectTask> tasks = TaskDataAccess.Instance.GetTasksByProjectId(project.ProjectId);
-            int total = tasks.Count;
-            int completed = tasks.Count(task => task.StatusId == 4);
+            List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(project.ProjectId);
+            int total = assignments.Count;
+            int completed = assignments.Count(assignment => assignment.StatusId == 4);
             decimal percent = total != 0
                 ? Math.Round(completed * 100m / total, 2)
                 : 0;
@@ -61,8 +61,8 @@ public class ProjectBusiness {
         return [.. projectNames];
     }
 
-    public ProjectDto? GetProjectByTaskId(int taskId) {
-        Project? project = ProjectDataAccess.Instance.GetProjectByTaskId(taskId);
+    public ProjectDto? GetProjectByAssignmentId(int assignmentId) {
+        Project? project = ProjectDataAccess.Instance.GetProjectByAssignmentId(assignmentId);
         return project?.ToDto();
     }
 }

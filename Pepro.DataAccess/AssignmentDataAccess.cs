@@ -5,27 +5,27 @@ using System.Data;
 
 namespace Pepro.DataAccess;
 
-public class TaskDataAccess {
-    private static TaskDataAccess? instance;
+public class AssignmentDataAccess {
+    private static AssignmentDataAccess? instance;
 
-    public static TaskDataAccess Instance {
+    public static AssignmentDataAccess Instance {
         get => instance ??= new();
         private set => instance = value;
     }
 
-    private TaskDataAccess() { }
+    private AssignmentDataAccess() { }
 
-    public int GetRequiredDocumentCount(int taskId) {
-        string query = "SELECT RequiredDocumentCount FROM Task WHERE TaskId = @TaskId";
+    public int GetRequiredDocumentCount(int assignmentId) {
+        string query = "SELECT RequiredDocumentCount FROM Assignment WHERE AssignmentId = @AssignmentId";
         List<SqlParameter> parameters = [];
-        parameters.Add("TaskId", SqlDbType.Int, taskId);
+        parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
 
         return (int)DataProvider.Instance.ExecuteScalar(query, [.. parameters]);
     }
 
-    public List<ProjectTask> GetTasksByProjectId(string projectId) {
+    public List<Assignment> GetAssignmentsByProjectId(string projectId) {
         string query = @"
-            SELECT TaskId
+            SELECT AssignmentId
                 , Name
                 , IsPublicToProject
                 , IsPublicToDepartment
@@ -34,7 +34,7 @@ public class TaskDataAccess {
                 , EndDate
                 , ProjectId
                 , StatusId
-            FROM Task 
+            FROM Assignment 
             WHERE ProjectId = @ProjectId
         ";
         List<SqlParameter> parameters = [];
@@ -42,17 +42,17 @@ public class TaskDataAccess {
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 
-        List<ProjectTask> tasks = [];
+        List<Assignment> assignments = [];
         foreach (DataRow row in dataTable.Rows) {
-            ProjectTask task = TaskMapper.FromDataRow(row);
-            tasks.Add(task);
+            Assignment assignment = AssignmentMapper.FromDataRow(row);
+            assignments.Add(assignment);
         }
-        return tasks;
+        return assignments;
     }
 
-    public List<ProjectTask> GetTasksByEmployeeId(string employeeId) {
+    public List<Assignment> GetAssignmentsByEmployeeId(string employeeId) {
         string query = @"
-            SELECT Task.TaskId
+            SELECT Assignment.AssignmentId
                 , Name
                 , IsPublicToProject
                 , IsPublicToDepartment
@@ -61,9 +61,9 @@ public class TaskDataAccess {
                 , EndDate
                 , ProjectId
                 , StatusId
-            FROM Task
-            INNER JOIN TaskDetail
-                    ON TaskDetail.TaskId = Task.TaskId
+            FROM Assignment
+            INNER JOIN AssignmentDetail
+                    ON AssignmentDetail.AssignmentId = Assignment.AssignmentId
             WHERE EmployeeId = @EmployeeId
         ";
         List<SqlParameter> parameters = [];
@@ -71,22 +71,22 @@ public class TaskDataAccess {
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 
-        List<ProjectTask> tasks = [];
+        List<Assignment> assignments = [];
         foreach (DataRow row in dataTable.Rows) {
-            ProjectTask task = TaskMapper.FromDataRow(row);
-            tasks.Add(task);
+            Assignment assignment = AssignmentMapper.FromDataRow(row);
+            assignments.Add(assignment);
         }
-        return tasks;
+        return assignments;
     }
 
     /// <summary>
-    ///     Take out the manager of the task
+    ///     Take out the manager of the assignment
     /// </summary>
-    /// <param name="taskId">Task id</param>
+    /// <param name="assignmentId">Assignment id</param>
     /// <returns>
     ///     Manager
     /// </returns>
-    public Employee? GetTaskManager(int taskId) {
+    public Employee? GetAssignmentManager(int assignmentId) {
         string query = @"
             SELECT EmployeeId
                 , FirstName
@@ -99,13 +99,13 @@ public class TaskDataAccess {
                 , DepartmentId
                 , PositionId
                 , SalaryLevelId
-            FROM Task
+            FROM Assignment
             INNER JOIN Employee
-                    ON Employee.EmployeeId = Task.ManagerId
-            WHERE TaskId = @TaskId
+                    ON Employee.EmployeeId = Assignment.ManagerId
+            WHERE AssignmentId = @AssignmentId
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("TaskId", SqlDbType.VarChar, 10, taskId);
+        parameters.Add("AssignmentId", SqlDbType.VarChar, 10, assignmentId);
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
         if (dataTable.Rows.Count == 0) {
@@ -116,9 +116,9 @@ public class TaskDataAccess {
         return EmployeeMapper.FromDataRow(row);
     }
 
-    public ProjectTask? GetTaskByDocumentId(int documentId) {
+    public Assignment? GetAssignmentByDocumentId(int documentId) {
         string query = @"
-            SELECT Task.TaskId
+            SELECT Assignment.AssignmentId
                 , Name
                 , IsPublicToProject
                 , IsPublicToDepartment
@@ -127,9 +127,9 @@ public class TaskDataAccess {
                 , EndDate
                 , ProjectId
                 , StatusId
-            FROM Task
+            FROM Assignment
             INNER JOIN Document
-                    ON Document.TaskId = Task.TaskId
+                    ON Document.AssignmentId = Assignment.AssignmentId
             WHERE Document.DocumentId = @DocumentId
         ";
         List<SqlParameter> parameters = [];
@@ -141,6 +141,6 @@ public class TaskDataAccess {
         }
 
         DataRow row = dataTable.Rows[0];
-        return TaskMapper.FromDataRow(row);
+        return AssignmentMapper.FromDataRow(row);
     }
 }

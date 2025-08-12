@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE [dbo].[usp_CreateDummyTask]
+CREATE OR ALTER PROCEDURE [dbo].[usp_CreateDummyAssignment]
     @Name                   NVARCHAR(50),
     @IsPublicToProject      BIT,
     @IsPublicToDepartment   BIT,
@@ -19,13 +19,13 @@ AS BEGIN
     SET @StartDate   = DateAdd(DAY, @DaysBeforeToday, @CurrentDate)
     SET @EndDate     = DateAdd(DAY, @DaysAfterToday, @CurrentDate)
 
-    INSERT INTO [dbo].[Task]
+    INSERT INTO [dbo].[Assignment]
             ([Name], [IsPublicToProject], [IsPublicToDepartment], [ManagerId], [StartDate], [EndDate], [RequiredDocumentCount], [ProjectId], [StatusId])
     VALUES  (@Name,  @IsPublicToProject,  @IsPublicToDepartment,  @ManagerId,  @StartDate,  @EndDate,  @RequiredDocumentCount,  @ProjectId,  @StatusId)
 END
 GO
 
-EXECUTE [dbo].[usp_CreateDummyTask] 
+EXECUTE [dbo].[usp_CreateDummyAssignment] 
     @Name                   = N'Công việc 1'
   , @IsPublicToProject      = 0
   , @IsPublicToDepartment   = 1
@@ -36,7 +36,7 @@ EXECUTE [dbo].[usp_CreateDummyTask]
   , @ProjectId              = 'PRJ00001'
   , @StatusId               = 3
 
-EXECUTE [dbo].[usp_CreateDummyTask] 
+EXECUTE [dbo].[usp_CreateDummyAssignment] 
     @Name                   = N'Công việc 2'
   , @IsPublicToProject      = 1
   , @IsPublicToDepartment   = 1
@@ -47,7 +47,7 @@ EXECUTE [dbo].[usp_CreateDummyTask]
   , @ProjectId              = 'PRJ00001'
   , @StatusId               = 1
 
-EXECUTE [dbo].[usp_CreateDummyTask] 
+EXECUTE [dbo].[usp_CreateDummyAssignment] 
     @Name                   = N'Công việc 3'
   , @IsPublicToProject      = 1
   , @IsPublicToDepartment   = 0
@@ -58,7 +58,7 @@ EXECUTE [dbo].[usp_CreateDummyTask]
   , @ProjectId              = 'PRJ00001'
   , @StatusId               = 4
 
-EXECUTE [dbo].[usp_CreateDummyTask] 
+EXECUTE [dbo].[usp_CreateDummyAssignment] 
     @Name                   = N'Công việc 4'
   , @IsPublicToProject      = 0
   , @IsPublicToDepartment   = 0
@@ -69,7 +69,7 @@ EXECUTE [dbo].[usp_CreateDummyTask]
   , @ProjectId              = 'PRJ00002'
   , @StatusId               = 4
 
-EXECUTE [dbo].[usp_CreateDummyTask] 
+EXECUTE [dbo].[usp_CreateDummyAssignment] 
     @Name                   = N'Công việc 5'
   , @IsPublicToProject      = 1
   , @IsPublicToDepartment   = 1
@@ -80,7 +80,7 @@ EXECUTE [dbo].[usp_CreateDummyTask]
   , @ProjectId              = 'PRJ00002'
   , @StatusId               = 1
 
-EXECUTE [dbo].[usp_CreateDummyTask] 
+EXECUTE [dbo].[usp_CreateDummyAssignment] 
     @Name                   = N'Công việc 6'
   , @IsPublicToProject      = 1
   , @IsPublicToDepartment   = 0
@@ -91,7 +91,7 @@ EXECUTE [dbo].[usp_CreateDummyTask]
   , @ProjectId              = 'PRJ00002'
   , @StatusId               = 5
 
-EXECUTE [dbo].[usp_CreateDummyTask] 
+EXECUTE [dbo].[usp_CreateDummyAssignment] 
     @Name                   = N'Công việc 7'
   , @IsPublicToProject      = 0
   , @IsPublicToDepartment   = 0
@@ -102,7 +102,7 @@ EXECUTE [dbo].[usp_CreateDummyTask]
   , @ProjectId              = 'PRJ00003'
   , @StatusId               = 2
 
-EXECUTE [dbo].[usp_CreateDummyTask] 
+EXECUTE [dbo].[usp_CreateDummyAssignment] 
     @Name                   = N'Công việc 8'
   , @IsPublicToProject      = 1
   , @IsPublicToDepartment   = 1
@@ -113,7 +113,7 @@ EXECUTE [dbo].[usp_CreateDummyTask]
   , @ProjectId              = 'PRJ00003'
   , @StatusId               = 5
 
-EXECUTE [dbo].[usp_CreateDummyTask] 
+EXECUTE [dbo].[usp_CreateDummyAssignment] 
     @Name                   = N'Công việc 9'
   , @IsPublicToProject      = 0
   , @IsPublicToDepartment   = 0
@@ -124,7 +124,7 @@ EXECUTE [dbo].[usp_CreateDummyTask]
   , @ProjectId              = 'PRJ00003'
   , @StatusId               = 2
 
-EXECUTE [dbo].[usp_CreateDummyTask] 
+EXECUTE [dbo].[usp_CreateDummyAssignment] 
     @Name                   = N'Công việc 10'
   , @IsPublicToProject      = 0
   , @IsPublicToDepartment   = 0
@@ -135,7 +135,7 @@ EXECUTE [dbo].[usp_CreateDummyTask]
   , @ProjectId              = 'PRJ00004'
   , @StatusId               = 5
 
-EXECUTE [dbo].[usp_CreateDummyTask] 
+EXECUTE [dbo].[usp_CreateDummyAssignment] 
     @Name                   = N'Công việc 11'
   , @IsPublicToProject      = 1
   , @IsPublicToDepartment   = 1
@@ -146,7 +146,7 @@ EXECUTE [dbo].[usp_CreateDummyTask]
   , @ProjectId              = 'PRJ00004'
   , @StatusId               = 4
 
-EXECUTE [dbo].[usp_CreateDummyTask] 
+EXECUTE [dbo].[usp_CreateDummyAssignment] 
     @Name                   = N'Công việc 12'
   , @IsPublicToProject      = 0
   , @IsPublicToDepartment   = 0
@@ -162,8 +162,8 @@ IF EXISTS (
     SELECT 1
     FROM INFORMATION_SCHEMA.ROUTINES
     WHERE SPECIFIC_SCHEMA = N'dbo'
-    AND SPECIFIC_NAME = N'usp_CreateDummyTask'
+    AND SPECIFIC_NAME = N'usp_CreateDummyAssignment'
 ) BEGIN
-    DROP PROCEDURE [dbo].[usp_CreateDummyTask]
+    DROP PROCEDURE [dbo].[usp_CreateDummyAssignment]
 END
 GO

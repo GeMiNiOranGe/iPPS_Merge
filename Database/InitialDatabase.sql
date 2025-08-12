@@ -105,8 +105,8 @@ CREATE TABLE [dbo].[Account] (
     [EmployeeId] [varchar](10)      NOT NULL,
 );
 
-CREATE TABLE [dbo].[Task] (
-    [TaskId]                [int]           NOT NULL IDENTITY(1, 1),
+CREATE TABLE [dbo].[Assignment] (
+    [AssignmentId]          [int]           NOT NULL IDENTITY(1, 1),
     [Name]                  [nvarchar](50)  NOT NULL,
     [IsPublicToProject]     [bit]           NOT NULL,
     [IsPublicToDepartment]  [bit]           NOT NULL,
@@ -131,17 +131,17 @@ CREATE TABLE [dbo].[Document] (
     [CheckedBy]         [nvarchar](100),
     [ApprovedBy]        [nvarchar](100),
 
-    [TaskId]            [int]           NOT NULL,
+    [AssignmentId]      [int]           NOT NULL,
 
     [IsDeleted]         [bit]           NOT NULL,
 );
 
 -- many-to-many relationship --------------------
-CREATE TABLE [TaskDetail] (
-    [TaskDetailId]  [int]           NOT NULL IDENTITY(1, 1),
+CREATE TABLE [AssignmentDetail] (
+    [AssignmentDetailId]    [int]           NOT NULL IDENTITY(1, 1),
 
-    [EmployeeId]    [varchar](10)   NOT NULL,
-    [TaskId]        [int]           NOT NULL,
+    [EmployeeId]            [varchar](10)   NOT NULL,
+    [AssignmentId]          [int]           NOT NULL,
 );
 
 CREATE TABLE [DepartmentProject] (
@@ -168,9 +168,9 @@ ALTER TABLE [dbo].[SalaryLevel]         ADD CONSTRAINT [PK_SalaryLevel]         
 ALTER TABLE [dbo].[Employee]            ADD CONSTRAINT [PK_Employee]            PRIMARY KEY ([EmployeeId])
 ALTER TABLE [dbo].[EmployeePhoneNumber] ADD CONSTRAINT [PK_EmployeePhoneNumber] PRIMARY KEY ([EmployeePhoneNumberId])
 ALTER TABLE [dbo].[Account]             ADD CONSTRAINT [PK_Account]             PRIMARY KEY ([AccountId])
-ALTER TABLE [dbo].[Task]                ADD CONSTRAINT [PK_Task]                PRIMARY KEY ([TaskId])
+ALTER TABLE [dbo].[Assignment]          ADD CONSTRAINT [PK_Assignment]          PRIMARY KEY ([AssignmentId])
 ALTER TABLE [dbo].[Document]            ADD CONSTRAINT [PK_Document]            PRIMARY KEY ([DocumentId])
-ALTER TABLE [dbo].[TaskDetail]          ADD CONSTRAINT [PK_TaskDetail]          PRIMARY KEY ([TaskDetailId])
+ALTER TABLE [dbo].[AssignmentDetail]    ADD CONSTRAINT [PK_AssignmentDetail]    PRIMARY KEY ([AssignmentDetailId])
 GO
 
 -- add foreign key -------------------------------------------------------
@@ -210,28 +210,28 @@ CONSTRAINT [FK_Account_Employee]
     REFERENCES [dbo].[Employee]([EmployeeId]);
 GO
 
-ALTER TABLE [dbo].[Task] ADD
-CONSTRAINT [FK_Task_Project]
+ALTER TABLE [dbo].[Assignment] ADD
+CONSTRAINT [FK_Assignment_Project]
     FOREIGN KEY ([ProjectId])
     REFERENCES [dbo].[Project]([ProjectId]),
-CONSTRAINT [FK_Task_Status]
+CONSTRAINT [FK_Assignment_Status]
     FOREIGN KEY ([StatusId])
     REFERENCES [dbo].[Status]([StatusId]);
 GO
 
 ALTER TABLE [dbo].[Document] ADD
-CONSTRAINT [FK_Document_Task]
-    FOREIGN KEY ([TaskId])
-    REFERENCES [dbo].[Task]([TaskId]);
+CONSTRAINT [FK_Document_Assignment]
+    FOREIGN KEY ([AssignmentId])
+    REFERENCES [dbo].[Assignment]([AssignmentId]);
 GO
 
-ALTER TABLE [dbo].[TaskDetail] ADD
-CONSTRAINT [FK_TaskDetail_Employee]
+ALTER TABLE [dbo].[AssignmentDetail] ADD
+CONSTRAINT [FK_AssignmentDetail_Employee]
     FOREIGN KEY ([EmployeeId])
     REFERENCES [dbo].[Employee]([EmployeeId]),
-CONSTRAINT [FK_TaskDetail_Task]
-    FOREIGN KEY ([TaskId])
-    REFERENCES [dbo].[Task]([TaskId]);
+CONSTRAINT [FK_AssignmentDetail_Assignment]
+    FOREIGN KEY ([AssignmentId])
+    REFERENCES [dbo].[Assignment]([AssignmentId]);
 GO
 
 ALTER TABLE [dbo].[DepartmentProject] ADD

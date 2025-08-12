@@ -82,5 +82,5 @@ using System.Diagnostics.CodeAnalysis;
     "CA1822:Mark members as static",
     Justification = "Methods in this type are intentionally instance methods due to Singleton-based design.",
     Scope = "type",
-    Target = "~T:Pepro.DataAccess.TaskDataAccess"
+    Target = "~T:Pepro.DataAccess.AssignmentDataAccess"
 )]
