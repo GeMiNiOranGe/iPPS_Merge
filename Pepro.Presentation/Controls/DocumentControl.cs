@@ -134,7 +134,17 @@ public partial class DocumentControl : PeproCrudControlBase
 
     private void DocumentIdInputField_TextChanged(object sender, EventArgs e)
     {
-        ProjectTask task = TaskBusiness.Instance.GetTaskByDocumentId(documentIdInputField.Text);
+        if (!int.TryParse(documentIdInputField.Text, out int documentId))
+        {
+            return;
+        }
+
+        ProjectTaskDto? task = TaskBusiness.Instance.GetTaskByDocumentId(documentId);
+        if (task == null)
+        {
+            return;
+        }
+
         taskNameInputField.Text = task.Name;
     }
 

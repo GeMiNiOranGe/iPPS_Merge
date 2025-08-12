@@ -1,6 +1,7 @@
-﻿namespace Pepro.DTOs;
+﻿namespace Pepro.DataAccess.Entities;
 
-public class ProjectTask {
+public class ProjectTask
+{
     private int _taskId;
     private string _name = "";
     private bool _isPublicToProject;
@@ -10,55 +11,58 @@ public class ProjectTask {
     private DateTime _endDate;
     private string _projectId = "";
     private int _statusId;
-    private AccessLevel _accessRight;
 
-    public int TaskId {
+    public required int TaskId
+    {
         get => _taskId;
         set => _taskId = value;
     }
 
-    public string Name {
+    public required string Name
+    {
         get => _name;
         set => _name = value;
     }
 
-    public bool IsPublicToProject {
+    public required bool IsPublicToProject
+    {
         get => _isPublicToProject;
         set => _isPublicToProject = value;
     }
 
-    public bool IsPublicToDepartment {
+    public required bool IsPublicToDepartment
+    {
         get => _isPublicToDepartment;
         set => _isPublicToDepartment = value;
     }
 
-    public string ManagerId {
+    public required string ManagerId
+    {
         get => _managerId;
         set => _managerId = value;
     }
 
-    public DateTime StartDate {
+    public required DateTime StartDate
+    {
         get => _startDate;
         set => _startDate = value;
     }
 
-    public DateTime EndDate {
+    public required DateTime EndDate
+    {
         get => _endDate;
         set => _endDate = value;
     }
 
-    public string ProjectId {
+    public required string ProjectId
+    {
         get => _projectId;
         set => _projectId = value;
     }
 
-    public int StatusId {
+    public required int StatusId
+    {
         get => _statusId;
         set => _statusId = value;
-    }
-
-    public AccessLevel AccessRight {
-        get => _accessRight;
-        set => _accessRight = value;
     }
 }

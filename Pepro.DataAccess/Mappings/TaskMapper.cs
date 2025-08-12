@@ -1,5 +1,5 @@
 using System.Data;
-using Pepro.DTOs;
+using Pepro.DataAccess.Entities;
 
 namespace Pepro.DataAccess.Mappings;
 
@@ -17,7 +17,7 @@ static class TaskMapper
             StartDate = row.Field<DateTime>("StartDate"),
             EndDate = row.Field<DateTime>("EndDate"),
             ProjectId = row.Field<string>("ProjectId") ?? "",
-            StatusId = row.Field<int>("StatusId")
+            StatusId = row.Field<int>("StatusId"),
         };
     }
 }

@@ -15,8 +15,9 @@ public class TaskBusiness {
 
     private TaskBusiness() { }
 
-    public List<ProjectTask> GetTasksByProjectId(string projectId) {
-        return TaskDataAccess.Instance.GetTasksByProjectId(projectId);
+    public List<ProjectTaskDto> GetTasksByProjectId(string projectId) {
+        List<ProjectTask> tasks = TaskDataAccess.Instance.GetTasksByProjectId(projectId);
+        return tasks.ToDtos();
     }
 
     public List<ProjectTaskProgress> GetTasksWithProgressByProjectId(string projectId) {
@@ -80,16 +81,8 @@ public class TaskBusiness {
         return employee?.ToDto();
     }
 
-    public ProjectTask GetTaskByDocumentId(int documentId) {
+    public ProjectTaskDto? GetTaskByDocumentId(int documentId) {
         ProjectTask? task = TaskDataAccess.Instance.GetTaskByDocumentId(documentId);
-        if (task == null) {
-            return new ProjectTask();
-        }
-        return task;
-    }
-
-    public ProjectTask GetTaskByDocumentId(string documentId) {
-        int id = Convert.ToInt32(documentId);
-        return Instance.GetTaskByDocumentId(id);
+        return task?.ToDto();
     }
 }
