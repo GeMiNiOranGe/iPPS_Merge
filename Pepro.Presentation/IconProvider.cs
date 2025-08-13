@@ -10,30 +10,30 @@ public static class IconProvider {
 
     private static void ProcessNodes(
         IEnumerable<SvgElement> nodes,
-        SvgPaintServer colorServer
+        SvgPaintServer paintServer
     ) {
         foreach (SvgElement node in nodes) {
             if (node.Fill != SvgPaintServer.None) {
-                node.Fill = colorServer;
+                node.Fill = paintServer;
             }
 
             if (node.Color != SvgPaintServer.None) {
-                node.Color = colorServer;
+                node.Color = paintServer;
             }
 
             if (node.Stroke != SvgPaintServer.None) {
-                node.Stroke = colorServer;
+                node.Stroke = paintServer;
             }
 
-            ProcessNodes(node.Descendants(), colorServer);
+            ProcessNodes(node.Descendants(), paintServer);
         }
     }
 
     public static Image GetIcon(
         string name,
         string style = "Linear",
-        SvgPaintServer? colorServer = null,
-        int size = 24
+        int size = 24,
+        Color? color = null
     ) {
         string iconName = $"{name}-{style}-24px.svg";
         string iconPath = Path.Combine(_iconFolderPath, iconName);
@@ -42,13 +42,14 @@ public static class IconProvider {
             throw new FileNotFoundException($"Icon not found: {iconPath}");
         }
 
-        string iconId = $"{colorServer}-{iconPath}";
+        string iconId = $"{color?.Name}-{iconPath}";
 
         if (!_cache.TryGetValue(iconId, out SvgDocument? svgDoc)) {
             svgDoc = SvgDocument.Open<SvgDocument>(iconPath);
 
-            if (colorServer != null) {
-                ProcessNodes(svgDoc.Descendants(), colorServer);
+            if (color.HasValue) {
+                SvgPaintServer paintServer = new SvgColourServer(color.Value);
+                ProcessNodes(svgDoc.Descendants(), paintServer);
             }
 
             _cache[iconId] = svgDoc;
@@ -79,7 +80,7 @@ public static class IconProvider {
         return svgDoc.Draw();
     }
 
-    public static Image GetImage(string name, string frameName = "frame", SvgPaintServer? frameColor = null) {
+    public static Image GetImage(string name, string frameName = "frame", Color? frameColor = null) {
         string imageName = $"{name}.svg";
         string imagePath = Path.Combine(_imageFolderPath, imageName);
 
@@ -90,9 +91,10 @@ public static class IconProvider {
         if (!_cache.TryGetValue(imagePath, out SvgDocument? svgDoc)) {
             svgDoc = SvgDocument.Open<SvgDocument>(imagePath);
 
-            if (frameColor != null) {
+            if (frameColor.HasValue) {
+                SvgPaintServer paintServer = new SvgColourServer(frameColor.Value);
                 SvgElement frame = svgDoc.GetElementById(frameName);
-                frame.Fill = frameColor;
+                frame.Fill = paintServer;
             }
 
             _cache[imagePath] = svgDoc;
