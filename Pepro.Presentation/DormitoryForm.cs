@@ -4,9 +4,9 @@ using System.Data;
 
 namespace Pepro.Presentation;
 
-public partial class AttendanceForm : Form {
+public partial class DormitoryForm : Form {
     #region Evens
-    public AttendanceForm() {
+    public DormitoryForm() {
         InitializeComponent();
     }
 
@@ -27,9 +27,9 @@ public partial class AttendanceForm : Form {
 
     private void formKTX_Load(object sender, EventArgs e)
     {
-        showHouseHoldList();
-        loadComBobBoxNV1();
-        loadComBobBoxNV2();
+        //showHouseHoldList();
+        //loadComBobBoxNV1();
+        //loadComBobBoxNV2();
     }
     private void btnCapnhat_Click(object sender, EventArgs e)
     {

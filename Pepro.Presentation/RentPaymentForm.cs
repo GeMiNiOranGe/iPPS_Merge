@@ -34,8 +34,8 @@ namespace Pepro.Presentation {
 
         private void formTienNha_Load(object sender, EventArgs e)
         {
-            loadTienNhaList();
-            loadHOGD();
+            //loadTienNhaList();
+            //loadHOGD();
         }
         private void btnTinhTien_Click(object sender, EventArgs e)
         {
