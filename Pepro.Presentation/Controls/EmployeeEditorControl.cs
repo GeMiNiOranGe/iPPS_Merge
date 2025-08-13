@@ -8,7 +8,6 @@ namespace Pepro.Presentation.Controls;
 public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUserControl<EmployeeDto> {
     private EmployeeDto _item = null!;
     private EditorMode _mode;
-    private bool _suppressSalaryLevelReload = false;
     SqlConnection sqlConnection = new(Config.CONNECTION_STRING);
     SqlCommand sqlCommand;
 
@@ -114,10 +113,15 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         List<PositionDto> positions = PositionBusiness.Instance.GetPositions();
         positionComboBoxField.DataSource = positions;
 
-        _suppressSalaryLevelReload = true;
         List<SalaryScaleDto> salaryScales = SalaryScaleBusiness.Instance.GetSalaryScales();
-        salaryScaleComboBoxField.DataSource = salaryScales;
-        _suppressSalaryLevelReload = false;
+        salaryScaleComboBoxField.ExecuteWithoutEvent(
+            nameof(PeproComboBoxField.SelectedIndexChanged),
+            SalaryScaleComboBoxField_SelectedIndexChanged,
+            () =>
+            {
+                salaryScaleComboBoxField.DataSource = salaryScales;
+            }
+        );
 
         if (_mode == EditorMode.Create) {
             departmentComboBoxField.SelectedIndex = -1;
@@ -139,11 +143,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         }
     }
 
-    private void SalaryScaleComboBoxField_SelectedIndexChanged(object sender, EventArgs e) {
-        if (_suppressSalaryLevelReload) {
-            return;
-        }
-
+    private void SalaryScaleComboBoxField_SelectedIndexChanged(object? sender, EventArgs e) {
         if (!int.TryParse(salaryScaleComboBoxField.SelectedValue?.ToString(), out int salaryScaleId)) {
             return;
         }
