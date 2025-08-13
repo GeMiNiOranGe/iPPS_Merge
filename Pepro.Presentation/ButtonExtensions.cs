@@ -3,7 +3,7 @@
 namespace Pepro.Presentation;
 
 public static class ButtonExtensions {
-    public static void SetupRuntimeFlatStyle(this Button button) {
+    public static void ApplyFlatStyle(this Button button) {
         button.BackColor = ThemeColors.Accent.Base;
         button.Cursor = Cursors.Hand;
         button.FlatStyle = FlatStyle.Flat;
@@ -12,7 +12,7 @@ public static class ButtonExtensions {
         button.FlatAppearance.MouseDownBackColor = ThemeColors.Accent.Dark;
     }
 
-    public static void SetupRuntimeFlatStyleNoBackColor(this Button button) {
+    public static void ApplyFlatStyleNoBackColor(this Button button) {
         button.Cursor = Cursors.Hand;
         button.FlatStyle = FlatStyle.Flat;
         button.FlatAppearance.BorderSize = 0;
@@ -20,7 +20,7 @@ public static class ButtonExtensions {
         button.FlatAppearance.MouseDownBackColor = ThemeColors.Accent.Dark;
     }
 
-    public static void SetupRuntimeIcon(
+    public static void ApplyIcon(
         this Button button,
         string name,
         string style = "Linear",
@@ -35,20 +35,20 @@ public static class ButtonExtensions {
         button.Image = IconProvider.GetIcon(name, style, size, color);
     }
     
-    public static void SetupRuntimeFlatStyleWithIcon(
+    public static void ApplyFlatStyleWithIcon(
         this Button button,
         string name,
         Color color
     ) {
-        button.SetupRuntimeFlatStyle();
-        button.SetupRuntimeIcon(name, color: color);
+        button.ApplyFlatStyle();
+        button.ApplyIcon(name, color: color);
     }
 }
 
 public static class PeproIconButtonExtensions {
     public static void SetSidebarButtonImages(this PeproIconButton button, string iconName) {
-        button.SetupRuntimeFlatStyleNoBackColor();
-        button.SetupRuntimeIcon(iconName, color: ThemeColors.Text);
+        button.ApplyFlatStyleNoBackColor();
+        button.ApplyIcon(iconName, color: ThemeColors.Text);
 
         try {
             button.PressedImage = IconProvider.GetIcon(iconName, "Bold", color: ThemeColors.Text);

@@ -17,7 +17,7 @@ public partial class PeproMediatedUserControl : PeproUserControlBase {
     private void Initialize() {
         InitializeComponent();
 
-        headerReturnButton.SetupRuntimeFlatStyleNoBackColor();
+        headerReturnButton.ApplyFlatStyleNoBackColor();
     }
 
     [Browsable(true)]

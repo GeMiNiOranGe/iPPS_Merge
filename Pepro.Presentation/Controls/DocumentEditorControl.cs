@@ -52,8 +52,8 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
     private void Initialize() {
         InitializeComponent();
 
-        saveButton.SetupRuntimeFlatStyle();
-        browseButton.SetupRuntimeFlatStyle();
+        saveButton.ApplyFlatStyle();
+        browseButton.ApplyFlatStyle();
 
         projectIdInputField.FocusColor = ThemeColors.Accent.Base;
         assignmentIdInputField.FocusColor = ThemeColors.Accent.Base;
