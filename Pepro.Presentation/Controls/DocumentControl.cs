@@ -20,12 +20,12 @@ public partial class DocumentControl : PeproCrudControlBase
         InitializeComponent();
         documentDataGridView.SetupCellStyle();
 
-        searchButton.SetupRuntimeFlatStyleWithIcon("Search", ThemeColors.Text);
-        reloadButton.SetupRuntimeFlatStyleWithIcon("Refresh", ThemeColors.Text);
-        insertButton.SetupRuntimeFlatStyleWithIcon("Plus", ThemeColors.Text);
-        deleteButton.SetupRuntimeFlatStyleWithIcon("Trash", ThemeColors.Text);
-        updateButton.SetupRuntimeFlatStyleWithIcon("EditPencil", ThemeColors.Text);
-        downloadButton.SetupRuntimeFlatStyle();
+        searchButton.ApplyFlatStyleWithIcon("Search", ThemeColors.Text);
+        reloadButton.ApplyFlatStyleWithIcon("Refresh", ThemeColors.Text);
+        insertButton.ApplyFlatStyleWithIcon("Plus", ThemeColors.Text);
+        deleteButton.ApplyFlatStyleWithIcon("Trash", ThemeColors.Text);
+        updateButton.ApplyFlatStyleWithIcon("EditPencil", ThemeColors.Text);
+        downloadButton.ApplyFlatStyle();
     }
 
     private void DocumentControl_Load(object sender, EventArgs e)
