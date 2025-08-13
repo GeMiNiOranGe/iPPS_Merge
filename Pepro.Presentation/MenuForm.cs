@@ -39,12 +39,12 @@ public partial class MenuForm : PeproForm {
         logoutButton.SetupRuntimeFlatStyleNoBackColor();
         logoutButton.SetupRuntimeIcon(
             "LogOut",
-            colorServer: new SvgColourServer(ThemeColors.Text)
+            color: ThemeColors.Text
         );
 
         imageUserPictureBox.Image = IconProvider.GetIcon(
             "Profile",
-            colorServer: new SvgColourServer(Color.White),
+            color: Color.White,
             size: 48
         );
     }

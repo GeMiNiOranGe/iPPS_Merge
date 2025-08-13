@@ -1,14 +1,12 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
 using Pepro.Presentation.Controls;
-using Svg;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 namespace Pepro.Presentation;
 
 public partial class LoginForm : PeproForm {
-    private readonly SvgColourServer textIconColor = new(ThemeColors.Text);
     private string _employeeId = "";
 
     public LoginForm() {
@@ -22,11 +20,11 @@ public partial class LoginForm : PeproForm {
         passwordField.FocusColor = ThemeColors.Secondary.Base;
         passwordField.TogglePasswordImage = IconProvider.GetIcon(
             "EyeClosed",
-            colorServer: textIconColor
+            color: ThemeColors.Text
         );
         passwordField.TogglePasswordPressedImage = IconProvider.GetIcon(
             "Eye",
-            colorServer: textIconColor
+            color: ThemeColors.Text
         );
 
         signinButton.FlatAppearance.MouseDownBackColor = ThemeColors.Secondary.Dark;
@@ -35,8 +33,8 @@ public partial class LoginForm : PeproForm {
         closeButton.BackColor = ThemeColors.System.CloseButton.Normal;
         closeButton.BackgroundImage = IconProvider.GetIcon(
             "XMark",
-            colorServer: textIconColor,
-            size: 32
+            size: 32,
+            color: ThemeColors.Text
         );
         closeButton.FlatAppearance.BorderSize = 0;
         closeButton.FlatAppearance.MouseDownBackColor = ThemeColors.System.CloseButton.Dark;
@@ -47,7 +45,7 @@ public partial class LoginForm : PeproForm {
 
         illustrationPictureBox.Image = IconProvider.GetImage(
             "LoginPage",
-            frameColor: new SvgColourServer(Color.FromArgb(29, 29, 29))
+            frameColor: Color.FromArgb(29, 29, 29)
         );
     }
 

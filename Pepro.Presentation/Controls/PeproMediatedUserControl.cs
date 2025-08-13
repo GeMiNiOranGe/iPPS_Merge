@@ -1,5 +1,4 @@
-﻿using Svg;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls;
 
@@ -46,7 +45,7 @@ public partial class PeproMediatedUserControl : PeproUserControlBase {
         if (!DesignMode) {
             headerReturnButton.Image = IconProvider.GetIcon(
                 "ArrowLeft",
-                colorServer: new SvgColourServer(Color.White)
+                color: ThemeColors.Text
             );
         }
     }
