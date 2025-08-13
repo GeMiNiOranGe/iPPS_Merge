@@ -1,7 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Pepro.Business;
 using Pepro.Presentation.Controls;
-using Svg;
 using System.ComponentModel;
 
 namespace Pepro.Presentation;
@@ -36,11 +35,8 @@ public partial class MenuForm : PeproForm {
         salaryButton.SetSidebarButtonImages("UserSalary");
         dormitoryButton.SetSidebarButtonImages("BunkBed");
 
-        logoutButton.SetupRuntimeFlatStyleNoBackColor();
-        logoutButton.SetupRuntimeIcon(
-            "LogOut",
-            color: ThemeColors.Text
-        );
+        logoutButton.ApplyFlatStyleNoBackColor();
+        logoutButton.ApplyIcon("LogOut", color: ThemeColors.Text);
 
         imageUserPictureBox.Image = IconProvider.GetIcon(
             "Profile",

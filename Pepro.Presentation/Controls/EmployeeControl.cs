@@ -16,12 +16,12 @@ public partial class EmployeeControl : PeproCrudControlBase {
         InitializeComponent();
         employeeDataGridView.SetupCellStyle();
 
-        searchButton.SetupRuntimeFlatStyleWithIcon("Search", ThemeColors.Text);
-        reloadButton.SetupRuntimeFlatStyleWithIcon("Refresh", ThemeColors.Text);
-        insertButton.SetupRuntimeFlatStyleWithIcon("Plus", ThemeColors.Text);
-        deleteButton.SetupRuntimeFlatStyleWithIcon("Trash", ThemeColors.Text);
-        updateButton.SetupRuntimeFlatStyleWithIcon("EditPencil", ThemeColors.Text);
-        exportButton.SetupRuntimeFlatStyle();
+        searchButton.ApplyFlatStyleWithIcon("Search", ThemeColors.Text);
+        reloadButton.ApplyFlatStyleWithIcon("Refresh", ThemeColors.Text);
+        insertButton.ApplyFlatStyleWithIcon("Plus", ThemeColors.Text);
+        deleteButton.ApplyFlatStyleWithIcon("Trash", ThemeColors.Text);
+        updateButton.ApplyFlatStyleWithIcon("EditPencil", ThemeColors.Text);
+        exportButton.ApplyFlatStyle();
     }
 
     private void EmployeeControl_Load(object sender, EventArgs e) {
