@@ -7,7 +7,6 @@ namespace Pepro.Presentation.Controls;
 public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUserControl<DocumentDto> {
     private DocumentDto _item = null!;
     private EditorMode _mode;
-    private bool _suppressAssignmentReload = false;
 
     public DocumentEditorControl() {
         Initialize();
@@ -95,7 +94,6 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
             assignmentNameComboBoxField.Enabled = false;
             projectNameComboBoxField.Enabled = false;
 
-            _suppressAssignmentReload = true;
             if (!int.TryParse(documentIdInputField.Text, out int documentId))
             {
                 return;
@@ -108,20 +106,25 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
             }
 
             assignmentNameComboBoxField.DataSource = (List<AssignmentDto>)[assignment];
+
             ProjectDto? project = ProjectBusiness.Instance.GetProjectByAssignmentId(assignment.AssignmentId);
-            if (project != null)
+            if (project == null)
             {
-                projectNameComboBoxField.DataSource = (List<ProjectDto>)[project];
+                return;
             }
-            _suppressAssignmentReload = false;
+
+            projectNameComboBoxField.ExecuteWithoutEvent(
+                nameof(PeproComboBoxField.SelectedIndexChanged),
+                ProjectNameComboBoxField_SelectedIndexChanged,
+                () =>
+                {
+                    projectNameComboBoxField.DataSource = (List<ProjectDto>)[project];
+                }
+            );
         }
     }
 
-    private void ProjectNameComboBoxField_SelectedIndexChanged(object sender, EventArgs e) {
-        if (_suppressAssignmentReload) {
-            return;
-        }
-
+    private void ProjectNameComboBoxField_SelectedIndexChanged(object? sender, EventArgs e) {
         string projectId = projectNameComboBoxField.SelectedValue?.ToString() ?? "";
         List<AssignmentDto> assignments = AssignmentBusiness.Instance.GetAssignmentsByProjectId(projectId);
         assignmentNameComboBoxField.DataSource = assignments;
