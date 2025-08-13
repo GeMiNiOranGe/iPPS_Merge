@@ -1,6 +1,6 @@
 ﻿namespace Pepro.DTOs;
 
-public class EmployeePhoneNumber
+public class EmployeePhoneNumberDto
 {
     private int _employeePhoneNumberId;
     private string _employeeId = "";
