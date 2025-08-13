@@ -17,6 +17,7 @@ public static class MessageBoxWrapper
             "TreasureFoundPremiumUnlock" => "Ôi trời, bạn vừa mới tìm thấy kho báu đấy, mua premium đi, rồi chúng tôi mở khóa tính năng này",
             "TreasureFoundPremiumUnlock1" => "Hay quá ta, tính năng này chưa được phát triển, cái nút chỉ để cho vui thôi :))) mua premium đi",
             "TreasureFoundPremiumUnlock2" => "Bruh, xin lỗi chứ tính năng này đã sai nghiệp vụ hoàn toàn rồi, mua premium đi rồi tôi sửa sau",
+            "TreasureFoundPremiumUnlock3" => "Thật lòng mà nói thì tôi không biết phát triển tính này như thế nào cho đúng với thật tế nhất",
             _ => "Không có thông điệp nào phụ hợp với 'key'"
         };
     }

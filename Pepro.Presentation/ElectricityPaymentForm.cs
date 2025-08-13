@@ -9,8 +9,8 @@ namespace Pepro.Presentation {
         }
         #region Even
         private void formTienDien_Load(object sender, EventArgs e) {
-            showDienList();
-            loadHouseHoldID();
+            //showDienList();
+            //loadHouseHoldID();
         }
         private void dtpkThang_ValueChanged(object sender, EventArgs e)
         {

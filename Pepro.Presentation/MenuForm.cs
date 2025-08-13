@@ -130,7 +130,8 @@ public partial class MenuForm : PeproForm {
     private void AttendanceButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(attendanceButton.Location.Y);
 
-        OpenChildControl(new AttendanceControl());
+        workplacePanel.Controls.Clear();
+        MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock3");
     }
 
     private void SalaryButton_MouseClick(object sender, MouseEventArgs e) {
@@ -142,7 +143,7 @@ public partial class MenuForm : PeproForm {
     private void DormitoryButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(dormitoryButton.Location.Y);
 
-        //OpenChildForm(new AttendanceForm());
+        new DormitoryForm().ShowDialog();
     }
 
     private void Account_MouseClick(object sender, MouseEventArgs e) {
