@@ -1,5 +1,4 @@
 ﻿using Pepro.Presentation.Controls;
-using Svg;
 
 namespace Pepro.Presentation;
 
@@ -25,26 +24,34 @@ public static class ButtonExtensions {
         this Button button,
         string name,
         string style = "Linear",
-        SvgPaintServer? colorServer = null,
-        int size = 24
+        int size = 24,
+        Color? color = null
     ) {
         if (!string.IsNullOrEmpty(button.Text)) {
             button.TextAlign = ContentAlignment.MiddleLeft;
             button.ImageAlign = ContentAlignment.MiddleLeft;
             button.TextImageRelation = TextImageRelation.ImageBeforeText;
         }
-        button.Image = IconProvider.GetIcon(name, style, colorServer, size);
+        button.Image = IconProvider.GetIcon(name, style, size, color);
+    }
+    
+    public static void SetupRuntimeFlatStyleWithIcon(
+        this Button button,
+        string name,
+        Color color
+    ) {
+        button.SetupRuntimeFlatStyle();
+        button.SetupRuntimeIcon(name, color: color);
     }
 }
 
 public static class PeproIconButtonExtensions {
     public static void SetSidebarButtonImages(this PeproIconButton button, string iconName) {
-        SvgColourServer baseColor = new(ThemeColors.Text);
         button.SetupRuntimeFlatStyleNoBackColor();
-        button.SetupRuntimeIcon(iconName, colorServer: baseColor);
+        button.SetupRuntimeIcon(iconName, color: ThemeColors.Text);
 
         try {
-            button.PressedImage = IconProvider.GetIcon(iconName, "Bold", baseColor);
+            button.PressedImage = IconProvider.GetIcon(iconName, "Bold", color: ThemeColors.Text);
         }
         catch (Exception) {
             button.PressedImage = null;

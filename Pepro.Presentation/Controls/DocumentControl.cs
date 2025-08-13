@@ -1,6 +1,5 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
-using Svg;
 
 namespace Pepro.Presentation.Controls;
 
@@ -21,31 +20,11 @@ public partial class DocumentControl : PeproCrudControlBase
         InitializeComponent();
         documentDataGridView.SetupCellStyle();
 
-        searchButton.SetupRuntimeFlatStyle();
-        searchButton.SetupRuntimeIcon(
-            "Search",
-            colorServer: new SvgColourServer(ThemeColors.Text)
-        );
-        reloadButton.SetupRuntimeFlatStyle();
-        reloadButton.SetupRuntimeIcon(
-            "Refresh",
-            colorServer: new SvgColourServer(ThemeColors.Text)
-        );
-        insertButton.SetupRuntimeFlatStyle();
-        insertButton.SetupRuntimeIcon(
-            "Plus",
-            colorServer: new SvgColourServer(ThemeColors.Text)
-        );
-        deleteButton.SetupRuntimeFlatStyle();
-        deleteButton.SetupRuntimeIcon(
-            "Trash",
-            colorServer: new SvgColourServer(ThemeColors.Text)
-        );
-        updateButton.SetupRuntimeFlatStyle();
-        updateButton.SetupRuntimeIcon(
-            "EditPencil",
-            colorServer: new SvgColourServer(ThemeColors.Text)
-        );
+        searchButton.SetupRuntimeFlatStyleWithIcon("Search", ThemeColors.Text);
+        reloadButton.SetupRuntimeFlatStyleWithIcon("Refresh", ThemeColors.Text);
+        insertButton.SetupRuntimeFlatStyleWithIcon("Plus", ThemeColors.Text);
+        deleteButton.SetupRuntimeFlatStyleWithIcon("Trash", ThemeColors.Text);
+        updateButton.SetupRuntimeFlatStyleWithIcon("EditPencil", ThemeColors.Text);
         downloadButton.SetupRuntimeFlatStyle();
     }
 
