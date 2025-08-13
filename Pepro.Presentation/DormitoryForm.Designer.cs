@@ -1,6 +1,6 @@
 ﻿namespace Pepro.Presentation
 {
-    partial class AttendanceForm
+    partial class DormitoryForm
     {
         /// <summary>
         /// Required designer variable.
@@ -309,12 +309,10 @@
             Controls.Add(dtHoGiaDinh);
             Controls.Add(label2);
             Controls.Add(menuStrip1);
-            FormBorderStyle = FormBorderStyle.None;
             MainMenuStrip = menuStrip1;
             Margin = new Padding(4);
             Name = "formKTX";
             Text = "Kí Túc Xá";
-            WindowState = FormWindowState.Maximized;
             Load += formKTX_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

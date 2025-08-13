@@ -11,8 +11,8 @@ namespace Pepro.Presentation {
 
         private void formTienNuoc_Load(object sender, EventArgs e)
         {
-            loadTienNuoc();
-            loadHouseHoldID();
+            //loadTienNuoc();
+            //loadHouseHoldID();
         }
         private void btnReload_Click(object sender, EventArgs e)
         {
