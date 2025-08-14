@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation;
 
-public partial class MenuForm : PeproForm {
+public partial class MainForm : PeproForm {
     private readonly SqlConnection conn = new(
         @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
     );
@@ -18,7 +18,7 @@ public partial class MenuForm : PeproForm {
         set => _employeeId = value;
     }
 
-    public MenuForm() {
+    public MainForm() {
         InitializeComponent();
         InitializeRuntimeComponents();
 
