@@ -2,9 +2,9 @@ namespace Pepro.DTOs;
 
 public class LoginResult
 {
-    private string _employeeId = "";
+    private int _employeeId;
 
-    public string EmployeeId
+    public int EmployeeId
     {
         get => _employeeId;
         set => _employeeId = value;

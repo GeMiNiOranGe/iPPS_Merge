@@ -9,11 +9,11 @@ public partial class MenuForm : PeproForm {
     private readonly SqlConnection conn = new(
         @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
     );
-    private string _employeeId = "";
+    private int _employeeId;
     private readonly ControlUiMediator _mediator;
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required string EmployeeId {
+    public required int EmployeeId {
         get => _employeeId;
         set => _employeeId = value;
     }

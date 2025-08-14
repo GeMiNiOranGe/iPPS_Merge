@@ -13,7 +13,7 @@ static class AssignmentMapper
             Name = row.Field<string>("Name") ?? "",
             IsPublicToProject = row.Field<bool>("IsPublicToProject"),
             IsPublicToDepartment = row.Field<bool>("IsPublicToDepartment"),
-            ManagerId = row.Field<string>("ManagerId") ?? "",
+            ManagerId = row.Field<int>("ManagerId"),
             StartDate = row.Field<DateTime>("StartDate"),
             EndDate = row.Field<DateTime>("EndDate"),
             RequiredDocumentCount = row.Field<int>("RequiredDocumentCount"),

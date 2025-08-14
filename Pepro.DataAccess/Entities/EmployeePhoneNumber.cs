@@ -3,7 +3,7 @@
 public class EmployeePhoneNumber
 {
     private int _employeePhoneNumberId;
-    private string _employeeId = null!;
+    private int _employeeId;
     private string _phoneNumber = null!;
 
     public required int EmployeePhoneNumberId
@@ -12,7 +12,7 @@ public class EmployeePhoneNumber
         set => _employeePhoneNumberId = value;
     }
 
-    public required string EmployeeId
+    public required int EmployeeId
     {
         get => _employeeId;
         set => _employeeId = value;

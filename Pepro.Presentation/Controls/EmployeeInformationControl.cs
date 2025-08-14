@@ -6,7 +6,7 @@ namespace Pepro.Presentation.Controls;
 
 public partial class EmployeeInformationControl : PeproMediatedUserControl
 {
-    private string _employeeId = "";
+    private int _employeeId;
 
     public EmployeeInformationControl()
     {
@@ -19,7 +19,7 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required string EmployeeId
+    public required int EmployeeId
     {
         get => _employeeId;
         set => _employeeId = value;
@@ -39,7 +39,7 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
             return;
         }
 
-        employeeIdInputField.Text = employee.EmployeeId;
+        employeeIdInputField.Text = employee.EmployeeId.ToString();
         fullNameInputField.Text = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;
 
         RadioButton genderRadioButton = employee.Gender switch {

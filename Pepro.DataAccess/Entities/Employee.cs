@@ -2,7 +2,7 @@ namespace Pepro.DataAccess.Entities;
 
 public class Employee
 {
-    private string _employeeId = null!;
+    private int _employeeId;
     private string _firstName = null!;
     private string? _middleName;
     private string _lastName = null!;
@@ -18,7 +18,7 @@ public class Employee
     private bool _isDeleted;
     #endregion
 
-    public required string EmployeeId
+    public required int EmployeeId
     {
         get => _employeeId;
         set => _employeeId = value;

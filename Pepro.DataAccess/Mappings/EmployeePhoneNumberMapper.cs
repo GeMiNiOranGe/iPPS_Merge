@@ -11,7 +11,7 @@ static class EmployeePhoneNumberMapper
         {
             EmployeePhoneNumberId = row.Field<int>("EmployeePhoneNumberId"),
             PhoneNumber = row.Field<string>("PhoneNumber") ?? "",
-            EmployeeId = row.Field<string>("EmployeeId") ?? ""
+            EmployeeId = row.Field<int>("EmployeeId"),
         };
     }
 }

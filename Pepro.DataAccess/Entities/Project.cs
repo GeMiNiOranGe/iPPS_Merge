@@ -4,7 +4,7 @@ public class Project {
     private string _projectId = null!;
     private string _name = null!;
     private string _customerName = null!;
-    private string _managerId = null!;
+    private int _managerId;
     private DateTime _startDate;
     private DateTime _endDate;
     private int _statusId;
@@ -24,7 +24,7 @@ public class Project {
         set => _customerName = value;
     }
 
-    public required string ManagerId {
+    public required int ManagerId {
         get => _managerId;
         set => _managerId = value;
     }

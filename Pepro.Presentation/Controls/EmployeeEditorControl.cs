@@ -24,7 +24,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         get => _item;
         set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
-            employeeIdInputField.Text = _item.EmployeeId;
+            employeeIdInputField.Text = _item.EmployeeId.ToString();
             firstNameInputField.Text = _item.FirstName;
             middleNameInputField.Text = _item.MiddleName;
             lastNameInputField.Text = _item.LastName;
@@ -155,8 +155,12 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             return;
         }
 
+        if (!int.TryParse(employeeIdInputField.Text, out int employeeId)) {
+            return;
+        }
+
         EmployeeDto employee = new() {
-            EmployeeId = employeeIdInputField.Text,
+            EmployeeId = employeeId,
             FirstName = firstNameInputField.Text,
             MiddleName = middleNameInputField.Text,
             LastName = lastNameInputField.Text,

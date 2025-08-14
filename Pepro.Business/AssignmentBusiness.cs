@@ -48,7 +48,7 @@ public class AssignmentBusiness {
         return assignmentsProgress;
     }
 
-    public List<AssignmentProgress> GetAssignmentsWithProgressByEmployeeId(string employeeId) {
+    public List<AssignmentProgress> GetAssignmentsWithProgressByEmployeeId(int employeeId) {
         List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByEmployeeId(employeeId);
         List<AssignmentProgress> assignmentsProgress = [];
 
