@@ -20,7 +20,7 @@ public class PositionBusiness {
         return position.ToDtos();
     }
 
-    public string GetPositionTitleByEmployeeId(string employeeId) {
+    public string GetPositionTitleByEmployeeId(int employeeId) {
         Position? employeePosition = PositionDataAccess.Instance.GetPositionByEmployeeId(employeeId);
         return employeePosition != null ? employeePosition.Title : "";
     }

@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 namespace Pepro.Presentation;
 
 public partial class LoginForm : PeproForm {
-    private string _employeeId = "";
+    private int _employeeId;
 
     public LoginForm() {
         InitializeComponent();
@@ -50,7 +50,7 @@ public partial class LoginForm : PeproForm {
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string EmployeeId {
+    public int EmployeeId {
         get => _employeeId;
         private set => _employeeId = value;
     }

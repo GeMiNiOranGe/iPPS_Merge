@@ -3,7 +3,7 @@
 public class EmployeePhoneNumberDto
 {
     private int _employeePhoneNumberId;
-    private string _employeeId = "";
+    private int _employeeId;
     private string _phoneNumber = "";
 
     public int EmployeePhoneNumberId
@@ -12,7 +12,7 @@ public class EmployeePhoneNumberDto
         set => _employeePhoneNumberId = value;
     }
 
-    public string EmployeeId
+    public int EmployeeId
     {
         get => _employeeId;
         set => _employeeId = value;

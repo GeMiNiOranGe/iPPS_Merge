@@ -4,7 +4,7 @@ public class Department
 {
     private string _departmentId = null!;
     private string _name = null!;
-    private string _managerId = null!;
+    private int _managerId;
 
     public required string DepartmentId
     {
@@ -18,7 +18,7 @@ public class Department
         set => _name = value;
     }
 
-    public required string ManagerId
+    public required int ManagerId
     {
         get => _managerId;
         set => _managerId = value;

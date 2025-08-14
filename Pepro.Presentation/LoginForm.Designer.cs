@@ -84,7 +84,7 @@ namespace Pepro.Presentation {
             // 
             accountNameInputField.ForeColor = Color.White;
             accountNameInputField.LabelFont = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            accountNameInputField.LabelText = "Username or employee id";
+            accountNameInputField.LabelText = "Username or email";
             accountNameInputField.Location = new Point(20, 168);
             accountNameInputField.Margin = new Padding(0, 0, 16, 24);
             accountNameInputField.Name = "accountNameInputField";

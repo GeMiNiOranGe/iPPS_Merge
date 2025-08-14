@@ -7,7 +7,7 @@ public class Account
     private byte[] _salt = [];
     private byte[] _password = [];
     private bool _isActive;
-    private string _employeeId = null!;
+    private int _employeeId;
 
     public required int AccountId
     {
@@ -39,7 +39,7 @@ public class Account
         set => _isActive = value;
     }
 
-    public required string EmployeeId
+    public required int EmployeeId
     {
         get => _employeeId;
         set => _employeeId = value;

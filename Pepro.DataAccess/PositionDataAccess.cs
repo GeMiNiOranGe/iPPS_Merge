@@ -33,7 +33,7 @@ public class PositionDataAccess {
         return positions;
     }
 
-    public Position? GetPositionByEmployeeId(string employeeId) {
+    public Position? GetPositionByEmployeeId(int employeeId) {
         string query = @"
             SELECT Position.PositionId
                 , Position.Title
@@ -44,7 +44,7 @@ public class PositionDataAccess {
             WHERE EmployeeId = @EmployeeId
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, employeeId);
+        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
         if (dataTable.Rows.Count == 0) {

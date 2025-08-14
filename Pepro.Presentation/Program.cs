@@ -14,7 +14,7 @@ static class Program
 
         while (true)
         {
-            string? employeeId = null;
+            int employeeId;
             using (LoginForm loginForm = new())
             {
                 if (loginForm.ShowDialog() != DialogResult.OK)

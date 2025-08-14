@@ -110,6 +110,7 @@
             // employeeIdInputField
             // 
             employeeIdInputField.Anchor = AnchorStyles.None;
+            employeeIdInputField.Enabled = false;
             employeeIdInputField.LabelText = "Employee id";
             employeeIdInputField.Location = new Point(16, 64);
             employeeIdInputField.Margin = new Padding(16, 16, 0, 16);

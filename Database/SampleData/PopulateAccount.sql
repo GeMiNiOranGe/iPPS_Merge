@@ -1,12 +1,12 @@
-EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'tvtoan',  @EmployeeId = 'EMP00001'
-EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'pttai',   @EmployeeId = 'EMP00002'
-EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'ttnchau', @EmployeeId = 'EMP00003'
-EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'tatuan',  @EmployeeId = 'EMP00004'
-EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'tdvu',    @EmployeeId = 'EMP00005'
-EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'tmanh',   @EmployeeId = 'EMP00006'
-EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'vtrac',   @EmployeeId = 'EMP00007'
-EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'pnnlam',  @EmployeeId = 'EMP00008'
-EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'hvu',     @EmployeeId = 'EMP00009'
-EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'thnga',   @EmployeeId = 'EMP00010'
-EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'ptphong', @EmployeeId = 'EMP00011'
+EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'tvtoan',  @EmployeeId = 1
+EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'pttai',   @EmployeeId = 2
+EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'ttnchau', @EmployeeId = 3
+EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'tatuan',  @EmployeeId = 4
+EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'tdvu',    @EmployeeId = 5
+EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'tmanh',   @EmployeeId = 6
+EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'vtrac',   @EmployeeId = 7
+EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'pnnlam',  @EmployeeId = 8
+EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'hvu',     @EmployeeId = 9
+EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'thnga',   @EmployeeId = 10
+EXECUTE [dbo].[usp_CreateDefaultAccount] @Username = 'ptphong', @EmployeeId = 11
 GO

@@ -68,7 +68,7 @@ public class ProjectDataAccess {
         return projects;
     }
 
-    public List<Project> GetProjectsByEmployeeId(string employeeId) {
+    public List<Project> GetProjectsByEmployeeId(int employeeId) {
         string query = @"
             SELECT DISTINCT Project.ProjectId
                 , Project.Name
@@ -86,7 +86,7 @@ public class ProjectDataAccess {
             ORDER BY Project.ProjectId DESC;
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, employeeId);
+        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 

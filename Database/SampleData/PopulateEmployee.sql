@@ -1,7 +1,6 @@
 -- giám đốc -------------------------------------
 EXECUTE [dbo].[usp_InsertEmployee]
-    @EmployeeId      = 'EMP00001'
-  , @FirstName       = N'Toàn'
+    @FirstName       = N'Toàn'
   , @MiddleName      = N'Tuấn'
   , @LastName        = N'Trần'
   , @DateOfBirth     = '1975-09-21'
@@ -15,8 +14,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
 
 -- trưởng phòng ---------------------------------
 EXECUTE [dbo].[usp_InsertEmployee]
-    @EmployeeId      = 'EMP00002'
-  , @FirstName       = N'Tài'
+    @FirstName       = N'Tài'
   , @MiddleName      = N'Tuấn'
   , @LastName        = N'Phan'
   , @DateOfBirth     = '1990-03-21'
@@ -29,8 +27,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @SalaryLevelId   = 30
 
 EXECUTE [dbo].[usp_InsertEmployee]
-    @EmployeeId      = 'EMP00003'
-  , @FirstName       = N'Châu'
+    @FirstName       = N'Châu'
   , @MiddleName      = N'Thị Ngọc'
   , @LastName        = N'Trần'
   , @DateOfBirth     = '1985-09-01'
@@ -45,8 +42,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
 -- nhân viên ---------------------------------
 -- phòng nhân sự
 EXECUTE [dbo].[usp_InsertEmployee]
-    @EmployeeId      = 'EMP00004'
-  , @FirstName       = N'Tuấn'
+    @FirstName       = N'Tuấn'
   , @MiddleName      = N'Anh'
   , @LastName        = N'Trần'
   , @DateOfBirth     = '1995-05-19'
@@ -59,8 +55,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @SalaryLevelId   = 49
 
 EXECUTE [dbo].[usp_InsertEmployee]
-    @EmployeeId      = 'EMP00005'
-  , @FirstName       = N'Vũ'
+    @FirstName       = N'Vũ'
   , @MiddleName      = N'Đình'
   , @LastName        = N'Trần'
   , @DateOfBirth     = '1990-03-15'
@@ -73,8 +68,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @SalaryLevelId   = 48
 
 EXECUTE [dbo].[usp_InsertEmployee]
-    @EmployeeId      = 'EMP00006'
-  , @FirstName       = N'Anh'
+    @FirstName       = N'Anh'
   , @MiddleName      = N'Mai'
   , @LastName        = N'Trương'
   , @DateOfBirth     = '1980-05-19'
@@ -87,8 +81,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @SalaryLevelId   = 55
 
 EXECUTE [dbo].[usp_InsertEmployee]
-    @EmployeeId      = 'EMP00007'
-  , @FirstName       = N'Trắc'
+    @FirstName       = N'Trắc'
   , @MiddleName      = NULL
   , @LastName        = N'Vương'
   , @DateOfBirth     = '1987-01-17'
@@ -102,8 +95,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
 
 -- phòng tài vụ
 EXECUTE [dbo].[usp_InsertEmployee]
-    @EmployeeId      = 'EMP00008'
-  , @FirstName       = N'Lam'
+    @FirstName       = N'Lam'
   , @MiddleName      = N'Ngô Ngọc'
   , @LastName        = N'Phan'
   , @DateOfBirth     = '2000-04-01'
@@ -116,8 +108,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @SalaryLevelId   = 48
 
 EXECUTE [dbo].[usp_InsertEmployee]
-    @EmployeeId      = 'EMP00009'
-  , @FirstName       = N'Vũ'
+    @FirstName       = N'Vũ'
   , @MiddleName      = NULL
   , @LastName        = N'Huỳnh'
   , @DateOfBirth     = '1999-07-28'
@@ -130,8 +121,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @SalaryLevelId   = 50
 
 EXECUTE [dbo].[usp_InsertEmployee]
-    @EmployeeId      = 'EMP00010'
-  , @FirstName       = N'Nga'
+    @FirstName       = N'Nga'
   , @MiddleName      = N'Huỳnh'
   , @LastName        = N'Tố'
   , @DateOfBirth     = '1982-07-18'
@@ -144,8 +134,7 @@ EXECUTE [dbo].[usp_InsertEmployee]
   , @SalaryLevelId   = 57
 
 EXECUTE [dbo].[usp_InsertEmployee]
-    @EmployeeId      = 'EMP00011'
-  , @FirstName       = N'Phong'
+    @FirstName       = N'Phong'
   , @MiddleName      = N'Tuấn'
   , @LastName        = N'Phạm'
   , @DateOfBirth     = '1999-08-22'

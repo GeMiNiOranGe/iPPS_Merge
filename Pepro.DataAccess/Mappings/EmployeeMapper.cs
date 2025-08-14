@@ -9,7 +9,7 @@ static class EmployeeMapper
     {
         return new Employee()
         {
-            EmployeeId = row.Field<string>("EmployeeId") ?? "",
+            EmployeeId = row.Field<int>("EmployeeId"),
             FirstName = row.Field<string>("FirstName") ?? "",
             MiddleName = row.Field<string?>("MiddleName"),
             LastName = row.Field<string>("LastName") ?? "",

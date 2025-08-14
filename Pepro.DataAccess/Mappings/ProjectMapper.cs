@@ -12,7 +12,7 @@ static class ProjectMapper
             ProjectId = row.Field<string>("ProjectId") ?? "",
             Name = row.Field<string>("Name") ?? "",
             CustomerName = row.Field<string>("CustomerName") ?? "",
-            ManagerId = row.Field<string>("ManagerId") ?? "",
+            ManagerId = row.Field<int>("ManagerId"),
             StartDate = row.Field<DateTime>("StartDate"),
             EndDate = row.Field<DateTime>("EndDate"),
             StatusId = row.Field<int>("StatusId"),

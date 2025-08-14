@@ -5,7 +5,7 @@ public class AssignmentProgress {
     private string _name = "";
     private bool _isPublicToProject;
     private bool _isPublicToDepartment;
-    private string _managerId = "";
+    private int _managerId;
     private DateTime _startDate;
     private DateTime _endDate;
     private string _projectId = "";
@@ -32,7 +32,7 @@ public class AssignmentProgress {
         set => _isPublicToDepartment = value;
     }
 
-    public string ManagerId {
+    public int ManagerId {
         get => _managerId;
         set => _managerId = value;
     }

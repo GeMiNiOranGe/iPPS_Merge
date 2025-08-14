@@ -2,7 +2,7 @@ CREATE OR ALTER PROCEDURE [dbo].[usp_CreateDummyProject]
     @ProjectId          VARCHAR(10),
     @Name               NVARCHAR(50),
     @CustomerName       NVARCHAR(50),
-    @ManagerId          VARCHAR(10),
+    @ManagerId          INT,
     @DaysBeforeToday    INT,
     @DaysAfterToday     INT,
     @StatusId           INT
@@ -27,7 +27,7 @@ EXECUTE [dbo].[usp_CreateDummyProject]
     @ProjectId       = 'PRJ00001'
   , @Name            = N'Dự án nâng cấp nhà máy sản xuất vi mạch'
   , @CustomerName    = N'Tập Đoàn Nubot'
-  , @ManagerId       = 'EMP00001'
+  , @ManagerId       = 1
   , @DaysBeforeToday = -20
   , @DaysAfterToday  = 5
   , @StatusId        = 1
@@ -36,7 +36,7 @@ EXECUTE [dbo].[usp_CreateDummyProject]
     @ProjectId       = 'PRJ00002'
   , @Name            = N'Dự án triển khai mô hình chăn nuôi hiện đại'
   , @CustomerName    = N'Công ty Hừng Đông'
-  , @ManagerId       = 'EMP00002'
+  , @ManagerId       = 2
   , @DaysBeforeToday = -87
   , @DaysAfterToday  = 17
   , @StatusId        = 2
@@ -45,7 +45,7 @@ EXECUTE [dbo].[usp_CreateDummyProject]
     @ProjectId       = 'PRJ00003'
   , @Name            = N'Dự án bất động sản BaterHam'
   , @CustomerName    = N'ông Đặng Văn Tuấn'
-  , @ManagerId       = 'EMP00003'
+  , @ManagerId       = 3
   , @DaysBeforeToday = -87
   , @DaysAfterToday  = 7
   , @StatusId        = 3
@@ -54,7 +54,7 @@ EXECUTE [dbo].[usp_CreateDummyProject]
     @ProjectId       = 'PRJ00004'
   , @Name            = N'Dự án nghiên cứu mô hình trồng cây tự động'
   , @CustomerName    = N'bà Đặng Ngọc Thúy'
-  , @ManagerId       = 'EMP00004'
+  , @ManagerId       = 4
   , @DaysBeforeToday = -8
   , @DaysAfterToday  = 7
   , @StatusId        = 4

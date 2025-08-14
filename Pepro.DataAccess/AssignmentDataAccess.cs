@@ -43,7 +43,7 @@ public class AssignmentDataAccess {
         return assignments;
     }
 
-    public List<Assignment> GetAssignmentsByEmployeeId(string employeeId) {
+    public List<Assignment> GetAssignmentsByEmployeeId(int employeeId) {
         string query = @"
             SELECT Assignment.AssignmentId
                 , Name
@@ -61,7 +61,7 @@ public class AssignmentDataAccess {
             WHERE EmployeeId = @EmployeeId
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, employeeId);
+        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 

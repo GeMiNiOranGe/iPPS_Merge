@@ -1,7 +1,7 @@
 ﻿namespace Pepro.DTOs;
 
 public class EmployeeDto {
-    private string _employeeId = "";
+    private int _employeeId;
     private string _firstName = "";
     private string? _middleName;
     private string _lastName = "";
@@ -13,7 +13,7 @@ public class EmployeeDto {
     private int _PositionId;
     private int _salaryLevelId;
 
-    public string EmployeeId {
+    public int EmployeeId {
         get => _employeeId;
         set => _employeeId = value;
     }

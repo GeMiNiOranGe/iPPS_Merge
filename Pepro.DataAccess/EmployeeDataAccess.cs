@@ -140,14 +140,14 @@ public class EmployeeDataAccess {
     }
     */
 
-    public int DeleteEmployee(string employeeId) {
+    public int DeleteEmployee(int employeeId) {
         string query = @"
             UPDATE Employee
             SET IsDeleted = 1
             WHERE EmployeeId = @EmployeeId;
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, employeeId);
+        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
 
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
@@ -196,11 +196,10 @@ public class EmployeeDataAccess {
     {
         string query = @"
             INSERT INTO [dbo].[Employee]
-                    ([EmployeeId], [FirstName], [MiddleName], [LastName], [DateOfBirth], [Gender], [TaxCode], [CitizenId], [DepartmentId], [PositionId], [SalaryLevelId])
-            VALUES  (@EmployeeId,  @FirstName,  @MiddleName,  @LastName,  @DateOfBirth,  @Gender,  @TaxCode,  @CitizenId,  @DepartmentId,  @PositionId,  @SalaryLevelId)
+                    ([FirstName], [MiddleName], [LastName], [DateOfBirth], [Gender], [TaxCode], [CitizenId], [DepartmentId], [PositionId], [SalaryLevelId])
+            VALUES  (@FirstName,  @MiddleName,  @LastName,  @DateOfBirth,  @Gender,  @TaxCode,  @CitizenId,  @DepartmentId,  @PositionId,  @SalaryLevelId)
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, employee.EmployeeId);
         parameters.Add("FirstName", SqlDbType.NVarChar, 10, employee.FirstName);
         parameters.Add("MiddleName", SqlDbType.NVarChar, 30, employee.MiddleName);
         parameters.Add("LastName", SqlDbType.NVarChar, 10, employee.LastName);
@@ -215,7 +214,7 @@ public class EmployeeDataAccess {
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public Employee? GetEmployeeByEmployeeId(string employeeId) {
+    public Employee? GetEmployeeByEmployeeId(int employeeId) {
         string query = @"
             SELECT EmployeeId
                 , FirstName
@@ -234,7 +233,7 @@ public class EmployeeDataAccess {
             AND IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, employeeId);
+        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
         if (dataTable.Rows.Count == 0) {
@@ -254,7 +253,7 @@ public class EmployeeDataAccess {
         return null;
     }
 
-    public List<EmployeePhoneNumber> GetPhoneNumbersByEmployeeId(string employeeId) {
+    public List<EmployeePhoneNumber> GetPhoneNumbersByEmployeeId(int employeeId) {
         string query = @"
             SELECT EmployeePhoneNumberId
                 , PhoneNumber
@@ -266,7 +265,7 @@ public class EmployeeDataAccess {
             AND IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, employeeId);
+        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 
