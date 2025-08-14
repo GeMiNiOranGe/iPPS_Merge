@@ -25,7 +25,7 @@ public class AssignmentBusiness {
         List<AssignmentProgress> assignmentsProgress = [];
 
         foreach (Assignment assignment in assignments) {
-            int requiredDocumentCount = AssignmentDataAccess.Instance.GetRequiredDocumentCount(assignment.AssignmentId);
+            int requiredDocumentCount = assignment.RequiredDocumentCount;
             int documentCount = DocumentDataAccess.Instance.CountDocumentsByAssignmentId(assignment.AssignmentId);
             decimal percent = requiredDocumentCount != 0
                 ? Math.Round(documentCount * 100m / requiredDocumentCount, 2)
@@ -53,7 +53,7 @@ public class AssignmentBusiness {
         List<AssignmentProgress> assignmentsProgress = [];
 
         foreach (Assignment assignment in assignments) {
-            int requiredDocumentCount = AssignmentDataAccess.Instance.GetRequiredDocumentCount(assignment.AssignmentId);
+            int requiredDocumentCount = assignment.RequiredDocumentCount;
             int documentCount = DocumentDataAccess.Instance.CountDocumentsByAssignmentId(assignment.AssignmentId);
             decimal percent = requiredDocumentCount != 0
                 ? Math.Round(documentCount * 100m / requiredDocumentCount, 2)

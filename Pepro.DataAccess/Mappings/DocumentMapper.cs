@@ -20,6 +20,7 @@ static class DocumentMapper
             CheckedBy = row.Field<string>("CheckedBy") ?? "",
             ApprovedBy = row.Field<string>("ApprovedBy") ?? "",
             AssignmentId = row.Field<int>("AssignmentId"),
+            IsDeleted = row.Field<bool>("IsDeleted"),
         };
     }
 }

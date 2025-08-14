@@ -14,6 +14,10 @@ public class Document
     private string _approvedBy = "";
     private int _assignmentId;
 
+    #region Optional fields
+    private bool _isDeleted;
+    #endregion
+
     public required int DocumentId
     {
         get => _documentId;
@@ -78,5 +82,11 @@ public class Document
     {
         get => _assignmentId;
         set => _assignmentId = value;
+    }
+
+    public bool IsDeleted
+    {
+        get => _isDeleted;
+        set => _isDeleted = value;
     }
 }

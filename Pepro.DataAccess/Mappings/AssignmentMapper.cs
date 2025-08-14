@@ -16,6 +16,7 @@ static class AssignmentMapper
             ManagerId = row.Field<string>("ManagerId") ?? "",
             StartDate = row.Field<DateTime>("StartDate"),
             EndDate = row.Field<DateTime>("EndDate"),
+            RequiredDocumentCount = row.Field<int>("RequiredDocumentCount"),
             ProjectId = row.Field<string>("ProjectId") ?? "",
             StatusId = row.Field<int>("StatusId"),
         };
