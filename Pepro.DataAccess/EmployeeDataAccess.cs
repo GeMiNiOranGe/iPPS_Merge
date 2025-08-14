@@ -30,6 +30,7 @@ public class EmployeeDataAccess {
                 , DepartmentId
                 , PositionId
                 , SalaryLevelId
+                , IsDeleted
             FROM Employee
             WHERE IsDeleted = 0
         ";
@@ -58,6 +59,7 @@ public class EmployeeDataAccess {
                 , DepartmentId
                 , PositionId
                 , SalaryLevelId
+                , IsDeleted
             FROM Employee
             WHERE
                 (
@@ -226,6 +228,7 @@ public class EmployeeDataAccess {
                 , DepartmentId
                 , PositionId
                 , SalaryLevelId
+                , IsDeleted
             FROM Employee
             WHERE EmployeeId = @EmployeeId
             AND IsDeleted = 0

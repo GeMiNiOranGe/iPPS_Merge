@@ -15,14 +15,6 @@ public class AssignmentDataAccess {
 
     private AssignmentDataAccess() { }
 
-    public int GetRequiredDocumentCount(int assignmentId) {
-        string query = "SELECT RequiredDocumentCount FROM Assignment WHERE AssignmentId = @AssignmentId";
-        List<SqlParameter> parameters = [];
-        parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
-
-        return (int)DataProvider.Instance.ExecuteScalar(query, [.. parameters]);
-    }
-
     public List<Assignment> GetAssignmentsByProjectId(string projectId) {
         string query = @"
             SELECT AssignmentId
@@ -32,6 +24,7 @@ public class AssignmentDataAccess {
                 , ManagerId
                 , StartDate
                 , EndDate
+                , RequiredDocumentCount
                 , ProjectId
                 , StatusId
             FROM Assignment 
@@ -59,6 +52,7 @@ public class AssignmentDataAccess {
                 , ManagerId
                 , StartDate
                 , EndDate
+                , RequiredDocumentCount
                 , ProjectId
                 , StatusId
             FROM Assignment
@@ -99,6 +93,7 @@ public class AssignmentDataAccess {
                 , DepartmentId
                 , PositionId
                 , SalaryLevelId
+                , IsDeleted
             FROM Assignment
             INNER JOIN Employee
                     ON Employee.EmployeeId = Assignment.ManagerId
@@ -125,6 +120,7 @@ public class AssignmentDataAccess {
                 , ManagerId
                 , StartDate
                 , EndDate
+                , RequiredDocumentCount
                 , ProjectId
                 , StatusId
             FROM Assignment
