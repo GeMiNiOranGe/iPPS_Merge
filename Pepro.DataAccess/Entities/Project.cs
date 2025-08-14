@@ -1,10 +1,10 @@
 namespace Pepro.DataAccess.Entities;
 
 public class Project {
-    private string _projectId = "";
-    private string _name = "";
-    private string _customerName = "";
-    private string _managerId = "";
+    private string _projectId = null!;
+    private string _name = null!;
+    private string _customerName = null!;
+    private string _managerId = null!;
     private DateTime _startDate;
     private DateTime _endDate;
     private int _statusId;

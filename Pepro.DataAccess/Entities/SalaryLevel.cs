@@ -2,7 +2,7 @@ namespace Pepro.DataAccess.Entities;
 
 public class SalaryLevel {
     private int _salaryLevelId;
-    private string _level = "";
+    private string _level = null!;
     private decimal _coefficient;
     private int _salaryScaleId;
 

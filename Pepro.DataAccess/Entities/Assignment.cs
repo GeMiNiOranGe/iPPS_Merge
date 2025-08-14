@@ -3,14 +3,14 @@
 public class Assignment
 {
     private int _assignmentId;
-    private string _name = "";
+    private string _name = null!;
     private bool _isPublicToProject;
     private bool _isPublicToDepartment;
-    private string _managerId = "";
+    private string _managerId = null!;
     private DateTime _startDate;
     private DateTime _endDate;
     private int _requiredDocumentCount;
-    private string _projectId = "";
+    private string _projectId = null!;
     private int _statusId;
 
     public required int AssignmentId
