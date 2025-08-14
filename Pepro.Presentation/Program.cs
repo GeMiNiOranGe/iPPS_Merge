@@ -24,7 +24,7 @@ static class Program
                 employeeId = loginForm.EmployeeId;
             }
 
-            using MenuForm menuForm = new()
+            using MainForm menuForm = new()
             {
                 EmployeeId = employeeId
             };

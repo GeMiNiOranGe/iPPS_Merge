@@ -2,7 +2,7 @@
 using Pepro.Presentation.Controls;
 
 namespace Pepro.Presentation {
-    partial class MenuForm {
+    partial class MainForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
