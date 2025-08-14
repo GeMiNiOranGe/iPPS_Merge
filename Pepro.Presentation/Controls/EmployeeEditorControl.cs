@@ -71,29 +71,10 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             lbCheck4.ForeColor = Color.Red;
         }
 
-        departmentIdInputField.DataBindings.Add(
-            nameof(departmentIdInputField.Text),
-            departmentComboBoxField,
-            nameof(departmentComboBoxField.SelectedValue)
-        );
-
-        positionIdInputField.DataBindings.Add(
-            nameof(positionIdInputField.Text),
-            positionComboBoxField,
-            nameof(positionComboBoxField.SelectedValue)
-        );
-
-        salaryScaleIdInputField.DataBindings.Add(
-            nameof(salaryScaleIdInputField.Text),
-            salaryScaleComboBoxField,
-            nameof(salaryScaleComboBoxField.SelectedValue)
-        );
-
-        salaryLevelIdInputField.DataBindings.Add(
-            nameof(salaryLevelIdInputField.Text),
-            salaryLevelComboBoxField,
-            nameof(salaryLevelComboBoxField.SelectedValue)
-        );
+        departmentIdInputField.BindTextToValue(departmentComboBoxField);
+        positionIdInputField.BindTextToValue(positionComboBoxField);
+        salaryScaleIdInputField.BindTextToValue(salaryScaleComboBoxField);
+        salaryLevelIdInputField.BindTextToValue(salaryLevelComboBoxField);
 
         departmentComboBoxField.DisplayMember = nameof(DepartmentDto.Name);
         departmentComboBoxField.ValueMember = nameof(DepartmentDto.DepartmentId);
@@ -107,40 +88,42 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         salaryLevelComboBoxField.DisplayMember = nameof(SalaryLevelDto.Level);
         salaryLevelComboBoxField.ValueMember = nameof(SalaryLevelDto.SalaryLevelId);
 
-        List<DepartmentDto> departments = DepartmentBusiness.Instance.GetDepartments();
-        departmentComboBoxField.DataSource = departments;
-
-        List<PositionDto> positions = PositionBusiness.Instance.GetPositions();
-        positionComboBoxField.DataSource = positions;
-
-        List<SalaryScaleDto> salaryScales = SalaryScaleBusiness.Instance.GetSalaryScales();
+        departmentComboBoxField.DataSource = DepartmentBusiness.Instance.GetDepartments();
+        positionComboBoxField.DataSource = PositionBusiness.Instance.GetPositions();
         salaryScaleComboBoxField.ExecuteWithoutEvent(
             nameof(PeproComboBoxField.SelectedIndexChanged),
             SalaryScaleComboBoxField_SelectedIndexChanged,
-            () =>
-            {
-                salaryScaleComboBoxField.DataSource = salaryScales;
-            }
+            () => salaryScaleComboBoxField.DataSource = SalaryScaleBusiness.Instance.GetSalaryScales()
         );
 
-        if (_mode == EditorMode.Create) {
-            departmentComboBoxField.SelectedIndex = -1;
-            positionComboBoxField.SelectedIndex = -1;
-            salaryScaleComboBoxField.SelectedIndex = -1;
+        switch (_mode) {
+        case EditorMode.Create:
+            SetupCreateMode();
+            break;
+        case EditorMode.Edit:
+            SetupEditMode();
+            break;
         }
-        if (_mode == EditorMode.Edit) {
-            departmentComboBoxField.SelectedValue = _item.DepartmentId;
-            positionComboBoxField.SelectedValue = _item.PositionId;
+    }
 
-            SalaryScaleDto? salaryScale = SalaryScaleBusiness.Instance.GetSalaryScaleBySalaryLevelId(
-                _item.SalaryLevelId
-            );
-            if (salaryScale != null)
-            {
-                salaryScaleComboBoxField.SelectedValue = salaryScale.SalaryScaleId;
-            }
-            salaryLevelComboBoxField.SelectedValue = _item.SalaryLevelId;
+    private void SetupCreateMode() {
+        departmentComboBoxField.SelectedIndex = -1;
+        positionComboBoxField.SelectedIndex = -1;
+        salaryScaleComboBoxField.SelectedIndex = -1;
+    }
+
+    private void SetupEditMode() {
+        departmentComboBoxField.SelectedValue = _item.DepartmentId;
+        positionComboBoxField.SelectedValue = _item.PositionId;
+
+        SalaryScaleDto? salaryScale = SalaryScaleBusiness.Instance.GetSalaryScaleBySalaryLevelId(
+            _item.SalaryLevelId
+        );
+        if (salaryScale != null)
+        {
+            salaryScaleComboBoxField.SelectedValue = salaryScale.SalaryScaleId;
         }
+        salaryLevelComboBoxField.SelectedValue = _item.SalaryLevelId;
     }
 
     private void SalaryScaleComboBoxField_SelectedIndexChanged(object? sender, EventArgs e) {

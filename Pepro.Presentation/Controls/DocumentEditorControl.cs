@@ -68,16 +68,8 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
     }
 
     private void DocumentEditorControl_Load(object sender, EventArgs e) {
-        projectIdInputField.DataBindings.Add(
-            nameof(projectIdInputField.Text),
-            projectNameComboBoxField,
-            nameof(projectNameComboBoxField.SelectedValue)
-        );
-        assignmentIdInputField.DataBindings.Add(
-            nameof(assignmentIdInputField.Text),
-            assignmentNameComboBoxField,
-            nameof(assignmentNameComboBoxField.SelectedValue)
-        );
+        projectIdInputField.BindTextToValue(projectNameComboBoxField);
+        assignmentIdInputField.BindTextToValue(assignmentNameComboBoxField);
 
         projectNameComboBoxField.DisplayMember = nameof(ProjectDto.Name);
         projectNameComboBoxField.ValueMember = nameof(ProjectDto.ProjectId);
@@ -85,43 +77,50 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
         assignmentNameComboBoxField.DisplayMember = nameof(AssignmentDto.Name);
         assignmentNameComboBoxField.ValueMember = nameof(AssignmentDto.AssignmentId);
 
-        if (_mode == EditorMode.Create) {
-            List<ProjectDto> projects = ProjectBusiness.Instance.GetProjects();
-            projectNameComboBoxField.DataSource = projects;
-            projectNameComboBoxField.SelectedIndex = -1;
+        switch (_mode) {
+        case EditorMode.Create:
+            SetupCreateMode();
+            break;
+        case EditorMode.Edit:
+            SetupEditMode();
+            break;
         }
-        if (_mode == EditorMode.Edit) {
-            assignmentNameComboBoxField.Enabled = false;
-            projectNameComboBoxField.Enabled = false;
+    }
 
-            if (!int.TryParse(documentIdInputField.Text, out int documentId))
-            {
-                return;
-            }
+    private void SetupCreateMode() {
+        List<ProjectDto> projects = ProjectBusiness.Instance.GetProjects();
+        projectNameComboBoxField.DataSource = projects;
+        projectNameComboBoxField.SelectedIndex = -1;
+    }
 
-            AssignmentDto? assignment = AssignmentBusiness.Instance.GetAssignmentByDocumentId(documentId);
-            if (assignment == null)
-            {
-                return;
-            }
+    private void SetupEditMode() {
+        assignmentNameComboBoxField.Enabled = false;
+        projectNameComboBoxField.Enabled = false;
 
-            assignmentNameComboBoxField.DataSource = (List<AssignmentDto>)[assignment];
-
-            ProjectDto? project = ProjectBusiness.Instance.GetProjectByAssignmentId(assignment.AssignmentId);
-            if (project == null)
-            {
-                return;
-            }
-
-            projectNameComboBoxField.ExecuteWithoutEvent(
-                nameof(PeproComboBoxField.SelectedIndexChanged),
-                ProjectNameComboBoxField_SelectedIndexChanged,
-                () =>
-                {
-                    projectNameComboBoxField.DataSource = (List<ProjectDto>)[project];
-                }
-            );
+        if (!int.TryParse(documentIdInputField.Text, out int documentId))
+        {
+            return;
         }
+
+        AssignmentDto? assignment = AssignmentBusiness.Instance.GetAssignmentByDocumentId(documentId);
+        if (assignment == null)
+        {
+            return;
+        }
+
+        assignmentNameComboBoxField.DataSource = (List<AssignmentDto>)[assignment];
+
+        ProjectDto? project = ProjectBusiness.Instance.GetProjectByAssignmentId(assignment.AssignmentId);
+        if (project == null)
+        {
+            return;
+        }
+
+        projectNameComboBoxField.ExecuteWithoutEvent(
+            nameof(PeproComboBoxField.SelectedIndexChanged),
+            ProjectNameComboBoxField_SelectedIndexChanged,
+            () => projectNameComboBoxField.DataSource = (List<ProjectDto>)[project]
+        );
     }
 
     private void ProjectNameComboBoxField_SelectedIndexChanged(object? sender, EventArgs e) {
