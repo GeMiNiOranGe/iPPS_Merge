@@ -3,7 +3,7 @@ namespace Pepro.DataAccess.Entities;
 public class Position
 {
     private int _positionId;
-    private string _title = "";
+    private string _title = null!;
     private decimal _allowanceCoefficient;
 
     public required int PositionId

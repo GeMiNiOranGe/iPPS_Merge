@@ -3,11 +3,11 @@
 public class Account
 {
     private int _accountId;
-    private string _username = "";
+    private string _username = null!;
     private byte[] _salt = [];
     private byte[] _password = [];
     private bool _isActive;
-    private string _employeeId = "";
+    private string _employeeId = null!;
 
     public required int AccountId
     {

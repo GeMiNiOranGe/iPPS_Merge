@@ -3,15 +3,15 @@ namespace Pepro.DataAccess.Entities;
 public class Document
 {
     private int _documentId;
-    private string _title = "";
+    private string _title = null!;
     private DateTime _createAt;
     private int _revisionNumber;
-    private string _revisionStatus = "";
-    private string _documentUrl = "";
-    private string _nativeFileFormat = "";
-    private string _preparedBy = "";
-    private string _checkedBy = "";
-    private string _approvedBy = "";
+    private string _revisionStatus = null!;
+    private string _documentUrl = null!;
+    private string _nativeFileFormat = null!;
+    private string? _preparedBy;
+    private string? _checkedBy;
+    private string? _approvedBy;
     private int _assignmentId;
 
     #region Optional fields
@@ -60,19 +60,19 @@ public class Document
         set => _nativeFileFormat = value;
     }
 
-    public required string PreparedBy
+    public required string? PreparedBy
     {
         get => _preparedBy;
         set => _preparedBy = value;
     }
 
-    public required string CheckedBy
+    public required string? CheckedBy
     {
         get => _checkedBy;
         set => _checkedBy = value;
     }
 
-    public required string ApprovedBy
+    public required string? ApprovedBy
     {
         get => _approvedBy;
         set => _approvedBy = value;

@@ -3,8 +3,8 @@
 public class EmployeePhoneNumber
 {
     private int _employeePhoneNumberId;
-    private string _employeeId = "";
-    private string _phoneNumber = "";
+    private string _employeeId = null!;
+    private string _phoneNumber = null!;
 
     public required int EmployeePhoneNumberId
     {

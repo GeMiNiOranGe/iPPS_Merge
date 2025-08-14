@@ -2,15 +2,15 @@ namespace Pepro.DataAccess.Entities;
 
 public class Employee
 {
-    private string _employeeId = "";
-    private string _firstName = "";
+    private string _employeeId = null!;
+    private string _firstName = null!;
     private string? _middleName;
-    private string _lastName = "";
+    private string _lastName = null!;
     private DateTime _dateOfBirth;
     private bool? _gender;
     private byte[]? _taxCode;
-    private string _citizenId = "";
-    private string _departmentId = "";
+    private string _citizenId = null!;
+    private string _departmentId = null!;
     private int _PositionId;
     private int _salaryLevelId;
 
