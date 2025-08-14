@@ -43,7 +43,7 @@ public partial class EmployeeControl : PeproCrudControlBase {
         DataGridViewRow row = employeeDataGridView.Rows[e.RowIndex];
 
         if (row.DataBoundItem is EmployeeDto employee) {
-            employeeIdInputField.Text = employee.EmployeeId;
+            employeeIdInputField.Text = employee.EmployeeId.ToString();
             employeeNameInputField.Text = employee.LastName + " "
                 + (employee.MiddleName != null ? employee.MiddleName + " " : "")
                 + employee.FirstName;
@@ -92,8 +92,12 @@ public partial class EmployeeControl : PeproCrudControlBase {
             return;
         }
 
+        if (!int.TryParse(employeeIdInputField.Text, out int id)) {
+            return;
+        }
+
         if (MessageBoxWrapper.ConfirmDelete() == DialogResult.Yes) {
-            int numberOfRowsAffected = EmployeeBusiness.Instance.DeleteEmployee(employeeId);
+            int numberOfRowsAffected = EmployeeBusiness.Instance.DeleteEmployee(id);
             MessageBoxWrapper.ShowInformation("DeleteEmployeeSuccess", numberOfRowsAffected);
             LoadEmployees();
         }

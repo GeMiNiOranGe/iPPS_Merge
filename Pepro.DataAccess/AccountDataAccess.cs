@@ -16,7 +16,7 @@ public class AccountDataAccess {
     private AccountDataAccess() { }
 
     /// <summary>
-    ///     Finds an account using a flexible search value (e.g., username, employee Id, or email).
+    ///     Finds an account using a flexible search value (e.g., username, or email).
     /// </summary>
     /// <param name="searchValue">
     ///     The string value used to search across multiple account fields.
@@ -34,7 +34,7 @@ public class AccountDataAccess {
                 , EmployeeId
                 , IsActive
             FROM Account
-            WHERE @SearchValue IN (Username, EmployeeId)
+            WHERE Username = @SearchValue
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);

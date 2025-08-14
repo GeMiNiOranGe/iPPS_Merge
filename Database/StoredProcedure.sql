@@ -2,7 +2,6 @@ USE [Pepro]
 GO
 
 CREATE OR ALTER PROCEDURE [dbo].[usp_InsertEmployee]
-    @EmployeeId         VARCHAR(10),
     @FirstName          NVARCHAR(10),
     @MiddleName         NVARCHAR(30)    = NULL,
     @LastName           NVARCHAR(10),
@@ -19,6 +18,8 @@ AS BEGIN
 
     DECLARE @Separator          VARCHAR(2)
     DECLARE @EncryptedTaxCode   VARBINARY(Max)
+    DECLARE @InsertedEmployee   TABLE (EmployeeId INT)
+    DECLARE @EmployeeId         INT
 
     SET @Separator = ','
 
@@ -27,9 +28,11 @@ AS BEGIN
     CLOSE SYMMETRIC KEY [PeproSymKey]
 
     INSERT INTO [dbo].[Employee]
-            ([EmployeeId], [FirstName], [MiddleName], [LastName], [DateOfBirth], [Gender], [TaxCode],         [CitizenId], [DepartmentId], [PositionId], [SalaryLevelId])
-    VALUES  (@EmployeeId,  @FirstName,  @MiddleName,  @LastName,  @DateOfBirth,  @Gender,  @EncryptedTaxCode, @CitizenId,  @DepartmentId,  @PositionId,  @SalaryLevelId)
+            ([FirstName], [MiddleName], [LastName], [DateOfBirth], [Gender], [TaxCode],         [CitizenId], [DepartmentId], [PositionId], [SalaryLevelId])
+    OUTPUT Inserted.[EmployeeId] INTO @InsertedEmployee
+    VALUES  (@FirstName,  @MiddleName,  @LastName,  @DateOfBirth,  @Gender,  @EncryptedTaxCode, @CitizenId,  @DepartmentId,  @PositionId,  @SalaryLevelId)
 
+    SELECT @EmployeeId = EmployeeId FROM @InsertedEmployee
     IF (@PhoneNumberList IS NOT NULL) BEGIN
         INSERT INTO [dbo].[EmployeePhoneNumber]
                 ([PhoneNumber], [EmployeeId])
@@ -42,16 +45,16 @@ GO
 
 CREATE OR ALTER PROCEDURE [dbo].[usp_CreateDefaultAccount]
     @Username   VARCHAR(50),
-    @EmployeeId VARCHAR(10)
+    @EmployeeId INT
 AS BEGIN
     SET NOCOUNT ON
 
-    DECLARE @DefaultPassword    VARCHAR(50)
+    DECLARE @DefaultPassword    VARCHAR(75)
     DECLARE @Salt               VARBINARY(Max)
     DECLARE @HashedPassword     VARBINARY(Max)
     DECLARE @SaltedPassword     VARCHAR(Max)
 
-    SET @DefaultPassword = @EmployeeId
+    SET @DefaultPassword = @Username + '@' + Cast(@EmployeeId AS VARCHAR(Max))
     SET @Salt            = crypt_gen_random(32)
     SET @SaltedPassword  = @DefaultPassword + Cast(@Salt AS VARCHAR(Max))
     SET @HashedPassword  = Cast(HashBytes('SHA2_256', @SaltedPassword) AS VARBINARY(Max))

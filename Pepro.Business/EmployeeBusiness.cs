@@ -29,7 +29,7 @@ public class EmployeeBusiness
         return employees.ToDtos();
     }
 
-    public string GetDisplayNameByEmployeeId(string employeeId)
+    public string GetDisplayNameByEmployeeId(int employeeId)
     {
         Employee? employee = EmployeeDataAccess.Instance.GetEmployeeByEmployeeId(employeeId);
         return employee != null
@@ -47,7 +47,7 @@ public class EmployeeBusiness
         return EmployeeDataAccess.Instance.UpdateEmployee(roleID, valueList, employeeID);
     }
 
-    public int DeleteEmployee(string employeeId)
+    public int DeleteEmployee(int employeeId)
     {
         return EmployeeDataAccess.Instance.DeleteEmployee(employeeId);
     }
@@ -67,7 +67,7 @@ public class EmployeeBusiness
         return EmployeeDataAccess.Instance.InsertEmployee(employee);
     }
 
-    public EmployeeDto? GetEmployeeByEmployeeId(string employeeID) {
+    public EmployeeDto? GetEmployeeByEmployeeId(int employeeID) {
         Employee? employee = EmployeeDataAccess.Instance.GetEmployeeByEmployeeId(employeeID);
         return employee?.ToDto();
     }
@@ -76,7 +76,7 @@ public class EmployeeBusiness
         return EmployeeDataAccess.Instance.GetRolebyEmployeeID(employeeID);
     }
 
-    public string[] GetPhoneNumbersByEmployeeId(string employeeID) {
+    public string[] GetPhoneNumbersByEmployeeId(int employeeID) {
         List<EmployeePhoneNumber> employeePhoneNumbers = EmployeeDataAccess.Instance.GetPhoneNumbersByEmployeeId(employeeID);
         List<string> phoneNumbers = [];
         foreach (EmployeePhoneNumber phoneNumber in employeePhoneNumbers)

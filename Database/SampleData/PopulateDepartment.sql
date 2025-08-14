@@ -1,6 +1,6 @@
 INSERT INTO [dbo].[Department]
         ([DepartmentId],    [Name],             [ManagerId])
-VALUES  ('Director',        N'Phòng giám đốc',  'EMP00001')
-     ,  ('HR',              N'Phòng nhân sự',   'EMP00002')
-     ,  ('Financial',       N'Phòng tài chính', 'EMP00003')
+VALUES  ('Director',        N'Phòng giám đốc',  1)
+     ,  ('HR',              N'Phòng nhân sự',   2)
+     ,  ('Financial',       N'Phòng tài chính', 3)
 GO

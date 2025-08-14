@@ -52,7 +52,7 @@ public class ProjectBusiness {
         return projectsProgress;
     }
 
-    public string[] GetProjectNamesByEmployeeId(string employeeId) {
+    public string[] GetProjectNamesByEmployeeId(int employeeId) {
         List<Project> projects = ProjectDataAccess.Instance.GetProjectsByEmployeeId(employeeId);
         List<string> projectNames = [];
         foreach (Project project in projects) {

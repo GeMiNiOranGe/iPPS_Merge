@@ -3,8 +3,8 @@
 -- 1 is male, 0 is female and null is other
 
 -- For each `IsDeleted` column:
--- + IsDeleted = 0 → the record is active (i.e., not deleted). This is the default value.
--- + IsDeleted = 1 → the record is soft-deleted (logically deleted).
+-- + IsDeleted = 0 -> the record is active (i.e., not deleted). This is the default value.
+-- + IsDeleted = 1 -> the record is soft-deleted (logically deleted).
 
 USE [Master]
 GO
@@ -29,7 +29,7 @@ GO
 CREATE TABLE [dbo].[Department] (
     [DepartmentId]  [varchar](10)   NOT NULL,
     [Name]          [nvarchar](50)  NOT NULL,
-    [ManagerId]     [varchar](10)   NOT NULL,
+    [ManagerId]     [int]           NOT NULL,
 );
 
 CREATE TABLE [dbo].[Status] (
@@ -54,7 +54,7 @@ CREATE TABLE [dbo].[Project] (
     [ProjectId]     [varchar](10)   NOT NULL,
     [Name]          [nvarchar](50)  NOT NULL,
     [CustomerName]  [nvarchar](50)  NOT NULL,
-    [ManagerId]     [varchar](10)   NOT NULL,
+    [ManagerId]     [int]           NOT NULL,
     [StartDate]     [date]          NOT NULL,
     [EndDate]       [date]          NOT NULL,
 
@@ -70,7 +70,7 @@ CREATE TABLE [dbo].[SalaryLevel] (
 );
 
 CREATE TABLE [dbo].[Employee] (
-    [EmployeeId]    [varchar](10)   NOT NULL,
+    [EmployeeId]    [int]           NOT NULL IDENTITY(1, 1),
     [FirstName]     [nvarchar](10)  NOT NULL,
     [MiddleName]    [nvarchar](30),
     [LastName]      [nvarchar](10)  NOT NULL,
@@ -88,10 +88,10 @@ CREATE TABLE [dbo].[Employee] (
 );
 
 CREATE TABLE [dbo].[EmployeePhoneNumber] (
-    [EmployeePhoneNumberId] [int]           NOT NULL IDENTITY(1, 1),
-    [PhoneNumber]           [char](10)      NOT NULL,
+    [EmployeePhoneNumberId] [int]       NOT NULL IDENTITY(1, 1),
+    [PhoneNumber]           [char](10)  NOT NULL,
 
-    [EmployeeId]            [varchar](10)   NOT NULL,
+    [EmployeeId]            [int]       NOT NULL,
 );
 
 CREATE TABLE [dbo].[Account] (
@@ -102,7 +102,7 @@ CREATE TABLE [dbo].[Account] (
     [IsActive]   [bit]              NOT NULL,
     -- TODO: add email column
     
-    [EmployeeId] [varchar](10)      NOT NULL,
+    [EmployeeId] [int]              NOT NULL,
 );
 
 CREATE TABLE [dbo].[Assignment] (
@@ -110,7 +110,7 @@ CREATE TABLE [dbo].[Assignment] (
     [Name]                  [nvarchar](50)  NOT NULL,
     [IsPublicToProject]     [bit]           NOT NULL,
     [IsPublicToDepartment]  [bit]           NOT NULL,
-    [ManagerId]             [varchar](10)   NOT NULL,
+    [ManagerId]             [int]           NOT NULL,
     [StartDate]             [date]          NOT NULL,
     [EndDate]               [date]          NOT NULL,
     [RequiredDocumentCount] [int]           NOT NULL,
@@ -138,10 +138,10 @@ CREATE TABLE [dbo].[Document] (
 
 -- many-to-many relationship --------------------
 CREATE TABLE [AssignmentDetail] (
-    [AssignmentDetailId]    [int]           NOT NULL IDENTITY(1, 1),
+    [AssignmentDetailId]    [int]   NOT NULL IDENTITY(1, 1),
 
-    [EmployeeId]            [varchar](10)   NOT NULL,
-    [AssignmentId]          [int]           NOT NULL,
+    [EmployeeId]            [int]   NOT NULL,
+    [AssignmentId]          [int]   NOT NULL,
 );
 
 CREATE TABLE [DepartmentProject] (

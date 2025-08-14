@@ -4,7 +4,7 @@ public class ProjectDto {
     private string _projectId = "";
     private string _name = "";
     private string _customerName = "";
-    private string _managerId = "";
+    private int _managerId;
     private DateTime _startDate;
     private DateTime _endDate;
     private int _statusId;
@@ -24,7 +24,7 @@ public class ProjectDto {
         set => _customerName = value;
     }
 
-    public string ManagerId {
+    public int ManagerId {
         get => _managerId;
         set => _managerId = value;
     }

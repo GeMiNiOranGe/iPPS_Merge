@@ -11,7 +11,7 @@ static class DepartmentMapper
         {
             DepartmentId = row.Field<string>("DepartmentId") ?? "",
             Name = row.Field<string>("Name") ?? "",
-            ManagerId = row.Field<string>("ManagerId") ?? ""
+            ManagerId = row.Field<int>("ManagerId"),
         };
     }
 }
