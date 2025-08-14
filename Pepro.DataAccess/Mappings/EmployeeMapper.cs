@@ -20,6 +20,7 @@ static class EmployeeMapper
             DepartmentId = row.Field<string>("DepartmentId") ?? "",
             PositionId = row.Field<int>("PositionId"),
             SalaryLevelId = row.Field<int>("SalaryLevelId"),
+            IsDeleted = row.Field<bool>("IsDeleted"),
         };
     }
 }

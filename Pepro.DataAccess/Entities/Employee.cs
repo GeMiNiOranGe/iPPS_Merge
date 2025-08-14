@@ -14,6 +14,10 @@ public class Employee
     private int _PositionId;
     private int _salaryLevelId;
 
+    #region Optional fields
+    private bool _isDeleted;
+    #endregion
+
     public required string EmployeeId
     {
         get => _employeeId;
@@ -78,5 +82,11 @@ public class Employee
     {
         get => _salaryLevelId;
         set => _salaryLevelId = value;
+    }
+
+    public bool IsDeleted
+    {
+        get => _isDeleted;
+        set => _isDeleted = value;
     }
 }

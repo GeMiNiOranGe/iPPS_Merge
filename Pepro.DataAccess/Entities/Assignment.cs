@@ -9,6 +9,7 @@ public class Assignment
     private string _managerId = "";
     private DateTime _startDate;
     private DateTime _endDate;
+    private int _requiredDocumentCount;
     private string _projectId = "";
     private int _statusId;
 
@@ -52,6 +53,12 @@ public class Assignment
     {
         get => _endDate;
         set => _endDate = value;
+    }
+
+    public required int RequiredDocumentCount
+    {
+        get => _requiredDocumentCount;
+        set => _requiredDocumentCount = value;
     }
 
     public required string ProjectId

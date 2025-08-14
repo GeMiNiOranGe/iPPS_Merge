@@ -41,6 +41,7 @@ public class DocumentDataAccess {
                 , CheckedBy
                 , ApprovedBy
                 , AssignmentId
+                , IsDeleted
             FROM Document
             WHERE IsDeleted = 0
         ";
@@ -68,6 +69,7 @@ public class DocumentDataAccess {
                 , CheckedBy
                 , ApprovedBy
                 , AssignmentId
+                , IsDeleted
             FROM Document
             WHERE
                 (
