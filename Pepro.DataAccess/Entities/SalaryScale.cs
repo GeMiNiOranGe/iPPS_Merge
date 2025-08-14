@@ -3,8 +3,8 @@
 public class SalaryScale
 {
     private int _salaryScaleId;
-    private string _group = "";
-    private string _name = "";
+    private string _group = null!;
+    private string _name = null!;
 
     public required int SalaryScaleId
     {

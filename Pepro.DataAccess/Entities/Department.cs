@@ -2,9 +2,9 @@
 
 public class Department
 {
-    private string _departmentId = "";
-    private string _name = "";
-    private string _managerId = "";
+    private string _departmentId = null!;
+    private string _name = null!;
+    private string _managerId = null!;
 
     public required string DepartmentId
     {
