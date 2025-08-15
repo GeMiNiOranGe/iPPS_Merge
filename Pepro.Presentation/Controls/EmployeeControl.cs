@@ -15,6 +15,7 @@ public partial class EmployeeControl : PeproCrudControlBase {
     private void Initialize() {
         InitializeComponent();
         employeeDataGridView.SetupCellStyle();
+        fullNameColumn.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
 
         searchButton.ApplyFlatStyleWithIcon("Search", ThemeColors.Text);
         reloadButton.ApplyFlatStyleWithIcon("Refresh", ThemeColors.Text);
@@ -44,9 +45,7 @@ public partial class EmployeeControl : PeproCrudControlBase {
 
         if (row.DataBoundItem is EmployeeDto employee) {
             employeeIdInputField.Text = employee.EmployeeId.ToString();
-            employeeNameInputField.Text = employee.LastName + " "
-                + (employee.MiddleName != null ? employee.MiddleName + " " : "")
-                + employee.FirstName;
+            employeeNameInputField.Text = employee.FullName;
         }
     }
 

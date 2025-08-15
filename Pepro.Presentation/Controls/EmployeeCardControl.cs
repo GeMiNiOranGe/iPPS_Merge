@@ -16,7 +16,7 @@ public partial class EmployeeCardControl : PeproUserControl {
         set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
             employeeIdLabel.Text = _item.EmployeeId.ToString();
-            employeeNameLabel.Text = _item.FirstName + ", " + _item.MiddleName + " " + _item.LastName;
+            employeeNameLabel.Text = _item.FullName;
         }
     }
 }

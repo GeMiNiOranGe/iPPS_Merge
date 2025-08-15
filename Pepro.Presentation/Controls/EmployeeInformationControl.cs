@@ -40,7 +40,7 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
         }
 
         employeeIdInputField.Text = employee.EmployeeId.ToString();
-        fullNameInputField.Text = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;
+        fullNameInputField.Text = employee.FullName;
 
         RadioButton genderRadioButton = employee.Gender switch {
             true => maleRadioButton,

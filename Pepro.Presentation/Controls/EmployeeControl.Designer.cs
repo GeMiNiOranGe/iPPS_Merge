@@ -29,17 +29,6 @@
         private void InitializeComponent() {
             searchTextBox = new TextBox();
             employeeDataGridView = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
-            Column8 = new DataGridViewTextBoxColumn();
-            Column9 = new DataGridViewTextBoxColumn();
-            Column10 = new DataGridViewTextBoxColumn();
-            Column11 = new DataGridViewTextBoxColumn();
             employeeIdInputField = new PeproInputField();
             numberOfEmployeesInputField = new PeproInputField();
             employeeNameInputField = new PeproInputField();
@@ -49,6 +38,14 @@
             deleteButton = new Button();
             updateButton = new Button();
             insertButton = new Button();
+            fullNameColumn = new DataGridViewTextBoxColumn();
+            dateOfBirthColumn = new DataGridViewTextBoxColumn();
+            genderColumn = new DataGridViewTextBoxColumn();
+            taxCodeColumn = new DataGridViewTextBoxColumn();
+            citizenIdColumn = new DataGridViewTextBoxColumn();
+            departmentIdColumn = new DataGridViewTextBoxColumn();
+            positionIdColumn = new DataGridViewTextBoxColumn();
+            salaryLevelIdColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)employeeDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -72,7 +69,7 @@
             employeeDataGridView.BackgroundColor = Color.FromArgb(15, 15, 15);
             employeeDataGridView.BorderStyle = BorderStyle.Fixed3D;
             employeeDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            employeeDataGridView.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11 });
+            employeeDataGridView.Columns.AddRange(new DataGridViewColumn[] { fullNameColumn, dateOfBirthColumn, genderColumn, taxCodeColumn, citizenIdColumn, departmentIdColumn, positionIdColumn, salaryLevelIdColumn });
             employeeDataGridView.EnableHeadersVisualStyles = false;
             employeeDataGridView.Location = new Point(16, 190);
             employeeDataGridView.Margin = new Padding(16);
@@ -86,94 +83,6 @@
             employeeDataGridView.TabIndex = 8;
             employeeDataGridView.CellClick += EmployeeDataGridView_CellClick;
             employeeDataGridView.DataBindingComplete += EmployeeDataGridView_DataBindingComplete;
-            // 
-            // Column1
-            // 
-            Column1.DataPropertyName = "EmployeeId";
-            Column1.HeaderText = "Mã nhân viên";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 118;
-            // 
-            // Column2
-            // 
-            Column2.DataPropertyName = "FirstName";
-            Column2.HeaderText = "Tên";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 55;
-            // 
-            // Column3
-            // 
-            Column3.DataPropertyName = "MiddleName";
-            Column3.HeaderText = "Tên đệm";
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Width = 86;
-            // 
-            // Column4
-            // 
-            Column4.DataPropertyName = "LastName";
-            Column4.HeaderText = "Họ";
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Width = 52;
-            // 
-            // Column5
-            // 
-            Column5.DataPropertyName = "DateOfBirth";
-            Column5.HeaderText = "Ngày sinh";
-            Column5.Name = "Column5";
-            Column5.ReadOnly = true;
-            Column5.Width = 95;
-            // 
-            // Column6
-            // 
-            Column6.DataPropertyName = "Gender";
-            Column6.HeaderText = "Giới tính";
-            Column6.Name = "Column6";
-            Column6.ReadOnly = true;
-            Column6.Width = 86;
-            // 
-            // Column7
-            // 
-            Column7.DataPropertyName = "TaxCode";
-            Column7.HeaderText = "Mã số thuế";
-            Column7.Name = "Column7";
-            Column7.ReadOnly = true;
-            Column7.Width = 104;
-            // 
-            // Column8
-            // 
-            Column8.DataPropertyName = "CitizenId";
-            Column8.HeaderText = "Căn cước";
-            Column8.Name = "Column8";
-            Column8.ReadOnly = true;
-            Column8.Width = 90;
-            // 
-            // Column9
-            // 
-            Column9.DataPropertyName = "DepartmentId";
-            Column9.HeaderText = "Mã phòng ban";
-            Column9.Name = "Column9";
-            Column9.ReadOnly = true;
-            Column9.Width = 125;
-            // 
-            // Column10
-            // 
-            Column10.DataPropertyName = "PositionId";
-            Column10.HeaderText = "Mã chức vụ";
-            Column10.Name = "Column10";
-            Column10.ReadOnly = true;
-            Column10.Width = 105;
-            // 
-            // Column11
-            // 
-            Column11.DataPropertyName = "SalaryLevelId";
-            Column11.HeaderText = "Mã bậc lương ";
-            Column11.Name = "Column11";
-            Column11.ReadOnly = true;
-            Column11.Width = 122;
             // 
             // employeeIdInputField
             // 
@@ -282,6 +191,70 @@
             insertButton.Text = " Add";
             insertButton.Click += InsertButton_Click;
             // 
+            // fullNameColumn
+            // 
+            fullNameColumn.DataPropertyName = "FullName";
+            fullNameColumn.HeaderText = "Tên đầy đủ";
+            fullNameColumn.Name = "fullNameColumn";
+            fullNameColumn.ReadOnly = true;
+            fullNameColumn.Width = 101;
+            // 
+            // dateOfBirthColumn
+            // 
+            dateOfBirthColumn.DataPropertyName = "DateOfBirth";
+            dateOfBirthColumn.HeaderText = "Ngày sinh";
+            dateOfBirthColumn.Name = "dateOfBirthColumn";
+            dateOfBirthColumn.ReadOnly = true;
+            dateOfBirthColumn.Width = 95;
+            // 
+            // genderColumn
+            // 
+            genderColumn.DataPropertyName = "Gender";
+            genderColumn.HeaderText = "Giới tính";
+            genderColumn.Name = "genderColumn";
+            genderColumn.ReadOnly = true;
+            genderColumn.Width = 86;
+            // 
+            // taxCodeColumn
+            // 
+            taxCodeColumn.DataPropertyName = "TaxCode";
+            taxCodeColumn.HeaderText = "Mã số thuế";
+            taxCodeColumn.Name = "taxCodeColumn";
+            taxCodeColumn.ReadOnly = true;
+            taxCodeColumn.Width = 104;
+            // 
+            // citizenIdColumn
+            // 
+            citizenIdColumn.DataPropertyName = "CitizenId";
+            citizenIdColumn.HeaderText = "Căn cước";
+            citizenIdColumn.Name = "citizenIdColumn";
+            citizenIdColumn.ReadOnly = true;
+            citizenIdColumn.Width = 90;
+            // 
+            // departmentIdColumn
+            // 
+            departmentIdColumn.DataPropertyName = "DepartmentId";
+            departmentIdColumn.HeaderText = "Mã phòng ban";
+            departmentIdColumn.Name = "departmentIdColumn";
+            departmentIdColumn.ReadOnly = true;
+            departmentIdColumn.Width = 125;
+            // 
+            // positionIdColumn
+            // 
+            positionIdColumn.DataPropertyName = "PositionId";
+            positionIdColumn.HeaderText = "Mã chức vụ";
+            positionIdColumn.Name = "positionIdColumn";
+            positionIdColumn.ReadOnly = true;
+            positionIdColumn.Width = 105;
+            // 
+            // salaryLevelIdColumn
+            // 
+            salaryLevelIdColumn.DataPropertyName = "SalaryLevelId";
+            salaryLevelIdColumn.HeaderText = "Mã bậc lương ";
+            salaryLevelIdColumn.Name = "salaryLevelIdColumn";
+            salaryLevelIdColumn.ReadOnly = true;
+            salaryLevelIdColumn.Width = 122;
+            // 
             // EmployeeControl
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
@@ -323,17 +296,6 @@
         #endregion
         private TextBox searchTextBox;
         private DataGridView employeeDataGridView;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column7;
-        private DataGridViewTextBoxColumn Column8;
-        private DataGridViewTextBoxColumn Column9;
-        private DataGridViewTextBoxColumn Column10;
-        private DataGridViewTextBoxColumn Column11;
         private PeproInputField employeeIdInputField;
         private PeproInputField numberOfEmployeesInputField;
         private PeproInputField employeeNameInputField;
@@ -343,5 +305,13 @@
         private Button deleteButton;
         private Button updateButton;
         private Button insertButton;
+        private DataGridViewTextBoxColumn fullNameColumn;
+        private DataGridViewTextBoxColumn dateOfBirthColumn;
+        private DataGridViewTextBoxColumn genderColumn;
+        private DataGridViewTextBoxColumn taxCodeColumn;
+        private DataGridViewTextBoxColumn citizenIdColumn;
+        private DataGridViewTextBoxColumn departmentIdColumn;
+        private DataGridViewTextBoxColumn positionIdColumn;
+        private DataGridViewTextBoxColumn salaryLevelIdColumn;
     }
 }
