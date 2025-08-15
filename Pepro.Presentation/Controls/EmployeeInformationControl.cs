@@ -51,10 +51,9 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
 
         dateOfBirthDateTimePicker.Value = employee.DateOfBirth;
         citizenIdInputField.Text = employee.CitizenId;
-        /*
-        CRole getRole = EmployeeBusiness.Instance.GetRolebyEmployeeID(_employeeId);
-        roleTextBox.Text = getRole.Name;
-        */
+
+        positionInputField.Text = PositionBusiness.Instance.GetPositionTitleByEmployeeId(_employeeId);
+
         DepartmentDto? department = DepartmentBusiness.Instance.GetDepartmentByDepartmentId(employee.DepartmentId);
         if (department != null)
         {
