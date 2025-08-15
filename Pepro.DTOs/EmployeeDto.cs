@@ -1,4 +1,6 @@
-﻿namespace Pepro.DTOs;
+﻿using System.ComponentModel;
+
+namespace Pepro.DTOs;
 
 public class EmployeeDto {
     private int _employeeId;
@@ -13,24 +15,38 @@ public class EmployeeDto {
     private int _PositionId;
     private int _salaryLevelId;
 
+    [Browsable(false)]
     public int EmployeeId {
         get => _employeeId;
         set => _employeeId = value;
     }
 
+    [Browsable(false)]
     public string FirstName {
         get => _firstName;
         set => _firstName = value;
     }
 
+    [Browsable(false)]
     public string? MiddleName {
         get => _middleName;
         set => _middleName = value;
     }
 
+    [Browsable(false)]
     public string LastName {
         get => _lastName;
         set => _lastName = value;
+    }
+
+    public string FullName {
+        get {
+            return string.Join(" ", new[] {
+                _lastName.Trim(),
+                _middleName?.Trim(),
+                _firstName.Trim()
+            }.Where(s => !string.IsNullOrWhiteSpace(s)));
+        }
     }
 
     public DateTime DateOfBirth {
