@@ -38,7 +38,7 @@
             dateOfBirthDateTimePicker = new DateTimePicker();
             citizenIdInputField = new PeproInputField();
             departmentInputField = new PeproInputField();
-            roleInputField = new PeproInputField();
+            positionInputField = new PeproInputField();
             assignedProjectsComboBoxField = new PeproComboBoxField();
             SuspendLayout();
             // 
@@ -179,18 +179,18 @@
             departmentInputField.Size = new Size(256, 54);
             departmentInputField.TabIndex = 9;
             // 
-            // roleInputField
+            // positionInputField
             // 
-            roleInputField.Anchor = AnchorStyles.None;
-            roleInputField.Enabled = false;
-            roleInputField.ForeColor = Color.White;
-            roleInputField.LabelText = "Role";
-            roleInputField.Location = new Point(543, 422);
-            roleInputField.Margin = new Padding(0, 0, 0, 32);
-            roleInputField.Name = "roleInputField";
-            roleInputField.PlaceholderText = "e.g. role";
-            roleInputField.Size = new Size(256, 54);
-            roleInputField.TabIndex = 10;
+            positionInputField.Anchor = AnchorStyles.None;
+            positionInputField.Enabled = false;
+            positionInputField.ForeColor = Color.White;
+            positionInputField.LabelText = "Position";
+            positionInputField.Location = new Point(543, 422);
+            positionInputField.Margin = new Padding(0, 0, 0, 32);
+            positionInputField.Name = "positionInputField";
+            positionInputField.PlaceholderText = "e.g. position";
+            positionInputField.Size = new Size(256, 54);
+            positionInputField.TabIndex = 10;
             // 
             // assignedProjectsComboBoxField
             // 
@@ -220,12 +220,12 @@
             Controls.Add(dateOfBirthDateTimePicker);
             Controls.Add(citizenIdInputField);
             Controls.Add(departmentInputField);
-            Controls.Add(roleInputField);
+            Controls.Add(positionInputField);
             HeaderText = "Personal Information";
             Name = "EmployeeInformationControl";
             ReturnButtonVisible = false;
             Load += EmployeeInformationControl_Load;
-            Controls.SetChildIndex(roleInputField, 0);
+            Controls.SetChildIndex(positionInputField, 0);
             Controls.SetChildIndex(departmentInputField, 0);
             Controls.SetChildIndex(citizenIdInputField, 0);
             Controls.SetChildIndex(dateOfBirthDateTimePicker, 0);
@@ -253,7 +253,7 @@
         private PeproInputField fullNameInputField;
         private PeproInputField employeeIdInputField;
         private PeproInputField departmentInputField;
-        private PeproInputField roleInputField;
+        private PeproInputField positionInputField;
         private PeproInputField citizenIdInputField;
         private PeproComboBoxField phoneNumberComboBoxField;
         private PeproComboBoxField assignedProjectsComboBoxField;
