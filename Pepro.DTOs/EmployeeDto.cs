@@ -42,9 +42,9 @@ public class EmployeeDto {
     public string FullName {
         get {
             return string.Join(" ", new[] {
-                _lastName.Trim(),
-                _middleName?.Trim(),
-                _firstName.Trim()
+                _lastName,
+                _middleName,
+                _firstName,
             }.Where(s => !string.IsNullOrWhiteSpace(s)));
         }
     }

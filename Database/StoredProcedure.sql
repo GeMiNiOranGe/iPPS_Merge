@@ -43,28 +43,6 @@ AS BEGIN
 END
 GO
 
-CREATE OR ALTER PROCEDURE [dbo].[usp_CreateDefaultAccount]
-    @Username   VARCHAR(50),
-    @EmployeeId INT
-AS BEGIN
-    SET NOCOUNT ON
-
-    DECLARE @DefaultPassword    VARCHAR(75)
-    DECLARE @Salt               VARBINARY(Max)
-    DECLARE @HashedPassword     VARBINARY(Max)
-    DECLARE @SaltedPassword     VARCHAR(Max)
-
-    SET @DefaultPassword = @Username + '@' + Cast(@EmployeeId AS VARCHAR(Max))
-    SET @Salt            = crypt_gen_random(32)
-    SET @SaltedPassword  = @DefaultPassword + Cast(@Salt AS VARCHAR(Max))
-    SET @HashedPassword  = Cast(HashBytes('SHA2_256', @SaltedPassword) AS VARBINARY(Max))
-
-    INSERT INTO [dbo].[Account]
-            ([Username], [Password],      [Salt], [IsActive], [EmployeeId])
-    VALUES  (@Username,  @HashedPassword, @Salt,  1,          @EmployeeId)
-END
-GO
-
 CREATE OR ALTER PROCEDURE usp_XoaMaDien
     @MaDien NVARCHAR(50)
 AS BEGIN

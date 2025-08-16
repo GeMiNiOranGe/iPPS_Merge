@@ -19,6 +19,27 @@ public class AccountBusiness
 
     private AccountBusiness() { }
 
+    public int InsertDefaultAccountByEmployee(Employee employee)
+    {
+        string username = AccountHelper.GenerateDefaultUsername(employee);
+
+        byte[] defaultPassword = DefaultConverter.GetBytes(username);
+        byte[] salt = SaltGenerator.GenerateSalt(32);
+        byte[] saltedPassword = ByteHandler.Combine(defaultPassword, salt);
+        byte[] hashedPassword = Hasher.ComputeHash(saltedPassword, HashAlgorithmType.Sha256);
+
+        Account account = new()
+        {
+            AccountId = default,
+            Username = username,
+            Password = hashedPassword,
+            Salt = salt,
+            IsActive = true,
+            EmployeeId = employee.EmployeeId
+        };
+        return AccountDataAccess.Instance.InsertAccount(account);
+    }
+
     public LoginResult TryLogin(string accountName, string password)
     {
         LoginResult loginResult = new();

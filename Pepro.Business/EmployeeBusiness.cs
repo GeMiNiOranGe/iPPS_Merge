@@ -63,8 +63,12 @@ public class EmployeeBusiness
     }
 
     public int InsertEmployee(EmployeeDto dto) {
-        Employee employee = EmployeeMapper.FromDto(dto);
-        return EmployeeDataAccess.Instance.InsertEmployee(employee);
+        Employee entity = EmployeeMapper.FromDto(dto);
+        Employee? employee = EmployeeDataAccess.Instance.AddEmployee(entity);
+        if (employee == null) {
+            return 0;
+        }
+        return AccountBusiness.Instance.InsertDefaultAccountByEmployee(employee);
     }
 
     public EmployeeDto? GetEmployeeByEmployeeId(int employeeID) {
