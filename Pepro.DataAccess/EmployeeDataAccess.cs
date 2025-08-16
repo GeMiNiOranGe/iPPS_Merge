@@ -192,12 +192,100 @@ public class EmployeeDataAccess {
         }
     }
 
+    public Employee? AddEmployee(Employee employee)
+    {
+        string query = @"
+            INSERT INTO [dbo].[Employee]
+            (
+                [FirstName]
+                , [MiddleName]
+                , [LastName]
+                , [DateOfBirth]
+                , [Gender]
+                , [TaxCode]
+                , [CitizenId]
+                , [DepartmentId]
+                , [PositionId]
+                , [SalaryLevelId]
+            )
+            OUTPUT
+                Inserted.[EmployeeId]
+                , Inserted.[FirstName]
+                , Inserted.[MiddleName]
+                , Inserted.[LastName]
+                , Inserted.[DateOfBirth]
+                , Inserted.[Gender]
+                , Inserted.[TaxCode]
+                , Inserted.[CitizenId]
+                , Inserted.[DepartmentId]
+                , Inserted.[PositionId]
+                , Inserted.[SalaryLevelId]
+                , Inserted.[IsDeleted]
+            VALUES
+            (
+                @FirstName
+                , @MiddleName
+                , @LastName
+                , @DateOfBirth
+                , @Gender
+                , @TaxCode
+                , @CitizenId
+                , @DepartmentId
+                , @PositionId
+                , @SalaryLevelId
+            )
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("FirstName", SqlDbType.NVarChar, 10, employee.FirstName);
+        parameters.Add("MiddleName", SqlDbType.NVarChar, 30, employee.MiddleName);
+        parameters.Add("LastName", SqlDbType.NVarChar, 10, employee.LastName);
+        parameters.Add("DateOfBirth", SqlDbType.Date, employee.DateOfBirth);
+        parameters.Add("Gender", SqlDbType.Bit, employee.Gender);
+        parameters.Add("TaxCode", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, employee.TaxCode);
+        parameters.Add("CitizenId", SqlDbType.VarChar, 12, employee.CitizenId);
+        parameters.Add("DepartmentId", SqlDbType.VarChar, 10, employee.DepartmentId);
+        parameters.Add("PositionId", SqlDbType.Int, employee.PositionId);
+        parameters.Add("SalaryLevelId", SqlDbType.Int, employee.SalaryLevelId);
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
+        if (dataTable.Rows.Count == 0)
+        {
+            return null;
+        }
+
+        DataRow row = dataTable.Rows[0];
+        return EmployeeMapper.FromDataRow(row);
+    }
+
     public int InsertEmployee(Employee employee)
     {
         string query = @"
             INSERT INTO [dbo].[Employee]
-                    ([FirstName], [MiddleName], [LastName], [DateOfBirth], [Gender], [TaxCode], [CitizenId], [DepartmentId], [PositionId], [SalaryLevelId])
-            VALUES  (@FirstName,  @MiddleName,  @LastName,  @DateOfBirth,  @Gender,  @TaxCode,  @CitizenId,  @DepartmentId,  @PositionId,  @SalaryLevelId)
+            (
+                [FirstName]
+                , [MiddleName]
+                , [LastName]
+                , [DateOfBirth]
+                , [Gender]
+                , [TaxCode]
+                , [CitizenId]
+                , [DepartmentId]
+                , [PositionId]
+                , [SalaryLevelId]
+            )
+            VALUES
+            (
+                @FirstName
+                , @MiddleName
+                , @LastName
+                , @DateOfBirth
+                , @Gender
+                , @TaxCode
+                , @CitizenId
+                , @DepartmentId
+                , @PositionId
+                , @SalaryLevelId
+            )
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("FirstName", SqlDbType.NVarChar, 10, employee.FirstName);
