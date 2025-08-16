@@ -12,7 +12,7 @@ static class DefaultConverter {
     }
 
     public static byte[] GetBytes(string s) {
-        ArgumentException.ThrowIfNullOrEmpty(nameof(s));
+        ArgumentException.ThrowIfNullOrEmpty(s, nameof(s));
 
         return Encoding.GetEncoding(1252).GetBytes(s);
     }

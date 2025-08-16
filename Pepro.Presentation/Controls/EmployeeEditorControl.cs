@@ -161,14 +161,14 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
 
         EmployeeDto employee = new() {
             EmployeeId = employeeId,
-            FirstName = firstNameInputField.Text,
-            MiddleName = middleNameInputField.Text,
-            LastName = lastNameInputField.Text,
+            FirstName = firstNameInputField.Text.Trim(),
+            MiddleName = middleNameInputField.Text.Trim(),
+            LastName = lastNameInputField.Text.Trim(),
             DateOfBirth = dateOfBirthDateTimePicker.Value,
             Gender = gender,
             // TODO: handle `_item.TaxCode`;
             TaxCode = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            CitizenId = citizenIdInputField.Text,
+            CitizenId = citizenIdInputField.Text.Trim(),
             DepartmentId = departmentComboBoxField.SelectedValue?.ToString() ?? "",
             PositionId = positionId,
             SalaryLevelId = salaryLevelId,

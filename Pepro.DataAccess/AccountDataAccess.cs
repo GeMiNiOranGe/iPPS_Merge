@@ -15,6 +15,22 @@ public class AccountDataAccess {
 
     private AccountDataAccess() { }
 
+    public int InsertAccount(Account account) {
+        string query = @"
+            INSERT INTO [dbo].[Account]
+                    ([Username], [Password], [Salt], [IsActive], [EmployeeId])
+            VALUES  (@Username,  @Password,  @Salt,  @IsActive,  @EmployeeId)
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("Username", SqlDbType.VarChar, 255, account.Username);
+        parameters.Add("Password", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, account.Password);
+        parameters.Add("Salt", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, account.Salt);
+        parameters.Add("IsActive", SqlDbType.Bit, account.IsActive);
+        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, account.EmployeeId);
+
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
     /// <summary>
     ///     Finds an account using a flexible search value (e.g., username, or email).
     /// </summary>
