@@ -5,7 +5,7 @@ namespace Pepro.Business.Mappings;
 
 static class EmployeeMapper
 {
-    public static Employee FromDto(EmployeeDto dto)
+    public static Employee ToEntity(this EmployeeDto dto)
     {
         return new Employee()
         {
