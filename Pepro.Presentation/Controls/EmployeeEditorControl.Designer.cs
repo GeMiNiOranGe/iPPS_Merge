@@ -308,7 +308,6 @@
             // taxCodeInputField
             // 
             taxCodeInputField.Anchor = AnchorStyles.None;
-            taxCodeInputField.Enabled = false;
             taxCodeInputField.LabelText = "Tax code";
             taxCodeInputField.Location = new Point(544, 150);
             taxCodeInputField.Margin = new Padding(24, 16, 0, 16);

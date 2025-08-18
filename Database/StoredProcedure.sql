@@ -1,48 +1,6 @@
 USE [Pepro]
 GO
 
-CREATE OR ALTER PROCEDURE [dbo].[usp_InsertEmployee]
-    @FirstName          NVARCHAR(10),
-    @MiddleName         NVARCHAR(30)    = NULL,
-    @LastName           NVARCHAR(10),
-    @DateOfBirth        DATE,
-    @Gender             BIT, -- 1 is male, 0 is female and null is other
-    @TaxCode            VARCHAR(14)     = NULL,
-    @CitizenId          VARCHAR(12),
-    @PhoneNumberList    VARCHAR(MAX)    = NULL,
-    @DepartmentId       VARCHAR(10),
-    @PositionId         INT,
-    @SalaryLevelId      INT
-AS BEGIN
-    SET NOCOUNT ON
-
-    DECLARE @Separator          VARCHAR(2)
-    DECLARE @EncryptedTaxCode   VARBINARY(Max)
-    DECLARE @InsertedEmployee   TABLE (EmployeeId INT)
-    DECLARE @EmployeeId         INT
-
-    SET @Separator = ','
-
-    OPEN SYMMETRIC KEY [PeproSymKey] DECRYPTION BY PASSWORD = 'W34kP4ssw0rd@'
-    SET @EncryptedTaxCode = EncryptByKey(key_guid('PeproSymKey'), @TaxCode)
-    CLOSE SYMMETRIC KEY [PeproSymKey]
-
-    INSERT INTO [dbo].[Employee]
-            ([FirstName], [MiddleName], [LastName], [DateOfBirth], [Gender], [TaxCode],         [CitizenId], [DepartmentId], [PositionId], [SalaryLevelId])
-    OUTPUT Inserted.[EmployeeId] INTO @InsertedEmployee
-    VALUES  (@FirstName,  @MiddleName,  @LastName,  @DateOfBirth,  @Gender,  @EncryptedTaxCode, @CitizenId,  @DepartmentId,  @PositionId,  @SalaryLevelId)
-
-    SELECT @EmployeeId = EmployeeId FROM @InsertedEmployee
-    IF (@PhoneNumberList IS NOT NULL) BEGIN
-        INSERT INTO [dbo].[EmployeePhoneNumber]
-                ([PhoneNumber], [EmployeeId])
-        SELECT    value,        @EmployeeId
-        FROM string_split(@PhoneNumberList, @Separator)
-        WHERE RTrim(value) <> '';
-    END
-END
-GO
-
 CREATE OR ALTER PROCEDURE usp_XoaMaDien
     @MaDien NVARCHAR(50)
 AS BEGIN

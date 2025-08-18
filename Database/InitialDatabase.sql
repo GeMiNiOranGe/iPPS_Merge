@@ -19,12 +19,6 @@ GO
 USE [Pepro]
 GO
 
--- create security key --------------------------
-CREATE SYMMETRIC KEY PeproSymKey
-    WITH ALGORITHM = AES_256
-    ENCRYPTION BY PASSWORD = 'W34kP4ssw0rd@'
-GO
-
 -- have no key ----------------------------------
 CREATE TABLE [dbo].[Department] (
     [DepartmentId]  [varchar](10)   NOT NULL,

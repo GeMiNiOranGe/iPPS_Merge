@@ -1,3 +1,4 @@
+using Pepro.Business.Utilities;
 using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 
@@ -15,7 +16,7 @@ static class EmployeeMapper
             LastName = dto.LastName,
             DateOfBirth = dto.DateOfBirth,
             Gender = dto.Gender,
-            TaxCode = dto.TaxCode,
+            TaxCode = EncryptionConverter.EncryptFromString(dto.TaxCode),
             CitizenId = dto.CitizenId,
             DepartmentId = dto.DepartmentId,
             PositionId = dto.PositionId,
@@ -33,7 +34,7 @@ static class EmployeeMapper
             LastName = entity.LastName,
             DateOfBirth = entity.DateOfBirth,
             Gender = entity.Gender,
-            TaxCode = entity.TaxCode,
+            TaxCode = EncryptionConverter.DecryptToString(entity.TaxCode),
             CitizenId = entity.CitizenId,
             DepartmentId = entity.DepartmentId,
             PositionId = entity.PositionId,
