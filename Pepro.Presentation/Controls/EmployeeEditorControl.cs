@@ -35,8 +35,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
                 _ => otherRadioButton,
             };
             genderRadioButton.Checked = true;
-            // TODO: handle `_item.TaxCode`;
-            taxCodeInputField.Text = "0000000000";
+            taxCodeInputField.Text = _item.TaxCode;
             citizenIdInputField.Text = _item.CitizenId;
         }
     }
@@ -166,8 +165,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             LastName = lastNameInputField.Text.Trim(),
             DateOfBirth = dateOfBirthDateTimePicker.Value,
             Gender = gender,
-            // TODO: handle `_item.TaxCode`;
-            TaxCode = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            TaxCode = taxCodeInputField.Text.Trim(),
             CitizenId = citizenIdInputField.Text.Trim(),
             DepartmentId = departmentComboBoxField.SelectedValue?.ToString() ?? "",
             PositionId = positionId,

@@ -3,9 +3,9 @@
 namespace Pepro.Business.Security;
 
 static class SaltGenerator {
-    public static byte[] GenerateSalt(int saltSize) {
+    public static byte[] GenerateSalt(int size) {
         using RandomNumberGenerator generator = RandomNumberGenerator.Create();
-        var salt = new byte[saltSize];
+        byte[] salt = new byte[size];
         generator.GetBytes(salt);
         return salt;
     }
