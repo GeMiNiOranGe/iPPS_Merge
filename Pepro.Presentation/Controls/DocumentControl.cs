@@ -81,19 +81,11 @@ public partial class DocumentControl : PeproCrudControlBase
 
     private void DeleteButton_Click(object sender, EventArgs e)
     {
-        string documentId = documentIdInputField.Text;
-        if (string.IsNullOrEmpty(documentId))
-        {
-            MessageBoxWrapper.ShowInformation("SelectDocument");
-            return;
-        }
-
-        if (MessageBoxWrapper.ConfirmDelete() == DialogResult.Yes)
-        {
-            int numberOfRowsAffected = DocumentBusiness.Instance.DeleteDocument(documentId);
-            MessageBoxWrapper.ShowInformation("DeleteDocumentSuccess", numberOfRowsAffected);
-            LoadDocuments();
-        }
+        BindDeleteButtonClick<DocumentDto>(
+            documentDataGridView,
+            (item) => DocumentBusiness.Instance.DeleteDocument(item.DocumentId),
+            LoadDocuments
+        );
     }
 
     private void SearchButton_Click(object sender, EventArgs e)

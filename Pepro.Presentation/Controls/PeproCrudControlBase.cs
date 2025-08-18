@@ -54,4 +54,34 @@ public class PeproCrudControlBase : PeproMediatedUserControl
             }
         );
     }
+
+    protected static void BindDeleteButtonClick<ItemType>(
+        DataGridView dataGridView,
+        Func<ItemType, int> onDelete,
+        Action? onDataChanged
+    )
+    {
+        if (dataGridView.CurrentRow == null)
+        {
+            MessageBoxWrapper.ShowInformation("SelectData");
+            return;
+        }
+
+        DataGridViewRow row = dataGridView.CurrentRow;
+        if (row.DataBoundItem is not ItemType item)
+        {
+            MessageBoxWrapper.ShowError("DataReadError");
+            return;
+        }
+
+        if (MessageBoxWrapper.ConfirmDelete() == DialogResult.Yes)
+        {
+            int numberOfRowsAffected = onDelete(item);
+            MessageBoxWrapper.ShowInformation(
+                "DeleteSuccess",
+                numberOfRowsAffected
+            );
+            onDataChanged?.Invoke();
+        }
+    }
 }

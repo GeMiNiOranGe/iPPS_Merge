@@ -85,21 +85,11 @@ public partial class EmployeeControl : PeproCrudControlBase {
     }
 
     private void DeleteButton_Click(object sender, EventArgs e) {
-        string employeeId = employeeIdInputField.Text;
-        if (string.IsNullOrEmpty(employeeId)) {
-            MessageBoxWrapper.ShowInformation("SelectEmployee");
-            return;
-        }
-
-        if (!int.TryParse(employeeIdInputField.Text, out int id)) {
-            return;
-        }
-
-        if (MessageBoxWrapper.ConfirmDelete() == DialogResult.Yes) {
-            int numberOfRowsAffected = EmployeeBusiness.Instance.DeleteEmployee(id);
-            MessageBoxWrapper.ShowInformation("DeleteEmployeeSuccess", numberOfRowsAffected);
-            LoadEmployees();
-        }
+        BindDeleteButtonClick<EmployeeDto>(
+            employeeDataGridView,
+            (item) => EmployeeBusiness.Instance.DeleteEmployee(item.EmployeeId),
+            LoadEmployees
+        );
     }
 
     private void ExportButton_Click(object sender, EventArgs e) {

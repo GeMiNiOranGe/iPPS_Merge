@@ -9,10 +9,9 @@ public static class MessageBoxWrapper
         {
             "SelectData" => "Vui lòng chọn trường dữ liệu",
             "DataReadError" => "Không thể đọc dữ liệu",
+            "DeleteSuccess" => "Đã xóa {0} dữ liệu thành công",
             "SelectDocument" => "Vui lòng chọn tài liệu để xoá",
             "SelectEmployee" => "Vui lòng chọn nhân viên để xoá",
-            "DeleteDocumentSuccess" => "Xóa {0} tài liệu thành công",
-            "DeleteEmployeeSuccess" => "Xóa {0} nhân viên thành công",
             "ConfirmDelete" => "Bạn có chắc muốn xóa không?",
             "TreasureFoundPremiumUnlock" => "Ôi trời, bạn vừa mới tìm thấy kho báu đấy, mua premium đi, rồi chúng tôi mở khóa tính năng này",
             "TreasureFoundPremiumUnlock1" => "Hay quá ta, tính năng này chưa được phát triển, cái nút chỉ để cho vui thôi :))) mua premium đi",
