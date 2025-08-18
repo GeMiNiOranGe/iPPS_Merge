@@ -29,6 +29,14 @@
         private void InitializeComponent() {
             searchTextBox = new TextBox();
             employeeDataGridView = new DataGridView();
+            fullNameColumn = new DataGridViewTextBoxColumn();
+            dateOfBirthColumn = new DataGridViewTextBoxColumn();
+            genderColumn = new DataGridViewTextBoxColumn();
+            taxCodeColumn = new DataGridViewTextBoxColumn();
+            citizenIdColumn = new DataGridViewTextBoxColumn();
+            departmentIdColumn = new DataGridViewTextBoxColumn();
+            positionIdColumn = new DataGridViewTextBoxColumn();
+            salaryLevelIdColumn = new DataGridViewTextBoxColumn();
             employeeIdInputField = new PeproInputField();
             numberOfEmployeesInputField = new PeproInputField();
             employeeNameInputField = new PeproInputField();
@@ -38,20 +46,11 @@
             deleteButton = new Button();
             updateButton = new Button();
             insertButton = new Button();
-            fullNameColumn = new DataGridViewTextBoxColumn();
-            dateOfBirthColumn = new DataGridViewTextBoxColumn();
-            genderColumn = new DataGridViewTextBoxColumn();
-            taxCodeColumn = new DataGridViewTextBoxColumn();
-            citizenIdColumn = new DataGridViewTextBoxColumn();
-            departmentIdColumn = new DataGridViewTextBoxColumn();
-            positionIdColumn = new DataGridViewTextBoxColumn();
-            salaryLevelIdColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)employeeDataGridView).BeginInit();
             SuspendLayout();
             // 
             // searchTextBox
             // 
-            searchTextBox.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             searchTextBox.Location = new Point(16, 142);
             searchTextBox.Margin = new Padding(3, 2, 3, 2);
             searchTextBox.Name = "searchTextBox";
@@ -83,6 +82,70 @@
             employeeDataGridView.TabIndex = 8;
             employeeDataGridView.CellClick += EmployeeDataGridView_CellClick;
             employeeDataGridView.DataBindingComplete += EmployeeDataGridView_DataBindingComplete;
+            // 
+            // fullNameColumn
+            // 
+            fullNameColumn.DataPropertyName = "FullName";
+            fullNameColumn.HeaderText = "Tên đầy đủ";
+            fullNameColumn.Name = "fullNameColumn";
+            fullNameColumn.ReadOnly = true;
+            fullNameColumn.Width = 101;
+            // 
+            // dateOfBirthColumn
+            // 
+            dateOfBirthColumn.DataPropertyName = "DateOfBirth";
+            dateOfBirthColumn.HeaderText = "Ngày sinh";
+            dateOfBirthColumn.Name = "dateOfBirthColumn";
+            dateOfBirthColumn.ReadOnly = true;
+            dateOfBirthColumn.Width = 95;
+            // 
+            // genderColumn
+            // 
+            genderColumn.DataPropertyName = "Gender";
+            genderColumn.HeaderText = "Giới tính";
+            genderColumn.Name = "genderColumn";
+            genderColumn.ReadOnly = true;
+            genderColumn.Width = 86;
+            // 
+            // taxCodeColumn
+            // 
+            taxCodeColumn.DataPropertyName = "TaxCode";
+            taxCodeColumn.HeaderText = "Mã số thuế";
+            taxCodeColumn.Name = "taxCodeColumn";
+            taxCodeColumn.ReadOnly = true;
+            taxCodeColumn.Width = 104;
+            // 
+            // citizenIdColumn
+            // 
+            citizenIdColumn.DataPropertyName = "CitizenId";
+            citizenIdColumn.HeaderText = "Căn cước";
+            citizenIdColumn.Name = "citizenIdColumn";
+            citizenIdColumn.ReadOnly = true;
+            citizenIdColumn.Width = 90;
+            // 
+            // departmentIdColumn
+            // 
+            departmentIdColumn.DataPropertyName = "DepartmentId";
+            departmentIdColumn.HeaderText = "Mã phòng ban";
+            departmentIdColumn.Name = "departmentIdColumn";
+            departmentIdColumn.ReadOnly = true;
+            departmentIdColumn.Width = 125;
+            // 
+            // positionIdColumn
+            // 
+            positionIdColumn.DataPropertyName = "PositionId";
+            positionIdColumn.HeaderText = "Mã chức vụ";
+            positionIdColumn.Name = "positionIdColumn";
+            positionIdColumn.ReadOnly = true;
+            positionIdColumn.Width = 105;
+            // 
+            // salaryLevelIdColumn
+            // 
+            salaryLevelIdColumn.DataPropertyName = "SalaryLevelId";
+            salaryLevelIdColumn.HeaderText = "Mã bậc lương ";
+            salaryLevelIdColumn.Name = "salaryLevelIdColumn";
+            salaryLevelIdColumn.ReadOnly = true;
+            salaryLevelIdColumn.Width = 122;
             // 
             // employeeIdInputField
             // 
@@ -190,70 +253,6 @@
             insertButton.TabIndex = 7;
             insertButton.Text = " Add";
             insertButton.Click += InsertButton_Click;
-            // 
-            // fullNameColumn
-            // 
-            fullNameColumn.DataPropertyName = "FullName";
-            fullNameColumn.HeaderText = "Tên đầy đủ";
-            fullNameColumn.Name = "fullNameColumn";
-            fullNameColumn.ReadOnly = true;
-            fullNameColumn.Width = 101;
-            // 
-            // dateOfBirthColumn
-            // 
-            dateOfBirthColumn.DataPropertyName = "DateOfBirth";
-            dateOfBirthColumn.HeaderText = "Ngày sinh";
-            dateOfBirthColumn.Name = "dateOfBirthColumn";
-            dateOfBirthColumn.ReadOnly = true;
-            dateOfBirthColumn.Width = 95;
-            // 
-            // genderColumn
-            // 
-            genderColumn.DataPropertyName = "Gender";
-            genderColumn.HeaderText = "Giới tính";
-            genderColumn.Name = "genderColumn";
-            genderColumn.ReadOnly = true;
-            genderColumn.Width = 86;
-            // 
-            // taxCodeColumn
-            // 
-            taxCodeColumn.DataPropertyName = "TaxCode";
-            taxCodeColumn.HeaderText = "Mã số thuế";
-            taxCodeColumn.Name = "taxCodeColumn";
-            taxCodeColumn.ReadOnly = true;
-            taxCodeColumn.Width = 104;
-            // 
-            // citizenIdColumn
-            // 
-            citizenIdColumn.DataPropertyName = "CitizenId";
-            citizenIdColumn.HeaderText = "Căn cước";
-            citizenIdColumn.Name = "citizenIdColumn";
-            citizenIdColumn.ReadOnly = true;
-            citizenIdColumn.Width = 90;
-            // 
-            // departmentIdColumn
-            // 
-            departmentIdColumn.DataPropertyName = "DepartmentId";
-            departmentIdColumn.HeaderText = "Mã phòng ban";
-            departmentIdColumn.Name = "departmentIdColumn";
-            departmentIdColumn.ReadOnly = true;
-            departmentIdColumn.Width = 125;
-            // 
-            // positionIdColumn
-            // 
-            positionIdColumn.DataPropertyName = "PositionId";
-            positionIdColumn.HeaderText = "Mã chức vụ";
-            positionIdColumn.Name = "positionIdColumn";
-            positionIdColumn.ReadOnly = true;
-            positionIdColumn.Width = 105;
-            // 
-            // salaryLevelIdColumn
-            // 
-            salaryLevelIdColumn.DataPropertyName = "SalaryLevelId";
-            salaryLevelIdColumn.HeaderText = "Mã bậc lương ";
-            salaryLevelIdColumn.Name = "salaryLevelIdColumn";
-            salaryLevelIdColumn.ReadOnly = true;
-            salaryLevelIdColumn.Width = 122;
             // 
             // EmployeeControl
             // 
