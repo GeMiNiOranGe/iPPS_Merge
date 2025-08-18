@@ -9,7 +9,7 @@ public class EmployeeDto {
     private string _lastName = "";
     private DateTime _dateOfBirth;
     private bool? _gender;
-    private byte[]? _taxCode;
+    private string? _taxCode;
     private string _citizenId = "";
     private string _departmentId = "";
     private int _PositionId;
@@ -59,7 +59,7 @@ public class EmployeeDto {
         set => _gender = value;
     }
 
-    public byte[]? TaxCode {
+    public string? TaxCode {
         get => _taxCode;
         set => _taxCode = value;
     }
