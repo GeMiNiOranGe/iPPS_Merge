@@ -139,13 +139,11 @@
             // 
             // searchTextBox
             // 
-            searchTextBox.BorderStyle = BorderStyle.None;
-            searchTextBox.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            searchTextBox.Location = new Point(16, 224);
+            searchTextBox.Location = new Point(16, 219);
             searchTextBox.Margin = new Padding(2);
             searchTextBox.Name = "searchTextBox";
             searchTextBox.PlaceholderText = "Search for document title, id, and assignment id";
-            searchTextBox.Size = new Size(432, 19);
+            searchTextBox.Size = new Size(432, 26);
             searchTextBox.TabIndex = 1;
             // 
             // searchButton
