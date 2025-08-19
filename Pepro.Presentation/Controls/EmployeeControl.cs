@@ -25,14 +25,14 @@ public partial class EmployeeControl : PeproCrudControlBase {
         exportButton.ApplyFlatStyle();
     }
 
-    private void EmployeeControl_Load(object sender, EventArgs e) {
-        LoadEmployees();
-    }
-
     public void LoadEmployees() {
         List<EmployeeDto> employees = EmployeeBusiness.Instance.GetEmployees();
         employeeDataGridView.DataSource = employees;
         numberOfEmployeesInputField.Text = employees.Count.ToString();
+    }
+
+    private void EmployeeControl_Load(object sender, EventArgs e) {
+        LoadEmployees();
     }
 
     private void EmployeeDataGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
@@ -55,13 +55,12 @@ public partial class EmployeeControl : PeproCrudControlBase {
     }
 
     private void SearchButton_Click(object sender, EventArgs e) {
-        if (string.IsNullOrEmpty(searchTextBox.Text)) {
-            MessageBox.Show("Vui lòng nhập thông tin cần tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            return;
-        }
-        List<EmployeeDto> employees = EmployeeBusiness.Instance.SearchEmployees(searchTextBox.Text);
-        employeeDataGridView.DataSource = employees;
-        numberOfEmployeesInputField.Text = employees.Count.ToString();
+        BindSearchButtonClick(
+            searchTextBox.Text,
+            employeeDataGridView,
+            EmployeeBusiness.Instance.SearchEmployees,
+            (items) => numberOfEmployeesInputField.Text = items.Count.ToString()
+        );
     }
 
     private void ReloadButton_Click(object sender, EventArgs e) {
