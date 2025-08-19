@@ -28,14 +28,14 @@ public partial class DocumentControl : PeproCrudControlBase
         downloadButton.ApplyFlatStyle();
     }
 
-    private void DocumentControl_Load(object sender, EventArgs e)
-    {
-        LoadDocuments();
-    }
-
     private void LoadDocuments()
     {
         documentDataGridView.DataSource = DocumentBusiness.Instance.GetDocuments();
+    }
+
+    private void DocumentControl_Load(object sender, EventArgs e)
+    {
+        LoadDocuments();
     }
 
     private void DocumentDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -59,6 +59,20 @@ public partial class DocumentControl : PeproCrudControlBase
     private void DocumentDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
         documentDataGridView.ClearSelection();
         documentDataGridView.CurrentCell = null;
+    }
+
+    private void SearchButton_Click(object sender, EventArgs e)
+    {
+        BindSearchButtonClick(
+            searchTextBox.Text,
+            documentDataGridView,
+            DocumentBusiness.Instance.SearchDocuments
+        );
+    }
+
+    private void ReloadButton_Click(object sender, EventArgs e)
+    {
+        LoadDocuments();
     }
 
     private void InsertButton_Click(object sender, EventArgs e)
@@ -86,16 +100,6 @@ public partial class DocumentControl : PeproCrudControlBase
             (item) => DocumentBusiness.Instance.DeleteDocument(item.DocumentId),
             LoadDocuments
         );
-    }
-
-    private void SearchButton_Click(object sender, EventArgs e)
-    {
-        documentDataGridView.DataSource = DocumentBusiness.Instance.SearchDocuments(searchTextBox.Text);
-    }
-
-    private void ReloadButton_Click(object sender, EventArgs e)
-    {
-        LoadDocuments();
     }
 
     private void DownloadButton_Click(object sender, EventArgs e)
