@@ -1,4 +1,6 @@
-﻿namespace Pepro.DTOs;
+﻿using System.ComponentModel;
+
+namespace Pepro.DTOs;
 
 public class DocumentDto {
     private int _documentId;
@@ -13,6 +15,7 @@ public class DocumentDto {
     private string _approvedBy = "";
     private int _assignmentId;
 
+    [Browsable(false)]
     public int DocumentId {
         get => _documentId;
         set => _documentId = value;
