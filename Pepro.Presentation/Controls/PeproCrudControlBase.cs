@@ -6,6 +6,22 @@ public class PeproCrudControlBase : PeproMediatedUserControl
 
     public PeproCrudControlBase(IMediator mediator) : base(mediator) { }
 
+    protected static void BindSearchButtonClick<ItemType>(
+        string keyword,
+        DataGridView dataGridView,
+        Func<string, List<ItemType>> onSearch,
+        Action<List<ItemType>>? onSearchCompleted = null
+    )
+    {
+        if (string.IsNullOrEmpty(keyword))
+        {
+            return;
+        }
+        List<ItemType> items = onSearch(keyword);
+        dataGridView.DataSource = items;
+        onSearchCompleted?.Invoke(items);
+    }
+
     protected void BindInsertButtonClick<ItemType>(
         ItemType item,
         ControlUiEvent uiEvent,
