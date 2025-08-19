@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent() {
             searchTextBox = new TextBox();
-            employeeDataGridView = new DataGridView();
+            employeeDataGridView = new PeproDataGridView();
             fullNameColumn = new DataGridViewTextBoxColumn();
             dateOfBirthColumn = new DataGridViewTextBoxColumn();
             genderColumn = new DataGridViewTextBoxColumn();
@@ -60,28 +60,14 @@
             // 
             // employeeDataGridView
             // 
-            employeeDataGridView.AllowUserToAddRows = false;
-            employeeDataGridView.AllowUserToDeleteRows = false;
-            employeeDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            employeeDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            employeeDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            employeeDataGridView.BackgroundColor = Color.FromArgb(15, 15, 15);
-            employeeDataGridView.BorderStyle = BorderStyle.Fixed3D;
             employeeDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             employeeDataGridView.Columns.AddRange(new DataGridViewColumn[] { fullNameColumn, dateOfBirthColumn, genderColumn, taxCodeColumn, citizenIdColumn, departmentIdColumn, positionIdColumn, salaryLevelIdColumn });
-            employeeDataGridView.EnableHeadersVisualStyles = false;
             employeeDataGridView.Location = new Point(16, 190);
             employeeDataGridView.Margin = new Padding(16);
             employeeDataGridView.Name = "employeeDataGridView";
-            employeeDataGridView.ReadOnly = true;
-            employeeDataGridView.RowHeadersVisible = false;
-            employeeDataGridView.RowHeadersWidth = 51;
-            employeeDataGridView.RowTemplate.Height = 24;
-            employeeDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             employeeDataGridView.Size = new Size(1032, 475);
             employeeDataGridView.TabIndex = 8;
             employeeDataGridView.CellClick += EmployeeDataGridView_CellClick;
-            employeeDataGridView.DataBindingComplete += EmployeeDataGridView_DataBindingComplete;
             // 
             // fullNameColumn
             // 
@@ -258,7 +244,6 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(15, 15, 15);
             Controls.Add(employeeDataGridView);
             Controls.Add(insertButton);
             Controls.Add(updateButton);
@@ -294,7 +279,7 @@
 
         #endregion
         private TextBox searchTextBox;
-        private DataGridView employeeDataGridView;
+        private PeproDataGridView employeeDataGridView;
         private PeproInputField employeeIdInputField;
         private PeproInputField numberOfEmployeesInputField;
         private PeproInputField employeeNameInputField;

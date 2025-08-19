@@ -56,11 +56,6 @@ public partial class DocumentControl : PeproCrudControlBase
         }
     }
 
-    private void DocumentDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
-        documentDataGridView.ClearSelection();
-        documentDataGridView.CurrentCell = null;
-    }
-
     private void SearchButton_Click(object sender, EventArgs e)
     {
         BindSearchButtonClick(

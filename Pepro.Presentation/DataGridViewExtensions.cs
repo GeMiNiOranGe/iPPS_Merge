@@ -7,14 +7,12 @@ public static class DataGridViewExtensions {
         };
 
         dataGridView.ColumnHeadersDefaultCellStyle = new() {
-            Alignment = DataGridViewContentAlignment.MiddleCenter,
             BackColor = ThemeColors.Accent.Base,
             Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel),
-            ForeColor = Color.White,
+            WrapMode = DataGridViewTriState.False,
         };
 
         dataGridView.DefaultCellStyle = new () {
-            Alignment = DataGridViewContentAlignment.MiddleLeft,
             BackColor = ThemeColors.Background.Base,
             Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Pixel),
             ForeColor = Color.White,
@@ -22,5 +20,14 @@ public static class DataGridViewExtensions {
             SelectionForeColor = ThemeColors.Text,
             WrapMode = DataGridViewTriState.True,
         };
+
+        dataGridView.RowHeadersDefaultCellStyle = new() {
+            BackColor = dataGridView.ColumnHeadersDefaultCellStyle.BackColor,
+            ForeColor = dataGridView.DefaultCellStyle.ForeColor,
+        };
+
+        // Applies to newly created rows (typically when binding data or adding
+        // a row manually). It can also override DefaultCellStyle.Padding.
+        dataGridView.RowTemplate.DefaultCellStyle.Padding = new Padding(4);
     }
 }

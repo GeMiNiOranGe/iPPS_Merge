@@ -40,18 +40,17 @@
             deleteButton = new Button();
             updateButton = new Button();
             insertButton = new Button();
-            documentDataGridView = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
-            Column8 = new DataGridViewTextBoxColumn();
-            Column9 = new DataGridViewTextBoxColumn();
-            Column10 = new DataGridViewTextBoxColumn();
-            Column11 = new DataGridViewTextBoxColumn();
+            documentDataGridView = new PeproDataGridView();
+            titleColumn = new DataGridViewTextBoxColumn();
+            createAtColumn = new DataGridViewTextBoxColumn();
+            revisionNumberColumn = new DataGridViewTextBoxColumn();
+            revisionStatusColumn = new DataGridViewTextBoxColumn();
+            documentUrlColumn = new DataGridViewTextBoxColumn();
+            nativeFileFormatColumn = new DataGridViewTextBoxColumn();
+            preparedByColumn = new DataGridViewTextBoxColumn();
+            checkedByColumn = new DataGridViewTextBoxColumn();
+            approvedByColumn = new DataGridViewTextBoxColumn();
+            assignmentIdColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)documentDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -218,116 +217,94 @@
             // 
             // documentDataGridView
             // 
-            documentDataGridView.AllowUserToAddRows = false;
-            documentDataGridView.AllowUserToDeleteRows = false;
-            documentDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            documentDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            documentDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            documentDataGridView.BackgroundColor = Color.FromArgb(15, 15, 15);
-            documentDataGridView.BorderStyle = BorderStyle.Fixed3D;
             documentDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            documentDataGridView.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11 });
-            documentDataGridView.EnableHeadersVisualStyles = false;
+            documentDataGridView.Columns.AddRange(new DataGridViewColumn[] { titleColumn, createAtColumn, revisionNumberColumn, revisionStatusColumn, documentUrlColumn, nativeFileFormatColumn, preparedByColumn, checkedByColumn, approvedByColumn, assignmentIdColumn });
             documentDataGridView.Location = new Point(16, 268);
             documentDataGridView.Margin = new Padding(16);
             documentDataGridView.Name = "documentDataGridView";
-            documentDataGridView.ReadOnly = true;
-            documentDataGridView.RowHeadersVisible = false;
-            documentDataGridView.RowHeadersWidth = 51;
-            documentDataGridView.RowTemplate.Height = 24;
-            documentDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             documentDataGridView.Size = new Size(1032, 397);
             documentDataGridView.TabIndex = 8;
             documentDataGridView.CellClick += DocumentDataGridView_CellClick;
-            documentDataGridView.DataBindingComplete += DocumentDataGridView_DataBindingComplete;
             // 
-            // Column1
+            // titleColumn
             // 
-            Column1.DataPropertyName = "DocumentId";
-            Column1.HeaderText = "Mã";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 54;
+            titleColumn.DataPropertyName = "Title";
+            titleColumn.HeaderText = "Tiêu đề";
+            titleColumn.Name = "titleColumn";
+            titleColumn.ReadOnly = true;
+            titleColumn.Width = 78;
             // 
-            // Column2
+            // createAtColumn
             // 
-            Column2.DataPropertyName = "Title";
-            Column2.HeaderText = "Tiêu đề";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 59;
+            createAtColumn.DataPropertyName = "CreateAt";
+            createAtColumn.HeaderText = "Ngày tạo";
+            createAtColumn.Name = "createAtColumn";
+            createAtColumn.ReadOnly = true;
+            createAtColumn.Width = 90;
             // 
-            // Column3
+            // revisionNumberColumn
             // 
-            Column3.DataPropertyName = "CreateAt";
-            Column3.HeaderText = "Ngày tạo";
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.Width = 83;
+            revisionNumberColumn.DataPropertyName = "RevisionNumber";
+            revisionNumberColumn.HeaderText = "Số sửa đổi";
+            revisionNumberColumn.Name = "revisionNumberColumn";
+            revisionNumberColumn.ReadOnly = true;
+            revisionNumberColumn.Width = 97;
             // 
-            // Column4
+            // revisionStatusColumn
             // 
-            Column4.DataPropertyName = "RevisionNumber";
-            Column4.HeaderText = "Số sửa đổi";
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Width = 89;
+            revisionStatusColumn.DataPropertyName = "RevisionStatus";
+            revisionStatusColumn.HeaderText = "Loại sửa đổi";
+            revisionStatusColumn.Name = "revisionStatusColumn";
+            revisionStatusColumn.ReadOnly = true;
+            revisionStatusColumn.Width = 107;
             // 
-            // Column5
+            // documentUrlColumn
             // 
-            Column5.DataPropertyName = "RevisionStatus";
-            Column5.HeaderText = "Loại sửa đổi";
-            Column5.Name = "Column5";
-            Column5.ReadOnly = true;
-            Column5.Width = 81;
+            documentUrlColumn.DataPropertyName = "DocumentUrl";
+            documentUrlColumn.HeaderText = "Đường dẫn tài liệu";
+            documentUrlColumn.Name = "documentUrlColumn";
+            documentUrlColumn.ReadOnly = true;
+            documentUrlColumn.Width = 115;
             // 
-            // Column6
+            // nativeFileFormatColumn
             // 
-            Column6.DataPropertyName = "DocumentUrl";
-            Column6.HeaderText = "Đường dẫn tài liệu";
-            Column6.Name = "Column6";
-            Column6.ReadOnly = true;
-            Column6.Width = 115;
+            nativeFileFormatColumn.DataPropertyName = "NativeFileFormat";
+            nativeFileFormatColumn.HeaderText = "loại tệp gốc";
+            nativeFileFormatColumn.Name = "nativeFileFormatColumn";
+            nativeFileFormatColumn.ReadOnly = true;
+            nativeFileFormatColumn.Width = 97;
             // 
-            // Column7
+            // preparedByColumn
             // 
-            Column7.DataPropertyName = "NativeFileFormat";
-            Column7.HeaderText = "loại tệp gốc";
-            Column7.Name = "Column7";
-            Column7.ReadOnly = true;
-            Column7.Width = 97;
+            preparedByColumn.DataPropertyName = "PreparedBy";
+            preparedByColumn.HeaderText = "Chuẩn bị bởi";
+            preparedByColumn.Name = "preparedByColumn";
+            preparedByColumn.ReadOnly = true;
+            preparedByColumn.Width = 86;
             // 
-            // Column8
+            // checkedByColumn
             // 
-            Column8.DataPropertyName = "PreparedBy";
-            Column8.HeaderText = "Chuẩn bị bởi";
-            Column8.Name = "Column8";
-            Column8.ReadOnly = true;
-            Column8.Width = 86;
+            checkedByColumn.DataPropertyName = "CheckedBy";
+            checkedByColumn.HeaderText = "Kiểm tra bởi";
+            checkedByColumn.Name = "checkedByColumn";
+            checkedByColumn.ReadOnly = true;
+            checkedByColumn.Width = 82;
             // 
-            // Column9
+            // approvedByColumn
             // 
-            Column9.DataPropertyName = "CheckedBy";
-            Column9.HeaderText = "Kiểm tra bởi";
-            Column9.Name = "Column9";
-            Column9.ReadOnly = true;
-            Column9.Width = 82;
+            approvedByColumn.DataPropertyName = "ApprovedBy";
+            approvedByColumn.HeaderText = "Chấp thuận bởi";
+            approvedByColumn.Name = "approvedByColumn";
+            approvedByColumn.ReadOnly = true;
+            approvedByColumn.Width = 101;
             // 
-            // Column10
+            // assignmentIdColumn
             // 
-            Column10.DataPropertyName = "ApprovedBy";
-            Column10.HeaderText = "Chấp thuận bởi";
-            Column10.Name = "Column10";
-            Column10.ReadOnly = true;
-            Column10.Width = 101;
-            // 
-            // Column11
-            // 
-            Column11.DataPropertyName = "AssignmentId";
-            Column11.HeaderText = "Mã nhiệm vụ";
-            Column11.Name = "Column11";
-            Column11.ReadOnly = true;
-            Column11.Width = 92;
+            assignmentIdColumn.DataPropertyName = "AssignmentId";
+            assignmentIdColumn.HeaderText = "Mã nhiệm vụ";
+            assignmentIdColumn.Name = "assignmentIdColumn";
+            assignmentIdColumn.ReadOnly = true;
+            assignmentIdColumn.Width = 92;
             // 
             // DocumentControl
             // 
@@ -374,23 +351,12 @@
 
         #endregion
 
-        private DataGridView documentDataGridView;
+        private PeproDataGridView documentDataGridView;
         private Button insertButton;
         private Button deleteButton;
         private Button updateButton;
         private Button searchButton;
         private Button reloadButton;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column7;
-        private DataGridViewTextBoxColumn Column8;
-        private DataGridViewTextBoxColumn Column9;
-        private DataGridViewTextBoxColumn Column10;
-        private DataGridViewTextBoxColumn Column11;
         private Button downloadButton;
         private TextBox searchTextBox;
         private PeproInputField documentIdInputField;
@@ -399,5 +365,15 @@
         private PeproInputField fileTypeInputField;
         private PeproInputField projectNameInputField;
         private PeproInputField assignmentNameInputField;
+        private DataGridViewTextBoxColumn titleColumn;
+        private DataGridViewTextBoxColumn createAtColumn;
+        private DataGridViewTextBoxColumn revisionNumberColumn;
+        private DataGridViewTextBoxColumn revisionStatusColumn;
+        private DataGridViewTextBoxColumn documentUrlColumn;
+        private DataGridViewTextBoxColumn nativeFileFormatColumn;
+        private DataGridViewTextBoxColumn preparedByColumn;
+        private DataGridViewTextBoxColumn checkedByColumn;
+        private DataGridViewTextBoxColumn approvedByColumn;
+        private DataGridViewTextBoxColumn assignmentIdColumn;
     }
 }

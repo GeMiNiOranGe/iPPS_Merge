@@ -49,11 +49,6 @@ public partial class EmployeeControl : PeproCrudControlBase {
         }
     }
 
-    private void EmployeeDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
-        employeeDataGridView.ClearSelection();
-        employeeDataGridView.CurrentCell = null;
-    }
-
     private void SearchButton_Click(object sender, EventArgs e) {
         BindSearchButtonClick(
             searchTextBox.Text,
