@@ -6,6 +6,26 @@ public class PeproCrudControlBase : PeproMediatedUserControl
 
     public PeproCrudControlBase(IMediator mediator) : base(mediator) { }
 
+    protected static void BindDataGridViewCellClick<ItemType>(
+        DataGridView dataGridView,
+        DataGridViewCellEventArgs e,
+        Action<ItemType>? onCellClicked = null
+    )
+    {
+        // Ignore clicks on the column header or invalid row indices
+        if (e.RowIndex < 0 || e.RowIndex >= dataGridView.Rows.Count)
+        {
+            return;
+        }
+
+        DataGridViewRow row = dataGridView.Rows[e.RowIndex];
+
+        if (row.DataBoundItem is ItemType item)
+        {
+            onCellClicked?.Invoke(item);
+        }
+    }
+
     protected static void BindSearchButtonClick<ItemType>(
         string keyword,
         DataGridView dataGridView,
