@@ -25,7 +25,7 @@ public partial class EmployeeControl : PeproCrudControlBase {
         exportButton.ApplyFlatStyle();
     }
 
-    public void LoadEmployees() {
+    private void LoadEmployees() {
         List<EmployeeDto> employees = EmployeeBusiness.Instance.GetEmployees();
         employeeDataGridView.DataSource = employees;
         numberOfEmployeesInputField.Text = employees.Count.ToString();
@@ -36,17 +36,15 @@ public partial class EmployeeControl : PeproCrudControlBase {
     }
 
     private void EmployeeDataGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
-        // Ignore clicks on the column header or invalid row indices
-        if (e.RowIndex < 0 || e.RowIndex >= employeeDataGridView.Rows.Count) {
-            return;
-        }
-
-        DataGridViewRow row = employeeDataGridView.Rows[e.RowIndex];
-
-        if (row.DataBoundItem is EmployeeDto employee) {
-            employeeIdInputField.Text = employee.EmployeeId.ToString();
-            employeeNameInputField.Text = employee.FullName;
-        }
+        BindDataGridViewCellClick<EmployeeDto>(
+            (DataGridView)sender,
+            e,
+            (item) =>
+            {
+                employeeIdInputField.Text = item.EmployeeId.ToString();
+                employeeNameInputField.Text = item.FullName;
+            }
+        );
     }
 
     private void SearchButton_Click(object sender, EventArgs e) {

@@ -40,20 +40,16 @@ public partial class DocumentControl : PeproCrudControlBase
 
     private void DocumentDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-        // Ignore clicks on the column header or invalid row indices
-        if (e.RowIndex < 0 || e.RowIndex >= documentDataGridView.Rows.Count)
-        {
-            return;
-        }
-
-        DataGridViewRow row = documentDataGridView.Rows[e.RowIndex];
-
-        if (row.DataBoundItem is DocumentDto document)
-        {
-            documentIdInputField.Text = document.DocumentId.ToString();
-            assignmentIdInputField.Text = document.AssignmentId.ToString();
-            fileTypeInputField.Text = document.NativeFileFormat;
-        }
+        BindDataGridViewCellClick<DocumentDto>(
+            (DataGridView)sender,
+            e,
+            (item) =>
+            {
+                documentIdInputField.Text = item.DocumentId.ToString();
+                assignmentIdInputField.Text = item.AssignmentId.ToString();
+                fileTypeInputField.Text = item.NativeFileFormat;
+            }
+        );
     }
 
     private void SearchButton_Click(object sender, EventArgs e)
