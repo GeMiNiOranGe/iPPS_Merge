@@ -17,6 +17,9 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
         case ControlUiEvent.OpenProgressControl:
             OpenProgressControl();
             break;
+        case ControlUiEvent.OpenProjectControl:
+            OpenProjectControl();
+            break;
         case ControlUiEvent.OpenEmployeeControl:
             OpenEmployeeControl();
             break;
@@ -66,6 +69,11 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
     private void OpenProgressControl() {
         ProgressControl progressControl = new(this);
         OpenControl(progressControl);
+    }
+
+    private void OpenProjectControl() {
+        ProjectControl projectControl = new(this);
+        OpenControl(projectControl);
     }
 
     private void OpenEmployeeControl() {

@@ -8,4 +8,5 @@ public enum ControlUiEvent {
     OpenAssignmentDetailControl,
     OpenEmployeeInformationControl,
     OpenEmployeeEditorControl,
+    OpenProjectControl,
 }

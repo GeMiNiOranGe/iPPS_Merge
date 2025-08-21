@@ -1,6 +1,6 @@
 ﻿namespace Pepro.Presentation.Controls
 {
-    partial class AdminProjectControl
+    partial class ProjectControl
     {
         /// <summary>
         /// Required designer variable.
@@ -52,12 +52,12 @@
             projectDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             projectDataGridView.Columns.AddRange(new DataGridViewColumn[] { IDProject, ProjectName, AccessRight, TrangThai, KhachHang, IDTask, IDPhongBan, start, end, Edit, Delete });
             projectDataGridView.Dock = DockStyle.Fill;
-            projectDataGridView.Location = new Point(0, 0);
+            projectDataGridView.Location = new Point(0, 48);
             projectDataGridView.Margin = new Padding(3, 4, 3, 4);
             projectDataGridView.Name = "projectDataGridView";
             projectDataGridView.RowHeadersWidth = 51;
             projectDataGridView.RowTemplate.Height = 24;
-            projectDataGridView.Size = new Size(984, 482);
+            projectDataGridView.Size = new Size(1064, 554);
             projectDataGridView.TabIndex = 0;
             projectDataGridView.CellContentClick += ProjectDataGridView_CellContentClick;
             // 
@@ -146,7 +146,7 @@
             // 
             addButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             addButton.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            addButton.Location = new Point(922, 16);
+            addButton.Location = new Point(1002, 16);
             addButton.Margin = new Padding(3, 4, 3, 4);
             addButton.Name = "addButton";
             addButton.Size = new Size(50, 50);
@@ -160,23 +160,24 @@
             actionPanel.BackColor = Color.FromArgb(22, 22, 22);
             actionPanel.Controls.Add(addButton);
             actionPanel.Dock = DockStyle.Bottom;
-            actionPanel.Location = new Point(0, 482);
+            actionPanel.Location = new Point(0, 602);
             actionPanel.Margin = new Padding(3, 4, 3, 4);
             actionPanel.Name = "actionPanel";
-            actionPanel.Size = new Size(984, 79);
+            actionPanel.Size = new Size(1064, 79);
             actionPanel.TabIndex = 2;
             // 
-            // AdminProjects
+            // ProjectControl
             // 
-            AutoScaleDimensions = new SizeF(9F, 23F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(projectDataGridView);
             Controls.Add(actionPanel);
-            Font = new Font("Segoe UI", 13F);
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "AdminProjects";
-            Size = new Size(984, 561);
+            HeaderText = "Project";
+            Name = "ProjectControl";
+            ReturnButtonVisible = false;
             Load += AdminProjects_Load;
+            Controls.SetChildIndex(actionPanel, 0);
+            Controls.SetChildIndex(projectDataGridView, 0);
             ((System.ComponentModel.ISupportInitialize)projectDataGridView).EndInit();
             actionPanel.ResumeLayout(false);
             ResumeLayout(false);
