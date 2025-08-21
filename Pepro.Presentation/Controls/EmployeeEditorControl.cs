@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using Pepro.Business;
+﻿using Pepro.Business;
 using Pepro.DTOs;
 using System.ComponentModel;
 
@@ -8,8 +7,6 @@ namespace Pepro.Presentation.Controls;
 public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUserControl<EmployeeDto> {
     private EmployeeDto _item = null!;
     private EditorMode _mode;
-    SqlConnection sqlConnection = new(Config.CONNECTION_STRING);
-    SqlCommand sqlCommand;
 
     public EmployeeEditorControl() {
         Initialize();
@@ -193,32 +190,57 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         }
         else {
             UpdateStaff();
-            NotifyDataChanged();
-            Close();
         }
     }
 
     public void UpdateStaff() {
-        sqlConnection.Open();
-        sqlCommand = new SqlCommand("UPDATE NHANVIEN SET HOTENNV = @HOTENNV, GIOITINH = @GIOITINH, NGAYSINH = @NGAYSINH, @NOISINH = NOISINH, QUEQUAN = @QUEQUAN, TRINHDOVANHOA = @TRINHDOVANHOA, DANTOC = @DANTOC, TONGIAO = @TONGIAO, DOANVIEN = @DOANVIEN, DANGVIEN = @DANGVIEN, CONGDOANVIEN = @CONGDOANVIEN, MAPB = @MAPB, MACV = @MACV, MANL = @MANL, MABL = @MABL WHERE MANV = @MANV", sqlConnection);
-        sqlCommand.Parameters.AddWithValue("@MANV", employeeIdInputField.Text);
-        sqlCommand.Parameters.AddWithValue("@HOTENNV", firstNameInputField.Text);
-        if (maleRadioButton.Checked) {
-            sqlCommand.Parameters.AddWithValue("@GIOITINH", "1");
+        bool? gender = null;
+        if (maleRadioButton.Checked)
+        {
+            gender = true;
         }
-        else {
-            sqlCommand.Parameters.AddWithValue("@GIOITINH", "0");
-        }
-        dateOfBirthDateTimePicker.Format = DateTimePickerFormat.Custom;
-        dateOfBirthDateTimePicker.CustomFormat = "yyyyMMdd";
-        sqlCommand.Parameters.AddWithValue("@NGAYSINH", dateOfBirthDateTimePicker.Text);
-        sqlCommand.Parameters.AddWithValue("@MAPB", departmentIdInputField.Text);
-        sqlCommand.Parameters.AddWithValue("@MACV", positionIdInputField.Text);
-        sqlCommand.Parameters.AddWithValue("@MANL", salaryScaleIdInputField.Text);
-        sqlCommand.Parameters.AddWithValue("@MABL", salaryLevelIdInputField.Text);
-        sqlCommand.ExecuteNonQuery();
 
-        sqlConnection.Close();
+        if (femaleRadioButton.Checked)
+        {
+            gender = false;
+        }
+
+        if (
+            !int.TryParse(
+                positionComboBoxField.SelectedValue?.ToString(),
+                out int positionId
+            )
+            || !int.TryParse(
+                salaryLevelComboBoxField.SelectedValue?.ToString(),
+                out int salaryLevelId
+            )
+            || !int.TryParse(employeeIdInputField.Text, out int employeeId)
+        )
+        {
+            return;
+        }
+
+        EmployeeDto employee = new()
+        {
+            EmployeeId = employeeId,
+            FirstName = firstNameInputField.Text.Trim(),
+            MiddleName = middleNameInputField.Text.Trim(),
+            LastName = lastNameInputField.Text.Trim(),
+            DateOfBirth = dateOfBirthDateTimePicker.Value,
+            Gender = gender,
+            TaxCode = taxCodeInputField.Text.Trim(),
+            CitizenId = citizenIdInputField.Text.Trim(),
+            DepartmentId = departmentComboBoxField.SelectedValue?.ToString() ?? "",
+            PositionId = positionId,
+            SalaryLevelId = salaryLevelId,
+        };
+        int result = EmployeeBusiness.Instance.UpdateEmployee(employee);
+        if (result == 0)
+        {
+            return;
+        }
+        NotifyDataChanged();
+        Close();
 
         MessageBox.Show("Cập nhật nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }

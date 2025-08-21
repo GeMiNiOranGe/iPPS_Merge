@@ -1,5 +1,7 @@
 ﻿using Pepro.Business.Mappings;
+using Pepro.Business.Utilities;
 using Pepro.DataAccess;
+using Pepro.DataAccess.Contracts;
 using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 using System.Data;
@@ -45,6 +47,33 @@ public class EmployeeBusiness
     public bool UpdateEmployee(int roleID, string valueList, string employeeID)
     {
         return EmployeeDataAccess.Instance.UpdateEmployee(roleID, valueList, employeeID);
+    }
+
+    public int UpdateEmployee(EmployeeDto dto)
+    {
+        Employee? entity = EmployeeDataAccess.Instance.GetEmployeeByEmployeeId(dto.EmployeeId);
+        if (entity == null)
+        {
+            return 0;
+        }
+
+        byte[]? encryptedTaxCode = EncryptionConverter.EncryptFromString(dto.TaxCode);
+        string? taxCode = EncryptionConverter.DecryptToString(entity.TaxCode);
+
+        EmployeeUpdate updateInfo = new()
+        {
+            FirstName = new(dto.FirstName, entity.FirstName != dto.FirstName),
+            MiddleName = new(dto.MiddleName, entity.MiddleName != dto.MiddleName),
+            LastName = new(dto.LastName, entity.LastName != dto.LastName),
+            DateOfBirth = new(dto.DateOfBirth, entity.DateOfBirth != dto.DateOfBirth),
+            Gender = new(dto.Gender, entity.Gender != dto.Gender),
+            TaxCode = new(encryptedTaxCode, taxCode != dto.TaxCode),
+            CitizenId = new(dto.CitizenId, entity.CitizenId != dto.CitizenId),
+            DepartmentId = new(dto.DepartmentId, entity.DepartmentId != dto.DepartmentId),
+            PositionId = new(dto.PositionId, entity.PositionId != dto.PositionId),
+            SalaryLevelId = new(dto.SalaryLevelId, entity.SalaryLevelId != dto.SalaryLevelId)
+        };
+        return EmployeeDataAccess.Instance.UpdateEmployee(dto.EmployeeId, updateInfo);
     }
 
     public int DeleteEmployee(int employeeId)
