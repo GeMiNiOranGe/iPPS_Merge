@@ -185,9 +185,9 @@ EXECUTE [dbo].[usp_InsertDummyEmployee]
 GO
 
 EXECUTE [dbo].[usp_InsertDummyEmployee]
-    @FirstName       = N'Trương'
+    @FirstName       = N'Mi'
   , @MiddleName      = N'Ngọc'
-  , @LastName        = N'Mi'
+  , @LastName        = N'Trương'
   , @DateOfBirth     = '2000-01-22'
   , @Gender          = 0
   , @TaxCode         = NULL
@@ -199,9 +199,9 @@ EXECUTE [dbo].[usp_InsertDummyEmployee]
 GO
 
 EXECUTE [dbo].[usp_InsertDummyEmployee]
-    @FirstName       = N'Phạm'
+    @FirstName       = N'Tuấn'
   , @MiddleName      = N'Trần Ngọc'
-  , @LastName        = N'Tuấn'
+  , @LastName        = N'Phạm'
   , @DateOfBirth     = '1995-11-16'
   , @Gender          = 1
   , @TaxCode         = 0xC6BA22B932651A69865DD8700FBE87E87FAC750B953A2E97AFD846D101A2F4CF -- 3612736889-120
