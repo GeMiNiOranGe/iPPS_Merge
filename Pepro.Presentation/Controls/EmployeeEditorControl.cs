@@ -138,79 +138,17 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         salaryLevelComboBoxField.SelectedIndex = -1;
     }
 
-    public void InsertStaff() {
-        bool? gender = null;
-        if (maleRadioButton.Checked) {
-            gender = true;
-        }
-        if (femaleRadioButton.Checked) {
-            gender = false;
-        }
-
-        if (!int.TryParse(positionComboBoxField.SelectedValue?.ToString(), out int positionId)) {
-            return;
-        }
-
-        if (!int.TryParse(salaryLevelComboBoxField.SelectedValue?.ToString(), out int salaryLevelId)) {
-            return;
-        }
-
-        if (!int.TryParse(employeeIdInputField.Text, out int employeeId)) {
-            return;
-        }
-
-        EmployeeDto employee = new() {
-            EmployeeId = employeeId,
-            FirstName = firstNameInputField.Text.Trim(),
-            MiddleName = middleNameInputField.Text.Trim(),
-            LastName = lastNameInputField.Text.Trim(),
-            DateOfBirth = dateOfBirthDateTimePicker.Value,
-            Gender = gender,
-            TaxCode = taxCodeInputField.Text.Trim(),
-            CitizenId = citizenIdInputField.Text.Trim(),
-            DepartmentId = departmentComboBoxField.SelectedValue?.ToString() ?? "",
-            PositionId = positionId,
-            SalaryLevelId = salaryLevelId,
-        };
-        _ = EmployeeBusiness.Instance.InsertEmployee(employee);
-    }
-
-    private void SaveButton_Click(object sender, EventArgs e) {
-        if (Mode == EditorMode.Create) {
-            if (string.IsNullOrWhiteSpace(citizenIdInputField.Text) ||
-                string.IsNullOrEmpty(departmentIdInputField.Text) ||
-                string.IsNullOrEmpty(positionIdInputField.Text) ||
-                string.IsNullOrEmpty(salaryScaleIdInputField.Text) ||
-                string.IsNullOrEmpty(salaryLevelIdInputField.Text)) {
-                MessageBox.Show("Mời điền đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else {
-                InsertStaff();
-                NotifyDataChanged();
-                Close();
-
-                MessageBox.Show("Thêm Nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-        else {
-            UpdateStaff();
-        }
-    }
-
-    public void UpdateStaff() {
-        bool? gender = null;
-        if (maleRadioButton.Checked)
+    private void SaveButton_Click(object sender, EventArgs e)
+    {
+        if (!ValidateInputs())
         {
-            gender = true;
-        }
-
-        if (femaleRadioButton.Checked)
-        {
-            gender = false;
+            MessageBoxWrapper.ShowInformation("FillInformation");
+            return;
         }
 
         if (
-            !int.TryParse(
+            !int.TryParse(employeeIdInputField.Text, out int employeeId)
+            || !int.TryParse(
                 positionComboBoxField.SelectedValue?.ToString(),
                 out int positionId
             )
@@ -218,7 +156,6 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
                 salaryLevelComboBoxField.SelectedValue?.ToString(),
                 out int salaryLevelId
             )
-            || !int.TryParse(employeeIdInputField.Text, out int employeeId)
         )
         {
             return;
@@ -231,21 +168,75 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             MiddleName = middleNameInputField.Text.Trim(),
             LastName = lastNameInputField.Text.Trim(),
             DateOfBirth = dateOfBirthDateTimePicker.Value,
-            Gender = gender,
+            Gender = GetGender(),
             TaxCode = taxCodeInputField.Text.Trim(),
             CitizenId = citizenIdInputField.Text.Trim(),
             DepartmentId = departmentComboBoxField.SelectedValue?.ToString() ?? "",
             PositionId = positionId,
             SalaryLevelId = salaryLevelId,
         };
+
+        switch (Mode)
+        {
+            case EditorMode.Create:
+                HandleCreateMode(employee);
+                break;
+            case EditorMode.Edit:
+                HandleEditMode(employee);
+                break;
+        }
+    }
+
+    private void HandleCreateMode(EmployeeDto employee) {
+        _ = EmployeeBusiness.Instance.InsertEmployee(employee);
+
+        NotifyDataChanged();
+        Close();
+        MessageBoxWrapper.ShowInformation("InsertSuccess");
+    }
+
+    private void HandleEditMode(EmployeeDto employee) {
         int result = EmployeeBusiness.Instance.UpdateEmployee(employee);
         if (result == 0)
         {
             return;
         }
+
         NotifyDataChanged();
         Close();
+        MessageBoxWrapper.ShowInformation("UpdateSuccess");
+    }
 
-        MessageBox.Show("Cập nhật nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    private bool ValidateInputs()
+    {
+        return !string.IsNullOrWhiteSpace(citizenIdInputField.Text)
+            && !string.IsNullOrWhiteSpace(firstNameInputField.Text)
+            && !string.IsNullOrWhiteSpace(lastNameInputField.Text)
+            && !string.IsNullOrWhiteSpace(
+                departmentComboBoxField.SelectedValue?.ToString()
+            )
+            && !string.IsNullOrWhiteSpace(
+                positionComboBoxField.SelectedValue?.ToString()
+            )
+            && !string.IsNullOrWhiteSpace(
+                salaryLevelComboBoxField.SelectedValue?.ToString()
+            );
+    }
+
+    private bool? GetGender()
+    {
+        bool? gender = null;
+
+        if (maleRadioButton.Checked)
+        {
+            gender = true;
+        }
+
+        if (femaleRadioButton.Checked)
+        {
+            gender = false;
+        }
+
+        return gender;
     }
 }
