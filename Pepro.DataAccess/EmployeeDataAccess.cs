@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Contracts;
 using Pepro.DataAccess.Entities;
 using Pepro.DataAccess.Mappings;
 using Pepro.DTOs;
@@ -139,6 +140,29 @@ public class EmployeeDataAccess {
         }
     }
     */
+
+    public int UpdateEmployee(int employeeId, EmployeeUpdate entity)
+    {
+        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Employee")
+            .Set("FirstName", SqlDbType.NVarChar, 10, entity.FirstName)
+            .Set("MiddleName", SqlDbType.NVarChar, 30, entity.MiddleName)
+            .Set("LastName", SqlDbType.NVarChar, 10, entity.LastName)
+            .Set("DateOfBirth", SqlDbType.Date, entity.DateOfBirth)
+            .Set("Gender", SqlDbType.Bit, entity.Gender)
+            .Set("TaxCode", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, entity.TaxCode)
+            .Set("CitizenId", SqlDbType.VarChar, 12, entity.CitizenId)
+            .Set("DepartmentId", SqlDbType.VarChar, 10, entity.DepartmentId)
+            .Set("PositionId", SqlDbType.Int, entity.PositionId)
+            .Set("SalaryLevelId", SqlDbType.Int, entity.SalaryLevelId)
+            .Where("EmployeeId", SqlDbType.Int, employeeId);
+
+        (string query, List<SqlParameter> parameters) = builder.Build();
+        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
+        {
+            return 0;
+        }
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
 
     public int DeleteEmployee(int employeeId) {
         string query = @"
