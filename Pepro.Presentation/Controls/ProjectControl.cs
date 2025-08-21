@@ -2,14 +2,24 @@
 
 namespace Pepro.Presentation.Controls;
 
-public partial class AdminProjectControl : UserControl
+public partial class ProjectControl : PeproCrudControlBase
 {
     SqlConnection conn = new SqlConnection(Config.CONNECTION_STRING);
     SqlCommand cmd = new SqlCommand();
     SqlCommand cmd2 = new SqlCommand();
     SqlDataReader rd = null;
 
-    public AdminProjectControl()
+    public ProjectControl()
+    {
+        Initialize();
+    }
+
+    public ProjectControl(IMediator mediator) : base(mediator)
+    {
+        Initialize();
+    }
+
+    private void Initialize()
     {
         InitializeComponent();
     }
