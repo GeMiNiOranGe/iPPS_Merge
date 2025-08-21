@@ -3,7 +3,7 @@ CREATE OR ALTER PROCEDURE [dbo].[usp_InsertDummyEmployee]
     @MiddleName         NVARCHAR(30)    = NULL,
     @LastName           NVARCHAR(10),
     @DateOfBirth        DATE,
-    @Gender             BIT, -- 1 is male, 0 is female and null is other
+    @Gender             BIT             = NULL,
     @TaxCode            VARBINARY(MAX)  = NULL,
     @CitizenId          VARCHAR(12),
     @PhoneNumberList    VARCHAR(MAX)    = NULL,
@@ -175,13 +175,41 @@ EXECUTE [dbo].[usp_InsertDummyEmployee]
   , @MiddleName      = N'Tuấn'
   , @LastName        = N'Phạm'
   , @DateOfBirth     = '1999-08-22'
-  , @Gender          = 1
+  , @Gender          = NULL
   , @TaxCode         = 0x831DFFC2D6F4C05E8654440A06BEC99DE222DC5909208374F0A0AC73E67091EC -- 2984672947
   , @CitizenId       = '027260138574'
   , @PhoneNumberList = '0593487298'
   , @DepartmentId    = 'Financial'
   , @PositionId      = 4
   , @SalaryLevelId   = 48
+GO
+
+EXECUTE [dbo].[usp_InsertDummyEmployee]
+    @FirstName       = N'Trương'
+  , @MiddleName      = N'Ngọc'
+  , @LastName        = N'Mi'
+  , @DateOfBirth     = '2000-01-22'
+  , @Gender          = 0
+  , @TaxCode         = NULL
+  , @CitizenId       = '046273467235'
+  , @PhoneNumberList = '0323872483,0648272383'
+  , @DepartmentId    = 'HR'
+  , @PositionId      = 4
+  , @SalaryLevelId   = 51
+GO
+
+EXECUTE [dbo].[usp_InsertDummyEmployee]
+    @FirstName       = N'Phạm'
+  , @MiddleName      = N'Trần Ngọc'
+  , @LastName        = N'Tuấn'
+  , @DateOfBirth     = '1995-11-16'
+  , @Gender          = 1
+  , @TaxCode         = 0xC6BA22B932651A69865DD8700FBE87E87FAC750B953A2E97AFD846D101A2F4CF -- 3612736889-120
+  , @CitizenId       = '064187236847'
+  , @PhoneNumberList = NULL
+  , @DepartmentId    = 'Financial'
+  , @PositionId      = 4
+  , @SalaryLevelId   = 4
 GO
 
 IF EXISTS (

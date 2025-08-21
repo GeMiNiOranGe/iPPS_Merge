@@ -34,6 +34,8 @@ EXECUTE [dbo].[usp_CreateDummyDefaultAccount] @EmployeeId = 8,  @Username = 'pnn
 EXECUTE [dbo].[usp_CreateDummyDefaultAccount] @EmployeeId = 9,  @Username = 'hvu'
 EXECUTE [dbo].[usp_CreateDummyDefaultAccount] @EmployeeId = 10, @Username = 'thnga'
 EXECUTE [dbo].[usp_CreateDummyDefaultAccount] @EmployeeId = 11, @Username = 'ptphong'
+EXECUTE [dbo].[usp_CreateDummyDefaultAccount] @EmployeeId = 12, @Username = 'tnmi'
+EXECUTE [dbo].[usp_CreateDummyDefaultAccount] @EmployeeId = 13, @Username = 'ptntuan'
 GO
 
 IF EXISTS (

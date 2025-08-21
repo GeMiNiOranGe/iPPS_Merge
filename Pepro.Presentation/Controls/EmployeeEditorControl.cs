@@ -86,17 +86,21 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
 
         departmentComboBoxField.DataSource = DepartmentBusiness.Instance.GetDepartments();
         positionComboBoxField.DataSource = PositionBusiness.Instance.GetPositions();
-        salaryScaleComboBoxField.ExecuteWithoutEvent(
-            nameof(PeproComboBoxField.SelectedIndexChanged),
-            SalaryScaleComboBoxField_SelectedIndexChanged,
-            () => salaryScaleComboBoxField.DataSource = SalaryScaleBusiness.Instance.GetSalaryScales()
-        );
 
         switch (_mode) {
         case EditorMode.Create:
+            salaryScaleComboBoxField.ExecuteWithoutEvent(
+                nameof(PeproComboBoxField.SelectedIndexChanged),
+                SalaryScaleComboBoxField_SelectedIndexChanged,
+                () => salaryScaleComboBoxField.DataSource = SalaryScaleBusiness.Instance.GetSalaryScales()
+            );
             SetupCreateMode();
             break;
         case EditorMode.Edit:
+            // FIXME: The condition `SalaryScaleId != 1` is not optimized.
+            // It causes the `GetSalaryLevelsBySalaryScaleId` method to be called twice.
+            // It does not affect functionality but may reduce performance slightly.
+            salaryScaleComboBoxField.DataSource = SalaryScaleBusiness.Instance.GetSalaryScales();
             SetupEditMode();
             break;
         }
