@@ -57,6 +57,7 @@ public class EmployeeBusiness
             return 0;
         }
 
+        bool? gender = EmployeeHelper.ParseGender(dto.Gender);
         byte[]? encryptedTaxCode = EncryptionConverter.EncryptFromString(dto.TaxCode);
         string? taxCode = EncryptionConverter.DecryptToString(entity.TaxCode);
 
@@ -66,7 +67,7 @@ public class EmployeeBusiness
             MiddleName = new(dto.MiddleName, entity.MiddleName != dto.MiddleName),
             LastName = new(dto.LastName, entity.LastName != dto.LastName),
             DateOfBirth = new(dto.DateOfBirth, entity.DateOfBirth != dto.DateOfBirth),
-            Gender = new(dto.Gender, entity.Gender != dto.Gender),
+            Gender = new(gender, entity.Gender != gender),
             TaxCode = new(encryptedTaxCode, taxCode != dto.TaxCode),
             CitizenId = new(dto.CitizenId, entity.CitizenId != dto.CitizenId),
             DepartmentId = new(dto.DepartmentId, entity.DepartmentId != dto.DepartmentId),

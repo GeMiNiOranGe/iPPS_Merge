@@ -1,4 +1,5 @@
 ﻿using Pepro.Business;
+using Pepro.Business.Utilities;
 using Pepro.DTOs;
 using System.ComponentModel;
 
@@ -26,12 +27,12 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             middleNameInputField.Text = _item.MiddleName;
             lastNameInputField.Text = _item.LastName;
             dateOfBirthDateTimePicker.SetValue(_item.DateOfBirth);
-            RadioButton genderRadioButton = _item.Gender switch {
-                true => maleRadioButton,
-                false => femaleRadioButton,
-                _ => otherRadioButton,
-            };
-            genderRadioButton.Checked = true;
+            EmployeeHelper.SelectGenderRadio(
+                _item.Gender,
+                maleRadioButton,
+                femaleRadioButton,
+                otherRadioButton
+            ).Checked = true;
             taxCodeInputField.Text = _item.TaxCode;
             citizenIdInputField.Text = _item.CitizenId;
         }
@@ -168,7 +169,10 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             MiddleName = middleNameInputField.Text.Trim(),
             LastName = lastNameInputField.Text.Trim(),
             DateOfBirth = dateOfBirthDateTimePicker.Value,
-            Gender = GetGender(),
+            Gender = EmployeeHelper.GetSelectedGender(
+                maleRadioButton,
+                femaleRadioButton
+            ),
             TaxCode = taxCodeInputField.Text.Trim(),
             CitizenId = citizenIdInputField.Text.Trim(),
             DepartmentId = departmentComboBoxField.SelectedValue?.ToString() ?? "",
@@ -221,22 +225,5 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             && !string.IsNullOrWhiteSpace(
                 salaryLevelComboBoxField.SelectedValue?.ToString()
             );
-    }
-
-    private bool? GetGender()
-    {
-        bool? gender = null;
-
-        if (maleRadioButton.Checked)
-        {
-            gender = true;
-        }
-
-        if (femaleRadioButton.Checked)
-        {
-            gender = false;
-        }
-
-        return gender;
     }
 }

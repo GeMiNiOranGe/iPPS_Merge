@@ -1,4 +1,5 @@
 ﻿using Pepro.Business;
+using Pepro.Business.Utilities;
 using Pepro.DTOs;
 using System.ComponentModel;
 
@@ -42,12 +43,12 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
         employeeIdInputField.Text = employee.EmployeeId.ToString();
         fullNameInputField.Text = employee.FullName;
 
-        RadioButton genderRadioButton = employee.Gender switch {
-            true => maleRadioButton,
-            false => femaleRadioButton,
-            _ => otherRadioButton,
-        };
-        genderRadioButton.Checked = true;
+        EmployeeHelper.SelectGenderRadio(
+            employee.Gender,
+            maleRadioButton,
+            femaleRadioButton,
+            otherRadioButton
+        ).Checked = true;
 
         dateOfBirthDateTimePicker.Value = employee.DateOfBirth;
         citizenIdInputField.Text = employee.CitizenId;
