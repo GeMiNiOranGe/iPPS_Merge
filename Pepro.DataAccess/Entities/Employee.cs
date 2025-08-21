@@ -11,7 +11,7 @@ public class Employee
     private byte[]? _taxCode;
     private string _citizenId = null!;
     private string _departmentId = null!;
-    private int _PositionId;
+    private int _positionId;
     private int _salaryLevelId;
 
     #region Optional fields
@@ -74,8 +74,8 @@ public class Employee
 
     public required int PositionId
     {
-        get => _PositionId;
-        set => _PositionId = value;
+        get => _positionId;
+        set => _positionId = value;
     }
 
     public required int SalaryLevelId
