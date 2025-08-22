@@ -1,15 +1,10 @@
-﻿using Microsoft.Data.SqlClient;
-using Pepro.DTOs;
+﻿using Pepro.DTOs;
 using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls;
 
 public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserControl<ProjectDto>
 {
-    SqlConnection conn = new SqlConnection(Config.CONNECTION_STRING);
-    SqlCommand cmd = new SqlCommand();
-    SqlCommand cmd2 = new SqlCommand();
-
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public ProjectDto Item
     {
@@ -31,6 +26,7 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
 
     private void SaveButton_Click(object sender, EventArgs e)
     {
+        /*
         if(projectIdTextBox.Text=="" || projectNameTextBox.Text == "" 
             || accessTextBox.Text == "" || statusTextBox.Text == ""
             || customerTextBox.Text == "" || managerIdTextBox.Text == ""
@@ -71,8 +67,10 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
         { 
             MessageBox.Show(ex.Message);
         }
+        */
     }
 
+    /*
     private void UpdateButton_Click(object sender, EventArgs e)
     {
         if (projectIdTextBox.Text == "" || projectNameTextBox.Text == ""
@@ -125,7 +123,6 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
                 cmd.Parameters.AddWithValue("@idPrj", projectIdTextBox.Text);
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                ResetTextBox();
                 MessageBox.Show("Sửa dự án thành công!");
                 this.Dispose();
             }
@@ -135,15 +132,5 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
             MessageBox.Show(ex.Message);
         }
     }
-
-    public void ResetTextBox()
-    {
-        projectIdTextBox.ResetText();
-        projectNameTextBox.ResetText();
-        accessTextBox.ResetText();
-        statusTextBox.ResetText();
-        customerTextBox.ResetText();
-        managerIdTextBox.ResetText();
-        departmentTextBox.ResetText();
-    }
+    */
 }

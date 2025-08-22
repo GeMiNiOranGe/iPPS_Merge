@@ -27,301 +27,141 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            projectIdLabel = new Label();
-            projectNameLabel = new Label();
-            accessLabel = new Label();
-            statusLabel = new Label();
-            customerLabel = new Label();
-            managerIdLabel = new Label();
-            projectIdTextBox = new TextBox();
-            projectNameTextBox = new TextBox();
-            accessTextBox = new TextBox();
-            saveButton = new Button();
-            customerTextBox = new TextBox();
-            managerIdTextBox = new TextBox();
-            statusTextBox = new TextBox();
-            departmentTextBox = new TextBox();
-            departmentLabel = new Label();
             startDateTimePicker = new DateTimePicker();
             startDateLabel = new Label();
             endDateLabel = new Label();
             endDateTimePicker = new DateTimePicker();
+            projectNameInputField = new PeproInputField();
+            statusComboBoxField = new PeproComboBoxField();
+            customerNameInputField = new PeproInputField();
+            managerIdInputField = new PeproInputField();
+            saveButton = new Button();
             SuspendLayout();
-            // 
-            // projectIdLabel
-            // 
-            projectIdLabel.AutoSize = true;
-            projectIdLabel.BackColor = Color.Transparent;
-            projectIdLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            projectIdLabel.ForeColor = Color.White;
-            projectIdLabel.Location = new Point(35, 125);
-            projectIdLabel.Margin = new Padding(2, 0, 2, 0);
-            projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new Size(70, 20);
-            projectIdLabel.TabIndex = 1;
-            projectIdLabel.Text = "ID dự án";
-            // 
-            // projectNameLabel
-            // 
-            projectNameLabel.AutoSize = true;
-            projectNameLabel.BackColor = Color.Transparent;
-            projectNameLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            projectNameLabel.ForeColor = Color.White;
-            projectNameLabel.Location = new Point(35, 180);
-            projectNameLabel.Margin = new Padding(2, 0, 2, 0);
-            projectNameLabel.Name = "projectNameLabel";
-            projectNameLabel.Size = new Size(80, 20);
-            projectNameLabel.TabIndex = 2;
-            projectNameLabel.Text = "Tên dự án";
-            // 
-            // accessLabel
-            // 
-            accessLabel.AutoSize = true;
-            accessLabel.BackColor = Color.Transparent;
-            accessLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            accessLabel.ForeColor = Color.White;
-            accessLabel.Location = new Point(35, 232);
-            accessLabel.Margin = new Padding(2, 0, 2, 0);
-            accessLabel.Name = "accessLabel";
-            accessLabel.Size = new Size(115, 20);
-            accessLabel.TabIndex = 3;
-            accessLabel.Text = "Quyền truy cập";
-            // 
-            // statusLabel
-            // 
-            statusLabel.AutoSize = true;
-            statusLabel.BackColor = Color.Transparent;
-            statusLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            statusLabel.ForeColor = Color.White;
-            statusLabel.Location = new Point(34, 286);
-            statusLabel.Margin = new Padding(2, 0, 2, 0);
-            statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(80, 20);
-            statusLabel.TabIndex = 4;
-            statusLabel.Text = "Trạng thái";
-            // 
-            // customerLabel
-            // 
-            customerLabel.AutoSize = true;
-            customerLabel.BackColor = Color.Transparent;
-            customerLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            customerLabel.ForeColor = Color.White;
-            customerLabel.Location = new Point(34, 339);
-            customerLabel.Margin = new Padding(2, 0, 2, 0);
-            customerLabel.Name = "customerLabel";
-            customerLabel.Size = new Size(123, 20);
-            customerLabel.TabIndex = 5;
-            customerLabel.Text = "Tên khách hàng";
-            // 
-            // managerIdLabel
-            // 
-            managerIdLabel.AutoSize = true;
-            managerIdLabel.BackColor = Color.Transparent;
-            managerIdLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            managerIdLabel.ForeColor = Color.White;
-            managerIdLabel.Location = new Point(35, 393);
-            managerIdLabel.Margin = new Padding(2, 0, 2, 0);
-            managerIdLabel.Name = "managerIdLabel";
-            managerIdLabel.Size = new Size(80, 20);
-            managerIdLabel.TabIndex = 6;
-            managerIdLabel.Text = "ID quản lý";
-            // 
-            // projectIdTextBox
-            // 
-            projectIdTextBox.Location = new Point(207, 130);
-            projectIdTextBox.Margin = new Padding(2, 3, 2, 3);
-            projectIdTextBox.Name = "projectIdTextBox";
-            projectIdTextBox.Size = new Size(351, 26);
-            projectIdTextBox.TabIndex = 1;
-            // 
-            // projectNameTextBox
-            // 
-            projectNameTextBox.Location = new Point(207, 182);
-            projectNameTextBox.Margin = new Padding(2, 3, 2, 3);
-            projectNameTextBox.Name = "projectNameTextBox";
-            projectNameTextBox.Size = new Size(351, 26);
-            projectNameTextBox.TabIndex = 2;
-            // 
-            // accessTextBox
-            // 
-            accessTextBox.Location = new Point(207, 237);
-            accessTextBox.Margin = new Padding(2, 3, 2, 3);
-            accessTextBox.Name = "accessTextBox";
-            accessTextBox.Size = new Size(351, 26);
-            accessTextBox.TabIndex = 3;
-            // 
-            // saveButton
-            // 
-            saveButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            saveButton.Location = new Point(207, 616);
-            saveButton.Margin = new Padding(2, 3, 2, 3);
-            saveButton.Name = "saveButton";
-            saveButton.Size = new Size(101, 57);
-            saveButton.TabIndex = 10;
-            saveButton.Text = "Lưu";
-            saveButton.UseVisualStyleBackColor = true;
-            saveButton.Click += SaveButton_Click;
-            // 
-            // customerTextBox
-            // 
-            customerTextBox.Location = new Point(207, 343);
-            customerTextBox.Margin = new Padding(2, 3, 2, 3);
-            customerTextBox.Name = "customerTextBox";
-            customerTextBox.Size = new Size(351, 26);
-            customerTextBox.TabIndex = 5;
-            // 
-            // managerIdTextBox
-            // 
-            managerIdTextBox.Location = new Point(207, 396);
-            managerIdTextBox.Margin = new Padding(2, 3, 2, 3);
-            managerIdTextBox.Name = "managerIdTextBox";
-            managerIdTextBox.Size = new Size(351, 26);
-            managerIdTextBox.TabIndex = 6;
-            // 
-            // statusTextBox
-            // 
-            statusTextBox.Location = new Point(207, 291);
-            statusTextBox.Margin = new Padding(2, 3, 2, 3);
-            statusTextBox.Name = "statusTextBox";
-            statusTextBox.Size = new Size(351, 26);
-            statusTextBox.TabIndex = 4;
-            // 
-            // departmentTextBox
-            // 
-            departmentTextBox.Location = new Point(207, 450);
-            departmentTextBox.Margin = new Padding(2, 3, 2, 3);
-            departmentTextBox.Name = "departmentTextBox";
-            departmentTextBox.Size = new Size(351, 26);
-            departmentTextBox.TabIndex = 7;
-            // 
-            // departmentLabel
-            // 
-            departmentLabel.AutoSize = true;
-            departmentLabel.BackColor = Color.Transparent;
-            departmentLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            departmentLabel.ForeColor = Color.White;
-            departmentLabel.Location = new Point(35, 447);
-            departmentLabel.Margin = new Padding(2, 0, 2, 0);
-            departmentLabel.Name = "departmentLabel";
-            departmentLabel.Size = new Size(106, 20);
-            departmentLabel.TabIndex = 13;
-            departmentLabel.Text = "ID phòng ban";
             // 
             // startDateTimePicker
             // 
-            startDateTimePicker.Format = DateTimePickerFormat.Short;
-            startDateTimePicker.Location = new Point(207, 502);
-            startDateTimePicker.Margin = new Padding(2, 3, 2, 3);
+            startDateTimePicker.Location = new Point(544, 232);
+            startDateTimePicker.Margin = new Padding(24, 0, 0, 16);
             startDateTimePicker.Name = "startDateTimePicker";
-            startDateTimePicker.Size = new Size(351, 26);
+            startDateTimePicker.Size = new Size(240, 26);
             startDateTimePicker.TabIndex = 8;
             // 
             // startDateLabel
             // 
             startDateLabel.AutoSize = true;
-            startDateLabel.BackColor = Color.Transparent;
-            startDateLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            startDateLabel.ForeColor = Color.White;
-            startDateLabel.Location = new Point(34, 497);
-            startDateLabel.Margin = new Padding(2, 0, 2, 0);
+            startDateLabel.Location = new Point(544, 204);
+            startDateLabel.Margin = new Padding(24, 16, 0, 0);
             startDateLabel.Name = "startDateLabel";
-            startDateLabel.Size = new Size(103, 20);
-            startDateLabel.TabIndex = 16;
-            startDateLabel.Text = "Ngày bắt đầu";
+            startDateLabel.Size = new Size(69, 19);
+            startDateLabel.TabIndex = 0;
+            startDateLabel.Text = "Start date";
             // 
             // endDateLabel
             // 
             endDateLabel.AutoSize = true;
-            endDateLabel.BackColor = Color.Transparent;
-            endDateLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            endDateLabel.ForeColor = Color.White;
-            endDateLabel.Location = new Point(34, 548);
-            endDateLabel.Margin = new Padding(2, 0, 2, 0);
+            endDateLabel.Location = new Point(808, 204);
+            endDateLabel.Margin = new Padding(24, 16, 0, 0);
             endDateLabel.Name = "endDateLabel";
-            endDateLabel.Size = new Size(106, 20);
-            endDateLabel.TabIndex = 18;
-            endDateLabel.Text = "Ngày kết thúc";
+            endDateLabel.Size = new Size(63, 19);
+            endDateLabel.TabIndex = 0;
+            endDateLabel.Text = "End date";
             // 
             // endDateTimePicker
             // 
-            endDateTimePicker.Format = DateTimePickerFormat.Short;
-            endDateTimePicker.Location = new Point(207, 552);
-            endDateTimePicker.Margin = new Padding(2, 3, 2, 3);
+            endDateTimePicker.Location = new Point(808, 232);
+            endDateTimePicker.Margin = new Padding(24, 0, 16, 16);
             endDateTimePicker.Name = "endDateTimePicker";
-            endDateTimePicker.Size = new Size(351, 26);
+            endDateTimePicker.Size = new Size(240, 26);
             endDateTimePicker.TabIndex = 9;
+            // 
+            // projectNameInputField
+            // 
+            projectNameInputField.LabelText = "Project name";
+            projectNameInputField.Location = new Point(16, 64);
+            projectNameInputField.Margin = new Padding(16, 16, 16, 0);
+            projectNameInputField.Name = "projectNameInputField";
+            projectNameInputField.PlaceholderText = "e.g. project name";
+            projectNameInputField.Size = new Size(1032, 54);
+            projectNameInputField.TabIndex = 19;
+            // 
+            // statusComboBoxField
+            // 
+            statusComboBoxField.LabelText = "Status";
+            statusComboBoxField.Location = new Point(280, 204);
+            statusComboBoxField.Margin = new Padding(24, 16, 0, 16);
+            statusComboBoxField.Name = "statusComboBoxField";
+            statusComboBoxField.Size = new Size(240, 56);
+            statusComboBoxField.TabIndex = 20;
+            // 
+            // customerNameInputField
+            // 
+            customerNameInputField.LabelText = "Customer name";
+            customerNameInputField.Location = new Point(16, 134);
+            customerNameInputField.Margin = new Padding(16, 16, 16, 0);
+            customerNameInputField.Name = "customerNameInputField";
+            customerNameInputField.PlaceholderText = "e.g. customer name";
+            customerNameInputField.Size = new Size(1032, 54);
+            customerNameInputField.TabIndex = 19;
+            // 
+            // managerIdInputField
+            // 
+            managerIdInputField.LabelText = "Manager id";
+            managerIdInputField.Location = new Point(16, 204);
+            managerIdInputField.Margin = new Padding(16, 16, 0, 0);
+            managerIdInputField.Name = "managerIdInputField";
+            managerIdInputField.PlaceholderText = "e.g. manager id";
+            managerIdInputField.Size = new Size(240, 54);
+            managerIdInputField.TabIndex = 19;
+            // 
+            // saveButton
+            // 
+            saveButton.Anchor = AnchorStyles.None;
+            saveButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
+            saveButton.Location = new Point(472, 504);
+            saveButton.Margin = new Padding(16);
+            saveButton.Name = "saveButton";
+            saveButton.Size = new Size(120, 56);
+            saveButton.TabIndex = 21;
+            saveButton.Text = "Save";
             // 
             // ProjectEditorControl
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(29, 29, 29);
-            Controls.Add(endDateLabel);
-            Controls.Add(endDateTimePicker);
+            Controls.Add(projectNameInputField);
+            Controls.Add(customerNameInputField);
+            Controls.Add(managerIdInputField);
+            Controls.Add(statusComboBoxField);
             Controls.Add(startDateLabel);
             Controls.Add(startDateTimePicker);
-            Controls.Add(departmentTextBox);
-            Controls.Add(departmentLabel);
-            Controls.Add(statusTextBox);
-            Controls.Add(managerIdTextBox);
-            Controls.Add(customerTextBox);
+            Controls.Add(endDateLabel);
+            Controls.Add(endDateTimePicker);
             Controls.Add(saveButton);
-            Controls.Add(accessTextBox);
-            Controls.Add(projectNameTextBox);
-            Controls.Add(projectIdTextBox);
-            Controls.Add(managerIdLabel);
-            Controls.Add(customerLabel);
-            Controls.Add(statusLabel);
-            Controls.Add(accessLabel);
-            Controls.Add(projectNameLabel);
-            Controls.Add(projectIdLabel);
             HeaderText = "Project Editor";
-            Margin = new Padding(2, 3, 2, 3);
             Name = "ProjectEditorControl";
-            Controls.SetChildIndex(projectIdLabel, 0);
-            Controls.SetChildIndex(projectNameLabel, 0);
-            Controls.SetChildIndex(accessLabel, 0);
-            Controls.SetChildIndex(statusLabel, 0);
-            Controls.SetChildIndex(customerLabel, 0);
-            Controls.SetChildIndex(managerIdLabel, 0);
-            Controls.SetChildIndex(projectIdTextBox, 0);
-            Controls.SetChildIndex(projectNameTextBox, 0);
-            Controls.SetChildIndex(accessTextBox, 0);
             Controls.SetChildIndex(saveButton, 0);
-            Controls.SetChildIndex(customerTextBox, 0);
-            Controls.SetChildIndex(managerIdTextBox, 0);
-            Controls.SetChildIndex(statusTextBox, 0);
-            Controls.SetChildIndex(departmentLabel, 0);
-            Controls.SetChildIndex(departmentTextBox, 0);
-            Controls.SetChildIndex(startDateTimePicker, 0);
-            Controls.SetChildIndex(startDateLabel, 0);
             Controls.SetChildIndex(endDateTimePicker, 0);
             Controls.SetChildIndex(endDateLabel, 0);
+            Controls.SetChildIndex(startDateTimePicker, 0);
+            Controls.SetChildIndex(startDateLabel, 0);
+            Controls.SetChildIndex(statusComboBoxField, 0);
+            Controls.SetChildIndex(managerIdInputField, 0);
+            Controls.SetChildIndex(customerNameInputField, 0);
+            Controls.SetChildIndex(projectNameInputField, 0);
             ResumeLayout(false);
             PerformLayout();
 
         }
 
         #endregion
-
-        private Label projectIdLabel;
-        private Label projectNameLabel;
-        private Label accessLabel;
-        private Label statusLabel;
-        private Label customerLabel;
-        private Label managerIdLabel;
-        public TextBox projectIdTextBox;
-        public TextBox projectNameTextBox;
-        public TextBox accessTextBox;
-        public Button saveButton;
-        public TextBox customerTextBox;
-        public TextBox managerIdTextBox;
-        public TextBox statusTextBox;
-        public TextBox departmentTextBox;
-        private Label departmentLabel;
         public DateTimePicker startDateTimePicker;
         private Label startDateLabel;
         private Label endDateLabel;
         public DateTimePicker endDateTimePicker;
+        private PeproInputField projectNameInputField;
+        private PeproComboBoxField statusComboBoxField;
+        private PeproInputField customerNameInputField;
+        private PeproInputField managerIdInputField;
+        private Button saveButton;
     }
 }
