@@ -47,20 +47,6 @@ public partial class ProjectControl : PeproCrudControlBase
         if(strColName == "Edit")
         {
             ProjectEditorControl adminProjectsModule = new();
-            adminProjectsModule.projectIdTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-            adminProjectsModule.projectNameTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
-            adminProjectsModule.accessTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
-            adminProjectsModule.statusTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
-            adminProjectsModule.customerTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
-            adminProjectsModule.managerIdTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
-            adminProjectsModule.departmentTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
-            adminProjectsModule.startDateTimePicker.Text = projectDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
-            adminProjectsModule.endDateTimePicker.Text = projectDataGridView.Rows[e.RowIndex].Cells[8].Value.ToString();
-
-            adminProjectsModule.saveButton.Enabled = false;
-            adminProjectsModule.projectIdTextBox.Enabled = false;
-            adminProjectsModule.managerIdTextBox.Enabled = false;
-            adminProjectsModule.departmentTextBox.Enabled = false;
         }
         else if(strColName == "Delete")
         {
