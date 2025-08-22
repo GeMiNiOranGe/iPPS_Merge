@@ -40,6 +40,7 @@
             // 
             // startDateTimePicker
             // 
+            startDateTimePicker.Anchor = AnchorStyles.None;
             startDateTimePicker.Location = new Point(544, 232);
             startDateTimePicker.Margin = new Padding(24, 0, 0, 16);
             startDateTimePicker.Name = "startDateTimePicker";
@@ -48,6 +49,7 @@
             // 
             // startDateLabel
             // 
+            startDateLabel.Anchor = AnchorStyles.None;
             startDateLabel.AutoSize = true;
             startDateLabel.Location = new Point(544, 204);
             startDateLabel.Margin = new Padding(24, 16, 0, 0);
@@ -58,6 +60,7 @@
             // 
             // endDateLabel
             // 
+            endDateLabel.Anchor = AnchorStyles.None;
             endDateLabel.AutoSize = true;
             endDateLabel.Location = new Point(808, 204);
             endDateLabel.Margin = new Padding(24, 16, 0, 0);
@@ -68,6 +71,7 @@
             // 
             // endDateTimePicker
             // 
+            endDateTimePicker.Anchor = AnchorStyles.None;
             endDateTimePicker.Location = new Point(808, 232);
             endDateTimePicker.Margin = new Padding(24, 0, 16, 16);
             endDateTimePicker.Name = "endDateTimePicker";
@@ -76,6 +80,7 @@
             // 
             // projectNameInputField
             // 
+            projectNameInputField.Anchor = AnchorStyles.None;
             projectNameInputField.LabelText = "Project name";
             projectNameInputField.Location = new Point(16, 64);
             projectNameInputField.Margin = new Padding(16, 16, 16, 0);
@@ -86,6 +91,7 @@
             // 
             // statusComboBoxField
             // 
+            statusComboBoxField.Anchor = AnchorStyles.None;
             statusComboBoxField.LabelText = "Status";
             statusComboBoxField.Location = new Point(280, 204);
             statusComboBoxField.Margin = new Padding(24, 16, 0, 16);
@@ -95,6 +101,7 @@
             // 
             // customerNameInputField
             // 
+            customerNameInputField.Anchor = AnchorStyles.None;
             customerNameInputField.LabelText = "Customer name";
             customerNameInputField.Location = new Point(16, 134);
             customerNameInputField.Margin = new Padding(16, 16, 16, 0);
@@ -105,6 +112,7 @@
             // 
             // managerIdInputField
             // 
+            managerIdInputField.Anchor = AnchorStyles.None;
             managerIdInputField.LabelText = "Manager id";
             managerIdInputField.Location = new Point(16, 204);
             managerIdInputField.Margin = new Padding(16, 16, 0, 0);
@@ -123,6 +131,7 @@
             saveButton.Size = new Size(120, 56);
             saveButton.TabIndex = 21;
             saveButton.Text = "Save";
+            saveButton.Click += SaveButton_Click;
             // 
             // ProjectEditorControl
             // 
