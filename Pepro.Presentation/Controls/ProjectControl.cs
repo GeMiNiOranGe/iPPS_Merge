@@ -46,7 +46,7 @@ public partial class ProjectControl : PeproCrudControlBase
         string strColName = projectDataGridView.Columns[e.ColumnIndex].Name;
         if(strColName == "Edit")
         {
-            AdminProjectEditorForm adminProjectsModule = new AdminProjectEditorForm();
+            ProjectEditorControl adminProjectsModule = new();
             adminProjectsModule.projectIdTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
             adminProjectsModule.projectNameTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
             adminProjectsModule.accessTextBox.Text = projectDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -58,12 +58,9 @@ public partial class ProjectControl : PeproCrudControlBase
             adminProjectsModule.endDateTimePicker.Text = projectDataGridView.Rows[e.RowIndex].Cells[8].Value.ToString();
 
             adminProjectsModule.saveButton.Enabled = false;
-            adminProjectsModule.updateButton.Enabled = true;
-            adminProjectsModule.clearButton.Enabled = false;
             adminProjectsModule.projectIdTextBox.Enabled = false;
             adminProjectsModule.managerIdTextBox.Enabled = false;
             adminProjectsModule.departmentTextBox.Enabled = false;
-            adminProjectsModule.ShowDialog();
         }
         else if(strColName == "Delete")
         {
