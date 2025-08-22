@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.Business;
 
 namespace Pepro.Presentation.Controls;
 
@@ -7,7 +8,6 @@ public partial class ProjectControl : PeproCrudControlBase
     SqlConnection conn = new SqlConnection(Config.CONNECTION_STRING);
     SqlCommand cmd = new SqlCommand();
     SqlCommand cmd2 = new SqlCommand();
-    SqlDataReader rd = null;
 
     public ProjectControl()
     {
@@ -22,41 +22,17 @@ public partial class ProjectControl : PeproCrudControlBase
     private void Initialize()
     {
         InitializeComponent();
+        projectDataGridView.SetupCellStyle();
     }
 
     private void AdminProjects_Load(object sender, EventArgs e)
     {
-        LoadAdminProjects();
+        LoadProjects();
     }
 
-    public void LoadAdminProjects()
+    public void LoadProjects()
     {
-        projectDataGridView.Rows.Clear();
-        conn.Open();
-        cmd=new SqlCommand("SELECT P.ID, P.NAME, P.ACCESS_RIGHT, P.STATUS, P.CUSTOMER_NAME, P.PROJECT_MANAGER_ID, IP.DEPARTMENT_ID, IP.PROJECT_START_DATE, IP.PROJECT_END_DATE FROM PROJECT AS P INNER JOIN IMPLEMENT_PROJECT AS IP ON P.ID = IP.PROJECT_ID", conn);
-        rd= cmd.ExecuteReader();
-        while (rd.Read())
-        {
-            string strFirstDay = GetDate(rd["PROJECT_START_DATE"]);
-            string strLastDay = GetDate(rd["PROJECT_END_DATE"]);
-
-            projectDataGridView.Rows.Add(rd["ID"].ToString(), rd["NAME"].ToString(),
-                rd["ACCESS_RIGHT"].ToString(), rd["STATUS"].ToString(),
-                rd["CUSTOMER_NAME"].ToString(), rd["PROJECT_MANAGER_ID"].ToString(),
-                rd["DEPARTMENT_ID"].ToString(), strFirstDay, strLastDay);
-        }
-        rd.Close();
-        conn.Close();
-    }
-
-    private string GetDate(object dateObj)
-    {
-        if (dateObj is DateTime)
-        {
-            DateTime date = (DateTime)dateObj;
-            return date.ToString("MM/dd/yyyy");
-        }
-        return string.Empty;
+        projectDataGridView.DataSource = ProjectBusiness.Instance.GetProjects();
     }
 
     private void AddButton_Click(object sender, EventArgs e)
@@ -65,7 +41,7 @@ public partial class ProjectControl : PeproCrudControlBase
         adminProjectsModule.updateButton.Enabled = false;
         adminProjectsModule.saveButton.Enabled = true;
         adminProjectsModule.ShowDialog();
-        LoadAdminProjects();
+        LoadProjects();
     }
 
     private void ProjectDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -122,6 +98,6 @@ public partial class ProjectControl : PeproCrudControlBase
                 MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK);
             }
         }
-        LoadAdminProjects();
+        LoadProjects();
     }
 }
