@@ -5,23 +5,55 @@ namespace Pepro.Presentation.Controls;
 
 public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserControl<ProjectDto>
 {
+    private ProjectDto _item = null!;
+    private EditorMode _mode;
+
+    public ProjectEditorControl()
+    {
+        Initialize();
+    }
+
+    public ProjectEditorControl(IMediator mediator) : base(mediator)
+    {
+        Initialize();
+    }
+
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public ProjectDto Item
     {
-        get => throw new NotImplementedException();
-        set => throw new NotImplementedException();
+        get => _item;
+        set
+        {
+            _item = value ?? throw new ArgumentNullException(nameof(Item));
+            projectNameInputField.Text = _item.Name;
+            customerNameInputField.Text = _item.CustomerName;
+            managerIdInputField.Text = _item.ManagerId.ToString();
+            startDateTimePicker.SetValue(_item.StartDate);
+            endDateTimePicker.SetValue(_item.EndDate);
+        }
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public EditorMode Mode
     {
-        get => throw new NotImplementedException();
-        set => throw new NotImplementedException();
+        get => _mode;
+        set
+        {
+            _mode = value;
+            HeaderText = _mode switch
+            {
+                EditorMode.Create => "Create a new project",
+                EditorMode.Edit => "Edit project",
+                _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
+            };
+        }
     }
 
-    public ProjectEditorControl()
+    private void Initialize()
     {
         InitializeComponent();
+
+        saveButton.ApplyFlatStyle();
     }
 
     private void SaveButton_Click(object sender, EventArgs e)
