@@ -20,6 +20,9 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
         case ControlUiEvent.OpenProjectControl:
             OpenProjectControl();
             break;
+        case ControlUiEvent.OpenProjectEditorControl:
+            OpenProjectEditorControl(data);
+            break;
         case ControlUiEvent.OpenEmployeeControl:
             OpenEmployeeControl();
             break;
@@ -74,6 +77,19 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
     private void OpenProjectControl() {
         ProjectControl projectControl = new(this);
         OpenControl(projectControl);
+    }
+
+    private void OpenProjectEditorControl(object? data) {
+        if (data is not OpenEditorControlPayload<ProjectDto> payload) {
+            return;
+        }
+
+        ProjectEditorControl employeeEditorControl = new(this) {
+            Item = payload.Item,
+            Mode = payload.Mode,
+            OnDataChanged = payload.OnDataChanged,
+        };
+        PushControl(employeeEditorControl);
     }
 
     private void OpenEmployeeControl() {
