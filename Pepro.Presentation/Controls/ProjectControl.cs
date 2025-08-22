@@ -23,6 +23,12 @@ public partial class ProjectControl : PeproCrudControlBase
     {
         InitializeComponent();
         projectDataGridView.SetupCellStyle();
+
+        searchButton.ApplyFlatStyleWithIcon("Search", ThemeColors.Text);
+        reloadButton.ApplyFlatStyleWithIcon("Refresh", ThemeColors.Text);
+        insertButton.ApplyFlatStyleWithIcon("Plus", ThemeColors.Text);
+        deleteButton.ApplyFlatStyleWithIcon("Trash", ThemeColors.Text);
+        updateButton.ApplyFlatStyleWithIcon("EditPencil", ThemeColors.Text);
     }
 
     private void AdminProjects_Load(object sender, EventArgs e)
@@ -30,18 +36,9 @@ public partial class ProjectControl : PeproCrudControlBase
         LoadProjects();
     }
 
-    public void LoadProjects()
+    private void LoadProjects()
     {
         projectDataGridView.DataSource = ProjectBusiness.Instance.GetProjects();
-    }
-
-    private void AddButton_Click(object sender, EventArgs e)
-    {
-        AdminProjectEditorForm adminProjectsModule = new AdminProjectEditorForm();
-        adminProjectsModule.updateButton.Enabled = false;
-        adminProjectsModule.saveButton.Enabled = true;
-        adminProjectsModule.ShowDialog();
-        LoadProjects();
     }
 
     private void ProjectDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
