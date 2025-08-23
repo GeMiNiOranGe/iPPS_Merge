@@ -25,6 +25,11 @@ public class ProjectBusiness {
         return projects.ToDtos();
     }
 
+    public List<ProjectDto> SearchProjects(string searchValue) {
+        List<Project> projects = ProjectDataAccess.Instance.SearchProjects(searchValue);
+        return projects.ToDtos();
+    }
+
     public List<ProjectProgress> GetProjectsWithProgress() {
         List<Project> projects = ProjectDataAccess.Instance.GetProjects();
         List<ProjectProgress> projectsProgress = [];
