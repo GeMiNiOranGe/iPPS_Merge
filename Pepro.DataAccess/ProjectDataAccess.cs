@@ -24,8 +24,10 @@ public class ProjectDataAccess {
                 , Project.StartDate
                 , Project.EndDate
                 , Project.StatusId
+                , Project.IsDeleted
             FROM Project
             WHERE ProjectId = @ProjectId
+                AND IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("ProjectId", SqlDbType.VarChar, 10, projectId);
@@ -54,7 +56,9 @@ public class ProjectDataAccess {
                 , Project.StartDate
                 , Project.EndDate
                 , Project.StatusId
+                , Project.IsDeleted
             FROM Project
+            WHERE IsDeleted = 0
         ";
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
@@ -77,6 +81,7 @@ public class ProjectDataAccess {
                 , Project.StartDate
                 , Project.EndDate
                 , Project.StatusId
+                , Project.IsDeleted
             FROM Project
             WHERE
                 (
@@ -84,6 +89,7 @@ public class ProjectDataAccess {
                     OR Name LIKE '%' + @SearchValue + '%'
                     OR CustomerName LIKE '%' + @SearchValue + '%'
                 )
+                AND IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
@@ -107,12 +113,14 @@ public class ProjectDataAccess {
                 , Project.StartDate
                 , Project.EndDate
                 , Project.StatusId
+                , Project.IsDeleted
             FROM AssignmentDetail
             INNER JOIN Assignment
                     ON AssignmentDetail.AssignmentId = Assignment.AssignmentId
             INNER JOIN Project
                     ON Assignment.ProjectId = Project.ProjectId
             WHERE EmployeeId = @EmployeeId
+                AND IsDeleted = 0
             ORDER BY Project.ProjectId DESC;
         ";
         List<SqlParameter> parameters = [];
@@ -137,10 +145,12 @@ public class ProjectDataAccess {
                 , Project.StartDate
                 , Project.EndDate
                 , Project.StatusId
+                , Project.IsDeleted
             FROM Project
             INNER JOIN Assignment
                     ON Assignment.ProjectId = Project.ProjectId
             WHERE Assignment.AssignmentId = @AssignmentId
+                AND IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
@@ -152,5 +162,17 @@ public class ProjectDataAccess {
 
         DataRow row = dataTable.Rows[0];
         return ProjectMapper.FromDataRow(row);
+    }
+
+    public int DeleteProject(string projectId) {
+        string query = @"
+            UPDATE Project
+            SET IsDeleted = 1
+            WHERE ProjectId = @ProjectId;
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("ProjectId", SqlDbType.VarChar, 10, projectId);
+
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 }

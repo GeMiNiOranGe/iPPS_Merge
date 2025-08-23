@@ -9,6 +9,10 @@ public class Project {
     private DateTime _endDate;
     private int _statusId;
 
+    #region Optional fields
+    private bool _isDeleted;
+    #endregion
+
     public required string ProjectId {
         get => _projectId;
         set => _projectId = value;
@@ -42,5 +46,10 @@ public class Project {
     public required int StatusId {
         get => _statusId;
         set => _statusId = value;
+    }
+
+    public bool IsDeleted {
+        get => _isDeleted;
+        set => _isDeleted = value;
     }
 }

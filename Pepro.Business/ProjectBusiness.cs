@@ -70,4 +70,9 @@ public class ProjectBusiness {
         Project? project = ProjectDataAccess.Instance.GetProjectByAssignmentId(assignmentId);
         return project?.ToDto();
     }
+
+    public int DeleteProject(string projectId)
+    {
+        return ProjectDataAccess.Instance.DeleteProject(projectId);
+    }
 }
