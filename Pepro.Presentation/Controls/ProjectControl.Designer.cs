@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent() {
             projectDataGridView = new PeproDataGridView();
-            projectIdColumn = new DataGridViewTextBoxColumn();
             projectNameColumn = new DataGridViewTextBoxColumn();
             customerNameColumn = new DataGridViewTextBoxColumn();
             managerIdColumn = new DataGridViewTextBoxColumn();
@@ -47,21 +46,13 @@
             // projectDataGridView
             // 
             projectDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            projectDataGridView.Columns.AddRange(new DataGridViewColumn[] { projectIdColumn, projectNameColumn, customerNameColumn, managerIdColumn, startDateColumn, endDateColumn, statusIdColumn });
+            projectDataGridView.Columns.AddRange(new DataGridViewColumn[] { projectNameColumn, customerNameColumn, managerIdColumn, startDateColumn, endDateColumn, statusIdColumn });
             projectDataGridView.Location = new Point(16, 123);
             projectDataGridView.Margin = new Padding(16);
             projectDataGridView.Name = "projectDataGridView";
             projectDataGridView.Size = new Size(1032, 542);
             projectDataGridView.TabIndex = 7;
             projectDataGridView.CellClick += ProjectDataGridView_CellClick;
-            // 
-            // projectIdColumn
-            // 
-            projectIdColumn.DataPropertyName = "ProjectId";
-            projectIdColumn.HeaderText = "Mã dự án";
-            projectIdColumn.Name = "projectIdColumn";
-            projectIdColumn.ReadOnly = true;
-            projectIdColumn.Width = 72;
             // 
             // projectNameColumn
             // 
@@ -167,13 +158,14 @@
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(40, 40);
             searchButton.TabIndex = 2;
+            searchButton.Click += SearchButton_Click;
             // 
             // searchTextBox
             // 
             searchTextBox.Location = new Point(16, 75);
             searchTextBox.Margin = new Padding(3, 2, 3, 2);
             searchTextBox.Name = "searchTextBox";
-            searchTextBox.PlaceholderText = "Search for project name";
+            searchTextBox.PlaceholderText = "Search for customer name, project id or name";
             searchTextBox.Size = new Size(431, 26);
             searchTextBox.TabIndex = 1;
             // 
@@ -214,7 +206,6 @@
         private Button reloadButton;
         private Button searchButton;
         private TextBox searchTextBox;
-        private DataGridViewTextBoxColumn projectIdColumn;
         private DataGridViewTextBoxColumn projectNameColumn;
         private DataGridViewTextBoxColumn customerNameColumn;
         private DataGridViewTextBoxColumn managerIdColumn;
