@@ -32,6 +32,9 @@ public class EmployeeDataAccess {
                 , PositionId
                 , SalaryLevelId
                 , IsDeleted
+                , CreatedAt
+                , UpdatedAt
+                , DeletedAt
             FROM Employee
             WHERE IsDeleted = 0
         ";
@@ -61,6 +64,9 @@ public class EmployeeDataAccess {
                 , PositionId
                 , SalaryLevelId
                 , IsDeleted
+                , CreatedAt
+                , UpdatedAt
+                , DeletedAt
             FROM Employee
             WHERE
                 (
@@ -154,9 +160,11 @@ public class EmployeeDataAccess {
             .Set("DepartmentId", SqlDbType.VarChar, 10, entity.DepartmentId)
             .Set("PositionId", SqlDbType.Int, entity.PositionId)
             .Set("SalaryLevelId", SqlDbType.Int, entity.SalaryLevelId)
+            .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
             .Where("EmployeeId", SqlDbType.Int, employeeId);
 
         (string query, List<SqlParameter> parameters) = builder.Build();
+
         if (string.IsNullOrEmpty(query) || parameters.Count == 0)
         {
             return 0;
@@ -167,7 +175,8 @@ public class EmployeeDataAccess {
     public int DeleteEmployee(int employeeId) {
         string query = @"
             UPDATE Employee
-            SET IsDeleted = 1
+            SET IsDeleted = 1,
+                DeletedAt = GetDate()
             WHERE EmployeeId = @EmployeeId;
         ";
         List<SqlParameter> parameters = [];
@@ -245,6 +254,9 @@ public class EmployeeDataAccess {
                 , Inserted.[PositionId]
                 , Inserted.[SalaryLevelId]
                 , Inserted.[IsDeleted]
+                , Inserted.[CreatedAt]
+                , Inserted.[UpdatedAt]
+                , Inserted.[DeletedAt]
             VALUES
             (
                 @FirstName
@@ -340,6 +352,9 @@ public class EmployeeDataAccess {
                 , PositionId
                 , SalaryLevelId
                 , IsDeleted
+                , CreatedAt
+                , UpdatedAt
+                , DeletedAt
             FROM Employee
             WHERE EmployeeId = @EmployeeId
             AND IsDeleted = 0

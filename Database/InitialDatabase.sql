@@ -6,6 +6,13 @@
 -- + IsDeleted = 0 -> the record is active (i.e., not deleted). This is the default value.
 -- + IsDeleted = 1 -> the record is soft-deleted (logically deleted).
 
+-- For `UpdatedAt` column:
+-- Set `UpdatedAt` to current datetime on any update, except when only `IsDeleted` is modified.
+
+-- For `DeletedAt` column:
+-- `DeletedAt` must be set to the current datetime when `IsDeleted` is set to 1,
+-- and must be set to `NULL` when IsDeleted is set to 0.
+
 USE [Master]
 GO
 
@@ -81,6 +88,9 @@ CREATE TABLE [dbo].[Employee] (
     [SalaryLevelId] [int]           NOT NULL,
 
     [IsDeleted]     [bit]           NOT NULL,
+    [CreatedAt]     [datetime]      NOT NULL,
+    [UpdatedAt]     [datetime]      NOT NULL,
+    [DeletedAt]     [datetime],
 );
 
 CREATE TABLE [dbo].[EmployeePhoneNumber] (
@@ -241,16 +251,20 @@ GO
 
 -- default ---------------------------------------------------------------
 ALTER TABLE Project ADD
-    CONSTRAINT DF_Project_IsDeleted DEFAULT 0
+CONSTRAINT DF_Project_IsDeleted DEFAULT 0
     FOR IsDeleted;
 GO
 
 ALTER TABLE Employee ADD
-    CONSTRAINT DF_Employee_IsDeleted DEFAULT 0
-    FOR IsDeleted;
+CONSTRAINT DF_Employee_IsDeleted DEFAULT 0
+    FOR IsDeleted,
+CONSTRAINT DF_Employee_CreatedAt DEFAULT GetDate()
+    FOR CreatedAt,
+CONSTRAINT DF_Employee_UpdatedAt DEFAULT GetDate()
+    FOR UpdatedAt;
 GO
 
 ALTER TABLE Document ADD
-    CONSTRAINT DF_Document_IsDeleted DEFAULT 0
+CONSTRAINT DF_Document_IsDeleted DEFAULT 0
     FOR IsDeleted;
 GO
