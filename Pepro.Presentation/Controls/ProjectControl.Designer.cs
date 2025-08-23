@@ -139,6 +139,7 @@
             deleteButton.Size = new Size(112, 40);
             deleteButton.TabIndex = 4;
             deleteButton.Text = " Delete";
+            deleteButton.Click += DeleteButton_Click;
             // 
             // reloadButton
             // 

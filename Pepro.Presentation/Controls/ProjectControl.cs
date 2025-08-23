@@ -70,7 +70,6 @@ public partial class ProjectControl : PeproCrudControlBase
         );
     }
 
-    /*
     private void DeleteButton_Click(object sender, EventArgs e) {
         BindDeleteButtonClick<ProjectDto>(
             projectDataGridView,
@@ -78,5 +77,4 @@ public partial class ProjectControl : PeproCrudControlBase
             LoadProjects
         );
     }
-    */
 }

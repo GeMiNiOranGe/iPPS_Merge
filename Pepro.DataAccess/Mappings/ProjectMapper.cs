@@ -16,6 +16,7 @@ static class ProjectMapper
             StartDate = row.Field<DateTime>("StartDate"),
             EndDate = row.Field<DateTime>("EndDate"),
             StatusId = row.Field<int>("StatusId"),
+            IsDeleted = row.Field<bool>("IsDeleted"),
         };
     }
 }
