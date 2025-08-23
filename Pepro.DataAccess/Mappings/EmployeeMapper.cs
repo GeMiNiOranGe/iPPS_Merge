@@ -21,6 +21,9 @@ static class EmployeeMapper
             PositionId = row.Field<int>("PositionId"),
             SalaryLevelId = row.Field<int>("SalaryLevelId"),
             IsDeleted = row.Field<bool>("IsDeleted"),
+            CreatedAt = row.Field<DateTime>("CreatedAt"),
+            UpdatedAt = row.Field<DateTime>("UpdatedAt"),
+            DeletedAt = row.Field<DateTime?>("DeletedAt"),
         };
     }
 }
