@@ -41,7 +41,6 @@ public partial class ProjectControl : PeproCrudControlBase
         BindDataGridViewCellClick<ProjectDto>((DataGridView)sender, e);
     }
 
-    /*
     private void SearchButton_Click(object sender, EventArgs e) {
         BindSearchButtonClick(
             searchTextBox.Text,
@@ -49,7 +48,6 @@ public partial class ProjectControl : PeproCrudControlBase
             ProjectBusiness.Instance.SearchProjects
         );
     }
-    */
 
     private void ReloadButton_Click(object sender, EventArgs e) {
         LoadProjects();

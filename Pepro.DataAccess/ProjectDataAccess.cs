@@ -47,13 +47,13 @@ public class ProjectDataAccess {
     /// </returns>
     public List<Project> GetProjects() {
         string query = @"
-            SELECT ProjectId
-                , Name
-                , CustomerName
-                , ManagerId
-                , StartDate
-                , EndDate
-                , StatusId
+            SELECT Project.ProjectId
+                , Project.Name
+                , Project.CustomerName
+                , Project.ManagerId
+                , Project.StartDate
+                , Project.EndDate
+                , Project.StatusId
             FROM Project
         ";
 
@@ -62,6 +62,36 @@ public class ProjectDataAccess {
         List<Project> projects = [];
         foreach (DataRow row in dataTable.Rows)
         {
+            Project project = ProjectMapper.FromDataRow(row);
+            projects.Add(project);
+        }
+        return projects;
+    }
+
+    public List<Project> SearchProjects(string searchValue) {
+        string query = @"
+            SELECT Project.ProjectId
+                , Project.Name
+                , Project.CustomerName
+                , Project.ManagerId
+                , Project.StartDate
+                , Project.EndDate
+                , Project.StatusId
+            FROM Project
+            WHERE
+                (
+                    ProjectId LIKE '%' + @SearchValue + '%'
+                    OR Name LIKE '%' + @SearchValue + '%'
+                    OR CustomerName LIKE '%' + @SearchValue + '%'
+                )
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
+
+        List<Project> projects = [];
+        foreach (DataRow row in dataTable.Rows) {
             Project project = ProjectMapper.FromDataRow(row);
             projects.Add(project);
         }

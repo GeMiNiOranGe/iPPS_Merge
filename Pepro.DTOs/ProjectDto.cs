@@ -1,4 +1,6 @@
-﻿namespace Pepro.DTOs;
+﻿using System.ComponentModel;
+
+namespace Pepro.DTOs;
 
 public class ProjectDto {
     private string _projectId = "";
@@ -9,6 +11,7 @@ public class ProjectDto {
     private DateTime _endDate;
     private int _statusId;
 
+    [Browsable(false)]
     public string ProjectId {
         get => _projectId;
         set => _projectId = value;
