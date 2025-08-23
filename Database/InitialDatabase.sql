@@ -53,6 +53,8 @@ CREATE TABLE [dbo].[Project] (
     [EndDate]       [date]          NOT NULL,
 
     [StatusId]      [int]           NOT NULL,
+
+    [IsDeleted]     [bit]           NOT NULL,
 );
 
 CREATE TABLE [dbo].[SalaryLevel] (
@@ -238,6 +240,11 @@ CONSTRAINT [FK_DepartmentProject_Department]
 GO
 
 -- default ---------------------------------------------------------------
+ALTER TABLE Project ADD
+    CONSTRAINT DF_Project_IsDeleted DEFAULT 0
+    FOR IsDeleted;
+GO
+
 ALTER TABLE Employee ADD
     CONSTRAINT DF_Employee_IsDeleted DEFAULT 0
     FOR IsDeleted;
