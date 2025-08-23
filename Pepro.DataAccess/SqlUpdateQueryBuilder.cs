@@ -11,6 +11,17 @@ class SqlUpdateQueryBuilder(string tableName)
     private readonly List<string> _whereClauses = [];
     private readonly List<SqlParameter> _parameters = [];
 
+    public SqlUpdateQueryBuilder SetDirect(
+        string columnName,
+        SqlDbType dbType,
+        object? value
+    )
+    {
+        _setClauses.Add($"{columnName} = @{columnName}");
+        _parameters.Add(columnName, dbType, value);
+        return this;
+    }
+
     public SqlUpdateQueryBuilder Set<T>(
         string columnName,
         SqlDbType dbType,
