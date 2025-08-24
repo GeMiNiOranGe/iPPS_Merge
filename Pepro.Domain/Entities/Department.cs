@@ -1,4 +1,4 @@
-﻿namespace Pepro.DataAccess.Entities;
+﻿namespace Pepro.Domain.Entities;
 
 public class Department
 {

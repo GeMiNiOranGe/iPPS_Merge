@@ -1,6 +1,6 @@
 using Pepro.Business.Mappings;
 using Pepro.DataAccess;
-using Pepro.DataAccess.Entities;
+using Pepro.Domain.Entities;
 using Pepro.DTOs;
 
 namespace Pepro.Business;

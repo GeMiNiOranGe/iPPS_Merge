@@ -1,6 +1,6 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
-using Pepro.DataAccess.Contracts;
+using Pepro.Domain.Contracts;
 
 namespace Pepro.DataAccess;
 

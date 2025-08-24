@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Pepro.DTOs\Pepro.DTOs.csproj" />
+    <ProjectReference Include="..\Pepro.Domain\Pepro.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

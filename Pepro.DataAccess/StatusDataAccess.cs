@@ -1,5 +1,5 @@
 using System.Data;
-using Pepro.DataAccess.Entities;
+using Pepro.Domain.Entities;
 using Pepro.DataAccess.Mappings;
 
 namespace Pepro.DataAccess;
