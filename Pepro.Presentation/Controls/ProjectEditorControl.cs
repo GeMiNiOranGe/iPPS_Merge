@@ -1,4 +1,5 @@
-﻿using Pepro.DTOs;
+﻿using Pepro.Business;
+using Pepro.DTOs;
 using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls;
@@ -54,6 +55,33 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
         InitializeComponent();
 
         saveButton.ApplyFlatStyle();
+    }
+
+    private void ProjectEditorControl_Load(object sender, EventArgs e)
+    {
+        statusComboBoxField.DisplayMember = nameof(StatusDto.Name);
+        statusComboBoxField.ValueMember = nameof(StatusDto.StatusId);
+
+        statusComboBoxField.DataSource = StatusBusiness.Instance.GetStatuses();
+
+        switch (_mode) {
+        case EditorMode.Create:
+            SetupCreateMode();
+            break;
+        case EditorMode.Edit:
+            SetupEditMode();
+            break;
+        }
+    }
+
+    private void SetupCreateMode()
+    {
+        statusComboBoxField.SelectedIndex = -1;
+    }
+
+    private void SetupEditMode()
+    {
+        statusComboBoxField.SelectedValue = _item.StatusId;
     }
 
     private void SaveButton_Click(object sender, EventArgs e)
