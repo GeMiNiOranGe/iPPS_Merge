@@ -62,6 +62,9 @@ CREATE TABLE [dbo].[Project] (
     [StatusId]      [int]           NOT NULL,
 
     [IsDeleted]     [bit]           NOT NULL,
+    [CreatedAt]     [datetime]      NOT NULL,
+    [UpdatedAt]     [datetime]      NOT NULL,
+    [DeletedAt]     [datetime],
 );
 
 CREATE TABLE [dbo].[SalaryLevel] (
@@ -252,7 +255,11 @@ GO
 -- default ---------------------------------------------------------------
 ALTER TABLE Project ADD
 CONSTRAINT DF_Project_IsDeleted DEFAULT 0
-    FOR IsDeleted;
+    FOR IsDeleted,
+CONSTRAINT DF_Project_CreatedAt DEFAULT GetDate()
+    FOR CreatedAt,
+CONSTRAINT DF_Project_UpdatedAt DEFAULT GetDate()
+    FOR UpdatedAt;
 GO
 
 ALTER TABLE Employee ADD
