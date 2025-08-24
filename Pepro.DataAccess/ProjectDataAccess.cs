@@ -25,6 +25,9 @@ public class ProjectDataAccess {
                 , Project.EndDate
                 , Project.StatusId
                 , Project.IsDeleted
+                , Project.CreatedAt
+                , Project.UpdatedAt
+                , Project.DeletedAt
             FROM Project
             WHERE ProjectId = @ProjectId
                 AND IsDeleted = 0
@@ -57,6 +60,9 @@ public class ProjectDataAccess {
                 , Project.EndDate
                 , Project.StatusId
                 , Project.IsDeleted
+                , Project.CreatedAt
+                , Project.UpdatedAt
+                , Project.DeletedAt
             FROM Project
             WHERE IsDeleted = 0
         ";
@@ -82,6 +88,9 @@ public class ProjectDataAccess {
                 , Project.EndDate
                 , Project.StatusId
                 , Project.IsDeleted
+                , Project.CreatedAt
+                , Project.UpdatedAt
+                , Project.DeletedAt
             FROM Project
             WHERE
                 (
@@ -114,6 +123,9 @@ public class ProjectDataAccess {
                 , Project.EndDate
                 , Project.StatusId
                 , Project.IsDeleted
+                , Project.CreatedAt
+                , Project.UpdatedAt
+                , Project.DeletedAt
             FROM AssignmentDetail
             INNER JOIN Assignment
                     ON AssignmentDetail.AssignmentId = Assignment.AssignmentId
@@ -146,6 +158,9 @@ public class ProjectDataAccess {
                 , Project.EndDate
                 , Project.StatusId
                 , Project.IsDeleted
+                , Project.CreatedAt
+                , Project.UpdatedAt
+                , Project.DeletedAt
             FROM Project
             INNER JOIN Assignment
                     ON Assignment.ProjectId = Project.ProjectId
@@ -167,7 +182,8 @@ public class ProjectDataAccess {
     public int DeleteProject(string projectId) {
         string query = @"
             UPDATE Project
-            SET IsDeleted = 1
+            SET IsDeleted = 1,
+                DeletedAt = GetDate()
             WHERE ProjectId = @ProjectId;
         ";
         List<SqlParameter> parameters = [];
