@@ -34,8 +34,8 @@ CREATE TABLE [dbo].[Department] (
 );
 
 CREATE TABLE [dbo].[Status] (
-    [StatusId]      [int]           NOT NULL IDENTITY(1, 1),
-    [StatusValue]   [varchar](10)   NOT NULL,
+    [StatusId]  [int]           NOT NULL IDENTITY(1, 1),
+    [Name]      [varchar](10)   NOT NULL,
 );
 
 CREATE TABLE [dbo].[Position] (

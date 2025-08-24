@@ -1,5 +1,5 @@
 INSERT INTO [dbo].[Status]
-        ([StatusValue])
+        ([Name])
 VALUES  ('Cancel')
      ,  ('On hold')
      ,  ('On going')
