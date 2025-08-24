@@ -5,7 +5,7 @@ public class EmployeeUpdate
     private TrackedValue<string> _firstName = new();
     private TrackedValue<string?> _middleName = new();
     private TrackedValue<string> _lastName = new();
-    private TrackedValue<DateTime> _dateOfBirth = new();
+    private TrackedValue<DateOnly> _dateOfBirth = new();
     private TrackedValue<bool?> _gender = new();
     private TrackedValue<byte[]?> _taxCode = new();
     private TrackedValue<string> _citizenId = new();
@@ -31,7 +31,7 @@ public class EmployeeUpdate
         set => _lastName = value;
     }
 
-    public required TrackedValue<DateTime> DateOfBirth
+    public required TrackedValue<DateOnly> DateOfBirth
     {
         get => _dateOfBirth;
         set => _dateOfBirth = value;

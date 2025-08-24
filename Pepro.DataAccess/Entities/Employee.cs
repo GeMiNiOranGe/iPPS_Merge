@@ -6,7 +6,7 @@ public class Employee
     private string _firstName = null!;
     private string? _middleName;
     private string _lastName = null!;
-    private DateTime _dateOfBirth;
+    private DateOnly _dateOfBirth;
     private bool? _gender;
     private byte[]? _taxCode;
     private string _citizenId = null!;
@@ -45,7 +45,7 @@ public class Employee
         set => _lastName = value;
     }
 
-    public required DateTime DateOfBirth
+    public required DateOnly DateOfBirth
     {
         get => _dateOfBirth;
         set => _dateOfBirth = value;

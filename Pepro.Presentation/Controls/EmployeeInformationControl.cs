@@ -50,7 +50,7 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
             otherRadioButton
         ).Checked = true;
 
-        dateOfBirthDateTimePicker.Value = employee.DateOfBirth;
+        dateOfBirthDateTimePicker.SetValue(employee.DateOfBirth);
         citizenIdInputField.Text = employee.CitizenId;
 
         positionInputField.Text = PositionBusiness.Instance.GetPositionTitleByEmployeeId(_employeeId);
