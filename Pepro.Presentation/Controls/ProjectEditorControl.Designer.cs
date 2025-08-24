@@ -148,6 +148,7 @@
             Controls.Add(saveButton);
             HeaderText = "Project Editor";
             Name = "ProjectEditorControl";
+            Load += ProjectEditorControl_Load;
             Controls.SetChildIndex(saveButton, 0);
             Controls.SetChildIndex(endDateTimePicker, 0);
             Controls.SetChildIndex(endDateLabel, 0);
