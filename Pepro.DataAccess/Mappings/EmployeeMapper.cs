@@ -13,7 +13,7 @@ static class EmployeeMapper
             FirstName = row.Field<string>("FirstName") ?? "",
             MiddleName = row.Field<string?>("MiddleName"),
             LastName = row.Field<string>("LastName") ?? "",
-            DateOfBirth = row.Field<DateTime>("DateOfBirth"),
+            DateOfBirth = DateOnly.FromDateTime(row.Field<DateTime>("DateOfBirth")),
             Gender = row.Field<bool?>("Gender"),
             TaxCode = row.Field<byte[]?>("TaxCode"),
             CitizenId = row.Field<string>("CitizenId") ?? "",

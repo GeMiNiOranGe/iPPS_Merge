@@ -101,7 +101,6 @@
             // dateOfBirthDateTimePicker
             // 
             dateOfBirthDateTimePicker.Anchor = AnchorStyles.None;
-            dateOfBirthDateTimePicker.Format = DateTimePickerFormat.Short;
             dateOfBirthDateTimePicker.Location = new Point(16, 179);
             dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
             dateOfBirthDateTimePicker.Size = new Size(240, 26);
