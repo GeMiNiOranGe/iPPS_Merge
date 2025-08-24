@@ -1,4 +1,4 @@
-namespace Pepro.DataAccess.Entities;
+namespace Pepro.Domain.Entities;
 
 public class Project {
     private string _projectId = null!;
