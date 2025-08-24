@@ -7,7 +7,7 @@ public class EmployeeDto {
     private string _firstName = "";
     private string? _middleName;
     private string _lastName = "";
-    private DateTime _dateOfBirth;
+    private DateOnly _dateOfBirth;
     private string? _gender;
     private string? _taxCode;
     private string _citizenId = "";
@@ -49,7 +49,7 @@ public class EmployeeDto {
         }
     }
 
-    public DateTime DateOfBirth {
+    public DateOnly DateOfBirth {
         get => _dateOfBirth;
         set => _dateOfBirth = value;
     }

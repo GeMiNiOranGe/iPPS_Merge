@@ -168,7 +168,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             FirstName = firstNameInputField.Text.Trim(),
             MiddleName = middleNameInputField.Text.Trim(),
             LastName = lastNameInputField.Text.Trim(),
-            DateOfBirth = dateOfBirthDateTimePicker.Value,
+            DateOfBirth = DateOnly.FromDateTime(dateOfBirthDateTimePicker.Value),
             Gender = EmployeeHelper.GetSelectedGender(
                 maleRadioButton,
                 femaleRadioButton
