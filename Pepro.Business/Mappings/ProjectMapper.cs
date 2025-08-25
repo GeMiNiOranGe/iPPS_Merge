@@ -1,4 +1,4 @@
-using Pepro.Domain.Entities;
+using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 
 namespace Pepro.Business.Mappings;

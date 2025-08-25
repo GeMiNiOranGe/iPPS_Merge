@@ -1,8 +1,8 @@
 ﻿using Pepro.Business.Mappings;
 using Pepro.Business.Utilities;
 using Pepro.DataAccess;
-using Pepro.Domain.Contracts;
-using Pepro.Domain.Entities;
+using Pepro.DataAccess.Contracts;
+using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 using System.Data;
 

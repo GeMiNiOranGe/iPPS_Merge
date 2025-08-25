@@ -1,5 +1,5 @@
 using System.Text;
-using Pepro.Domain.Entities;
+using Pepro.DataAccess.Entities;
 
 namespace Pepro.Business;
 
