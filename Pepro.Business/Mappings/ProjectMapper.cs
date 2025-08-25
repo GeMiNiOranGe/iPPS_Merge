@@ -5,6 +5,20 @@ namespace Pepro.Business.Mappings;
 
 static class ProjectMapper
 {
+    public static Project ToEntity(this ProjectDto dto)
+    {
+        return new Project()
+        {
+            ProjectId = dto.ProjectId,
+            Name = dto.Name,
+            CustomerName = dto.CustomerName,
+            ManagerId = dto.ManagerId,
+            StartDate = dto.StartDate,
+            EndDate = dto.EndDate,
+            StatusId = dto.StatusId,
+        };
+    }
+
     public static ProjectDto ToDto(this Project entity)
     {
         return new ProjectDto()

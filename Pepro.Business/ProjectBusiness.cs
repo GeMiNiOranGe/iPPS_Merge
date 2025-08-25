@@ -97,4 +97,10 @@ public class ProjectBusiness {
         };
         return ProjectDataAccess.Instance.UpdateProject(dto.ProjectId, updateInfo);
     }
+
+    public int InsertProject(ProjectDto dto)
+    {
+        Project entity = dto.ToEntity();
+        return ProjectDataAccess.Instance.InsertProject(entity);
+    }
 }
