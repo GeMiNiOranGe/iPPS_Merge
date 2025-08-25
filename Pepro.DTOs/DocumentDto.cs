@@ -10,9 +10,9 @@ public class DocumentDto {
     private string _revisionStatus = "";
     private string _documentUrl = "";
     private string _nativeFileFormat = "";
-    private string _preparedBy = "";
-    private string _checkedBy = "";
-    private string _approvedBy = "";
+    private string? _preparedBy;
+    private string? _checkedBy;
+    private string? _approvedBy;
     private int _assignmentId;
 
     [Browsable(false)]
@@ -51,17 +51,17 @@ public class DocumentDto {
         set => _nativeFileFormat = value;
     }
 
-    public string PreparedBy {
+    public string? PreparedBy {
         get => _preparedBy;
         set => _preparedBy = value;
     }
 
-    public string CheckedBy {
+    public string? CheckedBy {
         get => _checkedBy;
         set => _checkedBy = value;
     }
 
-    public string ApprovedBy {
+    public string? ApprovedBy {
         get => _approvedBy;
         set => _approvedBy = value;
     }
