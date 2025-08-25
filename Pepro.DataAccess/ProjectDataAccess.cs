@@ -212,4 +212,37 @@ public class ProjectDataAccess {
         }
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
+
+    public int InsertProject(Project entity)
+    {
+        string query = @"
+            INSERT INTO Project
+            (
+                Name
+                , CustomerName
+                , ManagerId
+                , StartDate
+                , EndDate
+                , StatusId
+            )
+            VALUES
+            (
+                @Name
+                , @CustomerName
+                , @ManagerId
+                , @StartDate
+                , @EndDate
+                , @StatusId
+            )
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("Name", SqlDbType.NVarChar, 50, entity.Name);
+        parameters.Add("CustomerName", SqlDbType.NVarChar, 50, entity.CustomerName);
+        parameters.Add("ManagerId", SqlDbType.Int, entity.ManagerId);
+        parameters.Add("StartDate", SqlDbType.Date, entity.StartDate);
+        parameters.Add("EndDate", SqlDbType.Date, entity.EndDate);
+        parameters.Add("StatusId", SqlDbType.Int, entity.StatusId);
+
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
 }
