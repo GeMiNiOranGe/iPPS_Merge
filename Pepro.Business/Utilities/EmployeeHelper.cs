@@ -26,37 +26,4 @@ public static class EmployeeHelper
         }
         return null;
     }
-
-    public static RadioButton SelectGenderRadio(
-        string? gender,
-        RadioButton maleRadioButton,
-        RadioButton femaleRadioButton,
-        RadioButton otherRadioButton
-    )
-    {
-        if (gender != null)
-        {
-            return gender == _male ? maleRadioButton : femaleRadioButton;
-        }
-        return otherRadioButton;
-    }
-
-    public static string? GetSelectedGender(
-        RadioButton maleRadioButton,
-        RadioButton femaleRadioButton
-    )
-    {
-        string? gender = null;
-        if (maleRadioButton.Checked)
-        {
-            gender = _male;
-        }
-
-        if (femaleRadioButton.Checked)
-        {
-            gender = _female;
-        }
-
-        return gender;
-    }
 }
