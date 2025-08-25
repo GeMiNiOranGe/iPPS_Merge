@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Contracts;
 using Pepro.DataAccess.Entities;
 using Pepro.DataAccess.Mappings;
 using System.Data;
@@ -189,6 +190,26 @@ public class ProjectDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("ProjectId", SqlDbType.VarChar, 10, projectId);
 
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
+    public int UpdateProject(string projectId, ProjectUpdate info) {
+        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Project")
+            .Set("Name", SqlDbType.NVarChar, 50, info.Name)
+            .Set("CustomerName", SqlDbType.NVarChar, 50, info.CustomerName)
+            .Set("ManagerId", SqlDbType.Int, info.ManagerId)
+            .Set("StartDate", SqlDbType.Date, info.StartDate)
+            .Set("EndDate", SqlDbType.Date, info.EndDate)
+            .Set("StatusId", SqlDbType.Int, info.StatusId)
+            .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
+            .Where("ProjectId", SqlDbType.VarChar, 10, projectId);
+
+        (string query, List<SqlParameter> parameters) = builder.Build();
+
+        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
+        {
+            return 0;
+        }
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 }
