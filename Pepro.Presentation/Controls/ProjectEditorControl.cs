@@ -86,15 +86,12 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
 
     private void SaveButton_Click(object sender, EventArgs e)
     {
-        /*
-        if(projectIdTextBox.Text=="" || projectNameTextBox.Text == "" 
-            || accessTextBox.Text == "" || statusTextBox.Text == ""
-            || customerTextBox.Text == "" || managerIdTextBox.Text == ""
-            || departmentTextBox.Text == "" || startDateTimePicker.Text == "" || endDateTimePicker.Text == "")
+        if (!ValidateInputs())
         {
-            MessageBox.Show("Mời bạn nhập đầy đủ thông tin!");
+            MessageBoxWrapper.ShowInformation("FillInformation");
             return;
         }
+        /*
         try
         {
             if(MessageBox.Show("Bạn có muốn lưu dự án này?", "Xác nhận",
@@ -128,6 +125,68 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
             MessageBox.Show(ex.Message);
         }
         */
+        if (
+            !int.TryParse(managerIdInputField.Text, out int managerId)
+            || !int.TryParse(
+                statusComboBoxField.SelectedValue?.ToString(),
+                out int statusId
+            )
+        )
+        {
+            return;
+        }
+
+        ProjectDto project = new()
+        {
+            ProjectId = _item.ProjectId,
+            Name = projectNameInputField.Text.Trim(),
+            CustomerName = customerNameInputField.Text.Trim(),
+            ManagerId = managerId,
+            StartDate = startDateTimePicker.Value,
+            EndDate = endDateTimePicker.Value,
+            StatusId = statusId,
+        };
+
+        switch (Mode)
+        {
+            case EditorMode.Create:
+                HandleCreateMode(project);
+                break;
+            case EditorMode.Edit:
+                HandleEditMode(project);
+                break;
+        }
+    }
+
+    private void HandleCreateMode(ProjectDto project)
+    {
+        // _ = ProjectBusiness.Instance.InsertProject(project);
+
+        NotifyDataChanged();
+        Close();
+        MessageBoxWrapper.ShowInformation("InsertSuccess");
+    }
+
+    private void HandleEditMode(ProjectDto project)
+    {
+        int result = ProjectBusiness.Instance.UpdateProject(project);
+        if (result == 0)
+        {
+            return;
+        }
+
+        NotifyDataChanged();
+        Close();
+        MessageBoxWrapper.ShowInformation("UpdateSuccess");
+    }
+
+    private bool ValidateInputs()
+    {
+        return !string.IsNullOrWhiteSpace(projectNameInputField.Text)
+            && !string.IsNullOrWhiteSpace(customerNameInputField.Text)
+            && !string.IsNullOrWhiteSpace(
+                statusComboBoxField.SelectedValue?.ToString()
+            );
     }
 
     /*

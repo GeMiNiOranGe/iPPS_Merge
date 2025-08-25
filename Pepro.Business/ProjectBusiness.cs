@@ -1,5 +1,6 @@
 ﻿using Pepro.Business.Mappings;
 using Pepro.DataAccess;
+using Pepro.DataAccess.Contracts;
 using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 
@@ -74,5 +75,26 @@ public class ProjectBusiness {
     public int DeleteProject(string projectId)
     {
         return ProjectDataAccess.Instance.DeleteProject(projectId);
+    }
+    
+    public int UpdateProject(ProjectDto dto)
+    {
+        Project? entity = ProjectDataAccess.Instance.GetProjectByProjectId(dto.ProjectId);
+        if (entity == null)
+        {
+            return 0;
+        }
+
+        ProjectUpdate updateInfo = new()
+        {
+            ProjectId = new(dto.ProjectId, entity.ProjectId != dto.ProjectId),
+            Name = new(dto.Name, entity.Name != dto.Name),
+            CustomerName = new(dto.CustomerName, entity.CustomerName != dto.CustomerName),
+            ManagerId = new(dto.ManagerId, entity.ManagerId != dto.ManagerId),
+            StartDate = new(dto.StartDate, entity.StartDate != dto.StartDate),
+            EndDate = new(dto.EndDate, entity.EndDate != dto.EndDate),
+            StatusId = new(dto.StatusId, entity.StatusId != dto.StatusId),
+        };
+        return ProjectDataAccess.Instance.UpdateProject(dto.ProjectId, updateInfo);
     }
 }
