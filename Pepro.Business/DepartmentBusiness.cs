@@ -1,6 +1,6 @@
 ﻿using Pepro.Business.Mappings;
 using Pepro.DataAccess;
-using Pepro.Domain.Entities;
+using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 using System.Data;
 

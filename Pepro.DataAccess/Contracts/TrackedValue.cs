@@ -1,4 +1,4 @@
-namespace Pepro.Domain.Contracts;
+namespace Pepro.DataAccess.Contracts;
 
 public class TrackedValue<T>
 {

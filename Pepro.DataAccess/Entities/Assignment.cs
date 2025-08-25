@@ -1,4 +1,4 @@
-﻿namespace Pepro.Domain.Entities;
+﻿namespace Pepro.DataAccess.Entities;
 
 public class Assignment
 {

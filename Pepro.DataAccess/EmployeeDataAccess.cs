@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
-using Pepro.Domain.Contracts;
-using Pepro.Domain.Entities;
+using Pepro.DataAccess.Contracts;
+using Pepro.DataAccess.Entities;
 using Pepro.DataAccess.Mappings;
 using Pepro.DTOs;
 using System.Data;
