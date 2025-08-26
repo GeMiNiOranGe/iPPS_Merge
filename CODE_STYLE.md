@@ -2,7 +2,9 @@
 
 These conventions aim to keep the codebase clean, consistent, and easy to collaborate on.
 
-## 🔤 Naming Conventions
+# 🔤 Naming Conventions
+
+## General
 
 > **NOTE:** Use plural nouns instead of appending "List". For example:
 
@@ -24,9 +26,9 @@ These conventions aim to keep the codebase clean, consistent, and easy to collab
 | UI control fields    | `camelCase + suffix`     | `saveButton`, `nameTextBox`          |
 | File names           | Match class names        | `EmployeeService.cs`, `LoginForm.cs` |
 
-## 🧱 Code Structure & Style
+# 🧱 Code Structure & Style
 
-### 🔸 General Rules
+## 🔸 General Rules
 
 * Always use `{}` for control blocks, even for single-line statements:
 
@@ -65,7 +67,7 @@ These conventions aim to keep the codebase clean, consistent, and easy to collab
 
 * Avoid placing business logic directly in WinForms code-behind. Use separate `Business` or `DataAccess` layers.
 
-## 💬 Comments
+# 💬 Comments
 
 * Use `//` for short inline comments that explain *why*, not *what*.
 * Use `///` XML documentation comments for all public classes and methods:
@@ -77,19 +79,19 @@ These conventions aim to keep the codebase clean, consistent, and easy to collab
     public List<Employee> GetEmployeesByDepartment(string departmentId) { ... }
     ```
 
-## 🛢️ Database & SQL Access
+# 🛢️ Database & SQL Access
 
 * Do **not** write raw SQL queries in Forms or UI logic.
 * Always use `SqlParameter` to prevent SQL injection.
+* Always use full table names, do not use aliases for table names
 * Use `PascalCase` for table and column names:
-
     * Tables: `Employee`, `Project`, `Task`  
     * Columns: `EmployeeId`, `FullName`, `StartDate`
 
 * Store SQL scripts (e.g., schema, seed data) in the `Database/` folder.
 * Encapsulate SQL operations inside a `DataAccess` or `Repository` layer.
 
-## 🔣 Enum Naming
+# 🔣 Enum Naming
 
 Enums should be named using `PascalCase` for both the enum type and its members. This makes them consistent with C# naming conventions and easier to read, especially when working with business logic or mapping enum values to the database.
 
@@ -108,7 +110,7 @@ public enum ProjectStatus
 }
 ```
 
-## 📌 Constants and `readonly` Fields
+# 📌 Constants and `readonly` Fields
 
 Use different conventions for constants and `readonly` fields to clearly distinguish between compile-time and run-time immutability.
 
@@ -129,7 +131,7 @@ private const int MAX_FILE_SIZE = 1048576;
 private readonly string _defaultDepartmentId;
 ```
 
-## ✅ Miscellaneous Rules
+# ✅ Miscellaneous Rules
 
 * One class per file.
 * Avoid committing changes to auto-generated `.Designer.cs` files unless necessary.
