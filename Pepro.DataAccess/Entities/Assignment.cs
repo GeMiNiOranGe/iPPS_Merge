@@ -10,7 +10,7 @@ public class Assignment
     private DateTime _startDate;
     private DateTime _endDate;
     private int _requiredDocumentCount;
-    private string _projectId = null!;
+    private int _projectId;
     private int _statusId;
 
     public required int AssignmentId
@@ -61,7 +61,7 @@ public class Assignment
         set => _requiredDocumentCount = value;
     }
 
-    public required string ProjectId
+    public required int ProjectId
     {
         get => _projectId;
         set => _projectId = value;

@@ -8,7 +8,7 @@ public class AssignmentDto {
     private int _managerId;
     private DateTime _startDate;
     private DateTime _endDate;
-    private string _projectId = "";
+    private int _projectId;
     private int _statusId;
     private AccessLevel _accessRight;
 
@@ -47,7 +47,7 @@ public class AssignmentDto {
         set => _endDate = value;
     }
 
-    public string ProjectId {
+    public int ProjectId {
         get => _projectId;
         set => _projectId = value;
     }

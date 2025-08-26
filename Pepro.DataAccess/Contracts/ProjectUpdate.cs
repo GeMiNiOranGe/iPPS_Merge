@@ -2,7 +2,7 @@ namespace Pepro.DataAccess.Contracts;
 
 public class ProjectUpdate
 {
-    private TrackedValue<string> _projectId = new();
+    private TrackedValue<int> _projectId = new();
     private TrackedValue<string> _name = new();
     private TrackedValue<string> _customerName = new();
     private TrackedValue<int> _managerId = new();
@@ -10,7 +10,7 @@ public class ProjectUpdate
     private TrackedValue<DateTime> _endDate = new();
     private TrackedValue<int> _statusId = new();
 
-    public TrackedValue<string> ProjectId
+    public TrackedValue<int> ProjectId
     {
         get => _projectId;
         set => _projectId = value;

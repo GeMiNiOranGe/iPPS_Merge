@@ -5,6 +5,8 @@ using System.ComponentModel;
 namespace Pepro.Presentation.Controls;
 
 public partial class AssignmentDetailControl : PeproMediatedUserControl {
+    private int _projectId;
+
     public AssignmentDetailControl() {
         Initialize();
     }
@@ -18,9 +20,12 @@ public partial class AssignmentDetailControl : PeproMediatedUserControl {
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required string ProjectId {
-        get => projectIdLabel.Text;
-        set => projectIdLabel.Text = value;
+    public required int ProjectId {
+        get => _projectId;
+        set {
+            _projectId = value;
+            projectIdLabel.Text = _projectId.ToString();
+        }
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]

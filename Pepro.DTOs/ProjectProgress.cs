@@ -1,7 +1,7 @@
 ﻿namespace Pepro.DTOs;
 
 public class ProjectProgress {
-    private string _projectId = "";
+    private int _projectId;
     private string _name = "";
     private string _customerName = "";
     private int _managerId;
@@ -10,7 +10,7 @@ public class ProjectProgress {
     private int _statusId;
     private decimal _progressPercent;
 
-    public string ProjectId {
+    public int ProjectId {
         get => _projectId;
         set => _projectId = value;
     }

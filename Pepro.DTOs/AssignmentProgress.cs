@@ -8,7 +8,7 @@ public class AssignmentProgress {
     private int _managerId;
     private DateTime _startDate;
     private DateTime _endDate;
-    private string _projectId = "";
+    private int _projectId;
     private int _statusId;
     private decimal _progressPercent;
 
@@ -47,7 +47,7 @@ public class AssignmentProgress {
         set => _endDate = value;
     }
 
-    public string ProjectId {
+    public int ProjectId {
         get => _projectId;
         set => _projectId = value;
     }

@@ -127,7 +127,7 @@ public partial class DocumentControl : PeproCrudControlBase
             return;
         }
 
-        projectIdInputField.Text = project.ProjectId;
+        projectIdInputField.Text = project.ProjectId.ToString();
         projectNameInputField.Text = project.Name;
     }
 }

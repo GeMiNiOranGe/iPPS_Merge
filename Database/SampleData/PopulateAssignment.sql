@@ -6,7 +6,7 @@ CREATE OR ALTER PROCEDURE [dbo].[usp_CreateDummyAssignment]
     @DaysBeforeToday        INT,
     @DaysAfterToday         INT,
     @RequiredDocumentCount  INT,
-    @ProjectId              VARCHAR(10),
+    @ProjectId              INT,
     @StatusId               INT
 AS BEGIN
     SET NOCOUNT ON
@@ -33,7 +33,7 @@ EXECUTE [dbo].[usp_CreateDummyAssignment]
   , @DaysBeforeToday        = 0
   , @DaysAfterToday         = 5
   , @RequiredDocumentCount  = 1
-  , @ProjectId              = 'PRJ00001'
+  , @ProjectId              = 1
   , @StatusId               = 3
 
 EXECUTE [dbo].[usp_CreateDummyAssignment] 
@@ -44,7 +44,7 @@ EXECUTE [dbo].[usp_CreateDummyAssignment]
   , @DaysBeforeToday        = -2
   , @DaysAfterToday         = 3
   , @RequiredDocumentCount  = 1
-  , @ProjectId              = 'PRJ00001'
+  , @ProjectId              = 1
   , @StatusId               = 1
 
 EXECUTE [dbo].[usp_CreateDummyAssignment] 
@@ -55,7 +55,7 @@ EXECUTE [dbo].[usp_CreateDummyAssignment]
   , @DaysBeforeToday        = -20
   , @DaysAfterToday         = -15
   , @RequiredDocumentCount  = 1
-  , @ProjectId              = 'PRJ00001'
+  , @ProjectId              = 1
   , @StatusId               = 4
 
 EXECUTE [dbo].[usp_CreateDummyAssignment] 
@@ -66,7 +66,7 @@ EXECUTE [dbo].[usp_CreateDummyAssignment]
   , @DaysBeforeToday        = -30
   , @DaysAfterToday         = -20
   , @RequiredDocumentCount  = 2
-  , @ProjectId              = 'PRJ00002'
+  , @ProjectId              = 2
   , @StatusId               = 4
 
 EXECUTE [dbo].[usp_CreateDummyAssignment] 
@@ -77,7 +77,7 @@ EXECUTE [dbo].[usp_CreateDummyAssignment]
   , @DaysBeforeToday        = -87
   , @DaysAfterToday         = -80
   , @RequiredDocumentCount  = 2
-  , @ProjectId              = 'PRJ00002'
+  , @ProjectId              = 2
   , @StatusId               = 1
 
 EXECUTE [dbo].[usp_CreateDummyAssignment] 
@@ -88,7 +88,7 @@ EXECUTE [dbo].[usp_CreateDummyAssignment]
   , @DaysBeforeToday        = 10
   , @DaysAfterToday         = 17
   , @RequiredDocumentCount  = 2
-  , @ProjectId              = 'PRJ00002'
+  , @ProjectId              = 2
   , @StatusId               = 5
 
 EXECUTE [dbo].[usp_CreateDummyAssignment] 
@@ -99,7 +99,7 @@ EXECUTE [dbo].[usp_CreateDummyAssignment]
   , @DaysBeforeToday        = -6
   , @DaysAfterToday         = 1
   , @RequiredDocumentCount  = 3
-  , @ProjectId              = 'PRJ00003'
+  , @ProjectId              = 3
   , @StatusId               = 2
 
 EXECUTE [dbo].[usp_CreateDummyAssignment] 
@@ -110,7 +110,7 @@ EXECUTE [dbo].[usp_CreateDummyAssignment]
   , @DaysBeforeToday        = -87
   , @DaysAfterToday         = -80
   , @RequiredDocumentCount  = 3
-  , @ProjectId              = 'PRJ00003'
+  , @ProjectId              = 3
   , @StatusId               = 5
 
 EXECUTE [dbo].[usp_CreateDummyAssignment] 
@@ -121,7 +121,7 @@ EXECUTE [dbo].[usp_CreateDummyAssignment]
   , @DaysBeforeToday        = -10
   , @DaysAfterToday         = 7
   , @RequiredDocumentCount  = 3
-  , @ProjectId              = 'PRJ00003'
+  , @ProjectId              = 3
   , @StatusId               = 2
 
 EXECUTE [dbo].[usp_CreateDummyAssignment] 
@@ -132,7 +132,7 @@ EXECUTE [dbo].[usp_CreateDummyAssignment]
   , @DaysBeforeToday        = 5
   , @DaysAfterToday         = 7
   , @RequiredDocumentCount  = 4
-  , @ProjectId              = 'PRJ00004'
+  , @ProjectId              = 4
   , @StatusId               = 5
 
 EXECUTE [dbo].[usp_CreateDummyAssignment] 
@@ -143,7 +143,7 @@ EXECUTE [dbo].[usp_CreateDummyAssignment]
   , @DaysBeforeToday        = -7
   , @DaysAfterToday         = 0
   , @RequiredDocumentCount  = 4
-  , @ProjectId              = 'PRJ00004'
+  , @ProjectId              = 4
   , @StatusId               = 4
 
 EXECUTE [dbo].[usp_CreateDummyAssignment] 
@@ -154,7 +154,7 @@ EXECUTE [dbo].[usp_CreateDummyAssignment]
   , @DaysBeforeToday        = -8
   , @DaysAfterToday         = 6
   , @RequiredDocumentCount  = 4
-  , @ProjectId              = 'PRJ00004'
+  , @ProjectId              = 4
   , @StatusId               = 3
 GO
 

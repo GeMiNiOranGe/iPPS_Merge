@@ -1,5 +1,4 @@
 CREATE OR ALTER PROCEDURE [dbo].[usp_CreateDummyProject]
-    @ProjectId          VARCHAR(10),
     @Name               NVARCHAR(50),
     @CustomerName       NVARCHAR(50),
     @ManagerId          INT,
@@ -18,14 +17,13 @@ AS BEGIN
     SET @EndDate     = DateAdd(DAY, @DaysAfterToday, @CurrentDate)
 
     INSERT INTO [dbo].[Project]
-            ([ProjectId], [CustomerName], [ManagerId], [StartDate], [EndDate], [StatusId], [Name])
-    VALUES  (@ProjectId,  @CustomerName,  @ManagerId,  @StartDate,  @EndDate,  @StatusId,  @Name)
+            ([CustomerName], [ManagerId], [StartDate], [EndDate], [StatusId], [Name])
+    VALUES  (@CustomerName,  @ManagerId,  @StartDate,  @EndDate,  @StatusId,  @Name)
 END
 GO
 
 EXECUTE [dbo].[usp_CreateDummyProject]
-    @ProjectId       = 'PRJ00001'
-  , @Name            = N'Dự án nâng cấp nhà máy sản xuất vi mạch'
+    @Name            = N'Dự án nâng cấp nhà máy sản xuất vi mạch'
   , @CustomerName    = N'Tập Đoàn Nubot'
   , @ManagerId       = 1
   , @DaysBeforeToday = -20
@@ -33,8 +31,7 @@ EXECUTE [dbo].[usp_CreateDummyProject]
   , @StatusId        = 1
 
 EXECUTE [dbo].[usp_CreateDummyProject]
-    @ProjectId       = 'PRJ00002'
-  , @Name            = N'Dự án triển khai mô hình chăn nuôi hiện đại'
+    @Name            = N'Dự án triển khai mô hình chăn nuôi hiện đại'
   , @CustomerName    = N'Công ty Hừng Đông'
   , @ManagerId       = 2
   , @DaysBeforeToday = -87
@@ -42,8 +39,7 @@ EXECUTE [dbo].[usp_CreateDummyProject]
   , @StatusId        = 2
 
 EXECUTE [dbo].[usp_CreateDummyProject]
-    @ProjectId       = 'PRJ00003'
-  , @Name            = N'Dự án bất động sản BaterHam'
+    @Name            = N'Dự án bất động sản BaterHam'
   , @CustomerName    = N'ông Đặng Văn Tuấn'
   , @ManagerId       = 3
   , @DaysBeforeToday = -87
@@ -51,8 +47,7 @@ EXECUTE [dbo].[usp_CreateDummyProject]
   , @StatusId        = 3
 
 EXECUTE [dbo].[usp_CreateDummyProject]
-    @ProjectId       = 'PRJ00004'
-  , @Name            = N'Dự án nghiên cứu mô hình trồng cây tự động'
+    @Name            = N'Dự án nghiên cứu mô hình trồng cây tự động'
   , @CustomerName    = N'bà Đặng Ngọc Thúy'
   , @ManagerId       = 4
   , @DaysBeforeToday = -8

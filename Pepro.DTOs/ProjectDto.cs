@@ -3,7 +3,7 @@
 namespace Pepro.DTOs;
 
 public class ProjectDto {
-    private string _projectId = "";
+    private int _projectId;
     private string _name = "";
     private string _customerName = "";
     private int _managerId;
@@ -12,7 +12,7 @@ public class ProjectDto {
     private int _statusId;
 
     [Browsable(false)]
-    public string ProjectId {
+    public int ProjectId {
         get => _projectId;
         set => _projectId = value;
     }
