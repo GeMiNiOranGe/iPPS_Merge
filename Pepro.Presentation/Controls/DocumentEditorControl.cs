@@ -124,7 +124,10 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
     }
 
     private void ProjectNameComboBoxField_SelectedIndexChanged(object? sender, EventArgs e) {
-        string projectId = projectNameComboBoxField.SelectedValue?.ToString() ?? "";
+        if (!int.TryParse(projectNameComboBoxField.SelectedValue?.ToString(), out int projectId)){
+            return;
+        }
+
         List<AssignmentDto> assignments = AssignmentBusiness.Instance.GetAssignmentsByProjectId(projectId);
         assignmentNameComboBoxField.DataSource = assignments;
         assignmentNameComboBoxField.SelectedIndex = -1;

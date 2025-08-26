@@ -16,7 +16,7 @@ public class ProjectDataAccess {
 
     private ProjectDataAccess() { }
 
-    public Project? GetProjectByProjectId(string projectId) {
+    public Project? GetProjectByProjectId(int projectId) {
         string query = @"
             SELECT Project.ProjectId
                 , Project.Name
@@ -34,7 +34,7 @@ public class ProjectDataAccess {
                 AND IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("ProjectId", SqlDbType.VarChar, 10, projectId);
+        parameters.Add("ProjectId", SqlDbType.Int, projectId);
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
         if (dataTable.Rows.Count == 0) {
@@ -180,7 +180,7 @@ public class ProjectDataAccess {
         return ProjectMapper.FromDataRow(row);
     }
 
-    public int DeleteProject(string projectId) {
+    public int DeleteProject(int projectId) {
         string query = @"
             UPDATE Project
             SET IsDeleted = 1,
@@ -188,12 +188,12 @@ public class ProjectDataAccess {
             WHERE ProjectId = @ProjectId;
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("ProjectId", SqlDbType.VarChar, 10, projectId);
+        parameters.Add("ProjectId", SqlDbType.Int, projectId);
 
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int UpdateProject(string projectId, ProjectUpdate info) {
+    public int UpdateProject(int projectId, ProjectUpdate info) {
         SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Project")
             .Set("Name", SqlDbType.NVarChar, 50, info.Name)
             .Set("CustomerName", SqlDbType.NVarChar, 50, info.CustomerName)
@@ -202,7 +202,7 @@ public class ProjectDataAccess {
             .Set("EndDate", SqlDbType.Date, info.EndDate)
             .Set("StatusId", SqlDbType.Int, info.StatusId)
             .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
-            .Where("ProjectId", SqlDbType.VarChar, 10, projectId);
+            .Where("ProjectId", SqlDbType.Int, projectId);
 
         (string query, List<SqlParameter> parameters) = builder.Build();
 

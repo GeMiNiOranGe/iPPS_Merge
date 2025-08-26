@@ -1,7 +1,7 @@
 namespace Pepro.DataAccess.Entities;
 
 public class Project {
-    private string _projectId = null!;
+    private int _projectId;
     private string _name = null!;
     private string _customerName = null!;
     private int _managerId;
@@ -16,7 +16,7 @@ public class Project {
     private DateTime? _deletedAt;
     #endregion
 
-    public required string ProjectId {
+    public required int ProjectId {
         get => _projectId;
         set => _projectId = value;
     }

@@ -9,7 +9,7 @@ static class ProjectMapper
     {
         return new Project()
         {
-            ProjectId = row.Field<string>("ProjectId") ?? "",
+            ProjectId = row.Field<int>("ProjectId"),
             Name = row.Field<string>("Name") ?? "",
             CustomerName = row.Field<string>("CustomerName") ?? "",
             ManagerId = row.Field<int>("ManagerId"),
