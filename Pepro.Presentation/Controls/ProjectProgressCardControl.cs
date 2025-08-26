@@ -28,7 +28,7 @@ public partial class ProjectProgressCardControl : PeproUserControl {
         get => _item;
         set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
-            projectIdLabel.Text = _item.ProjectId;
+            projectIdLabel.Text = _item.ProjectId.ToString();
             projectNameLabel.Text = _item.Name;
             projectPercentLabel.Text = _item.ProgressPercent.ToString() + "%";
         }

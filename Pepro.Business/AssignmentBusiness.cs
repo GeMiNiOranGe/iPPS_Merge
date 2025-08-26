@@ -15,12 +15,12 @@ public class AssignmentBusiness {
 
     private AssignmentBusiness() { }
 
-    public List<AssignmentDto> GetAssignmentsByProjectId(string projectId) {
+    public List<AssignmentDto> GetAssignmentsByProjectId(int projectId) {
         List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(projectId);
         return assignments.ToDtos();
     }
 
-    public List<AssignmentProgress> GetAssignmentsWithProgressByProjectId(string projectId) {
+    public List<AssignmentProgress> GetAssignmentsWithProgressByProjectId(int projectId) {
         List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(projectId);
         List<AssignmentProgress> assignmentsProgress = [];
 

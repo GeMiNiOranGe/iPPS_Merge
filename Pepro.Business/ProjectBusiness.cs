@@ -16,7 +16,7 @@ public class ProjectBusiness {
 
     private ProjectBusiness() { }
 
-    public ProjectDto? GetProjectByProjectId(string projectId) {
+    public ProjectDto? GetProjectByProjectId(int projectId) {
         Project? project = ProjectDataAccess.Instance.GetProjectByProjectId(projectId);
         return project?.ToDto();
     }
@@ -72,7 +72,7 @@ public class ProjectBusiness {
         return project?.ToDto();
     }
 
-    public int DeleteProject(string projectId)
+    public int DeleteProject(int projectId)
     {
         return ProjectDataAccess.Instance.DeleteProject(projectId);
     }

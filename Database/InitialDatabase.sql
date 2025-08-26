@@ -52,7 +52,7 @@ CREATE TABLE [dbo].[SalaryScale] (
 
 -- has a foreign key ----------------------------
 CREATE TABLE [dbo].[Project] (
-    [ProjectId]     [varchar](10)   NOT NULL,
+    [ProjectId]     [int]           NOT NULL IDENTITY(1, 1),
     [Name]          [nvarchar](50)  NOT NULL,
     [CustomerName]  [nvarchar](50)  NOT NULL,
     [ManagerId]     [int]           NOT NULL,
@@ -124,7 +124,7 @@ CREATE TABLE [dbo].[Assignment] (
     [EndDate]               [date]          NOT NULL,
     [RequiredDocumentCount] [int]           NOT NULL,
 
-    [ProjectId]             [varchar](10)   NOT NULL,
+    [ProjectId]             [int]           NOT NULL,
     [StatusId]              [int]           NOT NULL,
 );
 
@@ -156,7 +156,7 @@ CREATE TABLE [AssignmentDetail] (
 CREATE TABLE [DepartmentProject] (
     [DepartmentProjectId]   [int]           NOT NULL IDENTITY(1, 1),
 
-    [ProjectId]             [varchar](10)   NOT NULL,
+    [ProjectId]             [int]           NOT NULL,
     [DepartmentId]          [varchar](10)   NOT NULL,
 );
 GO

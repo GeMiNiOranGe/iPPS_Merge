@@ -15,7 +15,7 @@ public class AssignmentDataAccess {
 
     private AssignmentDataAccess() { }
 
-    public List<Assignment> GetAssignmentsByProjectId(string projectId) {
+    public List<Assignment> GetAssignmentsByProjectId(int projectId) {
         string query = @"
             SELECT AssignmentId
                 , Name
@@ -31,7 +31,7 @@ public class AssignmentDataAccess {
             WHERE ProjectId = @ProjectId
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("ProjectId", SqlDbType.VarChar, 10, projectId);
+        parameters.Add("ProjectId", SqlDbType.Int, projectId);
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 
@@ -94,10 +94,14 @@ public class AssignmentDataAccess {
                 , PositionId
                 , SalaryLevelId
                 , IsDeleted
+                , CreatedAt
+                , UpdatedAt
+                , DeletedAt
             FROM Assignment
             INNER JOIN Employee
                     ON Employee.EmployeeId = Assignment.ManagerId
             WHERE AssignmentId = @AssignmentId
+                AND Employee.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("AssignmentId", SqlDbType.VarChar, 10, assignmentId);
