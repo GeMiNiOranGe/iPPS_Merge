@@ -17,9 +17,9 @@ public class PositionDataAccess {
 
     public List<Position> GetPositions() {
         string query = @"
-            SELECT PositionId
-                , Title
-                , AllowanceCoefficient
+            SELECT Position.PositionId
+                , Position.Title
+                , Position.AllowanceCoefficient
             FROM Position
         ";
 
@@ -41,7 +41,7 @@ public class PositionDataAccess {
             FROM Position
             INNER JOIN Employee
                     ON Employee.PositionId = Position.PositionId
-            WHERE EmployeeId = @EmployeeId
+            WHERE Employee.EmployeeId = @EmployeeId
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
