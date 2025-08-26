@@ -17,9 +17,22 @@ public class AccountDataAccess {
 
     public int InsertAccount(Account account) {
         string query = @"
-            INSERT INTO [dbo].[Account]
-                    ([Username], [Password], [Salt], [IsActive], [EmployeeId])
-            VALUES  (@Username,  @Password,  @Salt,  @IsActive,  @EmployeeId)
+            INSERT INTO [Account]
+            (
+                [Username]
+                , [Password]
+                , [Salt]
+                , [IsActive]
+                , [EmployeeId]
+            )
+            VALUES
+            (
+                @Username
+                , @Password
+                , @Salt
+                , @IsActive
+                , @EmployeeId
+            )
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("Username", SqlDbType.VarChar, 255, account.Username);
@@ -43,14 +56,14 @@ public class AccountDataAccess {
     public Account? FindAccount(string searchValue)
     {
         string query = @"
-            SELECT AccountId
-                , Username
-                , Salt
-                , Password
-                , EmployeeId
-                , IsActive
+            SELECT Account.AccountId
+                , Account.Username
+                , Account.Salt
+                , Account.Password
+                , Account.EmployeeId
+                , Account.IsActive
             FROM Account
-            WHERE Username = @SearchValue
+            WHERE Account.Username = @SearchValue
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);

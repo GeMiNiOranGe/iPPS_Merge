@@ -30,8 +30,8 @@ public class ProjectDataAccess {
                 , Project.UpdatedAt
                 , Project.DeletedAt
             FROM Project
-            WHERE ProjectId = @ProjectId
-                AND IsDeleted = 0
+            WHERE Project.ProjectId = @ProjectId
+                AND Project.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("ProjectId", SqlDbType.Int, projectId);
@@ -65,7 +65,7 @@ public class ProjectDataAccess {
                 , Project.UpdatedAt
                 , Project.DeletedAt
             FROM Project
-            WHERE IsDeleted = 0
+            WHERE Project.IsDeleted = 0
         ";
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
@@ -95,11 +95,11 @@ public class ProjectDataAccess {
             FROM Project
             WHERE
                 (
-                    ProjectId LIKE '%' + @SearchValue + '%'
-                    OR Name LIKE '%' + @SearchValue + '%'
-                    OR CustomerName LIKE '%' + @SearchValue + '%'
+                    Project.ProjectId LIKE '%' + @SearchValue + '%'
+                    OR Project.Name LIKE '%' + @SearchValue + '%'
+                    OR Project.CustomerName LIKE '%' + @SearchValue + '%'
                 )
-                AND IsDeleted = 0
+                AND Project.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
@@ -127,14 +127,13 @@ public class ProjectDataAccess {
                 , Project.CreatedAt
                 , Project.UpdatedAt
                 , Project.DeletedAt
-            FROM AssignmentDetail
+            FROM Project
             INNER JOIN Assignment
-                    ON AssignmentDetail.AssignmentId = Assignment.AssignmentId
-            INNER JOIN Project
                     ON Assignment.ProjectId = Project.ProjectId
-            WHERE EmployeeId = @EmployeeId
-                AND IsDeleted = 0
-            ORDER BY Project.ProjectId DESC;
+            INNER JOIN AssignmentDetail
+                    ON AssignmentDetail.AssignmentId = Assignment.AssignmentId
+            WHERE AssignmentDetail.EmployeeId = @EmployeeId
+                AND Project.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
@@ -166,7 +165,7 @@ public class ProjectDataAccess {
             INNER JOIN Assignment
                     ON Assignment.ProjectId = Project.ProjectId
             WHERE Assignment.AssignmentId = @AssignmentId
-                AND IsDeleted = 0
+                AND Project.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);

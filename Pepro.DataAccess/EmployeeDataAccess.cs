@@ -20,23 +20,23 @@ public class EmployeeDataAccess {
     public List<Employee> GetEmployees()
     {
         string query = @"
-            SELECT EmployeeId
-                , FirstName
-                , MiddleName
-                , LastName
-                , DateOfBirth
-                , Gender
-                , TaxCode
-                , CitizenId
-                , DepartmentId
-                , PositionId
-                , SalaryLevelId
-                , IsDeleted
-                , CreatedAt
-                , UpdatedAt
-                , DeletedAt
+            SELECT Employee.EmployeeId
+                , Employee.FirstName
+                , Employee.MiddleName
+                , Employee.LastName
+                , Employee.DateOfBirth
+                , Employee.Gender
+                , Employee.TaxCode
+                , Employee.CitizenId
+                , Employee.DepartmentId
+                , Employee.PositionId
+                , Employee.SalaryLevelId
+                , Employee.IsDeleted
+                , Employee.CreatedAt
+                , Employee.UpdatedAt
+                , Employee.DeletedAt
             FROM Employee
-            WHERE IsDeleted = 0
+            WHERE Employee.IsDeleted = 0
         ";
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
@@ -52,28 +52,28 @@ public class EmployeeDataAccess {
 
     public List<Employee> SearchEmployees(string searchValue) {
         string query = @"
-            SELECT EmployeeId
-                , FirstName
-                , MiddleName
-                , LastName
-                , DateOfBirth
-                , Gender
-                , TaxCode
-                , CitizenId
-                , DepartmentId
-                , PositionId
-                , SalaryLevelId
-                , IsDeleted
-                , CreatedAt
-                , UpdatedAt
-                , DeletedAt
+            SELECT Employee.EmployeeId
+                , Employee.FirstName
+                , Employee.MiddleName
+                , Employee.LastName
+                , Employee.DateOfBirth
+                , Employee.Gender
+                , Employee.TaxCode
+                , Employee.CitizenId
+                , Employee.DepartmentId
+                , Employee.PositionId
+                , Employee.SalaryLevelId
+                , Employee.IsDeleted
+                , Employee.CreatedAt
+                , Employee.UpdatedAt
+                , Employee.DeletedAt
             FROM Employee
             WHERE
                 (
-                    EmployeeId LIKE '%' + @SearchValue + '%'
-                    OR LastName + ' ' + IsNull(MiddleName + ' ', '') + FirstName LIKE '%' + @SearchValue + '%'
+                    Employee.EmployeeId LIKE '%' + @SearchValue + '%'
+                    OR Employee.LastName + ' ' + IsNull(Employee.MiddleName + ' ', '') + Employee.FirstName LIKE '%' + @SearchValue + '%'
                 )
-                AND IsDeleted = 0
+                AND Employee.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
@@ -340,24 +340,24 @@ public class EmployeeDataAccess {
 
     public Employee? GetEmployeeByEmployeeId(int employeeId) {
         string query = @"
-            SELECT EmployeeId
-                , FirstName
-                , MiddleName
-                , LastName
-                , DateOfBirth
-                , Gender
-                , TaxCode
-                , CitizenId
-                , DepartmentId
-                , PositionId
-                , SalaryLevelId
-                , IsDeleted
-                , CreatedAt
-                , UpdatedAt
-                , DeletedAt
+            SELECT Employee.EmployeeId
+                , Employee.FirstName
+                , Employee.MiddleName
+                , Employee.LastName
+                , Employee.DateOfBirth
+                , Employee.Gender
+                , Employee.TaxCode
+                , Employee.CitizenId
+                , Employee.DepartmentId
+                , Employee.PositionId
+                , Employee.SalaryLevelId
+                , Employee.IsDeleted
+                , Employee.CreatedAt
+                , Employee.UpdatedAt
+                , Employee.DeletedAt
             FROM Employee
-            WHERE EmployeeId = @EmployeeId
-            AND IsDeleted = 0
+            WHERE Employee.EmployeeId = @EmployeeId
+            AND Employee.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
@@ -382,14 +382,14 @@ public class EmployeeDataAccess {
 
     public List<EmployeePhoneNumber> GetPhoneNumbersByEmployeeId(int employeeId) {
         string query = @"
-            SELECT EmployeePhoneNumberId
-                , PhoneNumber
-                , Employee.EmployeeID
+            SELECT EmployeePhoneNumber.EmployeePhoneNumberId
+                , EmployeePhoneNumber.PhoneNumber
+                , EmployeePhoneNumber.EmployeeId
             FROM EmployeePhoneNumber
             INNER JOIN Employee
-                    ON Employee.EmployeeID = EmployeePhoneNumber.EmployeeID
-            WHERE Employee.EmployeeID = @EmployeeId
-            AND IsDeleted = 0
+                    ON Employee.EmployeeId = EmployeePhoneNumber.EmployeeId
+            WHERE Employee.EmployeeId = @EmployeeId
+            AND Employee.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("EmployeeId", SqlDbType.Int, employeeId);

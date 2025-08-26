@@ -18,11 +18,11 @@ public class DepartmentDataAccess
 
     public Department? GetDepartmentByDepartmentId(string departmentId) {
         string query = @"
-            SELECT DepartmentId
-                , Name
-                , ManagerId
+            SELECT Department.DepartmentId
+                , Department.Name
+                , Department.ManagerId
             FROM Department
-            WHERE DepartmentId = @DepartmentId
+            WHERE Department.DepartmentId = @DepartmentId
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("DepartmentId", SqlDbType.VarChar, 10, departmentId);
@@ -38,9 +38,9 @@ public class DepartmentDataAccess
 
     public List<Department> GetDepartments() {
         string query = @"
-            SELECT DepartmentId
-                , Name
-                , ManagerId
+            SELECT Department.DepartmentId
+                , Department.Name
+                , Department.ManagerId
             FROM Department
         ";
 

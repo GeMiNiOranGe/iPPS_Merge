@@ -17,12 +17,12 @@ public class SalaryLevelDataAccess {
 
     public List<SalaryLevel> GetSalaryLevelsBySalaryScaleId(int salaryScaleId) {
         string query = @"
-            SELECT SalaryLevelId
-                , Level
-                , Coefficient
-                , SalaryScaleId
+            SELECT SalaryLevel.SalaryLevelId
+                , SalaryLevel.Level
+                , SalaryLevel.Coefficient
+                , SalaryLevel.SalaryScaleId
             FROM SalaryLevel
-            WHERE SalaryScaleId = @SalaryScaleId
+            WHERE SalaryLevel.SalaryScaleId = @SalaryScaleId
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("SalaryScaleId", SqlDbType.Int, salaryScaleId);

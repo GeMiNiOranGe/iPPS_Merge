@@ -17,10 +17,10 @@ public class DocumentDataAccess {
 
     public int CountDocumentsByAssignmentId(int assignmentId) {
         string query = @"
-            SELECT Count(AssignmentId)
+            SELECT Count(Document.AssignmentId)
             FROM Document
-            WHERE AssignmentId = @AssignmentId
-                AND IsDeleted = 0
+            WHERE Document.AssignmentId = @AssignmentId
+                AND Document.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
@@ -30,20 +30,20 @@ public class DocumentDataAccess {
 
     public List<Document> GetDocuments() {
         string query = @"
-            SELECT DocumentId
-                , Title
-                , CreateAt
-                , RevisionNumber
-                , RevisionStatus
-                , DocumentUrl
-                , NativeFileFormat
-                , PreparedBy
-                , CheckedBy
-                , ApprovedBy
-                , AssignmentId
-                , IsDeleted
+            SELECT Document.DocumentId
+                , Document.Title
+                , Document.CreateAt
+                , Document.RevisionNumber
+                , Document.RevisionStatus
+                , Document.DocumentUrl
+                , Document.NativeFileFormat
+                , Document.PreparedBy
+                , Document.CheckedBy
+                , Document.ApprovedBy
+                , Document.AssignmentId
+                , Document.IsDeleted
             FROM Document
-            WHERE IsDeleted = 0
+            WHERE Document.IsDeleted = 0
         ";
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
@@ -58,26 +58,26 @@ public class DocumentDataAccess {
 
     public List<Document> SearchDocuments(string searchValue) {
         string query = @"
-            SELECT DocumentId
-                , Title
-                , CreateAt
-                , RevisionNumber
-                , RevisionStatus
-                , DocumentUrl
-                , NativeFileFormat
-                , PreparedBy
-                , CheckedBy
-                , ApprovedBy
-                , AssignmentId
-                , IsDeleted
+            SELECT Document.DocumentId
+                , Document.Title
+                , Document.CreateAt
+                , Document.RevisionNumber
+                , Document.RevisionStatus
+                , Document.DocumentUrl
+                , Document.NativeFileFormat
+                , Document.PreparedBy
+                , Document.CheckedBy
+                , Document.ApprovedBy
+                , Document.AssignmentId
+                , Document.IsDeleted
             FROM Document
             WHERE
                 (
-                    DocumentId LIKE '%' + @SearchValue + '%'
-                    OR Title LIKE '%' + @SearchValue + '%'
-                    OR AssignmentId LIKE '%' + @SearchValue + '%'
+                    Document.DocumentId LIKE '%' + @SearchValue + '%'
+                    OR Document.Title LIKE '%' + @SearchValue + '%'
+                    OR Document.AssignmentId LIKE '%' + @SearchValue + '%'
                 )
-                AND IsDeleted = 0
+                AND Document.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
