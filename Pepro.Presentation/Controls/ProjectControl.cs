@@ -29,7 +29,7 @@ public partial class ProjectControl : PeproCrudControlBase
 
     private void LoadProjects()
     {
-        projectDataGridView.DataSource = ProjectBusiness.Instance.GetProjects();
+        projectDataGridView.DataSource = ProjectBusiness.Instance.GetProjectViews();
     }
 
     private void AdminProjects_Load(object sender, EventArgs e)
@@ -45,7 +45,7 @@ public partial class ProjectControl : PeproCrudControlBase
         BindSearchButtonClick(
             searchTextBox.Text,
             projectDataGridView,
-            ProjectBusiness.Instance.SearchProjects
+            ProjectBusiness.Instance.SearchProjectViews
         );
     }
 

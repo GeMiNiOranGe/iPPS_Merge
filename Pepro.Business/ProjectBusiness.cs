@@ -26,9 +26,54 @@ public class ProjectBusiness {
         return projects.ToDtos();
     }
 
-    public List<ProjectDto> SearchProjects(string searchValue) {
+    public List<ProjectView> GetProjectViews() {
+        List<Project> projects = ProjectDataAccess.Instance.GetProjects();
+        Dictionary<int, string> statuses = StatusDataAccess.Instance
+            .GetStatuses()
+            .ToDictionary(s => s.StatusId, s => s.Name);
+        List<ProjectView> projectViews = [];
+
+        foreach (Project project in projects) {
+            if (statuses.TryGetValue(project.StatusId, out var statusName)) {
+                ProjectView projectView = new() {
+                    ProjectId = project.ProjectId,
+                    Name = project.Name,
+                    CustomerName = project.CustomerName,
+                    ManagerId = project.ManagerId,
+                    StartDate = project.StartDate,
+                    EndDate = project.EndDate,
+                    StatusId = project.StatusId,
+                    StatusName = statusName
+                };
+                projectViews.Add(projectView);
+            }
+        }
+        return projectViews;
+    }
+
+    public List<ProjectView> SearchProjectViews(string searchValue) {
         List<Project> projects = ProjectDataAccess.Instance.SearchProjects(searchValue);
-        return projects.ToDtos();
+        Dictionary<int, string> statuses = StatusDataAccess.Instance
+            .GetStatuses()
+            .ToDictionary(s => s.StatusId, s => s.Name);
+        List<ProjectView> projectViews = [];
+
+        foreach (Project project in projects) {
+            if (statuses.TryGetValue(project.StatusId, out var statusName)) {
+                ProjectView projectView = new() {
+                    ProjectId = project.ProjectId,
+                    Name = project.Name,
+                    CustomerName = project.CustomerName,
+                    ManagerId = project.ManagerId,
+                    StartDate = project.StartDate,
+                    EndDate = project.EndDate,
+                    StatusId = project.StatusId,
+                    StatusName = statusName
+                };
+                projectViews.Add(projectView);
+            }
+        }
+        return projectViews;
     }
 
     public List<ProjectProgress> GetProjectsWithProgress() {

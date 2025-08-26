@@ -33,7 +33,7 @@
             managerIdColumn = new DataGridViewTextBoxColumn();
             startDateColumn = new DataGridViewTextBoxColumn();
             endDateColumn = new DataGridViewTextBoxColumn();
-            statusIdColumn = new DataGridViewTextBoxColumn();
+            statusNameColumn = new DataGridViewTextBoxColumn();
             insertButton = new Button();
             updateButton = new Button();
             deleteButton = new Button();
@@ -46,7 +46,7 @@
             // projectDataGridView
             // 
             projectDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            projectDataGridView.Columns.AddRange(new DataGridViewColumn[] { projectNameColumn, customerNameColumn, managerIdColumn, startDateColumn, endDateColumn, statusIdColumn });
+            projectDataGridView.Columns.AddRange(new DataGridViewColumn[] { projectNameColumn, customerNameColumn, managerIdColumn, startDateColumn, endDateColumn, statusNameColumn });
             projectDataGridView.Location = new Point(16, 123);
             projectDataGridView.Margin = new Padding(16);
             projectDataGridView.Name = "projectDataGridView";
@@ -94,13 +94,13 @@
             endDateColumn.ReadOnly = true;
             endDateColumn.Width = 86;
             // 
-            // statusIdColumn
+            // statusNameColumn
             // 
-            statusIdColumn.DataPropertyName = "StatusId";
-            statusIdColumn.HeaderText = "Mã trạng thái";
-            statusIdColumn.Name = "statusIdColumn";
-            statusIdColumn.ReadOnly = true;
-            statusIdColumn.Width = 108;
+            statusNameColumn.DataPropertyName = "StatusName";
+            statusNameColumn.HeaderText = "Trạng thái";
+            statusNameColumn.Name = "statusNameColumn";
+            statusNameColumn.ReadOnly = true;
+            statusNameColumn.Width = 108;
             // 
             // insertButton
             // 
@@ -212,6 +212,6 @@
         private DataGridViewTextBoxColumn managerIdColumn;
         private DataGridViewTextBoxColumn startDateColumn;
         private DataGridViewTextBoxColumn endDateColumn;
-        private DataGridViewTextBoxColumn statusIdColumn;
+        private DataGridViewTextBoxColumn statusNameColumn;
     }
 }

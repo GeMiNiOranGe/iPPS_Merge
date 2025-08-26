@@ -42,6 +42,7 @@ public class ProjectDto {
         set => _endDate = value;
     }
 
+    [Browsable(false)]
     public int StatusId {
         get => _statusId;
         set => _statusId = value;
