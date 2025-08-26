@@ -17,18 +17,18 @@ public class AssignmentDataAccess {
 
     public List<Assignment> GetAssignmentsByProjectId(int projectId) {
         string query = @"
-            SELECT AssignmentId
-                , Name
-                , IsPublicToProject
-                , IsPublicToDepartment
-                , ManagerId
-                , StartDate
-                , EndDate
-                , RequiredDocumentCount
-                , ProjectId
-                , StatusId
+            SELECT Assignment.AssignmentId
+                , Assignment.Name
+                , Assignment.IsPublicToProject
+                , Assignment.IsPublicToDepartment
+                , Assignment.ManagerId
+                , Assignment.StartDate
+                , Assignment.EndDate
+                , Assignment.RequiredDocumentCount
+                , Assignment.ProjectId
+                , Assignment.StatusId
             FROM Assignment 
-            WHERE ProjectId = @ProjectId
+            WHERE Assignment.ProjectId = @ProjectId
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("ProjectId", SqlDbType.Int, projectId);
@@ -46,19 +46,19 @@ public class AssignmentDataAccess {
     public List<Assignment> GetAssignmentsByEmployeeId(int employeeId) {
         string query = @"
             SELECT Assignment.AssignmentId
-                , Name
-                , IsPublicToProject
-                , IsPublicToDepartment
-                , ManagerId
-                , StartDate
-                , EndDate
-                , RequiredDocumentCount
-                , ProjectId
-                , StatusId
+                , Assignment.Name
+                , Assignment.IsPublicToProject
+                , Assignment.IsPublicToDepartment
+                , Assignment.ManagerId
+                , Assignment.StartDate
+                , Assignment.EndDate
+                , Assignment.RequiredDocumentCount
+                , Assignment.ProjectId
+                , Assignment.StatusId
             FROM Assignment
             INNER JOIN AssignmentDetail
                     ON AssignmentDetail.AssignmentId = Assignment.AssignmentId
-            WHERE EmployeeId = @EmployeeId
+            WHERE AssignmentDetail.EmployeeId = @EmployeeId
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
@@ -82,25 +82,25 @@ public class AssignmentDataAccess {
     /// </returns>
     public Employee? GetAssignmentManager(int assignmentId) {
         string query = @"
-            SELECT EmployeeId
-                , FirstName
-                , MiddleName
-                , LastName
-                , DateOfBirth
-                , Gender
-                , TaxCode
-                , CitizenId
-                , DepartmentId
-                , PositionId
-                , SalaryLevelId
-                , IsDeleted
-                , CreatedAt
-                , UpdatedAt
-                , DeletedAt
-            FROM Assignment
-            INNER JOIN Employee
-                    ON Employee.EmployeeId = Assignment.ManagerId
-            WHERE AssignmentId = @AssignmentId
+            SELECT Employee.EmployeeId
+                , Employee.FirstName
+                , Employee.MiddleName
+                , Employee.LastName
+                , Employee.DateOfBirth
+                , Employee.Gender
+                , Employee.TaxCode
+                , Employee.CitizenId
+                , Employee.DepartmentId
+                , Employee.PositionId
+                , Employee.SalaryLevelId
+                , Employee.IsDeleted
+                , Employee.CreatedAt
+                , Employee.UpdatedAt
+                , Employee.DeletedAt
+            FROM Employee
+            INNER JOIN Assignment
+                    ON Assignment.ManagerId = Employee.EmployeeId
+            WHERE Assignment.AssignmentId = @AssignmentId
                 AND Employee.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
@@ -118,15 +118,15 @@ public class AssignmentDataAccess {
     public Assignment? GetAssignmentByDocumentId(int documentId) {
         string query = @"
             SELECT Assignment.AssignmentId
-                , Name
-                , IsPublicToProject
-                , IsPublicToDepartment
-                , ManagerId
-                , StartDate
-                , EndDate
-                , RequiredDocumentCount
-                , ProjectId
-                , StatusId
+                , Assignment.Name
+                , Assignment.IsPublicToProject
+                , Assignment.IsPublicToDepartment
+                , Assignment.ManagerId
+                , Assignment.StartDate
+                , Assignment.EndDate
+                , Assignment.RequiredDocumentCount
+                , Assignment.ProjectId
+                , Assignment.StatusId
             FROM Assignment
             INNER JOIN Document
                     ON Document.AssignmentId = Assignment.AssignmentId

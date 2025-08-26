@@ -17,9 +17,9 @@ public class SalaryScaleDataAccess {
 
     public List<SalaryScale> GetSalaryScales() {
         string query = @"
-            SELECT SalaryScaleId
-                , [Group]
-                , Name
+            SELECT SalaryScale.SalaryScaleId
+                , SalaryScale.[Group]
+                , SalaryScale.Name
             FROM SalaryScale
         ";
 
@@ -36,12 +36,12 @@ public class SalaryScaleDataAccess {
     public SalaryScale? GetSalaryScaleBySalaryLevelId(int salaryLevelId) {
         string query = @"
             SELECT SalaryScale.SalaryScaleId
-                , [Group]
-                , Name
+                , SalaryScale.[Group]
+                , SalaryScale.Name
             FROM SalaryScale
             INNER JOIN SalaryLevel
                     ON SalaryLevel.SalaryScaleId = SalaryScale.SalaryScaleId
-            WHERE SalaryLevelId = @SalaryLevelId
+            WHERE SalaryLevel.SalaryLevelId = @SalaryLevelId
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("SalaryLevelId", SqlDbType.Int, salaryLevelId);
