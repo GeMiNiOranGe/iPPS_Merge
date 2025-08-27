@@ -47,10 +47,9 @@ public partial class AssignmentControl : PeproCrudControlBase
 
     private void AddButton_Click(object sender, EventArgs e)
     {
-        AdminTaskEditorForm adminTasksModule = new AdminTaskEditorForm();
+        AssignmentEditorControl adminTasksModule = new AssignmentEditorControl();
         adminTasksModule.saveButton.Enabled = true;
         adminTasksModule.updateButton.Enabled = false;
-        adminTasksModule.ShowDialog();
         LoadAdminTasks();
     }
 
@@ -59,7 +58,7 @@ public partial class AssignmentControl : PeproCrudControlBase
         string strColName = taskDataGridView.Columns[e.ColumnIndex].Name;
         if (strColName == "Edit")
         {
-            AdminTaskEditorForm adminTasksModule = new AdminTaskEditorForm();
+            AssignmentEditorControl adminTasksModule = new AssignmentEditorControl();
             adminTasksModule.taskIdTextBox.Text = taskDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
             adminTasksModule.managerIdTextBox.Text = taskDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
             adminTasksModule.taskNameTextBox.Text = taskDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -75,7 +74,6 @@ public partial class AssignmentControl : PeproCrudControlBase
             adminTasksModule.projectIdTextBox.Enabled = false;
             adminTasksModule.taskIdTextBox.Enabled = false;
             adminTasksModule.managerIdTextBox.Enabled = false;
-            adminTasksModule.ShowDialog();
         }
         else if (strColName == "Delete")
         {

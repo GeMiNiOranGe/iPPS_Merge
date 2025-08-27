@@ -11,6 +11,9 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
         case ControlUiEvent.OpenAssignmentControl:
             OpenAssignmentControl();
             break;
+        case ControlUiEvent.OpenAssignmentEditorControl:
+            OpenAssignmentEditorControl(data);
+            break;
         case ControlUiEvent.OpenDocumentControl:
             OpenDocumentControl();
             break;
@@ -57,6 +60,19 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
     private void OpenAssignmentControl() {
         AssignmentControl assignmentControl = new();
         OpenControl(assignmentControl);
+    }
+
+    private void OpenAssignmentEditorControl(object? data) {
+        if (data is not OpenEditorControlPayload<AssignmentDto> payload) {
+            return;
+        }
+
+        AssignmentEditorControl documentEditorControl = new(this) {
+            Item = payload.Item,
+            Mode = payload.Mode,
+            OnDataChanged = payload.OnDataChanged,
+        };
+        PushControl(documentEditorControl);
     }
 
     private void OpenDocumentControl() {
