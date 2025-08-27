@@ -54,6 +54,7 @@ public class AssignmentDto {
         set => _projectId = value;
     }
 
+    [Browsable(false)]
     public int StatusId {
         get => _statusId;
         set => _statusId = value;
