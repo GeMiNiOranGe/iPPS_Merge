@@ -15,6 +15,33 @@ public class AssignmentBusiness {
 
     private AssignmentBusiness() { }
 
+    public List<AssignmentView> GetAssignmentViews() {
+        List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignments();
+        Dictionary<int, string> statuses = StatusDataAccess.Instance
+            .GetStatuses()
+            .ToDictionary(s => s.StatusId, s => s.Name);
+        List<AssignmentView> assignmentViews = [];
+
+        foreach (Assignment assignment in assignments) {
+            if (statuses.TryGetValue(assignment.StatusId, out var statusName)) {
+                AssignmentView assignmentView = new() {
+                    AssignmentId = assignment.AssignmentId,
+                    Name = assignment.Name,
+                    IsPublicToProject = assignment.IsPublicToProject,
+                    IsPublicToDepartment = assignment.IsPublicToDepartment,
+                    ManagerId = assignment.ManagerId,
+                    StartDate = assignment.StartDate,
+                    EndDate = assignment.EndDate,
+                    ProjectId = assignment.ProjectId,
+                    StatusId = assignment.StatusId,
+                    StatusName = statusName
+                };
+                assignmentViews.Add(assignmentView);
+            }
+        }
+        return assignmentViews;
+    }
+
     public List<AssignmentDto> GetAssignmentsByProjectId(int projectId) {
         List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(projectId);
         return assignments.ToDtos();

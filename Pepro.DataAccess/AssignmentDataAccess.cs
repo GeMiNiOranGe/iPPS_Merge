@@ -15,6 +15,31 @@ public class AssignmentDataAccess {
 
     private AssignmentDataAccess() { }
 
+    public List<Assignment> GetAssignments() {
+        string query = @"
+            SELECT Assignment.AssignmentId
+                , Assignment.Name
+                , Assignment.IsPublicToProject
+                , Assignment.IsPublicToDepartment
+                , Assignment.ManagerId
+                , Assignment.StartDate
+                , Assignment.EndDate
+                , Assignment.RequiredDocumentCount
+                , Assignment.ProjectId
+                , Assignment.StatusId
+            FROM Assignment 
+        ";
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
+
+        List<Assignment> assignments = [];
+        foreach (DataRow row in dataTable.Rows) {
+            Assignment assignment = AssignmentMapper.FromDataRow(row);
+            assignments.Add(assignment);
+        }
+        return assignments;
+    }
+
     public List<Assignment> GetAssignmentsByProjectId(int projectId) {
         string query = @"
             SELECT Assignment.AssignmentId
