@@ -72,19 +72,22 @@ public partial class MainForm : PeproForm {
     private void AssignmentButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(assignmentButton.Location.Y);
 
+        _mediator.Notify(this, ControlUiEvent.OpenAssignmentControl);
+        /*
         string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_employeeId}'";
         conn.Open();
         var sqlCommand = new SqlCommand(query, conn);
         var sqlDataReader = sqlCommand.ExecuteReader();
         if (sqlDataReader.Read()) {
             if ((byte)sqlDataReader["PERMISSION_LEVEL"] <= 1) {
-                OpenChildControl(new AdminTaskControl());
+                OpenChildControl(new AssignmentControl());
             }
             else {
                 OpenChildControl(new EmployeeTaskControl());
             }
         }
         conn.Close();
+        */
     }
 
     private void ProjectButton_MouseClick(object sender, MouseEventArgs e) {
