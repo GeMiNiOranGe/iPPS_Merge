@@ -2,13 +2,23 @@
 
 namespace Pepro.Presentation.Controls;
 
-public partial class AdminTaskControl : UserControl
+public partial class AssignmentControl : PeproCrudControlBase
 {
     SqlConnection conn = new SqlConnection(Config.CONNECTION_STRING);
     SqlCommand cmd = new SqlCommand();
     SqlDataReader rd = null;
 
-    public AdminTaskControl()
+    public AssignmentControl()
+    {
+        Initialize();
+    }
+
+    public AssignmentControl(IMediator mediator) : base(mediator)
+    {
+        Initialize();
+    }
+
+    private void Initialize()
     {
         InitializeComponent();
     }
