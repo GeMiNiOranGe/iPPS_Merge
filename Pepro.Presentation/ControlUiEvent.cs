@@ -1,6 +1,7 @@
 ﻿namespace Pepro.Presentation;
 
 public enum ControlUiEvent {
+    OpenAssignmentControl,
     OpenDocumentControl,
     OpenDocumentEditorControl,
     OpenProgressControl,

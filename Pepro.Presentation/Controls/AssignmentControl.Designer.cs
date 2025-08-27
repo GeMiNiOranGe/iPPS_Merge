@@ -1,6 +1,6 @@
 ﻿namespace Pepro.Presentation.Controls
 {
-    partial class AdminTaskControl
+    partial class AssignmentControl
     {
         /// <summary>
         /// Required designer variable.
@@ -188,12 +188,12 @@
             taskDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             taskDataGridView.Columns.AddRange(new DataGridViewColumn[] { idJob, idMng, WorkName, AccessRight, Status, PrjPublic, DepPublic, ProjectID, Edit, Delete });
             taskDataGridView.Dock = DockStyle.Fill;
-            taskDataGridView.Location = new Point(0, 0);
+            taskDataGridView.Location = new Point(0, 48);
             taskDataGridView.Margin = new Padding(2, 5, 2, 5);
             taskDataGridView.Name = "taskDataGridView";
             taskDataGridView.RowHeadersWidth = 51;
             taskDataGridView.RowTemplate.Height = 24;
-            taskDataGridView.Size = new Size(984, 462);
+            taskDataGridView.Size = new Size(984, 414);
             taskDataGridView.TabIndex = 0;
             taskDataGridView.CellContentClick += TaskDataGridView_CellContentClick;
             // 
@@ -212,17 +212,18 @@
             actionPanel.Size = new Size(984, 99);
             actionPanel.TabIndex = 2;
             // 
-            // AdminTasks
+            // AssignmentControl
             // 
-            AutoScaleDimensions = new SizeF(9F, 23F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(taskDataGridView);
             Controls.Add(actionPanel);
-            Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(2, 5, 2, 5);
-            Name = "AdminTasks";
-            Size = new Size(984, 561);
+            HeaderText = "Assignment";
+            Name = "AssignmentControl";
+            ReturnButtonVisible = false;
             Load += AdminTasks_Load;
+            Controls.SetChildIndex(actionPanel, 0);
+            Controls.SetChildIndex(taskDataGridView, 0);
             ((System.ComponentModel.ISupportInitialize)taskDataGridView).EndInit();
             actionPanel.ResumeLayout(false);
             actionPanel.PerformLayout();

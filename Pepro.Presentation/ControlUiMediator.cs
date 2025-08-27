@@ -8,6 +8,9 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
 
     public void Notify(object sender, ControlUiEvent ev, object? data = null) {
         switch (ev) {
+        case ControlUiEvent.OpenAssignmentControl:
+            OpenAssignmentControl();
+            break;
         case ControlUiEvent.OpenDocumentControl:
             OpenDocumentControl();
             break;
@@ -49,6 +52,11 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
         control.Dock = DockStyle.Fill;
         _workplacePanel.Controls.Add(control);
         control.BringToFront();
+    }
+
+    private void OpenAssignmentControl() {
+        AssignmentControl assignmentControl = new();
+        OpenControl(assignmentControl);
     }
 
     private void OpenDocumentControl() {
