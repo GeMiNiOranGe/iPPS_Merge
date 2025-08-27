@@ -1,4 +1,6 @@
-﻿namespace Pepro.Presentation.Controls;
+﻿using Pepro.Business;
+
+namespace Pepro.Presentation.Controls;
 
 public partial class AssignmentControl : PeproCrudControlBase
 {
@@ -26,6 +28,7 @@ public partial class AssignmentControl : PeproCrudControlBase
 
     private void LoadAssignments()
     {
+        assignmentDataGridView.DataSource = AssignmentBusiness.Instance.GetAssignmentViews();
     }
 
     private void AssignmentControl_Load(object sender, EventArgs e)
