@@ -1,4 +1,6 @@
-﻿namespace Pepro.DTOs;
+﻿using System.ComponentModel;
+
+namespace Pepro.DTOs;
 
 public class AssignmentDto {
     private int _assignmentId;
@@ -10,8 +12,8 @@ public class AssignmentDto {
     private DateTime _endDate;
     private int _projectId;
     private int _statusId;
-    private AccessLevel _accessRight;
 
+    [Browsable(false)]
     public int AssignmentId {
         get => _assignmentId;
         set => _assignmentId = value;
@@ -55,10 +57,5 @@ public class AssignmentDto {
     public int StatusId {
         get => _statusId;
         set => _statusId = value;
-    }
-
-    public AccessLevel AccessRight {
-        get => _accessRight;
-        set => _accessRight = value;
     }
 }

@@ -27,227 +27,214 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            taskIdTextBox = new TextBox();
-            taskIdLabel = new Label();
-            addButton = new Button();
-            projectIdTextBox = new TextBox();
-            projectIdLabel = new Label();
-            Delete = new DataGridViewImageColumn();
-            Edit = new DataGridViewImageColumn();
-            ProjectID = new DataGridViewTextBoxColumn();
-            DepPublic = new DataGridViewTextBoxColumn();
-            PrjPublic = new DataGridViewTextBoxColumn();
-            Status = new DataGridViewTextBoxColumn();
-            AccessRight = new DataGridViewTextBoxColumn();
-            WorkName = new DataGridViewTextBoxColumn();
-            idMng = new DataGridViewTextBoxColumn();
-            idJob = new DataGridViewTextBoxColumn();
-            taskDataGridView = new DataGridView();
-            actionPanel = new Panel();
-            ((System.ComponentModel.ISupportInitialize)taskDataGridView).BeginInit();
-            actionPanel.SuspendLayout();
+            assignmentDataGridView = new PeproDataGridView();
+            assignmentNameColumn = new DataGridViewTextBoxColumn();
+            isPublicToProjectColumn = new DataGridViewTextBoxColumn();
+            isPublicToDepartmentColumn = new DataGridViewTextBoxColumn();
+            managerIdColumn = new DataGridViewTextBoxColumn();
+            startDateColumn = new DataGridViewTextBoxColumn();
+            endDateColumn = new DataGridViewTextBoxColumn();
+            requiredDocumentCountColumn = new DataGridViewTextBoxColumn();
+            projectIdColumn = new DataGridViewTextBoxColumn();
+            statusIdColumn = new DataGridViewTextBoxColumn();
+            searchTextBox = new TextBox();
+            searchButton = new Button();
+            reloadButton = new Button();
+            deleteButton = new Button();
+            updateButton = new Button();
+            insertButton = new Button();
+            ((System.ComponentModel.ISupportInitialize)assignmentDataGridView).BeginInit();
             SuspendLayout();
             // 
-            // taskIdTextBox
+            // assignmentDataGridView
             // 
-            taskIdTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            taskIdTextBox.Location = new Point(792, 54);
-            taskIdTextBox.Margin = new Padding(2, 5, 2, 5);
-            taskIdTextBox.Name = "taskIdTextBox";
-            taskIdTextBox.Size = new Size(112, 31);
-            taskIdTextBox.TabIndex = 4;
-            taskIdTextBox.KeyPress += TaskTextBox_KeyPress;
+            assignmentDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            assignmentDataGridView.Columns.AddRange(new DataGridViewColumn[] { assignmentNameColumn, isPublicToProjectColumn, isPublicToDepartmentColumn, managerIdColumn, startDateColumn, endDateColumn, requiredDocumentCountColumn, projectIdColumn, statusIdColumn });
+            assignmentDataGridView.Location = new Point(16, 123);
+            assignmentDataGridView.Margin = new Padding(16);
+            assignmentDataGridView.Name = "assignmentDataGridView";
+            assignmentDataGridView.Size = new Size(1032, 542);
+            assignmentDataGridView.TabIndex = 0;
             // 
-            // taskIdLabel
+            // assignmentNameColumn
             // 
-            taskIdLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            taskIdLabel.AutoSize = true;
-            taskIdLabel.Font = new Font("Segoe UI", 12F);
-            taskIdLabel.ForeColor = Color.White;
-            taskIdLabel.Location = new Point(645, 58);
-            taskIdLabel.Margin = new Padding(2, 0, 2, 0);
-            taskIdLabel.Name = "taskIdLabel";
-            taskIdLabel.Size = new Size(143, 21);
-            taskIdLabel.TabIndex = 3;
-            taskIdLabel.Text = "Nhập mã công việc";
+            assignmentNameColumn.DataPropertyName = "Name";
+            assignmentNameColumn.HeaderText = "Tên công việc";
+            assignmentNameColumn.Name = "assignmentNameColumn";
+            assignmentNameColumn.ReadOnly = true;
+            assignmentNameColumn.Width = 106;
             // 
-            // addButton
+            // isPublicToProjectColumn
             // 
-            addButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            addButton.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            addButton.Location = new Point(916, 22);
-            addButton.Margin = new Padding(2, 5, 2, 5);
-            addButton.Name = "addButton";
-            addButton.Size = new Size(56, 57);
-            addButton.TabIndex = 2;
-            addButton.Text = "+";
-            addButton.UseVisualStyleBackColor = true;
-            addButton.Click += AddButton_Click;
+            isPublicToProjectColumn.DataPropertyName = "IsPublicToProject";
+            isPublicToProjectColumn.HeaderText = "Công khai dự án";
+            isPublicToProjectColumn.Name = "isPublicToProjectColumn";
+            isPublicToProjectColumn.ReadOnly = true;
+            isPublicToProjectColumn.Width = 110;
             // 
-            // projectIdTextBox
+            // isPublicToDepartmentColumn
             // 
-            projectIdTextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            projectIdTextBox.Location = new Point(792, 15);
-            projectIdTextBox.Margin = new Padding(2, 5, 2, 5);
-            projectIdTextBox.Name = "projectIdTextBox";
-            projectIdTextBox.Size = new Size(112, 31);
-            projectIdTextBox.TabIndex = 1;
-            projectIdTextBox.KeyPress += ProjectIdTextBox_KeyPress;
+            isPublicToDepartmentColumn.DataPropertyName = "IsPublicToDepartment";
+            isPublicToDepartmentColumn.HeaderText = "Công khai phòng ban";
+            isPublicToDepartmentColumn.Name = "isPublicToDepartmentColumn";
+            isPublicToDepartmentColumn.ReadOnly = true;
+            isPublicToDepartmentColumn.Width = 132;
             // 
-            // projectIdLabel
+            // managerIdColumn
             // 
-            projectIdLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            projectIdLabel.AutoSize = true;
-            projectIdLabel.Font = new Font("Segoe UI", 12F);
-            projectIdLabel.ForeColor = Color.White;
-            projectIdLabel.Location = new Point(671, 19);
-            projectIdLabel.Margin = new Padding(2, 0, 2, 0);
-            projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new Size(117, 21);
-            projectIdLabel.TabIndex = 0;
-            projectIdLabel.Text = "Nhập mã dự án";
+            managerIdColumn.DataPropertyName = "ManagerId";
+            managerIdColumn.HeaderText = "Mã quản lý";
+            managerIdColumn.Name = "managerIdColumn";
+            managerIdColumn.ReadOnly = true;
+            managerIdColumn.Width = 86;
             // 
-            // Delete
+            // startDateColumn
             // 
-            Delete.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Delete.HeaderText = "";
-            Delete.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Delete.MinimumWidth = 6;
-            Delete.Name = "Delete";
-            Delete.Width = 6;
+            startDateColumn.DataPropertyName = "StartDate";
+            startDateColumn.HeaderText = "Ngày bắt đầu";
+            startDateColumn.Name = "startDateColumn";
+            startDateColumn.ReadOnly = true;
+            startDateColumn.Width = 87;
             // 
-            // Edit
+            // endDateColumn
             // 
-            Edit.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Edit.HeaderText = "";
-            Edit.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Edit.MinimumWidth = 6;
-            Edit.Name = "Edit";
-            Edit.Width = 6;
+            endDateColumn.DataPropertyName = "EndDate";
+            endDateColumn.HeaderText = "Ngày kết thúc";
+            endDateColumn.Name = "endDateColumn";
+            endDateColumn.ReadOnly = true;
+            endDateColumn.Width = 86;
             // 
-            // ProjectID
+            // requiredDocumentCountColumn
             // 
-            ProjectID.HeaderText = "ID dự án";
-            ProjectID.MinimumWidth = 6;
-            ProjectID.Name = "ProjectID";
-            ProjectID.Width = 125;
+            requiredDocumentCountColumn.DataPropertyName = "RequiredDocumentCount";
+            requiredDocumentCountColumn.HeaderText = "Số lượng tài liệu yêu cầu";
+            requiredDocumentCountColumn.Name = "requiredDocumentCountColumn";
+            requiredDocumentCountColumn.ReadOnly = true;
+            requiredDocumentCountColumn.Width = 124;
             // 
-            // DepPublic
+            // projectIdColumn
             // 
-            DepPublic.HeaderText = "Công khai phòng ban";
-            DepPublic.MinimumWidth = 6;
-            DepPublic.Name = "DepPublic";
-            DepPublic.Width = 220;
+            projectIdColumn.DataPropertyName = "ProjectId";
+            projectIdColumn.HeaderText = "Mã dự án";
+            projectIdColumn.Name = "projectIdColumn";
+            projectIdColumn.ReadOnly = true;
+            projectIdColumn.Width = 72;
             // 
-            // PrjPublic
+            // statusIdColumn
             // 
-            PrjPublic.HeaderText = "Công khai dự án";
-            PrjPublic.MinimumWidth = 6;
-            PrjPublic.Name = "PrjPublic";
-            PrjPublic.Width = 175;
+            statusIdColumn.DataPropertyName = "StatusId";
+            statusIdColumn.HeaderText = "Tình trạng";
+            statusIdColumn.Name = "statusIdColumn";
+            statusIdColumn.ReadOnly = true;
+            statusIdColumn.Width = 89;
             // 
-            // Status
+            // searchTextBox
             // 
-            Status.HeaderText = "Tình trạng";
-            Status.MinimumWidth = 6;
-            Status.Name = "Status";
-            Status.Width = 125;
+            searchTextBox.Location = new Point(16, 75);
+            searchTextBox.Margin = new Padding(3, 2, 3, 2);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.PlaceholderText = "Search for assignment id or name";
+            searchTextBox.Size = new Size(431, 26);
+            searchTextBox.TabIndex = 7;
             // 
-            // AccessRight
+            // searchButton
             // 
-            AccessRight.HeaderText = "Quyền truy cập";
-            AccessRight.MinimumWidth = 6;
-            AccessRight.Name = "AccessRight";
-            AccessRight.Width = 160;
+            searchButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            searchButton.Location = new Point(466, 67);
+            searchButton.Margin = new Padding(16, 16, 0, 0);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(40, 40);
+            searchButton.TabIndex = 8;
             // 
-            // WorkName
+            // reloadButton
             // 
-            WorkName.HeaderText = "Tên công việc";
-            WorkName.MinimumWidth = 6;
-            WorkName.Name = "WorkName";
-            WorkName.Width = 145;
+            reloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            reloadButton.Location = new Point(522, 67);
+            reloadButton.Margin = new Padding(16, 16, 0, 0);
+            reloadButton.Name = "reloadButton";
+            reloadButton.Size = new Size(40, 40);
+            reloadButton.TabIndex = 9;
             // 
-            // idMng
+            // deleteButton
             // 
-            idMng.HeaderText = "ID quản lý";
-            idMng.MinimumWidth = 6;
-            idMng.Name = "idMng";
-            idMng.Width = 125;
+            deleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            deleteButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            deleteButton.Location = new Point(706, 67);
+            deleteButton.Margin = new Padding(16, 16, 0, 0);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Padding = new Padding(12, 0, 12, 0);
+            deleteButton.Size = new Size(112, 40);
+            deleteButton.TabIndex = 10;
+            deleteButton.Text = " Delete";
             // 
-            // idJob
+            // updateButton
             // 
-            idJob.HeaderText = "ID công việc";
-            idJob.MinimumWidth = 6;
-            idJob.Name = "idJob";
-            idJob.Width = 135;
+            updateButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            updateButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            updateButton.Location = new Point(834, 67);
+            updateButton.Margin = new Padding(16, 16, 0, 0);
+            updateButton.Name = "updateButton";
+            updateButton.Padding = new Padding(12, 0, 12, 0);
+            updateButton.Size = new Size(98, 40);
+            updateButton.TabIndex = 11;
+            updateButton.Text = " Edit";
             // 
-            // taskDataGridView
+            // insertButton
             // 
-            taskDataGridView.AllowUserToAddRows = false;
-            taskDataGridView.BackgroundColor = Color.FromArgb(15, 15, 15);
-            taskDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            taskDataGridView.Columns.AddRange(new DataGridViewColumn[] { idJob, idMng, WorkName, AccessRight, Status, PrjPublic, DepPublic, ProjectID, Edit, Delete });
-            taskDataGridView.Dock = DockStyle.Fill;
-            taskDataGridView.Location = new Point(0, 48);
-            taskDataGridView.Margin = new Padding(2, 5, 2, 5);
-            taskDataGridView.Name = "taskDataGridView";
-            taskDataGridView.RowHeadersWidth = 51;
-            taskDataGridView.RowTemplate.Height = 24;
-            taskDataGridView.Size = new Size(984, 414);
-            taskDataGridView.TabIndex = 0;
-            taskDataGridView.CellContentClick += TaskDataGridView_CellContentClick;
-            // 
-            // actionPanel
-            // 
-            actionPanel.BackColor = Color.FromArgb(22, 22, 22);
-            actionPanel.Controls.Add(projectIdTextBox);
-            actionPanel.Controls.Add(taskIdTextBox);
-            actionPanel.Controls.Add(projectIdLabel);
-            actionPanel.Controls.Add(taskIdLabel);
-            actionPanel.Controls.Add(addButton);
-            actionPanel.Dock = DockStyle.Bottom;
-            actionPanel.Location = new Point(0, 462);
-            actionPanel.Margin = new Padding(2, 5, 2, 5);
-            actionPanel.Name = "actionPanel";
-            actionPanel.Size = new Size(984, 99);
-            actionPanel.TabIndex = 2;
+            insertButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            insertButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            insertButton.Location = new Point(948, 67);
+            insertButton.Margin = new Padding(16, 16, 0, 0);
+            insertButton.Name = "insertButton";
+            insertButton.Padding = new Padding(12, 0, 12, 0);
+            insertButton.Size = new Size(100, 40);
+            insertButton.TabIndex = 12;
+            insertButton.Text = " Add";
             // 
             // AssignmentControl
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(taskDataGridView);
-            Controls.Add(actionPanel);
+            Controls.Add(searchTextBox);
+            Controls.Add(searchButton);
+            Controls.Add(reloadButton);
+            Controls.Add(deleteButton);
+            Controls.Add(updateButton);
+            Controls.Add(insertButton);
+            Controls.Add(assignmentDataGridView);
             HeaderText = "Assignment";
             Name = "AssignmentControl";
             ReturnButtonVisible = false;
-            Load += AdminTasks_Load;
-            Controls.SetChildIndex(actionPanel, 0);
-            Controls.SetChildIndex(taskDataGridView, 0);
-            ((System.ComponentModel.ISupportInitialize)taskDataGridView).EndInit();
-            actionPanel.ResumeLayout(false);
-            actionPanel.PerformLayout();
+            Load += AssignmentControl_Load;
+            Controls.SetChildIndex(assignmentDataGridView, 0);
+            Controls.SetChildIndex(insertButton, 0);
+            Controls.SetChildIndex(updateButton, 0);
+            Controls.SetChildIndex(deleteButton, 0);
+            Controls.SetChildIndex(reloadButton, 0);
+            Controls.SetChildIndex(searchButton, 0);
+            Controls.SetChildIndex(searchTextBox, 0);
+            ((System.ComponentModel.ISupportInitialize)assignmentDataGridView).EndInit();
             ResumeLayout(false);
+            PerformLayout();
 
         }
 
         #endregion
-        private Button addButton;
-        private TextBox projectIdTextBox;
-        private Label projectIdLabel;
-        private TextBox taskIdTextBox;
-        private Label taskIdLabel;
-        private DataGridViewImageColumn Delete;
-        private DataGridViewImageColumn Edit;
-        private DataGridViewTextBoxColumn ProjectID;
-        private DataGridViewTextBoxColumn DepPublic;
-        private DataGridViewTextBoxColumn PrjPublic;
-        private DataGridViewTextBoxColumn Status;
-        private DataGridViewTextBoxColumn AccessRight;
-        private DataGridViewTextBoxColumn WorkName;
-        private DataGridViewTextBoxColumn idMng;
-        private DataGridViewTextBoxColumn idJob;
-        private DataGridView taskDataGridView;
-        private Panel actionPanel;
+        private PeproDataGridView assignmentDataGridView;
+        private TextBox searchTextBox;
+        private Button searchButton;
+        private Button reloadButton;
+        private Button deleteButton;
+        private Button updateButton;
+        private Button insertButton;
+        private DataGridViewTextBoxColumn assignmentNameColumn;
+        private DataGridViewTextBoxColumn isPublicToProjectColumn;
+        private DataGridViewTextBoxColumn isPublicToDepartmentColumn;
+        private DataGridViewTextBoxColumn managerIdColumn;
+        private DataGridViewTextBoxColumn startDateColumn;
+        private DataGridViewTextBoxColumn endDateColumn;
+        private DataGridViewTextBoxColumn requiredDocumentCountColumn;
+        private DataGridViewTextBoxColumn projectIdColumn;
+        private DataGridViewTextBoxColumn statusIdColumn;
     }
 }
