@@ -225,4 +225,17 @@ public class AssignmentDataAccess {
         DataRow row = dataTable.Rows[0];
         return AssignmentMapper.FromDataRow(row);
     }
+
+    public int DeleteAssignment(int assignmentId) {
+        string query = @"
+            UPDATE Assignment
+            SET IsDeleted = 1,
+                DeletedAt = GetDate()
+            WHERE AssignmentId = @AssignmentId
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
+
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
 }
