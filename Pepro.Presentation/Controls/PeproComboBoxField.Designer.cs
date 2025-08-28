@@ -33,10 +33,10 @@
             inputFieldComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             inputFieldComboBox.FlatStyle = FlatStyle.Flat;
             inputFieldComboBox.FormattingEnabled = true;
-            inputFieldComboBox.Location = new Point(4, 28);
-            inputFieldComboBox.Margin = new Padding(4, 0, 4, 0);
+            inputFieldComboBox.Location = new Point(0, 21);
+            inputFieldComboBox.Margin = new Padding(0);
             inputFieldComboBox.Name = "inputFieldComboBox";
-            inputFieldComboBox.Size = new Size(248, 27);
+            inputFieldComboBox.Size = new Size(240, 27);
             inputFieldComboBox.TabIndex = 1;
             inputFieldComboBox.SelectedIndexChanged += InputFieldComboBox_SelectedIndexChanged;
             // 
@@ -46,7 +46,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(inputFieldComboBox);
             Name = "PeproComboBoxField";
-            Size = new Size(256, 56);
+            Size = new Size(240, 48);
             Controls.SetChildIndex(inputFieldComboBox, 0);
             ResumeLayout(false);
         }

@@ -63,7 +63,7 @@
             documentIdInputField.Margin = new Padding(16, 16, 0, 24);
             documentIdInputField.Name = "documentIdInputField";
             documentIdInputField.PlaceholderText = "e.g. document id";
-            documentIdInputField.Size = new Size(240, 54);
+            documentIdInputField.Size = new Size(240, 48);
             documentIdInputField.TabIndex = 0;
             documentIdInputField.TabStop = false;
             documentIdInputField.TextChanged += DocumentIdInputField_TextChanged;
@@ -77,7 +77,7 @@
             assignmentIdInputField.Margin = new Padding(24, 16, 0, 24);
             assignmentIdInputField.Name = "assignmentIdInputField";
             assignmentIdInputField.PlaceholderText = "e.g. assignment id";
-            assignmentIdInputField.Size = new Size(240, 54);
+            assignmentIdInputField.Size = new Size(240, 48);
             assignmentIdInputField.TabIndex = 0;
             assignmentIdInputField.TabStop = false;
             assignmentIdInputField.TextChanged += AssignmentIdInputField_TextChanged;
@@ -92,7 +92,7 @@
             assignmentNameInputField.Margin = new Padding(24, 16, 16, 24);
             assignmentNameInputField.Name = "assignmentNameInputField";
             assignmentNameInputField.PlaceholderText = "e.g. assignment name";
-            assignmentNameInputField.Size = new Size(504, 54);
+            assignmentNameInputField.Size = new Size(504, 48);
             assignmentNameInputField.TabIndex = 0;
             assignmentNameInputField.TabStop = false;
             // 
@@ -101,11 +101,11 @@
             fileTypeInputField.Enabled = false;
             fileTypeInputField.ForeColor = Color.White;
             fileTypeInputField.LabelText = "File type";
-            fileTypeInputField.Location = new Point(16, 142);
-            fileTypeInputField.Margin = new Padding(16, 0, 0, 16);
+            fileTypeInputField.Location = new Point(16, 136);
+            fileTypeInputField.Margin = new Padding(16, 0, 0, 24);
             fileTypeInputField.Name = "fileTypeInputField";
             fileTypeInputField.PlaceholderText = "e.g. docx, xlsx, pptx, ...";
-            fileTypeInputField.Size = new Size(240, 54);
+            fileTypeInputField.Size = new Size(240, 48);
             fileTypeInputField.TabIndex = 0;
             fileTypeInputField.TabStop = false;
             // 
@@ -114,11 +114,11 @@
             projectIdInputField.Enabled = false;
             projectIdInputField.ForeColor = Color.White;
             projectIdInputField.LabelText = "Project id";
-            projectIdInputField.Location = new Point(280, 142);
-            projectIdInputField.Margin = new Padding(24, 0, 0, 16);
+            projectIdInputField.Location = new Point(280, 136);
+            projectIdInputField.Margin = new Padding(24, 0, 0, 24);
             projectIdInputField.Name = "projectIdInputField";
             projectIdInputField.PlaceholderText = "e.g. project id";
-            projectIdInputField.Size = new Size(240, 54);
+            projectIdInputField.Size = new Size(240, 48);
             projectIdInputField.TabIndex = 0;
             projectIdInputField.TabStop = false;
             // 
@@ -128,17 +128,17 @@
             projectNameInputField.Enabled = false;
             projectNameInputField.ForeColor = Color.White;
             projectNameInputField.LabelText = "Project name";
-            projectNameInputField.Location = new Point(544, 142);
-            projectNameInputField.Margin = new Padding(24, 0, 16, 16);
+            projectNameInputField.Location = new Point(544, 136);
+            projectNameInputField.Margin = new Padding(24, 0, 16, 24);
             projectNameInputField.Name = "projectNameInputField";
             projectNameInputField.PlaceholderText = "e.g. project name";
-            projectNameInputField.Size = new Size(504, 54);
+            projectNameInputField.Size = new Size(504, 48);
             projectNameInputField.TabIndex = 0;
             projectNameInputField.TabStop = false;
             // 
             // searchTextBox
             // 
-            searchTextBox.Location = new Point(16, 219);
+            searchTextBox.Location = new Point(16, 215);
             searchTextBox.Margin = new Padding(2);
             searchTextBox.Name = "searchTextBox";
             searchTextBox.PlaceholderText = "Search for document title, id, and assignment id";
@@ -148,7 +148,7 @@
             // searchButton
             // 
             searchButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            searchButton.Location = new Point(466, 212);
+            searchButton.Location = new Point(466, 208);
             searchButton.Margin = new Padding(16, 0, 0, 0);
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(40, 40);
@@ -158,7 +158,7 @@
             // reloadButton
             // 
             reloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            reloadButton.Location = new Point(522, 212);
+            reloadButton.Location = new Point(522, 208);
             reloadButton.Margin = new Padding(16, 0, 0, 0);
             reloadButton.Name = "reloadButton";
             reloadButton.Size = new Size(40, 40);
@@ -168,7 +168,7 @@
             // downloadButton
             // 
             downloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            downloadButton.Location = new Point(578, 212);
+            downloadButton.Location = new Point(578, 208);
             downloadButton.Margin = new Padding(16, 0, 0, 0);
             downloadButton.Name = "downloadButton";
             downloadButton.Size = new Size(112, 40);
@@ -180,7 +180,7 @@
             // 
             deleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             deleteButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            deleteButton.Location = new Point(706, 212);
+            deleteButton.Location = new Point(706, 208);
             deleteButton.Margin = new Padding(16, 0, 0, 0);
             deleteButton.Name = "deleteButton";
             deleteButton.Padding = new Padding(12, 0, 12, 0);
@@ -193,7 +193,7 @@
             // 
             updateButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             updateButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            updateButton.Location = new Point(834, 212);
+            updateButton.Location = new Point(834, 208);
             updateButton.Margin = new Padding(16, 0, 0, 0);
             updateButton.Name = "updateButton";
             updateButton.Padding = new Padding(12, 0, 12, 0);
@@ -206,7 +206,7 @@
             // 
             insertButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             insertButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            insertButton.Location = new Point(948, 212);
+            insertButton.Location = new Point(948, 208);
             insertButton.Margin = new Padding(16, 0, 0, 0);
             insertButton.Name = "insertButton";
             insertButton.Padding = new Padding(12, 0, 12, 0);
@@ -219,10 +219,10 @@
             // 
             documentDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             documentDataGridView.Columns.AddRange(new DataGridViewColumn[] { titleColumn, createAtColumn, revisionNumberColumn, revisionStatusColumn, documentUrlColumn, nativeFileFormatColumn, preparedByColumn, checkedByColumn, approvedByColumn, assignmentIdColumn });
-            documentDataGridView.Location = new Point(16, 268);
+            documentDataGridView.Location = new Point(16, 264);
             documentDataGridView.Margin = new Padding(16);
             documentDataGridView.Name = "documentDataGridView";
-            documentDataGridView.Size = new Size(1032, 397);
+            documentDataGridView.Size = new Size(1032, 401);
             documentDataGridView.TabIndex = 8;
             documentDataGridView.CellClick += DocumentDataGridView_CellClick;
             // 
@@ -232,7 +232,7 @@
             titleColumn.HeaderText = "Tiêu đề";
             titleColumn.Name = "titleColumn";
             titleColumn.ReadOnly = true;
-            titleColumn.Width = 78;
+            titleColumn.Width = 59;
             // 
             // createAtColumn
             // 
@@ -240,7 +240,7 @@
             createAtColumn.HeaderText = "Ngày tạo";
             createAtColumn.Name = "createAtColumn";
             createAtColumn.ReadOnly = true;
-            createAtColumn.Width = 90;
+            createAtColumn.Width = 83;
             // 
             // revisionNumberColumn
             // 
@@ -248,7 +248,7 @@
             revisionNumberColumn.HeaderText = "Số sửa đổi";
             revisionNumberColumn.Name = "revisionNumberColumn";
             revisionNumberColumn.ReadOnly = true;
-            revisionNumberColumn.Width = 97;
+            revisionNumberColumn.Width = 89;
             // 
             // revisionStatusColumn
             // 
@@ -256,7 +256,7 @@
             revisionStatusColumn.HeaderText = "Loại sửa đổi";
             revisionStatusColumn.Name = "revisionStatusColumn";
             revisionStatusColumn.ReadOnly = true;
-            revisionStatusColumn.Width = 107;
+            revisionStatusColumn.Width = 81;
             // 
             // documentUrlColumn
             // 

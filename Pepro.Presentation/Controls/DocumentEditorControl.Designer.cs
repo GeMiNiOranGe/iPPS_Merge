@@ -37,7 +37,7 @@
             checkedByInputField = new PeproInputField();
             approvedByInputField = new PeproInputField();
             fileTypeInputField = new PeproInputField();
-            createdAtLabel = new Label();
+            createdAtLabel = new PeproLabel();
             createdAtDateTimePicker = new DateTimePicker();
             revisionNumberInputField = new PeproInputField();
             revisionStatusInputField = new PeproInputField();
@@ -52,11 +52,11 @@
             projectIdInputField.Enabled = false;
             projectIdInputField.ForeColor = Color.White;
             projectIdInputField.LabelText = "Project id";
-            projectIdInputField.Location = new Point(16, 64);
-            projectIdInputField.Margin = new Padding(16, 16, 0, 16);
+            projectIdInputField.Location = new Point(16, 67);
+            projectIdInputField.Margin = new Padding(16, 16, 0, 24);
             projectIdInputField.Name = "projectIdInputField";
             projectIdInputField.PlaceholderText = "e.g. project id";
-            projectIdInputField.Size = new Size(240, 54);
+            projectIdInputField.Size = new Size(240, 48);
             projectIdInputField.TabIndex = 1;
             projectIdInputField.TabStop = false;
             // 
@@ -66,9 +66,9 @@
             projectNameComboBoxField.ForeColor = Color.White;
             projectNameComboBoxField.LabelText = "Project name";
             projectNameComboBoxField.Location = new Point(280, 64);
-            projectNameComboBoxField.Margin = new Padding(24, 16, 16, 16);
+            projectNameComboBoxField.Margin = new Padding(24, 16, 16, 24);
             projectNameComboBoxField.Name = "projectNameComboBoxField";
-            projectNameComboBoxField.Size = new Size(768, 56);
+            projectNameComboBoxField.Size = new Size(768, 48);
             projectNameComboBoxField.TabIndex = 2;
             projectNameComboBoxField.SelectedIndexChanged += ProjectNameComboBoxField_SelectedIndexChanged;
             // 
@@ -78,11 +78,11 @@
             assignmentIdInputField.Enabled = false;
             assignmentIdInputField.ForeColor = Color.White;
             assignmentIdInputField.LabelText = "Assignment id";
-            assignmentIdInputField.Location = new Point(16, 150);
-            assignmentIdInputField.Margin = new Padding(16, 16, 0, 16);
+            assignmentIdInputField.Location = new Point(16, 139);
+            assignmentIdInputField.Margin = new Padding(16, 0, 0, 24);
             assignmentIdInputField.Name = "assignmentIdInputField";
             assignmentIdInputField.PlaceholderText = "e.g. assignment id";
-            assignmentIdInputField.Size = new Size(240, 54);
+            assignmentIdInputField.Size = new Size(240, 48);
             assignmentIdInputField.TabIndex = 3;
             assignmentIdInputField.TabStop = false;
             // 
@@ -91,10 +91,10 @@
             assignmentNameComboBoxField.Anchor = AnchorStyles.None;
             assignmentNameComboBoxField.ForeColor = Color.White;
             assignmentNameComboBoxField.LabelText = "Assignment name";
-            assignmentNameComboBoxField.Location = new Point(280, 152);
-            assignmentNameComboBoxField.Margin = new Padding(24, 16, 16, 16);
+            assignmentNameComboBoxField.Location = new Point(280, 139);
+            assignmentNameComboBoxField.Margin = new Padding(24, 0, 16, 24);
             assignmentNameComboBoxField.Name = "assignmentNameComboBoxField";
-            assignmentNameComboBoxField.Size = new Size(768, 56);
+            assignmentNameComboBoxField.Size = new Size(768, 48);
             assignmentNameComboBoxField.TabIndex = 4;
             // 
             // documentIdInputField
@@ -103,11 +103,11 @@
             documentIdInputField.Enabled = false;
             documentIdInputField.ForeColor = Color.White;
             documentIdInputField.LabelText = "Document id";
-            documentIdInputField.Location = new Point(16, 236);
-            documentIdInputField.Margin = new Padding(16, 16, 0, 16);
+            documentIdInputField.Location = new Point(16, 211);
+            documentIdInputField.Margin = new Padding(16, 0, 0, 24);
             documentIdInputField.Name = "documentIdInputField";
             documentIdInputField.PlaceholderText = "e.g. document id";
-            documentIdInputField.Size = new Size(240, 54);
+            documentIdInputField.Size = new Size(240, 48);
             documentIdInputField.TabIndex = 5;
             documentIdInputField.TabStop = false;
             // 
@@ -116,11 +116,11 @@
             titleInputField.Anchor = AnchorStyles.None;
             titleInputField.ForeColor = Color.White;
             titleInputField.LabelText = "Title";
-            titleInputField.Location = new Point(280, 236);
-            titleInputField.Margin = new Padding(24, 16, 16, 16);
+            titleInputField.Location = new Point(280, 211);
+            titleInputField.Margin = new Padding(24, 0, 16, 24);
             titleInputField.Name = "titleInputField";
             titleInputField.PlaceholderText = "e.g. title";
-            titleInputField.Size = new Size(768, 54);
+            titleInputField.Size = new Size(768, 48);
             titleInputField.TabIndex = 6;
             // 
             // preparedByInputField
@@ -128,11 +128,11 @@
             preparedByInputField.Anchor = AnchorStyles.None;
             preparedByInputField.ForeColor = Color.White;
             preparedByInputField.LabelText = "Prepared by";
-            preparedByInputField.Location = new Point(16, 322);
-            preparedByInputField.Margin = new Padding(16, 16, 0, 16);
+            preparedByInputField.Location = new Point(16, 283);
+            preparedByInputField.Margin = new Padding(16, 0, 0, 24);
             preparedByInputField.Name = "preparedByInputField";
             preparedByInputField.PlaceholderText = "e.g. Jessica";
-            preparedByInputField.Size = new Size(504, 54);
+            preparedByInputField.Size = new Size(504, 48);
             preparedByInputField.TabIndex = 7;
             // 
             // checkedByInputField
@@ -140,11 +140,11 @@
             checkedByInputField.Anchor = AnchorStyles.None;
             checkedByInputField.ForeColor = Color.White;
             checkedByInputField.LabelText = "Checked by";
-            checkedByInputField.Location = new Point(544, 322);
-            checkedByInputField.Margin = new Padding(24, 16, 0, 16);
+            checkedByInputField.Location = new Point(544, 283);
+            checkedByInputField.Margin = new Padding(24, 0, 16, 24);
             checkedByInputField.Name = "checkedByInputField";
             checkedByInputField.PlaceholderText = "e.g. Mike";
-            checkedByInputField.Size = new Size(504, 54);
+            checkedByInputField.Size = new Size(504, 48);
             checkedByInputField.TabIndex = 8;
             // 
             // approvedByInputField
@@ -152,11 +152,11 @@
             approvedByInputField.Anchor = AnchorStyles.None;
             approvedByInputField.ForeColor = Color.White;
             approvedByInputField.LabelText = "Approved by";
-            approvedByInputField.Location = new Point(16, 408);
-            approvedByInputField.Margin = new Padding(16, 16, 0, 16);
+            approvedByInputField.Location = new Point(16, 355);
+            approvedByInputField.Margin = new Padding(16, 0, 0, 24);
             approvedByInputField.Name = "approvedByInputField";
             approvedByInputField.PlaceholderText = "e.g. John";
-            approvedByInputField.Size = new Size(504, 54);
+            approvedByInputField.Size = new Size(504, 48);
             approvedByInputField.TabIndex = 9;
             // 
             // fileTypeInputField
@@ -165,11 +165,11 @@
             fileTypeInputField.Enabled = false;
             fileTypeInputField.ForeColor = Color.White;
             fileTypeInputField.LabelText = "File type";
-            fileTypeInputField.Location = new Point(544, 408);
-            fileTypeInputField.Margin = new Padding(24, 16, 0, 16);
+            fileTypeInputField.Location = new Point(544, 355);
+            fileTypeInputField.Margin = new Padding(24, 0, 0, 24);
             fileTypeInputField.Name = "fileTypeInputField";
             fileTypeInputField.PlaceholderText = "e.g. docx, xlsx, pptx";
-            fileTypeInputField.Size = new Size(240, 54);
+            fileTypeInputField.Size = new Size(240, 48);
             fileTypeInputField.TabIndex = 10;
             fileTypeInputField.TabStop = false;
             // 
@@ -178,10 +178,10 @@
             createdAtLabel.Anchor = AnchorStyles.None;
             createdAtLabel.AutoSize = true;
             createdAtLabel.ForeColor = Color.White;
-            createdAtLabel.Location = new Point(808, 408);
+            createdAtLabel.Location = new Point(808, 355);
             createdAtLabel.Margin = new Padding(16, 24, 8, 0);
             createdAtLabel.Name = "createdAtLabel";
-            createdAtLabel.Size = new Size(38, 19);
+            createdAtLabel.Size = new Size(29, 14);
             createdAtLabel.TabIndex = 0;
             createdAtLabel.Text = "Date";
             // 
@@ -189,7 +189,7 @@
             // 
             createdAtDateTimePicker.Anchor = AnchorStyles.None;
             createdAtDateTimePicker.Checked = false;
-            createdAtDateTimePicker.Location = new Point(808, 436);
+            createdAtDateTimePicker.Location = new Point(808, 377);
             createdAtDateTimePicker.Margin = new Padding(24, 8, 16, 16);
             createdAtDateTimePicker.Name = "createdAtDateTimePicker";
             createdAtDateTimePicker.Size = new Size(240, 26);
@@ -201,11 +201,11 @@
             revisionNumberInputField.Enabled = false;
             revisionNumberInputField.ForeColor = Color.White;
             revisionNumberInputField.LabelText = "Revision number";
-            revisionNumberInputField.Location = new Point(16, 494);
-            revisionNumberInputField.Margin = new Padding(24, 16, 0, 16);
+            revisionNumberInputField.Location = new Point(16, 427);
+            revisionNumberInputField.Margin = new Padding(16, 0, 0, 24);
             revisionNumberInputField.Name = "revisionNumberInputField";
             revisionNumberInputField.PlaceholderText = "e.g. 642837";
-            revisionNumberInputField.Size = new Size(240, 54);
+            revisionNumberInputField.Size = new Size(240, 48);
             revisionNumberInputField.TabIndex = 12;
             revisionNumberInputField.TabStop = false;
             // 
@@ -215,11 +215,11 @@
             revisionStatusInputField.Enabled = false;
             revisionStatusInputField.ForeColor = Color.White;
             revisionStatusInputField.LabelText = "Revision status";
-            revisionStatusInputField.Location = new Point(280, 494);
-            revisionStatusInputField.Margin = new Padding(24, 16, 0, 16);
+            revisionStatusInputField.Location = new Point(280, 427);
+            revisionStatusInputField.Margin = new Padding(24, 0, 0, 24);
             revisionStatusInputField.Name = "revisionStatusInputField";
             revisionStatusInputField.PlaceholderText = "e.g. latest";
-            revisionStatusInputField.Size = new Size(240, 54);
+            revisionStatusInputField.Size = new Size(240, 48);
             revisionStatusInputField.TabIndex = 13;
             revisionStatusInputField.TabStop = false;
             // 
@@ -229,11 +229,11 @@
             filePathInputField.Enabled = false;
             filePathInputField.ForeColor = Color.White;
             filePathInputField.LabelText = "File path";
-            filePathInputField.Location = new Point(544, 494);
-            filePathInputField.Margin = new Padding(24, 16, 0, 16);
+            filePathInputField.Location = new Point(544, 427);
+            filePathInputField.Margin = new Padding(24, 0, 0, 24);
             filePathInputField.Name = "filePathInputField";
             filePathInputField.PlaceholderText = "e.g. path/to/file.ext";
-            filePathInputField.Size = new Size(240, 54);
+            filePathInputField.Size = new Size(240, 48);
             filePathInputField.TabIndex = 14;
             filePathInputField.TabStop = false;
             // 
@@ -241,7 +241,7 @@
             // 
             browseButton.Anchor = AnchorStyles.None;
             browseButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            browseButton.Location = new Point(808, 501);
+            browseButton.Location = new Point(808, 431);
             browseButton.Margin = new Padding(16);
             browseButton.Name = "browseButton";
             browseButton.Size = new Size(104, 40);
@@ -308,7 +308,7 @@
         }
 
         #endregion
-        private Label createdAtLabel;
+        private PeproLabel createdAtLabel;
         private Button saveButton;
         private Button browseButton;
         private DateTimePicker createdAtDateTimePicker;
