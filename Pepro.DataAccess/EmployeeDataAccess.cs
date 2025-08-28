@@ -177,7 +177,7 @@ public class EmployeeDataAccess {
             UPDATE Employee
             SET IsDeleted = 1,
                 DeletedAt = GetDate()
-            WHERE EmployeeId = @EmployeeId;
+            WHERE EmployeeId = @EmployeeId
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("EmployeeId", SqlDbType.Int, employeeId);

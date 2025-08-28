@@ -184,7 +184,7 @@ public class ProjectDataAccess {
             UPDATE Project
             SET IsDeleted = 1,
                 DeletedAt = GetDate()
-            WHERE ProjectId = @ProjectId;
+            WHERE ProjectId = @ProjectId
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("ProjectId", SqlDbType.Int, projectId);

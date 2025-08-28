@@ -139,4 +139,8 @@ public class AssignmentBusiness {
         Assignment? assignment = AssignmentDataAccess.Instance.GetAssignmentByDocumentId(documentId);
         return assignment?.ToDto();
     }
+
+    public int DeleteAssignment(int assignmentId) {
+        return AssignmentDataAccess.Instance.DeleteAssignment(assignmentId);
+    }
 }

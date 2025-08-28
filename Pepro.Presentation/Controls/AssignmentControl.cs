@@ -74,7 +74,6 @@ public partial class AssignmentControl : PeproCrudControlBase
         );
     }
 
-    /*
     private void DeleteButton_Click(object sender, EventArgs e)
     {
         BindDeleteButtonClick<AssignmentDto>(
@@ -83,5 +82,4 @@ public partial class AssignmentControl : PeproCrudControlBase
             LoadAssignments
         );
     }
-    */
 }
