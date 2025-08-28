@@ -27,104 +27,20 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            projectIdLabel = new Label();
-            taskIdLabel = new Label();
-            managerIdLabel = new Label();
-            taskNameLabel = new Label();
-            accessLabel = new Label();
-            statusLabel = new Label();
             publicProjectLabel = new Label();
             publicDepartmentLabel = new Label();
             saveButton = new Button();
-            updateButton = new Button();
-            clearButton = new Button();
-            projectIdTextBox = new TextBox();
-            taskIdTextBox = new TextBox();
-            managerIdTextBox = new TextBox();
-            taskNameTextBox = new TextBox();
-            accessTextBox = new TextBox();
-            publicDepartmentTextBox = new TextBox();
-            publicProjectTextBox = new TextBox();
-            statusTextBox = new TextBox();
+            managerIdInputField = new PeproInputField();
+            assignmentNameInputField = new PeproInputField();
+            statusComboBoxField = new PeproComboBoxField();
+            isPublicToProjectCheckBox = new CheckBox();
+            isPublicToDepartmentCheckBox = new CheckBox();
+            startDateLabel = new Label();
+            startDateTimePicker = new DateTimePicker();
+            endDateLabel = new Label();
+            endDateTimePicker = new DateTimePicker();
+            projectComboBoxField = new PeproComboBoxField();
             SuspendLayout();
-            // 
-            // projectIdLabel
-            // 
-            projectIdLabel.AutoSize = true;
-            projectIdLabel.BackColor = Color.Transparent;
-            projectIdLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            projectIdLabel.ForeColor = Color.White;
-            projectIdLabel.Location = new Point(15, 127);
-            projectIdLabel.Margin = new Padding(2, 0, 2, 0);
-            projectIdLabel.Name = "projectIdLabel";
-            projectIdLabel.Size = new Size(70, 20);
-            projectIdLabel.TabIndex = 2;
-            projectIdLabel.Text = "ID dự án";
-            // 
-            // taskIdLabel
-            // 
-            taskIdLabel.AutoSize = true;
-            taskIdLabel.BackColor = Color.Transparent;
-            taskIdLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            taskIdLabel.ForeColor = Color.White;
-            taskIdLabel.Location = new Point(15, 179);
-            taskIdLabel.Margin = new Padding(2, 0, 2, 0);
-            taskIdLabel.Name = "taskIdLabel";
-            taskIdLabel.Size = new Size(96, 20);
-            taskIdLabel.TabIndex = 3;
-            taskIdLabel.Text = "ID công việc";
-            // 
-            // managerIdLabel
-            // 
-            managerIdLabel.AutoSize = true;
-            managerIdLabel.BackColor = Color.Transparent;
-            managerIdLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            managerIdLabel.ForeColor = Color.White;
-            managerIdLabel.Location = new Point(15, 229);
-            managerIdLabel.Margin = new Padding(2, 0, 2, 0);
-            managerIdLabel.Name = "managerIdLabel";
-            managerIdLabel.Size = new Size(80, 20);
-            managerIdLabel.TabIndex = 4;
-            managerIdLabel.Text = "ID quản lý";
-            // 
-            // taskNameLabel
-            // 
-            taskNameLabel.AutoSize = true;
-            taskNameLabel.BackColor = Color.Transparent;
-            taskNameLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            taskNameLabel.ForeColor = Color.White;
-            taskNameLabel.Location = new Point(15, 281);
-            taskNameLabel.Margin = new Padding(2, 0, 2, 0);
-            taskNameLabel.Name = "taskNameLabel";
-            taskNameLabel.Size = new Size(106, 20);
-            taskNameLabel.TabIndex = 5;
-            taskNameLabel.Text = "Tên công việc";
-            // 
-            // accessLabel
-            // 
-            accessLabel.AutoSize = true;
-            accessLabel.BackColor = Color.Transparent;
-            accessLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            accessLabel.ForeColor = Color.White;
-            accessLabel.Location = new Point(15, 332);
-            accessLabel.Margin = new Padding(2, 0, 2, 0);
-            accessLabel.Name = "accessLabel";
-            accessLabel.Size = new Size(115, 20);
-            accessLabel.TabIndex = 6;
-            accessLabel.Text = "Quyền truy cập";
-            // 
-            // statusLabel
-            // 
-            statusLabel.AutoSize = true;
-            statusLabel.BackColor = Color.Transparent;
-            statusLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            statusLabel.ForeColor = Color.White;
-            statusLabel.Location = new Point(15, 383);
-            statusLabel.Margin = new Padding(2, 0, 2, 0);
-            statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(80, 20);
-            statusLabel.TabIndex = 7;
-            statusLabel.Text = "Trạng thái";
             // 
             // publicProjectLabel
             // 
@@ -132,7 +48,7 @@
             publicProjectLabel.BackColor = Color.Transparent;
             publicProjectLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             publicProjectLabel.ForeColor = Color.White;
-            publicProjectLabel.Location = new Point(15, 434);
+            publicProjectLabel.Location = new Point(544, 137);
             publicProjectLabel.Margin = new Padding(2, 0, 2, 0);
             publicProjectLabel.Name = "publicProjectLabel";
             publicProjectLabel.Size = new Size(124, 20);
@@ -145,7 +61,7 @@
             publicDepartmentLabel.BackColor = Color.Transparent;
             publicDepartmentLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             publicDepartmentLabel.ForeColor = Color.White;
-            publicDepartmentLabel.Location = new Point(15, 485);
+            publicDepartmentLabel.Location = new Point(811, 137);
             publicDepartmentLabel.Margin = new Padding(2, 0, 2, 0);
             publicDepartmentLabel.Name = "publicDepartmentLabel";
             publicDepartmentLabel.Size = new Size(160, 20);
@@ -154,171 +70,165 @@
             // 
             // saveButton
             // 
-            saveButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            saveButton.Location = new Point(247, 541);
-            saveButton.Margin = new Padding(2, 3, 2, 3);
+            saveButton.Anchor = AnchorStyles.None;
+            saveButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
+            saveButton.Location = new Point(472, 512);
+            saveButton.Margin = new Padding(16);
             saveButton.Name = "saveButton";
-            saveButton.Size = new Size(101, 57);
-            saveButton.TabIndex = 9;
-            saveButton.Text = "Lưu";
-            saveButton.UseVisualStyleBackColor = true;
-            saveButton.Click += SaveButton_Click;
+            saveButton.Size = new Size(120, 56);
+            saveButton.TabIndex = 21;
+            saveButton.Text = "Save";
             // 
-            // updateButton
+            // managerIdInputField
             // 
-            updateButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            updateButton.Location = new Point(374, 541);
-            updateButton.Margin = new Padding(2, 3, 2, 3);
-            updateButton.Name = "updateButton";
-            updateButton.Size = new Size(101, 57);
-            updateButton.TabIndex = 10;
-            updateButton.Text = "Cập nhật";
-            updateButton.UseVisualStyleBackColor = true;
+            managerIdInputField.LabelText = "Manager id";
+            managerIdInputField.Location = new Point(16, 209);
+            managerIdInputField.Margin = new Padding(16, 16, 0, 16);
+            managerIdInputField.Name = "managerIdInputField";
+            managerIdInputField.PlaceholderText = "e.g. manager id";
+            managerIdInputField.Size = new Size(240, 54);
+            managerIdInputField.TabIndex = 22;
             // 
-            // clearButton
+            // assignmentNameInputField
             // 
-            clearButton.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            clearButton.Location = new Point(498, 541);
-            clearButton.Margin = new Padding(2, 3, 2, 3);
-            clearButton.Name = "clearButton";
-            clearButton.Size = new Size(101, 57);
-            clearButton.TabIndex = 11;
-            clearButton.Text = "Làm mới";
-            clearButton.UseVisualStyleBackColor = true;
+            assignmentNameInputField.LabelText = "Assignment name";
+            assignmentNameInputField.Location = new Point(16, 67);
+            assignmentNameInputField.Margin = new Padding(16, 16, 16, 0);
+            assignmentNameInputField.Name = "assignmentNameInputField";
+            assignmentNameInputField.PlaceholderText = "e.g. assignment name";
+            assignmentNameInputField.Size = new Size(1032, 54);
+            assignmentNameInputField.TabIndex = 22;
             // 
-            // projectIdTextBox
+            // statusComboBoxField
             // 
-            projectIdTextBox.Location = new Point(247, 130);
-            projectIdTextBox.Margin = new Padding(2, 3, 2, 3);
-            projectIdTextBox.Name = "projectIdTextBox";
-            projectIdTextBox.Size = new Size(351, 26);
-            projectIdTextBox.TabIndex = 1;
+            statusComboBoxField.Anchor = AnchorStyles.None;
+            statusComboBoxField.LabelText = "Status";
+            statusComboBoxField.Location = new Point(808, 209);
+            statusComboBoxField.Margin = new Padding(24, 16, 0, 16);
+            statusComboBoxField.Name = "statusComboBoxField";
+            statusComboBoxField.Size = new Size(240, 56);
+            statusComboBoxField.TabIndex = 23;
             // 
-            // taskIdTextBox
+            // isPublicToProjectCheckBox
             // 
-            taskIdTextBox.Location = new Point(247, 181);
-            taskIdTextBox.Margin = new Padding(2, 3, 2, 3);
-            taskIdTextBox.Name = "taskIdTextBox";
-            taskIdTextBox.Size = new Size(351, 26);
-            taskIdTextBox.TabIndex = 2;
+            isPublicToProjectCheckBox.AutoSize = true;
+            isPublicToProjectCheckBox.Location = new Point(544, 168);
+            isPublicToProjectCheckBox.Name = "isPublicToProjectCheckBox";
+            isPublicToProjectCheckBox.Size = new Size(48, 23);
+            isPublicToProjectCheckBox.TabIndex = 24;
+            isPublicToProjectCheckBox.Text = "Yes";
+            isPublicToProjectCheckBox.UseVisualStyleBackColor = true;
             // 
-            // managerIdTextBox
+            // isPublicToDepartmentCheckBox
             // 
-            managerIdTextBox.Location = new Point(247, 231);
-            managerIdTextBox.Margin = new Padding(2, 3, 2, 3);
-            managerIdTextBox.Name = "managerIdTextBox";
-            managerIdTextBox.Size = new Size(351, 26);
-            managerIdTextBox.TabIndex = 3;
+            isPublicToDepartmentCheckBox.AutoSize = true;
+            isPublicToDepartmentCheckBox.Location = new Point(811, 168);
+            isPublicToDepartmentCheckBox.Name = "isPublicToDepartmentCheckBox";
+            isPublicToDepartmentCheckBox.Size = new Size(48, 23);
+            isPublicToDepartmentCheckBox.TabIndex = 24;
+            isPublicToDepartmentCheckBox.Text = "Yes";
+            isPublicToDepartmentCheckBox.UseVisualStyleBackColor = true;
             // 
-            // taskNameTextBox
+            // startDateLabel
             // 
-            taskNameTextBox.Location = new Point(247, 282);
-            taskNameTextBox.Margin = new Padding(2, 3, 2, 3);
-            taskNameTextBox.Name = "taskNameTextBox";
-            taskNameTextBox.Size = new Size(351, 26);
-            taskNameTextBox.TabIndex = 4;
+            startDateLabel.Anchor = AnchorStyles.None;
+            startDateLabel.AutoSize = true;
+            startDateLabel.Location = new Point(280, 209);
+            startDateLabel.Margin = new Padding(24, 0, 0, 0);
+            startDateLabel.Name = "startDateLabel";
+            startDateLabel.Size = new Size(69, 19);
+            startDateLabel.TabIndex = 25;
+            startDateLabel.Text = "Start date";
             // 
-            // accessTextBox
+            // startDateTimePicker
             // 
-            accessTextBox.Location = new Point(247, 333);
-            accessTextBox.Margin = new Padding(2, 3, 2, 3);
-            accessTextBox.Name = "accessTextBox";
-            accessTextBox.Size = new Size(351, 26);
-            accessTextBox.TabIndex = 5;
+            startDateTimePicker.Anchor = AnchorStyles.None;
+            startDateTimePicker.Location = new Point(280, 237);
+            startDateTimePicker.Margin = new Padding(16, 0, 0, 16);
+            startDateTimePicker.Name = "startDateTimePicker";
+            startDateTimePicker.Size = new Size(240, 26);
+            startDateTimePicker.TabIndex = 27;
             // 
-            // publicDepartmentTextBox
+            // endDateLabel
             // 
-            publicDepartmentTextBox.Location = new Point(247, 486);
-            publicDepartmentTextBox.Margin = new Padding(2, 3, 2, 3);
-            publicDepartmentTextBox.Name = "publicDepartmentTextBox";
-            publicDepartmentTextBox.Size = new Size(351, 26);
-            publicDepartmentTextBox.TabIndex = 8;
+            endDateLabel.Anchor = AnchorStyles.None;
+            endDateLabel.AutoSize = true;
+            endDateLabel.Location = new Point(544, 209);
+            endDateLabel.Margin = new Padding(24, 0, 0, 0);
+            endDateLabel.Name = "endDateLabel";
+            endDateLabel.Size = new Size(63, 19);
+            endDateLabel.TabIndex = 26;
+            endDateLabel.Text = "End date";
             // 
-            // publicProjectTextBox
+            // endDateTimePicker
             // 
-            publicProjectTextBox.Location = new Point(247, 436);
-            publicProjectTextBox.Margin = new Padding(2, 3, 2, 3);
-            publicProjectTextBox.Name = "publicProjectTextBox";
-            publicProjectTextBox.Size = new Size(351, 26);
-            publicProjectTextBox.TabIndex = 7;
+            endDateTimePicker.Anchor = AnchorStyles.None;
+            endDateTimePicker.Location = new Point(544, 237);
+            endDateTimePicker.Margin = new Padding(24, 0, 16, 16);
+            endDateTimePicker.Name = "endDateTimePicker";
+            endDateTimePicker.Size = new Size(240, 26);
+            endDateTimePicker.TabIndex = 28;
             // 
-            // statusTextBox
+            // projectComboBoxField
             // 
-            statusTextBox.Location = new Point(247, 384);
-            statusTextBox.Margin = new Padding(2, 3, 2, 3);
-            statusTextBox.Name = "statusTextBox";
-            statusTextBox.Size = new Size(351, 26);
-            statusTextBox.TabIndex = 6;
+            projectComboBoxField.Anchor = AnchorStyles.None;
+            projectComboBoxField.LabelText = "Project name";
+            projectComboBoxField.Location = new Point(16, 137);
+            projectComboBoxField.Margin = new Padding(16, 16, 0, 16);
+            projectComboBoxField.Name = "projectComboBoxField";
+            projectComboBoxField.Size = new Size(504, 56);
+            projectComboBoxField.TabIndex = 23;
             // 
             // AssignmentEditorControl
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(publicDepartmentTextBox);
-            Controls.Add(publicProjectTextBox);
-            Controls.Add(statusTextBox);
-            Controls.Add(accessTextBox);
-            Controls.Add(taskNameTextBox);
-            Controls.Add(managerIdTextBox);
-            Controls.Add(taskIdTextBox);
-            Controls.Add(projectIdTextBox);
-            Controls.Add(clearButton);
-            Controls.Add(updateButton);
+            Controls.Add(managerIdInputField);
+            Controls.Add(startDateLabel);
+            Controls.Add(startDateTimePicker);
+            Controls.Add(endDateLabel);
+            Controls.Add(endDateTimePicker);
+            Controls.Add(statusComboBoxField);
             Controls.Add(saveButton);
+            Controls.Add(isPublicToDepartmentCheckBox);
+            Controls.Add(isPublicToProjectCheckBox);
+            Controls.Add(projectComboBoxField);
+            Controls.Add(assignmentNameInputField);
             Controls.Add(publicDepartmentLabel);
             Controls.Add(publicProjectLabel);
-            Controls.Add(statusLabel);
-            Controls.Add(accessLabel);
-            Controls.Add(taskNameLabel);
-            Controls.Add(managerIdLabel);
-            Controls.Add(taskIdLabel);
-            Controls.Add(projectIdLabel);
             HeaderText = "Assignment Editor";
             Name = "AssignmentEditorControl";
-            Controls.SetChildIndex(projectIdLabel, 0);
-            Controls.SetChildIndex(taskIdLabel, 0);
-            Controls.SetChildIndex(managerIdLabel, 0);
-            Controls.SetChildIndex(taskNameLabel, 0);
-            Controls.SetChildIndex(accessLabel, 0);
-            Controls.SetChildIndex(statusLabel, 0);
             Controls.SetChildIndex(publicProjectLabel, 0);
             Controls.SetChildIndex(publicDepartmentLabel, 0);
+            Controls.SetChildIndex(assignmentNameInputField, 0);
+            Controls.SetChildIndex(projectComboBoxField, 0);
+            Controls.SetChildIndex(isPublicToProjectCheckBox, 0);
+            Controls.SetChildIndex(isPublicToDepartmentCheckBox, 0);
             Controls.SetChildIndex(saveButton, 0);
-            Controls.SetChildIndex(updateButton, 0);
-            Controls.SetChildIndex(clearButton, 0);
-            Controls.SetChildIndex(projectIdTextBox, 0);
-            Controls.SetChildIndex(taskIdTextBox, 0);
-            Controls.SetChildIndex(managerIdTextBox, 0);
-            Controls.SetChildIndex(taskNameTextBox, 0);
-            Controls.SetChildIndex(accessTextBox, 0);
-            Controls.SetChildIndex(statusTextBox, 0);
-            Controls.SetChildIndex(publicProjectTextBox, 0);
-            Controls.SetChildIndex(publicDepartmentTextBox, 0);
+            Controls.SetChildIndex(statusComboBoxField, 0);
+            Controls.SetChildIndex(endDateTimePicker, 0);
+            Controls.SetChildIndex(endDateLabel, 0);
+            Controls.SetChildIndex(startDateTimePicker, 0);
+            Controls.SetChildIndex(startDateLabel, 0);
+            Controls.SetChildIndex(managerIdInputField, 0);
             ResumeLayout(false);
             PerformLayout();
 
         }
 
         #endregion
-
-        private Label projectIdLabel;
-        private Label taskIdLabel;
-        private Label managerIdLabel;
-        private Label taskNameLabel;
-        private Label accessLabel;
-        private Label statusLabel;
         private Label publicProjectLabel;
         private Label publicDepartmentLabel;
-        public Button saveButton;
-        public Button updateButton;
-        public Button clearButton;
-        public TextBox projectIdTextBox;
-        public TextBox taskIdTextBox;
-        public TextBox managerIdTextBox;
-        public TextBox taskNameTextBox;
-        public TextBox accessTextBox;
-        public TextBox publicDepartmentTextBox;
-        public TextBox publicProjectTextBox;
-        public TextBox statusTextBox;
+        private Button saveButton;
+        private PeproInputField managerIdInputField;
+        private PeproInputField assignmentNameInputField;
+        private PeproComboBoxField statusComboBoxField;
+        private CheckBox isPublicToProjectCheckBox;
+        private CheckBox isPublicToDepartmentCheckBox;
+        private Label startDateLabel;
+        public DateTimePicker startDateTimePicker;
+        private Label endDateLabel;
+        public DateTimePicker endDateTimePicker;
+        private PeproComboBoxField projectComboBoxField;
     }
 }
