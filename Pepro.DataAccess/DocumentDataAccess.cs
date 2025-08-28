@@ -96,7 +96,7 @@ public class DocumentDataAccess {
         string query = @"
             UPDATE Document
             SET IsDeleted = 1
-            WHERE DocumentId = @DocumentId;
+            WHERE DocumentId = @DocumentId
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("DocumentId", SqlDbType.Int, documentId);
