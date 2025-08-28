@@ -58,7 +58,7 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
     }
 
     private void OpenAssignmentControl() {
-        AssignmentControl assignmentControl = new();
+        AssignmentControl assignmentControl = new(this);
         OpenControl(assignmentControl);
     }
 
@@ -67,12 +67,12 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
             return;
         }
 
-        AssignmentEditorControl documentEditorControl = new(this) {
+        AssignmentEditorControl assignmentEditorControl = new(this) {
             Item = payload.Item,
             Mode = payload.Mode,
             OnDataChanged = payload.OnDataChanged,
         };
-        PushControl(documentEditorControl);
+        PushControl(assignmentEditorControl);
     }
 
     private void OpenDocumentControl() {

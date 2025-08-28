@@ -5,6 +5,9 @@ namespace Pepro.Presentation.Controls;
 
 public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUserControl<AssignmentDto>
 {
+    private AssignmentDto _item = null!;
+    private EditorMode _mode;
+
     public AssignmentEditorControl()
     {
         Initialize();
@@ -18,15 +21,33 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public AssignmentDto Item
     {
-        get => throw new NotImplementedException();
-        set => throw new NotImplementedException();
+        get => _item;
+        set
+        {
+            _item = value ?? throw new ArgumentNullException(nameof(Item));
+            assignmentNameInputField.Text = _item.Name;
+            isPublicToProjectCheckBox.Checked = _item.IsPublicToProject;
+            isPublicToDepartmentCheckBox.Checked = _item.IsPublicToDepartment;
+            managerIdInputField.Text = _item.ManagerId.ToString();
+            startDateTimePicker.SetValue(_item.StartDate);
+            endDateTimePicker.SetValue(_item.EndDate);
+        }
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public EditorMode Mode
     {
-        get => throw new NotImplementedException();
-        set => throw new NotImplementedException();
+        get => _mode;
+        set
+        {
+            _mode = value;
+            HeaderText = _mode switch
+            {
+                EditorMode.Create => "Create a new assignment",
+                EditorMode.Edit => "Edit assignment",
+                _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
+            };
+        }
     }
 
     private void Initialize()
