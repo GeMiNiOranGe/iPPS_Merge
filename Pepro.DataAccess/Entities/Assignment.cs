@@ -13,6 +13,13 @@ public class Assignment
     private int _projectId;
     private int _statusId;
 
+    #region Optional fields
+    private bool _isDeleted;
+    private DateTime _createdAt;
+    private DateTime _updatedAt;
+    private DateTime? _deletedAt;
+    #endregion
+
     public required int AssignmentId
     {
         get => _assignmentId;
@@ -71,5 +78,29 @@ public class Assignment
     {
         get => _statusId;
         set => _statusId = value;
+    }
+
+    public bool IsDeleted
+    {
+        get => _isDeleted;
+        set => _isDeleted = value;
+    }
+
+    public DateTime CreatedAt
+    {
+        get => _createdAt;
+        set => _createdAt = value;
+    }
+
+    public DateTime UpdatedAt
+    {
+        get => _updatedAt;
+        set => _updatedAt = value;
+    }
+
+    public DateTime? DeletedAt
+    {
+        get => _deletedAt;
+        set => _deletedAt = value;
     }
 }

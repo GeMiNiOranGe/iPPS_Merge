@@ -27,7 +27,12 @@ public class AssignmentDataAccess {
                 , Assignment.RequiredDocumentCount
                 , Assignment.ProjectId
                 , Assignment.StatusId
+                , Assignment.IsDeleted
+                , Assignment.CreatedAt
+                , Assignment.UpdatedAt
+                , Assignment.DeletedAt
             FROM Assignment 
+            WHERE Assignment.IsDeleted = 0
         ";
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
@@ -52,12 +57,17 @@ public class AssignmentDataAccess {
                 , Assignment.RequiredDocumentCount
                 , Assignment.ProjectId
                 , Assignment.StatusId
+                , Assignment.IsDeleted
+                , Assignment.CreatedAt
+                , Assignment.UpdatedAt
+                , Assignment.DeletedAt
             FROM Assignment 
             WHERE
                 (
                     Assignment.AssignmentId LIKE '%' + @SearchValue + '%'
                     OR Assignment.Name LIKE '%' + @SearchValue + '%'
                 )
+                AND Assignment.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
@@ -84,8 +94,13 @@ public class AssignmentDataAccess {
                 , Assignment.RequiredDocumentCount
                 , Assignment.ProjectId
                 , Assignment.StatusId
+                , Assignment.IsDeleted
+                , Assignment.CreatedAt
+                , Assignment.UpdatedAt
+                , Assignment.DeletedAt
             FROM Assignment 
             WHERE Assignment.ProjectId = @ProjectId
+                AND Assignment.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("ProjectId", SqlDbType.Int, projectId);
@@ -112,10 +127,15 @@ public class AssignmentDataAccess {
                 , Assignment.RequiredDocumentCount
                 , Assignment.ProjectId
                 , Assignment.StatusId
+                , Assignment.IsDeleted
+                , Assignment.CreatedAt
+                , Assignment.UpdatedAt
+                , Assignment.DeletedAt
             FROM Assignment
             INNER JOIN AssignmentDetail
                     ON AssignmentDetail.AssignmentId = Assignment.AssignmentId
             WHERE AssignmentDetail.EmployeeId = @EmployeeId
+                AND Assignment.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
@@ -184,10 +204,15 @@ public class AssignmentDataAccess {
                 , Assignment.RequiredDocumentCount
                 , Assignment.ProjectId
                 , Assignment.StatusId
+                , Assignment.IsDeleted
+                , Assignment.CreatedAt
+                , Assignment.UpdatedAt
+                , Assignment.DeletedAt
             FROM Assignment
             INNER JOIN Document
                     ON Document.AssignmentId = Assignment.AssignmentId
             WHERE Document.DocumentId = @DocumentId
+                AND Assignment.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("DocumentId", SqlDbType.Int, documentId);

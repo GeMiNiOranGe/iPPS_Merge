@@ -126,6 +126,11 @@ CREATE TABLE [dbo].[Assignment] (
 
     [ProjectId]             [int]           NOT NULL,
     [StatusId]              [int]           NOT NULL,
+
+    [IsDeleted]             [bit]           NOT NULL,
+    [CreatedAt]             [datetime]      NOT NULL,
+    [UpdatedAt]             [datetime]      NOT NULL,
+    [DeletedAt]             [datetime],
 );
 
 CREATE TABLE [dbo].[Document] (
@@ -268,6 +273,15 @@ CONSTRAINT DF_Employee_IsDeleted DEFAULT 0
 CONSTRAINT DF_Employee_CreatedAt DEFAULT GetDate()
     FOR CreatedAt,
 CONSTRAINT DF_Employee_UpdatedAt DEFAULT GetDate()
+    FOR UpdatedAt;
+GO
+
+ALTER TABLE Assignment ADD
+CONSTRAINT DF_Assignment_IsDeleted DEFAULT 0
+    FOR IsDeleted,
+CONSTRAINT DF_Assignment_CreatedAt DEFAULT GetDate()
+    FOR CreatedAt,
+CONSTRAINT DF_Assignment_UpdatedAt DEFAULT GetDate()
     FOR UpdatedAt;
 GO
 
