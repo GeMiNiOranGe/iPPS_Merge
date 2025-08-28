@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent() {
             startDateTimePicker = new DateTimePicker();
-            startDateLabel = new Label();
-            endDateLabel = new Label();
+            startDateLabel = new PeproLabel();
+            endDateLabel = new PeproLabel();
             endDateTimePicker = new DateTimePicker();
             projectNameInputField = new PeproInputField();
             statusComboBoxField = new PeproComboBoxField();
@@ -41,7 +41,7 @@
             // startDateTimePicker
             // 
             startDateTimePicker.Anchor = AnchorStyles.None;
-            startDateTimePicker.Location = new Point(544, 232);
+            startDateTimePicker.Location = new Point(544, 233);
             startDateTimePicker.Margin = new Padding(24, 0, 0, 16);
             startDateTimePicker.Name = "startDateTimePicker";
             startDateTimePicker.Size = new Size(240, 26);
@@ -51,10 +51,10 @@
             // 
             startDateLabel.Anchor = AnchorStyles.None;
             startDateLabel.AutoSize = true;
-            startDateLabel.Location = new Point(544, 204);
+            startDateLabel.Location = new Point(544, 211);
             startDateLabel.Margin = new Padding(24, 16, 0, 0);
             startDateLabel.Name = "startDateLabel";
-            startDateLabel.Size = new Size(69, 19);
+            startDateLabel.Size = new Size(60, 14);
             startDateLabel.TabIndex = 0;
             startDateLabel.Text = "Start date";
             // 
@@ -62,17 +62,17 @@
             // 
             endDateLabel.Anchor = AnchorStyles.None;
             endDateLabel.AutoSize = true;
-            endDateLabel.Location = new Point(808, 204);
+            endDateLabel.Location = new Point(808, 211);
             endDateLabel.Margin = new Padding(24, 16, 0, 0);
             endDateLabel.Name = "endDateLabel";
-            endDateLabel.Size = new Size(63, 19);
+            endDateLabel.Size = new Size(54, 14);
             endDateLabel.TabIndex = 0;
             endDateLabel.Text = "End date";
             // 
             // endDateTimePicker
             // 
             endDateTimePicker.Anchor = AnchorStyles.None;
-            endDateTimePicker.Location = new Point(808, 232);
+            endDateTimePicker.Location = new Point(808, 233);
             endDateTimePicker.Margin = new Padding(24, 0, 16, 16);
             endDateTimePicker.Name = "endDateTimePicker";
             endDateTimePicker.Size = new Size(240, 26);
@@ -82,43 +82,43 @@
             // 
             projectNameInputField.Anchor = AnchorStyles.None;
             projectNameInputField.LabelText = "Project name";
-            projectNameInputField.Location = new Point(16, 64);
-            projectNameInputField.Margin = new Padding(16, 16, 16, 0);
+            projectNameInputField.Location = new Point(16, 67);
+            projectNameInputField.Margin = new Padding(16, 16, 16, 24);
             projectNameInputField.Name = "projectNameInputField";
             projectNameInputField.PlaceholderText = "e.g. project name";
-            projectNameInputField.Size = new Size(1032, 54);
+            projectNameInputField.Size = new Size(1032, 48);
             projectNameInputField.TabIndex = 19;
             // 
             // statusComboBoxField
             // 
             statusComboBoxField.Anchor = AnchorStyles.None;
             statusComboBoxField.LabelText = "Status";
-            statusComboBoxField.Location = new Point(280, 204);
-            statusComboBoxField.Margin = new Padding(24, 16, 0, 16);
+            statusComboBoxField.Location = new Point(280, 211);
+            statusComboBoxField.Margin = new Padding(24, 0, 0, 24);
             statusComboBoxField.Name = "statusComboBoxField";
-            statusComboBoxField.Size = new Size(240, 56);
+            statusComboBoxField.Size = new Size(240, 48);
             statusComboBoxField.TabIndex = 20;
             // 
             // customerNameInputField
             // 
             customerNameInputField.Anchor = AnchorStyles.None;
             customerNameInputField.LabelText = "Customer name";
-            customerNameInputField.Location = new Point(16, 134);
-            customerNameInputField.Margin = new Padding(16, 16, 16, 0);
+            customerNameInputField.Location = new Point(16, 139);
+            customerNameInputField.Margin = new Padding(16, 0, 16, 24);
             customerNameInputField.Name = "customerNameInputField";
             customerNameInputField.PlaceholderText = "e.g. customer name";
-            customerNameInputField.Size = new Size(1032, 54);
+            customerNameInputField.Size = new Size(1032, 48);
             customerNameInputField.TabIndex = 19;
             // 
             // managerIdInputField
             // 
             managerIdInputField.Anchor = AnchorStyles.None;
             managerIdInputField.LabelText = "Manager id";
-            managerIdInputField.Location = new Point(16, 204);
-            managerIdInputField.Margin = new Padding(16, 16, 0, 0);
+            managerIdInputField.Location = new Point(16, 211);
+            managerIdInputField.Margin = new Padding(16, 0, 0, 24);
             managerIdInputField.Name = "managerIdInputField";
             managerIdInputField.PlaceholderText = "e.g. manager id";
-            managerIdInputField.Size = new Size(240, 54);
+            managerIdInputField.Size = new Size(240, 48);
             managerIdInputField.TabIndex = 19;
             // 
             // saveButton
@@ -164,10 +164,10 @@
         }
 
         #endregion
-        public DateTimePicker startDateTimePicker;
-        private Label startDateLabel;
-        private Label endDateLabel;
-        public DateTimePicker endDateTimePicker;
+        private DateTimePicker startDateTimePicker;
+        private PeproLabel startDateLabel;
+        private PeproLabel endDateLabel;
+        private DateTimePicker endDateTimePicker;
         private PeproInputField projectNameInputField;
         private PeproComboBoxField statusComboBoxField;
         private PeproInputField customerNameInputField;

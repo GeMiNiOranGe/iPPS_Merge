@@ -32,10 +32,10 @@
             inputFieldTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             inputFieldTextBox.BorderStyle = BorderStyle.None;
             inputFieldTextBox.Cursor = Cursors.IBeam;
-            inputFieldTextBox.Location = new Point(4, 28);
-            inputFieldTextBox.Margin = new Padding(4, 0, 4, 0);
+            inputFieldTextBox.Location = new Point(0, 22);
+            inputFieldTextBox.Margin = new Padding(0);
             inputFieldTextBox.Name = "inputFieldTextBox";
-            inputFieldTextBox.Size = new Size(248, 19);
+            inputFieldTextBox.Size = new Size(240, 19);
             inputFieldTextBox.TabIndex = 1;
             inputFieldTextBox.TextChanged += InputFieldTextBox_TextChanged;
             // 
@@ -43,10 +43,10 @@
             // 
             inputFieldPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             inputFieldPanel.BackColor = SystemColors.ControlText;
-            inputFieldPanel.Location = new Point(4, 52);
-            inputFieldPanel.Margin = new Padding(4, 0, 4, 0);
+            inputFieldPanel.Location = new Point(0, 46);
+            inputFieldPanel.Margin = new Padding(0);
             inputFieldPanel.Name = "inputFieldPanel";
-            inputFieldPanel.Size = new Size(248, 2);
+            inputFieldPanel.Size = new Size(240, 2);
             inputFieldPanel.TabIndex = 0;
             // 
             // PeproInputField
@@ -56,7 +56,7 @@
             Controls.Add(inputFieldPanel);
             Controls.Add(inputFieldTextBox);
             Name = "PeproInputField";
-            Size = new Size(256, 54);
+            Size = new Size(240, 48);
             Controls.SetChildIndex(inputFieldTextBox, 0);
             Controls.SetChildIndex(inputFieldPanel, 0);
             ResumeLayout(false);

@@ -12,9 +12,9 @@ public partial class PeproComboBoxField : PeproInputFieldBase, INotifyPropertyCh
         InitializeComponent();
     }
 
-    protected override Size DefaultSize => new(256, 56);
+    protected override Size DefaultSize => new(240, 48);
 
-    [DefaultValue(typeof(Size), "256, 56")]
+    [DefaultValue(typeof(Size), "240, 48")]
     public new Size Size {
         get => base.Size;
         set => base.Size = value;

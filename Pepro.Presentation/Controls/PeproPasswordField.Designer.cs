@@ -33,23 +33,23 @@
             inputFieldTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             inputFieldTextBox.BorderStyle = BorderStyle.None;
             inputFieldTextBox.Cursor = Cursors.IBeam;
-            inputFieldTextBox.Location = new Point(4, 28);
-            inputFieldTextBox.Margin = new Padding(4, 0, 4, 0);
+            inputFieldTextBox.Location = new Point(0, 22);
+            inputFieldTextBox.Margin = new Padding(0, 0, 4, 0);
             inputFieldTextBox.Name = "inputFieldTextBox";
-            inputFieldTextBox.Size = new Size(220, 19);
+            inputFieldTextBox.Size = new Size(212, 19);
             inputFieldTextBox.TabIndex = 1;
             inputFieldTextBox.UseSystemPasswordChar = true;
             // 
             // togglePasswordButton
             // 
-            togglePasswordButton.Anchor = AnchorStyles.Right;
+            togglePasswordButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             togglePasswordButton.BackColor = Color.White;
             togglePasswordButton.Cursor = Cursors.Hand;
             togglePasswordButton.FlatAppearance.BorderSize = 0;
             togglePasswordButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
             togglePasswordButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
             togglePasswordButton.FlatStyle = FlatStyle.Flat;
-            togglePasswordButton.Location = new Point(228, 25);
+            togglePasswordButton.Location = new Point(216, 19);
             togglePasswordButton.Margin = new Padding(0);
             togglePasswordButton.Name = "togglePasswordButton";
             togglePasswordButton.Size = new Size(24, 24);
@@ -61,10 +61,10 @@
             // 
             inputFieldPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             inputFieldPanel.BackColor = SystemColors.ControlText;
-            inputFieldPanel.Location = new Point(4, 52);
-            inputFieldPanel.Margin = new Padding(4, 0, 4, 0);
+            inputFieldPanel.Location = new Point(0, 46);
+            inputFieldPanel.Margin = new Padding(0);
             inputFieldPanel.Name = "inputFieldPanel";
-            inputFieldPanel.Size = new Size(248, 2);
+            inputFieldPanel.Size = new Size(240, 2);
             inputFieldPanel.TabIndex = 0;
             // 
             // PeproPasswordField
@@ -75,7 +75,7 @@
             Controls.Add(inputFieldPanel);
             Controls.Add(inputFieldTextBox);
             Name = "PeproPasswordField";
-            Size = new Size(256, 54);
+            Size = new Size(240, 48);
             Controls.SetChildIndex(inputFieldTextBox, 0);
             Controls.SetChildIndex(inputFieldPanel, 0);
             Controls.SetChildIndex(togglePasswordButton, 0);

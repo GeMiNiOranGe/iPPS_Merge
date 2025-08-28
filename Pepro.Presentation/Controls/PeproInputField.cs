@@ -12,9 +12,9 @@ public partial class PeproInputField : PeproInputFieldBase {
         FocusColor = Color.Gray;
     }
 
-    protected override Size DefaultSize => new(256, 54);
+    protected override Size DefaultSize => new(240, 48);
 
-    [DefaultValue(typeof(Size), "256, 54")]
+    [DefaultValue(typeof(Size), "240, 48")]
     public new Size Size {
         get => base.Size;
         set => base.Size = value;

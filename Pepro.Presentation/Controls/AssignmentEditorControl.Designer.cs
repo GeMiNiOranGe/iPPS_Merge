@@ -27,17 +27,17 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            publicProjectLabel = new Label();
-            publicDepartmentLabel = new Label();
+            publicProjectLabel = new PeproLabel();
+            publicDepartmentLabel = new PeproLabel();
             saveButton = new Button();
             managerIdInputField = new PeproInputField();
             assignmentNameInputField = new PeproInputField();
             statusComboBoxField = new PeproComboBoxField();
             isPublicToProjectCheckBox = new CheckBox();
             isPublicToDepartmentCheckBox = new CheckBox();
-            startDateLabel = new Label();
+            startDateLabel = new PeproLabel();
             startDateTimePicker = new DateTimePicker();
-            endDateLabel = new Label();
+            endDateLabel = new PeproLabel();
             endDateTimePicker = new DateTimePicker();
             projectComboBoxField = new PeproComboBoxField();
             SuspendLayout();
@@ -46,27 +46,25 @@
             // 
             publicProjectLabel.AutoSize = true;
             publicProjectLabel.BackColor = Color.Transparent;
-            publicProjectLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             publicProjectLabel.ForeColor = Color.White;
-            publicProjectLabel.Location = new Point(544, 137);
+            publicProjectLabel.Location = new Point(544, 136);
             publicProjectLabel.Margin = new Padding(2, 0, 2, 0);
             publicProjectLabel.Name = "publicProjectLabel";
-            publicProjectLabel.Size = new Size(124, 20);
+            publicProjectLabel.Size = new Size(99, 14);
             publicProjectLabel.TabIndex = 8;
-            publicProjectLabel.Text = "Công khai dự án";
+            publicProjectLabel.Text = "Public to project";
             // 
             // publicDepartmentLabel
             // 
             publicDepartmentLabel.AutoSize = true;
             publicDepartmentLabel.BackColor = Color.Transparent;
-            publicDepartmentLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             publicDepartmentLabel.ForeColor = Color.White;
-            publicDepartmentLabel.Location = new Point(811, 137);
+            publicDepartmentLabel.Location = new Point(808, 136);
             publicDepartmentLabel.Margin = new Padding(2, 0, 2, 0);
             publicDepartmentLabel.Name = "publicDepartmentLabel";
-            publicDepartmentLabel.Size = new Size(160, 20);
+            publicDepartmentLabel.Size = new Size(129, 14);
             publicDepartmentLabel.TabIndex = 9;
-            publicDepartmentLabel.Text = "Công khai phòng ban";
+            publicDepartmentLabel.Text = "Public to department";
             // 
             // saveButton
             // 
@@ -82,37 +80,38 @@
             // managerIdInputField
             // 
             managerIdInputField.LabelText = "Manager id";
-            managerIdInputField.Location = new Point(16, 209);
-            managerIdInputField.Margin = new Padding(16, 16, 0, 16);
+            managerIdInputField.Location = new Point(16, 208);
+            managerIdInputField.Margin = new Padding(16, 0, 0, 24);
             managerIdInputField.Name = "managerIdInputField";
             managerIdInputField.PlaceholderText = "e.g. manager id";
-            managerIdInputField.Size = new Size(240, 54);
+            managerIdInputField.Size = new Size(240, 48);
             managerIdInputField.TabIndex = 22;
             // 
             // assignmentNameInputField
             // 
             assignmentNameInputField.LabelText = "Assignment name";
-            assignmentNameInputField.Location = new Point(16, 67);
-            assignmentNameInputField.Margin = new Padding(16, 16, 16, 0);
+            assignmentNameInputField.Location = new Point(16, 64);
+            assignmentNameInputField.Margin = new Padding(16, 16, 16, 24);
             assignmentNameInputField.Name = "assignmentNameInputField";
             assignmentNameInputField.PlaceholderText = "e.g. assignment name";
-            assignmentNameInputField.Size = new Size(1032, 54);
+            assignmentNameInputField.Size = new Size(1032, 48);
             assignmentNameInputField.TabIndex = 22;
             // 
             // statusComboBoxField
             // 
             statusComboBoxField.Anchor = AnchorStyles.None;
             statusComboBoxField.LabelText = "Status";
-            statusComboBoxField.Location = new Point(808, 209);
+            statusComboBoxField.Location = new Point(808, 208);
             statusComboBoxField.Margin = new Padding(24, 16, 0, 16);
             statusComboBoxField.Name = "statusComboBoxField";
-            statusComboBoxField.Size = new Size(240, 56);
+            statusComboBoxField.Size = new Size(240, 48);
             statusComboBoxField.TabIndex = 23;
             // 
             // isPublicToProjectCheckBox
             // 
             isPublicToProjectCheckBox.AutoSize = true;
-            isPublicToProjectCheckBox.Location = new Point(544, 168);
+            isPublicToProjectCheckBox.Location = new Point(544, 159);
+            isPublicToProjectCheckBox.Margin = new Padding(24, 8, 0, 24);
             isPublicToProjectCheckBox.Name = "isPublicToProjectCheckBox";
             isPublicToProjectCheckBox.Size = new Size(48, 23);
             isPublicToProjectCheckBox.TabIndex = 24;
@@ -122,7 +121,8 @@
             // isPublicToDepartmentCheckBox
             // 
             isPublicToDepartmentCheckBox.AutoSize = true;
-            isPublicToDepartmentCheckBox.Location = new Point(811, 168);
+            isPublicToDepartmentCheckBox.Location = new Point(808, 159);
+            isPublicToDepartmentCheckBox.Margin = new Padding(24, 8, 0, 24);
             isPublicToDepartmentCheckBox.Name = "isPublicToDepartmentCheckBox";
             isPublicToDepartmentCheckBox.Size = new Size(48, 23);
             isPublicToDepartmentCheckBox.TabIndex = 24;
@@ -133,17 +133,17 @@
             // 
             startDateLabel.Anchor = AnchorStyles.None;
             startDateLabel.AutoSize = true;
-            startDateLabel.Location = new Point(280, 209);
+            startDateLabel.Location = new Point(280, 208);
             startDateLabel.Margin = new Padding(24, 0, 0, 0);
             startDateLabel.Name = "startDateLabel";
-            startDateLabel.Size = new Size(69, 19);
+            startDateLabel.Size = new Size(60, 14);
             startDateLabel.TabIndex = 25;
             startDateLabel.Text = "Start date";
             // 
             // startDateTimePicker
             // 
             startDateTimePicker.Anchor = AnchorStyles.None;
-            startDateTimePicker.Location = new Point(280, 237);
+            startDateTimePicker.Location = new Point(280, 230);
             startDateTimePicker.Margin = new Padding(16, 0, 0, 16);
             startDateTimePicker.Name = "startDateTimePicker";
             startDateTimePicker.Size = new Size(240, 26);
@@ -153,17 +153,17 @@
             // 
             endDateLabel.Anchor = AnchorStyles.None;
             endDateLabel.AutoSize = true;
-            endDateLabel.Location = new Point(544, 209);
+            endDateLabel.Location = new Point(544, 208);
             endDateLabel.Margin = new Padding(24, 0, 0, 0);
             endDateLabel.Name = "endDateLabel";
-            endDateLabel.Size = new Size(63, 19);
+            endDateLabel.Size = new Size(54, 14);
             endDateLabel.TabIndex = 26;
             endDateLabel.Text = "End date";
             // 
             // endDateTimePicker
             // 
             endDateTimePicker.Anchor = AnchorStyles.None;
-            endDateTimePicker.Location = new Point(544, 237);
+            endDateTimePicker.Location = new Point(544, 230);
             endDateTimePicker.Margin = new Padding(24, 0, 16, 16);
             endDateTimePicker.Name = "endDateTimePicker";
             endDateTimePicker.Size = new Size(240, 26);
@@ -173,10 +173,10 @@
             // 
             projectComboBoxField.Anchor = AnchorStyles.None;
             projectComboBoxField.LabelText = "Project name";
-            projectComboBoxField.Location = new Point(16, 137);
-            projectComboBoxField.Margin = new Padding(16, 16, 0, 16);
+            projectComboBoxField.Location = new Point(16, 136);
+            projectComboBoxField.Margin = new Padding(16, 0, 0, 24);
             projectComboBoxField.Name = "projectComboBoxField";
-            projectComboBoxField.Size = new Size(504, 56);
+            projectComboBoxField.Size = new Size(504, 48);
             projectComboBoxField.TabIndex = 23;
             // 
             // AssignmentEditorControl
@@ -217,18 +217,18 @@
         }
 
         #endregion
-        private Label publicProjectLabel;
-        private Label publicDepartmentLabel;
+        private PeproLabel publicProjectLabel;
+        private PeproLabel publicDepartmentLabel;
         private Button saveButton;
         private PeproInputField managerIdInputField;
         private PeproInputField assignmentNameInputField;
         private PeproComboBoxField statusComboBoxField;
         private CheckBox isPublicToProjectCheckBox;
         private CheckBox isPublicToDepartmentCheckBox;
-        private Label startDateLabel;
-        public DateTimePicker startDateTimePicker;
-        private Label endDateLabel;
-        public DateTimePicker endDateTimePicker;
+        private PeproLabel startDateLabel;
+        private DateTimePicker startDateTimePicker;
+        private PeproLabel endDateLabel;
+        private DateTimePicker endDateTimePicker;
         private PeproComboBoxField projectComboBoxField;
     }
 }

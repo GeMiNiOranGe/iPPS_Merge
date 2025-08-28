@@ -28,10 +28,10 @@ namespace Pepro.Presentation {
         private void InitializeComponent() {
             logoPictureBox = new PictureBox();
             appNameLabel = new Label();
-            welcomeLabel = new Label();
+            welcomeLabel = new PeproLabel();
             accountNameInputField = new PeproInputField();
             passwordField = new PeproPasswordField();
-            errorLabel = new Label();
+            errorLabel = new PeproLabel();
             signinButton = new Button();
             closeButton = new Button();
             illustrationPictureBox = new PictureBox();
@@ -42,8 +42,8 @@ namespace Pepro.Presentation {
             // logoPictureBox
             // 
             logoPictureBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            logoPictureBox.Location = new Point(20, 48);
-            logoPictureBox.Margin = new Padding(0);
+            logoPictureBox.Location = new Point(25, 49);
+            logoPictureBox.Margin = new Padding(24, 48, 4, 8);
             logoPictureBox.Name = "logoPictureBox";
             logoPictureBox.Size = new Size(24, 24);
             logoPictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -57,8 +57,8 @@ namespace Pepro.Presentation {
             appNameLabel.AutoSize = true;
             appNameLabel.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             appNameLabel.ForeColor = Color.White;
-            appNameLabel.Location = new Point(48, 51);
-            appNameLabel.Margin = new Padding(0, 0, 0, 8);
+            appNameLabel.Location = new Point(53, 51);
+            appNameLabel.Margin = new Padding(0);
             appNameLabel.Name = "appNameLabel";
             appNameLabel.Size = new Size(50, 19);
             appNameLabel.TabIndex = 0;
@@ -72,10 +72,10 @@ namespace Pepro.Presentation {
             welcomeLabel.AutoSize = true;
             welcomeLabel.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Pixel, 0);
             welcomeLabel.ForeColor = Color.White;
-            welcomeLabel.Location = new Point(16, 80);
+            welcomeLabel.Location = new Point(25, 80);
             welcomeLabel.Margin = new Padding(0);
             welcomeLabel.Name = "welcomeLabel";
-            welcomeLabel.Size = new Size(179, 32);
+            welcomeLabel.Size = new Size(165, 24);
             welcomeLabel.TabIndex = 0;
             welcomeLabel.Text = "Welcome back";
             welcomeLabel.MouseDown += LoginForm_MouseDown;
@@ -85,11 +85,11 @@ namespace Pepro.Presentation {
             accountNameInputField.ForeColor = Color.White;
             accountNameInputField.LabelFont = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             accountNameInputField.LabelText = "Username or email";
-            accountNameInputField.Location = new Point(20, 168);
-            accountNameInputField.Margin = new Padding(0, 0, 16, 24);
+            accountNameInputField.Location = new Point(25, 173);
+            accountNameInputField.Margin = new Padding(24, 0, 0, 24);
             accountNameInputField.Name = "accountNameInputField";
             accountNameInputField.PlaceholderText = "e.g. employee.here";
-            accountNameInputField.Size = new Size(261, 54);
+            accountNameInputField.Size = new Size(275, 48);
             accountNameInputField.TabIndex = 2;
             // 
             // passwordField
@@ -97,11 +97,11 @@ namespace Pepro.Presentation {
             passwordField.ForeColor = Color.White;
             passwordField.LabelFont = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             passwordField.LabelText = "Password";
-            passwordField.Location = new Point(20, 246);
-            passwordField.Margin = new Padding(0, 0, 16, 24);
+            passwordField.Location = new Point(25, 245);
+            passwordField.Margin = new Padding(24, 0, 0, 40);
             passwordField.Name = "passwordField";
             passwordField.PlaceholderText = "e.g. employee@123";
-            passwordField.Size = new Size(261, 54);
+            passwordField.Size = new Size(275, 48);
             passwordField.TabIndex = 3;
             // 
             // errorLabel
@@ -109,10 +109,10 @@ namespace Pepro.Presentation {
             errorLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             errorLabel.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             errorLabel.ForeColor = Color.Red;
-            errorLabel.Location = new Point(20, 374);
-            errorLabel.Margin = new Padding(16, 8, 16, 8);
+            errorLabel.Location = new Point(25, 383);
+            errorLabel.Margin = new Padding(24, 8, 0, 48);
             errorLabel.Name = "errorLabel";
-            errorLabel.Size = new Size(261, 48);
+            errorLabel.Size = new Size(275, 48);
             errorLabel.TabIndex = 0;
             errorLabel.MouseDown += LoginForm_MouseDown;
             // 
@@ -125,10 +125,10 @@ namespace Pepro.Presentation {
             signinButton.FlatStyle = FlatStyle.Flat;
             signinButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             signinButton.ForeColor = Color.White;
-            signinButton.Location = new Point(25, 324);
-            signinButton.Margin = new Padding(16, 0, 16, 0);
+            signinButton.Location = new Point(25, 333);
+            signinButton.Margin = new Padding(24, 0, 0, 0);
             signinButton.Name = "signinButton";
-            signinButton.Size = new Size(252, 42);
+            signinButton.Size = new Size(275, 42);
             signinButton.TabIndex = 1;
             signinButton.Text = "Sign in";
             signinButton.UseVisualStyleBackColor = false;
@@ -150,6 +150,7 @@ namespace Pepro.Presentation {
             // 
             illustrationPictureBox.Dock = DockStyle.Right;
             illustrationPictureBox.Location = new Point(300, 0);
+            illustrationPictureBox.Margin = new Padding(0);
             illustrationPictureBox.Name = "illustrationPictureBox";
             illustrationPictureBox.Size = new Size(500, 480);
             illustrationPictureBox.TabIndex = 0;
@@ -163,6 +164,8 @@ namespace Pepro.Presentation {
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(29, 29, 29);
             ClientSize = new Size(800, 480);
+            Controls.Add(closeButton);
+            Controls.Add(illustrationPictureBox);
             Controls.Add(logoPictureBox);
             Controls.Add(appNameLabel);
             Controls.Add(welcomeLabel);
@@ -170,10 +173,7 @@ namespace Pepro.Presentation {
             Controls.Add(passwordField);
             Controls.Add(errorLabel);
             Controls.Add(signinButton);
-            Controls.Add(closeButton);
-            Controls.Add(illustrationPictureBox);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng Nhập";
@@ -188,10 +188,10 @@ namespace Pepro.Presentation {
         #endregion
         private Label appNameLabel;
         private Button signinButton;
-        private Label errorLabel;
+        private PeproLabel errorLabel;
         private Button closeButton;
         private PictureBox illustrationPictureBox;
-        private Label welcomeLabel;
+        private PeproLabel welcomeLabel;
         private PictureBox logoPictureBox;
         private PeproInputField accountNameInputField;
         private PeproPasswordField passwordField;

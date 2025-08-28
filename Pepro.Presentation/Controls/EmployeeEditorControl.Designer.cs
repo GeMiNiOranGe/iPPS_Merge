@@ -27,8 +27,8 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            genderLabel = new Label();
-            dateOfBirthLabel = new Label();
+            genderLabel = new PeproLabel();
+            dateOfBirthLabel = new PeproLabel();
             maleRadioButton = new RadioButton();
             femaleRadioButton = new RadioButton();
             dateOfBirthDateTimePicker = new DateTimePicker();
@@ -58,9 +58,9 @@
             // 
             genderLabel.Anchor = AnchorStyles.None;
             genderLabel.AutoSize = true;
-            genderLabel.Location = new Point(280, 150);
+            genderLabel.Location = new Point(280, 136);
             genderLabel.Name = "genderLabel";
-            genderLabel.Size = new Size(54, 19);
+            genderLabel.Size = new Size(45, 14);
             genderLabel.TabIndex = 0;
             genderLabel.Text = "Gender";
             // 
@@ -68,9 +68,9 @@
             // 
             dateOfBirthLabel.Anchor = AnchorStyles.None;
             dateOfBirthLabel.AutoSize = true;
-            dateOfBirthLabel.Location = new Point(16, 150);
+            dateOfBirthLabel.Location = new Point(16, 136);
             dateOfBirthLabel.Name = "dateOfBirthLabel";
-            dateOfBirthLabel.Size = new Size(87, 19);
+            dateOfBirthLabel.Size = new Size(78, 14);
             dateOfBirthLabel.TabIndex = 0;
             dateOfBirthLabel.Text = "Date of Birth";
             // 
@@ -78,7 +78,7 @@
             // 
             maleRadioButton.Anchor = AnchorStyles.None;
             maleRadioButton.AutoSize = true;
-            maleRadioButton.Location = new Point(284, 181);
+            maleRadioButton.Location = new Point(280, 161);
             maleRadioButton.Name = "maleRadioButton";
             maleRadioButton.Size = new Size(57, 23);
             maleRadioButton.TabIndex = 6;
@@ -90,7 +90,7 @@
             // 
             femaleRadioButton.Anchor = AnchorStyles.None;
             femaleRadioButton.AutoSize = true;
-            femaleRadioButton.Location = new Point(364, 183);
+            femaleRadioButton.Location = new Point(360, 161);
             femaleRadioButton.Name = "femaleRadioButton";
             femaleRadioButton.Size = new Size(70, 23);
             femaleRadioButton.TabIndex = 7;
@@ -101,7 +101,7 @@
             // dateOfBirthDateTimePicker
             // 
             dateOfBirthDateTimePicker.Anchor = AnchorStyles.None;
-            dateOfBirthDateTimePicker.Location = new Point(16, 179);
+            dateOfBirthDateTimePicker.Location = new Point(16, 158);
             dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
             dateOfBirthDateTimePicker.Size = new Size(240, 26);
             dateOfBirthDateTimePicker.TabIndex = 5;
@@ -112,10 +112,10 @@
             employeeIdInputField.Enabled = false;
             employeeIdInputField.LabelText = "Employee id";
             employeeIdInputField.Location = new Point(16, 64);
-            employeeIdInputField.Margin = new Padding(16, 16, 0, 16);
+            employeeIdInputField.Margin = new Padding(16, 16, 0, 24);
             employeeIdInputField.Name = "employeeIdInputField";
             employeeIdInputField.PlaceholderText = "e.g. employee id";
-            employeeIdInputField.Size = new Size(240, 54);
+            employeeIdInputField.Size = new Size(240, 48);
             employeeIdInputField.TabIndex = 1;
             // 
             // firstNameInputField
@@ -123,20 +123,20 @@
             firstNameInputField.Anchor = AnchorStyles.None;
             firstNameInputField.LabelText = "First name";
             firstNameInputField.Location = new Point(280, 64);
-            firstNameInputField.Margin = new Padding(24, 16, 0, 16);
+            firstNameInputField.Margin = new Padding(24, 16, 0, 24);
             firstNameInputField.Name = "firstNameInputField";
             firstNameInputField.PlaceholderText = "e.g. first name";
-            firstNameInputField.Size = new Size(240, 54);
+            firstNameInputField.Size = new Size(240, 48);
             firstNameInputField.TabIndex = 2;
             // 
             // departmentComboBoxField
             // 
             departmentComboBoxField.Anchor = AnchorStyles.None;
             departmentComboBoxField.LabelText = "Department";
-            departmentComboBoxField.Location = new Point(544, 236);
-            departmentComboBoxField.Margin = new Padding(24, 16, 0, 16);
+            departmentComboBoxField.Location = new Point(544, 208);
+            departmentComboBoxField.Margin = new Padding(24, 0, 0, 24);
             departmentComboBoxField.Name = "departmentComboBoxField";
-            departmentComboBoxField.Size = new Size(240, 56);
+            departmentComboBoxField.Size = new Size(240, 48);
             departmentComboBoxField.TabIndex = 13;
             // 
             // departmentIdInputField
@@ -144,11 +144,11 @@
             departmentIdInputField.Anchor = AnchorStyles.None;
             departmentIdInputField.Enabled = false;
             departmentIdInputField.LabelText = "Department id";
-            departmentIdInputField.Location = new Point(808, 236);
-            departmentIdInputField.Margin = new Padding(24, 16, 16, 16);
+            departmentIdInputField.Location = new Point(808, 208);
+            departmentIdInputField.Margin = new Padding(24, 0, 16, 24);
             departmentIdInputField.Name = "departmentIdInputField";
             departmentIdInputField.PlaceholderText = "e.g. department id";
-            departmentIdInputField.Size = new Size(240, 54);
+            departmentIdInputField.Size = new Size(240, 48);
             departmentIdInputField.TabIndex = 14;
             // 
             // positionIdInputField
@@ -156,21 +156,21 @@
             positionIdInputField.Anchor = AnchorStyles.None;
             positionIdInputField.Enabled = false;
             positionIdInputField.LabelText = "Position id";
-            positionIdInputField.Location = new Point(808, 322);
-            positionIdInputField.Margin = new Padding(24, 16, 16, 16);
+            positionIdInputField.Location = new Point(808, 280);
+            positionIdInputField.Margin = new Padding(24, 0, 16, 24);
             positionIdInputField.Name = "positionIdInputField";
             positionIdInputField.PlaceholderText = "e.g. position id";
-            positionIdInputField.Size = new Size(240, 54);
+            positionIdInputField.Size = new Size(240, 48);
             positionIdInputField.TabIndex = 18;
             // 
             // positionComboBoxField
             // 
             positionComboBoxField.Anchor = AnchorStyles.None;
             positionComboBoxField.LabelText = "Position";
-            positionComboBoxField.Location = new Point(544, 322);
-            positionComboBoxField.Margin = new Padding(24, 16, 0, 16);
+            positionComboBoxField.Location = new Point(544, 280);
+            positionComboBoxField.Margin = new Padding(24, 0, 0, 24);
             positionComboBoxField.Name = "positionComboBoxField";
-            positionComboBoxField.Size = new Size(240, 56);
+            positionComboBoxField.Size = new Size(240, 48);
             positionComboBoxField.TabIndex = 17;
             // 
             // salaryScaleIdInputField
@@ -178,21 +178,21 @@
             salaryScaleIdInputField.Anchor = AnchorStyles.None;
             salaryScaleIdInputField.Enabled = false;
             salaryScaleIdInputField.LabelText = "Salary scale id";
-            salaryScaleIdInputField.Location = new Point(280, 236);
-            salaryScaleIdInputField.Margin = new Padding(24, 16, 0, 16);
+            salaryScaleIdInputField.Location = new Point(280, 208);
+            salaryScaleIdInputField.Margin = new Padding(24, 0, 0, 24);
             salaryScaleIdInputField.Name = "salaryScaleIdInputField";
             salaryScaleIdInputField.PlaceholderText = "e.g. salary scale id";
-            salaryScaleIdInputField.Size = new Size(240, 54);
+            salaryScaleIdInputField.Size = new Size(240, 48);
             salaryScaleIdInputField.TabIndex = 12;
             // 
             // salaryScaleComboBoxField
             // 
             salaryScaleComboBoxField.Anchor = AnchorStyles.None;
             salaryScaleComboBoxField.LabelText = "Salary scale";
-            salaryScaleComboBoxField.Location = new Point(16, 236);
-            salaryScaleComboBoxField.Margin = new Padding(0);
+            salaryScaleComboBoxField.Location = new Point(16, 208);
+            salaryScaleComboBoxField.Margin = new Padding(16, 0, 0, 24);
             salaryScaleComboBoxField.Name = "salaryScaleComboBoxField";
-            salaryScaleComboBoxField.Size = new Size(240, 56);
+            salaryScaleComboBoxField.Size = new Size(240, 48);
             salaryScaleComboBoxField.TabIndex = 11;
             salaryScaleComboBoxField.SelectedIndexChanged += SalaryScaleComboBoxField_SelectedIndexChanged;
             // 
@@ -201,28 +201,28 @@
             salaryLevelIdInputField.Anchor = AnchorStyles.None;
             salaryLevelIdInputField.Enabled = false;
             salaryLevelIdInputField.LabelText = "Salary level id";
-            salaryLevelIdInputField.Location = new Point(280, 322);
-            salaryLevelIdInputField.Margin = new Padding(24, 16, 16, 16);
+            salaryLevelIdInputField.Location = new Point(280, 280);
+            salaryLevelIdInputField.Margin = new Padding(24, 0, 0, 24);
             salaryLevelIdInputField.Name = "salaryLevelIdInputField";
             salaryLevelIdInputField.PlaceholderText = "e.g. salary level id";
-            salaryLevelIdInputField.Size = new Size(240, 54);
+            salaryLevelIdInputField.Size = new Size(240, 48);
             salaryLevelIdInputField.TabIndex = 16;
             // 
             // salaryLevelComboBoxField
             // 
             salaryLevelComboBoxField.Anchor = AnchorStyles.None;
             salaryLevelComboBoxField.LabelText = "Salary level";
-            salaryLevelComboBoxField.Location = new Point(16, 322);
-            salaryLevelComboBoxField.Margin = new Padding(0);
+            salaryLevelComboBoxField.Location = new Point(16, 280);
+            salaryLevelComboBoxField.Margin = new Padding(16, 0, 0, 24);
             salaryLevelComboBoxField.Name = "salaryLevelComboBoxField";
-            salaryLevelComboBoxField.Size = new Size(240, 56);
+            salaryLevelComboBoxField.Size = new Size(240, 48);
             salaryLevelComboBoxField.TabIndex = 15;
             // 
             // otherRadioButton
             // 
             otherRadioButton.Anchor = AnchorStyles.None;
             otherRadioButton.AutoSize = true;
-            otherRadioButton.Location = new Point(457, 183);
+            otherRadioButton.Location = new Point(457, 161);
             otherRadioButton.Name = "otherRadioButton";
             otherRadioButton.Size = new Size(63, 23);
             otherRadioButton.TabIndex = 8;
@@ -234,7 +234,7 @@
             // 
             lbCheck3.Anchor = AnchorStyles.None;
             lbCheck3.AutoSize = true;
-            lbCheck3.Location = new Point(94, 236);
+            lbCheck3.Location = new Point(91, 208);
             lbCheck3.Name = "lbCheck3";
             lbCheck3.Size = new Size(15, 19);
             lbCheck3.TabIndex = 0;
@@ -244,7 +244,7 @@
             // 
             lbCheck1.Anchor = AnchorStyles.None;
             lbCheck1.AutoSize = true;
-            lbCheck1.Location = new Point(630, 236);
+            lbCheck1.Location = new Point(624, 208);
             lbCheck1.Name = "lbCheck1";
             lbCheck1.Size = new Size(15, 19);
             lbCheck1.TabIndex = 0;
@@ -254,7 +254,7 @@
             // 
             lbCheck2.Anchor = AnchorStyles.None;
             lbCheck2.AutoSize = true;
-            lbCheck2.Location = new Point(600, 322);
+            lbCheck2.Location = new Point(599, 280);
             lbCheck2.Name = "lbCheck2";
             lbCheck2.Size = new Size(15, 19);
             lbCheck2.TabIndex = 0;
@@ -264,7 +264,7 @@
             // 
             lbCheck4.Anchor = AnchorStyles.None;
             lbCheck4.AutoSize = true;
-            lbCheck4.Location = new Point(91, 322);
+            lbCheck4.Location = new Point(91, 280);
             lbCheck4.Name = "lbCheck4";
             lbCheck4.Size = new Size(15, 19);
             lbCheck4.TabIndex = 0;
@@ -287,10 +287,10 @@
             middleNameInputField.Anchor = AnchorStyles.None;
             middleNameInputField.LabelText = "Middle name";
             middleNameInputField.Location = new Point(544, 64);
-            middleNameInputField.Margin = new Padding(24, 16, 0, 16);
+            middleNameInputField.Margin = new Padding(24, 16, 0, 24);
             middleNameInputField.Name = "middleNameInputField";
             middleNameInputField.PlaceholderText = "e.g. middle name";
-            middleNameInputField.Size = new Size(240, 54);
+            middleNameInputField.Size = new Size(240, 48);
             middleNameInputField.TabIndex = 3;
             // 
             // lastNameInputField
@@ -298,32 +298,32 @@
             lastNameInputField.Anchor = AnchorStyles.None;
             lastNameInputField.LabelText = "Last name";
             lastNameInputField.Location = new Point(808, 64);
-            lastNameInputField.Margin = new Padding(24, 16, 16, 16);
+            lastNameInputField.Margin = new Padding(24, 16, 16, 24);
             lastNameInputField.Name = "lastNameInputField";
             lastNameInputField.PlaceholderText = "e.g. last name";
-            lastNameInputField.Size = new Size(240, 54);
+            lastNameInputField.Size = new Size(240, 48);
             lastNameInputField.TabIndex = 4;
             // 
             // taxCodeInputField
             // 
             taxCodeInputField.Anchor = AnchorStyles.None;
             taxCodeInputField.LabelText = "Tax code";
-            taxCodeInputField.Location = new Point(544, 150);
-            taxCodeInputField.Margin = new Padding(24, 16, 0, 16);
+            taxCodeInputField.Location = new Point(544, 136);
+            taxCodeInputField.Margin = new Padding(24, 0, 0, 24);
             taxCodeInputField.Name = "taxCodeInputField";
             taxCodeInputField.PlaceholderText = "e.g. tax code";
-            taxCodeInputField.Size = new Size(240, 54);
+            taxCodeInputField.Size = new Size(240, 48);
             taxCodeInputField.TabIndex = 9;
             // 
             // citizenIdInputField
             // 
             citizenIdInputField.Anchor = AnchorStyles.None;
             citizenIdInputField.LabelText = "Citizen id";
-            citizenIdInputField.Location = new Point(808, 150);
-            citizenIdInputField.Margin = new Padding(24, 16, 16, 16);
+            citizenIdInputField.Location = new Point(808, 136);
+            citizenIdInputField.Margin = new Padding(24, 0, 16, 24);
             citizenIdInputField.Name = "citizenIdInputField";
             citizenIdInputField.PlaceholderText = "e.g. citizen id";
-            citizenIdInputField.Size = new Size(240, 54);
+            citizenIdInputField.Size = new Size(240, 48);
             citizenIdInputField.TabIndex = 10;
             // 
             // EmployeeEditorControl
@@ -390,8 +390,8 @@
         }
 
         #endregion
-        private Label genderLabel;
-        private Label dateOfBirthLabel;
+        private PeproLabel genderLabel;
+        private PeproLabel dateOfBirthLabel;
         private RadioButton maleRadioButton;
         private RadioButton femaleRadioButton;
         private DateTimePicker dateOfBirthDateTimePicker;
