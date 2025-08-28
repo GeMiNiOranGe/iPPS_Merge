@@ -26,9 +26,9 @@ public partial class PeproInputFieldBase : PeproUserControl {
         set => inputFieldLabel.Font = value;
     }
 
-    protected override Size DefaultSize => new(256, 128);
+    protected override Size DefaultSize => new(240, 128);
 
-    [DefaultValue(typeof(Size), "256, 128")]
+    [DefaultValue(typeof(Size), "240, 128")]
     public new Size Size {
         get => base.Size;
         set => base.Size = value;

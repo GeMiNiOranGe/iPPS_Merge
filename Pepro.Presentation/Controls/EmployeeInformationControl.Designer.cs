@@ -52,7 +52,7 @@
             fullNameInputField.Margin = new Padding(0, 0, 24, 32);
             fullNameInputField.Name = "fullNameInputField";
             fullNameInputField.PlaceholderText = "e.g. full name";
-            fullNameInputField.Size = new Size(256, 54);
+            fullNameInputField.Size = new Size(256, 48);
             fullNameInputField.TabIndex = 1;
             // 
             // employeeIdInputField
@@ -65,7 +65,7 @@
             employeeIdInputField.Margin = new Padding(0);
             employeeIdInputField.Name = "employeeIdInputField";
             employeeIdInputField.PlaceholderText = "e.g. employee id";
-            employeeIdInputField.Size = new Size(256, 54);
+            employeeIdInputField.Size = new Size(256, 48);
             employeeIdInputField.TabIndex = 2;
             // 
             // phoneNumberComboBoxField
@@ -76,7 +76,7 @@
             phoneNumberComboBoxField.Location = new Point(263, 248);
             phoneNumberComboBoxField.Margin = new Padding(0, 0, 24, 32);
             phoneNumberComboBoxField.Name = "phoneNumberComboBoxField";
-            phoneNumberComboBoxField.Size = new Size(256, 56);
+            phoneNumberComboBoxField.Size = new Size(256, 48);
             phoneNumberComboBoxField.TabIndex = 3;
             // 
             // genderLabel
@@ -163,7 +163,7 @@
             citizenIdInputField.Margin = new Padding(0, 0, 0, 32);
             citizenIdInputField.Name = "citizenIdInputField";
             citizenIdInputField.PlaceholderText = "e.g. citizen id";
-            citizenIdInputField.Size = new Size(256, 54);
+            citizenIdInputField.Size = new Size(256, 48);
             citizenIdInputField.TabIndex = 8;
             // 
             // departmentInputField
@@ -176,7 +176,7 @@
             departmentInputField.Margin = new Padding(0, 0, 24, 32);
             departmentInputField.Name = "departmentInputField";
             departmentInputField.PlaceholderText = "e.g. department";
-            departmentInputField.Size = new Size(256, 54);
+            departmentInputField.Size = new Size(256, 48);
             departmentInputField.TabIndex = 9;
             // 
             // positionInputField
@@ -189,7 +189,7 @@
             positionInputField.Margin = new Padding(0, 0, 0, 32);
             positionInputField.Name = "positionInputField";
             positionInputField.PlaceholderText = "e.g. position";
-            positionInputField.Size = new Size(256, 54);
+            positionInputField.Size = new Size(256, 48);
             positionInputField.TabIndex = 10;
             // 
             // assignedProjectsComboBoxField
@@ -200,7 +200,7 @@
             assignedProjectsComboBoxField.Location = new Point(263, 508);
             assignedProjectsComboBoxField.Margin = new Padding(0);
             assignedProjectsComboBoxField.Name = "assignedProjectsComboBoxField";
-            assignedProjectsComboBoxField.Size = new Size(536, 56);
+            assignedProjectsComboBoxField.Size = new Size(536, 48);
             assignedProjectsComboBoxField.TabIndex = 11;
             // 
             // EmployeeInformationControl

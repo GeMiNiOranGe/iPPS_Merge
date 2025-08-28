@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            inputFieldLabel = new Label();
+            inputFieldLabel = new PeproLabel();
             SuspendLayout();
             // 
             // inputFieldLabel
@@ -32,7 +32,7 @@
             inputFieldLabel.Location = new Point(0, 0);
             inputFieldLabel.Margin = new Padding(0, 0, 0, 8);
             inputFieldLabel.Name = "inputFieldLabel";
-            inputFieldLabel.Size = new Size(256, 20);
+            inputFieldLabel.Size = new Size(240, 14);
             inputFieldLabel.TabIndex = 0;
             inputFieldLabel.Text = "inputFieldLabel";
             // 
@@ -43,12 +43,12 @@
             Controls.Add(inputFieldLabel);
             Margin = new Padding(0);
             Name = "PeproInputFieldBase";
-            Size = new Size(256, 128);
+            Size = new Size(240, 128);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Label inputFieldLabel;
+        private PeproLabel inputFieldLabel;
     }
 }

@@ -279,7 +279,7 @@ namespace Pepro.Presentation {
             workplacePanel.Size = new Size(1064, 681);
             workplacePanel.TabIndex = 0;
             // 
-            // MenuForm
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -288,7 +288,7 @@ namespace Pepro.Presentation {
             Controls.Add(sidebarPanel);
             ForeColor = Color.White;
             MinimumSize = new Size(960, 540);
-            Name = "MenuForm";
+            Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Bảng điều khiển";
             FormClosing += MenuForm_FormClosing;
