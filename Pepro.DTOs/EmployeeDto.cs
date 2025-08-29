@@ -15,25 +15,21 @@ public class EmployeeDto {
     private int _PositionId;
     private int _salaryLevelId;
 
-    [Browsable(false)]
     public int EmployeeId {
         get => _employeeId;
         set => _employeeId = value;
     }
 
-    [Browsable(false)]
     public string FirstName {
         get => _firstName;
         set => _firstName = value;
     }
 
-    [Browsable(false)]
     public string? MiddleName {
         get => _middleName;
         set => _middleName = value;
     }
 
-    [Browsable(false)]
     public string LastName {
         get => _lastName;
         set => _lastName = value;
