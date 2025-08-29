@@ -1,4 +1,5 @@
-﻿using Pepro.DTOs;
+﻿using Pepro.Business;
+using Pepro.DTOs;
 using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls;
@@ -55,105 +56,103 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
         InitializeComponent();
     }
 
+    private void AssignmentEditorControl_Load(object sender, EventArgs e)
+    {
+        projectComboBoxField.DisplayMember = nameof(ProjectDto.Name);
+        projectComboBoxField.ValueMember = nameof(ProjectDto.ProjectId);
+
+        statusComboBoxField.DisplayMember = nameof(StatusDto.Name);
+        statusComboBoxField.ValueMember = nameof(StatusDto.StatusId);
+
+        projectComboBoxField.DataSource = ProjectBusiness.Instance.GetProjects();
+        statusComboBoxField.DataSource = StatusBusiness.Instance.GetStatuses();
+
+        switch (_mode)
+        {
+            case EditorMode.Create:
+                SetupCreateMode();
+                break;
+            case EditorMode.Edit:
+                SetupEditMode();
+                break;
+        }
+    }
+
+    private void SetupCreateMode()
+    {
+        projectComboBoxField.SelectedIndex = -1;
+        statusComboBoxField.SelectedIndex = -1;
+    }
+
+    private void SetupEditMode()
+    {
+        projectComboBoxField.SelectedValue = _item.ProjectId;
+        statusComboBoxField.SelectedValue = _item.StatusId;
+    }
+
     private void SaveButton_Click(object sender, EventArgs e)
     {
-        /*
-        if (projectIdTextBox.Text == "" || taskIdTextBox.Text == "" 
-            || managerIdTextBox.Text == "" || accessTextBox.Text == "" 
-            || publicDepartmentTextBox.Text == "" || publicProjectTextBox.Text == "")
+        if (!ValidateInputs())
         {
-            MessageBox.Show("Không được để trống thông tin!");
+            MessageBoxWrapper.ShowInformation("FillInformation");
             return;
         }
-        try
-        {
-            if (MessageBox.Show("Bạn có muốn lưu công việc này?", "Xác nhận",
-                       MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                cmd = new SqlCommand("INSERT INTO JOB VALUES (@idJob,@idMng,@name,@access,@status,@prjPub,@depPub,@idPrj)", conn);
-                cmd.Parameters.AddWithValue("@idJob", taskIdTextBox.Text);
-                cmd.Parameters.AddWithValue("@idMng", managerIdTextBox.Text);
-                cmd.Parameters.AddWithValue("@name", taskNameTextBox.Text);
-                cmd.Parameters.AddWithValue("@access", accessTextBox.Text);
-                cmd.Parameters.AddWithValue("@status", statusTextBox.Text);
-                cmd.Parameters.AddWithValue("@prjPub", publicProjectTextBox.Text);
-                cmd.Parameters.AddWithValue("@depPub", publicDepartmentTextBox.Text);
-                cmd.Parameters.AddWithValue("@idPrj", projectIdTextBox.Text);
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                ResetTextBox();
-                MessageBox.Show("Lưu công việc thành công!");
-                this.Dispose();
-            }
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show(ex.Message);
-        }
-        */
-    }
 
-    /*
-    private void UpdateButton_Click(object sender, EventArgs e)
-    {
-        if (projectIdTextBox.Text == "" || taskIdTextBox.Text == ""
-            || managerIdTextBox.Text == "" || accessTextBox.Text == ""
-            || publicDepartmentTextBox.Text == "" || publicProjectTextBox.Text == "")
+        if (
+            !int.TryParse(managerIdInputField.Text, out int managerId)
+            || !int.TryParse(
+                projectComboBoxField.SelectedValue?.ToString(),
+                out int projectId
+            )
+            || !int.TryParse(
+                statusComboBoxField.SelectedValue?.ToString(),
+                out int statusId
+            )
+        )
         {
-            MessageBox.Show("Không được để trống thông tin!");
             return;
         }
-        try
+
+        AssignmentDto assignment = new()
         {
-            if (MessageBox.Show("Bạn có muốn cập nhật công việc này?", "Xác nhận",
-                       MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                cmd = new SqlCommand($"UPDATE JOB SET ID=@idJob, JOB_MANAGER_ID=@idMng, NAME=@name, ACCESS_RIGHT=@access, STATUS=@status, PROJECT_PUBLIC=@prjPub, DEPARTMENT_PUBLIC=@depPub, PROJECT_ID=@idPrj WHERE ID='{taskIdTextBox.Text}'", conn);
-                cmd.Parameters.AddWithValue("@idJob", taskIdTextBox.Text);
-                cmd.Parameters.AddWithValue("@idMng", managerIdTextBox.Text);
-                cmd.Parameters.AddWithValue("@name", taskNameTextBox.Text);
-                cmd.Parameters.AddWithValue("@access", accessTextBox.Text);
-                cmd.Parameters.AddWithValue("@status", statusTextBox.Text);
-                cmd.Parameters.AddWithValue("@prjPub", publicProjectTextBox.Text);
-                cmd.Parameters.AddWithValue("@depPub", publicDepartmentTextBox.Text);
-                cmd.Parameters.AddWithValue("@idPrj", projectIdTextBox.Text);
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                ResetTextBox();
-                MessageBox.Show("Sửa công việc thành công!");
-                this.Dispose();
-            }
-        }
-        catch (Exception ex)
+            AssignmentId = _item.AssignmentId,
+            Name = assignmentNameInputField.Text.Trim(),
+            IsPublicToProject = isPublicToProjectCheckBox.Checked,
+            IsPublicToDepartment = isPublicToDepartmentCheckBox.Checked,
+            ManagerId = managerId,
+            StartDate = startDateTimePicker.Value,
+            EndDate = endDateTimePicker.Value,
+            ProjectId = projectId,
+            StatusId = statusId,
+        };
+
+        int result = _mode switch
         {
-            MessageBox.Show(ex.Message);
+            // EditorMode.Create => AssignmentBusiness.Instance.InsertAssignment(assignment),
+            // EditorMode.Edit => AssignmentBusiness.Instance.UpdateAssignment(assignment),
+        };
+
+        if (result > 0)
+        {
+            NotifyDataChanged();
+            Close();
+            MessageBoxWrapper.ShowInformation("SaveSuccess");
+        }
+        else
+        {
+            MessageBoxWrapper.ShowError("SaveFailed");
         }
     }
 
-    private void ClearButton_Click(object sender, EventArgs e)
+    private bool ValidateInputs()
     {
-        ResetTextBox();
-        saveButton.Enabled = true;
-        updateButton.Enabled = false;
+        return !string.IsNullOrWhiteSpace(managerIdInputField.Text)
+            && !string.IsNullOrWhiteSpace(assignmentNameInputField.Text)
+            && !string.IsNullOrWhiteSpace(
+                projectComboBoxField.SelectedValue?.ToString()
+            )
+            && !string.IsNullOrWhiteSpace(
+                statusComboBoxField.SelectedValue?.ToString()
+            );
     }
-
-    private void ResetTextBox()
-    {
-        taskNameTextBox.ResetText();
-        taskIdTextBox.ResetText();
-        managerIdTextBox.ResetText();
-        accessTextBox.ResetText();
-        statusTextBox.ResetText();
-        publicProjectTextBox.ResetText();
-        publicDepartmentTextBox.ResetText();
-        projectIdTextBox.ResetText();
-    }
-
-    private void ClosePictureBox_Click(object sender, EventArgs e)
-    {
-        this.Dispose();
-    }
-    */
 }
