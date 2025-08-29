@@ -9,6 +9,7 @@ public class PeproDataGridView : DataGridView
         AllowUserToAddRows = false;
         AllowUserToDeleteRows = false;
         Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        AutoGenerateColumns = false;
         AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         BorderStyle = BorderStyle.Fixed3D;
@@ -39,6 +40,15 @@ public class PeproDataGridView : DataGridView
     {
         get => base.Anchor;
         set => base.Anchor = value;
+    }
+
+    [Browsable(false)]
+    [EditorBrowsable(EditorBrowsableState.Advanced)]
+    [DefaultValue(typeof(bool), "False")]
+    public new bool AutoGenerateColumns
+    {
+        get => base.AutoGenerateColumns;
+        set => base.AutoGenerateColumns = value;        
     }
 
     [DefaultValue(typeof(DataGridViewAutoSizeColumnsMode), "AllCells")]

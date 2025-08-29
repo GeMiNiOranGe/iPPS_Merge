@@ -13,7 +13,6 @@ public class AssignmentDto {
     private int _projectId;
     private int _statusId;
 
-    [Browsable(false)]
     public int AssignmentId {
         get => _assignmentId;
         set => _assignmentId = value;
@@ -54,7 +53,6 @@ public class AssignmentDto {
         set => _projectId = value;
     }
 
-    [Browsable(false)]
     public int StatusId {
         get => _statusId;
         set => _statusId = value;
