@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Contracts;
 using Pepro.DataAccess.Entities;
 using Pepro.DataAccess.Mappings;
 using System.Data;
@@ -14,6 +15,38 @@ public class AssignmentDataAccess {
     }
 
     private AssignmentDataAccess() { }
+
+    public Assignment? GetAssignmentByAssignmentId(int assignmentId) {
+        string query = @"
+            SELECT Assignment.AssignmentId
+                , Assignment.Name
+                , Assignment.IsPublicToProject
+                , Assignment.IsPublicToDepartment
+                , Assignment.ManagerId
+                , Assignment.StartDate
+                , Assignment.EndDate
+                , Assignment.RequiredDocumentCount
+                , Assignment.ProjectId
+                , Assignment.StatusId
+                , Assignment.IsDeleted
+                , Assignment.CreatedAt
+                , Assignment.UpdatedAt
+                , Assignment.DeletedAt
+            FROM Assignment 
+            WHERE Assignment.AssignmentId = @AssignmentId
+                AND Assignment.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
+        if (dataTable.Rows.Count == 0) {
+            return null;
+        }
+
+        DataRow row = dataTable.Rows[0];
+        return AssignmentMapper.FromDataRow(row);
+    }
 
     public List<Assignment> GetAssignments() {
         string query = @"
@@ -236,6 +269,29 @@ public class AssignmentDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
 
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
+    public int UpdateAssignment(int assignmentId, AssignmentUpdate info) {
+        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Assignment")
+            .Set("Name", SqlDbType.NVarChar, 50, info.Name)
+            .Set("IsPublicToProject", SqlDbType.Bit, info.IsPublicToProject)
+            .Set("IsPublicToDepartment", SqlDbType.Bit, info.IsPublicToDepartment)
+            .Set("ManagerId", SqlDbType.Int, info.ManagerId)
+            .Set("StartDate", SqlDbType.Date, info.StartDate)
+            .Set("EndDate", SqlDbType.Date, info.EndDate)
+            .Set("RequiredDocumentCount", SqlDbType.Int, info.RequiredDocumentCount)
+            .Set("ProjectId", SqlDbType.Int, info.ProjectId)
+            .Set("StatusId", SqlDbType.Int, info.StatusId)
+            .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
+            .Where("AssignmentId", SqlDbType.Int, assignmentId);
+
+        (string query, List<SqlParameter> parameters) = builder.Build();
+
+        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
+        {
+            return 0;
+        }
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 }
