@@ -10,6 +10,7 @@ public class AssignmentDto {
     private int _managerId;
     private DateTime _startDate;
     private DateTime _endDate;
+    private int _requiredDocumentCount;
     private int _projectId;
     private int _statusId;
 
@@ -46,6 +47,11 @@ public class AssignmentDto {
     public DateTime EndDate {
         get => _endDate;
         set => _endDate = value;
+    }
+
+    public int RequiredDocumentCount {
+        get => _requiredDocumentCount;
+        set => _requiredDocumentCount = value;
     }
 
     public int ProjectId {
