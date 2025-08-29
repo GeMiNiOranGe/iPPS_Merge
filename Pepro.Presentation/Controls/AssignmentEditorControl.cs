@@ -32,6 +32,7 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
             managerIdInputField.Text = _item.ManagerId.ToString();
             startDateTimePicker.SetValue(_item.StartDate);
             endDateTimePicker.SetValue(_item.EndDate);
+            requiredDocumentCountInputField.Text = _item.RequiredDocumentCount.ToString();
         }
     }
 
@@ -101,6 +102,10 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
         if (
             !int.TryParse(managerIdInputField.Text, out int managerId)
             || !int.TryParse(
+                requiredDocumentCountInputField.Text,
+                out int requiredDocumentCount
+            )
+            || !int.TryParse(
                 projectComboBoxField.SelectedValue?.ToString(),
                 out int projectId
             )
@@ -122,6 +127,7 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
             ManagerId = managerId,
             StartDate = startDateTimePicker.Value,
             EndDate = endDateTimePicker.Value,
+            RequiredDocumentCount = requiredDocumentCount,
             ProjectId = projectId,
             StatusId = statusId,
         };

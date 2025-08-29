@@ -40,6 +40,7 @@
             endDateLabel = new PeproLabel();
             endDateTimePicker = new DateTimePicker();
             projectComboBoxField = new PeproComboBoxField();
+            requiredDocumentCountInputField = new PeproInputField();
             SuspendLayout();
             // 
             // publicProjectLabel
@@ -84,8 +85,8 @@
             // 
             managerIdInputField.Anchor = AnchorStyles.None;
             managerIdInputField.LabelText = "Manager id";
-            managerIdInputField.Location = new Point(16, 208);
-            managerIdInputField.Margin = new Padding(16, 0, 0, 24);
+            managerIdInputField.Location = new Point(280, 208);
+            managerIdInputField.Margin = new Padding(24, 0, 0, 24);
             managerIdInputField.Name = "managerIdInputField";
             managerIdInputField.PlaceholderText = "e.g. manager id";
             managerIdInputField.Size = new Size(240, 48);
@@ -106,8 +107,8 @@
             // 
             statusComboBoxField.Anchor = AnchorStyles.None;
             statusComboBoxField.LabelText = "Status";
-            statusComboBoxField.Location = new Point(808, 208);
-            statusComboBoxField.Margin = new Padding(24, 16, 0, 16);
+            statusComboBoxField.Location = new Point(16, 280);
+            statusComboBoxField.Margin = new Padding(16, 0, 0, 24);
             statusComboBoxField.Name = "statusComboBoxField";
             statusComboBoxField.Size = new Size(240, 48);
             statusComboBoxField.TabIndex = 23;
@@ -140,7 +141,7 @@
             // 
             startDateLabel.Anchor = AnchorStyles.None;
             startDateLabel.AutoSize = true;
-            startDateLabel.Location = new Point(280, 208);
+            startDateLabel.Location = new Point(544, 208);
             startDateLabel.Margin = new Padding(24, 0, 0, 0);
             startDateLabel.Name = "startDateLabel";
             startDateLabel.Size = new Size(60, 14);
@@ -150,8 +151,8 @@
             // startDateTimePicker
             // 
             startDateTimePicker.Anchor = AnchorStyles.None;
-            startDateTimePicker.Location = new Point(280, 230);
-            startDateTimePicker.Margin = new Padding(16, 0, 0, 16);
+            startDateTimePicker.Location = new Point(544, 230);
+            startDateTimePicker.Margin = new Padding(24, 0, 0, 24);
             startDateTimePicker.Name = "startDateTimePicker";
             startDateTimePicker.Size = new Size(240, 26);
             startDateTimePicker.TabIndex = 27;
@@ -160,7 +161,7 @@
             // 
             endDateLabel.Anchor = AnchorStyles.None;
             endDateLabel.AutoSize = true;
-            endDateLabel.Location = new Point(544, 208);
+            endDateLabel.Location = new Point(808, 208);
             endDateLabel.Margin = new Padding(24, 0, 0, 0);
             endDateLabel.Name = "endDateLabel";
             endDateLabel.Size = new Size(54, 14);
@@ -170,8 +171,8 @@
             // endDateTimePicker
             // 
             endDateTimePicker.Anchor = AnchorStyles.None;
-            endDateTimePicker.Location = new Point(544, 230);
-            endDateTimePicker.Margin = new Padding(24, 0, 16, 16);
+            endDateTimePicker.Location = new Point(808, 230);
+            endDateTimePicker.Margin = new Padding(24, 0, 16, 24);
             endDateTimePicker.Name = "endDateTimePicker";
             endDateTimePicker.Size = new Size(240, 26);
             endDateTimePicker.TabIndex = 28;
@@ -186,10 +187,22 @@
             projectComboBoxField.Size = new Size(504, 48);
             projectComboBoxField.TabIndex = 23;
             // 
+            // requiredDocumentCountInputField
+            // 
+            requiredDocumentCountInputField.Anchor = AnchorStyles.None;
+            requiredDocumentCountInputField.LabelText = "Required document count";
+            requiredDocumentCountInputField.Location = new Point(16, 208);
+            requiredDocumentCountInputField.Margin = new Padding(16, 0, 0, 24);
+            requiredDocumentCountInputField.Name = "requiredDocumentCountInputField";
+            requiredDocumentCountInputField.PlaceholderText = "e.g. required document count";
+            requiredDocumentCountInputField.Size = new Size(240, 48);
+            requiredDocumentCountInputField.TabIndex = 22;
+            // 
             // AssignmentEditorControl
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(requiredDocumentCountInputField);
             Controls.Add(managerIdInputField);
             Controls.Add(startDateLabel);
             Controls.Add(startDateTimePicker);
@@ -219,6 +232,7 @@
             Controls.SetChildIndex(startDateTimePicker, 0);
             Controls.SetChildIndex(startDateLabel, 0);
             Controls.SetChildIndex(managerIdInputField, 0);
+            Controls.SetChildIndex(requiredDocumentCountInputField, 0);
             ResumeLayout(false);
             PerformLayout();
 
@@ -238,5 +252,6 @@
         private PeproLabel endDateLabel;
         private DateTimePicker endDateTimePicker;
         private PeproComboBoxField projectComboBoxField;
+        private PeproInputField requiredDocumentCountInputField;
     }
 }
