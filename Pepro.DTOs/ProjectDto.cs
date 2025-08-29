@@ -11,7 +11,6 @@ public class ProjectDto {
     private DateTime _endDate;
     private int _statusId;
 
-    [Browsable(false)]
     public int ProjectId {
         get => _projectId;
         set => _projectId = value;
@@ -42,7 +41,6 @@ public class ProjectDto {
         set => _endDate = value;
     }
 
-    [Browsable(false)]
     public int StatusId {
         get => _statusId;
         set => _statusId = value;
