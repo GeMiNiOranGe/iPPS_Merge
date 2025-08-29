@@ -135,7 +135,7 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
         int result = _mode switch
         {
             // EditorMode.Create => AssignmentBusiness.Instance.InsertAssignment(assignment),
-            // EditorMode.Edit => AssignmentBusiness.Instance.UpdateAssignment(assignment),
+            EditorMode.Edit => AssignmentBusiness.Instance.UpdateAssignment(assignment),
         };
 
         if (result > 0)
