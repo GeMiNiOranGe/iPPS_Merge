@@ -44,6 +44,7 @@
             // 
             // publicProjectLabel
             // 
+            publicProjectLabel.Anchor = AnchorStyles.None;
             publicProjectLabel.AutoSize = true;
             publicProjectLabel.BackColor = Color.Transparent;
             publicProjectLabel.ForeColor = Color.White;
@@ -56,6 +57,7 @@
             // 
             // publicDepartmentLabel
             // 
+            publicDepartmentLabel.Anchor = AnchorStyles.None;
             publicDepartmentLabel.AutoSize = true;
             publicDepartmentLabel.BackColor = Color.Transparent;
             publicDepartmentLabel.ForeColor = Color.White;
@@ -76,9 +78,11 @@
             saveButton.Size = new Size(120, 56);
             saveButton.TabIndex = 21;
             saveButton.Text = "Save";
+            saveButton.Click += SaveButton_Click;
             // 
             // managerIdInputField
             // 
+            managerIdInputField.Anchor = AnchorStyles.None;
             managerIdInputField.LabelText = "Manager id";
             managerIdInputField.Location = new Point(16, 208);
             managerIdInputField.Margin = new Padding(16, 0, 0, 24);
@@ -89,6 +93,7 @@
             // 
             // assignmentNameInputField
             // 
+            assignmentNameInputField.Anchor = AnchorStyles.None;
             assignmentNameInputField.LabelText = "Assignment name";
             assignmentNameInputField.Location = new Point(16, 64);
             assignmentNameInputField.Margin = new Padding(16, 16, 16, 24);
@@ -109,6 +114,7 @@
             // 
             // isPublicToProjectCheckBox
             // 
+            isPublicToProjectCheckBox.Anchor = AnchorStyles.None;
             isPublicToProjectCheckBox.AutoSize = true;
             isPublicToProjectCheckBox.Location = new Point(544, 159);
             isPublicToProjectCheckBox.Margin = new Padding(24, 8, 0, 24);
@@ -120,6 +126,7 @@
             // 
             // isPublicToDepartmentCheckBox
             // 
+            isPublicToDepartmentCheckBox.Anchor = AnchorStyles.None;
             isPublicToDepartmentCheckBox.AutoSize = true;
             isPublicToDepartmentCheckBox.Location = new Point(808, 159);
             isPublicToDepartmentCheckBox.Margin = new Padding(24, 8, 0, 24);
@@ -198,6 +205,7 @@
             Controls.Add(publicProjectLabel);
             HeaderText = "Assignment Editor";
             Name = "AssignmentEditorControl";
+            Load += AssignmentEditorControl_Load;
             Controls.SetChildIndex(publicProjectLabel, 0);
             Controls.SetChildIndex(publicDepartmentLabel, 0);
             Controls.SetChildIndex(assignmentNameInputField, 0);
