@@ -9,7 +9,7 @@ public static class MessageBoxWrapper
         {
             "SelectData" => "Vui lòng chọn trường dữ liệu",
             "DataReadError" => "Không thể đọc dữ liệu",
-            "SaveSuccess" => "Lưu dữ liệu thất bại",
+            "SaveSuccess" => "Lưu dữ liệu thành công",
             "SaveFailed" => "Lưu dữ liệu thất bại",
             "InsertSuccess" => "Thêm thành công",
             "UpdateSuccess" => "Cập nhật thành công",

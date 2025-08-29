@@ -1,5 +1,6 @@
 ﻿using Pepro.Business.Mappings;
 using Pepro.DataAccess;
+using Pepro.DataAccess.Contracts;
 using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 
@@ -144,5 +145,28 @@ public class AssignmentBusiness {
 
     public int DeleteAssignment(int assignmentId) {
         return AssignmentDataAccess.Instance.DeleteAssignment(assignmentId);
+    }
+
+    public int UpdateAssignment(AssignmentDto dto)
+    {
+        Assignment? entity = AssignmentDataAccess.Instance.GetAssignmentByAssignmentId(dto.AssignmentId);
+        if (entity == null)
+        {
+            return 0;
+        }
+
+        AssignmentUpdate updateInfo = new()
+        {
+            Name = new(dto.Name, entity.Name != dto.Name),
+            IsPublicToProject = new(dto.IsPublicToProject, entity.IsPublicToProject != dto.IsPublicToProject),
+            IsPublicToDepartment = new(dto.IsPublicToDepartment, entity.IsPublicToDepartment != dto.IsPublicToDepartment),
+            ManagerId = new(dto.ManagerId, entity.ManagerId != dto.ManagerId),
+            StartDate = new(dto.StartDate, entity.StartDate != dto.StartDate),
+            EndDate = new(dto.EndDate, entity.EndDate != dto.EndDate),
+            RequiredDocumentCount = new(dto.RequiredDocumentCount, entity.RequiredDocumentCount != dto.RequiredDocumentCount),
+            ProjectId = new(dto.ProjectId, entity.ProjectId != dto.ProjectId),
+            StatusId = new(dto.StatusId, entity.StatusId != dto.StatusId),
+        };
+        return AssignmentDataAccess.Instance.UpdateAssignment(dto.AssignmentId, updateInfo);
     }
 }
