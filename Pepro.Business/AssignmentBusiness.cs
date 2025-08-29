@@ -32,6 +32,7 @@ public class AssignmentBusiness {
                     ManagerId = assignment.ManagerId,
                     StartDate = assignment.StartDate,
                     EndDate = assignment.EndDate,
+                    RequiredDocumentCount = assignment.RequiredDocumentCount,
                     ProjectId = assignment.ProjectId,
                     StatusId = assignment.StatusId,
                     StatusName = statusName
@@ -59,6 +60,7 @@ public class AssignmentBusiness {
                     ManagerId = assignment.ManagerId,
                     StartDate = assignment.StartDate,
                     EndDate = assignment.EndDate,
+                    RequiredDocumentCount = assignment.RequiredDocumentCount,
                     ProjectId = assignment.ProjectId,
                     StatusId = assignment.StatusId,
                     StatusName = statusName

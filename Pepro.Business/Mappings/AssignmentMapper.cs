@@ -16,6 +16,7 @@ static class AssignmentMapper
             ManagerId = entity.ManagerId,
             StartDate = entity.StartDate,
             EndDate = entity.EndDate,
+            RequiredDocumentCount = entity.RequiredDocumentCount,
             ProjectId = entity.ProjectId,
             StatusId = entity.StatusId,
         };
