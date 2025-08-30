@@ -132,7 +132,6 @@ public class ProjectBusiness {
 
         ProjectUpdate updateInfo = new()
         {
-            ProjectId = new(dto.ProjectId, entity.ProjectId != dto.ProjectId),
             Name = new(dto.Name, entity.Name != dto.Name),
             CustomerName = new(dto.CustomerName, entity.CustomerName != dto.CustomerName),
             ManagerId = new(dto.ManagerId, entity.ManagerId != dto.ManagerId),
