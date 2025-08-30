@@ -136,7 +136,7 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
 
         int result = _mode switch
         {
-            // EditorMode.Create => AssignmentBusiness.Instance.InsertAssignment(assignment),
+            EditorMode.Create => AssignmentBusiness.Instance.InsertAssignment(assignment),
             EditorMode.Edit => AssignmentBusiness.Instance.UpdateAssignment(assignment),
             _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
         };
