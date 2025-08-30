@@ -55,6 +55,8 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
     private void Initialize()
     {
         InitializeComponent();
+
+        saveButton.ApplyFlatStyle();
     }
 
     private void AssignmentEditorControl_Load(object sender, EventArgs e)
@@ -136,6 +138,7 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
         {
             // EditorMode.Create => AssignmentBusiness.Instance.InsertAssignment(assignment),
             EditorMode.Edit => AssignmentBusiness.Instance.UpdateAssignment(assignment),
+            _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
         };
 
         if (result > 0)
