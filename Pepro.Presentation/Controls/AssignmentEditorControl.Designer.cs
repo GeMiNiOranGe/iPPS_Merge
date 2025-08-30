@@ -53,7 +53,7 @@
             publicProjectLabel.Margin = new Padding(2, 0, 2, 0);
             publicProjectLabel.Name = "publicProjectLabel";
             publicProjectLabel.Size = new Size(99, 14);
-            publicProjectLabel.TabIndex = 8;
+            publicProjectLabel.TabIndex = 0;
             publicProjectLabel.Text = "Public to project";
             // 
             // publicDepartmentLabel
@@ -66,7 +66,7 @@
             publicDepartmentLabel.Margin = new Padding(2, 0, 2, 0);
             publicDepartmentLabel.Name = "publicDepartmentLabel";
             publicDepartmentLabel.Size = new Size(129, 14);
-            publicDepartmentLabel.TabIndex = 9;
+            publicDepartmentLabel.TabIndex = 0;
             publicDepartmentLabel.Text = "Public to department";
             // 
             // saveButton
@@ -77,7 +77,7 @@
             saveButton.Margin = new Padding(16);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(120, 56);
-            saveButton.TabIndex = 21;
+            saveButton.TabIndex = 10;
             saveButton.Text = "Save";
             saveButton.Click += SaveButton_Click;
             // 
@@ -90,7 +90,7 @@
             managerIdInputField.Name = "managerIdInputField";
             managerIdInputField.PlaceholderText = "e.g. manager id";
             managerIdInputField.Size = new Size(240, 48);
-            managerIdInputField.TabIndex = 22;
+            managerIdInputField.TabIndex = 6;
             // 
             // assignmentNameInputField
             // 
@@ -101,7 +101,7 @@
             assignmentNameInputField.Name = "assignmentNameInputField";
             assignmentNameInputField.PlaceholderText = "e.g. assignment name";
             assignmentNameInputField.Size = new Size(1032, 48);
-            assignmentNameInputField.TabIndex = 22;
+            assignmentNameInputField.TabIndex = 1;
             // 
             // statusComboBoxField
             // 
@@ -111,7 +111,7 @@
             statusComboBoxField.Margin = new Padding(16, 0, 0, 24);
             statusComboBoxField.Name = "statusComboBoxField";
             statusComboBoxField.Size = new Size(240, 48);
-            statusComboBoxField.TabIndex = 23;
+            statusComboBoxField.TabIndex = 9;
             // 
             // isPublicToProjectCheckBox
             // 
@@ -121,7 +121,7 @@
             isPublicToProjectCheckBox.Margin = new Padding(24, 8, 0, 24);
             isPublicToProjectCheckBox.Name = "isPublicToProjectCheckBox";
             isPublicToProjectCheckBox.Size = new Size(48, 23);
-            isPublicToProjectCheckBox.TabIndex = 24;
+            isPublicToProjectCheckBox.TabIndex = 3;
             isPublicToProjectCheckBox.Text = "Yes";
             isPublicToProjectCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -133,7 +133,7 @@
             isPublicToDepartmentCheckBox.Margin = new Padding(24, 8, 0, 24);
             isPublicToDepartmentCheckBox.Name = "isPublicToDepartmentCheckBox";
             isPublicToDepartmentCheckBox.Size = new Size(48, 23);
-            isPublicToDepartmentCheckBox.TabIndex = 24;
+            isPublicToDepartmentCheckBox.TabIndex = 4;
             isPublicToDepartmentCheckBox.Text = "Yes";
             isPublicToDepartmentCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -145,7 +145,7 @@
             startDateLabel.Margin = new Padding(24, 0, 0, 0);
             startDateLabel.Name = "startDateLabel";
             startDateLabel.Size = new Size(60, 14);
-            startDateLabel.TabIndex = 25;
+            startDateLabel.TabIndex = 0;
             startDateLabel.Text = "Start date";
             // 
             // startDateTimePicker
@@ -155,7 +155,7 @@
             startDateTimePicker.Margin = new Padding(24, 0, 0, 24);
             startDateTimePicker.Name = "startDateTimePicker";
             startDateTimePicker.Size = new Size(240, 26);
-            startDateTimePicker.TabIndex = 27;
+            startDateTimePicker.TabIndex = 7;
             // 
             // endDateLabel
             // 
@@ -165,7 +165,7 @@
             endDateLabel.Margin = new Padding(24, 0, 0, 0);
             endDateLabel.Name = "endDateLabel";
             endDateLabel.Size = new Size(54, 14);
-            endDateLabel.TabIndex = 26;
+            endDateLabel.TabIndex = 0;
             endDateLabel.Text = "End date";
             // 
             // endDateTimePicker
@@ -175,7 +175,7 @@
             endDateTimePicker.Margin = new Padding(24, 0, 16, 24);
             endDateTimePicker.Name = "endDateTimePicker";
             endDateTimePicker.Size = new Size(240, 26);
-            endDateTimePicker.TabIndex = 28;
+            endDateTimePicker.TabIndex = 8;
             // 
             // projectComboBoxField
             // 
@@ -185,7 +185,7 @@
             projectComboBoxField.Margin = new Padding(16, 0, 0, 24);
             projectComboBoxField.Name = "projectComboBoxField";
             projectComboBoxField.Size = new Size(504, 48);
-            projectComboBoxField.TabIndex = 23;
+            projectComboBoxField.TabIndex = 2;
             // 
             // requiredDocumentCountInputField
             // 
@@ -196,12 +196,18 @@
             requiredDocumentCountInputField.Name = "requiredDocumentCountInputField";
             requiredDocumentCountInputField.PlaceholderText = "e.g. required document count";
             requiredDocumentCountInputField.Size = new Size(240, 48);
-            requiredDocumentCountInputField.TabIndex = 22;
+            requiredDocumentCountInputField.TabIndex = 5;
             // 
             // AssignmentEditorControl
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(assignmentNameInputField);
+            Controls.Add(projectComboBoxField);
+            Controls.Add(publicProjectLabel);
+            Controls.Add(isPublicToProjectCheckBox);
+            Controls.Add(publicDepartmentLabel);
+            Controls.Add(isPublicToDepartmentCheckBox);
             Controls.Add(requiredDocumentCountInputField);
             Controls.Add(managerIdInputField);
             Controls.Add(startDateLabel);
@@ -210,21 +216,9 @@
             Controls.Add(endDateTimePicker);
             Controls.Add(statusComboBoxField);
             Controls.Add(saveButton);
-            Controls.Add(isPublicToDepartmentCheckBox);
-            Controls.Add(isPublicToProjectCheckBox);
-            Controls.Add(projectComboBoxField);
-            Controls.Add(assignmentNameInputField);
-            Controls.Add(publicDepartmentLabel);
-            Controls.Add(publicProjectLabel);
             HeaderText = "Assignment Editor";
             Name = "AssignmentEditorControl";
             Load += AssignmentEditorControl_Load;
-            Controls.SetChildIndex(publicProjectLabel, 0);
-            Controls.SetChildIndex(publicDepartmentLabel, 0);
-            Controls.SetChildIndex(assignmentNameInputField, 0);
-            Controls.SetChildIndex(projectComboBoxField, 0);
-            Controls.SetChildIndex(isPublicToProjectCheckBox, 0);
-            Controls.SetChildIndex(isPublicToDepartmentCheckBox, 0);
             Controls.SetChildIndex(saveButton, 0);
             Controls.SetChildIndex(statusComboBoxField, 0);
             Controls.SetChildIndex(endDateTimePicker, 0);
@@ -233,6 +227,12 @@
             Controls.SetChildIndex(startDateLabel, 0);
             Controls.SetChildIndex(managerIdInputField, 0);
             Controls.SetChildIndex(requiredDocumentCountInputField, 0);
+            Controls.SetChildIndex(isPublicToDepartmentCheckBox, 0);
+            Controls.SetChildIndex(publicDepartmentLabel, 0);
+            Controls.SetChildIndex(isPublicToProjectCheckBox, 0);
+            Controls.SetChildIndex(publicProjectLabel, 0);
+            Controls.SetChildIndex(projectComboBoxField, 0);
+            Controls.SetChildIndex(assignmentNameInputField, 0);
             ResumeLayout(false);
             PerformLayout();
 
