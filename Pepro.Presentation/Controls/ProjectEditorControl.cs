@@ -113,37 +113,23 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
             StatusId = statusId,
         };
 
-        switch (Mode)
+        int result = _mode switch
         {
-            case EditorMode.Create:
-                HandleCreateMode(project);
-                break;
-            case EditorMode.Edit:
-                HandleEditMode(project);
-                break;
-        }
-    }
+            EditorMode.Create => ProjectBusiness.Instance.InsertProject(project),
+            EditorMode.Edit => ProjectBusiness.Instance.UpdateProject(project),
+            _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
+        };
 
-    private void HandleCreateMode(ProjectDto project)
-    {
-        _ = ProjectBusiness.Instance.InsertProject(project);
-
-        NotifyDataChanged();
-        Close();
-        MessageBoxWrapper.ShowInformation("InsertSuccess");
-    }
-
-    private void HandleEditMode(ProjectDto project)
-    {
-        int result = ProjectBusiness.Instance.UpdateProject(project);
-        if (result == 0)
+        if (result > 0)
         {
-            return;
+            NotifyDataChanged();
+            Close();
+            MessageBoxWrapper.ShowInformation("SaveSuccess");
         }
-
-        NotifyDataChanged();
-        Close();
-        MessageBoxWrapper.ShowInformation("UpdateSuccess");
+        else
+        {
+            MessageBoxWrapper.ShowError("SaveFailed");
+        }
     }
 
     private bool ValidateInputs()

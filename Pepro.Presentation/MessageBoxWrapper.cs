@@ -11,8 +11,6 @@ public static class MessageBoxWrapper
             "DataReadError" => "Không thể đọc dữ liệu",
             "SaveSuccess" => "Lưu dữ liệu thành công",
             "SaveFailed" => "Lưu dữ liệu thất bại",
-            "InsertSuccess" => "Thêm thành công",
-            "UpdateSuccess" => "Cập nhật thành công",
             "DeleteSuccess" => "Đã xóa {0} dữ liệu thành công",
             "FillInformation" => "Mời điền đầy đủ thông tin",
             "ConfirmDelete" => "Bạn có chắc muốn xóa không?",
