@@ -294,4 +294,46 @@ public class AssignmentDataAccess {
         }
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
+
+    public int InsertAssignment(Assignment entity)
+    {
+        string query = @"
+            INSERT INTO Assignment
+            (
+                Name
+                , IsPublicToProject
+                , IsPublicToDepartment
+                , ManagerId
+                , StartDate
+                , EndDate
+                , RequiredDocumentCount
+                , ProjectId
+                , StatusId
+            )
+            VALUES
+            (
+                @Name
+                , @IsPublicToProject
+                , @IsPublicToDepartment
+                , @ManagerId
+                , @StartDate
+                , @EndDate
+                , @RequiredDocumentCount
+                , @ProjectId
+                , @StatusId
+            )
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("Name", SqlDbType.NVarChar, 50, entity.Name);
+        parameters.Add("IsPublicToProject", SqlDbType.Bit, entity.IsPublicToProject);
+        parameters.Add("IsPublicToDepartment", SqlDbType.Bit, entity.IsPublicToDepartment);
+        parameters.Add("ManagerId", SqlDbType.Int, entity.ManagerId);
+        parameters.Add("StartDate", SqlDbType.Date, entity.StartDate);
+        parameters.Add("EndDate", SqlDbType.Date, entity.EndDate);
+        parameters.Add("RequiredDocumentCount", SqlDbType.Int, entity.RequiredDocumentCount);
+        parameters.Add("ProjectId", SqlDbType.Int, entity.ProjectId);
+        parameters.Add("StatusId", SqlDbType.Int, entity.StatusId);
+
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
 }

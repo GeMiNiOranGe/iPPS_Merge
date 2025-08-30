@@ -169,4 +169,10 @@ public class AssignmentBusiness {
         };
         return AssignmentDataAccess.Instance.UpdateAssignment(dto.AssignmentId, updateInfo);
     }
+
+    public int InsertAssignment(AssignmentDto dto)
+    {
+        Assignment entity = dto.ToEntity();
+        return AssignmentDataAccess.Instance.InsertAssignment(entity);
+    }
 }
