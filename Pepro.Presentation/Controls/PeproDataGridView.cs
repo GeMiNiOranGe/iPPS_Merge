@@ -42,15 +42,6 @@ public class PeproDataGridView : DataGridView
         set => base.Anchor = value;
     }
 
-    [Browsable(false)]
-    [EditorBrowsable(EditorBrowsableState.Advanced)]
-    [DefaultValue(typeof(bool), "False")]
-    public new bool AutoGenerateColumns
-    {
-        get => base.AutoGenerateColumns;
-        set => base.AutoGenerateColumns = value;        
-    }
-
     [DefaultValue(typeof(DataGridViewAutoSizeColumnsMode), "AllCells")]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public new DataGridViewAutoSizeColumnsMode AutoSizeColumnsMode
