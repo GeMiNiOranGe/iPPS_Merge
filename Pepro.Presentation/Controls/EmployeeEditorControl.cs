@@ -180,35 +180,23 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             SalaryLevelId = salaryLevelId,
         };
 
-        switch (Mode)
+        int result = _mode switch
         {
-            case EditorMode.Create:
-                HandleCreateMode(employee);
-                break;
-            case EditorMode.Edit:
-                HandleEditMode(employee);
-                break;
-        }
-    }
+            EditorMode.Create => EmployeeBusiness.Instance.InsertEmployee(employee),
+            EditorMode.Edit => EmployeeBusiness.Instance.UpdateEmployee(employee),
+            _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
+        };
 
-    private void HandleCreateMode(EmployeeDto employee) {
-        _ = EmployeeBusiness.Instance.InsertEmployee(employee);
-
-        NotifyDataChanged();
-        Close();
-        MessageBoxWrapper.ShowInformation("InsertSuccess");
-    }
-
-    private void HandleEditMode(EmployeeDto employee) {
-        int result = EmployeeBusiness.Instance.UpdateEmployee(employee);
-        if (result == 0)
+        if (result > 0)
         {
-            return;
+            NotifyDataChanged();
+            Close();
+            MessageBoxWrapper.ShowInformation("SaveSuccess");
         }
-
-        NotifyDataChanged();
-        Close();
-        MessageBoxWrapper.ShowInformation("UpdateSuccess");
+        else
+        {
+            MessageBoxWrapper.ShowError("SaveFailed");
+        }
     }
 
     private bool ValidateInputs()
