@@ -30,10 +30,11 @@ public partial class MainForm : PeproForm {
         projectButton.SetSidebarButtonImages("Folder");
         documentButton.SetSidebarButtonImages("MultiplePages");
         progressButton.SetSidebarButtonImages("DoughnutChart");
-        employeeButton.SetSidebarButtonImages("Group");
+        employeeButton.SetSidebarButtonImages("User");
         attendanceButton.SetSidebarButtonImages("CalendarCheck");
         salaryButton.SetSidebarButtonImages("UserSalary");
         dormitoryButton.SetSidebarButtonImages("BunkBed");
+        departmentButton.SetSidebarButtonImages("Group");
 
         logoutButton.ApplyFlatStyleNoBackColor();
         logoutButton.ApplyIcon("LogOut", color: ThemeColors.Text);
@@ -146,6 +147,10 @@ public partial class MainForm : PeproForm {
         optionPanel.SetLocationY(dormitoryButton.Location.Y);
 
         new DormitoryForm().ShowDialog();
+    }
+
+    private void DepartmentButton_Click(object sender, EventArgs e) {
+        optionPanel.SetLocationY(departmentButton.Location.Y);
     }
 
     private void Account_MouseClick(object sender, MouseEventArgs e) {
