@@ -6,6 +6,7 @@ public partial class PeproMediatedUserControl : PeproUserControlBase {
     protected readonly IMediator _mediator = null!;
 
     public PeproMediatedUserControl() {
+        DesignTimeOnlyException.ThrowIfRuntime();
         Initialize();
     }
 
