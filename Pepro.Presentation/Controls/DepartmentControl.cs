@@ -7,16 +7,6 @@ public partial class DepartmentControl : PeproCrudControlBase
 {
     public DepartmentControl()
     {
-        Initialize();
-    }
-
-    public DepartmentControl(IMediator mediator) : base(mediator)
-    {
-        Initialize();
-    }
-
-    private void Initialize()
-    {
         InitializeComponent();
         LoadDepartments();
     }

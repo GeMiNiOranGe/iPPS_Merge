@@ -11,12 +11,9 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
 
     public ProjectEditorControl()
     {
-        Initialize();
-    }
+        InitializeComponent();
 
-    public ProjectEditorControl(IMediator mediator) : base(mediator)
-    {
-        Initialize();
+        saveButton.ApplyFlatStyle();
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -48,13 +45,6 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
                 _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
             };
         }
-    }
-
-    private void Initialize()
-    {
-        InitializeComponent();
-
-        saveButton.ApplyFlatStyle();
     }
 
     private void ProjectEditorControl_Load(object sender, EventArgs e)

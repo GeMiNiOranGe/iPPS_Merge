@@ -11,12 +11,9 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
 
     public AssignmentEditorControl()
     {
-        Initialize();
-    }
+        InitializeComponent();
 
-    public AssignmentEditorControl(IMediator mediator) : base(mediator)
-    {
-        Initialize();
+        saveButton.ApplyFlatStyle();
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -50,13 +47,6 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
                 _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
             };
         }
-    }
-
-    private void Initialize()
-    {
-        InitializeComponent();
-
-        saveButton.ApplyFlatStyle();
     }
 
     private void AssignmentEditorControl_Load(object sender, EventArgs e)

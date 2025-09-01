@@ -73,7 +73,7 @@ public partial class MainForm : PeproForm {
     private void AssignmentButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(assignmentButton.Location.Y);
 
-        _mediator.Notify(this, ControlUiEvent.OpenAssignmentControl);
+        _mediator.Notify(this, ControlUiEvent.NavigateAssignmentControl);
         /*
         string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_employeeId}'";
         conn.Open();
@@ -94,7 +94,7 @@ public partial class MainForm : PeproForm {
     private void ProjectButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(projectButton.Location.Y);
 
-        _mediator.Notify(this, ControlUiEvent.OpenProjectControl);
+        _mediator.Notify(this, ControlUiEvent.NavigateProjectControl);
         /*
         string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_employeeId}'";
         conn.Open();
@@ -115,19 +115,19 @@ public partial class MainForm : PeproForm {
     private void DocumentButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(documentButton.Location.Y);
 
-        _mediator.Notify(this, ControlUiEvent.OpenDocumentControl);
+        _mediator.Notify(this, ControlUiEvent.NavigateDocumentControl);
     }
 
     private void ProgressButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(progressButton.Location.Y);
 
-        _mediator.Notify(this, ControlUiEvent.OpenProgressControl);
+        _mediator.Notify(this, ControlUiEvent.NavigateProgressControl);
     }
 
     private void EmployeeButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(employeeButton.Location.Y);
 
-        _mediator.Notify(this, ControlUiEvent.OpenEmployeeControl);
+        _mediator.Notify(this, ControlUiEvent.NavigateEmployeeControl);
     }
 
     private void AttendanceButton_MouseClick(object sender, MouseEventArgs e) {
@@ -154,7 +154,7 @@ public partial class MainForm : PeproForm {
     }
 
     private void Account_MouseClick(object sender, MouseEventArgs e) {
-        _mediator.Notify(this, ControlUiEvent.OpenEmployeeInformationControl, new OpenEmployeeInformationControlPayload() {
+        _mediator.Notify(this, ControlUiEvent.NavigateEmployeeInformationControl, new OpenEmployeeInformationControlPayload() {
             EmployeeId = _employeeId,
         });
     }

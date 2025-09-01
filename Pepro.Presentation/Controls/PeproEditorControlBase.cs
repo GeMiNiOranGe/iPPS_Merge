@@ -7,8 +7,6 @@ public class PeproEditorControlBase : PeproMediatedUserControl {
 
     public PeproEditorControlBase() { }
 
-    public PeproEditorControlBase(IMediator mediator) : base(mediator) { }
-
     [Browsable(false)]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public Action? OnDataChanged {

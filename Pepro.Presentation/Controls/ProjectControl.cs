@@ -7,16 +7,6 @@ public partial class ProjectControl : PeproCrudControlBase
 {
     public ProjectControl()
     {
-        Initialize();
-    }
-
-    public ProjectControl(IMediator mediator) : base(mediator)
-    {
-        Initialize();
-    }
-
-    private void Initialize()
-    {
         InitializeComponent();
         projectDataGridView.SetupCellStyle();
 
@@ -56,7 +46,7 @@ public partial class ProjectControl : PeproCrudControlBase
     private void InsertButton_Click(object sender, EventArgs e) {
         BindInsertButtonClick<ProjectDto>(
             new(),
-            ControlUiEvent.OpenProjectEditorControl,
+            ControlUiEvent.PushProjectEditorControl,
             LoadProjects
         );
     }
@@ -65,7 +55,7 @@ public partial class ProjectControl : PeproCrudControlBase
     {
         BindUpdateButtonClick<ProjectDto>(
             projectDataGridView,
-            ControlUiEvent.OpenProjectEditorControl,
+            ControlUiEvent.PushProjectEditorControl,
             LoadProjects
         );
     }

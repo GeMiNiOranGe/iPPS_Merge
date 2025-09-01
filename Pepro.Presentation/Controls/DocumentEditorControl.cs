@@ -9,15 +9,26 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
     private EditorMode _mode;
 
     public DocumentEditorControl() {
-        Initialize();
-    }
+        InitializeComponent();
 
-    public DocumentEditorControl(IMediator mediator) : base(mediator) {
-        Initialize();
+        saveButton.ApplyFlatStyle();
+        browseButton.ApplyFlatStyle();
+
+        projectIdInputField.FocusColor = ThemeColors.Accent.Base;
+        assignmentIdInputField.FocusColor = ThemeColors.Accent.Base;
+        documentIdInputField.FocusColor = ThemeColors.Accent.Base;
+        titleInputField.FocusColor = ThemeColors.Accent.Base;
+        preparedByInputField.FocusColor = ThemeColors.Accent.Base;
+        checkedByInputField.FocusColor = ThemeColors.Accent.Base;
+        approvedByInputField.FocusColor = ThemeColors.Accent.Base;
+        fileTypeInputField.FocusColor = ThemeColors.Accent.Base;
+        revisionNumberInputField.FocusColor = ThemeColors.Accent.Base;
+        revisionStatusInputField.FocusColor = ThemeColors.Accent.Base;
+        filePathInputField.FocusColor = ThemeColors.Accent.Base;
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required DocumentDto Item {
+    public DocumentDto Item {
         get => _item;
         set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
@@ -36,7 +47,7 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required EditorMode Mode {
+    public EditorMode Mode {
         get => _mode;
         set {
             _mode = value;
@@ -46,25 +57,6 @@ public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUser
                 _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
             };
         }
-    }
-
-    private void Initialize() {
-        InitializeComponent();
-
-        saveButton.ApplyFlatStyle();
-        browseButton.ApplyFlatStyle();
-
-        projectIdInputField.FocusColor = ThemeColors.Accent.Base;
-        assignmentIdInputField.FocusColor = ThemeColors.Accent.Base;
-        documentIdInputField.FocusColor = ThemeColors.Accent.Base;
-        titleInputField.FocusColor = ThemeColors.Accent.Base;
-        preparedByInputField.FocusColor = ThemeColors.Accent.Base;
-        checkedByInputField.FocusColor = ThemeColors.Accent.Base;
-        approvedByInputField.FocusColor = ThemeColors.Accent.Base;
-        fileTypeInputField.FocusColor = ThemeColors.Accent.Base;
-        revisionNumberInputField.FocusColor = ThemeColors.Accent.Base;
-        revisionStatusInputField.FocusColor = ThemeColors.Accent.Base;
-        filePathInputField.FocusColor = ThemeColors.Accent.Base;
     }
 
     private void DocumentEditorControl_Load(object sender, EventArgs e) {

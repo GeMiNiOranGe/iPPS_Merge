@@ -4,8 +4,6 @@ public class PeproCrudControlBase : PeproMediatedUserControl
 {
     public PeproCrudControlBase() { }
 
-    public PeproCrudControlBase(IMediator mediator) : base(mediator) { }
-
     protected static void BindDataGridViewCellClick<ItemType>(
         DataGridView dataGridView,
         DataGridViewCellEventArgs e,
@@ -48,7 +46,7 @@ public class PeproCrudControlBase : PeproMediatedUserControl
         Action? onDataChanged
     )
     {
-        _mediator.Notify(
+        Mediator?.Notify(
             this,
             uiEvent,
             new OpenEditorControlPayload<ItemType>
@@ -79,7 +77,7 @@ public class PeproCrudControlBase : PeproMediatedUserControl
             return;
         }
 
-        _mediator.Notify(
+        Mediator?.Notify(
             this,
             uiEvent,
             new OpenEditorControlPayload<ItemType>

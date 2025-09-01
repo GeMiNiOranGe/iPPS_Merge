@@ -10,15 +10,13 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
     private EditorMode _mode;
 
     public EmployeeEditorControl() {
-        Initialize();
-    }
+        InitializeComponent();
 
-    public EmployeeEditorControl(IMediator mediator) : base(mediator) {
-        Initialize();
+        saveButton.ApplyFlatStyle();
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required EmployeeDto Item {
+    public EmployeeDto Item {
         get => _item;
         set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
@@ -39,7 +37,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required EditorMode Mode {
+    public EditorMode Mode {
         get => _mode;
         set {
             _mode = value;
@@ -49,12 +47,6 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
                 _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
             };
         }
-    }
-
-    private void Initialize() {
-        InitializeComponent();
-
-        saveButton.ApplyFlatStyle();
     }
 
     private void EmployeeEditorControl_Load(object sender, EventArgs e) {

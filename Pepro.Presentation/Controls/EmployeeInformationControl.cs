@@ -1,5 +1,4 @@
 ﻿using Pepro.Business;
-using Pepro.Business.Utilities;
 using Pepro.DTOs;
 using System.ComponentModel;
 
@@ -11,12 +10,7 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
 
     public EmployeeInformationControl()
     {
-        Initialize();
-    }
-
-    public EmployeeInformationControl(IMediator mediator) : base(mediator)
-    {
-        Initialize();
+        InitializeComponent();
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -24,11 +18,6 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
     {
         get => _employeeId;
         set => _employeeId = value;
-    }
-
-    private void Initialize()
-    {
-        InitializeComponent();
     }
 
     private void EmployeeInformationControl_Load(object sender, EventArgs e)
