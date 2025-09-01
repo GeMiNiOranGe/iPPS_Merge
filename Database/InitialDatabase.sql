@@ -31,6 +31,11 @@ CREATE TABLE [dbo].[Department] (
     [DepartmentId]  [varchar](10)   NOT NULL,
     [Name]          [nvarchar](50)  NOT NULL,
     [ManagerId]     [int]           NOT NULL,
+
+    [IsDeleted]     [bit]           NOT NULL,
+    [CreatedAt]     [datetime]      NOT NULL,
+    [UpdatedAt]     [datetime]      NOT NULL,
+    [DeletedAt]     [datetime],
 );
 
 CREATE TABLE [dbo].[Status] (
@@ -258,6 +263,15 @@ CONSTRAINT [FK_DepartmentProject_Department]
 GO
 
 -- default ---------------------------------------------------------------
+ALTER TABLE Department ADD
+CONSTRAINT DF_Department_IsDeleted DEFAULT 0
+    FOR IsDeleted,
+CONSTRAINT DF_Department_CreatedAt DEFAULT GetDate()
+    FOR CreatedAt,
+CONSTRAINT DF_Department_UpdatedAt DEFAULT GetDate()
+    FOR UpdatedAt;
+GO
+
 ALTER TABLE Project ADD
 CONSTRAINT DF_Project_IsDeleted DEFAULT 0
     FOR IsDeleted,

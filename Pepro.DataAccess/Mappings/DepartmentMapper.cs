@@ -12,6 +12,10 @@ static class DepartmentMapper
             DepartmentId = row.Field<string>("DepartmentId") ?? "",
             Name = row.Field<string>("Name") ?? "",
             ManagerId = row.Field<int>("ManagerId"),
+            IsDeleted = row.Field<bool>("IsDeleted"),
+            CreatedAt = row.Field<DateTime>("CreatedAt"),
+            UpdatedAt = row.Field<DateTime>("UpdatedAt"),
+            DeletedAt = row.Field<DateTime?>("DeletedAt"),
         };
     }
 }

@@ -21,8 +21,13 @@ public class DepartmentDataAccess
             SELECT Department.DepartmentId
                 , Department.Name
                 , Department.ManagerId
+                , Department.IsDeleted
+                , Department.CreatedAt
+                , Department.UpdatedAt
+                , Department.DeletedAt
             FROM Department
             WHERE Department.DepartmentId = @DepartmentId
+                AND Department.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("DepartmentId", SqlDbType.VarChar, 10, departmentId);
@@ -41,7 +46,12 @@ public class DepartmentDataAccess
             SELECT Department.DepartmentId
                 , Department.Name
                 , Department.ManagerId
+                , Department.IsDeleted
+                , Department.CreatedAt
+                , Department.UpdatedAt
+                , Department.DeletedAt
             FROM Department
+            WHERE Department.IsDeleted = 0
         ";
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
