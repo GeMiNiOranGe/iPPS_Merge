@@ -1,11 +1,21 @@
 ﻿using Pepro.Business;
 using System.Data;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Controls;
 
-public partial class DepartmentForm : Form
+public partial class DepartmentControl : PeproCrudControlBase
 {
-    public DepartmentForm()
+    public DepartmentControl()
+    {
+        Initialize();
+    }
+
+    public DepartmentControl(IMediator mediator) : base(mediator)
+    {
+        Initialize();
+    }
+
+    private void Initialize()
     {
         InitializeComponent();
         LoadDepartments();
