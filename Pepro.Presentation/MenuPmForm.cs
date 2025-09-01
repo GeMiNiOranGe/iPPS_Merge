@@ -1,4 +1,6 @@
-﻿namespace Pepro.Presentation
+﻿using Pepro.Presentation.Controls;
+
+namespace Pepro.Presentation
 {
     public partial class MenuPmForm : Form
     {
@@ -39,12 +41,14 @@
         private void btnDepartment_Click(object sender, EventArgs e)
         {
             pnMenu.Controls.Clear();
+            /*
             DepartmentForm fdp= new DepartmentForm();
             fdp.TopLevel = false;
             fdp.Dock = DockStyle.Fill;
             fdp.FormBorderStyle = FormBorderStyle.None;
             pnMenu.Controls.Add(fdp);
             fdp.Show();
+            */
         }
 
         private void btnGrant_Click(object sender, EventArgs e)

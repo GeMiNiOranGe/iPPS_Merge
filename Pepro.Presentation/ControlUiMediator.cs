@@ -17,6 +17,9 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
         case ControlUiEvent.OpenDocumentControl:
             OpenDocumentControl();
             break;
+        case ControlUiEvent.OpenDepartmentControl:
+            OpenDepartmentControl();
+            break;
         case ControlUiEvent.OpenDocumentEditorControl:
             OpenDocumentEditorControl(data);
             break;
@@ -73,6 +76,11 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator {
             OnDataChanged = payload.OnDataChanged,
         };
         PushControl(assignmentEditorControl);
+    }
+
+    private void OpenDepartmentControl() {
+        DepartmentControl departmentControl = new(this);
+        OpenControl(departmentControl);
     }
 
     private void OpenDocumentControl() {

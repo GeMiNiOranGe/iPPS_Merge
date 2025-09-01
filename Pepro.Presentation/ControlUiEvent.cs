@@ -3,6 +3,7 @@
 public enum ControlUiEvent {
     OpenAssignmentControl,
     OpenAssignmentEditorControl,
+    OpenDepartmentControl,
     OpenDocumentControl,
     OpenDocumentEditorControl,
     OpenProgressControl,

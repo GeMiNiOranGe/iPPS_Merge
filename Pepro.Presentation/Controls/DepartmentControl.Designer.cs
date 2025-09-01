@@ -1,6 +1,6 @@
-﻿namespace Pepro.Presentation
+﻿namespace Pepro.Presentation.Controls
 {
-    partial class DepartmentForm
+    partial class DepartmentControl
     {
         /// <summary>
         /// Required designer variable.
@@ -49,7 +49,7 @@
             // 
             dtgvDepartment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvDepartment.Columns.AddRange(new DataGridViewColumn[] { DepartmentID, DepartmentName, ManagerID });
-            dtgvDepartment.Location = new Point(121, 270);
+            dtgvDepartment.Location = new Point(122, 343);
             dtgvDepartment.Margin = new Padding(4, 3, 4, 3);
             dtgvDepartment.Name = "dtgvDepartment";
             dtgvDepartment.ReadOnly = true;
@@ -93,7 +93,7 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(txtID);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(247, 32);
+            groupBox1.Location = new Point(248, 105);
             groupBox1.Margin = new Padding(4, 3, 4, 3);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4, 3, 4, 3);
@@ -140,7 +140,7 @@
             textBox2.Location = new Point(203, 117);
             textBox2.Margin = new Padding(4, 3, 4, 3);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(150, 23);
+            textBox2.Size = new Size(150, 26);
             textBox2.TabIndex = 5;
             // 
             // label3
@@ -149,7 +149,7 @@
             label3.Location = new Point(136, 121);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(57, 15);
+            label3.Size = new Size(67, 19);
             label3.TabIndex = 4;
             label3.Text = "Manager:";
             // 
@@ -158,7 +158,7 @@
             txtName.Location = new Point(203, 70);
             txtName.Margin = new Padding(4, 3, 4, 3);
             txtName.Name = "txtName";
-            txtName.Size = new Size(150, 23);
+            txtName.Size = new Size(150, 26);
             txtName.TabIndex = 3;
             // 
             // label2
@@ -167,7 +167,7 @@
             label2.Location = new Point(155, 74);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(42, 15);
+            label2.Size = new Size(48, 19);
             label2.TabIndex = 2;
             label2.Text = "Name:";
             // 
@@ -176,7 +176,7 @@
             txtID.Location = new Point(203, 22);
             txtID.Margin = new Padding(4, 3, 4, 3);
             txtID.Name = "txtID";
-            txtID.Size = new Size(150, 23);
+            txtID.Size = new Size(150, 26);
             txtID.TabIndex = 1;
             // 
             // label1
@@ -185,20 +185,21 @@
             label1.Location = new Point(175, 25);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(21, 15);
+            label1.Size = new Size(26, 19);
             label1.TabIndex = 0;
             label1.Text = "ID:";
             // 
-            // FormDepartment
+            // DepartmentControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(971, 537);
             Controls.Add(groupBox1);
             Controls.Add(dtgvDepartment);
-            Margin = new Padding(4, 3, 4, 3);
-            Name = "FormDepartment";
-            Text = "Department";
+            HeaderText = "Department";
+            Name = "DepartmentControl";
+            ReturnButtonVisible = false;
+            Controls.SetChildIndex(dtgvDepartment, 0);
+            Controls.SetChildIndex(groupBox1, 0);
             ((System.ComponentModel.ISupportInitialize)dtgvDepartment).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
