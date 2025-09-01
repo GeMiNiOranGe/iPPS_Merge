@@ -22,7 +22,7 @@ public partial class ProjectControl : PeproCrudControlBase
         projectDataGridView.DataSource = ProjectBusiness.Instance.GetProjectViews();
     }
 
-    private void AdminProjects_Load(object sender, EventArgs e)
+    private void ProjectControl_Load(object sender, EventArgs e)
     {
         LoadProjects();
     }

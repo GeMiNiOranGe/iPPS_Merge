@@ -50,6 +50,7 @@
             departmentDataGridView.Name = "departmentDataGridView";
             departmentDataGridView.Size = new Size(1032, 470);
             departmentDataGridView.TabIndex = 7;
+            departmentDataGridView.CellClick += DepartmentDataGridView_CellClick;
             // 
             // departmentNameColumn
             // 
@@ -108,6 +109,7 @@
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(40, 40);
             searchButton.TabIndex = 2;
+            searchButton.Click += SearchButton_Click;
             // 
             // reloadButton
             // 
@@ -117,6 +119,7 @@
             reloadButton.Name = "reloadButton";
             reloadButton.Size = new Size(40, 40);
             reloadButton.TabIndex = 3;
+            reloadButton.Click += ReloadButton_Click;
             // 
             // deleteButton
             // 
@@ -129,6 +132,7 @@
             deleteButton.Size = new Size(112, 40);
             deleteButton.TabIndex = 4;
             deleteButton.Text = " Delete";
+            deleteButton.Click += DeleteButton_Click;
             // 
             // updateButton
             // 
@@ -141,6 +145,7 @@
             updateButton.Size = new Size(98, 40);
             updateButton.TabIndex = 5;
             updateButton.Text = " Edit";
+            updateButton.Click += UpdateButton_Click;
             // 
             // insertButton
             // 
@@ -153,6 +158,7 @@
             insertButton.Size = new Size(100, 40);
             insertButton.TabIndex = 6;
             insertButton.Text = " Add";
+            insertButton.Click += InsertButton_Click;
             // 
             // DepartmentControl
             // 
