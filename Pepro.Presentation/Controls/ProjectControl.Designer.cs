@@ -184,7 +184,7 @@
             HeaderText = "Project";
             Name = "ProjectControl";
             ReturnButtonVisible = false;
-            Load += AdminProjects_Load;
+            Load += ProjectControl_Load;
             Controls.SetChildIndex(projectDataGridView, 0);
             Controls.SetChildIndex(insertButton, 0);
             Controls.SetChildIndex(updateButton, 0);
