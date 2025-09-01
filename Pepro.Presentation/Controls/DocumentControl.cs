@@ -7,16 +7,6 @@ public partial class DocumentControl : PeproCrudControlBase
 {
     public DocumentControl()
     {
-        Initialize();
-    }
-
-    public DocumentControl(IMediator mediator) : base(mediator)
-    {
-        Initialize();
-    }
-
-    private void Initialize()
-    {
         InitializeComponent();
         documentDataGridView.SetupCellStyle();
 
@@ -70,7 +60,7 @@ public partial class DocumentControl : PeproCrudControlBase
     {
         BindInsertButtonClick<DocumentDto>(
             new(),
-            ControlUiEvent.OpenDocumentEditorControl,
+            ControlUiEvent.PushDocumentEditorControl,
             LoadDocuments
         );
     }
@@ -79,7 +69,7 @@ public partial class DocumentControl : PeproCrudControlBase
     {
         BindUpdateButtonClick<DocumentDto>(
             documentDataGridView,
-            ControlUiEvent.OpenDocumentEditorControl,
+            ControlUiEvent.PushDocumentEditorControl,
             LoadDocuments
         );
     }

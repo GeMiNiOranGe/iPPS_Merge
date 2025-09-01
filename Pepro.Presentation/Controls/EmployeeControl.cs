@@ -5,14 +5,6 @@ namespace Pepro.Presentation.Controls;
 
 public partial class EmployeeControl : PeproCrudControlBase {
     public EmployeeControl() {
-        Initialize();
-    }
-
-    public EmployeeControl(IMediator mediator) : base(mediator) {
-        Initialize();
-    }
-
-    private void Initialize() {
         InitializeComponent();
         employeeDataGridView.SetupCellStyle();
         fullNameColumn.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
@@ -63,7 +55,7 @@ public partial class EmployeeControl : PeproCrudControlBase {
     private void InsertButton_Click(object sender, EventArgs e) {
         BindInsertButtonClick<EmployeeDto>(
             new(),
-            ControlUiEvent.OpenEmployeeEditorControl,
+            ControlUiEvent.PushEmployeeEditorControl,
             LoadEmployees
         );
     }
@@ -71,7 +63,7 @@ public partial class EmployeeControl : PeproCrudControlBase {
     private void UpdateButton_Click(object sender, EventArgs e) {
         BindUpdateButtonClick<EmployeeDto>(
             employeeDataGridView,
-            ControlUiEvent.OpenEmployeeEditorControl,
+            ControlUiEvent.PushEmployeeEditorControl,
             LoadEmployees
         );
     }

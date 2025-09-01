@@ -3,19 +3,9 @@
 namespace Pepro.Presentation.Controls;
 
 public partial class PeproMediatedUserControl : PeproUserControlBase {
-    protected readonly IMediator _mediator = null!;
+    private IMediator? _mediator;
 
     public PeproMediatedUserControl() {
-        DesignTimeOnlyException.ThrowIfRuntime();
-        Initialize();
-    }
-
-    public PeproMediatedUserControl(IMediator mediator) {
-        Initialize();
-        _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-    }
-
-    private void Initialize() {
         InitializeComponent();
 
         headerReturnButton.ApplyFlatStyleNoBackColor();
@@ -38,6 +28,12 @@ public partial class PeproMediatedUserControl : PeproUserControlBase {
     public virtual string HeaderText {
         get => headerLabel.Text;
         set => headerLabel.Text = value;
+    }
+
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public IMediator? Mediator {
+        protected get => _mediator;
+        init => _mediator = value;
     }
 
     protected override void OnLoad(EventArgs e) {

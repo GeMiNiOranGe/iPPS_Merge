@@ -8,14 +8,6 @@ public partial class AssignmentDetailControl : PeproMediatedUserControl {
     private int _projectId;
 
     public AssignmentDetailControl() {
-        Initialize();
-    }
-
-    public AssignmentDetailControl(IMediator mediator) : base(mediator) {
-        Initialize();
-    }
-
-    private void Initialize() {
         InitializeComponent();
     }
 

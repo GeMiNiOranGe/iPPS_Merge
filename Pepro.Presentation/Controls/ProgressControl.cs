@@ -5,14 +5,6 @@ namespace Pepro.Presentation.Controls;
 
 public partial class ProgressControl : PeproMediatedUserControl {
     public ProgressControl() {
-        Initialize();
-    }
-
-    public ProgressControl(IMediator mediator) : base(mediator) {
-        Initialize();
-    }
-
-    private void Initialize() {
         InitializeComponent();
     }
 
@@ -42,7 +34,7 @@ public partial class ProgressControl : PeproMediatedUserControl {
             };
 
             projectCard.Click += (sender, e) => {
-                _mediator.Notify(this, ControlUiEvent.OpenAssignmentDetailControl, new OpenAssignmentDetailControlPayload() {
+                Mediator?.Notify(this, ControlUiEvent.PushAssignmentDetailControl, new OpenAssignmentDetailControlPayload() {
                     ProjectId = item.ProjectId,
                     ProjectName = item.Name
                 });

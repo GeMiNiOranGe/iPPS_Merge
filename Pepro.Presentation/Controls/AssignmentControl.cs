@@ -7,16 +7,6 @@ public partial class AssignmentControl : PeproCrudControlBase
 {
     public AssignmentControl()
     {
-        Initialize();
-    }
-
-    public AssignmentControl(IMediator mediator) : base(mediator)
-    {
-        Initialize();
-    }
-
-    private void Initialize()
-    {
         InitializeComponent();
         assignmentDataGridView.SetupCellStyle();
 
@@ -60,7 +50,7 @@ public partial class AssignmentControl : PeproCrudControlBase
     {
         BindInsertButtonClick<AssignmentDto>(
             new(),
-            ControlUiEvent.OpenAssignmentEditorControl,
+            ControlUiEvent.PushAssignmentEditorControl,
             LoadAssignments
         );
     }
@@ -69,7 +59,7 @@ public partial class AssignmentControl : PeproCrudControlBase
     {
         BindUpdateButtonClick<AssignmentDto>(
             assignmentDataGridView,
-            ControlUiEvent.OpenAssignmentEditorControl,
+            ControlUiEvent.PushAssignmentEditorControl,
             LoadAssignments
         );
     }
