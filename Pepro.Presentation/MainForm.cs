@@ -151,6 +151,8 @@ public partial class MainForm : PeproForm {
 
     private void DepartmentButton_Click(object sender, EventArgs e) {
         optionPanel.SetLocationY(departmentButton.Location.Y);
+
+        _mediator.Notify(this, ControlUiEvent.NavigateDepartmentControl);
     }
 
     private void Account_MouseClick(object sender, MouseEventArgs e) {
