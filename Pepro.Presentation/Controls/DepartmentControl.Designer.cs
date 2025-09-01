@@ -27,201 +27,177 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            dtgvDepartment = new DataGridView();
-            DepartmentID = new DataGridViewTextBoxColumn();
-            DepartmentName = new DataGridViewTextBoxColumn();
-            ManagerID = new DataGridViewTextBoxColumn();
-            groupBox1 = new GroupBox();
-            btnDelete = new Button();
-            btnUpdate = new Button();
-            btnAdd = new Button();
-            textBox2 = new TextBox();
-            label3 = new Label();
-            txtName = new TextBox();
-            label2 = new Label();
-            txtID = new TextBox();
-            label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dtgvDepartment).BeginInit();
-            groupBox1.SuspendLayout();
+            departmentDataGridView = new PeproDataGridView();
+            departmentNameColumn = new DataGridViewTextBoxColumn();
+            managerIdColumn = new DataGridViewTextBoxColumn();
+            departmentInputField = new PeproInputField();
+            managerInputField = new PeproInputField();
+            searchTextBox = new TextBox();
+            searchButton = new Button();
+            reloadButton = new Button();
+            deleteButton = new Button();
+            updateButton = new Button();
+            insertButton = new Button();
+            ((System.ComponentModel.ISupportInitialize)departmentDataGridView).BeginInit();
             SuspendLayout();
             // 
-            // dtgvDepartment
+            // departmentDataGridView
             // 
-            dtgvDepartment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvDepartment.Columns.AddRange(new DataGridViewColumn[] { DepartmentID, DepartmentName, ManagerID });
-            dtgvDepartment.Location = new Point(122, 343);
-            dtgvDepartment.Margin = new Padding(4, 3, 4, 3);
-            dtgvDepartment.Name = "dtgvDepartment";
-            dtgvDepartment.ReadOnly = true;
-            dtgvDepartment.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvDepartment.Size = new Size(780, 210);
-            dtgvDepartment.TabIndex = 0;
+            departmentDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            departmentDataGridView.Columns.AddRange(new DataGridViewColumn[] { departmentNameColumn, managerIdColumn });
+            departmentDataGridView.Location = new Point(16, 195);
+            departmentDataGridView.Margin = new Padding(16);
+            departmentDataGridView.Name = "departmentDataGridView";
+            departmentDataGridView.Size = new Size(1032, 470);
+            departmentDataGridView.TabIndex = 7;
             // 
-            // DepartmentID
+            // departmentNameColumn
             // 
-            DepartmentID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DepartmentID.DataPropertyName = "DepartmentID";
-            DepartmentID.HeaderText = "ID";
-            DepartmentID.Name = "DepartmentID";
-            DepartmentID.ReadOnly = true;
+            departmentNameColumn.DataPropertyName = "Name";
+            departmentNameColumn.HeaderText = "Name";
+            departmentNameColumn.Name = "departmentNameColumn";
+            departmentNameColumn.ReadOnly = true;
+            departmentNameColumn.Width = 70;
             // 
-            // DepartmentName
+            // managerIdColumn
             // 
-            DepartmentName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DepartmentName.DataPropertyName = "DepartmentName";
-            DepartmentName.HeaderText = "Name";
-            DepartmentName.Name = "DepartmentName";
-            DepartmentName.ReadOnly = true;
+            managerIdColumn.DataPropertyName = "ManagerId";
+            managerIdColumn.HeaderText = "Manager";
+            managerIdColumn.Name = "managerIdColumn";
+            managerIdColumn.ReadOnly = true;
+            managerIdColumn.Width = 89;
             // 
-            // ManagerID
+            // departmentInputField
             // 
-            ManagerID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ManagerID.DataPropertyName = "ManagerID";
-            ManagerID.HeaderText = "Manager";
-            ManagerID.Name = "ManagerID";
-            ManagerID.ReadOnly = true;
+            departmentInputField.Enabled = false;
+            departmentInputField.LabelText = "Department name";
+            departmentInputField.Location = new Point(16, 67);
+            departmentInputField.Margin = new Padding(16, 16, 0, 24);
+            departmentInputField.Name = "departmentInputField";
+            departmentInputField.PlaceholderText = "e.g. department name";
+            departmentInputField.Size = new Size(504, 48);
+            departmentInputField.TabIndex = 0;
+            departmentInputField.TabStop = false;
             // 
-            // groupBox1
+            // managerInputField
             // 
-            groupBox1.BackColor = SystemColors.ControlLightLight;
-            groupBox1.Controls.Add(btnDelete);
-            groupBox1.Controls.Add(btnUpdate);
-            groupBox1.Controls.Add(btnAdd);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(txtName);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(txtID);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(248, 105);
-            groupBox1.Margin = new Padding(4, 3, 4, 3);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(4, 3, 4, 3);
-            groupBox1.Size = new Size(519, 216);
-            groupBox1.TabIndex = 1;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Function";
+            managerInputField.Enabled = false;
+            managerInputField.LabelText = "Manager";
+            managerInputField.Location = new Point(544, 67);
+            managerInputField.Margin = new Padding(24, 16, 16, 24);
+            managerInputField.Name = "managerInputField";
+            managerInputField.PlaceholderText = "e.g. manager";
+            managerInputField.Size = new Size(504, 48);
+            managerInputField.TabIndex = 0;
+            managerInputField.TabStop = false;
             // 
-            // btnDelete
+            // searchTextBox
             // 
-            btnDelete.BackColor = SystemColors.Menu;
-            btnDelete.Location = new Point(343, 165);
-            btnDelete.Margin = new Padding(4, 3, 4, 3);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(74, 36);
-            btnDelete.TabIndex = 8;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = false;
+            searchTextBox.Location = new Point(16, 147);
+            searchTextBox.Margin = new Padding(16, 0, 16, 0);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.PlaceholderText = "Search for department name";
+            searchTextBox.Size = new Size(431, 26);
+            searchTextBox.TabIndex = 1;
             // 
-            // btnUpdate
+            // searchButton
             // 
-            btnUpdate.BackColor = SystemColors.Menu;
-            btnUpdate.Location = new Point(246, 165);
-            btnUpdate.Margin = new Padding(4, 3, 4, 3);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(74, 36);
-            btnUpdate.TabIndex = 7;
-            btnUpdate.Text = "Update";
-            btnUpdate.UseVisualStyleBackColor = false;
+            searchButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            searchButton.Location = new Point(466, 139);
+            searchButton.Margin = new Padding(16, 0, 0, 0);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(40, 40);
+            searchButton.TabIndex = 2;
             // 
-            // btnAdd
+            // reloadButton
             // 
-            btnAdd.BackColor = SystemColors.Menu;
-            btnAdd.Location = new Point(140, 165);
-            btnAdd.Margin = new Padding(4, 3, 4, 3);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(74, 36);
-            btnAdd.TabIndex = 6;
-            btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = false;
+            reloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            reloadButton.Location = new Point(522, 139);
+            reloadButton.Margin = new Padding(16, 0, 0, 0);
+            reloadButton.Name = "reloadButton";
+            reloadButton.Size = new Size(40, 40);
+            reloadButton.TabIndex = 3;
             // 
-            // textBox2
+            // deleteButton
             // 
-            textBox2.Location = new Point(203, 117);
-            textBox2.Margin = new Padding(4, 3, 4, 3);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(150, 26);
-            textBox2.TabIndex = 5;
+            deleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            deleteButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            deleteButton.Location = new Point(706, 139);
+            deleteButton.Margin = new Padding(16, 0, 0, 0);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Padding = new Padding(12, 0, 12, 0);
+            deleteButton.Size = new Size(112, 40);
+            deleteButton.TabIndex = 4;
+            deleteButton.Text = " Delete";
             // 
-            // label3
+            // updateButton
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(136, 121);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(67, 19);
-            label3.TabIndex = 4;
-            label3.Text = "Manager:";
+            updateButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            updateButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            updateButton.Location = new Point(834, 139);
+            updateButton.Margin = new Padding(16, 0, 0, 0);
+            updateButton.Name = "updateButton";
+            updateButton.Padding = new Padding(12, 0, 12, 0);
+            updateButton.Size = new Size(98, 40);
+            updateButton.TabIndex = 5;
+            updateButton.Text = " Edit";
             // 
-            // txtName
+            // insertButton
             // 
-            txtName.Location = new Point(203, 70);
-            txtName.Margin = new Padding(4, 3, 4, 3);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(150, 26);
-            txtName.TabIndex = 3;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(155, 74);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(48, 19);
-            label2.TabIndex = 2;
-            label2.Text = "Name:";
-            // 
-            // txtID
-            // 
-            txtID.Location = new Point(203, 22);
-            txtID.Margin = new Padding(4, 3, 4, 3);
-            txtID.Name = "txtID";
-            txtID.Size = new Size(150, 26);
-            txtID.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(175, 25);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(26, 19);
-            label1.TabIndex = 0;
-            label1.Text = "ID:";
+            insertButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            insertButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            insertButton.Location = new Point(948, 139);
+            insertButton.Margin = new Padding(16, 0, 0, 0);
+            insertButton.Name = "insertButton";
+            insertButton.Padding = new Padding(12, 0, 12, 0);
+            insertButton.Size = new Size(100, 40);
+            insertButton.TabIndex = 6;
+            insertButton.Text = " Add";
             // 
             // DepartmentControl
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(groupBox1);
-            Controls.Add(dtgvDepartment);
+            Controls.Add(departmentInputField);
+            Controls.Add(managerInputField);
+            Controls.Add(searchTextBox);
+            Controls.Add(searchButton);
+            Controls.Add(reloadButton);
+            Controls.Add(deleteButton);
+            Controls.Add(updateButton);
+            Controls.Add(insertButton);
+            Controls.Add(departmentDataGridView);
             HeaderText = "Department";
             Name = "DepartmentControl";
             ReturnButtonVisible = false;
-            Controls.SetChildIndex(dtgvDepartment, 0);
-            Controls.SetChildIndex(groupBox1, 0);
-            ((System.ComponentModel.ISupportInitialize)dtgvDepartment).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            Load += DepartmentControl_Load;
+            Controls.SetChildIndex(departmentDataGridView, 0);
+            Controls.SetChildIndex(insertButton, 0);
+            Controls.SetChildIndex(updateButton, 0);
+            Controls.SetChildIndex(deleteButton, 0);
+            Controls.SetChildIndex(reloadButton, 0);
+            Controls.SetChildIndex(searchButton, 0);
+            Controls.SetChildIndex(searchTextBox, 0);
+            Controls.SetChildIndex(managerInputField, 0);
+            Controls.SetChildIndex(departmentInputField, 0);
+            ((System.ComponentModel.ISupportInitialize)departmentDataGridView).EndInit();
             ResumeLayout(false);
+            PerformLayout();
 
         }
 
         #endregion
 
-        private DataGridView dtgvDepartment;
-        private GroupBox groupBox1;
-        private TextBox textBox2;
-        private Label label3;
-        private TextBox txtName;
-        private Label label2;
-        private TextBox txtID;
-        private Label label1;
-        private Button btnDelete;
-        private Button btnUpdate;
-        private Button btnAdd;
-        private DataGridViewTextBoxColumn DepartmentID;
-        private DataGridViewTextBoxColumn DepartmentName;
-        private DataGridViewTextBoxColumn ManagerID;
+        private PeproDataGridView departmentDataGridView;
+        private PeproInputField departmentInputField;
+        private PeproInputField managerInputField;
+        private TextBox searchTextBox;
+        private Button searchButton;
+        private Button reloadButton;
+        private Button deleteButton;
+        private Button updateButton;
+        private Button insertButton;
+        private DataGridViewTextBoxColumn departmentNameColumn;
+        private DataGridViewTextBoxColumn managerIdColumn;
     }
 }
