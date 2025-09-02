@@ -64,6 +64,32 @@ public class DepartmentDataAccess
         return departments;
     }
 
+    public List<Department> SearchDepartments(string searchValue) {
+        string query = @"
+            SELECT Department.DepartmentId
+                , Department.Name
+                , Department.ManagerId
+                , Department.IsDeleted
+                , Department.CreatedAt
+                , Department.UpdatedAt
+                , Department.DeletedAt
+            FROM Department
+            WHERE Department.Name LIKE '%' + @SearchValue + '%'
+                AND Department.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
+
+        List<Department> departments = [];
+        foreach (DataRow row in dataTable.Rows) {
+            Department department = DepartmentMapper.FromDataRow(row);
+            departments.Add(department);
+        }
+        return departments;
+    }
+
     public int DeleteDepartment(int departmentId)
     {
         string query = @"

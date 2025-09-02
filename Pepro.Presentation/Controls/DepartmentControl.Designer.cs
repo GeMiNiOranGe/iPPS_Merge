@@ -30,7 +30,7 @@
             departmentDataGridView = new PeproDataGridView();
             departmentNameColumn = new DataGridViewTextBoxColumn();
             managerIdColumn = new DataGridViewTextBoxColumn();
-            departmentInputField = new PeproInputField();
+            departmentNameInputField = new PeproInputField();
             managerInputField = new PeproInputField();
             searchTextBox = new TextBox();
             searchButton = new Button();
@@ -68,20 +68,22 @@
             managerIdColumn.ReadOnly = true;
             managerIdColumn.Width = 89;
             // 
-            // departmentInputField
+            // departmentNameInputField
             // 
-            departmentInputField.Enabled = false;
-            departmentInputField.LabelText = "Department name";
-            departmentInputField.Location = new Point(16, 67);
-            departmentInputField.Margin = new Padding(16, 16, 0, 24);
-            departmentInputField.Name = "departmentInputField";
-            departmentInputField.PlaceholderText = "e.g. department name";
-            departmentInputField.Size = new Size(504, 48);
-            departmentInputField.TabIndex = 0;
-            departmentInputField.TabStop = false;
+            departmentNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            departmentNameInputField.Enabled = false;
+            departmentNameInputField.LabelText = "Department name";
+            departmentNameInputField.Location = new Point(16, 67);
+            departmentNameInputField.Margin = new Padding(16, 16, 0, 24);
+            departmentNameInputField.Name = "departmentNameInputField";
+            departmentNameInputField.PlaceholderText = "e.g. department name";
+            departmentNameInputField.Size = new Size(504, 48);
+            departmentNameInputField.TabIndex = 0;
+            departmentNameInputField.TabStop = false;
             // 
             // managerInputField
             // 
+            managerInputField.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             managerInputField.Enabled = false;
             managerInputField.LabelText = "Manager";
             managerInputField.Location = new Point(544, 67);
@@ -164,7 +166,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(departmentInputField);
+            Controls.Add(departmentNameInputField);
             Controls.Add(managerInputField);
             Controls.Add(searchTextBox);
             Controls.Add(searchButton);
@@ -185,7 +187,7 @@
             Controls.SetChildIndex(searchButton, 0);
             Controls.SetChildIndex(searchTextBox, 0);
             Controls.SetChildIndex(managerInputField, 0);
-            Controls.SetChildIndex(departmentInputField, 0);
+            Controls.SetChildIndex(departmentNameInputField, 0);
             ((System.ComponentModel.ISupportInitialize)departmentDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -195,7 +197,7 @@
         #endregion
 
         private PeproDataGridView departmentDataGridView;
-        private PeproInputField departmentInputField;
+        private PeproInputField departmentNameInputField;
         private PeproInputField managerInputField;
         private TextBox searchTextBox;
         private Button searchButton;
