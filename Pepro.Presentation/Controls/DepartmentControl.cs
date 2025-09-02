@@ -68,12 +68,10 @@ public partial class DepartmentControl : PeproCrudControlBase
 
     private void DeleteButton_Click(object sender, EventArgs e)
     {
-        /*
         BindDeleteButtonClick<DepartmentDto>(
             departmentDataGridView,
             (item) => DepartmentBusiness.Instance.DeleteDepartment(item.DepartmentId),
             LoadDepartments
         );
-        */
     }
 }

@@ -28,13 +28,13 @@ public class DepartmentBusiness
         return departments.ToDtos();
     }
 
+    public int DeleteDepartment(int departmentId)
+    {
+        return DepartmentDataAccess.Instance.DeleteDepartment(departmentId);
+    }
+
     public DataTable GetDepartmentList()
     {
         return DepartmentDataAccess.Instance.GetDepartmentList();
-    }
-
-    public DataTable GetAllDepartments()
-    {
-        return DepartmentDataAccess.Instance.GetAllDepartments();
     }
 }

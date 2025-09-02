@@ -64,6 +64,20 @@ public class DepartmentDataAccess
         return departments;
     }
 
+    public int DeleteDepartment(int departmentId)
+    {
+        string query = @"
+            UPDATE Department
+            SET IsDeleted = 1,
+                DeletedAt = GetDate()
+            WHERE DepartmentId = @DepartmentId
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("DepartmentId", SqlDbType.Int, departmentId);
+
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
     public DataTable GetDepartmentList()
     {
         DataTable dataTable = new DataTable();
@@ -71,28 +85,6 @@ public class DepartmentDataAccess
         using (SqlConnection connection = new SqlConnection(""))
         {
             string query = "SELECT DepartmentID FROM Departments";
-
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                connection.Open();
-
-                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                {
-                    adapter.Fill(dataTable);
-                }
-            }
-        }
-
-        return dataTable;
-    }
-
-    public DataTable GetAllDepartments()
-    {
-        DataTable dataTable = new DataTable();
-
-        using (SqlConnection connection = new SqlConnection(""))
-        {
-            string query = "SELECT DepartmentID, DepartmentName, ISNULL(ManagerID, 'NULL') AS ManagerID FROM Departments";
 
             using (SqlCommand command = new SqlCommand(query, connection))
             {
