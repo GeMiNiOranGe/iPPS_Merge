@@ -8,6 +8,7 @@ class SqlUpdateQueryBuilder(string tableName)
 {
     private readonly string _tableName = tableName;
     private readonly List<string> _setClauses = [];
+    private readonly List<string> _setDirectClauses = [];
     private readonly List<string> _whereClauses = [];
     private readonly List<SqlParameter> _parameters = [];
 
@@ -17,7 +18,7 @@ class SqlUpdateQueryBuilder(string tableName)
         object? value
     )
     {
-        _setClauses.Add($"{columnName} = @{columnName}");
+        _setDirectClauses.Add($"{columnName} = @{columnName}");
         _parameters.Add(columnName, dbType, value);
         return this;
     }
@@ -81,6 +82,7 @@ class SqlUpdateQueryBuilder(string tableName)
             return ("", []);
         }
 
+        _setClauses.AddRange(_setDirectClauses);
         string query = $@"
             UPDATE {_tableName}
             SET {string.Join(", ", _setClauses)}
