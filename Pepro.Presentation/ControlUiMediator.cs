@@ -23,6 +23,9 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator
             case ControlUiEvent.NavigateDepartmentControl:
                 Navigate<DepartmentControl>();
                 break;
+            case ControlUiEvent.PushDepartmentEditorControl:
+                PushEditor<DepartmentEditorControl, DepartmentDto>(data);
+                break;
             case ControlUiEvent.PushDocumentEditorControl:
                 PushEditor<DocumentEditorControl, DocumentDto>(data);
                 break;
