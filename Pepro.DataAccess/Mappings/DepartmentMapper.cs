@@ -9,7 +9,7 @@ static class DepartmentMapper
     {
         return new Department()
         {
-            DepartmentId = row.Field<string>("DepartmentId") ?? "",
+            DepartmentId = row.Field<int>("DepartmentId"),
             Name = row.Field<string>("Name") ?? "",
             ManagerId = row.Field<int>("ManagerId"),
             IsDeleted = row.Field<bool>("IsDeleted"),

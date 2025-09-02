@@ -28,7 +28,7 @@ GO
 
 -- have no key ----------------------------------
 CREATE TABLE [dbo].[Department] (
-    [DepartmentId]  [varchar](10)   NOT NULL,
+    [DepartmentId]  [int]           NOT NULL IDENTITY(1, 1),
     [Name]          [nvarchar](50)  NOT NULL,
     [ManagerId]     [int]           NOT NULL,
 
@@ -91,7 +91,7 @@ CREATE TABLE [dbo].[Employee] (
     [CitizenId]     [varchar](12)   NOT NULL,
     -- TODO: add address column
 
-    [DepartmentId]  [varchar](10)   NOT NULL,
+    [DepartmentId]  [int]           NOT NULL,
     [PositionId]    [int]           NOT NULL,
     [SalaryLevelId] [int]           NOT NULL,
 
@@ -164,10 +164,10 @@ CREATE TABLE [AssignmentDetail] (
 );
 
 CREATE TABLE [DepartmentProject] (
-    [DepartmentProjectId]   [int]           NOT NULL IDENTITY(1, 1),
+    [DepartmentProjectId]   [int]   NOT NULL IDENTITY(1, 1),
 
-    [ProjectId]             [int]           NOT NULL,
-    [DepartmentId]          [varchar](10)   NOT NULL,
+    [ProjectId]             [int]   NOT NULL,
+    [DepartmentId]          [int]   NOT NULL,
 );
 GO
 

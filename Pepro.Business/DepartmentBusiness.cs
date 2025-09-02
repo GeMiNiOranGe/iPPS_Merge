@@ -17,7 +17,7 @@ public class DepartmentBusiness
 
     private DepartmentBusiness() { }
 
-    public DepartmentDto? GetDepartmentByDepartmentId(string departmentID) {
+    public DepartmentDto? GetDepartmentByDepartmentId(int departmentID) {
         Department? department = DepartmentDataAccess.Instance.GetDepartmentByDepartmentId(departmentID);
         return department?.ToDto();
     }

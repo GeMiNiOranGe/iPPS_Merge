@@ -157,7 +157,7 @@ public class EmployeeDataAccess {
             .Set("Gender", SqlDbType.Bit, entity.Gender)
             .Set("TaxCode", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, entity.TaxCode)
             .Set("CitizenId", SqlDbType.VarChar, 12, entity.CitizenId)
-            .Set("DepartmentId", SqlDbType.VarChar, 10, entity.DepartmentId)
+            .Set("DepartmentId", SqlDbType.Int, entity.DepartmentId)
             .Set("PositionId", SqlDbType.Int, entity.PositionId)
             .Set("SalaryLevelId", SqlDbType.Int, entity.SalaryLevelId)
             .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
@@ -279,7 +279,7 @@ public class EmployeeDataAccess {
         parameters.Add("Gender", SqlDbType.Bit, employee.Gender);
         parameters.Add("TaxCode", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, employee.TaxCode);
         parameters.Add("CitizenId", SqlDbType.VarChar, 12, employee.CitizenId);
-        parameters.Add("DepartmentId", SqlDbType.VarChar, 10, employee.DepartmentId);
+        parameters.Add("DepartmentId", SqlDbType.Int, employee.DepartmentId);
         parameters.Add("PositionId", SqlDbType.Int, employee.PositionId);
         parameters.Add("SalaryLevelId", SqlDbType.Int, employee.SalaryLevelId);
 
@@ -331,7 +331,7 @@ public class EmployeeDataAccess {
         parameters.Add("Gender", SqlDbType.Bit, employee.Gender);
         parameters.Add("TaxCode", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, employee.TaxCode);
         parameters.Add("CitizenId", SqlDbType.VarChar, 12, employee.CitizenId);
-        parameters.Add("DepartmentId", SqlDbType.VarChar, 10, employee.DepartmentId);
+        parameters.Add("DepartmentId", SqlDbType.Int, employee.DepartmentId);
         parameters.Add("PositionId", SqlDbType.Int, employee.PositionId);
         parameters.Add("SalaryLevelId", SqlDbType.Int, employee.SalaryLevelId);
 

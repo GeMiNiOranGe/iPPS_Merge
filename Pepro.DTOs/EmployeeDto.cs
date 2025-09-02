@@ -11,7 +11,7 @@ public class EmployeeDto {
     private string? _gender;
     private string? _taxCode;
     private string _citizenId = "";
-    private string _departmentId = "";
+    private int _departmentId;
     private int _PositionId;
     private int _salaryLevelId;
 
@@ -65,7 +65,7 @@ public class EmployeeDto {
         set => _citizenId = value;
     }
 
-    public string DepartmentId {
+    public int DepartmentId {
         get => _departmentId;
         set => _departmentId = value;
     }

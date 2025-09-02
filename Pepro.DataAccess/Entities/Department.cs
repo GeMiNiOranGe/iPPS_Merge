@@ -2,7 +2,7 @@
 
 public class Department
 {
-    private string _departmentId = null!;
+    private int _departmentId;
     private string _name = null!;
     private int _managerId;
 
@@ -13,7 +13,7 @@ public class Department
     private DateTime? _deletedAt;
     #endregion
 
-    public required string DepartmentId
+    public required int DepartmentId
     {
         get => _departmentId;
         set => _departmentId = value;

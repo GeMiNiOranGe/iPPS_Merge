@@ -16,7 +16,7 @@ public class DepartmentDataAccess
 
     private DepartmentDataAccess() { }
 
-    public Department? GetDepartmentByDepartmentId(string departmentId) {
+    public Department? GetDepartmentByDepartmentId(int departmentId) {
         string query = @"
             SELECT Department.DepartmentId
                 , Department.Name
@@ -30,7 +30,7 @@ public class DepartmentDataAccess
                 AND Department.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("DepartmentId", SqlDbType.VarChar, 10, departmentId);
+        parameters.Add("DepartmentId", SqlDbType.Int, departmentId);
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
         if (dataTable.Rows.Count == 0) {
