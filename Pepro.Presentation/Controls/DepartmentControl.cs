@@ -29,18 +29,24 @@ public partial class DepartmentControl : PeproCrudControlBase
 
     private void DepartmentDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-        BindDataGridViewCellClick<DepartmentDto>((DataGridView)sender, e);
+        BindDataGridViewCellClick<DepartmentDto>(
+            (DataGridView)sender,
+            e,
+            (item) =>
+            {
+                managerInputField.Text = item.DepartmentId.ToString();
+                departmentNameInputField.Text = item.Name;
+            }
+        );
     }
 
     private void SearchButton_Click(object sender, EventArgs e)
     {
-        /*
         BindSearchButtonClick(
             searchTextBox.Text,
             departmentDataGridView,
-            DepartmentBusiness.Instance.SearchDepartmentViews
+            DepartmentBusiness.Instance.SearchDepartments
         );
-        */
     }
 
     private void ReloadButton_Click(object sender, EventArgs e)

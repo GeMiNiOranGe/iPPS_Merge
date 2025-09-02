@@ -28,6 +28,12 @@ public class DepartmentBusiness
         return departments.ToDtos();
     }
 
+    public List<DepartmentDto> SearchDepartments(string searchValue)
+    {
+        List<Department> departments = DepartmentDataAccess.Instance.SearchDepartments(searchValue);
+        return departments.ToDtos();
+    }
+
     public int DeleteDepartment(int departmentId)
     {
         return DepartmentDataAccess.Instance.DeleteDepartment(departmentId);
