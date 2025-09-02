@@ -149,6 +149,10 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
                 salaryLevelComboBoxField.SelectedValue?.ToString(),
                 out int salaryLevelId
             )
+            || !int.TryParse(
+                departmentComboBoxField.SelectedValue?.ToString(),
+                out int departmentId
+            )
         )
         {
             return;
@@ -167,7 +171,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             ),
             TaxCode = taxCodeInputField.Text.Trim(),
             CitizenId = citizenIdInputField.Text.Trim(),
-            DepartmentId = departmentComboBoxField.SelectedValue?.ToString() ?? "",
+            DepartmentId = departmentId,
             PositionId = positionId,
             SalaryLevelId = salaryLevelId,
         };

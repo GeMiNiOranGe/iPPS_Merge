@@ -2,11 +2,11 @@
 
 public class DepartmentDto
 {
-    private string _departmentId = "";
+    private int _departmentId;
     private string _name = "";
     private int _managerId;
 
-    public string DepartmentId
+    public int DepartmentId
     {
         get => _departmentId;
         set => _departmentId = value;

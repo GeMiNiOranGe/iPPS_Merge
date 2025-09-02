@@ -10,7 +10,7 @@ public class Employee
     private bool? _gender;
     private byte[]? _taxCode;
     private string _citizenId = null!;
-    private string _departmentId = null!;
+    private int _departmentId;
     private int _positionId;
     private int _salaryLevelId;
 
@@ -69,7 +69,7 @@ public class Employee
         set => _citizenId = value;
     }
 
-    public required string DepartmentId
+    public required int DepartmentId
     {
         get => _departmentId;
         set => _departmentId = value;

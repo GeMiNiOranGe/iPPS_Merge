@@ -9,7 +9,7 @@ public class EmployeeUpdate
     private TrackedValue<bool?> _gender = new();
     private TrackedValue<byte[]?> _taxCode = new();
     private TrackedValue<string> _citizenId = new();
-    private TrackedValue<string> _departmentId = new();
+    private TrackedValue<int> _departmentId = new();
     private TrackedValue<int> _positionId = new();
     private TrackedValue<int> _salaryLevelId = new();
 
@@ -55,7 +55,7 @@ public class EmployeeUpdate
         set => _citizenId = value;
     }
 
-    public required TrackedValue<string> DepartmentId
+    public required TrackedValue<int> DepartmentId
     {
         get => _departmentId;
         set => _departmentId = value;
