@@ -50,7 +50,6 @@ public partial class DepartmentEditorControl
         }
     }
 
-
     private void SaveButton_Click(object sender, EventArgs e)
     {
         if (!ValidateInputs())
@@ -73,7 +72,7 @@ public partial class DepartmentEditorControl
 
         int result = _mode switch
         {
-            //EditorMode.Create => DepartmentBusiness.Instance.InsertDepartment(department),
+            EditorMode.Create => DepartmentBusiness.Instance.InsertDepartment(department),
             EditorMode.Edit => DepartmentBusiness.Instance.UpdateDepartment(department),
             _ => throw new InvalidEnumArgumentException(
                 nameof(Mode),
