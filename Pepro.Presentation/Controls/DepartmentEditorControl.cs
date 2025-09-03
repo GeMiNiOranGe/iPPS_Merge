@@ -66,6 +66,7 @@ public partial class DepartmentEditorControl
 
         DepartmentDto department = new()
         {
+            DepartmentId = _item.DepartmentId,
             Name = departmentNameInputField.Text,
             ManagerId = managerId,
         };
@@ -73,7 +74,7 @@ public partial class DepartmentEditorControl
         int result = _mode switch
         {
             //EditorMode.Create => DepartmentBusiness.Instance.InsertDepartment(department),
-            //EditorMode.Edit => DepartmentBusiness.Instance.UpdateDepartment(department),
+            EditorMode.Edit => DepartmentBusiness.Instance.UpdateDepartment(department),
             _ => throw new InvalidEnumArgumentException(
                 nameof(Mode),
                 (int)_mode,
