@@ -122,6 +122,27 @@ public class DepartmentDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
+    public int InsertDepartment(Department entity)
+    {
+        string query = @"
+            INSERT INTO Department
+            (
+                Name
+                , ManagerId
+            )
+            VALUES
+            (
+                @Name
+                , @ManagerId
+            )
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("Name", SqlDbType.NVarChar, 50, entity.Name);
+        parameters.Add("ManagerId", SqlDbType.Int, entity.ManagerId);
+
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
     public DataTable GetDepartmentList()
     {
         DataTable dataTable = new DataTable();

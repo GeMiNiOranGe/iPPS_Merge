@@ -5,6 +5,16 @@ namespace Pepro.Business.Mappings;
 
 static class DepartmentMapper
 {
+    public static Department ToEntity(this DepartmentDto dto)
+    {
+        return new Department()
+        {
+            DepartmentId = dto.DepartmentId,
+            Name = dto.Name,
+            ManagerId = dto.ManagerId,
+        };
+    }
+
     public static DepartmentDto ToDto(this Department entity)
     {
         return new DepartmentDto()

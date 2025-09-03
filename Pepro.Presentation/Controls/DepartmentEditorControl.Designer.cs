@@ -35,7 +35,7 @@ partial class DepartmentEditorControl
         // 
         // departmentNameInputField
         // 
-        departmentNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        departmentNameInputField.Anchor = AnchorStyles.None;
         departmentNameInputField.LabelText = "Department name";
         departmentNameInputField.Location = new Point(16, 67);
         departmentNameInputField.Margin = new Padding(16, 16, 16, 24);
@@ -46,7 +46,7 @@ partial class DepartmentEditorControl
         // 
         // managerInputField
         // 
-        managerInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        managerInputField.Anchor = AnchorStyles.None;
         managerInputField.LabelText = "Manager";
         managerInputField.Location = new Point(16, 139);
         managerInputField.Margin = new Padding(16, 0, 16, 24);

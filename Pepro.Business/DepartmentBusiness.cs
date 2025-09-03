@@ -56,6 +56,12 @@ public class DepartmentBusiness
         return DepartmentDataAccess.Instance.UpdateDepartment(dto.DepartmentId, updateInfo);
     }
 
+    public int InsertDepartment(DepartmentDto dto)
+    {
+        Department entity = dto.ToEntity();
+        return DepartmentDataAccess.Instance.InsertDepartment(entity);
+    }
+
     public DataTable GetDepartmentList()
     {
         return DepartmentDataAccess.Instance.GetDepartmentList();
