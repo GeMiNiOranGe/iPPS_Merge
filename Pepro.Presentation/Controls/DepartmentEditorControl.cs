@@ -84,6 +84,11 @@ public partial class DepartmentEditorControl
 
     private void SetupEditMode()
     {
+        managerComboBoxField.DataSource =
+            EmployeeBusiness.Instance.GetEmployeesByDepartmentId(
+                _item.DepartmentId
+            );
+        managerComboBoxField.SelectedValue = _item.ManagerId;
     }
 
     private void SaveButton_Click(object sender, EventArgs e)

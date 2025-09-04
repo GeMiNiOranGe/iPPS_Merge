@@ -119,4 +119,10 @@ public class EmployeeBusiness
         }
         return [.. phoneNumbers];
     }
+
+    public List<EmployeeDto> GetEmployeesByDepartmentId(int departmentId)
+    {
+        List<Employee> employees = EmployeeDataAccess.Instance.GetEmployeesByDepartmentId(departmentId);
+        return employees.ToDtos();
+    }
 }
