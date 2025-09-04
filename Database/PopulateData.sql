@@ -17,3 +17,5 @@ SET NOCOUNT ON
 
 :r $(workspace)\Database\SampleData\PopulateAssignmentDetail.sql
 :r $(workspace)\Database\SampleData\PopulateDepartmentProject.sql
+
+:r $(workspace)\Database\SampleData\FinalizeSampleData.sql

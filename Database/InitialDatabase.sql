@@ -30,7 +30,8 @@ GO
 CREATE TABLE [dbo].[Department] (
     [DepartmentId]  [int]           NOT NULL IDENTITY(1, 1),
     [Name]          [nvarchar](50)  NOT NULL,
-    [ManagerId]     [int]           NOT NULL,
+
+    [ManagerId]     [int],
 
     [IsDeleted]     [bit]           NOT NULL,
     [CreatedAt]     [datetime]      NOT NULL,
@@ -60,10 +61,10 @@ CREATE TABLE [dbo].[Project] (
     [ProjectId]     [int]           NOT NULL IDENTITY(1, 1),
     [Name]          [nvarchar](50)  NOT NULL,
     [CustomerName]  [nvarchar](50)  NOT NULL,
-    [ManagerId]     [int]           NOT NULL,
     [StartDate]     [date]          NOT NULL,
     [EndDate]       [date]          NOT NULL,
 
+    [ManagerId]     [int],
     [StatusId]      [int]           NOT NULL,
 
     [IsDeleted]     [bit]           NOT NULL,
@@ -124,11 +125,11 @@ CREATE TABLE [dbo].[Assignment] (
     [Name]                  [nvarchar](50)  NOT NULL,
     [IsPublicToProject]     [bit]           NOT NULL,
     [IsPublicToDepartment]  [bit]           NOT NULL,
-    [ManagerId]             [int]           NOT NULL,
     [StartDate]             [date]          NOT NULL,
     [EndDate]               [date]          NOT NULL,
     [RequiredDocumentCount] [int]           NOT NULL,
 
+    [ManagerId]             [int],
     [ProjectId]             [int]           NOT NULL,
     [StatusId]              [int]           NOT NULL,
 
@@ -193,7 +194,16 @@ ALTER TABLE [dbo].[AssignmentDetail]    ADD CONSTRAINT [PK_AssignmentDetail]    
 GO
 
 -- add foreign key -------------------------------------------------------
+ALTER TABLE [dbo].[Department] ADD
+CONSTRAINT [FK_Department_Employee]
+    FOREIGN KEY ([ManagerId])
+    REFERENCES [dbo].[Employee]([EmployeeId]);
+GO
+
 ALTER TABLE [dbo].[Project] ADD
+CONSTRAINT [FK_Project_Employee]
+    FOREIGN KEY ([ManagerId])
+    REFERENCES [dbo].[Employee]([EmployeeId]),
 CONSTRAINT [FK_Project_Status]
     FOREIGN KEY ([StatusId])
     REFERENCES [dbo].[Status]([StatusId]);
@@ -203,12 +213,6 @@ ALTER TABLE [dbo].[SalaryLevel] ADD
 CONSTRAINT [FK_SalaryLevel_SalaryScale]
     FOREIGN KEY ([SalaryScaleId])
     REFERENCES [dbo].[SalaryScale]([SalaryScaleId]);
-GO
-
-ALTER TABLE [dbo].[EmployeePhoneNumber] ADD
-CONSTRAINT [FK_EmployeePhoneNumber_Employee]
-    FOREIGN KEY ([EmployeeId])
-    REFERENCES [dbo].[Employee]([EmployeeId]);
 GO
 
 ALTER TABLE [dbo].[Employee] ADD
@@ -223,6 +227,12 @@ CONSTRAINT [FK_Employee_SalaryLevel]
     REFERENCES [dbo].[SalaryLevel]([SalaryLevelId]);
 GO
 
+ALTER TABLE [dbo].[EmployeePhoneNumber] ADD
+CONSTRAINT [FK_EmployeePhoneNumber_Employee]
+    FOREIGN KEY ([EmployeeId])
+    REFERENCES [dbo].[Employee]([EmployeeId]);
+GO
+
 ALTER TABLE [dbo].[Account] ADD
 CONSTRAINT [FK_Account_Employee]
     FOREIGN KEY ([EmployeeId])
@@ -230,6 +240,9 @@ CONSTRAINT [FK_Account_Employee]
 GO
 
 ALTER TABLE [dbo].[Assignment] ADD
+CONSTRAINT [FK_Assignment_Employee]
+    FOREIGN KEY ([ManagerId])
+    REFERENCES [dbo].[Employee]([EmployeeId]),
 CONSTRAINT [FK_Assignment_Project]
     FOREIGN KEY ([ProjectId])
     REFERENCES [dbo].[Project]([ProjectId]),
