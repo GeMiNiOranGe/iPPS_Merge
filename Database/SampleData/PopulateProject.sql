@@ -1,7 +1,6 @@
 CREATE OR ALTER PROCEDURE [dbo].[usp_CreateDummyProject]
     @Name               NVARCHAR(50),
     @CustomerName       NVARCHAR(50),
-    @ManagerId          INT,
     @DaysBeforeToday    INT,
     @DaysAfterToday     INT,
     @StatusId           INT
@@ -17,15 +16,14 @@ AS BEGIN
     SET @EndDate     = DateAdd(DAY, @DaysAfterToday, @CurrentDate)
 
     INSERT INTO [dbo].[Project]
-            ([CustomerName], [ManagerId], [StartDate], [EndDate], [StatusId], [Name])
-    VALUES  (@CustomerName,  @ManagerId,  @StartDate,  @EndDate,  @StatusId,  @Name)
+            ([CustomerName], [StartDate], [EndDate], [StatusId], [Name])
+    VALUES  (@CustomerName,  @StartDate,  @EndDate,  @StatusId,  @Name)
 END
 GO
 
 EXECUTE [dbo].[usp_CreateDummyProject]
     @Name            = N'Dự án nâng cấp nhà máy sản xuất vi mạch'
   , @CustomerName    = N'Tập Đoàn Nubot'
-  , @ManagerId       = 1
   , @DaysBeforeToday = -20
   , @DaysAfterToday  = 5
   , @StatusId        = 1
@@ -33,7 +31,6 @@ EXECUTE [dbo].[usp_CreateDummyProject]
 EXECUTE [dbo].[usp_CreateDummyProject]
     @Name            = N'Dự án triển khai mô hình chăn nuôi hiện đại'
   , @CustomerName    = N'Công ty Hừng Đông'
-  , @ManagerId       = 2
   , @DaysBeforeToday = -87
   , @DaysAfterToday  = 17
   , @StatusId        = 2
@@ -41,7 +38,6 @@ EXECUTE [dbo].[usp_CreateDummyProject]
 EXECUTE [dbo].[usp_CreateDummyProject]
     @Name            = N'Dự án bất động sản BaterHam'
   , @CustomerName    = N'ông Đặng Văn Tuấn'
-  , @ManagerId       = 3
   , @DaysBeforeToday = -87
   , @DaysAfterToday  = 7
   , @StatusId        = 3
@@ -49,7 +45,6 @@ EXECUTE [dbo].[usp_CreateDummyProject]
 EXECUTE [dbo].[usp_CreateDummyProject]
     @Name            = N'Dự án nghiên cứu mô hình trồng cây tự động'
   , @CustomerName    = N'bà Đặng Ngọc Thúy'
-  , @ManagerId       = 4
   , @DaysBeforeToday = -8
   , @DaysAfterToday  = 7
   , @StatusId        = 4
