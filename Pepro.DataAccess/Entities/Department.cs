@@ -4,7 +4,7 @@ public class Department
 {
     private int _departmentId;
     private string _name = null!;
-    private int _managerId;
+    private int? _managerId;
 
     #region Optional fields
     private bool _isDeleted;
@@ -25,7 +25,7 @@ public class Department
         set => _name = value;
     }
 
-    public required int ManagerId
+    public required int? ManagerId
     {
         get => _managerId;
         set => _managerId = value;

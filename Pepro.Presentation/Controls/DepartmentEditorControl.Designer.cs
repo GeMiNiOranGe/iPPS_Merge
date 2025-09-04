@@ -29,7 +29,7 @@ partial class DepartmentEditorControl
     private void InitializeComponent()
     {
         departmentNameInputField = new PeproInputField();
-        managerInputField = new PeproInputField();
+        managerComboBoxField = new PeproComboBoxField();
         saveButton = new Button();
         SuspendLayout();
         // 
@@ -44,16 +44,15 @@ partial class DepartmentEditorControl
         departmentNameInputField.Size = new Size(1032, 48);
         departmentNameInputField.TabIndex = 1;
         // 
-        // managerInputField
+        // managerComboBoxField
         // 
-        managerInputField.Anchor = AnchorStyles.None;
-        managerInputField.LabelText = "Manager";
-        managerInputField.Location = new Point(16, 139);
-        managerInputField.Margin = new Padding(16, 0, 16, 24);
-        managerInputField.Name = "managerInputField";
-        managerInputField.PlaceholderText = "e.g. manager";
-        managerInputField.Size = new Size(1032, 48);
-        managerInputField.TabIndex = 2;
+        managerComboBoxField.Anchor = AnchorStyles.None;
+        managerComboBoxField.LabelText = "Manager";
+        managerComboBoxField.Location = new Point(16, 139);
+        managerComboBoxField.Margin = new Padding(16, 0, 16, 24);
+        managerComboBoxField.Name = "managerComboBoxField";
+        managerComboBoxField.Size = new Size(1032, 48);
+        managerComboBoxField.TabIndex = 2;
         // 
         // saveButton
         // 
@@ -72,12 +71,13 @@ partial class DepartmentEditorControl
         AutoScaleDimensions = new SizeF(8F, 19F);
         AutoScaleMode = AutoScaleMode.Font;
         Controls.Add(departmentNameInputField);
-        Controls.Add(managerInputField);
+        Controls.Add(managerComboBoxField);
         Controls.Add(saveButton);
         HeaderText = "Department Editor";
         Name = "DepartmentEditorControl";
+        Load += DepartmentEditorControl_Load;
         Controls.SetChildIndex(saveButton, 0);
-        Controls.SetChildIndex(managerInputField, 0);
+        Controls.SetChildIndex(managerComboBoxField, 0);
         Controls.SetChildIndex(departmentNameInputField, 0);
         ResumeLayout(false);
     }
@@ -85,6 +85,6 @@ partial class DepartmentEditorControl
     #endregion
 
     private PeproInputField departmentNameInputField;
-    private PeproInputField managerInputField;
+    private PeproComboBoxField managerComboBoxField;
     private Button saveButton;
 }

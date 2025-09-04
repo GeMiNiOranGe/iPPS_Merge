@@ -26,7 +26,6 @@ public partial class DepartmentEditorControl
         {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
             departmentNameInputField.Text = _item.Name;
-            managerInputField.Text = _item.ManagerId.ToString();
         }
     }
 
@@ -50,6 +49,43 @@ public partial class DepartmentEditorControl
         }
     }
 
+    private void DepartmentEditorControl_Load(object sender, EventArgs e)
+    {
+        managerComboBoxField.DisplayMember = nameof(EmployeeDto.FullName);
+        managerComboBoxField.ValueMember = nameof(EmployeeDto.EmployeeId);
+
+        switch (_mode)
+        {
+            case EditorMode.Create:
+            {
+                SetupCreateMode();
+                break;
+            }
+            case EditorMode.Edit:
+            {
+                SetupEditMode();
+                break;
+            }
+            default:
+            {
+                throw new InvalidEnumArgumentException(
+                    nameof(Mode),
+                    (int)_mode,
+                    typeof(EditorMode)
+                );
+            }
+        }
+    }
+
+    private void SetupCreateMode()
+    {
+        managerComboBoxField.Enabled = false;
+    }
+
+    private void SetupEditMode()
+    {
+    }
+
     private void SaveButton_Click(object sender, EventArgs e)
     {
         if (!ValidateInputs())
@@ -58,10 +94,7 @@ public partial class DepartmentEditorControl
             return;
         }
 
-        if (!int.TryParse(managerInputField.Text, out int managerId))
-        {
-            return;
-        }
+        int? managerId = managerComboBoxField.SelectedValue.ToNullable<int>();
 
         DepartmentDto department = new()
         {
@@ -95,7 +128,6 @@ public partial class DepartmentEditorControl
 
     private bool ValidateInputs()
     {
-        return !string.IsNullOrWhiteSpace(departmentNameInputField.Text)
-            && !string.IsNullOrWhiteSpace(managerInputField.Text);
+        return !string.IsNullOrWhiteSpace(departmentNameInputField.Text);
     }
 }
