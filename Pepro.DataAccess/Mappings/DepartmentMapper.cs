@@ -11,7 +11,7 @@ static class DepartmentMapper
         {
             DepartmentId = row.Field<int>("DepartmentId"),
             Name = row.Field<string>("Name") ?? "",
-            ManagerId = row.Field<int>("ManagerId"),
+            ManagerId = row.Field<int?>("ManagerId"),
             IsDeleted = row.Field<bool>("IsDeleted"),
             CreatedAt = row.Field<DateTime>("CreatedAt"),
             UpdatedAt = row.Field<DateTime>("UpdatedAt"),

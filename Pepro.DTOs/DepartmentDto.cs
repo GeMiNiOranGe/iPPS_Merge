@@ -4,7 +4,7 @@ public class DepartmentDto
 {
     private int _departmentId;
     private string _name = "";
-    private int _managerId;
+    private int? _managerId;
 
     public int DepartmentId
     {
@@ -18,7 +18,7 @@ public class DepartmentDto
         set => _name = value;
     }
 
-    public int ManagerId
+    public int? ManagerId
     {
         get => _managerId;
         set => _managerId = value;

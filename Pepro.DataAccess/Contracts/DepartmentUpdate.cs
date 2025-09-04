@@ -3,7 +3,7 @@ namespace Pepro.DataAccess.Contracts;
 public class DepartmentUpdate
 {
     private TrackedValue<string> _name = new();
-    private TrackedValue<int> _managerId = new();
+    private TrackedValue<int?> _managerId = new();
 
     public TrackedValue<string> Name
     {
@@ -11,7 +11,7 @@ public class DepartmentUpdate
         set => _name = value;
     }
 
-    public TrackedValue<int> ManagerId
+    public TrackedValue<int?> ManagerId
     {
         get => _managerId;
         set => _managerId = value;
