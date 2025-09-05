@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pepro.Presentation.Controls;
 
 public partial class AssignmentProgressCardControl : PeproUserControl {
-    private AssignmentProgress _item = null!;
+    private AssignmentProgressView _item = null!;
     private Color _defaultBackColor;
 
     public AssignmentProgressCardControl() {
@@ -24,7 +24,7 @@ public partial class AssignmentProgressCardControl : PeproUserControl {
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public AssignmentProgress Item {
+    public AssignmentProgressView Item {
         get => _item;
         set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));

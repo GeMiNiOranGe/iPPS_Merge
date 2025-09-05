@@ -35,10 +35,10 @@ public partial class AssignmentDetailControl : PeproMediatedUserControl {
             assignmentsOfProjectFlowLayoutPanel.Controls.Clear();
         }
 
-        List<AssignmentProgress> assignmentsProgress = AssignmentBusiness.Instance.GetAssignmentsWithProgressByProjectId(ProjectId);
+        List<AssignmentProgressView> assignmentsProgress = AssignmentBusiness.Instance.GetAssignmentProgressViewsByProjectId(ProjectId);
 
         for (int i = 0; i < assignmentsProgress.Count; i++) {
-            AssignmentProgress item = assignmentsProgress[i];
+            AssignmentProgressView item = assignmentsProgress[i];
 
             AssignmentProgressCardControl assignmentCard = new() {
                 Item = item,
@@ -73,10 +73,10 @@ public partial class AssignmentDetailControl : PeproMediatedUserControl {
 
         assignmentManagerCard.Item = employee;
 
-        List<AssignmentProgress> assignmentsProgress = AssignmentBusiness.Instance.GetAssignmentsWithProgressByEmployeeId(employee.EmployeeId);
+        List<AssignmentProgressView> assignmentsProgress = AssignmentBusiness.Instance.GetAssignmentProgressViewsByEmployeeId(employee.EmployeeId);
 
         for (int i = 0; i < assignmentsProgress.Count; i++) {
-            AssignmentProgress item = assignmentsProgress[i];
+            AssignmentProgressView item = assignmentsProgress[i];
 
             AssignmentProgressCardControl assignmentCard = new() {
                 Item = item,
