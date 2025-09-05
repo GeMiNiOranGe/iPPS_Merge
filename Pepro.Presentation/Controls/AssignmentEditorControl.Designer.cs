@@ -26,7 +26,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             publicProjectLabel = new PeproLabel();
             publicDepartmentLabel = new PeproLabel();
             saveButton = new Button();
@@ -40,7 +41,7 @@
             endDateLabel = new PeproLabel();
             endDateTimePicker = new DateTimePicker();
             projectComboBoxField = new PeproComboBoxField();
-            requiredDocumentCountInputField = new PeproInputField();
+            requiredDocumentCountNumericUpDownField = new PeproNumericUpDownField();
             SuspendLayout();
             // 
             // publicProjectLabel
@@ -186,16 +187,15 @@
             projectComboBoxField.Size = new Size(504, 48);
             projectComboBoxField.TabIndex = 2;
             // 
-            // requiredDocumentCountInputField
+            // requiredDocumentCountNumericUpDownField
             // 
-            requiredDocumentCountInputField.Anchor = AnchorStyles.None;
-            requiredDocumentCountInputField.LabelText = "Required document count";
-            requiredDocumentCountInputField.Location = new Point(16, 208);
-            requiredDocumentCountInputField.Margin = new Padding(16, 0, 0, 24);
-            requiredDocumentCountInputField.Name = "requiredDocumentCountInputField";
-            requiredDocumentCountInputField.PlaceholderText = "e.g. required document count";
-            requiredDocumentCountInputField.Size = new Size(240, 48);
-            requiredDocumentCountInputField.TabIndex = 5;
+            requiredDocumentCountNumericUpDownField.Anchor = AnchorStyles.None;
+            requiredDocumentCountNumericUpDownField.LabelText = "Required document count";
+            requiredDocumentCountNumericUpDownField.Location = new Point(16, 208);
+            requiredDocumentCountNumericUpDownField.Margin = new Padding(16, 0, 0, 24);
+            requiredDocumentCountNumericUpDownField.Name = "requiredDocumentCountNumericUpDownField";
+            requiredDocumentCountNumericUpDownField.Size = new Size(240, 48);
+            requiredDocumentCountNumericUpDownField.TabIndex = 5;
             // 
             // AssignmentEditorControl
             // 
@@ -207,7 +207,7 @@
             Controls.Add(isPublicToProjectCheckBox);
             Controls.Add(publicDepartmentLabel);
             Controls.Add(isPublicToDepartmentCheckBox);
-            Controls.Add(requiredDocumentCountInputField);
+            Controls.Add(requiredDocumentCountNumericUpDownField);
             Controls.Add(managerComboBoxField);
             Controls.Add(startDateLabel);
             Controls.Add(startDateTimePicker);
@@ -225,7 +225,7 @@
             Controls.SetChildIndex(startDateTimePicker, 0);
             Controls.SetChildIndex(startDateLabel, 0);
             Controls.SetChildIndex(managerComboBoxField, 0);
-            Controls.SetChildIndex(requiredDocumentCountInputField, 0);
+            Controls.SetChildIndex(requiredDocumentCountNumericUpDownField, 0);
             Controls.SetChildIndex(isPublicToDepartmentCheckBox, 0);
             Controls.SetChildIndex(publicDepartmentLabel, 0);
             Controls.SetChildIndex(isPublicToProjectCheckBox, 0);
@@ -251,6 +251,6 @@
         private PeproLabel endDateLabel;
         private DateTimePicker endDateTimePicker;
         private PeproComboBoxField projectComboBoxField;
-        private PeproInputField requiredDocumentCountInputField;
+        private PeproNumericUpDownField requiredDocumentCountNumericUpDownField;
     }
 }
