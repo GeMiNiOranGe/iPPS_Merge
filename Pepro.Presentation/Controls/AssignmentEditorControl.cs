@@ -26,7 +26,6 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
             assignmentNameInputField.Text = _item.Name;
             isPublicToProjectCheckBox.Checked = _item.IsPublicToProject;
             isPublicToDepartmentCheckBox.Checked = _item.IsPublicToDepartment;
-            managerIdInputField.Text = _item.ManagerId.ToString();
             startDateTimePicker.SetValue(_item.StartDate);
             endDateTimePicker.SetValue(_item.EndDate);
             requiredDocumentCountInputField.Text = _item.RequiredDocumentCount.ToString();
@@ -92,8 +91,7 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
         }
 
         if (
-            !int.TryParse(managerIdInputField.Text, out int managerId)
-            || !int.TryParse(
+            !int.TryParse(
                 requiredDocumentCountInputField.Text,
                 out int requiredDocumentCount
             )
@@ -109,6 +107,8 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
         {
             return;
         }
+
+        int? managerId = managerComboBoxField.SelectedValue.ToNullableInt();
 
         AssignmentDto assignment = new()
         {
@@ -145,8 +145,7 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
 
     private bool ValidateInputs()
     {
-        return !string.IsNullOrWhiteSpace(managerIdInputField.Text)
-            && !string.IsNullOrWhiteSpace(assignmentNameInputField.Text)
+        return !string.IsNullOrWhiteSpace(assignmentNameInputField.Text)
             && !string.IsNullOrWhiteSpace(
                 projectComboBoxField.SelectedValue?.ToString()
             )

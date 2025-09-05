@@ -22,10 +22,10 @@ public class AssignmentDataAccess {
                 , Assignment.Name
                 , Assignment.IsPublicToProject
                 , Assignment.IsPublicToDepartment
-                , Assignment.ManagerId
                 , Assignment.StartDate
                 , Assignment.EndDate
                 , Assignment.RequiredDocumentCount
+                , Assignment.ManagerId
                 , Assignment.ProjectId
                 , Assignment.StatusId
                 , Assignment.IsDeleted
@@ -54,10 +54,10 @@ public class AssignmentDataAccess {
                 , Assignment.Name
                 , Assignment.IsPublicToProject
                 , Assignment.IsPublicToDepartment
-                , Assignment.ManagerId
                 , Assignment.StartDate
                 , Assignment.EndDate
                 , Assignment.RequiredDocumentCount
+                , Assignment.ManagerId
                 , Assignment.ProjectId
                 , Assignment.StatusId
                 , Assignment.IsDeleted
@@ -84,10 +84,10 @@ public class AssignmentDataAccess {
                 , Assignment.Name
                 , Assignment.IsPublicToProject
                 , Assignment.IsPublicToDepartment
-                , Assignment.ManagerId
                 , Assignment.StartDate
                 , Assignment.EndDate
                 , Assignment.RequiredDocumentCount
+                , Assignment.ManagerId
                 , Assignment.ProjectId
                 , Assignment.StatusId
                 , Assignment.IsDeleted
@@ -121,10 +121,10 @@ public class AssignmentDataAccess {
                 , Assignment.Name
                 , Assignment.IsPublicToProject
                 , Assignment.IsPublicToDepartment
-                , Assignment.ManagerId
                 , Assignment.StartDate
                 , Assignment.EndDate
                 , Assignment.RequiredDocumentCount
+                , Assignment.ManagerId
                 , Assignment.ProjectId
                 , Assignment.StatusId
                 , Assignment.IsDeleted
@@ -154,10 +154,10 @@ public class AssignmentDataAccess {
                 , Assignment.Name
                 , Assignment.IsPublicToProject
                 , Assignment.IsPublicToDepartment
-                , Assignment.ManagerId
                 , Assignment.StartDate
                 , Assignment.EndDate
                 , Assignment.RequiredDocumentCount
+                , Assignment.ManagerId
                 , Assignment.ProjectId
                 , Assignment.StatusId
                 , Assignment.IsDeleted
@@ -231,10 +231,10 @@ public class AssignmentDataAccess {
                 , Assignment.Name
                 , Assignment.IsPublicToProject
                 , Assignment.IsPublicToDepartment
-                , Assignment.ManagerId
                 , Assignment.StartDate
                 , Assignment.EndDate
                 , Assignment.RequiredDocumentCount
+                , Assignment.ManagerId
                 , Assignment.ProjectId
                 , Assignment.StatusId
                 , Assignment.IsDeleted
@@ -277,10 +277,10 @@ public class AssignmentDataAccess {
             .Set("Name", SqlDbType.NVarChar, 50, info.Name)
             .Set("IsPublicToProject", SqlDbType.Bit, info.IsPublicToProject)
             .Set("IsPublicToDepartment", SqlDbType.Bit, info.IsPublicToDepartment)
-            .Set("ManagerId", SqlDbType.Int, info.ManagerId)
             .Set("StartDate", SqlDbType.Date, info.StartDate)
             .Set("EndDate", SqlDbType.Date, info.EndDate)
             .Set("RequiredDocumentCount", SqlDbType.Int, info.RequiredDocumentCount)
+            .Set("ManagerId", SqlDbType.Int, info.ManagerId)
             .Set("ProjectId", SqlDbType.Int, info.ProjectId)
             .Set("StatusId", SqlDbType.Int, info.StatusId)
             .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
@@ -303,10 +303,10 @@ public class AssignmentDataAccess {
                 Name
                 , IsPublicToProject
                 , IsPublicToDepartment
-                , ManagerId
                 , StartDate
                 , EndDate
                 , RequiredDocumentCount
+                , ManagerId
                 , ProjectId
                 , StatusId
             )
@@ -315,10 +315,10 @@ public class AssignmentDataAccess {
                 @Name
                 , @IsPublicToProject
                 , @IsPublicToDepartment
-                , @ManagerId
                 , @StartDate
                 , @EndDate
                 , @RequiredDocumentCount
+                , @ManagerId
                 , @ProjectId
                 , @StatusId
             )
@@ -327,10 +327,10 @@ public class AssignmentDataAccess {
         parameters.Add("Name", SqlDbType.NVarChar, 50, entity.Name);
         parameters.Add("IsPublicToProject", SqlDbType.Bit, entity.IsPublicToProject);
         parameters.Add("IsPublicToDepartment", SqlDbType.Bit, entity.IsPublicToDepartment);
-        parameters.Add("ManagerId", SqlDbType.Int, entity.ManagerId);
         parameters.Add("StartDate", SqlDbType.Date, entity.StartDate);
         parameters.Add("EndDate", SqlDbType.Date, entity.EndDate);
         parameters.Add("RequiredDocumentCount", SqlDbType.Int, entity.RequiredDocumentCount);
+        parameters.Add("ManagerId", SqlDbType.Int, entity.ManagerId);
         parameters.Add("ProjectId", SqlDbType.Int, entity.ProjectId);
         parameters.Add("StatusId", SqlDbType.Int, entity.StatusId);
 

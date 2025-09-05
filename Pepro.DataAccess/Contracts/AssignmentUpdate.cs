@@ -5,10 +5,10 @@ public class AssignmentUpdate
     private TrackedValue<string> _name = new();
     private TrackedValue<bool> _isPublicToProject = new();
     private TrackedValue<bool> _isPublicToDepartment = new();
-    private TrackedValue<int> _managerId = new();
     private TrackedValue<DateTime> _startDate = new();
     private TrackedValue<DateTime> _endDate = new();
     private TrackedValue<int> _requiredDocumentCount = new();
+    private TrackedValue<int?> _managerId = new();
     private TrackedValue<int> _projectId = new();
     private TrackedValue<int> _statusId = new();
 
@@ -30,12 +30,6 @@ public class AssignmentUpdate
         set => _isPublicToDepartment = value;
     }
 
-    public TrackedValue<int> ManagerId
-    {
-        get => _managerId;
-        set => _managerId = value;
-    }
-
     public TrackedValue<DateTime> StartDate
     {
         get => _startDate;
@@ -52,6 +46,12 @@ public class AssignmentUpdate
     {
         get => _requiredDocumentCount;
         set => _requiredDocumentCount = value;
+    }
+
+    public TrackedValue<int?> ManagerId
+    {
+        get => _managerId;
+        set => _managerId = value;
     }
 
     public TrackedValue<int> ProjectId

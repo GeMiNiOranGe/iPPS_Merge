@@ -30,7 +30,7 @@
             publicProjectLabel = new PeproLabel();
             publicDepartmentLabel = new PeproLabel();
             saveButton = new Button();
-            managerIdInputField = new PeproInputField();
+            managerComboBoxField = new PeproComboBoxField();
             assignmentNameInputField = new PeproInputField();
             statusComboBoxField = new PeproComboBoxField();
             isPublicToProjectCheckBox = new CheckBox();
@@ -81,16 +81,15 @@
             saveButton.Text = "Save";
             saveButton.Click += SaveButton_Click;
             // 
-            // managerIdInputField
+            // managerComboBoxField
             // 
-            managerIdInputField.Anchor = AnchorStyles.None;
-            managerIdInputField.LabelText = "Manager id";
-            managerIdInputField.Location = new Point(280, 208);
-            managerIdInputField.Margin = new Padding(24, 0, 0, 24);
-            managerIdInputField.Name = "managerIdInputField";
-            managerIdInputField.PlaceholderText = "e.g. manager id";
-            managerIdInputField.Size = new Size(240, 48);
-            managerIdInputField.TabIndex = 6;
+            managerComboBoxField.Anchor = AnchorStyles.None;
+            managerComboBoxField.LabelText = "Manager id";
+            managerComboBoxField.Location = new Point(280, 208);
+            managerComboBoxField.Margin = new Padding(24, 0, 0, 24);
+            managerComboBoxField.Name = "managerComboBoxField";
+            managerComboBoxField.Size = new Size(240, 48);
+            managerComboBoxField.TabIndex = 6;
             // 
             // assignmentNameInputField
             // 
@@ -209,7 +208,7 @@
             Controls.Add(publicDepartmentLabel);
             Controls.Add(isPublicToDepartmentCheckBox);
             Controls.Add(requiredDocumentCountInputField);
-            Controls.Add(managerIdInputField);
+            Controls.Add(managerComboBoxField);
             Controls.Add(startDateLabel);
             Controls.Add(startDateTimePicker);
             Controls.Add(endDateLabel);
@@ -225,7 +224,7 @@
             Controls.SetChildIndex(endDateLabel, 0);
             Controls.SetChildIndex(startDateTimePicker, 0);
             Controls.SetChildIndex(startDateLabel, 0);
-            Controls.SetChildIndex(managerIdInputField, 0);
+            Controls.SetChildIndex(managerComboBoxField, 0);
             Controls.SetChildIndex(requiredDocumentCountInputField, 0);
             Controls.SetChildIndex(isPublicToDepartmentCheckBox, 0);
             Controls.SetChildIndex(publicDepartmentLabel, 0);
@@ -242,7 +241,7 @@
         private PeproLabel publicProjectLabel;
         private PeproLabel publicDepartmentLabel;
         private Button saveButton;
-        private PeproInputField managerIdInputField;
+        private PeproComboBoxField managerComboBoxField;
         private PeproInputField assignmentNameInputField;
         private PeproComboBoxField statusComboBoxField;
         private CheckBox isPublicToProjectCheckBox;
