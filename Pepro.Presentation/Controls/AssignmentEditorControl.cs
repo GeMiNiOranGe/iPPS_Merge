@@ -28,7 +28,7 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
             isPublicToDepartmentCheckBox.Checked = _item.IsPublicToDepartment;
             startDateTimePicker.SetValue(_item.StartDate);
             endDateTimePicker.SetValue(_item.EndDate);
-            requiredDocumentCountInputField.Text = _item.RequiredDocumentCount.ToString();
+            requiredDocumentCountNumericUpDownField.Value = _item.RequiredDocumentCount;
         }
     }
 
@@ -116,10 +116,6 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
 
         if (
             !int.TryParse(
-                requiredDocumentCountInputField.Text,
-                out int requiredDocumentCount
-            )
-            || !int.TryParse(
                 projectComboBoxField.SelectedValue?.ToString(),
                 out int projectId
             )
@@ -143,7 +139,7 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
             ManagerId = managerId,
             StartDate = startDateTimePicker.Value,
             EndDate = endDateTimePicker.Value,
-            RequiredDocumentCount = requiredDocumentCount,
+            RequiredDocumentCount = (int)requiredDocumentCountNumericUpDownField.Value,
             ProjectId = projectId,
             StatusId = statusId,
         };
