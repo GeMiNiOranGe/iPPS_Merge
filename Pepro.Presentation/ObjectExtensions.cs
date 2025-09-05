@@ -1,22 +1,19 @@
-﻿using System.ComponentModel;
-
-namespace Pepro.Presentation;
+﻿namespace Pepro.Presentation;
 
 public static class ObjectExtensions
 {
-    public static T? ToNullable<T>(this object? input) where T : struct
+    public static int? ToNullableInt(this object? input)
     {
         if (input == null || string.IsNullOrWhiteSpace(input.ToString()))
         {
             return null;
         }
 
-        TypeConverter converter = TypeDescriptor.GetConverter(typeof(T));
-        if (!converter.IsValid(input))
+        if (int.TryParse(input.ToString(), out int value))
         {
-            return null;
+            return value;
         }
 
-        return (T?)converter.ConvertFrom(input);
+        return null;
     }
 }
