@@ -56,17 +56,32 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
         statusComboBoxField.DisplayMember = nameof(StatusDto.Name);
         statusComboBoxField.ValueMember = nameof(StatusDto.StatusId);
 
+        managerComboBoxField.DisplayMember = nameof(EmployeeDto.FullName);
+        managerComboBoxField.ValueMember = nameof(EmployeeDto.EmployeeId);
+
         projectComboBoxField.DataSource = ProjectBusiness.Instance.GetProjects();
         statusComboBoxField.DataSource = StatusBusiness.Instance.GetStatuses();
 
         switch (_mode)
         {
             case EditorMode.Create:
+            {
                 SetupCreateMode();
                 break;
+            }
             case EditorMode.Edit:
+            {
                 SetupEditMode();
                 break;
+            }
+            default:
+            {
+                throw new InvalidEnumArgumentException(
+                    nameof(Mode),
+                    (int)_mode,
+                    typeof(EditorMode)
+                );
+            }
         }
     }
 
@@ -74,12 +89,21 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
     {
         projectComboBoxField.SelectedIndex = -1;
         statusComboBoxField.SelectedIndex = -1;
+        managerComboBoxField.Enabled = false;
     }
 
     private void SetupEditMode()
     {
         projectComboBoxField.SelectedValue = _item.ProjectId;
         statusComboBoxField.SelectedValue = _item.StatusId;
+        if (_item.ManagerId != null)
+        {
+            managerComboBoxField.DataSource =
+                EmployeeBusiness.Instance.GetEmployeesByAssignmentId(
+                    _item.AssignmentId
+                );
+            managerComboBoxField.SelectedValue = _item.ManagerId;
+        }
     }
 
     private void SaveButton_Click(object sender, EventArgs e)

@@ -50,16 +50,16 @@ INSERT INTO @AssignmentUpdate
         (ManagerId)
 VALUES  (4)
      ,  (4)
+     ,  (11)
+     ,  (11)
+     ,  (11)
+     ,  (11)
      ,  (4)
      ,  (4)
      ,  (6)
      ,  (6)
      ,  (6)
      ,  (6)
-     ,  (11)
-     ,  (11)
-     ,  (11)
-     ,  (11)
 
 UPDATE Assignment
 SET Assignment.ManagerId = AssignmentUpdate.ManagerId

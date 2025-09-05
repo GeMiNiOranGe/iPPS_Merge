@@ -1,4 +1,5 @@
-﻿using Pepro.Business.Mappings;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using Pepro.Business.Mappings;
 using Pepro.Business.Utilities;
 using Pepro.DataAccess;
 using Pepro.DataAccess.Contracts;
@@ -123,6 +124,12 @@ public class EmployeeBusiness
     public List<EmployeeDto> GetEmployeesByDepartmentId(int departmentId)
     {
         List<Employee> employees = EmployeeDataAccess.Instance.GetEmployeesByDepartmentId(departmentId);
+        return employees.ToDtos();
+    }
+
+    public object? GetEmployeesByAssignmentId(int assignmentId)
+    {
+        List<Employee> employees = EmployeeDataAccess.Instance.GetEmployeesByAssignmentId(assignmentId);
         return employees.ToDtos();
     }
 }
