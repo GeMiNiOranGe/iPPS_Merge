@@ -13,10 +13,10 @@ static class AssignmentMapper
             Name = dto.Name,
             IsPublicToProject = dto.IsPublicToProject,
             IsPublicToDepartment = dto.IsPublicToDepartment,
-            ManagerId = dto.ManagerId,
             StartDate = dto.StartDate,
             EndDate = dto.EndDate,
             RequiredDocumentCount = dto.RequiredDocumentCount,
+            ManagerId = dto.ManagerId,
             ProjectId = dto.ProjectId,
             StatusId = dto.StatusId,
         };
@@ -30,10 +30,10 @@ static class AssignmentMapper
             Name = entity.Name,
             IsPublicToProject = entity.IsPublicToProject,
             IsPublicToDepartment = entity.IsPublicToDepartment,
-            ManagerId = entity.ManagerId,
             StartDate = entity.StartDate,
             EndDate = entity.EndDate,
             RequiredDocumentCount = entity.RequiredDocumentCount,
+            ManagerId = entity.ManagerId,
             ProjectId = entity.ProjectId,
             StatusId = entity.StatusId,
         };

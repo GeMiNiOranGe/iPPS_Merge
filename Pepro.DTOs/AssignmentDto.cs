@@ -7,10 +7,10 @@ public class AssignmentDto {
     private string _name = "";
     private bool _isPublicToProject;
     private bool _isPublicToDepartment;
-    private int _managerId;
     private DateTime _startDate;
     private DateTime _endDate;
     private int _requiredDocumentCount;
+    private int? _managerId;
     private int _projectId;
     private int _statusId;
 
@@ -34,11 +34,6 @@ public class AssignmentDto {
         set => _isPublicToDepartment = value;
     }
 
-    public int ManagerId {
-        get => _managerId;
-        set => _managerId = value;
-    }
-
     public DateTime StartDate {
         get => _startDate;
         set => _startDate = value;
@@ -52,6 +47,11 @@ public class AssignmentDto {
     public int RequiredDocumentCount {
         get => _requiredDocumentCount;
         set => _requiredDocumentCount = value;
+    }
+
+    public int? ManagerId {
+        get => _managerId;
+        set => _managerId = value;
     }
 
     public int ProjectId {
