@@ -77,9 +77,9 @@ public class AssignmentBusiness {
         return assignments.ToDtos();
     }
 
-    public List<AssignmentProgress> GetAssignmentsWithProgressByProjectId(int projectId) {
+    public List<AssignmentProgressView> GetAssignmentProgressViewsByProjectId(int projectId) {
         List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(projectId);
-        List<AssignmentProgress> assignmentsProgress = [];
+        List<AssignmentProgressView> assignmentsProgress = [];
 
         foreach (Assignment assignment in assignments) {
             int requiredDocumentCount = assignment.RequiredDocumentCount;
@@ -88,13 +88,14 @@ public class AssignmentBusiness {
                 ? Math.Round(documentCount * 100m / requiredDocumentCount, 2)
                 : 0;
 
-            assignmentsProgress.Add(new AssignmentProgress {
+            assignmentsProgress.Add(new AssignmentProgressView {
                 AssignmentId = assignment.AssignmentId,
                 Name = assignment.Name,
                 IsPublicToProject = assignment.IsPublicToProject,
                 IsPublicToDepartment = assignment.IsPublicToDepartment,
                 StartDate = assignment.StartDate,
                 EndDate = assignment.EndDate,
+                RequiredDocumentCount = assignment.RequiredDocumentCount,
                 ManagerId = assignment.ManagerId,
                 ProjectId = assignment.ProjectId,
                 StatusId = assignment.StatusId,
@@ -105,9 +106,9 @@ public class AssignmentBusiness {
         return assignmentsProgress;
     }
 
-    public List<AssignmentProgress> GetAssignmentsWithProgressByEmployeeId(int employeeId) {
+    public List<AssignmentProgressView> GetAssignmentProgressViewsByEmployeeId(int employeeId) {
         List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByEmployeeId(employeeId);
-        List<AssignmentProgress> assignmentsProgress = [];
+        List<AssignmentProgressView> assignmentsProgress = [];
 
         foreach (Assignment assignment in assignments) {
             int requiredDocumentCount = assignment.RequiredDocumentCount;
@@ -116,13 +117,14 @@ public class AssignmentBusiness {
                 ? Math.Round(documentCount * 100m / requiredDocumentCount, 2)
                 : 0;
 
-            assignmentsProgress.Add(new AssignmentProgress {
+            assignmentsProgress.Add(new AssignmentProgressView {
                 AssignmentId = assignment.AssignmentId,
                 Name = assignment.Name,
                 IsPublicToProject = assignment.IsPublicToProject,
                 IsPublicToDepartment = assignment.IsPublicToDepartment,
                 StartDate = assignment.StartDate,
                 EndDate = assignment.EndDate,
+                RequiredDocumentCount = assignment.RequiredDocumentCount,
                 ManagerId = assignment.ManagerId,
                 ProjectId = assignment.ProjectId,
                 StatusId = assignment.StatusId,
