@@ -84,6 +84,10 @@ public partial class DepartmentEditorControl
 
     private void SetupEditMode()
     {
+        if (_item.ManagerId == null)
+        {
+            return;
+        }
         managerComboBoxField.DataSource =
             EmployeeBusiness.Instance.GetEmployeesByDepartmentId(
                 _item.DepartmentId
@@ -99,7 +103,7 @@ public partial class DepartmentEditorControl
             return;
         }
 
-        int? managerId = managerComboBoxField.SelectedValue.ToNullable<int>();
+        int? managerId = managerComboBoxField.SelectedValue.ToNullableInt();
 
         DepartmentDto department = new()
         {
