@@ -29,10 +29,46 @@ public class DepartmentBusiness
         return departments.ToDtos();
     }
 
-    public List<DepartmentDto> SearchDepartments(string searchValue)
+    public List<DepartmentView> GetDepartmentViews()
+    {
+        List<Department> departments = DepartmentDataAccess.Instance.GetDepartments();
+        return MapDepartmentsToViews(departments);
+    }
+
+    public List<DepartmentView> SearchDepartmentViews(string searchValue)
     {
         List<Department> departments = DepartmentDataAccess.Instance.SearchDepartments(searchValue);
-        return departments.ToDtos();
+        return MapDepartmentsToViews(departments);
+    }
+
+    private List<DepartmentView> MapDepartmentsToViews(List<Department> departments)
+    {
+        List<int> managerIds =
+        [
+            .. departments.Select(d => d.ManagerId).OfType<int>().Distinct(),
+        ];
+
+        Dictionary<int, string> managers = EmployeeBusiness
+            .Instance.GetEmployeesByEmployeeIds(managerIds)
+            .ToDictionary(e => e.EmployeeId, e => e.FullName);
+
+        return
+        [
+            .. departments.Select(department => new DepartmentView()
+            {
+                DepartmentId = department.DepartmentId,
+                Name = department.Name,
+                ManagerId = department.ManagerId,
+                ManagerFullName =
+                    department.ManagerId.HasValue
+                    && managers.TryGetValue(
+                        department.ManagerId.Value,
+                        out string? managerFullName
+                    )
+                        ? managerFullName
+                        : "",
+            }),
+        ];
     }
 
     public int DeleteDepartment(int departmentId)

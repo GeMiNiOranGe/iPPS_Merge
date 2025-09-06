@@ -26,10 +26,9 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             departmentDataGridView = new PeproDataGridView();
-            departmentNameColumn = new DataGridViewTextBoxColumn();
-            managerIdColumn = new DataGridViewTextBoxColumn();
             departmentNameInputField = new PeproInputField();
             managerInputField = new PeproInputField();
             searchTextBox = new TextBox();
@@ -38,35 +37,21 @@
             deleteButton = new Button();
             updateButton = new Button();
             insertButton = new Button();
+            departmentNameColumn = new DataGridViewTextBoxColumn();
+            managerColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)departmentDataGridView).BeginInit();
             SuspendLayout();
             // 
             // departmentDataGridView
             // 
             departmentDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            departmentDataGridView.Columns.AddRange(new DataGridViewColumn[] { departmentNameColumn, managerIdColumn });
+            departmentDataGridView.Columns.AddRange(new DataGridViewColumn[] { departmentNameColumn, managerColumn });
             departmentDataGridView.Location = new Point(16, 195);
             departmentDataGridView.Margin = new Padding(16);
             departmentDataGridView.Name = "departmentDataGridView";
             departmentDataGridView.Size = new Size(1032, 470);
             departmentDataGridView.TabIndex = 7;
             departmentDataGridView.CellClick += DepartmentDataGridView_CellClick;
-            // 
-            // departmentNameColumn
-            // 
-            departmentNameColumn.DataPropertyName = "Name";
-            departmentNameColumn.HeaderText = "Name";
-            departmentNameColumn.Name = "departmentNameColumn";
-            departmentNameColumn.ReadOnly = true;
-            departmentNameColumn.Width = 70;
-            // 
-            // managerIdColumn
-            // 
-            managerIdColumn.DataPropertyName = "ManagerId";
-            managerIdColumn.HeaderText = "Manager";
-            managerIdColumn.Name = "managerIdColumn";
-            managerIdColumn.ReadOnly = true;
-            managerIdColumn.Width = 89;
             // 
             // departmentNameInputField
             // 
@@ -162,6 +147,22 @@
             insertButton.Text = " Add";
             insertButton.Click += InsertButton_Click;
             // 
+            // departmentNameColumn
+            // 
+            departmentNameColumn.DataPropertyName = "Name";
+            departmentNameColumn.HeaderText = "Name";
+            departmentNameColumn.Name = "departmentNameColumn";
+            departmentNameColumn.ReadOnly = true;
+            departmentNameColumn.Width = 70;
+            // 
+            // managerColumn
+            // 
+            managerColumn.DataPropertyName = "ManagerFullName";
+            managerColumn.HeaderText = "Manager";
+            managerColumn.Name = "managerColumn";
+            managerColumn.ReadOnly = true;
+            managerColumn.Width = 89;
+            // 
             // DepartmentControl
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
@@ -206,6 +207,6 @@
         private Button updateButton;
         private Button insertButton;
         private DataGridViewTextBoxColumn departmentNameColumn;
-        private DataGridViewTextBoxColumn managerIdColumn;
+        private DataGridViewTextBoxColumn managerColumn;
     }
 }

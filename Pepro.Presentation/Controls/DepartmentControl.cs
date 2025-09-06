@@ -9,6 +9,7 @@ public partial class DepartmentControl : PeproCrudControlBase
     {
         InitializeComponent();
         departmentDataGridView.SetupCellStyle();
+        managerColumn.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
 
         searchButton.ApplyFlatStyleWithIcon("Search", ThemeColors.Text);
         reloadButton.ApplyFlatStyleWithIcon("Refresh", ThemeColors.Text);
@@ -19,7 +20,7 @@ public partial class DepartmentControl : PeproCrudControlBase
 
     private void LoadDepartments()
     {
-        departmentDataGridView.DataSource = DepartmentBusiness.Instance.GetDepartments();
+        departmentDataGridView.DataSource = DepartmentBusiness.Instance.GetDepartmentViews();
     }
 
     private void DepartmentControl_Load(object sender, EventArgs e)
@@ -45,7 +46,7 @@ public partial class DepartmentControl : PeproCrudControlBase
         BindSearchButtonClick(
             searchTextBox.Text,
             departmentDataGridView,
-            DepartmentBusiness.Instance.SearchDepartments
+            DepartmentBusiness.Instance.SearchDepartmentViews
         );
     }
 
