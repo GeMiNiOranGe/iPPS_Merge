@@ -478,4 +478,45 @@ public class EmployeeDataAccess {
         }
         return employees;
     }
+
+    public List<Employee> GetEmployeesByProjectId(int projectId)
+    {
+        string query = @"
+            SELECT Employee.EmployeeId
+                , Employee.FirstName
+                , Employee.MiddleName
+                , Employee.LastName
+                , Employee.DateOfBirth
+                , Employee.Gender
+                , Employee.TaxCode
+                , Employee.CitizenId
+                , Employee.DepartmentId
+                , Employee.PositionId
+                , Employee.SalaryLevelId
+                , Employee.IsDeleted
+                , Employee.CreatedAt
+                , Employee.UpdatedAt
+                , Employee.DeletedAt
+            FROM Employee
+            INNER JOIN Department
+                    ON Department.DepartmentId = Employee.DepartmentId
+                    AND Department.IsDeleted = 0
+            INNER JOIN DepartmentProject
+                    ON DepartmentProject.DepartmentId = Department.DepartmentId
+            WHERE DepartmentProject.ProjectId = @ProjectId
+                AND Employee.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("ProjectId", SqlDbType.Int, projectId);
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
+
+        List<Employee> employees = [];
+        foreach (DataRow row in dataTable.Rows)
+        {
+            Employee employee = EmployeeMapper.FromDataRow(row);
+            employees.Add(employee);
+        }
+        return employees;
+    }
 }

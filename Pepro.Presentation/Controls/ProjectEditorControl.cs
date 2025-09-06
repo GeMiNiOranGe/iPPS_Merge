@@ -75,6 +75,14 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
     private void SetupEditMode()
     {
         statusComboBoxField.SelectedValue = _item.StatusId;
+        if (_item.ManagerId != null)
+        {
+            managerComboBoxField.DataSource =
+                EmployeeBusiness.Instance.GetEmployeesByProjectId(
+                    _item.ProjectId
+                );
+            managerComboBoxField.SelectedValue = _item.ManagerId;
+        }
     }
 
     private void SaveButton_Click(object sender, EventArgs e)
