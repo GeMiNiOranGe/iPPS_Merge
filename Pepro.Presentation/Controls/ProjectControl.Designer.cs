@@ -26,81 +26,34 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             projectDataGridView = new PeproDataGridView();
-            projectNameColumn = new DataGridViewTextBoxColumn();
-            customerNameColumn = new DataGridViewTextBoxColumn();
-            managerIdColumn = new DataGridViewTextBoxColumn();
-            startDateColumn = new DataGridViewTextBoxColumn();
-            endDateColumn = new DataGridViewTextBoxColumn();
-            statusNameColumn = new DataGridViewTextBoxColumn();
             insertButton = new Button();
             updateButton = new Button();
             deleteButton = new Button();
             reloadButton = new Button();
             searchButton = new Button();
             searchTextBox = new TextBox();
+            projectNameColumn = new DataGridViewTextBoxColumn();
+            customerNameColumn = new DataGridViewTextBoxColumn();
+            managerColumn = new DataGridViewTextBoxColumn();
+            startDateColumn = new DataGridViewTextBoxColumn();
+            endDateColumn = new DataGridViewTextBoxColumn();
+            statusNameColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)projectDataGridView).BeginInit();
             SuspendLayout();
             // 
             // projectDataGridView
             // 
             projectDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            projectDataGridView.Columns.AddRange(new DataGridViewColumn[] { projectNameColumn, customerNameColumn, managerIdColumn, startDateColumn, endDateColumn, statusNameColumn });
+            projectDataGridView.Columns.AddRange(new DataGridViewColumn[] { projectNameColumn, customerNameColumn, managerColumn, startDateColumn, endDateColumn, statusNameColumn });
             projectDataGridView.Location = new Point(16, 123);
             projectDataGridView.Margin = new Padding(16);
             projectDataGridView.Name = "projectDataGridView";
             projectDataGridView.Size = new Size(1032, 542);
             projectDataGridView.TabIndex = 7;
             projectDataGridView.CellClick += ProjectDataGridView_CellClick;
-            // 
-            // projectNameColumn
-            // 
-            projectNameColumn.DataPropertyName = "Name";
-            projectNameColumn.HeaderText = "Tên dự án";
-            projectNameColumn.Name = "projectNameColumn";
-            projectNameColumn.ReadOnly = true;
-            projectNameColumn.Width = 73;
-            // 
-            // customerNameColumn
-            // 
-            customerNameColumn.DataPropertyName = "CustomerName";
-            customerNameColumn.HeaderText = "Tên khách hàng";
-            customerNameColumn.Name = "customerNameColumn";
-            customerNameColumn.ReadOnly = true;
-            customerNameColumn.Width = 119;
-            // 
-            // managerIdColumn
-            // 
-            managerIdColumn.DataPropertyName = "ManagerId";
-            managerIdColumn.HeaderText = "Mã người quản lý";
-            managerIdColumn.Name = "managerIdColumn";
-            managerIdColumn.ReadOnly = true;
-            managerIdColumn.Width = 117;
-            // 
-            // startDateColumn
-            // 
-            startDateColumn.DataPropertyName = "StartDate";
-            startDateColumn.HeaderText = "Ngày bắt đầu";
-            startDateColumn.Name = "startDateColumn";
-            startDateColumn.ReadOnly = true;
-            startDateColumn.Width = 87;
-            // 
-            // endDateColumn
-            // 
-            endDateColumn.DataPropertyName = "EndDate";
-            endDateColumn.HeaderText = "Ngày kết thúc";
-            endDateColumn.Name = "endDateColumn";
-            endDateColumn.ReadOnly = true;
-            endDateColumn.Width = 86;
-            // 
-            // statusNameColumn
-            // 
-            statusNameColumn.DataPropertyName = "StatusName";
-            statusNameColumn.HeaderText = "Trạng thái";
-            statusNameColumn.Name = "statusNameColumn";
-            statusNameColumn.ReadOnly = true;
-            statusNameColumn.Width = 108;
             // 
             // insertButton
             // 
@@ -170,6 +123,54 @@
             searchTextBox.Size = new Size(431, 26);
             searchTextBox.TabIndex = 1;
             // 
+            // projectNameColumn
+            // 
+            projectNameColumn.DataPropertyName = "Name";
+            projectNameColumn.HeaderText = "Project name";
+            projectNameColumn.Name = "projectNameColumn";
+            projectNameColumn.ReadOnly = true;
+            projectNameColumn.Width = 114;
+            // 
+            // customerNameColumn
+            // 
+            customerNameColumn.DataPropertyName = "CustomerName";
+            customerNameColumn.HeaderText = "Customer name";
+            customerNameColumn.Name = "customerNameColumn";
+            customerNameColumn.ReadOnly = true;
+            customerNameColumn.Width = 132;
+            // 
+            // managerColumn
+            // 
+            managerColumn.DataPropertyName = "ManagerFullName";
+            managerColumn.HeaderText = "Manager";
+            managerColumn.Name = "managerColumn";
+            managerColumn.ReadOnly = true;
+            managerColumn.Width = 89;
+            // 
+            // startDateColumn
+            // 
+            startDateColumn.DataPropertyName = "StartDate";
+            startDateColumn.HeaderText = "Start date";
+            startDateColumn.Name = "startDateColumn";
+            startDateColumn.ReadOnly = true;
+            startDateColumn.Width = 94;
+            // 
+            // endDateColumn
+            // 
+            endDateColumn.DataPropertyName = "EndDate";
+            endDateColumn.HeaderText = "End date";
+            endDateColumn.Name = "endDateColumn";
+            endDateColumn.ReadOnly = true;
+            endDateColumn.Width = 88;
+            // 
+            // statusNameColumn
+            // 
+            statusNameColumn.DataPropertyName = "StatusName";
+            statusNameColumn.HeaderText = "Status";
+            statusNameColumn.Name = "statusNameColumn";
+            statusNameColumn.ReadOnly = true;
+            statusNameColumn.Width = 72;
+            // 
             // ProjectControl
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
@@ -209,7 +210,7 @@
         private TextBox searchTextBox;
         private DataGridViewTextBoxColumn projectNameColumn;
         private DataGridViewTextBoxColumn customerNameColumn;
-        private DataGridViewTextBoxColumn managerIdColumn;
+        private DataGridViewTextBoxColumn managerColumn;
         private DataGridViewTextBoxColumn startDateColumn;
         private DataGridViewTextBoxColumn endDateColumn;
         private DataGridViewTextBoxColumn statusNameColumn;

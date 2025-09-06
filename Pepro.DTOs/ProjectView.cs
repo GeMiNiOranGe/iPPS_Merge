@@ -3,6 +3,13 @@ namespace Pepro.DTOs;
 public class ProjectView : ProjectDto
 {
     private string _statusName = "";
+    private string _managerFullName = "";
+
+    public string ManagerFullName
+    {
+        get => _managerFullName;
+        set => _managerFullName = value;
+    }
 
     public string StatusName
     {
