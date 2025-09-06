@@ -4,9 +4,9 @@ public class ProjectProgress {
     private int _projectId;
     private string _name = "";
     private string _customerName = "";
-    private int _managerId;
     private DateTime _startDate;
     private DateTime _endDate;
+    private int? _managerId;
     private int _statusId;
     private decimal _progressPercent;
 
@@ -25,11 +25,6 @@ public class ProjectProgress {
         set => _customerName = value;
     }
 
-    public int ManagerId {
-        get => _managerId;
-        set => _managerId = value;
-    }
-
     public DateTime StartDate {
         get => _startDate;
         set => _startDate = value;
@@ -38,6 +33,11 @@ public class ProjectProgress {
     public DateTime EndDate {
         get => _endDate;
         set => _endDate = value;
+    }
+
+    public int? ManagerId {
+        get => _managerId;
+        set => _managerId = value;
     }
 
     public int StatusId {

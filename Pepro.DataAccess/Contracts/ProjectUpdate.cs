@@ -4,9 +4,9 @@ public class ProjectUpdate
 {
     private TrackedValue<string> _name = new();
     private TrackedValue<string> _customerName = new();
-    private TrackedValue<int> _managerId = new();
     private TrackedValue<DateTime> _startDate = new();
     private TrackedValue<DateTime> _endDate = new();
+    private TrackedValue<int?> _managerId = new();
     private TrackedValue<int> _statusId = new();
 
     public TrackedValue<string> Name
@@ -21,12 +21,6 @@ public class ProjectUpdate
         set => _customerName = value;
     }
 
-    public TrackedValue<int> ManagerId
-    {
-        get => _managerId;
-        set => _managerId = value;
-    }
-
     public TrackedValue<DateTime> StartDate
     {
         get => _startDate;
@@ -37,6 +31,12 @@ public class ProjectUpdate
     {
         get => _endDate;
         set => _endDate = value;
+    }
+
+    public TrackedValue<int?> ManagerId
+    {
+        get => _managerId;
+        set => _managerId = value;
     }
 
     public TrackedValue<int> StatusId

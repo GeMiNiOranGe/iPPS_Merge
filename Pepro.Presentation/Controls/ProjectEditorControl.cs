@@ -25,7 +25,6 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
             _item = value ?? throw new ArgumentNullException(nameof(Item));
             projectNameInputField.Text = _item.Name;
             customerNameInputField.Text = _item.CustomerName;
-            managerIdInputField.Text = _item.ManagerId.ToString();
             startDateTimePicker.SetValue(_item.StartDate);
             endDateTimePicker.SetValue(_item.EndDate);
         }
@@ -52,6 +51,9 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
         statusComboBoxField.DisplayMember = nameof(StatusDto.Name);
         statusComboBoxField.ValueMember = nameof(StatusDto.StatusId);
 
+        managerComboBoxField.DisplayMember = nameof(EmployeeDto.FullName);
+        managerComboBoxField.ValueMember = nameof(EmployeeDto.EmployeeId);
+
         statusComboBoxField.DataSource = StatusBusiness.Instance.GetStatuses();
 
         switch (_mode) {
@@ -67,6 +69,7 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
     private void SetupCreateMode()
     {
         statusComboBoxField.SelectedIndex = -1;
+        managerComboBoxField.Enabled = false;
     }
 
     private void SetupEditMode()
@@ -82,8 +85,7 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
             return;
         }
         if (
-            !int.TryParse(managerIdInputField.Text, out int managerId)
-            || !int.TryParse(
+            !int.TryParse(
                 statusComboBoxField.SelectedValue?.ToString(),
                 out int statusId
             )
@@ -91,6 +93,8 @@ public partial class ProjectEditorControl : PeproEditorControlBase, IEditorUserC
         {
             return;
         }
+
+        int? managerId = managerComboBoxField.SelectedValue.ToNullableInt();
 
         ProjectDto project = new()
         {
