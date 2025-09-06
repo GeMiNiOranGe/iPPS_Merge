@@ -26,7 +26,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             startDateTimePicker = new DateTimePicker();
             startDateLabel = new PeproLabel();
             endDateLabel = new PeproLabel();
@@ -34,7 +35,7 @@
             projectNameInputField = new PeproInputField();
             statusComboBoxField = new PeproComboBoxField();
             customerNameInputField = new PeproInputField();
-            managerIdInputField = new PeproInputField();
+            managerComboBoxField = new PeproComboBoxField();
             saveButton = new Button();
             SuspendLayout();
             // 
@@ -110,16 +111,15 @@
             customerNameInputField.Size = new Size(1032, 48);
             customerNameInputField.TabIndex = 19;
             // 
-            // managerIdInputField
+            // managerComboBoxField
             // 
-            managerIdInputField.Anchor = AnchorStyles.None;
-            managerIdInputField.LabelText = "Manager id";
-            managerIdInputField.Location = new Point(16, 211);
-            managerIdInputField.Margin = new Padding(16, 0, 0, 24);
-            managerIdInputField.Name = "managerIdInputField";
-            managerIdInputField.PlaceholderText = "e.g. manager id";
-            managerIdInputField.Size = new Size(240, 48);
-            managerIdInputField.TabIndex = 19;
+            managerComboBoxField.Anchor = AnchorStyles.None;
+            managerComboBoxField.LabelText = "Manager id";
+            managerComboBoxField.Location = new Point(16, 211);
+            managerComboBoxField.Margin = new Padding(16, 0, 0, 24);
+            managerComboBoxField.Name = "managerComboBoxField";
+            managerComboBoxField.Size = new Size(240, 48);
+            managerComboBoxField.TabIndex = 19;
             // 
             // saveButton
             // 
@@ -139,7 +139,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(projectNameInputField);
             Controls.Add(customerNameInputField);
-            Controls.Add(managerIdInputField);
+            Controls.Add(managerComboBoxField);
             Controls.Add(statusComboBoxField);
             Controls.Add(startDateLabel);
             Controls.Add(startDateTimePicker);
@@ -155,7 +155,7 @@
             Controls.SetChildIndex(startDateTimePicker, 0);
             Controls.SetChildIndex(startDateLabel, 0);
             Controls.SetChildIndex(statusComboBoxField, 0);
-            Controls.SetChildIndex(managerIdInputField, 0);
+            Controls.SetChildIndex(managerComboBoxField, 0);
             Controls.SetChildIndex(customerNameInputField, 0);
             Controls.SetChildIndex(projectNameInputField, 0);
             ResumeLayout(false);
@@ -171,7 +171,7 @@
         private PeproInputField projectNameInputField;
         private PeproComboBoxField statusComboBoxField;
         private PeproInputField customerNameInputField;
-        private PeproInputField managerIdInputField;
+        private PeproComboBoxField managerComboBoxField;
         private Button saveButton;
     }
 }

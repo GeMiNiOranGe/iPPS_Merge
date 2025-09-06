@@ -4,9 +4,9 @@ public class Project {
     private int _projectId;
     private string _name = null!;
     private string _customerName = null!;
-    private int _managerId;
     private DateTime _startDate;
     private DateTime _endDate;
+    private int? _managerId;
     private int _statusId;
 
     #region Optional fields
@@ -31,11 +31,6 @@ public class Project {
         set => _customerName = value;
     }
 
-    public required int ManagerId {
-        get => _managerId;
-        set => _managerId = value;
-    }
-
     public required DateTime StartDate {
         get => _startDate;
         set => _startDate = value;
@@ -44,6 +39,11 @@ public class Project {
     public required DateTime EndDate {
         get => _endDate;
         set => _endDate = value;
+    }
+
+    public required int? ManagerId {
+        get => _managerId;
+        set => _managerId = value;
     }
 
     public required int StatusId {
