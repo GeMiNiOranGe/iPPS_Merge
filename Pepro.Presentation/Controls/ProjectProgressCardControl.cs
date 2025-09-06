@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Pepro.Presentation.Controls;
 
 public partial class ProjectProgressCardControl : PeproUserControl {
-    private ProjectProgress _item = null!;
+    private ProjectProgressView _item = null!;
     private Color _defaultBackColor;
 
     public ProjectProgressCardControl() {
@@ -24,7 +24,7 @@ public partial class ProjectProgressCardControl : PeproUserControl {
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public ProjectProgress Item {
+    public ProjectProgressView Item {
         get => _item;
         set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));

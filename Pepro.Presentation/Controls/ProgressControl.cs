@@ -17,10 +17,10 @@ public partial class ProgressControl : PeproMediatedUserControl {
             projectsFlowLayoutPanel.Controls.Clear();
         }
 
-        List<ProjectProgress> projectsProgress = ProjectBusiness.Instance.GetProjectsWithProgress();
+        List<ProjectProgressView> projectsProgress = ProjectBusiness.Instance.GetProjectsWithProgress();
 
         for (int i = 0; i < projectsProgress.Count; i++) {
-            ProjectProgress item = projectsProgress[i];
+            ProjectProgressView item = projectsProgress[i];
 
             ProjectProgressCardControl projectCard = new() {
                 Item = item,
