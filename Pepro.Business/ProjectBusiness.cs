@@ -76,9 +76,9 @@ public class ProjectBusiness {
         return projectViews;
     }
 
-    public List<ProjectProgress> GetProjectsWithProgress() {
+    public List<ProjectProgressView> GetProjectsWithProgress() {
         List<Project> projects = ProjectDataAccess.Instance.GetProjects();
-        List<ProjectProgress> projectsProgress = [];
+        List<ProjectProgressView> projectsProgress = [];
 
         foreach (Project project in projects) {
             List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(project.ProjectId);
@@ -88,7 +88,7 @@ public class ProjectBusiness {
                 ? Math.Round(completed * 100m / total, 2)
                 : 0;
 
-            projectsProgress.Add(new ProjectProgress {
+            projectsProgress.Add(new ProjectProgressView {
                 ProjectId = project.ProjectId,
                 Name = project.Name,
                 CustomerName = project.CustomerName,
