@@ -138,4 +138,10 @@ public class EmployeeBusiness
         List<Employee> employees = EmployeeDataAccess.Instance.GetEmployeesByProjectId(projectId);
         return employees.ToDtos();
     }
+
+    public List<EmployeeDto> GetEmployeesByEmployeeIds(List<int> employeeIds)
+    {
+        List<Employee> employees = EmployeeDataAccess.Instance.GetEmployeesByEmployeeIds(employeeIds);
+        return employees.ToDtos();
+    }
 }

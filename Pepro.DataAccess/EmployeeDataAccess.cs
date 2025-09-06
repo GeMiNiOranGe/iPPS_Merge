@@ -519,4 +519,50 @@ public class EmployeeDataAccess {
         }
         return employees;
     }
+
+    public List<Employee> GetEmployeesByEmployeeIds(List<int> employeeIds)
+    {
+        if (employeeIds == null || employeeIds.Count == 0)
+        {
+            return [];
+        }
+
+        string idParams = string.Join(", ", employeeIds.Select((id, index) => $"@id{index}"));
+
+        string query = $@"
+            SELECT Employee.EmployeeId
+                , Employee.FirstName
+                , Employee.MiddleName
+                , Employee.LastName
+                , Employee.DateOfBirth
+                , Employee.Gender
+                , Employee.TaxCode
+                , Employee.CitizenId
+                , Employee.DepartmentId
+                , Employee.PositionId
+                , Employee.SalaryLevelId
+                , Employee.IsDeleted
+                , Employee.CreatedAt
+                , Employee.UpdatedAt
+                , Employee.DeletedAt
+            FROM Employee
+            WHERE Employee.EmployeeId IN ({idParams})
+                AND Employee.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        for (int i = 0; i < employeeIds.Count; i++)
+        {
+            parameters.Add($"@id{i}", SqlDbType.Int, employeeIds[i]);
+        }
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
+
+        List<Employee> employees = [];
+        foreach (DataRow row in dataTable.Rows)
+        {
+            Employee employee = EmployeeMapper.FromDataRow(row);
+            employees.Add(employee);
+        }
+        return employees;
+    }
 }

@@ -26,54 +26,60 @@ public class ProjectBusiness {
         return projects.ToDtos();
     }
 
-    public List<ProjectView> GetProjectViews() {
+    public List<ProjectView> GetProjectViews()
+    {
         List<Project> projects = ProjectDataAccess.Instance.GetProjects();
-        Dictionary<int, string> statuses = StatusDataAccess.Instance
-            .GetStatuses()
-            .ToDictionary(s => s.StatusId, s => s.Name);
-        List<ProjectView> projectViews = [];
-
-        foreach (Project project in projects) {
-            if (statuses.TryGetValue(project.StatusId, out var statusName)) {
-                ProjectView projectView = new() {
-                    ProjectId = project.ProjectId,
-                    Name = project.Name,
-                    CustomerName = project.CustomerName,
-                    ManagerId = project.ManagerId,
-                    StartDate = project.StartDate,
-                    EndDate = project.EndDate,
-                    StatusId = project.StatusId,
-                    StatusName = statusName
-                };
-                projectViews.Add(projectView);
-            }
-        }
-        return projectViews;
+        return MapProjectsToViews(projects);
     }
 
-    public List<ProjectView> SearchProjectViews(string searchValue) {
+    public List<ProjectView> SearchProjectViews(string searchValue)
+    {
         List<Project> projects = ProjectDataAccess.Instance.SearchProjects(searchValue);
-        Dictionary<int, string> statuses = StatusDataAccess.Instance
-            .GetStatuses()
-            .ToDictionary(s => s.StatusId, s => s.Name);
-        List<ProjectView> projectViews = [];
+        return MapProjectsToViews(projects);
+    }
 
-        foreach (Project project in projects) {
-            if (statuses.TryGetValue(project.StatusId, out var statusName)) {
-                ProjectView projectView = new() {
-                    ProjectId = project.ProjectId,
-                    Name = project.Name,
-                    CustomerName = project.CustomerName,
-                    ManagerId = project.ManagerId,
-                    StartDate = project.StartDate,
-                    EndDate = project.EndDate,
-                    StatusId = project.StatusId,
-                    StatusName = statusName
-                };
-                projectViews.Add(projectView);
-            }
-        }
-        return projectViews;
+    private List<ProjectView> MapProjectsToViews(List<Project> projects)
+    {
+        List<int> managerIds =
+        [
+            .. projects.Select(p => p.ManagerId).OfType<int>().Distinct(),
+        ];
+
+        Dictionary<int, string> managers = EmployeeBusiness
+            .Instance.GetEmployeesByEmployeeIds(managerIds)
+            .ToDictionary(e => e.EmployeeId, e => e.FullName);
+
+        Dictionary<int, string> statuses = StatusDataAccess
+            .Instance.GetStatuses()
+            .ToDictionary(s => s.StatusId, s => s.Name);
+
+        return
+        [
+            .. projects.Select(project => new ProjectView()
+            {
+                ProjectId = project.ProjectId,
+                Name = project.Name,
+                CustomerName = project.CustomerName,
+                StartDate = project.StartDate,
+                EndDate = project.EndDate,
+                ManagerId = project.ManagerId,
+                StatusId = project.StatusId,
+                ManagerFullName =
+                    project.ManagerId.HasValue
+                    && managers.TryGetValue(
+                        project.ManagerId.Value,
+                        out var managerFullName
+                    )
+                        ? managerFullName
+                        : "",
+                StatusName = statuses.TryGetValue(
+                    project.StatusId,
+                    out var statusName
+                )
+                    ? statusName
+                    : "",
+            }),
+        ];
     }
 
     public List<ProjectProgressView> GetProjectsWithProgress() {
