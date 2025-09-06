@@ -127,9 +127,15 @@ public class EmployeeBusiness
         return employees.ToDtos();
     }
 
-    public object? GetEmployeesByAssignmentId(int assignmentId)
+    public List<EmployeeDto> GetEmployeesByAssignmentId(int assignmentId)
     {
         List<Employee> employees = EmployeeDataAccess.Instance.GetEmployeesByAssignmentId(assignmentId);
+        return employees.ToDtos();
+    }
+
+    public List<EmployeeDto> GetEmployeesByProjectId(int projectId)
+    {
+        List<Employee> employees = EmployeeDataAccess.Instance.GetEmployeesByProjectId(projectId);
         return employees.ToDtos();
     }
 }
