@@ -1,26 +1,28 @@
 ﻿using Pepro.Business;
-using Pepro.Business.Utilities;
 using Pepro.DTOs;
 using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls;
 
-public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUserControl<EmployeeDto> {
+public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUserControl<EmployeeDto>
+{
     private EmployeeDto _item = null!;
     private EditorMode _mode;
 
-    public EmployeeEditorControl() {
+    public EmployeeEditorControl()
+    {
         InitializeComponent();
 
         saveButton.ApplyFlatStyle();
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public EmployeeDto Item {
+    public EmployeeDto Item
+    {
         get => _item;
-        set {
+        set
+        {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
-            employeeIdInputField.Text = _item.EmployeeId.ToString();
             firstNameInputField.Text = _item.FirstName;
             middleNameInputField.Text = _item.MiddleName;
             lastNameInputField.Text = _item.LastName;
@@ -37,33 +39,38 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public EditorMode Mode {
+    public EditorMode Mode
+    {
         get => _mode;
-        set {
+        set
+        {
             _mode = value;
-            HeaderText = _mode switch {
+            HeaderText = _mode switch
+            {
                 EditorMode.Create => "Create a new employee",
                 EditorMode.Edit => "Edit employee",
-                _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
+                _ => throw new InvalidEnumArgumentException(
+                    nameof(Mode),
+                    (int)_mode,
+                    typeof(EditorMode)
+                ),
             };
         }
     }
 
-    private void EmployeeEditorControl_Load(object sender, EventArgs e) {
-        if (string.IsNullOrEmpty(departmentIdInputField.Text) ||
-            string.IsNullOrEmpty(positionIdInputField.Text) ||
-            string.IsNullOrEmpty(salaryScaleIdInputField.Text) ||
-            string.IsNullOrEmpty(salaryLevelIdInputField.Text)) {
+    private void EmployeeEditorControl_Load(object sender, EventArgs e)
+    {
+        if (
+            string.IsNullOrEmpty(positionInputField.Text)
+            || string.IsNullOrEmpty(salaryScaleInputField.Text)
+            || string.IsNullOrEmpty(salaryLevelInputField.Text)
+        )
+        {
             lbCheck1.ForeColor = Color.Red;
             lbCheck2.ForeColor = Color.Red;
             lbCheck3.ForeColor = Color.Red;
             lbCheck4.ForeColor = Color.Red;
         }
-
-        departmentIdInputField.BindTextToValue(departmentComboBoxField);
-        positionIdInputField.BindTextToValue(positionComboBoxField);
-        salaryScaleIdInputField.BindTextToValue(salaryScaleComboBoxField);
-        salaryLevelIdInputField.BindTextToValue(salaryLevelComboBoxField);
 
         departmentComboBoxField.DisplayMember = nameof(DepartmentDto.Name);
         departmentComboBoxField.ValueMember = nameof(DepartmentDto.DepartmentId);
@@ -80,32 +87,49 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         departmentComboBoxField.DataSource = DepartmentBusiness.Instance.GetDepartments();
         positionComboBoxField.DataSource = PositionBusiness.Instance.GetPositions();
 
-        switch (_mode) {
-        case EditorMode.Create:
-            salaryScaleComboBoxField.ExecuteWithoutEvent(
-                nameof(PeproComboBoxField.SelectedIndexChanged),
-                SalaryScaleComboBoxField_SelectedIndexChanged,
-                () => salaryScaleComboBoxField.DataSource = SalaryScaleBusiness.Instance.GetSalaryScales()
-            );
-            SetupCreateMode();
-            break;
-        case EditorMode.Edit:
-            // FIXME: The condition `SalaryScaleId != 1` is not optimized.
-            // It causes the `GetSalaryLevelsBySalaryScaleId` method to be called twice.
-            // It does not affect functionality but may reduce performance slightly.
-            salaryScaleComboBoxField.DataSource = SalaryScaleBusiness.Instance.GetSalaryScales();
-            SetupEditMode();
-            break;
+        switch (_mode)
+        {
+            case EditorMode.Create:
+            {
+                SetupCreateMode();
+                break;
+            }
+            case EditorMode.Edit:
+            {
+                SetupEditMode();
+                break;
+            }
+            default:
+            {
+                throw new InvalidEnumArgumentException(
+                    nameof(Mode),
+                    (int)_mode,
+                    typeof(EditorMode)
+                );
+            }
         }
     }
 
-    private void SetupCreateMode() {
+    private void SetupCreateMode()
+    {
+        salaryScaleComboBoxField.ExecuteWithoutEvent(
+            nameof(PeproComboBoxField.SelectedIndexChanged),
+            SalaryScaleComboBoxField_SelectedIndexChanged,
+            () => salaryScaleComboBoxField.DataSource = SalaryScaleBusiness.Instance.GetSalaryScales()
+        );
+
         departmentComboBoxField.SelectedIndex = -1;
         positionComboBoxField.SelectedIndex = -1;
         salaryScaleComboBoxField.SelectedIndex = -1;
     }
 
-    private void SetupEditMode() {
+    private void SetupEditMode()
+    {
+        // FIXME: The condition `SalaryScaleId != 1` is not optimized.
+        // It causes the `GetSalaryLevelsBySalaryScaleId` method to be called twice.
+        // It does not affect functionality but may reduce performance slightly.
+        salaryScaleComboBoxField.DataSource = SalaryScaleBusiness.Instance.GetSalaryScales();
+
         departmentComboBoxField.SelectedValue = _item.DepartmentId;
         positionComboBoxField.SelectedValue = _item.PositionId;
 
@@ -119,16 +143,39 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         salaryLevelComboBoxField.SelectedValue = _item.SalaryLevelId;
     }
 
-    private void SalaryScaleComboBoxField_SelectedIndexChanged(object? sender, EventArgs e) {
-        if (!int.TryParse(salaryScaleComboBoxField.SelectedValue?.ToString(), out int salaryScaleId)) {
+    private void SalaryScaleComboBoxField_SelectedIndexChanged(object? sender, EventArgs e)
+    {
+        if (salaryScaleComboBoxField.SelectedItem is not SalaryScaleDto dto)
+        {
+            salaryScaleInputField.Text = "";
             return;
         }
+        salaryScaleInputField.Text = dto.Group;
 
-        List<SalaryLevelDto> salaryLevels = SalaryLevelBusiness.Instance.GetSalaryLevelsBySalaryScaleId(
-            salaryScaleId
-        );
+        List<SalaryLevelDto> salaryLevels = SalaryLevelBusiness
+            .Instance.GetSalaryLevelsBySalaryScaleId(dto.SalaryScaleId);
         salaryLevelComboBoxField.DataSource = salaryLevels;
         salaryLevelComboBoxField.SelectedIndex = -1;
+    }
+
+    private void SalaryLevelComboBoxField_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (salaryLevelComboBoxField.SelectedItem is not SalaryLevelDto dto)
+        {
+            salaryLevelInputField.Text = "";
+            return;
+        }
+        salaryLevelInputField.Text = dto.Coefficient.ToString();
+    }
+
+    private void PositionComboBoxField_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (positionComboBoxField.SelectedItem is not PositionDto dto)
+        {
+            positionInputField.Text = "";
+            return;
+        }
+        positionInputField.Text = dto.AllowanceCoefficient.ToString();
     }
 
     private void SaveButton_Click(object sender, EventArgs e)
@@ -140,8 +187,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
         }
 
         if (
-            !int.TryParse(employeeIdInputField.Text, out int employeeId)
-            || !int.TryParse(
+            !int.TryParse(
                 positionComboBoxField.SelectedValue?.ToString(),
                 out int positionId
             )
@@ -160,7 +206,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
 
         EmployeeDto employee = new()
         {
-            EmployeeId = employeeId,
+            EmployeeId = _item.EmployeeId,
             FirstName = firstNameInputField.Text.Trim(),
             MiddleName = middleNameInputField.Text.Trim(),
             LastName = lastNameInputField.Text.Trim(),
