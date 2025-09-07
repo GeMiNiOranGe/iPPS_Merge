@@ -10,6 +10,7 @@ INSERT INTO @DepartmentUpdate
 VALUES  (1)
      ,  (2)
      ,  (3)
+     ,  (NULL)
 
 UPDATE Department
 SET Department.ManagerId = DepartmentUpdate.ManagerId
@@ -31,6 +32,7 @@ VALUES  (1)
      ,  (2)
      ,  (3)
      ,  (4)
+     ,  (NULL)
 
 UPDATE Project
 SET Project.ManagerId = ProjectUpdate.ManagerId
@@ -60,6 +62,7 @@ VALUES  (4)
      ,  (6)
      ,  (6)
      ,  (6)
+     ,  (NULL)
 
 UPDATE Assignment
 SET Assignment.ManagerId = AssignmentUpdate.ManagerId

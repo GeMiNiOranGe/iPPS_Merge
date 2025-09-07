@@ -143,6 +143,16 @@ EXECUTE [dbo].[usp_CreateDummyAssignment]
   , @RequiredDocumentCount  = 4
   , @ProjectId              = 4
   , @StatusId               = 3
+
+EXECUTE [dbo].[usp_CreateDummyAssignment] 
+    @Name                   = N'Thiết kế sơ đồ ý tưởng cho ruộng thủy canh'
+  , @IsPublicToProject      = 0
+  , @IsPublicToDepartment   = 0
+  , @DaysBeforeToday        = 0
+  , @DaysAfterToday         = 7
+  , @RequiredDocumentCount  = 1
+  , @ProjectId              = 5
+  , @StatusId               = 5
 GO
 
 IF EXISTS (

@@ -182,7 +182,6 @@ EXECUTE [dbo].[usp_InsertDummyEmployee]
   , @DepartmentId    = 3
   , @PositionId      = 4
   , @SalaryLevelId   = 48
-GO
 
 EXECUTE [dbo].[usp_InsertDummyEmployee]
     @FirstName       = N'Mi'
@@ -196,7 +195,6 @@ EXECUTE [dbo].[usp_InsertDummyEmployee]
   , @DepartmentId    = 2
   , @PositionId      = 4
   , @SalaryLevelId   = 51
-GO
 
 EXECUTE [dbo].[usp_InsertDummyEmployee]
     @FirstName       = N'Tuấn'
@@ -210,6 +208,19 @@ EXECUTE [dbo].[usp_InsertDummyEmployee]
   , @DepartmentId    = 3
   , @PositionId      = 4
   , @SalaryLevelId   = 4
+
+EXECUTE [dbo].[usp_InsertDummyEmployee]
+    @FirstName       = N'Tuyết'
+  , @MiddleName      = N'Ngọc'
+  , @LastName        = N'Trần'
+  , @DateOfBirth     = '1990-09-07'
+  , @Gender          = 1
+  , @TaxCode         = NULL
+  , @CitizenId       = '057237587254'
+  , @PhoneNumberList = NULL
+  , @DepartmentId    = 4
+  , @PositionId      = 4
+  , @SalaryLevelId   = 42
 GO
 
 IF EXISTS (

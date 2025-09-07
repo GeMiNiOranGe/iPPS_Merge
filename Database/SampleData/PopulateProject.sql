@@ -48,6 +48,13 @@ EXECUTE [dbo].[usp_CreateDummyProject]
   , @DaysBeforeToday = -8
   , @DaysAfterToday  = 7
   , @StatusId        = 4
+
+EXECUTE [dbo].[usp_CreateDummyProject]
+    @Name            = N'Triển khai mô hình thủy canh tại Đồng Nai'
+  , @CustomerName    = N'Công ty TNHH Nam Sơn'
+  , @DaysBeforeToday = 0
+  , @DaysAfterToday  = 365
+  , @StatusId        = 5
 GO
 
 IF EXISTS (
