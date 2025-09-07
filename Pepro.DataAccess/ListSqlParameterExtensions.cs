@@ -33,4 +33,19 @@ static class ListSqlParameterExtensions
         };
         parameters.Add(parameter);
     }
+
+    public static void AddTableValued(
+        this List<SqlParameter> parameters,
+        string parameterName,
+        string typeName,
+        object? value
+    )
+    {
+        SqlParameter parameter = new(parameterName, SqlDbType.Structured)
+        {
+            TypeName = typeName,
+            Value = value ?? DBNull.Value
+        };
+        parameters.Add(parameter);
+    }
 }

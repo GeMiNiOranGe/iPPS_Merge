@@ -527,9 +527,7 @@ public class EmployeeDataAccess {
             return [];
         }
 
-        string idParams = string.Join(", ", employeeIds.Select((id, index) => $"@id{index}"));
-
-        string query = $@"
+        string query = @"
             SELECT Employee.EmployeeId
                 , Employee.FirstName
                 , Employee.MiddleName
@@ -546,14 +544,14 @@ public class EmployeeDataAccess {
                 , Employee.UpdatedAt
                 , Employee.DeletedAt
             FROM Employee
-            WHERE Employee.EmployeeId IN ({idParams})
-                AND Employee.IsDeleted = 0
+            INNER JOIN @EmployeeIds AS EmployeeIds
+                    ON EmployeeIds.Id = Employee.EmployeeId
+            WHERE Employee.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
-        for (int i = 0; i < employeeIds.Count; i++)
-        {
-            parameters.Add($"@id{i}", SqlDbType.Int, employeeIds[i]);
-        }
+
+        DataTable entityIds = TableParameters.CreateEntityIds(employeeIds);
+        parameters.AddTableValued("EmployeeIds", "EntityIds", entityIds);
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 

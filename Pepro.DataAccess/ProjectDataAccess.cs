@@ -52,9 +52,7 @@ public class ProjectDataAccess {
             return [];
         }
 
-        string idParams = string.Join(", ", projectIds.Select((id, index) => $"@id{index}"));
-
-        string query = $@"
+        string query = @"
             SELECT Project.ProjectId
                 , Project.Name
                 , Project.CustomerName
@@ -67,14 +65,14 @@ public class ProjectDataAccess {
                 , Project.UpdatedAt
                 , Project.DeletedAt
             FROM Project
-            WHERE Project.ProjectId IN ({idParams})
-                AND Project.IsDeleted = 0
+            INNER JOIN @ProjectIds AS ProjectIds
+                    ON ProjectIds.Id = Project.ProjectId
+            WHERE Project.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
-        for (int i = 0; i < projectIds.Count; i++)
-        {
-            parameters.Add($"@id{i}", SqlDbType.Int, projectIds[i]);
-        }
+
+        DataTable entityIds = TableParameters.CreateEntityIds(projectIds);
+        parameters.AddTableValued("ProjectIds", "EntityIds", entityIds);
 
         DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
 
