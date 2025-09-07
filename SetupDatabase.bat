@@ -20,6 +20,9 @@ chcp %code_page%
 sqlcmd /S %server_name% /d %db_name% -E -f %code_page% -i"Database/InitialDatabase.sql"
 echo Create database successful & echo:
 
+sqlcmd /S %server_name% /d %db_name% -E -f %code_page% -i"Database/Types.sql"
+echo Create types successful & echo:
+
 sqlcmd /S %server_name% /d %db_name% -E -f %code_page% -i"Database/Function.sql"
 echo Create functions successful & echo:
 
