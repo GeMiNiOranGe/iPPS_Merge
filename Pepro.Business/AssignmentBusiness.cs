@@ -16,60 +16,78 @@ public class AssignmentBusiness {
 
     private AssignmentBusiness() { }
 
-    public List<AssignmentView> GetAssignmentViews() {
+    public List<AssignmentView> GetAssignmentViews()
+    {
         List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignments();
-        Dictionary<int, string> statuses = StatusDataAccess.Instance
-            .GetStatuses()
-            .ToDictionary(s => s.StatusId, s => s.Name);
-        List<AssignmentView> assignmentViews = [];
-
-        foreach (Assignment assignment in assignments) {
-            if (statuses.TryGetValue(assignment.StatusId, out var statusName)) {
-                AssignmentView assignmentView = new() {
-                    AssignmentId = assignment.AssignmentId,
-                    Name = assignment.Name,
-                    IsPublicToProject = assignment.IsPublicToProject,
-                    IsPublicToDepartment = assignment.IsPublicToDepartment,
-                    StartDate = assignment.StartDate,
-                    EndDate = assignment.EndDate,
-                    RequiredDocumentCount = assignment.RequiredDocumentCount,
-                    ManagerId = assignment.ManagerId,
-                    ProjectId = assignment.ProjectId,
-                    StatusId = assignment.StatusId,
-                    StatusName = statusName
-                };
-                assignmentViews.Add(assignmentView);
-            }
-        }
-        return assignmentViews;
+        return MapAssignmentsToViews(assignments);
     }
 
-    public List<AssignmentView> SearchAssignmentViews(string searchValue) {
+    public List<AssignmentView> SearchAssignmentViews(string searchValue)
+    {
         List<Assignment> assignments = AssignmentDataAccess.Instance.SearchAssignments(searchValue);
+        return MapAssignmentsToViews(assignments);
+    }
+
+    private List<AssignmentView> MapAssignmentsToViews(List<Assignment> assignments)
+    {
+        List<int> managerIds =
+        [
+            .. assignments.Select(a => a.ManagerId).OfType<int>().Distinct(),
+        ];
+
+        Dictionary<int, string> managers = EmployeeBusiness
+            .Instance.GetEmployeesByEmployeeIds(managerIds)
+            .ToDictionary(e => e.EmployeeId, e => e.FullName);
+
+        List<int> projectIds =
+        [
+            .. assignments.Select(a => a.ProjectId).Distinct(),
+        ];
+
+        Dictionary<int, string> projects = ProjectDataAccess
+            .Instance.GetProjectsByProjectIds(projectIds)
+            .ToDictionary(e => e.ProjectId, e => e.Name);
+
         Dictionary<int, string> statuses = StatusDataAccess.Instance
             .GetStatuses()
             .ToDictionary(s => s.StatusId, s => s.Name);
-        List<AssignmentView> assignmentViews = [];
 
-        foreach (Assignment assignment in assignments) {
-            if (statuses.TryGetValue(assignment.StatusId, out var statusName)) {
-                AssignmentView assignmentView = new() {
-                    AssignmentId = assignment.AssignmentId,
-                    Name = assignment.Name,
-                    IsPublicToProject = assignment.IsPublicToProject,
-                    IsPublicToDepartment = assignment.IsPublicToDepartment,
-                    StartDate = assignment.StartDate,
-                    EndDate = assignment.EndDate,
-                    RequiredDocumentCount = assignment.RequiredDocumentCount,
-                    ManagerId = assignment.ManagerId,
-                    ProjectId = assignment.ProjectId,
-                    StatusId = assignment.StatusId,
-                    StatusName = statusName
-                };
-                assignmentViews.Add(assignmentView);
-            }
-        }
-        return assignmentViews;
+        return
+        [
+            .. assignments.Select(assignment => new AssignmentView()
+            {
+                AssignmentId = assignment.AssignmentId,
+                Name = assignment.Name,
+                IsPublicToProject = assignment.IsPublicToProject,
+                IsPublicToDepartment = assignment.IsPublicToDepartment,
+                StartDate = assignment.StartDate,
+                EndDate = assignment.EndDate,
+                RequiredDocumentCount = assignment.RequiredDocumentCount,
+                ManagerId = assignment.ManagerId,
+                ProjectId = assignment.ProjectId,
+                StatusId = assignment.StatusId,
+                ManagerFullName =
+                    assignment.ManagerId.HasValue
+                    && managers.TryGetValue(
+                        assignment.ManagerId.Value,
+                        out var managerFullName
+                    )
+                        ? managerFullName
+                        : "",
+                ProjectName = projects.TryGetValue(
+                    assignment.ProjectId,
+                    out var projectName
+                )
+                    ? projectName
+                    : "",
+                StatusName = statuses.TryGetValue(
+                    assignment.StatusId,
+                    out var statusName
+                )
+                    ? statusName
+                    : "",
+            })
+        ];
     }
 
     public List<AssignmentDto> GetAssignmentsByProjectId(int projectId) {

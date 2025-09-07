@@ -45,6 +45,48 @@ public class ProjectDataAccess {
         return ProjectMapper.FromDataRow(row);
     }
 
+    public List<Project> GetProjectsByProjectIds(List<int> projectIds)
+    {
+        if (projectIds == null || projectIds.Count == 0)
+        {
+            return [];
+        }
+
+        string idParams = string.Join(", ", projectIds.Select((id, index) => $"@id{index}"));
+
+        string query = $@"
+            SELECT Project.ProjectId
+                , Project.Name
+                , Project.CustomerName
+                , Project.ManagerId
+                , Project.StartDate
+                , Project.EndDate
+                , Project.StatusId
+                , Project.IsDeleted
+                , Project.CreatedAt
+                , Project.UpdatedAt
+                , Project.DeletedAt
+            FROM Project
+            WHERE Project.ProjectId IN ({idParams})
+                AND Project.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        for (int i = 0; i < projectIds.Count; i++)
+        {
+            parameters.Add($"@id{i}", SqlDbType.Int, projectIds[i]);
+        }
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
+
+        List<Project> projects = [];
+        foreach (DataRow row in dataTable.Rows)
+        {
+            Project employee = ProjectMapper.FromDataRow(row);
+            projects.Add(employee);
+        }
+        return projects;
+    }
+
     /// <summary>
     ///     Retrieve all projects
     /// </summary>
