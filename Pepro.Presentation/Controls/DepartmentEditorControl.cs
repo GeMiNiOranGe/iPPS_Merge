@@ -84,13 +84,17 @@ public partial class DepartmentEditorControl
 
     private void SetupEditMode()
     {
-        if (_item.ManagerId != null)
+        managerComboBoxField.DataSource =
+            EmployeeBusiness.Instance.GetEmployeesByDepartmentId(
+                _item.DepartmentId
+            );
+        if (_item.ManagerId.HasValue)
         {
-            managerComboBoxField.DataSource =
-                EmployeeBusiness.Instance.GetEmployeesByDepartmentId(
-                    _item.DepartmentId
-                );
-            managerComboBoxField.SelectedValue = _item.ManagerId;
+            managerComboBoxField.SelectedValue = _item.ManagerId.Value;
+        }
+        else
+        {
+            managerComboBoxField.SelectedIndex = -1;
         }
     }
 
