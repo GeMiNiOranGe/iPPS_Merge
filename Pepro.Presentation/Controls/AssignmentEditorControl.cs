@@ -96,13 +96,18 @@ public partial class AssignmentEditorControl : PeproEditorControlBase, IEditorUs
     {
         projectComboBoxField.SelectedValue = _item.ProjectId;
         statusComboBoxField.SelectedValue = _item.StatusId;
-        if (_item.ManagerId != null)
+
+        managerComboBoxField.DataSource =
+            EmployeeBusiness.Instance.GetEmployeesByAssignmentId(
+                _item.AssignmentId
+            );
+        if (_item.ManagerId.HasValue)
         {
-            managerComboBoxField.DataSource =
-                EmployeeBusiness.Instance.GetEmployeesByAssignmentId(
-                    _item.AssignmentId
-                );
-            managerComboBoxField.SelectedValue = _item.ManagerId;
+            managerComboBoxField.SelectedValue = _item.ManagerId.Value;
+        }
+        else
+        {
+            managerComboBoxField.SelectedIndex = -1;
         }
     }
 
