@@ -9,6 +9,7 @@ public partial class AssignmentControl : PeproCrudControlBase
     {
         InitializeComponent();
         assignmentDataGridView.SetupCellStyle();
+        managerColumn.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
 
         searchButton.ApplyFlatStyleWithIcon("Search", ThemeColors.Text);
         reloadButton.ApplyFlatStyleWithIcon("Refresh", ThemeColors.Text);
