@@ -4,7 +4,7 @@ public class Position
 {
     private int _positionId;
     private string _title = null!;
-    private decimal _allowanceCoefficient;
+    private decimal _allowancePercent;
 
     public required int PositionId
     {
@@ -18,9 +18,9 @@ public class Position
         set => _title = value;
     }
 
-    public required decimal AllowanceCoefficient
+    public required decimal AllowancePercent
     {
-        get => _allowanceCoefficient;
-        set => _allowanceCoefficient = value;
+        get => _allowancePercent;
+        set => _allowancePercent = value;
     }
 }

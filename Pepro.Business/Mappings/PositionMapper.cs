@@ -11,7 +11,7 @@ static class PositionMapper
         {
             PositionId = entity.PositionId,
             Title = entity.Title,
-            AllowanceCoefficient = entity.AllowanceCoefficient,
+            AllowancePercent = entity.AllowancePercent,
         };
     }
 

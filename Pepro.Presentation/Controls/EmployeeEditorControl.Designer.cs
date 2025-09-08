@@ -130,11 +130,11 @@
             // 
             positionInputField.Anchor = AnchorStyles.None;
             positionInputField.Enabled = false;
-            positionInputField.LabelText = "Position title";
+            positionInputField.LabelText = "Position allowance percent";
             positionInputField.Location = new Point(808, 208);
             positionInputField.Margin = new Padding(24, 0, 16, 24);
             positionInputField.Name = "positionInputField";
-            positionInputField.PlaceholderText = "e.g. position id";
+            positionInputField.PlaceholderText = "e.g. position allowance percent";
             positionInputField.Size = new Size(240, 48);
             positionInputField.TabIndex = 14;
             // 
@@ -157,7 +157,7 @@
             salaryScaleInputField.Location = new Point(280, 208);
             salaryScaleInputField.Margin = new Padding(24, 0, 0, 24);
             salaryScaleInputField.Name = "salaryScaleInputField";
-            salaryScaleInputField.PlaceholderText = "e.g. salary scale id";
+            salaryScaleInputField.PlaceholderText = "e.g. salary scale group";
             salaryScaleInputField.Size = new Size(240, 48);
             salaryScaleInputField.TabIndex = 12;
             // 
@@ -180,7 +180,7 @@
             salaryLevelInputField.Location = new Point(280, 280);
             salaryLevelInputField.Margin = new Padding(24, 0, 0, 24);
             salaryLevelInputField.Name = "salaryLevelInputField";
-            salaryLevelInputField.PlaceholderText = "e.g. salary level id";
+            salaryLevelInputField.PlaceholderText = "e.g. salary level coefficient";
             salaryLevelInputField.Size = new Size(240, 48);
             salaryLevelInputField.TabIndex = 16;
             // 
