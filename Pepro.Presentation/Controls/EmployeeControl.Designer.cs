@@ -26,17 +26,10 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             searchTextBox = new TextBox();
             employeeDataGridView = new PeproDataGridView();
-            fullNameColumn = new DataGridViewTextBoxColumn();
-            dateOfBirthColumn = new DataGridViewTextBoxColumn();
-            genderColumn = new DataGridViewTextBoxColumn();
-            taxCodeColumn = new DataGridViewTextBoxColumn();
-            citizenIdColumn = new DataGridViewTextBoxColumn();
-            departmentIdColumn = new DataGridViewTextBoxColumn();
-            positionIdColumn = new DataGridViewTextBoxColumn();
-            salaryLevelIdColumn = new DataGridViewTextBoxColumn();
             employeeIdInputField = new PeproInputField();
             numberOfEmployeesInputField = new PeproInputField();
             employeeNameInputField = new PeproInputField();
@@ -46,6 +39,13 @@
             deleteButton = new Button();
             updateButton = new Button();
             insertButton = new Button();
+            fullNameColumn = new DataGridViewTextBoxColumn();
+            dateOfBirthColumn = new DataGridViewTextBoxColumn();
+            genderColumn = new DataGridViewTextBoxColumn();
+            taxCodeColumn = new DataGridViewTextBoxColumn();
+            citizenIdColumn = new DataGridViewTextBoxColumn();
+            departmentColumn = new DataGridViewTextBoxColumn();
+            positionColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)employeeDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -61,77 +61,13 @@
             // employeeDataGridView
             // 
             employeeDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            employeeDataGridView.Columns.AddRange(new DataGridViewColumn[] { fullNameColumn, dateOfBirthColumn, genderColumn, taxCodeColumn, citizenIdColumn, departmentIdColumn, positionIdColumn, salaryLevelIdColumn });
+            employeeDataGridView.Columns.AddRange(new DataGridViewColumn[] { fullNameColumn, dateOfBirthColumn, genderColumn, taxCodeColumn, citizenIdColumn, departmentColumn, positionColumn });
             employeeDataGridView.Location = new Point(16, 195);
             employeeDataGridView.Margin = new Padding(16);
             employeeDataGridView.Name = "employeeDataGridView";
             employeeDataGridView.Size = new Size(1032, 470);
             employeeDataGridView.TabIndex = 8;
             employeeDataGridView.CellClick += EmployeeDataGridView_CellClick;
-            // 
-            // fullNameColumn
-            // 
-            fullNameColumn.DataPropertyName = "FullName";
-            fullNameColumn.HeaderText = "Tên đầy đủ";
-            fullNameColumn.Name = "fullNameColumn";
-            fullNameColumn.ReadOnly = true;
-            fullNameColumn.Width = 101;
-            // 
-            // dateOfBirthColumn
-            // 
-            dateOfBirthColumn.DataPropertyName = "DateOfBirth";
-            dateOfBirthColumn.HeaderText = "Ngày sinh";
-            dateOfBirthColumn.Name = "dateOfBirthColumn";
-            dateOfBirthColumn.ReadOnly = true;
-            dateOfBirthColumn.Width = 95;
-            // 
-            // genderColumn
-            // 
-            genderColumn.DataPropertyName = "Gender";
-            genderColumn.HeaderText = "Giới tính";
-            genderColumn.Name = "genderColumn";
-            genderColumn.ReadOnly = true;
-            genderColumn.Width = 86;
-            // 
-            // taxCodeColumn
-            // 
-            taxCodeColumn.DataPropertyName = "TaxCode";
-            taxCodeColumn.HeaderText = "Mã số thuế";
-            taxCodeColumn.Name = "taxCodeColumn";
-            taxCodeColumn.ReadOnly = true;
-            taxCodeColumn.Width = 104;
-            // 
-            // citizenIdColumn
-            // 
-            citizenIdColumn.DataPropertyName = "CitizenId";
-            citizenIdColumn.HeaderText = "Căn cước";
-            citizenIdColumn.Name = "citizenIdColumn";
-            citizenIdColumn.ReadOnly = true;
-            citizenIdColumn.Width = 90;
-            // 
-            // departmentIdColumn
-            // 
-            departmentIdColumn.DataPropertyName = "DepartmentId";
-            departmentIdColumn.HeaderText = "Mã phòng ban";
-            departmentIdColumn.Name = "departmentIdColumn";
-            departmentIdColumn.ReadOnly = true;
-            departmentIdColumn.Width = 125;
-            // 
-            // positionIdColumn
-            // 
-            positionIdColumn.DataPropertyName = "PositionId";
-            positionIdColumn.HeaderText = "Mã chức vụ";
-            positionIdColumn.Name = "positionIdColumn";
-            positionIdColumn.ReadOnly = true;
-            positionIdColumn.Width = 105;
-            // 
-            // salaryLevelIdColumn
-            // 
-            salaryLevelIdColumn.DataPropertyName = "SalaryLevelId";
-            salaryLevelIdColumn.HeaderText = "Mã bậc lương ";
-            salaryLevelIdColumn.Name = "salaryLevelIdColumn";
-            salaryLevelIdColumn.ReadOnly = true;
-            salaryLevelIdColumn.Width = 122;
             // 
             // employeeIdInputField
             // 
@@ -240,6 +176,62 @@
             insertButton.Text = " Add";
             insertButton.Click += InsertButton_Click;
             // 
+            // fullNameColumn
+            // 
+            fullNameColumn.DataPropertyName = "FullName";
+            fullNameColumn.HeaderText = "Full name";
+            fullNameColumn.Name = "fullNameColumn";
+            fullNameColumn.ReadOnly = true;
+            fullNameColumn.Width = 93;
+            // 
+            // dateOfBirthColumn
+            // 
+            dateOfBirthColumn.DataPropertyName = "DateOfBirth";
+            dateOfBirthColumn.HeaderText = "Date of Birth";
+            dateOfBirthColumn.Name = "dateOfBirthColumn";
+            dateOfBirthColumn.ReadOnly = true;
+            dateOfBirthColumn.Width = 112;
+            // 
+            // genderColumn
+            // 
+            genderColumn.DataPropertyName = "Gender";
+            genderColumn.HeaderText = "Gender";
+            genderColumn.Name = "genderColumn";
+            genderColumn.ReadOnly = true;
+            genderColumn.Width = 79;
+            // 
+            // taxCodeColumn
+            // 
+            taxCodeColumn.DataPropertyName = "TaxCode";
+            taxCodeColumn.HeaderText = "Tax code";
+            taxCodeColumn.Name = "taxCodeColumn";
+            taxCodeColumn.ReadOnly = true;
+            taxCodeColumn.Width = 85;
+            // 
+            // citizenIdColumn
+            // 
+            citizenIdColumn.DataPropertyName = "CitizenId";
+            citizenIdColumn.HeaderText = "Citizen id";
+            citizenIdColumn.Name = "citizenIdColumn";
+            citizenIdColumn.ReadOnly = true;
+            citizenIdColumn.Width = 90;
+            // 
+            // departmentColumn
+            // 
+            departmentColumn.DataPropertyName = "DepartmentName";
+            departmentColumn.HeaderText = "Department";
+            departmentColumn.Name = "departmentColumn";
+            departmentColumn.ReadOnly = true;
+            departmentColumn.Width = 108;
+            // 
+            // positionColumn
+            // 
+            positionColumn.DataPropertyName = "PositionTitle";
+            positionColumn.HeaderText = "Position";
+            positionColumn.Name = "positionColumn";
+            positionColumn.ReadOnly = true;
+            positionColumn.Width = 82;
+            // 
             // EmployeeControl
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
@@ -294,8 +286,7 @@
         private DataGridViewTextBoxColumn genderColumn;
         private DataGridViewTextBoxColumn taxCodeColumn;
         private DataGridViewTextBoxColumn citizenIdColumn;
-        private DataGridViewTextBoxColumn departmentIdColumn;
-        private DataGridViewTextBoxColumn positionIdColumn;
-        private DataGridViewTextBoxColumn salaryLevelIdColumn;
+        private DataGridViewTextBoxColumn departmentColumn;
+        private DataGridViewTextBoxColumn positionColumn;
     }
 }

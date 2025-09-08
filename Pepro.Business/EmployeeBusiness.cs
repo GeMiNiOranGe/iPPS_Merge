@@ -20,16 +20,67 @@ public class EmployeeBusiness
 
     private EmployeeBusiness() { }
 
-    public List<EmployeeDto> GetEmployees()
+    public List<EmployeeView> GetEmployeeViews()
     {
         List<Employee> employees = EmployeeDataAccess.Instance.GetEmployees();
-        return employees.ToDtos();
+        return MapEmployeesToViews(employees);
     }
 
-    public List<EmployeeDto> SearchEmployees(string searchValue)
+    public List<EmployeeView> SearchEmployeeViews(string searchValue)
     {
         List<Employee> employees = EmployeeDataAccess.Instance.SearchEmployees(searchValue);
-        return employees.ToDtos();
+        return MapEmployeesToViews(employees);
+    }
+
+    private List<EmployeeView> MapEmployeesToViews(List<Employee> employees)
+    {
+        List<int> departmentIds =
+        [
+            .. employees.Select(e => e.DepartmentId).Distinct(),
+        ];
+
+        Dictionary<int, string> departments = DepartmentDataAccess
+            .Instance.GetDepartmentsByDepartmentIds(departmentIds)
+            .ToDictionary(d => d.DepartmentId, d => d.Name);
+
+        List<int> positionIds =
+        [
+            .. employees.Select(e => e.PositionId).Distinct(),
+        ];
+
+        Dictionary<int, string> positions = PositionDataAccess
+            .Instance.GetPositionsByPositionIds(positionIds)
+            .ToDictionary(p => p.PositionId, p => p.Title);
+
+        return
+        [
+            .. employees.Select(employee => new EmployeeView()
+            {
+                EmployeeId = employee.EmployeeId,
+                FirstName = employee.FirstName,
+                MiddleName = employee.MiddleName,
+                LastName = employee.LastName,
+                DateOfBirth = employee.DateOfBirth,
+                Gender = EmployeeHelper.FormatGender(employee.Gender),
+                TaxCode = EncryptionConverter.DecryptToString(employee.TaxCode),
+                CitizenId = employee.CitizenId,
+                DepartmentId = employee.DepartmentId,
+                PositionId = employee.PositionId,
+                SalaryLevelId = employee.SalaryLevelId,
+                DepartmentName = departments.TryGetValue(
+                    employee.DepartmentId,
+                    out string? departmentName
+                )
+                    ? departmentName
+                    : "",
+                PositionTitle = positions.TryGetValue(
+                    employee.PositionId,
+                    out string? positionTitle
+                )
+                    ? positionTitle
+                    : "",
+            })
+        ];
     }
 
     public string GetDisplayNameByEmployeeId(int employeeId)

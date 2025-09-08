@@ -15,6 +15,37 @@ public class PositionDataAccess {
 
     private PositionDataAccess() { }
 
+    public List<Position> GetPositionsByPositionIds(List<int> positionIds)
+    {
+        if (positionIds == null || positionIds.Count == 0)
+        {
+            return [];
+        }
+
+        string query = @"
+            SELECT Position.PositionId
+                , Position.Title
+                , Position.AllowanceCoefficient
+            FROM Position
+            INNER JOIN @PositionIds AS PositionIds
+                    ON PositionIds.Id = Position.PositionId
+        ";
+        List<SqlParameter> parameters = [];
+
+        DataTable entityIds = TableParameters.CreateEntityIds(positionIds);
+        parameters.AddTableValued("PositionIds", "EntityIds", entityIds);
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
+
+        List<Position> positions = [];
+        foreach (DataRow row in dataTable.Rows)
+        {
+            Position employee = PositionMapper.FromDataRow(row);
+            positions.Add(employee);
+        }
+        return positions;
+    }
+
     public List<Position> GetPositions() {
         string query = @"
             SELECT Position.PositionId

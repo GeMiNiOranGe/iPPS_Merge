@@ -12,7 +12,7 @@ public class EmployeeDto {
     private string? _taxCode;
     private string _citizenId = "";
     private int _departmentId;
-    private int _PositionId;
+    private int _positionId;
     private int _salaryLevelId;
 
     public int EmployeeId {
@@ -71,8 +71,8 @@ public class EmployeeDto {
     }
 
     public int PositionId {
-        get => _PositionId;
-        set => _PositionId = value;
+        get => _positionId;
+        set => _positionId = value;
     }
 
     public int SalaryLevelId {
