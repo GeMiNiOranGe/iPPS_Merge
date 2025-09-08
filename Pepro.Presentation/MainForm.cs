@@ -140,7 +140,7 @@ public partial class MainForm : PeproForm {
     private void SalaryButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(salaryButton.Location.Y);
 
-        OpenChildControl(new SalaryControl());
+        _mediator.Notify(this, ControlUiEvent.NavigatePayrollControl);
     }
 
     private void DormitoryButton_MouseClick(object sender, MouseEventArgs e) {

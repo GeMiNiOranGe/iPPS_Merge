@@ -14,4 +14,5 @@ public enum ControlUiEvent {
     NavigateProjectControl,
     PushProjectEditorControl,
     PushDepartmentEditorControl,
+    NavigatePayrollControl,
 }
