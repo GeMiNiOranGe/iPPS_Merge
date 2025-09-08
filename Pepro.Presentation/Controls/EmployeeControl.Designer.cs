@@ -194,7 +194,7 @@
             // 
             // genderColumn
             // 
-            genderColumn.DataPropertyName = "Gender";
+            genderColumn.DataPropertyName = "GenderDisplay";
             genderColumn.HeaderText = "Gender";
             genderColumn.Name = "genderColumn";
             genderColumn.ReadOnly = true;

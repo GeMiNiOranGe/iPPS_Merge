@@ -27,11 +27,13 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             middleNameInputField.Text = _item.MiddleName;
             lastNameInputField.Text = _item.LastName;
             dateOfBirthDateTimePicker.SetValue(_item.DateOfBirth);
-            EmployeeHelper.SelectGenderRadio(
-                _item.Gender,
-                maleRadioButton,
-                femaleRadioButton,
-                otherRadioButton
+            (
+                _item.Gender switch
+                {
+                    true => maleRadioButton,
+                    false => femaleRadioButton,
+                    _ => otherRadioButton,
+                }
             ).Checked = true;
             taxCodeInputField.Text = _item.TaxCode;
             citizenIdInputField.Text = _item.CitizenId;
@@ -211,10 +213,11 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             MiddleName = middleNameInputField.Text.Trim(),
             LastName = lastNameInputField.Text.Trim(),
             DateOfBirth = DateOnly.FromDateTime(dateOfBirthDateTimePicker.Value),
-            Gender = EmployeeHelper.GetSelectedGender(
-                maleRadioButton,
-                femaleRadioButton
-            ),
+            Gender = maleRadioButton.Checked
+                ? true
+                : femaleRadioButton.Checked
+                    ? false
+                    : null,
             TaxCode = taxCodeInputField.Text.Trim(),
             CitizenId = citizenIdInputField.Text.Trim(),
             DepartmentId = departmentId,

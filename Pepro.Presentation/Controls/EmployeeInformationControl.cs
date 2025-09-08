@@ -31,14 +31,14 @@ public partial class EmployeeInformationControl : PeproMediatedUserControl
 
         employeeIdInputField.Text = employee.EmployeeId.ToString();
         fullNameInputField.Text = employee.FullName;
-
-        EmployeeHelper.SelectGenderRadio(
-            employee.Gender,
-            maleRadioButton,
-            femaleRadioButton,
-            otherRadioButton
+        (
+            employee.Gender switch
+            {
+                true => maleRadioButton,
+                false => femaleRadioButton,
+                _ => otherRadioButton,
+            }
         ).Checked = true;
-
         dateOfBirthDateTimePicker.SetValue(employee.DateOfBirth);
         citizenIdInputField.Text = employee.CitizenId;
 
