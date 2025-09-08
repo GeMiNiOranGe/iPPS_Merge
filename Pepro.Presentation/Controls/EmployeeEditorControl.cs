@@ -177,7 +177,7 @@ public partial class EmployeeEditorControl : PeproEditorControlBase, IEditorUser
             positionInputField.Text = "";
             return;
         }
-        positionInputField.Text = dto.AllowanceCoefficient.ToString();
+        positionInputField.Text = dto.AllowancePercent.ToString();
     }
 
     private void SaveButton_Click(object sender, EventArgs e)

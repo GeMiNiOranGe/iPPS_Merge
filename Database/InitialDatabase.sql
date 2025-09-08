@@ -45,9 +45,9 @@ CREATE TABLE [dbo].[Status] (
 );
 
 CREATE TABLE [dbo].[Position] (
-    [PositionId]            [int]           NOT NULL IDENTITY(1, 1),
-    [Title]                 [nvarchar](20)  NOT NULL,
-    [AllowanceCoefficient]  [decimal](4, 2) NOT NULL, --TODO: Encrypt
+    [PositionId]        [int]           NOT NULL IDENTITY(1, 1),
+    [Title]             [nvarchar](20)  NOT NULL,
+    [AllowancePercent]  [decimal](4, 2) NOT NULL,
 );
 
 CREATE TABLE [dbo].[SalaryScale] (

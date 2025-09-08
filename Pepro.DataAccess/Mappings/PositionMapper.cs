@@ -11,7 +11,7 @@ static class PositionMapper
         {
             PositionId = row.Field<int>("PositionId"),
             Title = row.Field<string>("Title") ?? "",
-            AllowanceCoefficient = row.Field<decimal>("AllowanceCoefficient"),
+            AllowancePercent = row.Field<decimal>("AllowancePercent"),
         };
     }
 }

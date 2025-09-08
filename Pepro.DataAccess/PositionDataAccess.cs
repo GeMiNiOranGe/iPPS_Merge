@@ -25,7 +25,7 @@ public class PositionDataAccess {
         string query = @"
             SELECT Position.PositionId
                 , Position.Title
-                , Position.AllowanceCoefficient
+                , Position.AllowancePercent
             FROM Position
             INNER JOIN @PositionIds AS PositionIds
                     ON PositionIds.Id = Position.PositionId
@@ -50,7 +50,7 @@ public class PositionDataAccess {
         string query = @"
             SELECT Position.PositionId
                 , Position.Title
-                , Position.AllowanceCoefficient
+                , Position.AllowancePercent
             FROM Position
         ";
 
@@ -68,7 +68,7 @@ public class PositionDataAccess {
         string query = @"
             SELECT Position.PositionId
                 , Position.Title
-                , Position.AllowanceCoefficient
+                , Position.AllowancePercent
             FROM Position
             INNER JOIN Employee
                     ON Employee.PositionId = Position.PositionId
