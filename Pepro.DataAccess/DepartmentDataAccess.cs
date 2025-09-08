@@ -42,6 +42,42 @@ public class DepartmentDataAccess
         return DepartmentMapper.FromDataRow(row);
     }
 
+    public List<Department> GetDepartmentsByDepartmentIds(List<int> departmentIds)
+    {
+        if (departmentIds == null || departmentIds.Count == 0)
+        {
+            return [];
+        }
+
+        string query = @"
+            SELECT Department.DepartmentId
+                , Department.Name
+                , Department.ManagerId
+                , Department.IsDeleted
+                , Department.CreatedAt
+                , Department.UpdatedAt
+                , Department.DeletedAt
+            FROM Department
+            INNER JOIN @DepartmentIds AS DepartmentIds
+                    ON DepartmentIds.Id = Department.DepartmentId
+            WHERE Department.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+
+        DataTable entityIds = TableParameters.CreateEntityIds(departmentIds);
+        parameters.AddTableValued("DepartmentIds", "EntityIds", entityIds);
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
+
+        List<Department> departments = [];
+        foreach (DataRow row in dataTable.Rows)
+        {
+            Department employee = DepartmentMapper.FromDataRow(row);
+            departments.Add(employee);
+        }
+        return departments;
+    }
+
     public List<Department> GetDepartments() {
         string query = @"
             SELECT Department.DepartmentId

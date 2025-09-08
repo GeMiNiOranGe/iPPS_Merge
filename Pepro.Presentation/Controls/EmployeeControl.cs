@@ -18,7 +18,7 @@ public partial class EmployeeControl : PeproCrudControlBase {
     }
 
     private void LoadEmployees() {
-        List<EmployeeDto> employees = EmployeeBusiness.Instance.GetEmployees();
+        List<EmployeeView> employees = EmployeeBusiness.Instance.GetEmployeeViews();
         employeeDataGridView.DataSource = employees;
         numberOfEmployeesInputField.Text = employees.Count.ToString();
     }
@@ -43,7 +43,7 @@ public partial class EmployeeControl : PeproCrudControlBase {
         BindSearchButtonClick(
             searchTextBox.Text,
             employeeDataGridView,
-            EmployeeBusiness.Instance.SearchEmployees,
+            EmployeeBusiness.Instance.SearchEmployeeViews,
             (items) => numberOfEmployeesInputField.Text = items.Count.ToString()
         );
     }
