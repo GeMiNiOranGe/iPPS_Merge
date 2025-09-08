@@ -8,7 +8,7 @@ public class EmployeeDto {
     private string? _middleName;
     private string _lastName = "";
     private DateOnly _dateOfBirth;
-    private string? _gender;
+    private bool? _gender;
     private string? _taxCode;
     private string _citizenId = "";
     private int _departmentId;
@@ -50,7 +50,7 @@ public class EmployeeDto {
         set => _dateOfBirth = value;
     }
 
-    public string? Gender {
+    public bool? Gender {
         get => _gender;
         set => _gender = value;
     }
