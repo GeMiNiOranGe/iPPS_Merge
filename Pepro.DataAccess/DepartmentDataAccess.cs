@@ -72,8 +72,8 @@ public class DepartmentDataAccess
         List<Department> departments = [];
         foreach (DataRow row in dataTable.Rows)
         {
-            Department employee = DepartmentMapper.FromDataRow(row);
-            departments.Add(employee);
+            Department department = DepartmentMapper.FromDataRow(row);
+            departments.Add(department);
         }
         return departments;
     }
