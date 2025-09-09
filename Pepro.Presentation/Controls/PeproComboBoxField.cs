@@ -47,7 +47,10 @@ public partial class PeproComboBoxField : PeproInputFieldBase, INotifyPropertyCh
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public new bool Enabled {
         get => inputFieldComboBox.Enabled;
-        set => inputFieldComboBox.Enabled = value;
+        set {
+            inputFieldComboBox.Enabled = value;
+            TabStop = value;
+        }
     }
 
     [Browsable(false)]

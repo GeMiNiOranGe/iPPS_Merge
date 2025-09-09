@@ -49,7 +49,10 @@ public partial class PeproInputField : PeproInputFieldBase {
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public new bool Enabled {
         get => inputFieldTextBox.Enabled;
-        set => inputFieldTextBox.Enabled = value;
+        set {
+            inputFieldTextBox.Enabled = value;
+            TabStop = value;
+        }
     }
 
     [Browsable(true)]
