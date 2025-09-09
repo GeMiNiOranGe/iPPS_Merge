@@ -46,7 +46,7 @@
             startDateTimePicker.Margin = new Padding(24, 0, 0, 16);
             startDateTimePicker.Name = "startDateTimePicker";
             startDateTimePicker.Size = new Size(240, 26);
-            startDateTimePicker.TabIndex = 8;
+            startDateTimePicker.TabIndex = 5;
             // 
             // startDateLabel
             // 
@@ -77,7 +77,7 @@
             endDateTimePicker.Margin = new Padding(24, 0, 16, 16);
             endDateTimePicker.Name = "endDateTimePicker";
             endDateTimePicker.Size = new Size(240, 26);
-            endDateTimePicker.TabIndex = 9;
+            endDateTimePicker.TabIndex = 6;
             // 
             // projectNameInputField
             // 
@@ -88,7 +88,7 @@
             projectNameInputField.Name = "projectNameInputField";
             projectNameInputField.PlaceholderText = "e.g. project name";
             projectNameInputField.Size = new Size(1032, 48);
-            projectNameInputField.TabIndex = 19;
+            projectNameInputField.TabIndex = 1;
             // 
             // statusComboBoxField
             // 
@@ -98,7 +98,7 @@
             statusComboBoxField.Margin = new Padding(24, 0, 0, 24);
             statusComboBoxField.Name = "statusComboBoxField";
             statusComboBoxField.Size = new Size(240, 48);
-            statusComboBoxField.TabIndex = 20;
+            statusComboBoxField.TabIndex = 4;
             // 
             // customerNameInputField
             // 
@@ -109,7 +109,7 @@
             customerNameInputField.Name = "customerNameInputField";
             customerNameInputField.PlaceholderText = "e.g. customer name";
             customerNameInputField.Size = new Size(1032, 48);
-            customerNameInputField.TabIndex = 19;
+            customerNameInputField.TabIndex = 2;
             // 
             // managerComboBoxField
             // 
@@ -119,7 +119,7 @@
             managerComboBoxField.Margin = new Padding(16, 0, 0, 24);
             managerComboBoxField.Name = "managerComboBoxField";
             managerComboBoxField.Size = new Size(240, 48);
-            managerComboBoxField.TabIndex = 19;
+            managerComboBoxField.TabIndex = 3;
             // 
             // saveButton
             // 
@@ -129,7 +129,7 @@
             saveButton.Margin = new Padding(16);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(120, 56);
-            saveButton.TabIndex = 21;
+            saveButton.TabIndex = 7;
             saveButton.Text = "Save";
             saveButton.Click += SaveButton_Click;
             // 

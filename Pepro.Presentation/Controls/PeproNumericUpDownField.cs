@@ -36,7 +36,11 @@ public partial class PeproNumericUpDownField : PeproInputFieldBase
     public new bool Enabled
     {
         get => inputFieldNumericUpDown.Enabled;
-        set => inputFieldNumericUpDown.Enabled = value;
+        set
+        {
+            inputFieldNumericUpDown.Enabled = value;
+            TabStop = value;
+        }
     }
 
     protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)
