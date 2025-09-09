@@ -20,6 +20,12 @@ public class EmployeeBusiness
 
     private EmployeeBusiness() { }
 
+    public List<EmployeeDto> GetEmployees()
+    {
+        List<Employee> employees = EmployeeDataAccess.Instance.GetEmployees();
+        return employees.ToDtos();
+    }
+
     public List<EmployeeView> GetEmployeeViews()
     {
         List<Employee> employees = EmployeeDataAccess.Instance.GetEmployees();

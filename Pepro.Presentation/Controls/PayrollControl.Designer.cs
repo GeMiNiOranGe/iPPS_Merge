@@ -34,6 +34,7 @@ partial class PayrollControl
         scaleGroupColumn = new DataGridViewTextBoxColumn();
         levelColumn = new DataGridViewTextBoxColumn();
         coefficientColumn = new DataGridViewTextBoxColumn();
+        basicSalaryColumn = new DataGridViewTextBoxColumn();
         positionAllowancePercentColumn = new DataGridViewTextBoxColumn();
         positionAllowanceColumn = new DataGridViewTextBoxColumn();
         grossSalaryColumn = new DataGridViewTextBoxColumn();
@@ -44,7 +45,7 @@ partial class PayrollControl
         // payrollDataGridView
         // 
         payrollDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        payrollDataGridView.Columns.AddRange(new DataGridViewColumn[] { fullNameColumn, scaleNameColumn, scaleGroupColumn, levelColumn, coefficientColumn, positionAllowancePercentColumn, positionAllowanceColumn, grossSalaryColumn });
+        payrollDataGridView.Columns.AddRange(new DataGridViewColumn[] { fullNameColumn, scaleNameColumn, scaleGroupColumn, levelColumn, coefficientColumn, basicSalaryColumn, positionAllowancePercentColumn, positionAllowanceColumn, grossSalaryColumn });
         payrollDataGridView.Location = new Point(16, 120);
         payrollDataGridView.Margin = new Padding(16);
         payrollDataGridView.Name = "payrollDataGridView";
@@ -53,6 +54,7 @@ partial class PayrollControl
         // 
         // fullNameColumn
         // 
+        fullNameColumn.DataPropertyName = "EmployeeFullName";
         fullNameColumn.HeaderText = "Full name";
         fullNameColumn.Name = "fullNameColumn";
         fullNameColumn.ReadOnly = true;
@@ -60,6 +62,7 @@ partial class PayrollControl
         // 
         // scaleNameColumn
         // 
+        scaleNameColumn.DataPropertyName = "SalaryScaleName";
         scaleNameColumn.HeaderText = "Scale name";
         scaleNameColumn.Name = "scaleNameColumn";
         scaleNameColumn.ReadOnly = true;
@@ -67,6 +70,7 @@ partial class PayrollControl
         // 
         // scaleGroupColumn
         // 
+        scaleGroupColumn.DataPropertyName = "SalaryScaleGroup";
         scaleGroupColumn.HeaderText = "Scale group";
         scaleGroupColumn.Name = "scaleGroupColumn";
         scaleGroupColumn.ReadOnly = true;
@@ -74,6 +78,7 @@ partial class PayrollControl
         // 
         // levelColumn
         // 
+        levelColumn.DataPropertyName = "SalaryLevel";
         levelColumn.HeaderText = "Level";
         levelColumn.Name = "levelColumn";
         levelColumn.ReadOnly = true;
@@ -81,13 +86,23 @@ partial class PayrollControl
         // 
         // coefficientColumn
         // 
+        coefficientColumn.DataPropertyName = "SalaryLevelCoefficient";
         coefficientColumn.HeaderText = "Coefficient";
         coefficientColumn.Name = "coefficientColumn";
         coefficientColumn.ReadOnly = true;
         coefficientColumn.Width = 98;
         // 
+        // basicSalaryColumn
+        // 
+        basicSalaryColumn.DataPropertyName = "BasicSalary";
+        basicSalaryColumn.HeaderText = "Basic salary";
+        basicSalaryColumn.Name = "basicSalaryColumn";
+        basicSalaryColumn.ReadOnly = true;
+        basicSalaryColumn.Width = 95;
+        // 
         // positionAllowancePercentColumn
         // 
+        positionAllowancePercentColumn.DataPropertyName = "PositionAllowancePercent";
         positionAllowancePercentColumn.HeaderText = "Position allowance percent";
         positionAllowancePercentColumn.Name = "positionAllowancePercentColumn";
         positionAllowancePercentColumn.ReadOnly = true;
@@ -95,6 +110,7 @@ partial class PayrollControl
         // 
         // positionAllowanceColumn
         // 
+        positionAllowanceColumn.DataPropertyName = "PositionAllowance";
         positionAllowanceColumn.HeaderText = "Position allowance";
         positionAllowanceColumn.Name = "positionAllowanceColumn";
         positionAllowanceColumn.ReadOnly = true;
@@ -102,6 +118,7 @@ partial class PayrollControl
         // 
         // grossSalaryColumn
         // 
+        grossSalaryColumn.DataPropertyName = "GrossSalary";
         grossSalaryColumn.HeaderText = "Gross salary";
         grossSalaryColumn.Name = "grossSalaryColumn";
         grossSalaryColumn.ReadOnly = true;
@@ -127,6 +144,7 @@ partial class PayrollControl
         HeaderText = "Payroll";
         Name = "PayrollControl";
         ReturnButtonVisible = false;
+        Load += PayrollControl_Load;
         Controls.SetChildIndex(payrollDataGridView, 0);
         Controls.SetChildIndex(exportButton, 0);
         ((System.ComponentModel.ISupportInitialize)payrollDataGridView).EndInit();
@@ -136,13 +154,14 @@ partial class PayrollControl
     #endregion
 
     private PeproDataGridView payrollDataGridView;
+    private Button exportButton;
     private DataGridViewTextBoxColumn fullNameColumn;
     private DataGridViewTextBoxColumn scaleNameColumn;
     private DataGridViewTextBoxColumn scaleGroupColumn;
     private DataGridViewTextBoxColumn levelColumn;
     private DataGridViewTextBoxColumn coefficientColumn;
+    private DataGridViewTextBoxColumn basicSalaryColumn;
     private DataGridViewTextBoxColumn positionAllowancePercentColumn;
     private DataGridViewTextBoxColumn positionAllowanceColumn;
     private DataGridViewTextBoxColumn grossSalaryColumn;
-    private Button exportButton;
 }
