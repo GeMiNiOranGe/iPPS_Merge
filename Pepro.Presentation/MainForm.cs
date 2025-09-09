@@ -146,7 +146,8 @@ public partial class MainForm : PeproForm {
     private void DormitoryButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(dormitoryButton.Location.Y);
 
-        new DormitoryForm().ShowDialog();
+        workplacePanel.Controls.Clear();
+        MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock3");
     }
 
     private void DepartmentButton_Click(object sender, EventArgs e) {
