@@ -1,4 +1,6 @@
-﻿namespace Pepro.Presentation.Controls;
+﻿using Pepro.Business;
+
+namespace Pepro.Presentation.Controls;
 
 public partial class PayrollControl : PeproMediatedUserControl
 {
@@ -6,8 +8,19 @@ public partial class PayrollControl : PeproMediatedUserControl
     {
         InitializeComponent();
         payrollDataGridView.SetupCellStyle();
+        fullNameColumn.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
 
         exportButton.ApplyFlatStyle();
+    }
+
+    private void LoadPayroll()
+    {
+        payrollDataGridView.DataSource = SalaryBusiness.Instance.GetPayroll();
+    }
+
+    private void PayrollControl_Load(object sender, EventArgs e)
+    {
+        LoadPayroll();
     }
 
     private void ExportButton_Click(object sender, EventArgs e)
