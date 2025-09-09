@@ -33,6 +33,37 @@ public class SalaryScaleDataAccess {
         return salaryScales;
     }
 
+    public List<SalaryScale> GetSalaryScalesBySalaryScaleIds(List<int> salaryScaleIds)
+    {
+        if (salaryScaleIds == null || salaryScaleIds.Count == 0)
+        {
+            return [];
+        }
+
+        string query = @"
+            SELECT SalaryScale.SalaryScaleId
+                , SalaryScale.[Group]
+                , SalaryScale.Name
+            FROM SalaryScale
+            INNER JOIN @SalaryScaleIds AS SalaryScaleIds
+                    ON SalaryScaleIds.Id = SalaryScale.SalaryScaleId
+        ";
+        List<SqlParameter> parameters = [];
+
+        DataTable entityIds = TableParameters.CreateEntityIds(salaryScaleIds);
+        parameters.AddTableValued("SalaryScaleIds", "EntityIds", entityIds);
+
+        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
+
+        List<SalaryScale> salaryScales = [];
+        foreach (DataRow row in dataTable.Rows)
+        {
+            SalaryScale salaryScale = SalaryScaleMapper.FromDataRow(row);
+            salaryScales.Add(salaryScale);
+        }
+        return salaryScales;
+    }
+
     public SalaryScale? GetSalaryScaleBySalaryLevelId(int salaryLevelId) {
         string query = @"
             SELECT SalaryScale.SalaryScaleId
