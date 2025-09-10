@@ -1,6 +1,6 @@
 ﻿using ClosedXML.Excel;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Utilities;
 
 public static class ExcelExporter
 {

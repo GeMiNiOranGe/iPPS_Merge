@@ -2,7 +2,7 @@
 using Pepro.Presentation.Base;
 using Pepro.Presentation.Controls.Pages;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Utilities;
 
 public class ControlUiMediator(Panel workplacePanel) : IMediator
 {

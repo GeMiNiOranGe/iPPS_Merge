@@ -1,6 +1,6 @@
 ﻿using Svg;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Utilities;
 
 public static class IconProvider {
     private static readonly string _iconFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Icons");
