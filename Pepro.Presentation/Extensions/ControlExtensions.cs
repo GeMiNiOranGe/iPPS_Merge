@@ -1,9 +1,11 @@
 ﻿using System.Reflection;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Extensions;
 
-public static class ControlExtensions {
-    public static void SetLocationY(this Control control, int y) {
+public static class ControlExtensions
+{
+    public static void SetLocationY(this Control control, int y)
+    {
         control.Location = new Point(control.Location.X, y);
     }
 
@@ -12,12 +14,17 @@ public static class ControlExtensions {
         string eventName,
         EventHandler handler,
         Action action
-    ) {
+    )
+    {
         EventInfo eventInfo = typeof(T).GetEvent(eventName)
-            ?? throw new ArgumentException($"Event '{eventName}' not found on {typeof(T).Name}");
+            ?? throw new ArgumentException(
+                $"Event '{eventName}' not found on {typeof(T).Name}"
+            );
 
         Type eventHandlerType = eventInfo.EventHandlerType
-            ?? throw new ArgumentException($"Event '{eventName}' on {typeof(T).Name} does not have a delegate type.");
+            ?? throw new ArgumentException(
+                $"Event '{eventName}' on {typeof(T).Name} does not have a delegate type."
+            );
 
         Delegate eventHandler = Delegate.CreateDelegate(
             eventHandlerType,
@@ -26,10 +33,12 @@ public static class ControlExtensions {
         );
 
         eventInfo.RemoveEventHandler(control, eventHandler);
-        try {
+        try
+        {
             action();
         }
-        finally {
+        finally
+        {
             eventInfo.AddEventHandler(control, eventHandler);
         }
     }

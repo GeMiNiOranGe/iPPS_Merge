@@ -1,4 +1,6 @@
-﻿namespace Pepro.Presentation.Controls;
+﻿using Pepro.Presentation.Extensions;
+
+namespace Pepro.Presentation.Controls;
 
 public class PeproLabel : Label
 {

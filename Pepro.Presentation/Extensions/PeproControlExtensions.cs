@@ -1,6 +1,6 @@
 using Pepro.Presentation.Controls;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Extensions;
 
 public static class PeproControlExtensions
 {
@@ -14,7 +14,11 @@ public static class PeproControlExtensions
 
         try
         {
-            button.PressedImage = IconProvider.GetIcon(iconName, "Bold", color: ThemeColors.Text);
+            button.PressedImage = IconProvider.GetIcon(
+                iconName,
+                "Bold",
+                color: ThemeColors.Text
+            );
         }
         catch (Exception)
         {
