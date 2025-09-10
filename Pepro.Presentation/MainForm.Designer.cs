@@ -1,5 +1,4 @@
-﻿
-using Pepro.Presentation.Controls;
+﻿using Pepro.Presentation.Controls.Atoms;
 
 namespace Pepro.Presentation {
     partial class MainForm {

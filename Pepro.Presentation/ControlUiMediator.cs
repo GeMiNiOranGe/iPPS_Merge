@@ -1,5 +1,6 @@
 ﻿using Pepro.DTOs;
-using Pepro.Presentation.Controls;
+using Pepro.Presentation.Base;
+using Pepro.Presentation.Controls.Pages;
 
 namespace Pepro.Presentation;
 

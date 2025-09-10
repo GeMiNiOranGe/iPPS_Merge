@@ -1,12 +1,12 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
-using Pepro.Presentation.Controls;
+using Pepro.Presentation.Base;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 namespace Pepro.Presentation;
 
-public partial class LoginForm : PeproForm {
+public partial class LoginForm : PeproFormBase {
     private int _employeeId;
 
     public LoginForm() {
