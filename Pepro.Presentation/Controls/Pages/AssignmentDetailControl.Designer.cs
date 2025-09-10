@@ -34,7 +34,7 @@ namespace Pepro.Presentation.Controls.Pages
             assignmentsOfProjectLabel = new Label();
             assignmentsOfProjectFlowLayoutPanel = new FlowLayoutPanel();
             assignmentManagerLabel = new Label();
-            assignmentManagerCard = new EmployeeCardControl();
+            assignmentManagerCard = new EmployeeCard();
             otherAssignmentsOfManagerLabel = new Label();
             otherAssignmentsOfManagerFlowLayoutLabel = new FlowLayoutPanel();
             SuspendLayout();
@@ -163,7 +163,7 @@ namespace Pepro.Presentation.Controls.Pages
         private Label assignmentsOfProjectLabel;
         private Label assignmentManagerLabel;
         private FlowLayoutPanel assignmentsOfProjectFlowLayoutPanel;
-        private EmployeeCardControl assignmentManagerCard;
+        private EmployeeCard assignmentManagerCard;
         private FlowLayoutPanel otherAssignmentsOfManagerFlowLayoutLabel;
         private Label otherAssignmentsOfManagerLabel;
     }

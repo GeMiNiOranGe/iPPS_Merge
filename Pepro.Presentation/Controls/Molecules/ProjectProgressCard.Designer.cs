@@ -1,6 +1,6 @@
 ﻿namespace Pepro.Presentation.Controls.Molecules
 {
-    partial class ProjectProgressCardControl
+    partial class ProjectProgressCard
     {
         /// <summary> 
         /// Required designer variable.

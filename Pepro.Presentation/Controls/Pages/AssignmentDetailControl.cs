@@ -41,7 +41,7 @@ public partial class AssignmentDetailControl : PeproMediatedUserControl {
         for (int i = 0; i < assignmentsProgress.Count; i++) {
             AssignmentProgressView item = assignmentsProgress[i];
 
-            AssignmentProgressCardControl assignmentCard = new() {
+            AssignmentProgressCard assignmentCard = new() {
                 Item = item,
                 Margin = i != assignmentsProgress.Count - 1 ? new Padding(0, 0, 0, 8) : new Padding(0),
                 Width = assignmentsOfProjectFlowLayoutPanel.ClientSize.Width - assignmentsOfProjectFlowLayoutPanel.Padding.Horizontal,
@@ -79,7 +79,7 @@ public partial class AssignmentDetailControl : PeproMediatedUserControl {
         for (int i = 0; i < assignmentsProgress.Count; i++) {
             AssignmentProgressView item = assignmentsProgress[i];
 
-            AssignmentProgressCardControl assignmentCard = new() {
+            AssignmentProgressCard assignmentCard = new() {
                 Item = item,
                 Margin = i != assignmentsProgress.Count - 1 ? new Padding(0, 0, 0, 8) : new Padding(0),
                 Width = otherAssignmentsOfManagerFlowLayoutLabel.ClientSize.Width - otherAssignmentsOfManagerFlowLayoutLabel.Padding.Horizontal,
