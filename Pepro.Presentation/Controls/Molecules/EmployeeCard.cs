@@ -4,10 +4,10 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Molecules;
 
-public partial class EmployeeCardControl : PeproUserControl {
+public partial class EmployeeCard : PeproCardBase {
     private EmployeeDto _item = null!;
 
-    public EmployeeCardControl() {
+    public EmployeeCard() {
         InitializeComponent();
     }
 

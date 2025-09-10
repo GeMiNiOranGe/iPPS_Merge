@@ -23,7 +23,7 @@ public partial class ProgressControl : PeproMediatedUserControl {
         for (int i = 0; i < projectsProgress.Count; i++) {
             ProjectProgressView item = projectsProgress[i];
 
-            ProjectProgressCardControl projectCard = new() {
+            ProjectProgressCard projectCard = new() {
                 Item = item,
                 Margin = i != projectsProgress.Count - 1 ? new Padding(0, 0, 0, 8) : new Padding(0),
                 Width = projectsFlowLayoutPanel.ClientSize.Width - projectsFlowLayoutPanel.Padding.Horizontal,

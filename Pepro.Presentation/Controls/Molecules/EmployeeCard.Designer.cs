@@ -1,6 +1,6 @@
 ﻿namespace Pepro.Presentation.Controls.Molecules
 {
-    partial class EmployeeCardControl
+    partial class EmployeeCard
     {
         /// <summary> 
         /// Required designer variable.
