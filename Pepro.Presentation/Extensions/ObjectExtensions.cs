@@ -1,4 +1,4 @@
-﻿namespace Pepro.Presentation;
+﻿namespace Pepro.Presentation.Extensions;
 
 public static class ObjectExtensions
 {

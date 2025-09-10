@@ -1,9 +1,9 @@
-﻿using Pepro.Presentation.Controls;
+﻿namespace Pepro.Presentation.Extensions;
 
-namespace Pepro.Presentation;
-
-public static class ButtonExtensions {
-    public static void ApplyFlatStyle(this Button button) {
+public static class ButtonExtensions
+{
+    public static void ApplyFlatStyle(this Button button)
+    {
         button.BackColor = ThemeColors.Accent.Base;
         button.Cursor = Cursors.Hand;
         button.FlatStyle = FlatStyle.Flat;
@@ -12,7 +12,8 @@ public static class ButtonExtensions {
         button.FlatAppearance.MouseDownBackColor = ThemeColors.Accent.Dark;
     }
 
-    public static void ApplyFlatStyleNoBackColor(this Button button) {
+    public static void ApplyFlatStyleNoBackColor(this Button button)
+    {
         button.Cursor = Cursors.Hand;
         button.FlatStyle = FlatStyle.Flat;
         button.FlatAppearance.BorderSize = 0;
@@ -26,20 +27,23 @@ public static class ButtonExtensions {
         string style = "Linear",
         int size = 24,
         Color? color = null
-    ) {
-        if (!string.IsNullOrEmpty(button.Text)) {
+    )
+    {
+        if (!string.IsNullOrEmpty(button.Text))
+        {
             button.TextAlign = ContentAlignment.MiddleLeft;
             button.ImageAlign = ContentAlignment.MiddleLeft;
             button.TextImageRelation = TextImageRelation.ImageBeforeText;
         }
         button.Image = IconProvider.GetIcon(name, style, size, color);
     }
-    
+
     public static void ApplyFlatStyleWithIcon(
         this Button button,
         string name,
         Color color
-    ) {
+    )
+    {
         button.ApplyFlatStyle();
         button.ApplyIcon(name, color: color);
     }
