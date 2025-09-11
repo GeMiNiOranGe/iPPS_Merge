@@ -1,4 +1,4 @@
-﻿namespace Pepro.Presentation;
+﻿namespace Pepro.Presentation.Enums;
 
 public enum ControlUiEvent {
     NavigateAssignmentControl,
