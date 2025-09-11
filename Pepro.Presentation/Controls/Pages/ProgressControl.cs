@@ -1,6 +1,7 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
 using Pepro.Presentation.Controls.Molecules;
+using Pepro.Presentation.Payloads;
 
 namespace Pepro.Presentation.Controls.Pages;
 
@@ -35,7 +36,7 @@ public partial class ProgressControl : PeproMediatedUserControl {
             };
 
             projectCard.Click += (sender, e) => {
-                Mediator?.Notify(this, ControlUiEvent.PushAssignmentDetailControl, new OpenAssignmentDetailControlPayload() {
+                Mediator?.Notify(this, ControlUiEvent.PushAssignmentDetailControl, new AssignmentDetailControlPayload() {
                     ProjectId = item.ProjectId,
                     ProjectName = item.Name
                 });

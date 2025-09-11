@@ -1,6 +1,7 @@
 ﻿using Pepro.DTOs;
 using Pepro.Presentation.Base;
 using Pepro.Presentation.Controls.Pages;
+using Pepro.Presentation.Payloads;
 
 namespace Pepro.Presentation.Utilities;
 
@@ -71,7 +72,7 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator
     private void PushEditor<TEditorControl, TDto>(object? data)
         where TEditorControl : PeproEditorControlBase, IEditorUserControl<TDto>, new()
     {
-        if (data is not OpenEditorControlPayload<TDto> payload)
+        if (data is not EditorControlPayload<TDto> payload)
         {
             return;
         }
@@ -108,7 +109,7 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator
 
     private void PushAssignmentDetailControl(object? data)
     {
-        if (data is not OpenAssignmentDetailControlPayload payload)
+        if (data is not AssignmentDetailControlPayload payload)
         {
             return;
         }
@@ -124,7 +125,7 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator
 
     private void NavigateEmployeeInformationControl(object? data)
     {
-        if (data is not OpenEmployeeInformationControlPayload payload)
+        if (data is not EmployeeInformationControlPayload payload)
         {
             return;
         }

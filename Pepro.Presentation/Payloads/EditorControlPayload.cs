@@ -1,6 +1,6 @@
-﻿namespace Pepro.Presentation;
+﻿namespace Pepro.Presentation.Payloads;
 
-public record OpenEditorControlPayload<ItemType> {
+public record EditorControlPayload<ItemType> {
     public required ItemType Item { get; init; }
     public required EditorMode Mode { get; init; }
     public Action? OnDataChanged { get; init; }
