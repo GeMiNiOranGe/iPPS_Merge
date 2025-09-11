@@ -2,6 +2,7 @@
 using Pepro.Business;
 using Pepro.Presentation.Base;
 using Pepro.Presentation.Extensions;
+using Pepro.Presentation.Payloads;
 using Pepro.Presentation.Utilities;
 using System.ComponentModel;
 
@@ -159,7 +160,7 @@ public partial class MainForm : PeproFormBase {
     }
 
     private void Account_MouseClick(object sender, MouseEventArgs e) {
-        _mediator.Notify(this, ControlUiEvent.NavigateEmployeeInformationControl, new OpenEmployeeInformationControlPayload() {
+        _mediator.Notify(this, ControlUiEvent.NavigateEmployeeInformationControl, new EmployeeInformationControlPayload() {
             EmployeeId = _employeeId,
         });
     }

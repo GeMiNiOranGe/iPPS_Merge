@@ -1,4 +1,5 @@
 ﻿using Pepro.Presentation.Controls.Pages;
+using Pepro.Presentation.Payloads;
 using Pepro.Presentation.Utilities;
 
 namespace Pepro.Presentation.Base;
@@ -52,7 +53,7 @@ public class PeproCrudControlBase : PeproMediatedUserControl
         Mediator?.Notify(
             this,
             uiEvent,
-            new OpenEditorControlPayload<ItemType>
+            new EditorControlPayload<ItemType>
             {
                 Item = item,
                 Mode = EditorMode.Create,
@@ -83,7 +84,7 @@ public class PeproCrudControlBase : PeproMediatedUserControl
         Mediator?.Notify(
             this,
             uiEvent,
-            new OpenEditorControlPayload<ItemType>
+            new EditorControlPayload<ItemType>
             {
                 Item = item,
                 Mode = EditorMode.Edit,
