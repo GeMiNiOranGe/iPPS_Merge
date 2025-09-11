@@ -1,6 +1,6 @@
 ﻿using Pepro.Presentation.Enums;
 
-namespace Pepro.Presentation;
+namespace Pepro.Presentation.Interfaces;
 
 public interface IEditorUserControl<ItemType> {
     ItemType Item {
