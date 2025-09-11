@@ -1,3 +1,5 @@
-﻿namespace Pepro.Presentation.Base;
+﻿using Pepro.Presentation.Controls.Atoms;
 
-public class PeproCardBase : PeproUserControlBase { }
+namespace Pepro.Presentation.Base;
+
+public class PeproCardBase : PeproUserControl { }

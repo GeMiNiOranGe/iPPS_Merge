@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Pepro.Presentation.Base;
+namespace Pepro.Presentation.Controls.Atoms;
 
-public class PeproUserControlBase : UserControl {
-    public PeproUserControlBase() : base() {
+public class PeproUserControl : UserControl {
+    public PeproUserControl() : base() {
         Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
     }
 

@@ -1,10 +1,10 @@
-﻿using Pepro.Presentation.Base;
+﻿using Pepro.Presentation.Controls.Atoms;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Pepro.Presentation.Base;
 
-public partial class PeproInputFieldBase : PeproUserControlBase {
+public partial class PeproInputFieldBase : PeproUserControl {
     public PeproInputFieldBase() {
         InitializeComponent();
     }
