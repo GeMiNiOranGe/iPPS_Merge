@@ -1,4 +1,4 @@
-﻿using Pepro.Presentation.Base;
+﻿using Pepro.Presentation.Controls.Atoms;
 using Pepro.Presentation.Extensions;
 using Pepro.Presentation.Interfaces;
 using Pepro.Presentation.Utilities;
@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class PeproMediatedUserControl : PeproUserControlBase {
+public partial class PeproMediatedUserControl : PeproUserControl {
     private IMediator? _mediator;
 
     public PeproMediatedUserControl() {
