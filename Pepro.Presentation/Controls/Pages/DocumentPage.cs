@@ -39,9 +39,9 @@ public partial class DocumentPage : CrudTemplate
             e,
             (item) =>
             {
-                documentIdInputField.Text = item.DocumentId.ToString();
-                assignmentIdInputField.Text = item.AssignmentId.ToString();
-                fileTypeInputField.Text = item.NativeFileFormat;
+                documentIdTextBoxField.Text = item.DocumentId.ToString();
+                assignmentIdTextBoxField.Text = item.AssignmentId.ToString();
+                fileTypeTextBoxField.Text = item.NativeFileFormat;
             }
         );
     }
@@ -92,9 +92,9 @@ public partial class DocumentPage : CrudTemplate
         MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock");
     }
 
-    private void DocumentIdInputField_TextChanged(object sender, EventArgs e)
+    private void DocumentIdTextBoxField_TextChanged(object sender, EventArgs e)
     {
-        if (!int.TryParse(documentIdInputField.Text, out int documentId))
+        if (!int.TryParse(documentIdTextBoxField.Text, out int documentId))
         {
             return;
         }
@@ -105,12 +105,12 @@ public partial class DocumentPage : CrudTemplate
             return;
         }
 
-        assignmentNameInputField.Text = assignment.Name;
+        assignmentNameTextBoxField.Text = assignment.Name;
     }
 
-    private void AssignmentIdInputField_TextChanged(object sender, EventArgs e)
+    private void AssignmentIdTextBoxField_TextChanged(object sender, EventArgs e)
     {
-        if (!int.TryParse(assignmentIdInputField.Text, out int assignmentId))
+        if (!int.TryParse(assignmentIdTextBoxField.Text, out int assignmentId))
         {
             return;
         }
@@ -121,7 +121,7 @@ public partial class DocumentPage : CrudTemplate
             return;
         }
 
-        projectIdInputField.Text = project.ProjectId.ToString();
-        projectNameInputField.Text = project.Name;
+        projectIdTextBoxField.Text = project.ProjectId.ToString();
+        projectNameTextBoxField.Text = project.Name;
     }
 }

@@ -16,7 +16,7 @@ public partial class LoginForm : PeproForm {
     }
 
     private void InitializeRuntimeComponents() {
-        accountNameInputField.FocusColor = ThemeColors.Secondary.Base;
+        accountNameTextBoxField.FocusColor = ThemeColors.Secondary.Base;
 
         passwordField.FocusColor = ThemeColors.Secondary.Base;
         passwordField.TogglePasswordImage = IconProvider.GetIcon(
@@ -57,7 +57,7 @@ public partial class LoginForm : PeproForm {
     }
 
     private void LoginButton_Click(object sender, EventArgs e) {
-        string accountName = accountNameInputField.Text;
+        string accountName = accountNameTextBoxField.Text;
         string password = passwordField.Text;
 
         try {
@@ -85,9 +85,9 @@ public partial class LoginForm : PeproForm {
             MessageBox.Show(ex.Message);
         }
 
-        accountNameInputField.Clear();
+        accountNameTextBoxField.Clear();
         passwordField.Clear();
-        accountNameInputField.Focus();
+        accountNameTextBoxField.Focus();
     }
 
     public const int WM_NCLBUTTONDOWN = 0xA1;

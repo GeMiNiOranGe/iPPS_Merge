@@ -28,7 +28,7 @@ public partial class AssignmentEditorPage : EditorTemplate, IEditorUserControl<A
         set
         {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
-            assignmentNameInputField.Text = _item.Name;
+            assignmentNameTextBoxField.Text = _item.Name;
             isPublicToProjectCheckBox.Checked = _item.IsPublicToProject;
             isPublicToDepartmentCheckBox.Checked = _item.IsPublicToDepartment;
             startDateTimePicker.SetValue(_item.StartDate);
@@ -143,7 +143,7 @@ public partial class AssignmentEditorPage : EditorTemplate, IEditorUserControl<A
         AssignmentDto assignment = new()
         {
             AssignmentId = _item.AssignmentId,
-            Name = assignmentNameInputField.Text.Trim(),
+            Name = assignmentNameTextBoxField.Text.Trim(),
             IsPublicToProject = isPublicToProjectCheckBox.Checked,
             IsPublicToDepartment = isPublicToDepartmentCheckBox.Checked,
             ManagerId = managerId,
@@ -175,7 +175,7 @@ public partial class AssignmentEditorPage : EditorTemplate, IEditorUserControl<A
 
     private bool ValidateInputs()
     {
-        return !string.IsNullOrWhiteSpace(assignmentNameInputField.Text)
+        return !string.IsNullOrWhiteSpace(assignmentNameTextBoxField.Text)
             && !string.IsNullOrWhiteSpace(
                 projectComboBoxField.SelectedValue?.ToString()
             )

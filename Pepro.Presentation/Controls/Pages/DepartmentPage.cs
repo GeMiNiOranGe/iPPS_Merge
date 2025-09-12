@@ -38,8 +38,8 @@ public partial class DepartmentPage : CrudTemplate
             e,
             (item) =>
             {
-                managerInputField.Text = item.DepartmentId.ToString();
-                departmentNameInputField.Text = item.Name;
+                managerTextBoxField.Text = item.DepartmentId.ToString();
+                departmentNameTextBoxField.Text = item.Name;
             }
         );
     }

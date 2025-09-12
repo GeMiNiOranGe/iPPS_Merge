@@ -30,12 +30,12 @@ namespace Pepro.Presentation.Controls.Pages
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            documentIdInputField = new PeproInputField();
-            assignmentIdInputField = new PeproInputField();
-            assignmentNameInputField = new PeproInputField();
-            fileTypeInputField = new PeproInputField();
-            projectIdInputField = new PeproInputField();
-            projectNameInputField = new PeproInputField();
+            documentIdTextBoxField = new PeproTextBoxField();
+            assignmentIdTextBoxField = new PeproTextBoxField();
+            assignmentNameTextBoxField = new PeproTextBoxField();
+            fileTypeTextBoxField = new PeproTextBoxField();
+            projectIdTextBoxField = new PeproTextBoxField();
+            projectNameTextBoxField = new PeproTextBoxField();
             searchTextBox = new TextBox();
             searchButton = new Button();
             reloadButton = new Button();
@@ -57,87 +57,87 @@ namespace Pepro.Presentation.Controls.Pages
             ((System.ComponentModel.ISupportInitialize)documentDataGridView).BeginInit();
             SuspendLayout();
             // 
-            // documentIdInputField
+            // documentIdTextBoxField
             // 
-            documentIdInputField.Enabled = false;
-            documentIdInputField.ForeColor = Color.White;
-            documentIdInputField.LabelText = "Document id";
-            documentIdInputField.Location = new Point(16, 64);
-            documentIdInputField.Margin = new Padding(16, 16, 0, 24);
-            documentIdInputField.Name = "documentIdInputField";
-            documentIdInputField.PlaceholderText = "e.g. document id";
-            documentIdInputField.Size = new Size(240, 48);
-            documentIdInputField.TabIndex = 0;
-            documentIdInputField.TabStop = false;
-            documentIdInputField.TextChanged += DocumentIdInputField_TextChanged;
+            documentIdTextBoxField.Enabled = false;
+            documentIdTextBoxField.ForeColor = Color.White;
+            documentIdTextBoxField.LabelText = "Document id";
+            documentIdTextBoxField.Location = new Point(16, 64);
+            documentIdTextBoxField.Margin = new Padding(16, 16, 0, 24);
+            documentIdTextBoxField.Name = "documentIdTextBoxField";
+            documentIdTextBoxField.PlaceholderText = "e.g. document id";
+            documentIdTextBoxField.Size = new Size(240, 48);
+            documentIdTextBoxField.TabIndex = 0;
+            documentIdTextBoxField.TabStop = false;
+            documentIdTextBoxField.TextChanged += DocumentIdTextBoxField_TextChanged;
             // 
-            // assignmentIdInputField
+            // assignmentIdTextBoxField
             // 
-            assignmentIdInputField.Enabled = false;
-            assignmentIdInputField.ForeColor = Color.White;
-            assignmentIdInputField.LabelText = "Assignment id";
-            assignmentIdInputField.Location = new Point(280, 64);
-            assignmentIdInputField.Margin = new Padding(24, 16, 0, 24);
-            assignmentIdInputField.Name = "assignmentIdInputField";
-            assignmentIdInputField.PlaceholderText = "e.g. assignment id";
-            assignmentIdInputField.Size = new Size(240, 48);
-            assignmentIdInputField.TabIndex = 0;
-            assignmentIdInputField.TabStop = false;
-            assignmentIdInputField.TextChanged += AssignmentIdInputField_TextChanged;
+            assignmentIdTextBoxField.Enabled = false;
+            assignmentIdTextBoxField.ForeColor = Color.White;
+            assignmentIdTextBoxField.LabelText = "Assignment id";
+            assignmentIdTextBoxField.Location = new Point(280, 64);
+            assignmentIdTextBoxField.Margin = new Padding(24, 16, 0, 24);
+            assignmentIdTextBoxField.Name = "assignmentIdTextBoxField";
+            assignmentIdTextBoxField.PlaceholderText = "e.g. assignment id";
+            assignmentIdTextBoxField.Size = new Size(240, 48);
+            assignmentIdTextBoxField.TabIndex = 0;
+            assignmentIdTextBoxField.TabStop = false;
+            assignmentIdTextBoxField.TextChanged += AssignmentIdTextBoxField_TextChanged;
             // 
-            // assignmentNameInputField
+            // assignmentNameTextBoxField
             // 
-            assignmentNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            assignmentNameInputField.Enabled = false;
-            assignmentNameInputField.ForeColor = Color.White;
-            assignmentNameInputField.LabelText = "Assignment name";
-            assignmentNameInputField.Location = new Point(544, 64);
-            assignmentNameInputField.Margin = new Padding(24, 16, 16, 24);
-            assignmentNameInputField.Name = "assignmentNameInputField";
-            assignmentNameInputField.PlaceholderText = "e.g. assignment name";
-            assignmentNameInputField.Size = new Size(504, 48);
-            assignmentNameInputField.TabIndex = 0;
-            assignmentNameInputField.TabStop = false;
+            assignmentNameTextBoxField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            assignmentNameTextBoxField.Enabled = false;
+            assignmentNameTextBoxField.ForeColor = Color.White;
+            assignmentNameTextBoxField.LabelText = "Assignment name";
+            assignmentNameTextBoxField.Location = new Point(544, 64);
+            assignmentNameTextBoxField.Margin = new Padding(24, 16, 16, 24);
+            assignmentNameTextBoxField.Name = "assignmentNameTextBoxField";
+            assignmentNameTextBoxField.PlaceholderText = "e.g. assignment name";
+            assignmentNameTextBoxField.Size = new Size(504, 48);
+            assignmentNameTextBoxField.TabIndex = 0;
+            assignmentNameTextBoxField.TabStop = false;
             // 
-            // fileTypeInputField
+            // fileTypeTextBoxField
             // 
-            fileTypeInputField.Enabled = false;
-            fileTypeInputField.ForeColor = Color.White;
-            fileTypeInputField.LabelText = "File type";
-            fileTypeInputField.Location = new Point(16, 136);
-            fileTypeInputField.Margin = new Padding(16, 0, 0, 24);
-            fileTypeInputField.Name = "fileTypeInputField";
-            fileTypeInputField.PlaceholderText = "e.g. docx, xlsx, pptx, ...";
-            fileTypeInputField.Size = new Size(240, 48);
-            fileTypeInputField.TabIndex = 0;
-            fileTypeInputField.TabStop = false;
+            fileTypeTextBoxField.Enabled = false;
+            fileTypeTextBoxField.ForeColor = Color.White;
+            fileTypeTextBoxField.LabelText = "File type";
+            fileTypeTextBoxField.Location = new Point(16, 136);
+            fileTypeTextBoxField.Margin = new Padding(16, 0, 0, 24);
+            fileTypeTextBoxField.Name = "fileTypeTextBoxField";
+            fileTypeTextBoxField.PlaceholderText = "e.g. docx, xlsx, pptx, ...";
+            fileTypeTextBoxField.Size = new Size(240, 48);
+            fileTypeTextBoxField.TabIndex = 0;
+            fileTypeTextBoxField.TabStop = false;
             // 
-            // projectIdInputField
+            // projectIdTextBoxField
             // 
-            projectIdInputField.Enabled = false;
-            projectIdInputField.ForeColor = Color.White;
-            projectIdInputField.LabelText = "Project id";
-            projectIdInputField.Location = new Point(280, 136);
-            projectIdInputField.Margin = new Padding(24, 0, 0, 24);
-            projectIdInputField.Name = "projectIdInputField";
-            projectIdInputField.PlaceholderText = "e.g. project id";
-            projectIdInputField.Size = new Size(240, 48);
-            projectIdInputField.TabIndex = 0;
-            projectIdInputField.TabStop = false;
+            projectIdTextBoxField.Enabled = false;
+            projectIdTextBoxField.ForeColor = Color.White;
+            projectIdTextBoxField.LabelText = "Project id";
+            projectIdTextBoxField.Location = new Point(280, 136);
+            projectIdTextBoxField.Margin = new Padding(24, 0, 0, 24);
+            projectIdTextBoxField.Name = "projectIdTextBoxField";
+            projectIdTextBoxField.PlaceholderText = "e.g. project id";
+            projectIdTextBoxField.Size = new Size(240, 48);
+            projectIdTextBoxField.TabIndex = 0;
+            projectIdTextBoxField.TabStop = false;
             // 
-            // projectNameInputField
+            // projectNameTextBoxField
             // 
-            projectNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            projectNameInputField.Enabled = false;
-            projectNameInputField.ForeColor = Color.White;
-            projectNameInputField.LabelText = "Project name";
-            projectNameInputField.Location = new Point(544, 136);
-            projectNameInputField.Margin = new Padding(24, 0, 16, 24);
-            projectNameInputField.Name = "projectNameInputField";
-            projectNameInputField.PlaceholderText = "e.g. project name";
-            projectNameInputField.Size = new Size(504, 48);
-            projectNameInputField.TabIndex = 0;
-            projectNameInputField.TabStop = false;
+            projectNameTextBoxField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            projectNameTextBoxField.Enabled = false;
+            projectNameTextBoxField.ForeColor = Color.White;
+            projectNameTextBoxField.LabelText = "Project name";
+            projectNameTextBoxField.Location = new Point(544, 136);
+            projectNameTextBoxField.Margin = new Padding(24, 0, 16, 24);
+            projectNameTextBoxField.Name = "projectNameTextBoxField";
+            projectNameTextBoxField.PlaceholderText = "e.g. project name";
+            projectNameTextBoxField.Size = new Size(504, 48);
+            projectNameTextBoxField.TabIndex = 0;
+            projectNameTextBoxField.TabStop = false;
             // 
             // searchTextBox
             // 
@@ -313,12 +313,12 @@ namespace Pepro.Presentation.Controls.Pages
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(documentIdInputField);
-            Controls.Add(assignmentIdInputField);
-            Controls.Add(assignmentNameInputField);
-            Controls.Add(fileTypeInputField);
-            Controls.Add(projectIdInputField);
-            Controls.Add(projectNameInputField);
+            Controls.Add(documentIdTextBoxField);
+            Controls.Add(assignmentIdTextBoxField);
+            Controls.Add(assignmentNameTextBoxField);
+            Controls.Add(fileTypeTextBoxField);
+            Controls.Add(projectIdTextBoxField);
+            Controls.Add(projectNameTextBoxField);
             Controls.Add(searchTextBox);
             Controls.Add(searchButton);
             Controls.Add(reloadButton);
@@ -340,12 +340,12 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.SetChildIndex(reloadButton, 0);
             Controls.SetChildIndex(searchButton, 0);
             Controls.SetChildIndex(searchTextBox, 0);
-            Controls.SetChildIndex(projectNameInputField, 0);
-            Controls.SetChildIndex(projectIdInputField, 0);
-            Controls.SetChildIndex(fileTypeInputField, 0);
-            Controls.SetChildIndex(assignmentNameInputField, 0);
-            Controls.SetChildIndex(assignmentIdInputField, 0);
-            Controls.SetChildIndex(documentIdInputField, 0);
+            Controls.SetChildIndex(projectNameTextBoxField, 0);
+            Controls.SetChildIndex(projectIdTextBoxField, 0);
+            Controls.SetChildIndex(fileTypeTextBoxField, 0);
+            Controls.SetChildIndex(assignmentNameTextBoxField, 0);
+            Controls.SetChildIndex(assignmentIdTextBoxField, 0);
+            Controls.SetChildIndex(documentIdTextBoxField, 0);
             ((System.ComponentModel.ISupportInitialize)documentDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -362,12 +362,12 @@ namespace Pepro.Presentation.Controls.Pages
         private Button reloadButton;
         private Button downloadButton;
         private TextBox searchTextBox;
-        private PeproInputField documentIdInputField;
-        private PeproInputField projectIdInputField;
-        private PeproInputField assignmentIdInputField;
-        private PeproInputField fileTypeInputField;
-        private PeproInputField projectNameInputField;
-        private PeproInputField assignmentNameInputField;
+        private PeproTextBoxField documentIdTextBoxField;
+        private PeproTextBoxField projectIdTextBoxField;
+        private PeproTextBoxField assignmentIdTextBoxField;
+        private PeproTextBoxField fileTypeTextBoxField;
+        private PeproTextBoxField projectNameTextBoxField;
+        private PeproTextBoxField assignmentNameTextBoxField;
         private DataGridViewTextBoxColumn titleColumn;
         private DataGridViewTextBoxColumn createAtColumn;
         private DataGridViewTextBoxColumn revisionNumberColumn;

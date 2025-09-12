@@ -29,8 +29,8 @@ namespace Pepro.Presentation.Controls.Pages
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            fullNameInputField = new PeproInputField();
-            employeeIdInputField = new PeproInputField();
+            fullNameTextBoxField = new PeproTextBoxField();
+            employeeIdTextBoxField = new PeproTextBoxField();
             phoneNumberComboBoxField = new PeproComboBoxField();
             genderLabel = new Label();
             maleRadioButton = new RadioButton();
@@ -38,37 +38,37 @@ namespace Pepro.Presentation.Controls.Pages
             otherRadioButton = new RadioButton();
             dateOfBirthLabel = new Label();
             dateOfBirthDateTimePicker = new DateTimePicker();
-            citizenIdInputField = new PeproInputField();
-            departmentInputField = new PeproInputField();
-            positionInputField = new PeproInputField();
+            citizenIdTextBoxField = new PeproTextBoxField();
+            departmentTextBoxField = new PeproTextBoxField();
+            positionTextBoxField = new PeproTextBoxField();
             assignedProjectsComboBoxField = new PeproComboBoxField();
             SuspendLayout();
             // 
-            // fullNameInputField
+            // fullNameTextBoxField
             // 
-            fullNameInputField.Anchor = AnchorStyles.None;
-            fullNameInputField.Enabled = false;
-            fullNameInputField.ForeColor = Color.White;
-            fullNameInputField.LabelText = "Full name";
-            fullNameInputField.Location = new Point(263, 162);
-            fullNameInputField.Margin = new Padding(0, 0, 24, 32);
-            fullNameInputField.Name = "fullNameInputField";
-            fullNameInputField.PlaceholderText = "e.g. full name";
-            fullNameInputField.Size = new Size(256, 48);
-            fullNameInputField.TabIndex = 1;
+            fullNameTextBoxField.Anchor = AnchorStyles.None;
+            fullNameTextBoxField.Enabled = false;
+            fullNameTextBoxField.ForeColor = Color.White;
+            fullNameTextBoxField.LabelText = "Full name";
+            fullNameTextBoxField.Location = new Point(263, 162);
+            fullNameTextBoxField.Margin = new Padding(0, 0, 24, 32);
+            fullNameTextBoxField.Name = "fullNameTextBoxField";
+            fullNameTextBoxField.PlaceholderText = "e.g. full name";
+            fullNameTextBoxField.Size = new Size(256, 48);
+            fullNameTextBoxField.TabIndex = 1;
             // 
-            // employeeIdInputField
+            // employeeIdTextBoxField
             // 
-            employeeIdInputField.Anchor = AnchorStyles.None;
-            employeeIdInputField.Enabled = false;
-            employeeIdInputField.ForeColor = Color.White;
-            employeeIdInputField.LabelText = "Employee id";
-            employeeIdInputField.Location = new Point(543, 162);
-            employeeIdInputField.Margin = new Padding(0);
-            employeeIdInputField.Name = "employeeIdInputField";
-            employeeIdInputField.PlaceholderText = "e.g. employee id";
-            employeeIdInputField.Size = new Size(256, 48);
-            employeeIdInputField.TabIndex = 2;
+            employeeIdTextBoxField.Anchor = AnchorStyles.None;
+            employeeIdTextBoxField.Enabled = false;
+            employeeIdTextBoxField.ForeColor = Color.White;
+            employeeIdTextBoxField.LabelText = "Employee id";
+            employeeIdTextBoxField.Location = new Point(543, 162);
+            employeeIdTextBoxField.Margin = new Padding(0);
+            employeeIdTextBoxField.Name = "employeeIdTextBoxField";
+            employeeIdTextBoxField.PlaceholderText = "e.g. employee id";
+            employeeIdTextBoxField.Size = new Size(256, 48);
+            employeeIdTextBoxField.TabIndex = 2;
             // 
             // phoneNumberComboBoxField
             // 
@@ -155,44 +155,44 @@ namespace Pepro.Presentation.Controls.Pages
             dateOfBirthDateTimePicker.Size = new Size(248, 26);
             dateOfBirthDateTimePicker.TabIndex = 7;
             // 
-            // citizenIdInputField
+            // citizenIdTextBoxField
             // 
-            citizenIdInputField.Anchor = AnchorStyles.None;
-            citizenIdInputField.Enabled = false;
-            citizenIdInputField.ForeColor = Color.White;
-            citizenIdInputField.LabelText = "Citizen id";
-            citizenIdInputField.Location = new Point(543, 336);
-            citizenIdInputField.Margin = new Padding(0, 0, 0, 32);
-            citizenIdInputField.Name = "citizenIdInputField";
-            citizenIdInputField.PlaceholderText = "e.g. citizen id";
-            citizenIdInputField.Size = new Size(256, 48);
-            citizenIdInputField.TabIndex = 8;
+            citizenIdTextBoxField.Anchor = AnchorStyles.None;
+            citizenIdTextBoxField.Enabled = false;
+            citizenIdTextBoxField.ForeColor = Color.White;
+            citizenIdTextBoxField.LabelText = "Citizen id";
+            citizenIdTextBoxField.Location = new Point(543, 336);
+            citizenIdTextBoxField.Margin = new Padding(0, 0, 0, 32);
+            citizenIdTextBoxField.Name = "citizenIdTextBoxField";
+            citizenIdTextBoxField.PlaceholderText = "e.g. citizen id";
+            citizenIdTextBoxField.Size = new Size(256, 48);
+            citizenIdTextBoxField.TabIndex = 8;
             // 
-            // departmentInputField
+            // departmentTextBoxField
             // 
-            departmentInputField.Anchor = AnchorStyles.None;
-            departmentInputField.Enabled = false;
-            departmentInputField.ForeColor = Color.White;
-            departmentInputField.LabelText = "Department";
-            departmentInputField.Location = new Point(263, 422);
-            departmentInputField.Margin = new Padding(0, 0, 24, 32);
-            departmentInputField.Name = "departmentInputField";
-            departmentInputField.PlaceholderText = "e.g. department";
-            departmentInputField.Size = new Size(256, 48);
-            departmentInputField.TabIndex = 9;
+            departmentTextBoxField.Anchor = AnchorStyles.None;
+            departmentTextBoxField.Enabled = false;
+            departmentTextBoxField.ForeColor = Color.White;
+            departmentTextBoxField.LabelText = "Department";
+            departmentTextBoxField.Location = new Point(263, 422);
+            departmentTextBoxField.Margin = new Padding(0, 0, 24, 32);
+            departmentTextBoxField.Name = "departmentTextBoxField";
+            departmentTextBoxField.PlaceholderText = "e.g. department";
+            departmentTextBoxField.Size = new Size(256, 48);
+            departmentTextBoxField.TabIndex = 9;
             // 
-            // positionInputField
+            // positionTextBoxField
             // 
-            positionInputField.Anchor = AnchorStyles.None;
-            positionInputField.Enabled = false;
-            positionInputField.ForeColor = Color.White;
-            positionInputField.LabelText = "Position";
-            positionInputField.Location = new Point(543, 422);
-            positionInputField.Margin = new Padding(0, 0, 0, 32);
-            positionInputField.Name = "positionInputField";
-            positionInputField.PlaceholderText = "e.g. position";
-            positionInputField.Size = new Size(256, 48);
-            positionInputField.TabIndex = 10;
+            positionTextBoxField.Anchor = AnchorStyles.None;
+            positionTextBoxField.Enabled = false;
+            positionTextBoxField.ForeColor = Color.White;
+            positionTextBoxField.LabelText = "Position";
+            positionTextBoxField.Location = new Point(543, 422);
+            positionTextBoxField.Margin = new Padding(0, 0, 0, 32);
+            positionTextBoxField.Name = "positionTextBoxField";
+            positionTextBoxField.PlaceholderText = "e.g. position";
+            positionTextBoxField.Size = new Size(256, 48);
+            positionTextBoxField.TabIndex = 10;
             // 
             // assignedProjectsComboBoxField
             // 
@@ -212,32 +212,32 @@ namespace Pepro.Presentation.Controls.Pages
             BackColor = Color.FromArgb(15, 15, 15);
             Controls.Add(assignedProjectsComboBoxField);
             Controls.Add(phoneNumberComboBoxField);
-            Controls.Add(fullNameInputField);
-            Controls.Add(employeeIdInputField);
+            Controls.Add(fullNameTextBoxField);
+            Controls.Add(employeeIdTextBoxField);
             Controls.Add(genderLabel);
             Controls.Add(maleRadioButton);
             Controls.Add(femaleRadioButton);
             Controls.Add(otherRadioButton);
             Controls.Add(dateOfBirthLabel);
             Controls.Add(dateOfBirthDateTimePicker);
-            Controls.Add(citizenIdInputField);
-            Controls.Add(departmentInputField);
-            Controls.Add(positionInputField);
+            Controls.Add(citizenIdTextBoxField);
+            Controls.Add(departmentTextBoxField);
+            Controls.Add(positionTextBoxField);
             HeaderText = "Personal Information";
             Name = "PersonalPage";
             ReturnButtonVisible = false;
             Load += PersonalPage_Load;
-            Controls.SetChildIndex(positionInputField, 0);
-            Controls.SetChildIndex(departmentInputField, 0);
-            Controls.SetChildIndex(citizenIdInputField, 0);
+            Controls.SetChildIndex(positionTextBoxField, 0);
+            Controls.SetChildIndex(departmentTextBoxField, 0);
+            Controls.SetChildIndex(citizenIdTextBoxField, 0);
             Controls.SetChildIndex(dateOfBirthDateTimePicker, 0);
             Controls.SetChildIndex(dateOfBirthLabel, 0);
             Controls.SetChildIndex(otherRadioButton, 0);
             Controls.SetChildIndex(femaleRadioButton, 0);
             Controls.SetChildIndex(maleRadioButton, 0);
             Controls.SetChildIndex(genderLabel, 0);
-            Controls.SetChildIndex(employeeIdInputField, 0);
-            Controls.SetChildIndex(fullNameInputField, 0);
+            Controls.SetChildIndex(employeeIdTextBoxField, 0);
+            Controls.SetChildIndex(fullNameTextBoxField, 0);
             Controls.SetChildIndex(phoneNumberComboBoxField, 0);
             Controls.SetChildIndex(assignedProjectsComboBoxField, 0);
             ResumeLayout(false);
@@ -252,11 +252,11 @@ namespace Pepro.Presentation.Controls.Pages
         private RadioButton maleRadioButton;
         private RadioButton femaleRadioButton;
         private RadioButton otherRadioButton;
-        private PeproInputField fullNameInputField;
-        private PeproInputField employeeIdInputField;
-        private PeproInputField departmentInputField;
-        private PeproInputField positionInputField;
-        private PeproInputField citizenIdInputField;
+        private PeproTextBoxField fullNameTextBoxField;
+        private PeproTextBoxField employeeIdTextBoxField;
+        private PeproTextBoxField departmentTextBoxField;
+        private PeproTextBoxField positionTextBoxField;
+        private PeproTextBoxField citizenIdTextBoxField;
         private PeproComboBoxField phoneNumberComboBoxField;
         private PeproComboBoxField assignedProjectsComboBoxField;
     }

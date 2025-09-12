@@ -30,7 +30,7 @@ public partial class DepartmentEditorPage
         set
         {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
-            departmentNameInputField.Text = _item.Name;
+            departmentNameTextBoxField.Text = _item.Name;
         }
     }
 
@@ -116,7 +116,7 @@ public partial class DepartmentEditorPage
         DepartmentDto department = new()
         {
             DepartmentId = _item.DepartmentId,
-            Name = departmentNameInputField.Text,
+            Name = departmentNameTextBoxField.Text,
             ManagerId = managerId,
         };
 
@@ -145,6 +145,6 @@ public partial class DepartmentEditorPage
 
     private bool ValidateInputs()
     {
-        return !string.IsNullOrWhiteSpace(departmentNameInputField.Text);
+        return !string.IsNullOrWhiteSpace(departmentNameTextBoxField.Text);
     }
 }

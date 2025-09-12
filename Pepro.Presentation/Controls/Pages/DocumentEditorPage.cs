@@ -20,17 +20,17 @@ public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<Doc
         saveButton.ApplyFlatStyle();
         browseButton.ApplyFlatStyle();
 
-        projectIdInputField.FocusColor = ThemeColors.Accent.Base;
-        assignmentIdInputField.FocusColor = ThemeColors.Accent.Base;
-        documentIdInputField.FocusColor = ThemeColors.Accent.Base;
-        titleInputField.FocusColor = ThemeColors.Accent.Base;
-        preparedByInputField.FocusColor = ThemeColors.Accent.Base;
-        checkedByInputField.FocusColor = ThemeColors.Accent.Base;
-        approvedByInputField.FocusColor = ThemeColors.Accent.Base;
-        fileTypeInputField.FocusColor = ThemeColors.Accent.Base;
-        revisionNumberInputField.FocusColor = ThemeColors.Accent.Base;
-        revisionStatusInputField.FocusColor = ThemeColors.Accent.Base;
-        filePathInputField.FocusColor = ThemeColors.Accent.Base;
+        projectIdTextBoxField.FocusColor = ThemeColors.Accent.Base;
+        assignmentIdTextBoxField.FocusColor = ThemeColors.Accent.Base;
+        documentIdTextBoxField.FocusColor = ThemeColors.Accent.Base;
+        titleTextBoxField.FocusColor = ThemeColors.Accent.Base;
+        preparedByTextBoxField.FocusColor = ThemeColors.Accent.Base;
+        checkedByTextBoxField.FocusColor = ThemeColors.Accent.Base;
+        approvedByTextBoxField.FocusColor = ThemeColors.Accent.Base;
+        fileTypeTextBoxField.FocusColor = ThemeColors.Accent.Base;
+        revisionNumberTextBoxField.FocusColor = ThemeColors.Accent.Base;
+        revisionStatusTextBoxField.FocusColor = ThemeColors.Accent.Base;
+        filePathTextBoxField.FocusColor = ThemeColors.Accent.Base;
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -38,17 +38,17 @@ public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<Doc
         get => _item;
         set {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
-            documentIdInputField.Text = _item.DocumentId.ToString();
-            titleInputField.Text = _item.Title;
+            documentIdTextBoxField.Text = _item.DocumentId.ToString();
+            titleTextBoxField.Text = _item.Title;
             createdAtDateTimePicker.SetValue(_item.CreateAt);
-            revisionNumberInputField.Text = _item.RevisionNumber.ToString();
-            revisionStatusInputField.Text = _item.RevisionStatus;
-            filePathInputField.Text = _item.DocumentUrl;
-            fileTypeInputField.Text = _item.NativeFileFormat;
-            preparedByInputField.Text = _item.PreparedBy;
-            checkedByInputField.Text = _item.CheckedBy;
-            approvedByInputField.Text = _item.ApprovedBy;
-            assignmentIdInputField.Text = _item.AssignmentId.ToString();
+            revisionNumberTextBoxField.Text = _item.RevisionNumber.ToString();
+            revisionStatusTextBoxField.Text = _item.RevisionStatus;
+            filePathTextBoxField.Text = _item.DocumentUrl;
+            fileTypeTextBoxField.Text = _item.NativeFileFormat;
+            preparedByTextBoxField.Text = _item.PreparedBy;
+            checkedByTextBoxField.Text = _item.CheckedBy;
+            approvedByTextBoxField.Text = _item.ApprovedBy;
+            assignmentIdTextBoxField.Text = _item.AssignmentId.ToString();
         }
     }
 
@@ -66,8 +66,8 @@ public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<Doc
     }
 
     private void DocumentEditorPage_Load(object sender, EventArgs e) {
-        projectIdInputField.BindTextToValue(projectNameComboBoxField);
-        assignmentIdInputField.BindTextToValue(assignmentNameComboBoxField);
+        projectIdTextBoxField.BindTextToValue(projectNameComboBoxField);
+        assignmentIdTextBoxField.BindTextToValue(assignmentNameComboBoxField);
 
         projectNameComboBoxField.DisplayMember = nameof(ProjectDto.Name);
         projectNameComboBoxField.ValueMember = nameof(ProjectDto.ProjectId);
@@ -95,7 +95,7 @@ public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<Doc
         assignmentNameComboBoxField.Enabled = false;
         projectNameComboBoxField.Enabled = false;
 
-        if (!int.TryParse(documentIdInputField.Text, out int documentId))
+        if (!int.TryParse(documentIdTextBoxField.Text, out int documentId))
         {
             return;
         }

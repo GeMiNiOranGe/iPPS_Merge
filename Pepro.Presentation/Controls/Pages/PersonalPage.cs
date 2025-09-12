@@ -31,8 +31,8 @@ public partial class PersonalPage : MediatedTemplate
             return;
         }
 
-        employeeIdInputField.Text = employee.EmployeeId.ToString();
-        fullNameInputField.Text = employee.FullName;
+        employeeIdTextBoxField.Text = employee.EmployeeId.ToString();
+        fullNameTextBoxField.Text = employee.FullName;
         (
             employee.Gender switch
             {
@@ -42,18 +42,18 @@ public partial class PersonalPage : MediatedTemplate
             }
         ).Checked = true;
         dateOfBirthDateTimePicker.SetValue(employee.DateOfBirth);
-        citizenIdInputField.Text = employee.CitizenId;
+        citizenIdTextBoxField.Text = employee.CitizenId;
 
-        positionInputField.Text = PositionBusiness.Instance.GetPositionTitleByEmployeeId(_employeeId);
+        positionTextBoxField.Text = PositionBusiness.Instance.GetPositionTitleByEmployeeId(_employeeId);
 
         DepartmentDto? department = DepartmentBusiness.Instance.GetDepartmentByDepartmentId(employee.DepartmentId);
         if (department != null)
         {
-            departmentInputField.Text = department.Name;
+            departmentTextBoxField.Text = department.Name;
         }
         else
         {
-            departmentInputField.Text = "Department not found";
+            departmentTextBoxField.Text = "Department not found";
         }
 
         string[] projectNames = ProjectBusiness.Instance.GetProjectNamesByEmployeeId(_employeeId);

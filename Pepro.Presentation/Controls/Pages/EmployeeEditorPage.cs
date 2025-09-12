@@ -29,9 +29,9 @@ public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<Emp
         set
         {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
-            firstNameInputField.Text = _item.FirstName;
-            middleNameInputField.Text = _item.MiddleName;
-            lastNameInputField.Text = _item.LastName;
+            firstNameTextBoxField.Text = _item.FirstName;
+            middleNameTextBoxField.Text = _item.MiddleName;
+            lastNameTextBoxField.Text = _item.LastName;
             dateOfBirthDateTimePicker.SetValue(_item.DateOfBirth);
             (
                 _item.Gender switch
@@ -41,8 +41,8 @@ public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<Emp
                     _ => otherRadioButton,
                 }
             ).Checked = true;
-            taxCodeInputField.Text = _item.TaxCode;
-            citizenIdInputField.Text = _item.CitizenId;
+            taxCodeTextBoxField.Text = _item.TaxCode;
+            citizenIdTextBoxField.Text = _item.CitizenId;
         }
     }
 
@@ -69,9 +69,9 @@ public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<Emp
     private void EmployeeEditorPage_Load(object sender, EventArgs e)
     {
         if (
-            string.IsNullOrEmpty(positionInputField.Text)
-            || string.IsNullOrEmpty(salaryScaleInputField.Text)
-            || string.IsNullOrEmpty(salaryLevelInputField.Text)
+            string.IsNullOrEmpty(positionTextBoxField.Text)
+            || string.IsNullOrEmpty(salaryScaleTextBoxField.Text)
+            || string.IsNullOrEmpty(salaryLevelTextBoxField.Text)
         )
         {
             lbCheck1.ForeColor = Color.Red;
@@ -155,10 +155,10 @@ public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<Emp
     {
         if (salaryScaleComboBoxField.SelectedItem is not SalaryScaleDto dto)
         {
-            salaryScaleInputField.Text = "";
+            salaryScaleTextBoxField.Text = "";
             return;
         }
-        salaryScaleInputField.Text = dto.Group;
+        salaryScaleTextBoxField.Text = dto.Group;
 
         List<SalaryLevelDto> salaryLevels = SalaryLevelBusiness
             .Instance.GetSalaryLevelsBySalaryScaleId(dto.SalaryScaleId);
@@ -170,20 +170,20 @@ public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<Emp
     {
         if (salaryLevelComboBoxField.SelectedItem is not SalaryLevelDto dto)
         {
-            salaryLevelInputField.Text = "";
+            salaryLevelTextBoxField.Text = "";
             return;
         }
-        salaryLevelInputField.Text = dto.Coefficient.ToString();
+        salaryLevelTextBoxField.Text = dto.Coefficient.ToString();
     }
 
     private void PositionComboBoxField_SelectedIndexChanged(object sender, EventArgs e)
     {
         if (positionComboBoxField.SelectedItem is not PositionDto dto)
         {
-            positionInputField.Text = "";
+            positionTextBoxField.Text = "";
             return;
         }
-        positionInputField.Text = dto.AllowancePercent.ToString();
+        positionTextBoxField.Text = dto.AllowancePercent.ToString();
     }
 
     private void SaveButton_Click(object sender, EventArgs e)
@@ -215,17 +215,17 @@ public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<Emp
         EmployeeDto employee = new()
         {
             EmployeeId = _item.EmployeeId,
-            FirstName = firstNameInputField.Text.Trim(),
-            MiddleName = middleNameInputField.Text.Trim(),
-            LastName = lastNameInputField.Text.Trim(),
+            FirstName = firstNameTextBoxField.Text.Trim(),
+            MiddleName = middleNameTextBoxField.Text.Trim(),
+            LastName = lastNameTextBoxField.Text.Trim(),
             DateOfBirth = DateOnly.FromDateTime(dateOfBirthDateTimePicker.Value),
             Gender = maleRadioButton.Checked
                 ? true
                 : femaleRadioButton.Checked
                     ? false
                     : null,
-            TaxCode = taxCodeInputField.Text.Trim(),
-            CitizenId = citizenIdInputField.Text.Trim(),
+            TaxCode = taxCodeTextBoxField.Text.Trim(),
+            CitizenId = citizenIdTextBoxField.Text.Trim(),
             DepartmentId = departmentId,
             PositionId = positionId,
             SalaryLevelId = salaryLevelId,
@@ -252,9 +252,9 @@ public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<Emp
 
     private bool ValidateInputs()
     {
-        return !string.IsNullOrWhiteSpace(citizenIdInputField.Text)
-            && !string.IsNullOrWhiteSpace(firstNameInputField.Text)
-            && !string.IsNullOrWhiteSpace(lastNameInputField.Text)
+        return !string.IsNullOrWhiteSpace(citizenIdTextBoxField.Text)
+            && !string.IsNullOrWhiteSpace(firstNameTextBoxField.Text)
+            && !string.IsNullOrWhiteSpace(lastNameTextBoxField.Text)
             && !string.IsNullOrWhiteSpace(
                 departmentComboBoxField.SelectedValue?.ToString()
             )

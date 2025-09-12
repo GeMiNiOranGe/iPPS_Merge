@@ -30,38 +30,38 @@ namespace Pepro.Presentation.Controls.Pages
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            projectIdInputField = new PeproInputField();
+            projectIdTextBoxField = new PeproTextBoxField();
             projectNameComboBoxField = new PeproComboBoxField();
-            assignmentIdInputField = new PeproInputField();
+            assignmentIdTextBoxField = new PeproTextBoxField();
             assignmentNameComboBoxField = new PeproComboBoxField();
-            documentIdInputField = new PeproInputField();
-            titleInputField = new PeproInputField();
-            preparedByInputField = new PeproInputField();
-            checkedByInputField = new PeproInputField();
-            approvedByInputField = new PeproInputField();
-            fileTypeInputField = new PeproInputField();
+            documentIdTextBoxField = new PeproTextBoxField();
+            titleTextBoxField = new PeproTextBoxField();
+            preparedByTextBoxField = new PeproTextBoxField();
+            checkedByTextBoxField = new PeproTextBoxField();
+            approvedByTextBoxField = new PeproTextBoxField();
+            fileTypeTextBoxField = new PeproTextBoxField();
             createdAtLabel = new PeproLabel();
             createdAtDateTimePicker = new DateTimePicker();
-            revisionNumberInputField = new PeproInputField();
-            revisionStatusInputField = new PeproInputField();
-            filePathInputField = new PeproInputField();
+            revisionNumberTextBoxField = new PeproTextBoxField();
+            revisionStatusTextBoxField = new PeproTextBoxField();
+            filePathTextBoxField = new PeproTextBoxField();
             browseButton = new Button();
             saveButton = new Button();
             SuspendLayout();
             // 
-            // projectIdInputField
+            // projectIdTextBoxField
             // 
-            projectIdInputField.Anchor = AnchorStyles.None;
-            projectIdInputField.Enabled = false;
-            projectIdInputField.ForeColor = Color.White;
-            projectIdInputField.LabelText = "Project id";
-            projectIdInputField.Location = new Point(16, 67);
-            projectIdInputField.Margin = new Padding(16, 16, 0, 24);
-            projectIdInputField.Name = "projectIdInputField";
-            projectIdInputField.PlaceholderText = "e.g. project id";
-            projectIdInputField.Size = new Size(240, 48);
-            projectIdInputField.TabIndex = 1;
-            projectIdInputField.TabStop = false;
+            projectIdTextBoxField.Anchor = AnchorStyles.None;
+            projectIdTextBoxField.Enabled = false;
+            projectIdTextBoxField.ForeColor = Color.White;
+            projectIdTextBoxField.LabelText = "Project id";
+            projectIdTextBoxField.Location = new Point(16, 67);
+            projectIdTextBoxField.Margin = new Padding(16, 16, 0, 24);
+            projectIdTextBoxField.Name = "projectIdTextBoxField";
+            projectIdTextBoxField.PlaceholderText = "e.g. project id";
+            projectIdTextBoxField.Size = new Size(240, 48);
+            projectIdTextBoxField.TabIndex = 1;
+            projectIdTextBoxField.TabStop = false;
             // 
             // projectNameComboBoxField
             // 
@@ -75,19 +75,19 @@ namespace Pepro.Presentation.Controls.Pages
             projectNameComboBoxField.TabIndex = 2;
             projectNameComboBoxField.SelectedIndexChanged += ProjectNameComboBoxField_SelectedIndexChanged;
             // 
-            // assignmentIdInputField
+            // assignmentIdTextBoxField
             // 
-            assignmentIdInputField.Anchor = AnchorStyles.None;
-            assignmentIdInputField.Enabled = false;
-            assignmentIdInputField.ForeColor = Color.White;
-            assignmentIdInputField.LabelText = "Assignment id";
-            assignmentIdInputField.Location = new Point(16, 139);
-            assignmentIdInputField.Margin = new Padding(16, 0, 0, 24);
-            assignmentIdInputField.Name = "assignmentIdInputField";
-            assignmentIdInputField.PlaceholderText = "e.g. assignment id";
-            assignmentIdInputField.Size = new Size(240, 48);
-            assignmentIdInputField.TabIndex = 3;
-            assignmentIdInputField.TabStop = false;
+            assignmentIdTextBoxField.Anchor = AnchorStyles.None;
+            assignmentIdTextBoxField.Enabled = false;
+            assignmentIdTextBoxField.ForeColor = Color.White;
+            assignmentIdTextBoxField.LabelText = "Assignment id";
+            assignmentIdTextBoxField.Location = new Point(16, 139);
+            assignmentIdTextBoxField.Margin = new Padding(16, 0, 0, 24);
+            assignmentIdTextBoxField.Name = "assignmentIdTextBoxField";
+            assignmentIdTextBoxField.PlaceholderText = "e.g. assignment id";
+            assignmentIdTextBoxField.Size = new Size(240, 48);
+            assignmentIdTextBoxField.TabIndex = 3;
+            assignmentIdTextBoxField.TabStop = false;
             // 
             // assignmentNameComboBoxField
             // 
@@ -100,81 +100,81 @@ namespace Pepro.Presentation.Controls.Pages
             assignmentNameComboBoxField.Size = new Size(768, 48);
             assignmentNameComboBoxField.TabIndex = 4;
             // 
-            // documentIdInputField
+            // documentIdTextBoxField
             // 
-            documentIdInputField.Anchor = AnchorStyles.None;
-            documentIdInputField.Enabled = false;
-            documentIdInputField.ForeColor = Color.White;
-            documentIdInputField.LabelText = "Document id";
-            documentIdInputField.Location = new Point(16, 211);
-            documentIdInputField.Margin = new Padding(16, 0, 0, 24);
-            documentIdInputField.Name = "documentIdInputField";
-            documentIdInputField.PlaceholderText = "e.g. document id";
-            documentIdInputField.Size = new Size(240, 48);
-            documentIdInputField.TabIndex = 5;
-            documentIdInputField.TabStop = false;
+            documentIdTextBoxField.Anchor = AnchorStyles.None;
+            documentIdTextBoxField.Enabled = false;
+            documentIdTextBoxField.ForeColor = Color.White;
+            documentIdTextBoxField.LabelText = "Document id";
+            documentIdTextBoxField.Location = new Point(16, 211);
+            documentIdTextBoxField.Margin = new Padding(16, 0, 0, 24);
+            documentIdTextBoxField.Name = "documentIdTextBoxField";
+            documentIdTextBoxField.PlaceholderText = "e.g. document id";
+            documentIdTextBoxField.Size = new Size(240, 48);
+            documentIdTextBoxField.TabIndex = 5;
+            documentIdTextBoxField.TabStop = false;
             // 
-            // titleInputField
+            // titleTextBoxField
             // 
-            titleInputField.Anchor = AnchorStyles.None;
-            titleInputField.ForeColor = Color.White;
-            titleInputField.LabelText = "Title";
-            titleInputField.Location = new Point(280, 211);
-            titleInputField.Margin = new Padding(24, 0, 16, 24);
-            titleInputField.Name = "titleInputField";
-            titleInputField.PlaceholderText = "e.g. title";
-            titleInputField.Size = new Size(768, 48);
-            titleInputField.TabIndex = 6;
+            titleTextBoxField.Anchor = AnchorStyles.None;
+            titleTextBoxField.ForeColor = Color.White;
+            titleTextBoxField.LabelText = "Title";
+            titleTextBoxField.Location = new Point(280, 211);
+            titleTextBoxField.Margin = new Padding(24, 0, 16, 24);
+            titleTextBoxField.Name = "titleTextBoxField";
+            titleTextBoxField.PlaceholderText = "e.g. title";
+            titleTextBoxField.Size = new Size(768, 48);
+            titleTextBoxField.TabIndex = 6;
             // 
-            // preparedByInputField
+            // preparedByTextBoxField
             // 
-            preparedByInputField.Anchor = AnchorStyles.None;
-            preparedByInputField.ForeColor = Color.White;
-            preparedByInputField.LabelText = "Prepared by";
-            preparedByInputField.Location = new Point(16, 283);
-            preparedByInputField.Margin = new Padding(16, 0, 0, 24);
-            preparedByInputField.Name = "preparedByInputField";
-            preparedByInputField.PlaceholderText = "e.g. Jessica";
-            preparedByInputField.Size = new Size(504, 48);
-            preparedByInputField.TabIndex = 7;
+            preparedByTextBoxField.Anchor = AnchorStyles.None;
+            preparedByTextBoxField.ForeColor = Color.White;
+            preparedByTextBoxField.LabelText = "Prepared by";
+            preparedByTextBoxField.Location = new Point(16, 283);
+            preparedByTextBoxField.Margin = new Padding(16, 0, 0, 24);
+            preparedByTextBoxField.Name = "preparedByTextBoxField";
+            preparedByTextBoxField.PlaceholderText = "e.g. Jessica";
+            preparedByTextBoxField.Size = new Size(504, 48);
+            preparedByTextBoxField.TabIndex = 7;
             // 
-            // checkedByInputField
+            // checkedByTextBoxField
             // 
-            checkedByInputField.Anchor = AnchorStyles.None;
-            checkedByInputField.ForeColor = Color.White;
-            checkedByInputField.LabelText = "Checked by";
-            checkedByInputField.Location = new Point(544, 283);
-            checkedByInputField.Margin = new Padding(24, 0, 16, 24);
-            checkedByInputField.Name = "checkedByInputField";
-            checkedByInputField.PlaceholderText = "e.g. Mike";
-            checkedByInputField.Size = new Size(504, 48);
-            checkedByInputField.TabIndex = 8;
+            checkedByTextBoxField.Anchor = AnchorStyles.None;
+            checkedByTextBoxField.ForeColor = Color.White;
+            checkedByTextBoxField.LabelText = "Checked by";
+            checkedByTextBoxField.Location = new Point(544, 283);
+            checkedByTextBoxField.Margin = new Padding(24, 0, 16, 24);
+            checkedByTextBoxField.Name = "checkedByTextBoxField";
+            checkedByTextBoxField.PlaceholderText = "e.g. Mike";
+            checkedByTextBoxField.Size = new Size(504, 48);
+            checkedByTextBoxField.TabIndex = 8;
             // 
-            // approvedByInputField
+            // approvedByTextBoxField
             // 
-            approvedByInputField.Anchor = AnchorStyles.None;
-            approvedByInputField.ForeColor = Color.White;
-            approvedByInputField.LabelText = "Approved by";
-            approvedByInputField.Location = new Point(16, 355);
-            approvedByInputField.Margin = new Padding(16, 0, 0, 24);
-            approvedByInputField.Name = "approvedByInputField";
-            approvedByInputField.PlaceholderText = "e.g. John";
-            approvedByInputField.Size = new Size(504, 48);
-            approvedByInputField.TabIndex = 9;
+            approvedByTextBoxField.Anchor = AnchorStyles.None;
+            approvedByTextBoxField.ForeColor = Color.White;
+            approvedByTextBoxField.LabelText = "Approved by";
+            approvedByTextBoxField.Location = new Point(16, 355);
+            approvedByTextBoxField.Margin = new Padding(16, 0, 0, 24);
+            approvedByTextBoxField.Name = "approvedByTextBoxField";
+            approvedByTextBoxField.PlaceholderText = "e.g. John";
+            approvedByTextBoxField.Size = new Size(504, 48);
+            approvedByTextBoxField.TabIndex = 9;
             // 
-            // fileTypeInputField
+            // fileTypeTextBoxField
             // 
-            fileTypeInputField.Anchor = AnchorStyles.None;
-            fileTypeInputField.Enabled = false;
-            fileTypeInputField.ForeColor = Color.White;
-            fileTypeInputField.LabelText = "File type";
-            fileTypeInputField.Location = new Point(544, 355);
-            fileTypeInputField.Margin = new Padding(24, 0, 0, 24);
-            fileTypeInputField.Name = "fileTypeInputField";
-            fileTypeInputField.PlaceholderText = "e.g. docx, xlsx, pptx";
-            fileTypeInputField.Size = new Size(240, 48);
-            fileTypeInputField.TabIndex = 10;
-            fileTypeInputField.TabStop = false;
+            fileTypeTextBoxField.Anchor = AnchorStyles.None;
+            fileTypeTextBoxField.Enabled = false;
+            fileTypeTextBoxField.ForeColor = Color.White;
+            fileTypeTextBoxField.LabelText = "File type";
+            fileTypeTextBoxField.Location = new Point(544, 355);
+            fileTypeTextBoxField.Margin = new Padding(24, 0, 0, 24);
+            fileTypeTextBoxField.Name = "fileTypeTextBoxField";
+            fileTypeTextBoxField.PlaceholderText = "e.g. docx, xlsx, pptx";
+            fileTypeTextBoxField.Size = new Size(240, 48);
+            fileTypeTextBoxField.TabIndex = 10;
+            fileTypeTextBoxField.TabStop = false;
             // 
             // createdAtLabel
             // 
@@ -198,47 +198,47 @@ namespace Pepro.Presentation.Controls.Pages
             createdAtDateTimePicker.Size = new Size(240, 26);
             createdAtDateTimePicker.TabIndex = 11;
             // 
-            // revisionNumberInputField
+            // revisionNumberTextBoxField
             // 
-            revisionNumberInputField.Anchor = AnchorStyles.None;
-            revisionNumberInputField.Enabled = false;
-            revisionNumberInputField.ForeColor = Color.White;
-            revisionNumberInputField.LabelText = "Revision number";
-            revisionNumberInputField.Location = new Point(16, 427);
-            revisionNumberInputField.Margin = new Padding(16, 0, 0, 24);
-            revisionNumberInputField.Name = "revisionNumberInputField";
-            revisionNumberInputField.PlaceholderText = "e.g. 642837";
-            revisionNumberInputField.Size = new Size(240, 48);
-            revisionNumberInputField.TabIndex = 12;
-            revisionNumberInputField.TabStop = false;
+            revisionNumberTextBoxField.Anchor = AnchorStyles.None;
+            revisionNumberTextBoxField.Enabled = false;
+            revisionNumberTextBoxField.ForeColor = Color.White;
+            revisionNumberTextBoxField.LabelText = "Revision number";
+            revisionNumberTextBoxField.Location = new Point(16, 427);
+            revisionNumberTextBoxField.Margin = new Padding(16, 0, 0, 24);
+            revisionNumberTextBoxField.Name = "revisionNumberTextBoxField";
+            revisionNumberTextBoxField.PlaceholderText = "e.g. 642837";
+            revisionNumberTextBoxField.Size = new Size(240, 48);
+            revisionNumberTextBoxField.TabIndex = 12;
+            revisionNumberTextBoxField.TabStop = false;
             // 
-            // revisionStatusInputField
+            // revisionStatusTextBoxField
             // 
-            revisionStatusInputField.Anchor = AnchorStyles.None;
-            revisionStatusInputField.Enabled = false;
-            revisionStatusInputField.ForeColor = Color.White;
-            revisionStatusInputField.LabelText = "Revision status";
-            revisionStatusInputField.Location = new Point(280, 427);
-            revisionStatusInputField.Margin = new Padding(24, 0, 0, 24);
-            revisionStatusInputField.Name = "revisionStatusInputField";
-            revisionStatusInputField.PlaceholderText = "e.g. latest";
-            revisionStatusInputField.Size = new Size(240, 48);
-            revisionStatusInputField.TabIndex = 13;
-            revisionStatusInputField.TabStop = false;
+            revisionStatusTextBoxField.Anchor = AnchorStyles.None;
+            revisionStatusTextBoxField.Enabled = false;
+            revisionStatusTextBoxField.ForeColor = Color.White;
+            revisionStatusTextBoxField.LabelText = "Revision status";
+            revisionStatusTextBoxField.Location = new Point(280, 427);
+            revisionStatusTextBoxField.Margin = new Padding(24, 0, 0, 24);
+            revisionStatusTextBoxField.Name = "revisionStatusTextBoxField";
+            revisionStatusTextBoxField.PlaceholderText = "e.g. latest";
+            revisionStatusTextBoxField.Size = new Size(240, 48);
+            revisionStatusTextBoxField.TabIndex = 13;
+            revisionStatusTextBoxField.TabStop = false;
             // 
-            // filePathInputField
+            // filePathTextBoxField
             // 
-            filePathInputField.Anchor = AnchorStyles.None;
-            filePathInputField.Enabled = false;
-            filePathInputField.ForeColor = Color.White;
-            filePathInputField.LabelText = "File path";
-            filePathInputField.Location = new Point(544, 427);
-            filePathInputField.Margin = new Padding(24, 0, 0, 24);
-            filePathInputField.Name = "filePathInputField";
-            filePathInputField.PlaceholderText = "e.g. path/to/file.ext";
-            filePathInputField.Size = new Size(240, 48);
-            filePathInputField.TabIndex = 14;
-            filePathInputField.TabStop = false;
+            filePathTextBoxField.Anchor = AnchorStyles.None;
+            filePathTextBoxField.Enabled = false;
+            filePathTextBoxField.ForeColor = Color.White;
+            filePathTextBoxField.LabelText = "File path";
+            filePathTextBoxField.Location = new Point(544, 427);
+            filePathTextBoxField.Margin = new Padding(24, 0, 0, 24);
+            filePathTextBoxField.Name = "filePathTextBoxField";
+            filePathTextBoxField.PlaceholderText = "e.g. path/to/file.ext";
+            filePathTextBoxField.Size = new Size(240, 48);
+            filePathTextBoxField.TabIndex = 14;
+            filePathTextBoxField.TabStop = false;
             // 
             // browseButton
             // 
@@ -268,21 +268,21 @@ namespace Pepro.Presentation.Controls.Pages
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(projectIdInputField);
+            Controls.Add(projectIdTextBoxField);
             Controls.Add(projectNameComboBoxField);
-            Controls.Add(assignmentIdInputField);
+            Controls.Add(assignmentIdTextBoxField);
             Controls.Add(assignmentNameComboBoxField);
-            Controls.Add(documentIdInputField);
-            Controls.Add(titleInputField);
-            Controls.Add(preparedByInputField);
-            Controls.Add(checkedByInputField);
-            Controls.Add(approvedByInputField);
-            Controls.Add(fileTypeInputField);
+            Controls.Add(documentIdTextBoxField);
+            Controls.Add(titleTextBoxField);
+            Controls.Add(preparedByTextBoxField);
+            Controls.Add(checkedByTextBoxField);
+            Controls.Add(approvedByTextBoxField);
+            Controls.Add(fileTypeTextBoxField);
             Controls.Add(createdAtLabel);
             Controls.Add(createdAtDateTimePicker);
-            Controls.Add(revisionNumberInputField);
-            Controls.Add(revisionStatusInputField);
-            Controls.Add(filePathInputField);
+            Controls.Add(revisionNumberTextBoxField);
+            Controls.Add(revisionStatusTextBoxField);
+            Controls.Add(filePathTextBoxField);
             Controls.Add(browseButton);
             Controls.Add(saveButton);
             HeaderText = "Document Editor";
@@ -290,21 +290,21 @@ namespace Pepro.Presentation.Controls.Pages
             Load += DocumentEditorPage_Load;
             Controls.SetChildIndex(saveButton, 0);
             Controls.SetChildIndex(browseButton, 0);
-            Controls.SetChildIndex(filePathInputField, 0);
-            Controls.SetChildIndex(revisionStatusInputField, 0);
-            Controls.SetChildIndex(revisionNumberInputField, 0);
+            Controls.SetChildIndex(filePathTextBoxField, 0);
+            Controls.SetChildIndex(revisionStatusTextBoxField, 0);
+            Controls.SetChildIndex(revisionNumberTextBoxField, 0);
             Controls.SetChildIndex(createdAtDateTimePicker, 0);
             Controls.SetChildIndex(createdAtLabel, 0);
-            Controls.SetChildIndex(fileTypeInputField, 0);
-            Controls.SetChildIndex(approvedByInputField, 0);
-            Controls.SetChildIndex(checkedByInputField, 0);
-            Controls.SetChildIndex(preparedByInputField, 0);
-            Controls.SetChildIndex(titleInputField, 0);
-            Controls.SetChildIndex(documentIdInputField, 0);
+            Controls.SetChildIndex(fileTypeTextBoxField, 0);
+            Controls.SetChildIndex(approvedByTextBoxField, 0);
+            Controls.SetChildIndex(checkedByTextBoxField, 0);
+            Controls.SetChildIndex(preparedByTextBoxField, 0);
+            Controls.SetChildIndex(titleTextBoxField, 0);
+            Controls.SetChildIndex(documentIdTextBoxField, 0);
             Controls.SetChildIndex(assignmentNameComboBoxField, 0);
-            Controls.SetChildIndex(assignmentIdInputField, 0);
+            Controls.SetChildIndex(assignmentIdTextBoxField, 0);
             Controls.SetChildIndex(projectNameComboBoxField, 0);
-            Controls.SetChildIndex(projectIdInputField, 0);
+            Controls.SetChildIndex(projectIdTextBoxField, 0);
             ResumeLayout(false);
             PerformLayout();
 
@@ -315,17 +315,17 @@ namespace Pepro.Presentation.Controls.Pages
         private Button saveButton;
         private Button browseButton;
         private DateTimePicker createdAtDateTimePicker;
-        private PeproInputField fileTypeInputField;
-        private PeproInputField filePathInputField;
-        private PeproInputField projectIdInputField;
-        private PeproInputField checkedByInputField;
-        private PeproInputField titleInputField;
-        private PeproInputField approvedByInputField;
-        private PeproInputField preparedByInputField;
-        private PeproInputField documentIdInputField;
-        private PeproInputField assignmentIdInputField;
-        private PeproInputField revisionNumberInputField;
-        private PeproInputField revisionStatusInputField;
+        private PeproTextBoxField fileTypeTextBoxField;
+        private PeproTextBoxField filePathTextBoxField;
+        private PeproTextBoxField projectIdTextBoxField;
+        private PeproTextBoxField checkedByTextBoxField;
+        private PeproTextBoxField titleTextBoxField;
+        private PeproTextBoxField approvedByTextBoxField;
+        private PeproTextBoxField preparedByTextBoxField;
+        private PeproTextBoxField documentIdTextBoxField;
+        private PeproTextBoxField assignmentIdTextBoxField;
+        private PeproTextBoxField revisionNumberTextBoxField;
+        private PeproTextBoxField revisionStatusTextBoxField;
         private PeproComboBoxField projectNameComboBoxField;
         private PeproComboBoxField assignmentNameComboBoxField;
     }
