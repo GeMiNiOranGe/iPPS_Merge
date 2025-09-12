@@ -1,10 +1,10 @@
 ﻿using Pepro.DTOs;
-using Pepro.Presentation.Base;
+using Pepro.Presentation.Controls.Templates;
 using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Molecules;
 
-public partial class EmployeeCard : PeproCardBase {
+public partial class EmployeeCard : CardTemplate {
     private EmployeeDto _item = null!;
 
     public EmployeeCard() {
