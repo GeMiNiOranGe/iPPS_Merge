@@ -6,9 +6,9 @@ using Pepro.Presentation.Extensions;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class AssignmentControl : CrudTemplate
+public partial class AssignmentPage : CrudTemplate
 {
-    public AssignmentControl()
+    public AssignmentPage()
     {
         InitializeComponent();
         assignmentDataGridView.SetupCellStyle();
@@ -26,7 +26,7 @@ public partial class AssignmentControl : CrudTemplate
         assignmentDataGridView.DataSource = AssignmentBusiness.Instance.GetAssignmentViews();
     }
 
-    private void AssignmentControl_Load(object sender, EventArgs e)
+    private void AssignmentPage_Load(object sender, EventArgs e)
     {
         LoadAssignments();
     }
@@ -54,7 +54,7 @@ public partial class AssignmentControl : CrudTemplate
     {
         BindInsertButtonClick<AssignmentDto>(
             new(),
-            ControlUiEvent.PushAssignmentEditorControl,
+            ControlUiEvent.PushAssignmentEditorPage,
             LoadAssignments
         );
     }
@@ -63,7 +63,7 @@ public partial class AssignmentControl : CrudTemplate
     {
         BindUpdateButtonClick<AssignmentDto>(
             assignmentDataGridView,
-            ControlUiEvent.PushAssignmentEditorControl,
+            ControlUiEvent.PushAssignmentEditorPage,
             LoadAssignments
         );
     }

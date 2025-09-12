@@ -6,9 +6,9 @@ using Pepro.Presentation.Extensions;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class DepartmentControl : CrudTemplate
+public partial class DepartmentPage : CrudTemplate
 {
-    public DepartmentControl()
+    public DepartmentPage()
     {
         InitializeComponent();
         departmentDataGridView.SetupCellStyle();
@@ -26,7 +26,7 @@ public partial class DepartmentControl : CrudTemplate
         departmentDataGridView.DataSource = DepartmentBusiness.Instance.GetDepartmentViews();
     }
 
-    private void DepartmentControl_Load(object sender, EventArgs e)
+    private void DepartmentPage_Load(object sender, EventArgs e)
     {
         LoadDepartments();
     }
@@ -62,7 +62,7 @@ public partial class DepartmentControl : CrudTemplate
     {
         BindInsertButtonClick<DepartmentDto>(
             new(),
-            ControlUiEvent.PushDepartmentEditorControl,
+            ControlUiEvent.PushDepartmentEditorPage,
             LoadDepartments
         );
     }
@@ -71,7 +71,7 @@ public partial class DepartmentControl : CrudTemplate
     {
         BindUpdateButtonClick<DepartmentDto>(
             departmentDataGridView,
-            ControlUiEvent.PushDepartmentEditorControl,
+            ControlUiEvent.PushDepartmentEditorPage,
             LoadDepartments
         );
     }

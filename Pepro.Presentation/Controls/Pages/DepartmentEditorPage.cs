@@ -9,14 +9,14 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class DepartmentEditorControl
+public partial class DepartmentEditorPage
     : EditorTemplate,
     IEditorUserControl<DepartmentDto>
 {
     private DepartmentDto _item = null!;
     private EditorMode _mode;
 
-    public DepartmentEditorControl()
+    public DepartmentEditorPage()
     {
         InitializeComponent();
 
@@ -54,7 +54,7 @@ public partial class DepartmentEditorControl
         }
     }
 
-    private void DepartmentEditorControl_Load(object sender, EventArgs e)
+    private void DepartmentEditorPage_Load(object sender, EventArgs e)
     {
         managerComboBoxField.DisplayMember = nameof(EmployeeDto.FullName);
         managerComboBoxField.ValueMember = nameof(EmployeeDto.EmployeeId);

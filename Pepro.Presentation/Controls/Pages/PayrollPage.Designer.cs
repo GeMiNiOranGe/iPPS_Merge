@@ -2,7 +2,7 @@
 
 namespace Pepro.Presentation.Controls.Pages;
 
-partial class PayrollControl
+partial class PayrollPage
 {
     /// <summary> 
     /// Required designer variable.
@@ -137,16 +137,16 @@ partial class PayrollControl
         exportButton.Text = "Export";
         exportButton.Click += ExportButton_Click;
         // 
-        // PayrollControl
+        // PayrollPage
         // 
         AutoScaleDimensions = new SizeF(8F, 19F);
         AutoScaleMode = AutoScaleMode.Font;
         Controls.Add(exportButton);
         Controls.Add(payrollDataGridView);
         HeaderText = "Payroll";
-        Name = "PayrollControl";
+        Name = "PayrollPage";
         ReturnButtonVisible = false;
-        Load += PayrollControl_Load;
+        Load += PayrollPage_Load;
         Controls.SetChildIndex(payrollDataGridView, 0);
         Controls.SetChildIndex(exportButton, 0);
         ((System.ComponentModel.ISupportInitialize)payrollDataGridView).EndInit();

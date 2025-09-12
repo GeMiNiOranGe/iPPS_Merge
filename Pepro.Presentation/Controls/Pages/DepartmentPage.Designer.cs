@@ -3,7 +3,7 @@ using Pepro.Presentation.Controls.Molecules;
 
 namespace Pepro.Presentation.Controls.Pages
 {
-    partial class DepartmentControl
+    partial class DepartmentPage
     {
         /// <summary>
         /// Required designer variable.
@@ -166,7 +166,7 @@ namespace Pepro.Presentation.Controls.Pages
             managerColumn.ReadOnly = true;
             managerColumn.Width = 89;
             // 
-            // DepartmentControl
+            // DepartmentPage
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -180,9 +180,9 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.Add(insertButton);
             Controls.Add(departmentDataGridView);
             HeaderText = "Department";
-            Name = "DepartmentControl";
+            Name = "DepartmentPage";
             ReturnButtonVisible = false;
-            Load += DepartmentControl_Load;
+            Load += DepartmentPage_Load;
             Controls.SetChildIndex(departmentDataGridView, 0);
             Controls.SetChildIndex(insertButton, 0);
             Controls.SetChildIndex(updateButton, 0);

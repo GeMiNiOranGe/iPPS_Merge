@@ -7,8 +7,8 @@ using Pepro.Presentation.Utilities;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class EmployeeControl : CrudTemplate {
-    public EmployeeControl() {
+public partial class EmployeePage : CrudTemplate {
+    public EmployeePage() {
         InitializeComponent();
         employeeDataGridView.SetupCellStyle();
         fullNameColumn.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
@@ -27,7 +27,7 @@ public partial class EmployeeControl : CrudTemplate {
         numberOfEmployeesInputField.Text = employees.Count.ToString();
     }
 
-    private void EmployeeControl_Load(object sender, EventArgs e) {
+    private void EmployeePage_Load(object sender, EventArgs e) {
         LoadEmployees();
     }
 
@@ -59,7 +59,7 @@ public partial class EmployeeControl : CrudTemplate {
     private void InsertButton_Click(object sender, EventArgs e) {
         BindInsertButtonClick<EmployeeDto>(
             new(),
-            ControlUiEvent.PushEmployeeEditorControl,
+            ControlUiEvent.PushEmployeeEditorPage,
             LoadEmployees
         );
     }
@@ -67,7 +67,7 @@ public partial class EmployeeControl : CrudTemplate {
     private void UpdateButton_Click(object sender, EventArgs e) {
         BindUpdateButtonClick<EmployeeDto>(
             employeeDataGridView,
-            ControlUiEvent.PushEmployeeEditorControl,
+            ControlUiEvent.PushEmployeeEditorPage,
             LoadEmployees
         );
     }

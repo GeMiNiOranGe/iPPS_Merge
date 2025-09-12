@@ -9,12 +9,12 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class AssignmentEditorControl : EditorTemplate, IEditorUserControl<AssignmentDto>
+public partial class AssignmentEditorPage : EditorTemplate, IEditorUserControl<AssignmentDto>
 {
     private AssignmentDto _item = null!;
     private EditorMode _mode;
 
-    public AssignmentEditorControl()
+    public AssignmentEditorPage()
     {
         InitializeComponent();
 
@@ -53,7 +53,7 @@ public partial class AssignmentEditorControl : EditorTemplate, IEditorUserContro
         }
     }
 
-    private void AssignmentEditorControl_Load(object sender, EventArgs e)
+    private void AssignmentEditorPage_Load(object sender, EventArgs e)
     {
         projectComboBoxField.DisplayMember = nameof(ProjectDto.Name);
         projectComboBoxField.ValueMember = nameof(ProjectDto.ProjectId);

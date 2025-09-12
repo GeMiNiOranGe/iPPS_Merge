@@ -5,9 +5,9 @@ using Pepro.Presentation.Utilities;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class PayrollControl : MediatedTemplate
+public partial class PayrollPage : MediatedTemplate
 {
-    public PayrollControl()
+    public PayrollPage()
     {
         InitializeComponent();
         payrollDataGridView.SetupCellStyle();
@@ -21,7 +21,7 @@ public partial class PayrollControl : MediatedTemplate
         payrollDataGridView.DataSource = SalaryBusiness.Instance.GetPayroll();
     }
 
-    private void PayrollControl_Load(object sender, EventArgs e)
+    private void PayrollPage_Load(object sender, EventArgs e)
     {
         LoadPayroll();
     }

@@ -2,7 +2,7 @@
 
 namespace Pepro.Presentation.Controls.Pages;
 
-partial class DepartmentEditorControl
+partial class DepartmentEditorPage
 {
     /// <summary> 
     /// Required designer variable.
@@ -68,7 +68,7 @@ partial class DepartmentEditorControl
         saveButton.Text = "Save";
         saveButton.Click += SaveButton_Click;
         // 
-        // DepartmentEditorControl
+        // DepartmentEditorPage
         // 
         AutoScaleDimensions = new SizeF(8F, 19F);
         AutoScaleMode = AutoScaleMode.Font;
@@ -76,8 +76,8 @@ partial class DepartmentEditorControl
         Controls.Add(managerComboBoxField);
         Controls.Add(saveButton);
         HeaderText = "Department Editor";
-        Name = "DepartmentEditorControl";
-        Load += DepartmentEditorControl_Load;
+        Name = "DepartmentEditorPage";
+        Load += DepartmentEditorPage_Load;
         Controls.SetChildIndex(saveButton, 0);
         Controls.SetChildIndex(managerComboBoxField, 0);
         Controls.SetChildIndex(departmentNameInputField, 0);

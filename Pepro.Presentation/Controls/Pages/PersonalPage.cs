@@ -6,11 +6,11 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class EmployeeInformationControl : MediatedTemplate
+public partial class PersonalPage : MediatedTemplate
 {
     private int _employeeId;
 
-    public EmployeeInformationControl()
+    public PersonalPage()
     {
         InitializeComponent();
     }
@@ -22,7 +22,7 @@ public partial class EmployeeInformationControl : MediatedTemplate
         set => _employeeId = value;
     }
 
-    private void EmployeeInformationControl_Load(object sender, EventArgs e)
+    private void PersonalPage_Load(object sender, EventArgs e)
     {
         EmployeeDto? employee = EmployeeBusiness.Instance.GetEmployeeByEmployeeId(_employeeId);
         if (employee == null)
