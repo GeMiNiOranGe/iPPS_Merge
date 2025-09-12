@@ -30,21 +30,21 @@ namespace Pepro.Presentation.Controls.Pages
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            projectIdTextBoxField = new PeproTextBoxField();
-            projectNameComboBoxField = new PeproComboBoxField();
-            assignmentIdTextBoxField = new PeproTextBoxField();
-            assignmentNameComboBoxField = new PeproComboBoxField();
-            documentIdTextBoxField = new PeproTextBoxField();
-            titleTextBoxField = new PeproTextBoxField();
-            preparedByTextBoxField = new PeproTextBoxField();
-            checkedByTextBoxField = new PeproTextBoxField();
-            approvedByTextBoxField = new PeproTextBoxField();
-            fileTypeTextBoxField = new PeproTextBoxField();
+            projectIdTextBoxField = new TextBoxField();
+            projectNameComboBoxField = new ComboBoxField();
+            assignmentIdTextBoxField = new TextBoxField();
+            assignmentNameComboBoxField = new ComboBoxField();
+            documentIdTextBoxField = new TextBoxField();
+            titleTextBoxField = new TextBoxField();
+            preparedByTextBoxField = new TextBoxField();
+            checkedByTextBoxField = new TextBoxField();
+            approvedByTextBoxField = new TextBoxField();
+            fileTypeTextBoxField = new TextBoxField();
             createdAtLabel = new PeproLabel();
             createdAtDateTimePicker = new DateTimePicker();
-            revisionNumberTextBoxField = new PeproTextBoxField();
-            revisionStatusTextBoxField = new PeproTextBoxField();
-            filePathTextBoxField = new PeproTextBoxField();
+            revisionNumberTextBoxField = new TextBoxField();
+            revisionStatusTextBoxField = new TextBoxField();
+            filePathTextBoxField = new TextBoxField();
             browseButton = new Button();
             saveButton = new Button();
             SuspendLayout();
@@ -315,18 +315,18 @@ namespace Pepro.Presentation.Controls.Pages
         private Button saveButton;
         private Button browseButton;
         private DateTimePicker createdAtDateTimePicker;
-        private PeproTextBoxField fileTypeTextBoxField;
-        private PeproTextBoxField filePathTextBoxField;
-        private PeproTextBoxField projectIdTextBoxField;
-        private PeproTextBoxField checkedByTextBoxField;
-        private PeproTextBoxField titleTextBoxField;
-        private PeproTextBoxField approvedByTextBoxField;
-        private PeproTextBoxField preparedByTextBoxField;
-        private PeproTextBoxField documentIdTextBoxField;
-        private PeproTextBoxField assignmentIdTextBoxField;
-        private PeproTextBoxField revisionNumberTextBoxField;
-        private PeproTextBoxField revisionStatusTextBoxField;
-        private PeproComboBoxField projectNameComboBoxField;
-        private PeproComboBoxField assignmentNameComboBoxField;
+        private TextBoxField fileTypeTextBoxField;
+        private TextBoxField filePathTextBoxField;
+        private TextBoxField projectIdTextBoxField;
+        private TextBoxField checkedByTextBoxField;
+        private TextBoxField titleTextBoxField;
+        private TextBoxField approvedByTextBoxField;
+        private TextBoxField preparedByTextBoxField;
+        private TextBoxField documentIdTextBoxField;
+        private TextBoxField assignmentIdTextBoxField;
+        private TextBoxField revisionNumberTextBoxField;
+        private TextBoxField revisionStatusTextBoxField;
+        private ComboBoxField projectNameComboBoxField;
+        private ComboBoxField assignmentNameComboBoxField;
     }
 }

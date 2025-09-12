@@ -29,19 +29,19 @@ namespace Pepro.Presentation.Controls.Pages
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            fullNameTextBoxField = new PeproTextBoxField();
-            employeeIdTextBoxField = new PeproTextBoxField();
-            phoneNumberComboBoxField = new PeproComboBoxField();
+            fullNameTextBoxField = new TextBoxField();
+            employeeIdTextBoxField = new TextBoxField();
+            phoneNumberComboBoxField = new ComboBoxField();
             genderLabel = new Label();
             maleRadioButton = new RadioButton();
             femaleRadioButton = new RadioButton();
             otherRadioButton = new RadioButton();
             dateOfBirthLabel = new Label();
             dateOfBirthDateTimePicker = new DateTimePicker();
-            citizenIdTextBoxField = new PeproTextBoxField();
-            departmentTextBoxField = new PeproTextBoxField();
-            positionTextBoxField = new PeproTextBoxField();
-            assignedProjectsComboBoxField = new PeproComboBoxField();
+            citizenIdTextBoxField = new TextBoxField();
+            departmentTextBoxField = new TextBoxField();
+            positionTextBoxField = new TextBoxField();
+            assignedProjectsComboBoxField = new ComboBoxField();
             SuspendLayout();
             // 
             // fullNameTextBoxField
@@ -252,12 +252,12 @@ namespace Pepro.Presentation.Controls.Pages
         private RadioButton maleRadioButton;
         private RadioButton femaleRadioButton;
         private RadioButton otherRadioButton;
-        private PeproTextBoxField fullNameTextBoxField;
-        private PeproTextBoxField employeeIdTextBoxField;
-        private PeproTextBoxField departmentTextBoxField;
-        private PeproTextBoxField positionTextBoxField;
-        private PeproTextBoxField citizenIdTextBoxField;
-        private PeproComboBoxField phoneNumberComboBoxField;
-        private PeproComboBoxField assignedProjectsComboBoxField;
+        private TextBoxField fullNameTextBoxField;
+        private TextBoxField employeeIdTextBoxField;
+        private TextBoxField departmentTextBoxField;
+        private TextBoxField positionTextBoxField;
+        private TextBoxField citizenIdTextBoxField;
+        private ComboBoxField phoneNumberComboBoxField;
+        private ComboBoxField assignedProjectsComboBoxField;
     }
 }

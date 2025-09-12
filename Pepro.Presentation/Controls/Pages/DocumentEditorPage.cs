@@ -115,7 +115,7 @@ public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<Doc
         }
 
         projectNameComboBoxField.ExecuteWithoutEvent(
-            nameof(PeproComboBoxField.SelectedIndexChanged),
+            nameof(ComboBoxField.SelectedIndexChanged),
             ProjectNameComboBoxField_SelectedIndexChanged,
             () => projectNameComboBoxField.DataSource = (List<ProjectDto>)[project]
         );

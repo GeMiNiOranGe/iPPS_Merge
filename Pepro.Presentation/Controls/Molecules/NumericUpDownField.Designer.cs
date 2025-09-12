@@ -1,6 +1,6 @@
 ﻿namespace Pepro.Presentation.Controls.Molecules
 {
-    partial class PeproNumericUpDownField
+    partial class NumericUpDownField
     {
         /// <summary> 
         /// Required designer variable.

@@ -1,15 +1,15 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
-using Pepro.Presentation.Base;
+using Pepro.Presentation.Controls.Templates;
 using static System.Windows.Forms.ComboBox;
 
 namespace Pepro.Presentation.Controls.Molecules;
 
-public partial class PeproComboBoxField : PeproInputFieldBase, INotifyPropertyChanged {
+public partial class ComboBoxField : InputFieldTemplate, INotifyPropertyChanged {
     private static readonly object s_selectedIndexChangedEvent = new();
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    public PeproComboBoxField() {
+    public ComboBoxField() {
         InitializeComponent();
     }
 

@@ -29,8 +29,8 @@ namespace Pepro.Presentation {
             logoPictureBox = new PictureBox();
             appNameLabel = new Label();
             welcomeLabel = new PeproLabel();
-            accountNameTextBoxField = new PeproTextBoxField();
-            passwordField = new PeproPasswordField();
+            accountNameTextBoxField = new TextBoxField();
+            passwordField = new PasswordField();
             errorLabel = new PeproLabel();
             signinButton = new Button();
             closeButton = new Button();
@@ -193,8 +193,8 @@ namespace Pepro.Presentation {
         private PictureBox illustrationPictureBox;
         private PeproLabel welcomeLabel;
         private PictureBox logoPictureBox;
-        private PeproTextBoxField accountNameTextBoxField;
-        private PeproPasswordField passwordField;
+        private TextBoxField accountNameTextBoxField;
+        private PasswordField passwordField;
     }
 }
 

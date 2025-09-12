@@ -30,12 +30,12 @@ namespace Pepro.Presentation.Controls.Pages
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            documentIdTextBoxField = new PeproTextBoxField();
-            assignmentIdTextBoxField = new PeproTextBoxField();
-            assignmentNameTextBoxField = new PeproTextBoxField();
-            fileTypeTextBoxField = new PeproTextBoxField();
-            projectIdTextBoxField = new PeproTextBoxField();
-            projectNameTextBoxField = new PeproTextBoxField();
+            documentIdTextBoxField = new TextBoxField();
+            assignmentIdTextBoxField = new TextBoxField();
+            assignmentNameTextBoxField = new TextBoxField();
+            fileTypeTextBoxField = new TextBoxField();
+            projectIdTextBoxField = new TextBoxField();
+            projectNameTextBoxField = new TextBoxField();
             searchTextBox = new TextBox();
             searchButton = new Button();
             reloadButton = new Button();
@@ -362,12 +362,12 @@ namespace Pepro.Presentation.Controls.Pages
         private Button reloadButton;
         private Button downloadButton;
         private TextBox searchTextBox;
-        private PeproTextBoxField documentIdTextBoxField;
-        private PeproTextBoxField projectIdTextBoxField;
-        private PeproTextBoxField assignmentIdTextBoxField;
-        private PeproTextBoxField fileTypeTextBoxField;
-        private PeproTextBoxField projectNameTextBoxField;
-        private PeproTextBoxField assignmentNameTextBoxField;
+        private TextBoxField documentIdTextBoxField;
+        private TextBoxField projectIdTextBoxField;
+        private TextBoxField assignmentIdTextBoxField;
+        private TextBoxField fileTypeTextBoxField;
+        private TextBoxField projectNameTextBoxField;
+        private TextBoxField assignmentNameTextBoxField;
         private DataGridViewTextBoxColumn titleColumn;
         private DataGridViewTextBoxColumn createAtColumn;
         private DataGridViewTextBoxColumn revisionNumberColumn;

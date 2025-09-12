@@ -1,11 +1,11 @@
-﻿using System.ComponentModel;
-using Pepro.Presentation.Base;
+﻿using Pepro.Presentation.Controls.Templates;
+using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Molecules;
 
-public partial class PeproNumericUpDownField : PeproInputFieldBase
+public partial class NumericUpDownField : InputFieldTemplate
 {
-    public PeproNumericUpDownField()
+    public NumericUpDownField()
     {
         InitializeComponent();
     }

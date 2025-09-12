@@ -121,7 +121,7 @@ public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<Emp
     private void SetupCreateMode()
     {
         salaryScaleComboBoxField.ExecuteWithoutEvent(
-            nameof(PeproComboBoxField.SelectedIndexChanged),
+            nameof(ComboBoxField.SelectedIndexChanged),
             SalaryScaleComboBoxField_SelectedIndexChanged,
             () => salaryScaleComboBoxField.DataSource = SalaryScaleBusiness.Instance.GetSalaryScales()
         );
