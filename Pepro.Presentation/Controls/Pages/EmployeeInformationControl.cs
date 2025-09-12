@@ -1,11 +1,12 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
+using Pepro.Presentation.Controls.Templates;
 using Pepro.Presentation.Extensions;
 using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class EmployeeInformationControl : PeproMediatedUserControl
+public partial class EmployeeInformationControl : MediatedTemplate
 {
     private int _employeeId;
 

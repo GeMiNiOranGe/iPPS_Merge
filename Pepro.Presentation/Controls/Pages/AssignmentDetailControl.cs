@@ -1,11 +1,12 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
 using Pepro.Presentation.Controls.Molecules;
+using Pepro.Presentation.Controls.Templates;
 using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class AssignmentDetailControl : PeproMediatedUserControl {
+public partial class AssignmentDetailControl : MediatedTemplate {
     private int _projectId;
 
     public AssignmentDetailControl() {

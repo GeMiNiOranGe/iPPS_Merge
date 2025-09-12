@@ -1,10 +1,11 @@
 ﻿using Pepro.Business;
+using Pepro.Presentation.Controls.Templates;
 using Pepro.Presentation.Extensions;
 using Pepro.Presentation.Utilities;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class PayrollControl : PeproMediatedUserControl
+public partial class PayrollControl : MediatedTemplate
 {
     public PayrollControl()
     {

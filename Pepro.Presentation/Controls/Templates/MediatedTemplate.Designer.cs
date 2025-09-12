@@ -1,5 +1,5 @@
-﻿namespace Pepro.Presentation.Controls.Pages {
-    partial class PeproMediatedUserControl {
+﻿namespace Pepro.Presentation.Controls.Templates {
+    partial class MediatedTemplate {
         /// <summary> 
         /// Required designer variable.
         /// </summary>

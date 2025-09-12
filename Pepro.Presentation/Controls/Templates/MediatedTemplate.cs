@@ -4,12 +4,12 @@ using Pepro.Presentation.Interfaces;
 using Pepro.Presentation.Utilities;
 using System.ComponentModel;
 
-namespace Pepro.Presentation.Controls.Pages;
+namespace Pepro.Presentation.Controls.Templates;
 
-public partial class PeproMediatedUserControl : PeproUserControl {
+public partial class MediatedTemplate : PeproUserControl {
     private IMediator? _mediator;
 
-    public PeproMediatedUserControl() {
+    public MediatedTemplate() {
         InitializeComponent();
 
         headerReturnButton.ApplyFlatStyleNoBackColor();
