@@ -7,12 +7,12 @@ using Pepro.Presentation.Payloads;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class ProgressControl : MediatedTemplate {
-    public ProgressControl() {
+public partial class ProgressPage : MediatedTemplate {
+    public ProgressPage() {
         InitializeComponent();
     }
 
-    private void ProgressControl_Load(object sender, EventArgs e) {
+    private void ProgressPage_Load(object sender, EventArgs e) {
         ShowProjectsWithProgress();
     }
 
@@ -38,7 +38,7 @@ public partial class ProgressControl : MediatedTemplate {
             };
 
             projectCard.Click += (sender, e) => {
-                Mediator?.Notify(this, ControlUiEvent.PushAssignmentDetailControl, new AssignmentDetailControlPayload() {
+                Mediator?.Notify(this, ControlUiEvent.PushAssignmentDetailPage, new AssignmentDetailPagePayload() {
                     ProjectId = item.ProjectId,
                     ProjectName = item.Name
                 });

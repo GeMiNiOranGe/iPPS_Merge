@@ -6,9 +6,9 @@ using Pepro.Presentation.Extensions;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class ProjectControl : CrudTemplate
+public partial class ProjectPage : CrudTemplate
 {
-    public ProjectControl()
+    public ProjectPage()
     {
         InitializeComponent();
         projectDataGridView.SetupCellStyle();
@@ -26,7 +26,7 @@ public partial class ProjectControl : CrudTemplate
         projectDataGridView.DataSource = ProjectBusiness.Instance.GetProjectViews();
     }
 
-    private void ProjectControl_Load(object sender, EventArgs e)
+    private void ProjectPage_Load(object sender, EventArgs e)
     {
         LoadProjects();
     }
@@ -50,7 +50,7 @@ public partial class ProjectControl : CrudTemplate
     private void InsertButton_Click(object sender, EventArgs e) {
         BindInsertButtonClick<ProjectDto>(
             new(),
-            ControlUiEvent.PushProjectEditorControl,
+            ControlUiEvent.PushProjectEditorPage,
             LoadProjects
         );
     }
@@ -59,7 +59,7 @@ public partial class ProjectControl : CrudTemplate
     {
         BindUpdateButtonClick<ProjectDto>(
             projectDataGridView,
-            ControlUiEvent.PushProjectEditorControl,
+            ControlUiEvent.PushProjectEditorPage,
             LoadProjects
         );
     }

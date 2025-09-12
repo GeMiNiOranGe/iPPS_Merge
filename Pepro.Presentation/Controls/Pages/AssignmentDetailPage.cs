@@ -6,10 +6,10 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class AssignmentDetailControl : MediatedTemplate {
+public partial class AssignmentDetailPage : MediatedTemplate {
     private int _projectId;
 
-    public AssignmentDetailControl() {
+    public AssignmentDetailPage() {
         InitializeComponent();
     }
 
@@ -28,7 +28,7 @@ public partial class AssignmentDetailControl : MediatedTemplate {
         set => projectNameLabel.Text = value;
     }
 
-    private void AssignmentDetailControl_Load(object sender, EventArgs e) {
+    private void AssignmentDetailPage_Load(object sender, EventArgs e) {
         ShowAssignmentsByProject();
     }
 

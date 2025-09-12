@@ -1,5 +1,5 @@
 ﻿namespace Pepro.Presentation.Payloads;
 
-public sealed record EmployeeInformationControlPayload {
+public sealed record PersonalPagePayload {
     public required int EmployeeId { get; init; }
 }

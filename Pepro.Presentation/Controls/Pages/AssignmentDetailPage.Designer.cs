@@ -2,7 +2,7 @@
 
 namespace Pepro.Presentation.Controls.Pages
 {
-    partial class AssignmentDetailControl
+    partial class AssignmentDetailPage
     {
         /// <summary>
         /// Required designer variable.
@@ -127,7 +127,7 @@ namespace Pepro.Presentation.Controls.Pages
             otherAssignmentsOfManagerFlowLayoutLabel.Size = new Size(495, 399);
             otherAssignmentsOfManagerFlowLayoutLabel.TabIndex = 0;
             // 
-            // AssignmentDetailControl
+            // AssignmentDetailPage
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -141,8 +141,8 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.Add(otherAssignmentsOfManagerLabel);
             Controls.Add(otherAssignmentsOfManagerFlowLayoutLabel);
             HeaderText = "Assignment Detail";
-            Name = "AssignmentDetailControl";
-            Load += AssignmentDetailControl_Load;
+            Name = "AssignmentDetailPage";
+            Load += AssignmentDetailPage_Load;
             Controls.SetChildIndex(otherAssignmentsOfManagerFlowLayoutLabel, 0);
             Controls.SetChildIndex(otherAssignmentsOfManagerLabel, 0);
             Controls.SetChildIndex(assignmentManagerCard, 0);

@@ -15,47 +15,47 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator
     {
         switch (ev)
         {
-            case ControlUiEvent.NavigateAssignmentControl:
-                Navigate<AssignmentControl>();
+            case ControlUiEvent.NavigateAssignmentPage:
+                Navigate<AssignmentPage>();
                 break;
-            case ControlUiEvent.PushAssignmentEditorControl:
-                PushEditor<AssignmentEditorControl, AssignmentDto>(data);
+            case ControlUiEvent.PushAssignmentEditorPage:
+                PushEditor<AssignmentEditorPage, AssignmentDto>(data);
                 break;
-            case ControlUiEvent.NavigateDocumentControl:
-                Navigate<DocumentControl>();
+            case ControlUiEvent.NavigateDocumentPage:
+                Navigate<DocumentPage>();
                 break;
-            case ControlUiEvent.NavigateDepartmentControl:
-                Navigate<DepartmentControl>();
+            case ControlUiEvent.NavigateDepartmentPage:
+                Navigate<DepartmentPage>();
                 break;
-            case ControlUiEvent.PushDepartmentEditorControl:
-                PushEditor<DepartmentEditorControl, DepartmentDto>(data);
+            case ControlUiEvent.PushDepartmentEditorPage:
+                PushEditor<DepartmentEditorPage, DepartmentDto>(data);
                 break;
-            case ControlUiEvent.PushDocumentEditorControl:
-                PushEditor<DocumentEditorControl, DocumentDto>(data);
+            case ControlUiEvent.PushDocumentEditorPage:
+                PushEditor<DocumentEditorPage, DocumentDto>(data);
                 break;
-            case ControlUiEvent.NavigateProgressControl:
-                Navigate<ProgressControl>();
+            case ControlUiEvent.NavigateProgressPage:
+                Navigate<ProgressPage>();
                 break;
-            case ControlUiEvent.NavigateProjectControl:
-                Navigate<ProjectControl>();
+            case ControlUiEvent.NavigateProjectPage:
+                Navigate<ProjectPage>();
                 break;
-            case ControlUiEvent.PushProjectEditorControl:
-                PushEditor<ProjectEditorControl, ProjectDto>(data);
+            case ControlUiEvent.PushProjectEditorPage:
+                PushEditor<ProjectEditorPage, ProjectDto>(data);
                 break;
-            case ControlUiEvent.NavigateEmployeeControl:
-                Navigate<EmployeeControl>();
+            case ControlUiEvent.NavigateEmployeePage:
+                Navigate<EmployeePage>();
                 break;
-            case ControlUiEvent.PushEmployeeEditorControl:
-                PushEditor<EmployeeEditorControl, EmployeeDto>(data);
+            case ControlUiEvent.PushEmployeeEditorPage:
+                PushEditor<EmployeeEditorPage, EmployeeDto>(data);
                 break;
-            case ControlUiEvent.PushAssignmentDetailControl:
-                PushAssignmentDetailControl(data);
+            case ControlUiEvent.PushAssignmentDetailPage:
+                PushAssignmentDetailPage(data);
                 break;
-            case ControlUiEvent.NavigateEmployeeInformationControl:
-                NavigateEmployeeInformationControl(data);
+            case ControlUiEvent.NavigatePersonalPage:
+                NavigatePersonalPage(data);
                 break;
-            case ControlUiEvent.NavigatePayrollControl:
-                Navigate<PayrollControl>();
+            case ControlUiEvent.NavigatePayrollPage:
+                Navigate<PayrollPage>();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(ev), ev, "This event is not supported.");
@@ -109,14 +109,14 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator
         control.BringToFront();
     }
 
-    private void PushAssignmentDetailControl(object? data)
+    private void PushAssignmentDetailPage(object? data)
     {
-        if (data is not AssignmentDetailControlPayload payload)
+        if (data is not AssignmentDetailPagePayload payload)
         {
             return;
         }
 
-        AssignmentDetailControl assignmentDetailControl = new()
+        AssignmentDetailPage assignmentDetailControl = new()
         {
             Mediator = this,
             ProjectId = payload.ProjectId,
@@ -125,14 +125,14 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator
         Push(assignmentDetailControl);
     }
 
-    private void NavigateEmployeeInformationControl(object? data)
+    private void NavigatePersonalPage(object? data)
     {
-        if (data is not EmployeeInformationControlPayload payload)
+        if (data is not PersonalPagePayload payload)
         {
             return;
         }
 
-        EmployeeInformationControl employeeInformationControl = new()
+        PersonalPage employeeInformationControl = new()
         {
             Mediator = this,
             EmployeeId = payload.EmployeeId,

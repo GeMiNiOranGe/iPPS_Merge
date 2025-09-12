@@ -10,11 +10,11 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class DocumentEditorControl : EditorTemplate, IEditorUserControl<DocumentDto> {
+public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<DocumentDto> {
     private DocumentDto _item = null!;
     private EditorMode _mode;
 
-    public DocumentEditorControl() {
+    public DocumentEditorPage() {
         InitializeComponent();
 
         saveButton.ApplyFlatStyle();
@@ -65,7 +65,7 @@ public partial class DocumentEditorControl : EditorTemplate, IEditorUserControl<
         }
     }
 
-    private void DocumentEditorControl_Load(object sender, EventArgs e) {
+    private void DocumentEditorPage_Load(object sender, EventArgs e) {
         projectIdInputField.BindTextToValue(projectNameComboBoxField);
         assignmentIdInputField.BindTextToValue(assignmentNameComboBoxField);
 

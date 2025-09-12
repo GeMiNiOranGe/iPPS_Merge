@@ -77,7 +77,7 @@ public partial class MainForm : PeproFormBase {
     private void AssignmentButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(assignmentButton.Location.Y);
 
-        _mediator.Notify(this, ControlUiEvent.NavigateAssignmentControl);
+        _mediator.Notify(this, ControlUiEvent.NavigateAssignmentPage);
         /*
         string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_employeeId}'";
         conn.Open();
@@ -85,7 +85,7 @@ public partial class MainForm : PeproFormBase {
         var sqlDataReader = sqlCommand.ExecuteReader();
         if (sqlDataReader.Read()) {
             if ((byte)sqlDataReader["PERMISSION_LEVEL"] <= 1) {
-                OpenChildControl(new AssignmentControl());
+                OpenChildControl(new AssignmentPage());
             }
             else {
                 OpenChildControl(new EmployeeTaskControl());
@@ -98,7 +98,7 @@ public partial class MainForm : PeproFormBase {
     private void ProjectButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(projectButton.Location.Y);
 
-        _mediator.Notify(this, ControlUiEvent.NavigateProjectControl);
+        _mediator.Notify(this, ControlUiEvent.NavigateProjectPage);
         /*
         string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_employeeId}'";
         conn.Open();
@@ -106,10 +106,10 @@ public partial class MainForm : PeproFormBase {
         var sqlDataReader = sqlCommand.ExecuteReader();
         if (sqlDataReader.Read()) {
             if ((byte)sqlDataReader["PERMISSION_LEVEL"] <= 1) {
-                OpenChildControl(new ProjectControl());
+                OpenChildControl(new ProjectPage());
             }
             else {
-                OpenChildControl(new EmployeeProjectControl());
+                OpenChildControl(new EmployeeProjectPage());
             }
         }
         conn.Close();
@@ -119,19 +119,19 @@ public partial class MainForm : PeproFormBase {
     private void DocumentButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(documentButton.Location.Y);
 
-        _mediator.Notify(this, ControlUiEvent.NavigateDocumentControl);
+        _mediator.Notify(this, ControlUiEvent.NavigateDocumentPage);
     }
 
     private void ProgressButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(progressButton.Location.Y);
 
-        _mediator.Notify(this, ControlUiEvent.NavigateProgressControl);
+        _mediator.Notify(this, ControlUiEvent.NavigateProgressPage);
     }
 
     private void EmployeeButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(employeeButton.Location.Y);
 
-        _mediator.Notify(this, ControlUiEvent.NavigateEmployeeControl);
+        _mediator.Notify(this, ControlUiEvent.NavigateEmployeePage);
     }
 
     private void AttendanceButton_MouseClick(object sender, MouseEventArgs e) {
@@ -144,7 +144,7 @@ public partial class MainForm : PeproFormBase {
     private void SalaryButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(salaryButton.Location.Y);
 
-        _mediator.Notify(this, ControlUiEvent.NavigatePayrollControl);
+        _mediator.Notify(this, ControlUiEvent.NavigatePayrollPage);
     }
 
     private void DormitoryButton_MouseClick(object sender, MouseEventArgs e) {
@@ -157,11 +157,11 @@ public partial class MainForm : PeproFormBase {
     private void DepartmentButton_Click(object sender, EventArgs e) {
         optionPanel.SetLocationY(departmentButton.Location.Y);
 
-        _mediator.Notify(this, ControlUiEvent.NavigateDepartmentControl);
+        _mediator.Notify(this, ControlUiEvent.NavigateDepartmentPage);
     }
 
     private void Account_MouseClick(object sender, MouseEventArgs e) {
-        _mediator.Notify(this, ControlUiEvent.NavigateEmployeeInformationControl, new EmployeeInformationControlPayload() {
+        _mediator.Notify(this, ControlUiEvent.NavigatePersonalPage, new PersonalPagePayload() {
             EmployeeId = _employeeId,
         });
     }

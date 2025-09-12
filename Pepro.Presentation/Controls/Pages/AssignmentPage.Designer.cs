@@ -2,7 +2,7 @@
 
 namespace Pepro.Presentation.Controls.Pages
 {
-    partial class AssignmentControl
+    partial class AssignmentPage
     {
         /// <summary>
         /// Required designer variable.
@@ -200,7 +200,7 @@ namespace Pepro.Presentation.Controls.Pages
             statusColumn.ReadOnly = true;
             statusColumn.Width = 72;
             // 
-            // AssignmentControl
+            // AssignmentPage
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -212,9 +212,9 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.Add(insertButton);
             Controls.Add(assignmentDataGridView);
             HeaderText = "Assignment";
-            Name = "AssignmentControl";
+            Name = "AssignmentPage";
             ReturnButtonVisible = false;
-            Load += AssignmentControl_Load;
+            Load += AssignmentPage_Load;
             Controls.SetChildIndex(assignmentDataGridView, 0);
             Controls.SetChildIndex(insertButton, 0);
             Controls.SetChildIndex(updateButton, 0);

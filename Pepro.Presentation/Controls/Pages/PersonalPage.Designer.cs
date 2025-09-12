@@ -2,7 +2,7 @@
 
 namespace Pepro.Presentation.Controls.Pages
 {
-    partial class EmployeeInformationControl
+    partial class PersonalPage
     {
         /// <summary>
         /// Required designer variable.
@@ -205,7 +205,7 @@ namespace Pepro.Presentation.Controls.Pages
             assignedProjectsComboBoxField.Size = new Size(536, 48);
             assignedProjectsComboBoxField.TabIndex = 11;
             // 
-            // EmployeeInformationControl
+            // PersonalPage
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -224,9 +224,9 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.Add(departmentInputField);
             Controls.Add(positionInputField);
             HeaderText = "Personal Information";
-            Name = "EmployeeInformationControl";
+            Name = "PersonalPage";
             ReturnButtonVisible = false;
-            Load += EmployeeInformationControl_Load;
+            Load += PersonalPage_Load;
             Controls.SetChildIndex(positionInputField, 0);
             Controls.SetChildIndex(departmentInputField, 0);
             Controls.SetChildIndex(citizenIdInputField, 0);

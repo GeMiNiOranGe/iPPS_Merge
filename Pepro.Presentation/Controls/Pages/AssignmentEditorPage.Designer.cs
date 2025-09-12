@@ -3,7 +3,7 @@ using Pepro.Presentation.Controls.Molecules;
 
 namespace Pepro.Presentation.Controls.Pages
 {
-    partial class AssignmentEditorControl
+    partial class AssignmentEditorPage
     {
         /// <summary>
         /// Required designer variable.
@@ -200,7 +200,7 @@ namespace Pepro.Presentation.Controls.Pages
             requiredDocumentCountNumericUpDownField.Size = new Size(240, 48);
             requiredDocumentCountNumericUpDownField.TabIndex = 5;
             // 
-            // AssignmentEditorControl
+            // AssignmentEditorPage
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -219,8 +219,8 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.Add(statusComboBoxField);
             Controls.Add(saveButton);
             HeaderText = "Assignment Editor";
-            Name = "AssignmentEditorControl";
-            Load += AssignmentEditorControl_Load;
+            Name = "AssignmentEditorPage";
+            Load += AssignmentEditorPage_Load;
             Controls.SetChildIndex(saveButton, 0);
             Controls.SetChildIndex(statusComboBoxField, 0);
             Controls.SetChildIndex(endDateTimePicker, 0);

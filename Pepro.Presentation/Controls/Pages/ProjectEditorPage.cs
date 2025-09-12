@@ -9,12 +9,12 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class ProjectEditorControl : EditorTemplate, IEditorUserControl<ProjectDto>
+public partial class ProjectEditorPage : EditorTemplate, IEditorUserControl<ProjectDto>
 {
     private ProjectDto _item = null!;
     private EditorMode _mode;
 
-    public ProjectEditorControl()
+    public ProjectEditorPage()
     {
         InitializeComponent();
 
@@ -51,7 +51,7 @@ public partial class ProjectEditorControl : EditorTemplate, IEditorUserControl<P
         }
     }
 
-    private void ProjectEditorControl_Load(object sender, EventArgs e)
+    private void ProjectEditorPage_Load(object sender, EventArgs e)
     {
         statusComboBoxField.DisplayMember = nameof(StatusDto.Name);
         statusComboBoxField.ValueMember = nameof(StatusDto.StatusId);

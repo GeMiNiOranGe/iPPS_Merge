@@ -3,7 +3,7 @@ using Pepro.Presentation.Controls.Molecules;
 
 namespace Pepro.Presentation.Controls.Pages
 {
-    partial class ProjectEditorControl
+    partial class ProjectEditorPage
     {
         /// <summary>
         /// Required designer variable.
@@ -136,7 +136,7 @@ namespace Pepro.Presentation.Controls.Pages
             saveButton.Text = "Save";
             saveButton.Click += SaveButton_Click;
             // 
-            // ProjectEditorControl
+            // ProjectEditorPage
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -150,8 +150,8 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.Add(endDateTimePicker);
             Controls.Add(saveButton);
             HeaderText = "Project Editor";
-            Name = "ProjectEditorControl";
-            Load += ProjectEditorControl_Load;
+            Name = "ProjectEditorPage";
+            Load += ProjectEditorPage_Load;
             Controls.SetChildIndex(saveButton, 0);
             Controls.SetChildIndex(endDateTimePicker, 0);
             Controls.SetChildIndex(endDateLabel, 0);

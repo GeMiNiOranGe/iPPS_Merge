@@ -10,12 +10,12 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class EmployeeEditorControl : EditorTemplate, IEditorUserControl<EmployeeDto>
+public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<EmployeeDto>
 {
     private EmployeeDto _item = null!;
     private EditorMode _mode;
 
-    public EmployeeEditorControl()
+    public EmployeeEditorPage()
     {
         InitializeComponent();
 
@@ -66,7 +66,7 @@ public partial class EmployeeEditorControl : EditorTemplate, IEditorUserControl<
         }
     }
 
-    private void EmployeeEditorControl_Load(object sender, EventArgs e)
+    private void EmployeeEditorPage_Load(object sender, EventArgs e)
     {
         if (
             string.IsNullOrEmpty(positionInputField.Text)

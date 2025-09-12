@@ -3,7 +3,7 @@ using Pepro.Presentation.Controls.Molecules;
 
 namespace Pepro.Presentation.Controls.Pages
 {
-    partial class EmployeeControl
+    partial class EmployeePage
     {
         /// <summary>
         /// Required designer variable.
@@ -235,7 +235,7 @@ namespace Pepro.Presentation.Controls.Pages
             positionColumn.ReadOnly = true;
             positionColumn.Width = 82;
             // 
-            // EmployeeControl
+            // EmployeePage
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -252,9 +252,9 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.Add(numberOfEmployeesInputField);
             HeaderText = "Employee";
             Margin = new Padding(3, 2, 3, 2);
-            Name = "EmployeeControl";
+            Name = "EmployeePage";
             ReturnButtonVisible = false;
-            Load += EmployeeControl_Load;
+            Load += EmployeePage_Load;
             Controls.SetChildIndex(numberOfEmployeesInputField, 0);
             Controls.SetChildIndex(employeeIdInputField, 0);
             Controls.SetChildIndex(employeeNameInputField, 0);

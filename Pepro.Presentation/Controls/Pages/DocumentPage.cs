@@ -7,9 +7,9 @@ using Pepro.Presentation.Utilities;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class DocumentControl : CrudTemplate
+public partial class DocumentPage : CrudTemplate
 {
-    public DocumentControl()
+    public DocumentPage()
     {
         InitializeComponent();
         documentDataGridView.SetupCellStyle();
@@ -27,7 +27,7 @@ public partial class DocumentControl : CrudTemplate
         documentDataGridView.DataSource = DocumentBusiness.Instance.GetDocuments();
     }
 
-    private void DocumentControl_Load(object sender, EventArgs e)
+    private void DocumentPage_Load(object sender, EventArgs e)
     {
         LoadDocuments();
     }
@@ -64,7 +64,7 @@ public partial class DocumentControl : CrudTemplate
     {
         BindInsertButtonClick<DocumentDto>(
             new(),
-            ControlUiEvent.PushDocumentEditorControl,
+            ControlUiEvent.PushDocumentEditorPage,
             LoadDocuments
         );
     }
@@ -73,7 +73,7 @@ public partial class DocumentControl : CrudTemplate
     {
         BindUpdateButtonClick<DocumentDto>(
             documentDataGridView,
-            ControlUiEvent.PushDocumentEditorControl,
+            ControlUiEvent.PushDocumentEditorPage,
             LoadDocuments
         );
     }

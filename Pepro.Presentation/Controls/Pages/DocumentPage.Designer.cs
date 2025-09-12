@@ -3,7 +3,7 @@ using Pepro.Presentation.Controls.Molecules;
 
 namespace Pepro.Presentation.Controls.Pages
 {
-    partial class DocumentControl
+    partial class DocumentPage
     {
         /// <summary>
         /// Required designer variable.
@@ -309,7 +309,7 @@ namespace Pepro.Presentation.Controls.Pages
             assignmentIdColumn.ReadOnly = true;
             assignmentIdColumn.Width = 92;
             // 
-            // DocumentControl
+            // DocumentPage
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -329,9 +329,9 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.Add(documentDataGridView);
             HeaderText = "Document";
             Margin = new Padding(2);
-            Name = "DocumentControl";
+            Name = "DocumentPage";
             ReturnButtonVisible = false;
-            Load += DocumentControl_Load;
+            Load += DocumentPage_Load;
             Controls.SetChildIndex(documentDataGridView, 0);
             Controls.SetChildIndex(insertButton, 0);
             Controls.SetChildIndex(updateButton, 0);

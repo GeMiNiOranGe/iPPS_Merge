@@ -3,7 +3,7 @@ using Pepro.Presentation.Controls.Molecules;
 
 namespace Pepro.Presentation.Controls.Pages
 {
-    partial class EmployeeEditorControl
+    partial class EmployeeEditorPage
     {
         /// <summary>
         /// Required designer variable.
@@ -306,7 +306,7 @@ namespace Pepro.Presentation.Controls.Pages
             citizenIdInputField.Size = new Size(240, 48);
             citizenIdInputField.TabIndex = 9;
             // 
-            // EmployeeEditorControl
+            // EmployeeEditorPage
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -334,9 +334,9 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.Add(positionComboBoxField);
             Controls.Add(positionInputField);
             Controls.Add(saveButton);
-            Name = "EmployeeEditorControl";
+            Name = "EmployeeEditorPage";
             Size = new Size(1064, 664);
-            Load += EmployeeEditorControl_Load;
+            Load += EmployeeEditorPage_Load;
             Controls.SetChildIndex(saveButton, 0);
             Controls.SetChildIndex(positionInputField, 0);
             Controls.SetChildIndex(positionComboBoxField, 0);

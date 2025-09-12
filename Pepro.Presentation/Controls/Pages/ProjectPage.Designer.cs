@@ -2,7 +2,7 @@
 
 namespace Pepro.Presentation.Controls.Pages
 {
-    partial class ProjectControl
+    partial class ProjectPage
     {
         /// <summary>
         /// Required designer variable.
@@ -173,7 +173,7 @@ namespace Pepro.Presentation.Controls.Pages
             statusNameColumn.ReadOnly = true;
             statusNameColumn.Width = 72;
             // 
-            // ProjectControl
+            // ProjectPage
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -185,9 +185,9 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.Add(insertButton);
             Controls.Add(projectDataGridView);
             HeaderText = "Project";
-            Name = "ProjectControl";
+            Name = "ProjectPage";
             ReturnButtonVisible = false;
-            Load += ProjectControl_Load;
+            Load += ProjectPage_Load;
             Controls.SetChildIndex(projectDataGridView, 0);
             Controls.SetChildIndex(insertButton, 0);
             Controls.SetChildIndex(updateButton, 0);

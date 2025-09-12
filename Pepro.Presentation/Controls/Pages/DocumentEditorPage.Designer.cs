@@ -3,7 +3,7 @@ using Pepro.Presentation.Controls.Molecules;
 
 namespace Pepro.Presentation.Controls.Pages
 {
-    partial class DocumentEditorControl
+    partial class DocumentEditorPage
     {
         /// <summary>
         /// Required designer variable.
@@ -264,7 +264,7 @@ namespace Pepro.Presentation.Controls.Pages
             saveButton.Text = "Save";
             saveButton.Click += SaveButton_Click;
             // 
-            // DocumentEditorControl
+            // DocumentEditorPage
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -286,8 +286,8 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.Add(browseButton);
             Controls.Add(saveButton);
             HeaderText = "Document Editor";
-            Name = "DocumentEditorControl";
-            Load += DocumentEditorControl_Load;
+            Name = "DocumentEditorPage";
+            Load += DocumentEditorPage_Load;
             Controls.SetChildIndex(saveButton, 0);
             Controls.SetChildIndex(browseButton, 0);
             Controls.SetChildIndex(filePathInputField, 0);

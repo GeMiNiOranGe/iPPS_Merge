@@ -1,5 +1,5 @@
 ﻿namespace Pepro.Presentation.Controls.Pages {
-    partial class ProgressControl {
+    partial class ProgressPage {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -37,16 +37,16 @@
             projectsFlowLayoutPanel.TabIndex = 0;
             projectsFlowLayoutPanel.SizeChanged += ProjectsFlowLayoutPanel_SizeChanged;
             // 
-            // ProgressControl
+            // ProgressPage
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(15, 15, 15);
             Controls.Add(projectsFlowLayoutPanel);
             HeaderText = "Progress";
-            Name = "ProgressControl";
+            Name = "ProgressPage";
             ReturnButtonVisible = false;
-            Load += ProgressControl_Load;
+            Load += ProgressPage_Load;
             Controls.SetChildIndex(projectsFlowLayoutPanel, 0);
             ResumeLayout(false);
 
