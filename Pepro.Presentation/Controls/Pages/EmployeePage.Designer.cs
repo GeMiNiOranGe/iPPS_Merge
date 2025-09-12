@@ -33,9 +33,9 @@ namespace Pepro.Presentation.Controls.Pages
         {
             searchTextBox = new TextBox();
             employeeDataGridView = new PeproDataGridView();
-            employeeIdTextBoxField = new PeproTextBoxField();
-            numberOfEmployeesTextBoxField = new PeproTextBoxField();
-            employeeNameTextBoxField = new PeproTextBoxField();
+            employeeIdTextBoxField = new TextBoxField();
+            numberOfEmployeesTextBoxField = new TextBoxField();
+            employeeNameTextBoxField = new TextBoxField();
             searchButton = new Button();
             reloadButton = new Button();
             exportButton = new Button();
@@ -275,9 +275,9 @@ namespace Pepro.Presentation.Controls.Pages
         #endregion
         private TextBox searchTextBox;
         private PeproDataGridView employeeDataGridView;
-        private PeproTextBoxField employeeIdTextBoxField;
-        private PeproTextBoxField numberOfEmployeesTextBoxField;
-        private PeproTextBoxField employeeNameTextBoxField;
+        private TextBoxField employeeIdTextBoxField;
+        private TextBoxField numberOfEmployeesTextBoxField;
+        private TextBoxField employeeNameTextBoxField;
         private Button searchButton;
         private Button reloadButton;
         private Button exportButton;

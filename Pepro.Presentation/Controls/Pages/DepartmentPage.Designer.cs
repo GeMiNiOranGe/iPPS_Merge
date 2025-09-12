@@ -32,8 +32,8 @@ namespace Pepro.Presentation.Controls.Pages
         private void InitializeComponent()
         {
             departmentDataGridView = new PeproDataGridView();
-            departmentNameTextBoxField = new PeproTextBoxField();
-            managerTextBoxField = new PeproTextBoxField();
+            departmentNameTextBoxField = new TextBoxField();
+            managerTextBoxField = new TextBoxField();
             searchTextBox = new TextBox();
             searchButton = new Button();
             reloadButton = new Button();
@@ -201,8 +201,8 @@ namespace Pepro.Presentation.Controls.Pages
         #endregion
 
         private PeproDataGridView departmentDataGridView;
-        private PeproTextBoxField departmentNameTextBoxField;
-        private PeproTextBoxField managerTextBoxField;
+        private TextBoxField departmentNameTextBoxField;
+        private TextBoxField managerTextBoxField;
         private TextBox searchTextBox;
         private Button searchButton;
         private Button reloadButton;

@@ -35,10 +35,10 @@ namespace Pepro.Presentation.Controls.Pages
             startDateLabel = new PeproLabel();
             endDateLabel = new PeproLabel();
             endDateTimePicker = new DateTimePicker();
-            projectNameTextBoxField = new PeproTextBoxField();
-            statusComboBoxField = new PeproComboBoxField();
-            customerNameTextBoxField = new PeproTextBoxField();
-            managerComboBoxField = new PeproComboBoxField();
+            projectNameTextBoxField = new TextBoxField();
+            statusComboBoxField = new ComboBoxField();
+            customerNameTextBoxField = new TextBoxField();
+            managerComboBoxField = new ComboBoxField();
             saveButton = new Button();
             SuspendLayout();
             // 
@@ -171,10 +171,10 @@ namespace Pepro.Presentation.Controls.Pages
         private PeproLabel startDateLabel;
         private PeproLabel endDateLabel;
         private DateTimePicker endDateTimePicker;
-        private PeproTextBoxField projectNameTextBoxField;
-        private PeproComboBoxField statusComboBoxField;
-        private PeproTextBoxField customerNameTextBoxField;
-        private PeproComboBoxField managerComboBoxField;
+        private TextBoxField projectNameTextBoxField;
+        private ComboBoxField statusComboBoxField;
+        private TextBoxField customerNameTextBoxField;
+        private ComboBoxField managerComboBoxField;
         private Button saveButton;
     }
 }

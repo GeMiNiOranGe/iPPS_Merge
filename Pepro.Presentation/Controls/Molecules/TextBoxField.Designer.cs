@@ -1,5 +1,5 @@
 ﻿namespace Pepro.Presentation.Controls.Molecules {
-    partial class PeproPasswordField {
+    partial class TextBoxField {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -24,7 +24,6 @@
         /// </summary>
         private void InitializeComponent() {
             inputFieldTextBox = new TextBox();
-            togglePasswordButton = new Button();
             inputFieldPanel = new Panel();
             SuspendLayout();
             // 
@@ -34,28 +33,11 @@
             inputFieldTextBox.BorderStyle = BorderStyle.None;
             inputFieldTextBox.Cursor = Cursors.IBeam;
             inputFieldTextBox.Location = new Point(0, 22);
-            inputFieldTextBox.Margin = new Padding(0, 0, 4, 0);
+            inputFieldTextBox.Margin = new Padding(0);
             inputFieldTextBox.Name = "inputFieldTextBox";
-            inputFieldTextBox.Size = new Size(212, 19);
+            inputFieldTextBox.Size = new Size(240, 19);
             inputFieldTextBox.TabIndex = 1;
-            inputFieldTextBox.UseSystemPasswordChar = true;
-            // 
-            // togglePasswordButton
-            // 
-            togglePasswordButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            togglePasswordButton.BackColor = Color.White;
-            togglePasswordButton.Cursor = Cursors.Hand;
-            togglePasswordButton.FlatAppearance.BorderSize = 0;
-            togglePasswordButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            togglePasswordButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            togglePasswordButton.FlatStyle = FlatStyle.Flat;
-            togglePasswordButton.Location = new Point(216, 19);
-            togglePasswordButton.Margin = new Padding(0);
-            togglePasswordButton.Name = "togglePasswordButton";
-            togglePasswordButton.Size = new Size(24, 24);
-            togglePasswordButton.TabIndex = 2;
-            togglePasswordButton.UseVisualStyleBackColor = false;
-            togglePasswordButton.Click += TogglePasswordButton_Click;
+            inputFieldTextBox.TextChanged += InputFieldTextBox_TextChanged;
             // 
             // inputFieldPanel
             // 
@@ -67,25 +49,22 @@
             inputFieldPanel.Size = new Size(240, 2);
             inputFieldPanel.TabIndex = 0;
             // 
-            // PeproPasswordField
+            // PeproInputField
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(togglePasswordButton);
             Controls.Add(inputFieldPanel);
             Controls.Add(inputFieldTextBox);
-            Name = "PeproPasswordField";
+            Name = "PeproInputField";
             Size = new Size(240, 48);
             Controls.SetChildIndex(inputFieldTextBox, 0);
             Controls.SetChildIndex(inputFieldPanel, 0);
-            Controls.SetChildIndex(togglePasswordButton, 0);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button togglePasswordButton;
         private TextBox inputFieldTextBox;
         private Panel inputFieldPanel;
     }

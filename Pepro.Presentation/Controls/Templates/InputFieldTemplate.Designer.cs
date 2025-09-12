@@ -1,7 +1,7 @@
 ﻿using Pepro.Presentation.Controls.Atoms;
 
-namespace Pepro.Presentation.Base {
-    partial class PeproInputFieldBase {
+namespace Pepro.Presentation.Controls.Templates {
+    partial class InputFieldTemplate {
         /// <summary> 
         /// Required designer variable.
         /// </summary>

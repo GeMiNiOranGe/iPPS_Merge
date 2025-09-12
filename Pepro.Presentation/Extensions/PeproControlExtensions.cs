@@ -29,14 +29,14 @@ public static class PeproControlExtensions
     }
 
     public static void BindTextToValue(
-        this PeproTextBoxField source,
-        PeproComboBoxField target
+        this TextBoxField source,
+        ComboBoxField target
     )
     {
         source.DataBindings.Add(
-            nameof(PeproTextBoxField.Text),
+            nameof(TextBoxField.Text),
             target,
-            nameof(PeproComboBoxField.SelectedValue)
+            nameof(ComboBoxField.SelectedValue)
         );
     }
 }

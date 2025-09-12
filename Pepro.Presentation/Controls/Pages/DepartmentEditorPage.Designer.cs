@@ -30,8 +30,8 @@ partial class DepartmentEditorPage
     /// </summary>
     private void InitializeComponent()
     {
-        departmentNameTextBoxField = new PeproTextBoxField();
-        managerComboBoxField = new PeproComboBoxField();
+        departmentNameTextBoxField = new TextBoxField();
+        managerComboBoxField = new ComboBoxField();
         saveButton = new Button();
         SuspendLayout();
         // 
@@ -86,7 +86,7 @@ partial class DepartmentEditorPage
 
     #endregion
 
-    private PeproTextBoxField departmentNameTextBoxField;
-    private PeproComboBoxField managerComboBoxField;
+    private TextBoxField departmentNameTextBoxField;
+    private ComboBoxField managerComboBoxField;
     private Button saveButton;
 }

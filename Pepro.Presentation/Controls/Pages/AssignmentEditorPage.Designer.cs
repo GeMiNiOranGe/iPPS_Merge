@@ -34,17 +34,17 @@ namespace Pepro.Presentation.Controls.Pages
             publicProjectLabel = new PeproLabel();
             publicDepartmentLabel = new PeproLabel();
             saveButton = new Button();
-            managerComboBoxField = new PeproComboBoxField();
-            assignmentNameTextBoxField = new PeproTextBoxField();
-            statusComboBoxField = new PeproComboBoxField();
+            managerComboBoxField = new ComboBoxField();
+            assignmentNameTextBoxField = new TextBoxField();
+            statusComboBoxField = new ComboBoxField();
             isPublicToProjectCheckBox = new CheckBox();
             isPublicToDepartmentCheckBox = new CheckBox();
             startDateLabel = new PeproLabel();
             startDateTimePicker = new DateTimePicker();
             endDateLabel = new PeproLabel();
             endDateTimePicker = new DateTimePicker();
-            projectComboBoxField = new PeproComboBoxField();
-            requiredDocumentCountNumericUpDownField = new PeproNumericUpDownField();
+            projectComboBoxField = new ComboBoxField();
+            requiredDocumentCountNumericUpDownField = new NumericUpDownField();
             SuspendLayout();
             // 
             // publicProjectLabel
@@ -244,16 +244,16 @@ namespace Pepro.Presentation.Controls.Pages
         private PeproLabel publicProjectLabel;
         private PeproLabel publicDepartmentLabel;
         private Button saveButton;
-        private PeproComboBoxField managerComboBoxField;
-        private PeproTextBoxField assignmentNameTextBoxField;
-        private PeproComboBoxField statusComboBoxField;
+        private ComboBoxField managerComboBoxField;
+        private TextBoxField assignmentNameTextBoxField;
+        private ComboBoxField statusComboBoxField;
         private CheckBox isPublicToProjectCheckBox;
         private CheckBox isPublicToDepartmentCheckBox;
         private PeproLabel startDateLabel;
         private DateTimePicker startDateTimePicker;
         private PeproLabel endDateLabel;
         private DateTimePicker endDateTimePicker;
-        private PeproComboBoxField projectComboBoxField;
-        private PeproNumericUpDownField requiredDocumentCountNumericUpDownField;
+        private ComboBoxField projectComboBoxField;
+        private NumericUpDownField requiredDocumentCountNumericUpDownField;
     }
 }

@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
-using Pepro.Presentation.Base;
+using Pepro.Presentation.Controls.Templates;
 
 namespace Pepro.Presentation.Controls.Molecules;
 
-public partial class PeproTextBoxField : PeproInputFieldBase {
-    private static readonly object s_textChangedEventKey = new();
+public partial class PasswordField : InputFieldTemplate {
+    private Image? _togglePasswordImage;
 
-    public PeproTextBoxField() {
+    public PasswordField() {
         InitializeComponent();
 
         FocusColor = Color.Gray;
@@ -47,28 +47,25 @@ public partial class PeproTextBoxField : PeproInputFieldBase {
         set => inputFieldTextBox.Text = value;
     }
 
+    [Category("Appearance")]
+    [Description("The image displayed default state of the toggle password")]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-    public new bool Enabled {
-        get => inputFieldTextBox.Enabled;
+    [DefaultValue(null)]
+    public Image? TogglePasswordImage {
+        get => _togglePasswordImage;
         set {
-            inputFieldTextBox.Enabled = value;
-            TabStop = value;
+            _togglePasswordImage = value;
+            togglePasswordButton.BackgroundImage = _togglePasswordImage;
         }
     }
 
-    [Browsable(true)]
-    [Category("Property Changed")]
-    public new event EventHandler TextChanged {
-        add => Events.AddHandler(s_textChangedEventKey, value);
-        remove => Events.RemoveHandler(s_textChangedEventKey, value);
-    }
-
-    /// <summary>
-    ///     Retrieves the bindings for this control.
-    /// </summary>
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-    public new ControlBindingsCollection DataBindings {
-        get => inputFieldTextBox.DataBindings;
+    [Category("Appearance")]
+    [Description("The image displayed when the toggle password button is pressed.")]
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+    [DefaultValue(null)]
+    public Image? TogglePasswordPressedImage {
+        get;
+        set;
     }
 
     /// <summary>
@@ -78,36 +75,28 @@ public partial class PeproTextBoxField : PeproInputFieldBase {
         inputFieldTextBox.Clear();
     }
 
-    /// <summary>
-    ///     Attempts to set focus to this control.
-    /// </summary>
-    [EditorBrowsable(EditorBrowsableState.Advanced)]
-    public new bool Focus() {
-        return inputFieldTextBox.Focus();
-    }
-
     protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified) {
         base.SetBoundsCore(x, y, width, DefaultSize.Height, specified);
     }
 
     protected override void OnEnter(EventArgs e) {
         base.OnEnter(e);
-        if (Enabled) {
-            inputFieldPanel.BackColor = FocusColor.IsEmpty ? Color.Gray : FocusColor;
-        }
+        inputFieldPanel.BackColor = FocusColor.IsEmpty ? Color.Gray : FocusColor;
     }
 
     protected override void OnLeave(EventArgs e) {
         base.OnLeave(e);
-        if (Enabled) {
-            inputFieldPanel.BackColor = ForeColor;
-        }
+        inputFieldPanel.BackColor = ForeColor;
     }
 
     protected override void OnBackColorChanged(EventArgs e) {
         base.OnBackColorChanged(e);
         if (inputFieldTextBox != null) {
             inputFieldTextBox.BackColor = BackColor;
+        }
+
+        if (togglePasswordButton != null) {
+            togglePasswordButton.BackColor = BackColor;
         }
     }
 
@@ -123,9 +112,14 @@ public partial class PeproTextBoxField : PeproInputFieldBase {
         }
     }
 
-    private void InputFieldTextBox_TextChanged(object sender, EventArgs e) {
-        if (Events[s_textChangedEventKey] is EventHandler handler) {
-            handler(this, e);
+    private void TogglePasswordButton_Click(object sender, EventArgs e) {
+        if (inputFieldTextBox.UseSystemPasswordChar) {
+            inputFieldTextBox.UseSystemPasswordChar = false;
+            togglePasswordButton.BackgroundImage = TogglePasswordPressedImage;
+        }
+        else {
+            inputFieldTextBox.UseSystemPasswordChar = true;
+            togglePasswordButton.BackgroundImage = TogglePasswordImage;
         }
     }
 }
