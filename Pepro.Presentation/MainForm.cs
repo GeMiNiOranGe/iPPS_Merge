@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Pepro.Business;
-using Pepro.Presentation.Base;
+using Pepro.Presentation.Controls.Atoms;
 using Pepro.Presentation.Enums;
 using Pepro.Presentation.Extensions;
 using Pepro.Presentation.Payloads;
@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation;
 
-public partial class MainForm : PeproFormBase {
+public partial class MainForm : PeproForm {
     private readonly SqlConnection conn = new(
         @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
     );
