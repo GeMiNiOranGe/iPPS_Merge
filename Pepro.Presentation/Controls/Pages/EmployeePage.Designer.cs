@@ -33,9 +33,9 @@ namespace Pepro.Presentation.Controls.Pages
         {
             searchTextBox = new TextBox();
             employeeDataGridView = new PeproDataGridView();
-            employeeIdInputField = new PeproInputField();
-            numberOfEmployeesInputField = new PeproInputField();
-            employeeNameInputField = new PeproInputField();
+            employeeIdTextBoxField = new PeproTextBoxField();
+            numberOfEmployeesTextBoxField = new PeproTextBoxField();
+            employeeNameTextBoxField = new PeproTextBoxField();
             searchButton = new Button();
             reloadButton = new Button();
             exportButton = new Button();
@@ -72,42 +72,42 @@ namespace Pepro.Presentation.Controls.Pages
             employeeDataGridView.TabIndex = 8;
             employeeDataGridView.CellClick += EmployeeDataGridView_CellClick;
             // 
-            // employeeIdInputField
+            // employeeIdTextBoxField
             // 
-            employeeIdInputField.Enabled = false;
-            employeeIdInputField.ForeColor = Color.White;
-            employeeIdInputField.LabelText = "Employee id";
-            employeeIdInputField.Location = new Point(280, 67);
-            employeeIdInputField.Margin = new Padding(24, 16, 0, 24);
-            employeeIdInputField.Name = "employeeIdInputField";
-            employeeIdInputField.PlaceholderText = "e.g. employee id";
-            employeeIdInputField.Size = new Size(240, 48);
-            employeeIdInputField.TabIndex = 0;
+            employeeIdTextBoxField.Enabled = false;
+            employeeIdTextBoxField.ForeColor = Color.White;
+            employeeIdTextBoxField.LabelText = "Employee id";
+            employeeIdTextBoxField.Location = new Point(280, 67);
+            employeeIdTextBoxField.Margin = new Padding(24, 16, 0, 24);
+            employeeIdTextBoxField.Name = "employeeIdTextBoxField";
+            employeeIdTextBoxField.PlaceholderText = "e.g. employee id";
+            employeeIdTextBoxField.Size = new Size(240, 48);
+            employeeIdTextBoxField.TabIndex = 0;
             // 
-            // numberOfEmployeesInputField
+            // numberOfEmployeesTextBoxField
             // 
-            numberOfEmployeesInputField.Enabled = false;
-            numberOfEmployeesInputField.ForeColor = Color.White;
-            numberOfEmployeesInputField.LabelText = "Number of employees";
-            numberOfEmployeesInputField.Location = new Point(16, 67);
-            numberOfEmployeesInputField.Margin = new Padding(16, 16, 0, 24);
-            numberOfEmployeesInputField.Name = "numberOfEmployeesInputField";
-            numberOfEmployeesInputField.PlaceholderText = "e.g. number of employees";
-            numberOfEmployeesInputField.Size = new Size(240, 48);
-            numberOfEmployeesInputField.TabIndex = 0;
+            numberOfEmployeesTextBoxField.Enabled = false;
+            numberOfEmployeesTextBoxField.ForeColor = Color.White;
+            numberOfEmployeesTextBoxField.LabelText = "Number of employees";
+            numberOfEmployeesTextBoxField.Location = new Point(16, 67);
+            numberOfEmployeesTextBoxField.Margin = new Padding(16, 16, 0, 24);
+            numberOfEmployeesTextBoxField.Name = "numberOfEmployeesTextBoxField";
+            numberOfEmployeesTextBoxField.PlaceholderText = "e.g. number of employees";
+            numberOfEmployeesTextBoxField.Size = new Size(240, 48);
+            numberOfEmployeesTextBoxField.TabIndex = 0;
             // 
-            // employeeNameInputField
+            // employeeNameTextBoxField
             // 
-            employeeNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            employeeNameInputField.Enabled = false;
-            employeeNameInputField.ForeColor = Color.White;
-            employeeNameInputField.LabelText = "Employee name";
-            employeeNameInputField.Location = new Point(544, 67);
-            employeeNameInputField.Margin = new Padding(24, 16, 16, 24);
-            employeeNameInputField.Name = "employeeNameInputField";
-            employeeNameInputField.PlaceholderText = "e.g. employee name";
-            employeeNameInputField.Size = new Size(504, 48);
-            employeeNameInputField.TabIndex = 0;
+            employeeNameTextBoxField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            employeeNameTextBoxField.Enabled = false;
+            employeeNameTextBoxField.ForeColor = Color.White;
+            employeeNameTextBoxField.LabelText = "Employee name";
+            employeeNameTextBoxField.Location = new Point(544, 67);
+            employeeNameTextBoxField.Margin = new Padding(24, 16, 16, 24);
+            employeeNameTextBoxField.Name = "employeeNameTextBoxField";
+            employeeNameTextBoxField.PlaceholderText = "e.g. employee name";
+            employeeNameTextBoxField.Size = new Size(504, 48);
+            employeeNameTextBoxField.TabIndex = 0;
             // 
             // searchButton
             // 
@@ -247,17 +247,17 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.Add(reloadButton);
             Controls.Add(searchButton);
             Controls.Add(searchTextBox);
-            Controls.Add(employeeNameInputField);
-            Controls.Add(employeeIdInputField);
-            Controls.Add(numberOfEmployeesInputField);
+            Controls.Add(employeeNameTextBoxField);
+            Controls.Add(employeeIdTextBoxField);
+            Controls.Add(numberOfEmployeesTextBoxField);
             HeaderText = "Employee";
             Margin = new Padding(3, 2, 3, 2);
             Name = "EmployeePage";
             ReturnButtonVisible = false;
             Load += EmployeePage_Load;
-            Controls.SetChildIndex(numberOfEmployeesInputField, 0);
-            Controls.SetChildIndex(employeeIdInputField, 0);
-            Controls.SetChildIndex(employeeNameInputField, 0);
+            Controls.SetChildIndex(numberOfEmployeesTextBoxField, 0);
+            Controls.SetChildIndex(employeeIdTextBoxField, 0);
+            Controls.SetChildIndex(employeeNameTextBoxField, 0);
             Controls.SetChildIndex(searchTextBox, 0);
             Controls.SetChildIndex(searchButton, 0);
             Controls.SetChildIndex(reloadButton, 0);
@@ -275,9 +275,9 @@ namespace Pepro.Presentation.Controls.Pages
         #endregion
         private TextBox searchTextBox;
         private PeproDataGridView employeeDataGridView;
-        private PeproInputField employeeIdInputField;
-        private PeproInputField numberOfEmployeesInputField;
-        private PeproInputField employeeNameInputField;
+        private PeproTextBoxField employeeIdTextBoxField;
+        private PeproTextBoxField numberOfEmployeesTextBoxField;
+        private PeproTextBoxField employeeNameTextBoxField;
         private Button searchButton;
         private Button reloadButton;
         private Button exportButton;

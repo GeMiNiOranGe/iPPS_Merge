@@ -35,9 +35,9 @@ namespace Pepro.Presentation.Controls.Pages
             startDateLabel = new PeproLabel();
             endDateLabel = new PeproLabel();
             endDateTimePicker = new DateTimePicker();
-            projectNameInputField = new PeproInputField();
+            projectNameTextBoxField = new PeproTextBoxField();
             statusComboBoxField = new PeproComboBoxField();
-            customerNameInputField = new PeproInputField();
+            customerNameTextBoxField = new PeproTextBoxField();
             managerComboBoxField = new PeproComboBoxField();
             saveButton = new Button();
             SuspendLayout();
@@ -82,16 +82,16 @@ namespace Pepro.Presentation.Controls.Pages
             endDateTimePicker.Size = new Size(240, 26);
             endDateTimePicker.TabIndex = 6;
             // 
-            // projectNameInputField
+            // projectNameTextBoxField
             // 
-            projectNameInputField.Anchor = AnchorStyles.None;
-            projectNameInputField.LabelText = "Project name";
-            projectNameInputField.Location = new Point(16, 67);
-            projectNameInputField.Margin = new Padding(16, 16, 16, 24);
-            projectNameInputField.Name = "projectNameInputField";
-            projectNameInputField.PlaceholderText = "e.g. project name";
-            projectNameInputField.Size = new Size(1032, 48);
-            projectNameInputField.TabIndex = 1;
+            projectNameTextBoxField.Anchor = AnchorStyles.None;
+            projectNameTextBoxField.LabelText = "Project name";
+            projectNameTextBoxField.Location = new Point(16, 67);
+            projectNameTextBoxField.Margin = new Padding(16, 16, 16, 24);
+            projectNameTextBoxField.Name = "projectNameTextBoxField";
+            projectNameTextBoxField.PlaceholderText = "e.g. project name";
+            projectNameTextBoxField.Size = new Size(1032, 48);
+            projectNameTextBoxField.TabIndex = 1;
             // 
             // statusComboBoxField
             // 
@@ -103,16 +103,16 @@ namespace Pepro.Presentation.Controls.Pages
             statusComboBoxField.Size = new Size(240, 48);
             statusComboBoxField.TabIndex = 4;
             // 
-            // customerNameInputField
+            // customerNameTextBoxField
             // 
-            customerNameInputField.Anchor = AnchorStyles.None;
-            customerNameInputField.LabelText = "Customer name";
-            customerNameInputField.Location = new Point(16, 139);
-            customerNameInputField.Margin = new Padding(16, 0, 16, 24);
-            customerNameInputField.Name = "customerNameInputField";
-            customerNameInputField.PlaceholderText = "e.g. customer name";
-            customerNameInputField.Size = new Size(1032, 48);
-            customerNameInputField.TabIndex = 2;
+            customerNameTextBoxField.Anchor = AnchorStyles.None;
+            customerNameTextBoxField.LabelText = "Customer name";
+            customerNameTextBoxField.Location = new Point(16, 139);
+            customerNameTextBoxField.Margin = new Padding(16, 0, 16, 24);
+            customerNameTextBoxField.Name = "customerNameTextBoxField";
+            customerNameTextBoxField.PlaceholderText = "e.g. customer name";
+            customerNameTextBoxField.Size = new Size(1032, 48);
+            customerNameTextBoxField.TabIndex = 2;
             // 
             // managerComboBoxField
             // 
@@ -140,8 +140,8 @@ namespace Pepro.Presentation.Controls.Pages
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(projectNameInputField);
-            Controls.Add(customerNameInputField);
+            Controls.Add(projectNameTextBoxField);
+            Controls.Add(customerNameTextBoxField);
             Controls.Add(managerComboBoxField);
             Controls.Add(statusComboBoxField);
             Controls.Add(startDateLabel);
@@ -159,8 +159,8 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.SetChildIndex(startDateLabel, 0);
             Controls.SetChildIndex(statusComboBoxField, 0);
             Controls.SetChildIndex(managerComboBoxField, 0);
-            Controls.SetChildIndex(customerNameInputField, 0);
-            Controls.SetChildIndex(projectNameInputField, 0);
+            Controls.SetChildIndex(customerNameTextBoxField, 0);
+            Controls.SetChildIndex(projectNameTextBoxField, 0);
             ResumeLayout(false);
             PerformLayout();
 
@@ -171,9 +171,9 @@ namespace Pepro.Presentation.Controls.Pages
         private PeproLabel startDateLabel;
         private PeproLabel endDateLabel;
         private DateTimePicker endDateTimePicker;
-        private PeproInputField projectNameInputField;
+        private PeproTextBoxField projectNameTextBoxField;
         private PeproComboBoxField statusComboBoxField;
-        private PeproInputField customerNameInputField;
+        private PeproTextBoxField customerNameTextBoxField;
         private PeproComboBoxField managerComboBoxField;
         private Button saveButton;
     }

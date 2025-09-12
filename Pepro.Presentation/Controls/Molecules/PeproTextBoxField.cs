@@ -4,10 +4,10 @@ using Pepro.Presentation.Base;
 
 namespace Pepro.Presentation.Controls.Molecules;
 
-public partial class PeproInputField : PeproInputFieldBase {
+public partial class PeproTextBoxField : PeproInputFieldBase {
     private static readonly object s_textChangedEventKey = new();
 
-    public PeproInputField() {
+    public PeproTextBoxField() {
         InitializeComponent();
 
         FocusColor = Color.Gray;

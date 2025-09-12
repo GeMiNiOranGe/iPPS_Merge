@@ -28,8 +28,8 @@ public partial class ProjectEditorPage : EditorTemplate, IEditorUserControl<Proj
         set
         {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
-            projectNameInputField.Text = _item.Name;
-            customerNameInputField.Text = _item.CustomerName;
+            projectNameTextBoxField.Text = _item.Name;
+            customerNameTextBoxField.Text = _item.CustomerName;
             startDateTimePicker.SetValue(_item.StartDate);
             endDateTimePicker.SetValue(_item.EndDate);
         }
@@ -117,8 +117,8 @@ public partial class ProjectEditorPage : EditorTemplate, IEditorUserControl<Proj
         ProjectDto project = new()
         {
             ProjectId = _item.ProjectId,
-            Name = projectNameInputField.Text.Trim(),
-            CustomerName = customerNameInputField.Text.Trim(),
+            Name = projectNameTextBoxField.Text.Trim(),
+            CustomerName = customerNameTextBoxField.Text.Trim(),
             ManagerId = managerId,
             StartDate = startDateTimePicker.Value,
             EndDate = endDateTimePicker.Value,
@@ -146,8 +146,8 @@ public partial class ProjectEditorPage : EditorTemplate, IEditorUserControl<Proj
 
     private bool ValidateInputs()
     {
-        return !string.IsNullOrWhiteSpace(projectNameInputField.Text)
-            && !string.IsNullOrWhiteSpace(customerNameInputField.Text)
+        return !string.IsNullOrWhiteSpace(projectNameTextBoxField.Text)
+            && !string.IsNullOrWhiteSpace(customerNameTextBoxField.Text)
             && !string.IsNullOrWhiteSpace(
                 statusComboBoxField.SelectedValue?.ToString()
             );

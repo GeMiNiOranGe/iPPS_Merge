@@ -29,7 +29,7 @@ namespace Pepro.Presentation {
             logoPictureBox = new PictureBox();
             appNameLabel = new Label();
             welcomeLabel = new PeproLabel();
-            accountNameInputField = new PeproInputField();
+            accountNameTextBoxField = new PeproTextBoxField();
             passwordField = new PeproPasswordField();
             errorLabel = new PeproLabel();
             signinButton = new Button();
@@ -80,17 +80,17 @@ namespace Pepro.Presentation {
             welcomeLabel.Text = "Welcome back";
             welcomeLabel.MouseDown += LoginForm_MouseDown;
             // 
-            // accountNameInputField
+            // accountNameTextBoxField
             // 
-            accountNameInputField.ForeColor = Color.White;
-            accountNameInputField.LabelFont = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            accountNameInputField.LabelText = "Username or email";
-            accountNameInputField.Location = new Point(25, 173);
-            accountNameInputField.Margin = new Padding(24, 0, 0, 24);
-            accountNameInputField.Name = "accountNameInputField";
-            accountNameInputField.PlaceholderText = "e.g. employee.here";
-            accountNameInputField.Size = new Size(275, 48);
-            accountNameInputField.TabIndex = 2;
+            accountNameTextBoxField.ForeColor = Color.White;
+            accountNameTextBoxField.LabelFont = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            accountNameTextBoxField.LabelText = "Username or email";
+            accountNameTextBoxField.Location = new Point(25, 173);
+            accountNameTextBoxField.Margin = new Padding(24, 0, 0, 24);
+            accountNameTextBoxField.Name = "accountNameTextBoxField";
+            accountNameTextBoxField.PlaceholderText = "e.g. employee.here";
+            accountNameTextBoxField.Size = new Size(275, 48);
+            accountNameTextBoxField.TabIndex = 2;
             // 
             // passwordField
             // 
@@ -169,7 +169,7 @@ namespace Pepro.Presentation {
             Controls.Add(logoPictureBox);
             Controls.Add(appNameLabel);
             Controls.Add(welcomeLabel);
-            Controls.Add(accountNameInputField);
+            Controls.Add(accountNameTextBoxField);
             Controls.Add(passwordField);
             Controls.Add(errorLabel);
             Controls.Add(signinButton);
@@ -193,7 +193,7 @@ namespace Pepro.Presentation {
         private PictureBox illustrationPictureBox;
         private PeproLabel welcomeLabel;
         private PictureBox logoPictureBox;
-        private PeproInputField accountNameInputField;
+        private PeproTextBoxField accountNameTextBoxField;
         private PeproPasswordField passwordField;
     }
 }

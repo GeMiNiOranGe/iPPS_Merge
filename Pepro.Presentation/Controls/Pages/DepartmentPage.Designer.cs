@@ -32,8 +32,8 @@ namespace Pepro.Presentation.Controls.Pages
         private void InitializeComponent()
         {
             departmentDataGridView = new PeproDataGridView();
-            departmentNameInputField = new PeproInputField();
-            managerInputField = new PeproInputField();
+            departmentNameTextBoxField = new PeproTextBoxField();
+            managerTextBoxField = new PeproTextBoxField();
             searchTextBox = new TextBox();
             searchButton = new Button();
             reloadButton = new Button();
@@ -56,31 +56,31 @@ namespace Pepro.Presentation.Controls.Pages
             departmentDataGridView.TabIndex = 7;
             departmentDataGridView.CellClick += DepartmentDataGridView_CellClick;
             // 
-            // departmentNameInputField
+            // departmentNameTextBoxField
             // 
-            departmentNameInputField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            departmentNameInputField.Enabled = false;
-            departmentNameInputField.LabelText = "Department name";
-            departmentNameInputField.Location = new Point(16, 67);
-            departmentNameInputField.Margin = new Padding(16, 16, 0, 24);
-            departmentNameInputField.Name = "departmentNameInputField";
-            departmentNameInputField.PlaceholderText = "e.g. department name";
-            departmentNameInputField.Size = new Size(504, 48);
-            departmentNameInputField.TabIndex = 0;
-            departmentNameInputField.TabStop = false;
+            departmentNameTextBoxField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            departmentNameTextBoxField.Enabled = false;
+            departmentNameTextBoxField.LabelText = "Department name";
+            departmentNameTextBoxField.Location = new Point(16, 67);
+            departmentNameTextBoxField.Margin = new Padding(16, 16, 0, 24);
+            departmentNameTextBoxField.Name = "departmentNameTextBoxField";
+            departmentNameTextBoxField.PlaceholderText = "e.g. department name";
+            departmentNameTextBoxField.Size = new Size(504, 48);
+            departmentNameTextBoxField.TabIndex = 0;
+            departmentNameTextBoxField.TabStop = false;
             // 
-            // managerInputField
+            // managerTextBoxField
             // 
-            managerInputField.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            managerInputField.Enabled = false;
-            managerInputField.LabelText = "Manager";
-            managerInputField.Location = new Point(544, 67);
-            managerInputField.Margin = new Padding(24, 16, 16, 24);
-            managerInputField.Name = "managerInputField";
-            managerInputField.PlaceholderText = "e.g. manager";
-            managerInputField.Size = new Size(504, 48);
-            managerInputField.TabIndex = 0;
-            managerInputField.TabStop = false;
+            managerTextBoxField.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            managerTextBoxField.Enabled = false;
+            managerTextBoxField.LabelText = "Manager";
+            managerTextBoxField.Location = new Point(544, 67);
+            managerTextBoxField.Margin = new Padding(24, 16, 16, 24);
+            managerTextBoxField.Name = "managerTextBoxField";
+            managerTextBoxField.PlaceholderText = "e.g. manager";
+            managerTextBoxField.Size = new Size(504, 48);
+            managerTextBoxField.TabIndex = 0;
+            managerTextBoxField.TabStop = false;
             // 
             // searchTextBox
             // 
@@ -170,8 +170,8 @@ namespace Pepro.Presentation.Controls.Pages
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(departmentNameInputField);
-            Controls.Add(managerInputField);
+            Controls.Add(departmentNameTextBoxField);
+            Controls.Add(managerTextBoxField);
             Controls.Add(searchTextBox);
             Controls.Add(searchButton);
             Controls.Add(reloadButton);
@@ -190,8 +190,8 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.SetChildIndex(reloadButton, 0);
             Controls.SetChildIndex(searchButton, 0);
             Controls.SetChildIndex(searchTextBox, 0);
-            Controls.SetChildIndex(managerInputField, 0);
-            Controls.SetChildIndex(departmentNameInputField, 0);
+            Controls.SetChildIndex(managerTextBoxField, 0);
+            Controls.SetChildIndex(departmentNameTextBoxField, 0);
             ((System.ComponentModel.ISupportInitialize)departmentDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -201,8 +201,8 @@ namespace Pepro.Presentation.Controls.Pages
         #endregion
 
         private PeproDataGridView departmentDataGridView;
-        private PeproInputField departmentNameInputField;
-        private PeproInputField managerInputField;
+        private PeproTextBoxField departmentNameTextBoxField;
+        private PeproTextBoxField managerTextBoxField;
         private TextBox searchTextBox;
         private Button searchButton;
         private Button reloadButton;

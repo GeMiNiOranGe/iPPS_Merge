@@ -1,5 +1,5 @@
 ﻿namespace Pepro.Presentation.Controls.Molecules {
-    partial class PeproInputField {
+    partial class PeproTextBoxField {
         /// <summary> 
         /// Required designer variable.
         /// </summary>

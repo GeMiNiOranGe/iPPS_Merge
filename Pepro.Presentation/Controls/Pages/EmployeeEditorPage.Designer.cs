@@ -36,13 +36,13 @@ namespace Pepro.Presentation.Controls.Pages
             maleRadioButton = new RadioButton();
             femaleRadioButton = new RadioButton();
             dateOfBirthDateTimePicker = new DateTimePicker();
-            firstNameInputField = new PeproInputField();
+            firstNameTextBoxField = new PeproTextBoxField();
             departmentComboBoxField = new PeproComboBoxField();
-            positionInputField = new PeproInputField();
+            positionTextBoxField = new PeproTextBoxField();
             positionComboBoxField = new PeproComboBoxField();
-            salaryScaleInputField = new PeproInputField();
+            salaryScaleTextBoxField = new PeproTextBoxField();
             salaryScaleComboBoxField = new PeproComboBoxField();
-            salaryLevelInputField = new PeproInputField();
+            salaryLevelTextBoxField = new PeproTextBoxField();
             salaryLevelComboBoxField = new PeproComboBoxField();
             otherRadioButton = new RadioButton();
             lbCheck3 = new Label();
@@ -50,10 +50,10 @@ namespace Pepro.Presentation.Controls.Pages
             lbCheck2 = new Label();
             lbCheck4 = new Label();
             saveButton = new Button();
-            middleNameInputField = new PeproInputField();
-            lastNameInputField = new PeproInputField();
-            taxCodeInputField = new PeproInputField();
-            citizenIdInputField = new PeproInputField();
+            middleNameTextBoxField = new PeproTextBoxField();
+            lastNameTextBoxField = new PeproTextBoxField();
+            taxCodeTextBoxField = new PeproTextBoxField();
+            citizenIdTextBoxField = new PeproTextBoxField();
             SuspendLayout();
             // 
             // genderLabel
@@ -108,16 +108,16 @@ namespace Pepro.Presentation.Controls.Pages
             dateOfBirthDateTimePicker.Size = new Size(240, 26);
             dateOfBirthDateTimePicker.TabIndex = 4;
             // 
-            // firstNameInputField
+            // firstNameTextBoxField
             // 
-            firstNameInputField.Anchor = AnchorStyles.None;
-            firstNameInputField.LabelText = "First name";
-            firstNameInputField.Location = new Point(16, 64);
-            firstNameInputField.Margin = new Padding(16, 16, 0, 24);
-            firstNameInputField.Name = "firstNameInputField";
-            firstNameInputField.PlaceholderText = "e.g. first name";
-            firstNameInputField.Size = new Size(240, 48);
-            firstNameInputField.TabIndex = 1;
+            firstNameTextBoxField.Anchor = AnchorStyles.None;
+            firstNameTextBoxField.LabelText = "First name";
+            firstNameTextBoxField.Location = new Point(16, 64);
+            firstNameTextBoxField.Margin = new Padding(16, 16, 0, 24);
+            firstNameTextBoxField.Name = "firstNameTextBoxField";
+            firstNameTextBoxField.PlaceholderText = "e.g. first name";
+            firstNameTextBoxField.Size = new Size(240, 48);
+            firstNameTextBoxField.TabIndex = 1;
             // 
             // departmentComboBoxField
             // 
@@ -129,17 +129,17 @@ namespace Pepro.Presentation.Controls.Pages
             departmentComboBoxField.Size = new Size(240, 48);
             departmentComboBoxField.TabIndex = 10;
             // 
-            // positionInputField
+            // positionTextBoxField
             // 
-            positionInputField.Anchor = AnchorStyles.None;
-            positionInputField.Enabled = false;
-            positionInputField.LabelText = "Position allowance percent";
-            positionInputField.Location = new Point(808, 208);
-            positionInputField.Margin = new Padding(24, 0, 16, 24);
-            positionInputField.Name = "positionInputField";
-            positionInputField.PlaceholderText = "e.g. position allowance percent";
-            positionInputField.Size = new Size(240, 48);
-            positionInputField.TabIndex = 14;
+            positionTextBoxField.Anchor = AnchorStyles.None;
+            positionTextBoxField.Enabled = false;
+            positionTextBoxField.LabelText = "Position allowance percent";
+            positionTextBoxField.Location = new Point(808, 208);
+            positionTextBoxField.Margin = new Padding(24, 0, 16, 24);
+            positionTextBoxField.Name = "positionTextBoxField";
+            positionTextBoxField.PlaceholderText = "e.g. position allowance percent";
+            positionTextBoxField.Size = new Size(240, 48);
+            positionTextBoxField.TabIndex = 14;
             // 
             // positionComboBoxField
             // 
@@ -152,17 +152,17 @@ namespace Pepro.Presentation.Controls.Pages
             positionComboBoxField.TabIndex = 13;
             positionComboBoxField.SelectedIndexChanged += PositionComboBoxField_SelectedIndexChanged;
             // 
-            // salaryScaleInputField
+            // salaryScaleTextBoxField
             // 
-            salaryScaleInputField.Anchor = AnchorStyles.None;
-            salaryScaleInputField.Enabled = false;
-            salaryScaleInputField.LabelText = "Salary scale group";
-            salaryScaleInputField.Location = new Point(280, 208);
-            salaryScaleInputField.Margin = new Padding(24, 0, 0, 24);
-            salaryScaleInputField.Name = "salaryScaleInputField";
-            salaryScaleInputField.PlaceholderText = "e.g. salary scale group";
-            salaryScaleInputField.Size = new Size(240, 48);
-            salaryScaleInputField.TabIndex = 12;
+            salaryScaleTextBoxField.Anchor = AnchorStyles.None;
+            salaryScaleTextBoxField.Enabled = false;
+            salaryScaleTextBoxField.LabelText = "Salary scale group";
+            salaryScaleTextBoxField.Location = new Point(280, 208);
+            salaryScaleTextBoxField.Margin = new Padding(24, 0, 0, 24);
+            salaryScaleTextBoxField.Name = "salaryScaleTextBoxField";
+            salaryScaleTextBoxField.PlaceholderText = "e.g. salary scale group";
+            salaryScaleTextBoxField.Size = new Size(240, 48);
+            salaryScaleTextBoxField.TabIndex = 12;
             // 
             // salaryScaleComboBoxField
             // 
@@ -175,17 +175,17 @@ namespace Pepro.Presentation.Controls.Pages
             salaryScaleComboBoxField.TabIndex = 11;
             salaryScaleComboBoxField.SelectedIndexChanged += SalaryScaleComboBoxField_SelectedIndexChanged;
             // 
-            // salaryLevelInputField
+            // salaryLevelTextBoxField
             // 
-            salaryLevelInputField.Anchor = AnchorStyles.None;
-            salaryLevelInputField.Enabled = false;
-            salaryLevelInputField.LabelText = "Salary level coefficient";
-            salaryLevelInputField.Location = new Point(280, 280);
-            salaryLevelInputField.Margin = new Padding(24, 0, 0, 24);
-            salaryLevelInputField.Name = "salaryLevelInputField";
-            salaryLevelInputField.PlaceholderText = "e.g. salary level coefficient";
-            salaryLevelInputField.Size = new Size(240, 48);
-            salaryLevelInputField.TabIndex = 16;
+            salaryLevelTextBoxField.Anchor = AnchorStyles.None;
+            salaryLevelTextBoxField.Enabled = false;
+            salaryLevelTextBoxField.LabelText = "Salary level coefficient";
+            salaryLevelTextBoxField.Location = new Point(280, 280);
+            salaryLevelTextBoxField.Margin = new Padding(24, 0, 0, 24);
+            salaryLevelTextBoxField.Name = "salaryLevelTextBoxField";
+            salaryLevelTextBoxField.PlaceholderText = "e.g. salary level coefficient";
+            salaryLevelTextBoxField.Size = new Size(240, 48);
+            salaryLevelTextBoxField.TabIndex = 16;
             // 
             // salaryLevelComboBoxField
             // 
@@ -262,49 +262,49 @@ namespace Pepro.Presentation.Controls.Pages
             saveButton.Text = "Save";
             saveButton.Click += SaveButton_Click;
             // 
-            // middleNameInputField
+            // middleNameTextBoxField
             // 
-            middleNameInputField.Anchor = AnchorStyles.None;
-            middleNameInputField.LabelText = "Middle name";
-            middleNameInputField.Location = new Point(280, 64);
-            middleNameInputField.Margin = new Padding(24, 16, 0, 24);
-            middleNameInputField.Name = "middleNameInputField";
-            middleNameInputField.PlaceholderText = "e.g. middle name";
-            middleNameInputField.Size = new Size(240, 48);
-            middleNameInputField.TabIndex = 2;
+            middleNameTextBoxField.Anchor = AnchorStyles.None;
+            middleNameTextBoxField.LabelText = "Middle name";
+            middleNameTextBoxField.Location = new Point(280, 64);
+            middleNameTextBoxField.Margin = new Padding(24, 16, 0, 24);
+            middleNameTextBoxField.Name = "middleNameTextBoxField";
+            middleNameTextBoxField.PlaceholderText = "e.g. middle name";
+            middleNameTextBoxField.Size = new Size(240, 48);
+            middleNameTextBoxField.TabIndex = 2;
             // 
-            // lastNameInputField
+            // lastNameTextBoxField
             // 
-            lastNameInputField.Anchor = AnchorStyles.None;
-            lastNameInputField.LabelText = "Last name";
-            lastNameInputField.Location = new Point(544, 64);
-            lastNameInputField.Margin = new Padding(24, 16, 16, 24);
-            lastNameInputField.Name = "lastNameInputField";
-            lastNameInputField.PlaceholderText = "e.g. last name";
-            lastNameInputField.Size = new Size(240, 48);
-            lastNameInputField.TabIndex = 3;
+            lastNameTextBoxField.Anchor = AnchorStyles.None;
+            lastNameTextBoxField.LabelText = "Last name";
+            lastNameTextBoxField.Location = new Point(544, 64);
+            lastNameTextBoxField.Margin = new Padding(24, 16, 16, 24);
+            lastNameTextBoxField.Name = "lastNameTextBoxField";
+            lastNameTextBoxField.PlaceholderText = "e.g. last name";
+            lastNameTextBoxField.Size = new Size(240, 48);
+            lastNameTextBoxField.TabIndex = 3;
             // 
-            // taxCodeInputField
+            // taxCodeTextBoxField
             // 
-            taxCodeInputField.Anchor = AnchorStyles.None;
-            taxCodeInputField.LabelText = "Tax code";
-            taxCodeInputField.Location = new Point(280, 136);
-            taxCodeInputField.Margin = new Padding(24, 0, 0, 24);
-            taxCodeInputField.Name = "taxCodeInputField";
-            taxCodeInputField.PlaceholderText = "e.g. tax code";
-            taxCodeInputField.Size = new Size(240, 48);
-            taxCodeInputField.TabIndex = 8;
+            taxCodeTextBoxField.Anchor = AnchorStyles.None;
+            taxCodeTextBoxField.LabelText = "Tax code";
+            taxCodeTextBoxField.Location = new Point(280, 136);
+            taxCodeTextBoxField.Margin = new Padding(24, 0, 0, 24);
+            taxCodeTextBoxField.Name = "taxCodeTextBoxField";
+            taxCodeTextBoxField.PlaceholderText = "e.g. tax code";
+            taxCodeTextBoxField.Size = new Size(240, 48);
+            taxCodeTextBoxField.TabIndex = 8;
             // 
-            // citizenIdInputField
+            // citizenIdTextBoxField
             // 
-            citizenIdInputField.Anchor = AnchorStyles.None;
-            citizenIdInputField.LabelText = "Citizen id";
-            citizenIdInputField.Location = new Point(544, 136);
-            citizenIdInputField.Margin = new Padding(24, 0, 16, 24);
-            citizenIdInputField.Name = "citizenIdInputField";
-            citizenIdInputField.PlaceholderText = "e.g. citizen id";
-            citizenIdInputField.Size = new Size(240, 48);
-            citizenIdInputField.TabIndex = 9;
+            citizenIdTextBoxField.Anchor = AnchorStyles.None;
+            citizenIdTextBoxField.LabelText = "Citizen id";
+            citizenIdTextBoxField.Location = new Point(544, 136);
+            citizenIdTextBoxField.Margin = new Padding(24, 0, 16, 24);
+            citizenIdTextBoxField.Name = "citizenIdTextBoxField";
+            citizenIdTextBoxField.PlaceholderText = "e.g. citizen id";
+            citizenIdTextBoxField.Size = new Size(240, 48);
+            citizenIdTextBoxField.TabIndex = 9;
             // 
             // EmployeeEditorPage
             // 
@@ -312,53 +312,53 @@ namespace Pepro.Presentation.Controls.Pages
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             Controls.Add(lbCheck4);
-            Controls.Add(firstNameInputField);
-            Controls.Add(middleNameInputField);
-            Controls.Add(lastNameInputField);
+            Controls.Add(firstNameTextBoxField);
+            Controls.Add(middleNameTextBoxField);
+            Controls.Add(lastNameTextBoxField);
             Controls.Add(dateOfBirthLabel);
             Controls.Add(dateOfBirthDateTimePicker);
             Controls.Add(genderLabel);
             Controls.Add(maleRadioButton);
             Controls.Add(femaleRadioButton);
             Controls.Add(otherRadioButton);
-            Controls.Add(taxCodeInputField);
-            Controls.Add(citizenIdInputField);
+            Controls.Add(taxCodeTextBoxField);
+            Controls.Add(citizenIdTextBoxField);
             Controls.Add(lbCheck3);
             Controls.Add(salaryScaleComboBoxField);
-            Controls.Add(salaryScaleInputField);
+            Controls.Add(salaryScaleTextBoxField);
             Controls.Add(lbCheck1);
             Controls.Add(salaryLevelComboBoxField);
-            Controls.Add(salaryLevelInputField);
+            Controls.Add(salaryLevelTextBoxField);
             Controls.Add(lbCheck2);
             Controls.Add(departmentComboBoxField);
             Controls.Add(positionComboBoxField);
-            Controls.Add(positionInputField);
+            Controls.Add(positionTextBoxField);
             Controls.Add(saveButton);
             Name = "EmployeeEditorPage";
             Size = new Size(1064, 664);
             Load += EmployeeEditorPage_Load;
             Controls.SetChildIndex(saveButton, 0);
-            Controls.SetChildIndex(positionInputField, 0);
+            Controls.SetChildIndex(positionTextBoxField, 0);
             Controls.SetChildIndex(positionComboBoxField, 0);
             Controls.SetChildIndex(departmentComboBoxField, 0);
             Controls.SetChildIndex(lbCheck2, 0);
-            Controls.SetChildIndex(salaryLevelInputField, 0);
+            Controls.SetChildIndex(salaryLevelTextBoxField, 0);
             Controls.SetChildIndex(salaryLevelComboBoxField, 0);
             Controls.SetChildIndex(lbCheck1, 0);
-            Controls.SetChildIndex(salaryScaleInputField, 0);
+            Controls.SetChildIndex(salaryScaleTextBoxField, 0);
             Controls.SetChildIndex(salaryScaleComboBoxField, 0);
             Controls.SetChildIndex(lbCheck3, 0);
-            Controls.SetChildIndex(citizenIdInputField, 0);
-            Controls.SetChildIndex(taxCodeInputField, 0);
+            Controls.SetChildIndex(citizenIdTextBoxField, 0);
+            Controls.SetChildIndex(taxCodeTextBoxField, 0);
             Controls.SetChildIndex(otherRadioButton, 0);
             Controls.SetChildIndex(femaleRadioButton, 0);
             Controls.SetChildIndex(maleRadioButton, 0);
             Controls.SetChildIndex(genderLabel, 0);
             Controls.SetChildIndex(dateOfBirthDateTimePicker, 0);
             Controls.SetChildIndex(dateOfBirthLabel, 0);
-            Controls.SetChildIndex(lastNameInputField, 0);
-            Controls.SetChildIndex(middleNameInputField, 0);
-            Controls.SetChildIndex(firstNameInputField, 0);
+            Controls.SetChildIndex(lastNameTextBoxField, 0);
+            Controls.SetChildIndex(middleNameTextBoxField, 0);
+            Controls.SetChildIndex(firstNameTextBoxField, 0);
             Controls.SetChildIndex(lbCheck4, 0);
             ResumeLayout(false);
             PerformLayout();
@@ -371,13 +371,13 @@ namespace Pepro.Presentation.Controls.Pages
         private RadioButton maleRadioButton;
         private RadioButton femaleRadioButton;
         private DateTimePicker dateOfBirthDateTimePicker;
-        private PeproInputField firstNameInputField;
+        private PeproTextBoxField firstNameTextBoxField;
         private PeproComboBoxField departmentComboBoxField;
-        private PeproInputField positionInputField;
+        private PeproTextBoxField positionTextBoxField;
         private PeproComboBoxField positionComboBoxField;
-        private PeproInputField salaryScaleInputField;
+        private PeproTextBoxField salaryScaleTextBoxField;
         private PeproComboBoxField salaryScaleComboBoxField;
-        private PeproInputField salaryLevelInputField;
+        private PeproTextBoxField salaryLevelTextBoxField;
         private PeproComboBoxField salaryLevelComboBoxField;
         private RadioButton otherRadioButton;
         private Label lbCheck3;
@@ -385,9 +385,9 @@ namespace Pepro.Presentation.Controls.Pages
         private Label lbCheck2;
         private Label lbCheck4;
         private Button saveButton;
-        private PeproInputField middleNameInputField;
-        private PeproInputField lastNameInputField;
-        private PeproInputField taxCodeInputField;
-        private PeproInputField citizenIdInputField;
+        private PeproTextBoxField middleNameTextBoxField;
+        private PeproTextBoxField lastNameTextBoxField;
+        private PeproTextBoxField taxCodeTextBoxField;
+        private PeproTextBoxField citizenIdTextBoxField;
     }
 }

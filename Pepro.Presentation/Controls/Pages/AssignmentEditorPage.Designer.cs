@@ -35,7 +35,7 @@ namespace Pepro.Presentation.Controls.Pages
             publicDepartmentLabel = new PeproLabel();
             saveButton = new Button();
             managerComboBoxField = new PeproComboBoxField();
-            assignmentNameInputField = new PeproInputField();
+            assignmentNameTextBoxField = new PeproTextBoxField();
             statusComboBoxField = new PeproComboBoxField();
             isPublicToProjectCheckBox = new CheckBox();
             isPublicToDepartmentCheckBox = new CheckBox();
@@ -95,16 +95,16 @@ namespace Pepro.Presentation.Controls.Pages
             managerComboBoxField.Size = new Size(240, 48);
             managerComboBoxField.TabIndex = 6;
             // 
-            // assignmentNameInputField
+            // assignmentNameTextBoxField
             // 
-            assignmentNameInputField.Anchor = AnchorStyles.None;
-            assignmentNameInputField.LabelText = "Assignment name";
-            assignmentNameInputField.Location = new Point(16, 64);
-            assignmentNameInputField.Margin = new Padding(16, 16, 16, 24);
-            assignmentNameInputField.Name = "assignmentNameInputField";
-            assignmentNameInputField.PlaceholderText = "e.g. assignment name";
-            assignmentNameInputField.Size = new Size(1032, 48);
-            assignmentNameInputField.TabIndex = 1;
+            assignmentNameTextBoxField.Anchor = AnchorStyles.None;
+            assignmentNameTextBoxField.LabelText = "Assignment name";
+            assignmentNameTextBoxField.Location = new Point(16, 64);
+            assignmentNameTextBoxField.Margin = new Padding(16, 16, 16, 24);
+            assignmentNameTextBoxField.Name = "assignmentNameTextBoxField";
+            assignmentNameTextBoxField.PlaceholderText = "e.g. assignment name";
+            assignmentNameTextBoxField.Size = new Size(1032, 48);
+            assignmentNameTextBoxField.TabIndex = 1;
             // 
             // statusComboBoxField
             // 
@@ -204,7 +204,7 @@ namespace Pepro.Presentation.Controls.Pages
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(assignmentNameInputField);
+            Controls.Add(assignmentNameTextBoxField);
             Controls.Add(projectComboBoxField);
             Controls.Add(publicProjectLabel);
             Controls.Add(isPublicToProjectCheckBox);
@@ -234,7 +234,7 @@ namespace Pepro.Presentation.Controls.Pages
             Controls.SetChildIndex(isPublicToProjectCheckBox, 0);
             Controls.SetChildIndex(publicProjectLabel, 0);
             Controls.SetChildIndex(projectComboBoxField, 0);
-            Controls.SetChildIndex(assignmentNameInputField, 0);
+            Controls.SetChildIndex(assignmentNameTextBoxField, 0);
             ResumeLayout(false);
             PerformLayout();
 
@@ -245,7 +245,7 @@ namespace Pepro.Presentation.Controls.Pages
         private PeproLabel publicDepartmentLabel;
         private Button saveButton;
         private PeproComboBoxField managerComboBoxField;
-        private PeproInputField assignmentNameInputField;
+        private PeproTextBoxField assignmentNameTextBoxField;
         private PeproComboBoxField statusComboBoxField;
         private CheckBox isPublicToProjectCheckBox;
         private CheckBox isPublicToDepartmentCheckBox;

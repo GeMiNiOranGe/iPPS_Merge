@@ -24,7 +24,7 @@ public partial class EmployeePage : CrudTemplate {
     private void LoadEmployees() {
         List<EmployeeView> employees = EmployeeBusiness.Instance.GetEmployeeViews();
         employeeDataGridView.DataSource = employees;
-        numberOfEmployeesInputField.Text = employees.Count.ToString();
+        numberOfEmployeesTextBoxField.Text = employees.Count.ToString();
     }
 
     private void EmployeePage_Load(object sender, EventArgs e) {
@@ -37,8 +37,8 @@ public partial class EmployeePage : CrudTemplate {
             e,
             (item) =>
             {
-                employeeIdInputField.Text = item.EmployeeId.ToString();
-                employeeNameInputField.Text = item.FullName;
+                employeeIdTextBoxField.Text = item.EmployeeId.ToString();
+                employeeNameTextBoxField.Text = item.FullName;
             }
         );
     }
@@ -48,7 +48,7 @@ public partial class EmployeePage : CrudTemplate {
             searchTextBox.Text,
             employeeDataGridView,
             EmployeeBusiness.Instance.SearchEmployeeViews,
-            (items) => numberOfEmployeesInputField.Text = items.Count.ToString()
+            (items) => numberOfEmployeesTextBoxField.Text = items.Count.ToString()
         );
     }
 
