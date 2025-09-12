@@ -1,10 +1,10 @@
 ﻿using Pepro.DTOs;
-using Pepro.Presentation.Base;
+using Pepro.Presentation.Controls.Templates;
 using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Molecules;
 
-public partial class ProjectProgressCard : PeproCardBase {
+public partial class ProjectProgressCard : CardTemplate {
     private ProjectProgressView _item = null!;
     private Color _defaultBackColor;
 
