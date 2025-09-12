@@ -1,12 +1,11 @@
-﻿using Pepro.Presentation.Controls.Pages;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
-namespace Pepro.Presentation.Base;
+namespace Pepro.Presentation.Controls.Templates;
 
-public class PeproEditorControlBase : PeproMediatedUserControl {
+public class EditorTemplate : MediatedTemplate {
     private Action? _onDataChanged;
 
-    public PeproEditorControlBase() { }
+    public EditorTemplate() { }
 
     [Browsable(false)]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]

@@ -1,12 +1,13 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
 using Pepro.Presentation.Controls.Molecules;
+using Pepro.Presentation.Controls.Templates;
 using Pepro.Presentation.Enums;
 using Pepro.Presentation.Payloads;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class ProgressControl : PeproMediatedUserControl {
+public partial class ProgressControl : MediatedTemplate {
     public ProgressControl() {
         InitializeComponent();
     }

@@ -1,12 +1,12 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
-using Pepro.Presentation.Base;
+using Pepro.Presentation.Controls.Templates;
 using Pepro.Presentation.Enums;
 using Pepro.Presentation.Extensions;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class AssignmentControl : PeproCrudControlBase
+public partial class AssignmentControl : CrudTemplate
 {
     public AssignmentControl()
     {

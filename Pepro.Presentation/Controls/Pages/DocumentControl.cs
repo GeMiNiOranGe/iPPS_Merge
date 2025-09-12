@@ -1,13 +1,13 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
-using Pepro.Presentation.Base;
+using Pepro.Presentation.Controls.Templates;
 using Pepro.Presentation.Enums;
 using Pepro.Presentation.Extensions;
 using Pepro.Presentation.Utilities;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class DocumentControl : PeproCrudControlBase
+public partial class DocumentControl : CrudTemplate
 {
     public DocumentControl()
     {

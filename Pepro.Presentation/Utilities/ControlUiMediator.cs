@@ -1,6 +1,6 @@
 ﻿using Pepro.DTOs;
-using Pepro.Presentation.Base;
 using Pepro.Presentation.Controls.Pages;
+using Pepro.Presentation.Controls.Templates;
 using Pepro.Presentation.Enums;
 using Pepro.Presentation.Interfaces;
 using Pepro.Presentation.Payloads;
@@ -63,7 +63,7 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator
     }
 
     private TControl Create<TControl>()
-        where TControl : PeproMediatedUserControl, new()
+        where TControl : MediatedTemplate, new()
     {
         return new()
         {
@@ -72,7 +72,7 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator
     }
 
     private void PushEditor<TEditorControl, TDto>(object? data)
-        where TEditorControl : PeproEditorControlBase, IEditorUserControl<TDto>, new()
+        where TEditorControl : EditorTemplate, IEditorUserControl<TDto>, new()
     {
         if (data is not EditorControlPayload<TDto> payload)
         {
@@ -96,7 +96,7 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator
     }
 
     private void Navigate<TControl>()
-        where TControl : PeproMediatedUserControl, new()
+        where TControl : MediatedTemplate, new()
     {
         TControl control = Create<TControl>();
         Navigate(control);

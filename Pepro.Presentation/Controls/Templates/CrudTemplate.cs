@@ -1,13 +1,12 @@
-﻿using Pepro.Presentation.Controls.Pages;
-using Pepro.Presentation.Enums;
+﻿using Pepro.Presentation.Enums;
 using Pepro.Presentation.Payloads;
 using Pepro.Presentation.Utilities;
 
-namespace Pepro.Presentation.Base;
+namespace Pepro.Presentation.Controls.Templates;
 
-public class PeproCrudControlBase : PeproMediatedUserControl
+public class CrudTemplate : MediatedTemplate
 {
-    public PeproCrudControlBase() { }
+    public CrudTemplate() { }
 
     protected static void BindDataGridViewCellClick<ItemType>(
         DataGridView dataGridView,

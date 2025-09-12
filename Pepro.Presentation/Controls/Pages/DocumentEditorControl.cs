@@ -1,7 +1,7 @@
 ﻿using Pepro.Business;
 using Pepro.DTOs;
-using Pepro.Presentation.Base;
 using Pepro.Presentation.Controls.Molecules;
+using Pepro.Presentation.Controls.Templates;
 using Pepro.Presentation.Enums;
 using Pepro.Presentation.Extensions;
 using Pepro.Presentation.Interfaces;
@@ -10,7 +10,7 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class DocumentEditorControl : PeproEditorControlBase, IEditorUserControl<DocumentDto> {
+public partial class DocumentEditorControl : EditorTemplate, IEditorUserControl<DocumentDto> {
     private DocumentDto _item = null!;
     private EditorMode _mode;
 
