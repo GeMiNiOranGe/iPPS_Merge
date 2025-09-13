@@ -28,22 +28,22 @@ partial class PasswordField
     /// </summary>
     private void InitializeComponent()
     {
-        inputFieldTextBox = new TextBox();
+        textBoxField = new TextBox();
         togglePasswordButton = new Button();
-        inputFieldPanel = new Panel();
+        underlinePanel = new Panel();
         SuspendLayout();
         // 
-        // inputFieldTextBox
+        // textBoxField
         // 
-        inputFieldTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        inputFieldTextBox.BorderStyle = BorderStyle.None;
-        inputFieldTextBox.Cursor = Cursors.IBeam;
-        inputFieldTextBox.Location = new Point(0, 22);
-        inputFieldTextBox.Margin = new Padding(0, 0, 4, 0);
-        inputFieldTextBox.Name = "inputFieldTextBox";
-        inputFieldTextBox.Size = new Size(212, 19);
-        inputFieldTextBox.TabIndex = 1;
-        inputFieldTextBox.UseSystemPasswordChar = true;
+        textBoxField.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        textBoxField.BorderStyle = BorderStyle.None;
+        textBoxField.Cursor = Cursors.IBeam;
+        textBoxField.Location = new Point(0, 22);
+        textBoxField.Margin = new Padding(0, 0, 4, 0);
+        textBoxField.Name = "textBoxField";
+        textBoxField.Size = new Size(212, 19);
+        textBoxField.TabIndex = 1;
+        textBoxField.UseSystemPasswordChar = true;
         // 
         // togglePasswordButton
         // 
@@ -62,27 +62,27 @@ partial class PasswordField
         togglePasswordButton.UseVisualStyleBackColor = false;
         togglePasswordButton.Click += TogglePasswordButton_Click;
         // 
-        // inputFieldPanel
+        // underlinePanel
         // 
-        inputFieldPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        inputFieldPanel.BackColor = SystemColors.ControlText;
-        inputFieldPanel.Location = new Point(0, 46);
-        inputFieldPanel.Margin = new Padding(0);
-        inputFieldPanel.Name = "inputFieldPanel";
-        inputFieldPanel.Size = new Size(240, 2);
-        inputFieldPanel.TabIndex = 0;
+        underlinePanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        underlinePanel.BackColor = SystemColors.ControlText;
+        underlinePanel.Location = new Point(0, 46);
+        underlinePanel.Margin = new Padding(0);
+        underlinePanel.Name = "underlinePanel";
+        underlinePanel.Size = new Size(240, 2);
+        underlinePanel.TabIndex = 0;
         // 
         // PeproPasswordField
         // 
         AutoScaleDimensions = new SizeF(8F, 19F);
         AutoScaleMode = AutoScaleMode.Font;
         Controls.Add(togglePasswordButton);
-        Controls.Add(inputFieldPanel);
-        Controls.Add(inputFieldTextBox);
+        Controls.Add(underlinePanel);
+        Controls.Add(textBoxField);
         Name = "PeproPasswordField";
         Size = new Size(240, 48);
-        Controls.SetChildIndex(inputFieldTextBox, 0);
-        Controls.SetChildIndex(inputFieldPanel, 0);
+        Controls.SetChildIndex(textBoxField, 0);
+        Controls.SetChildIndex(underlinePanel, 0);
         Controls.SetChildIndex(togglePasswordButton, 0);
         ResumeLayout(false);
         PerformLayout();
@@ -91,6 +91,6 @@ partial class PasswordField
     #endregion
 
     private Button togglePasswordButton;
-    private TextBox inputFieldTextBox;
-    private Panel inputFieldPanel;
+    private TextBox textBoxField;
+    private Panel underlinePanel;
 }

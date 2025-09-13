@@ -38,8 +38,8 @@ public partial class TextBoxField : InputFieldTemplate
     [DefaultValue("")]
     public virtual string PlaceholderText
     {
-        get => inputFieldTextBox.PlaceholderText;
-        set => inputFieldTextBox.PlaceholderText = value;
+        get => textBoxField.PlaceholderText;
+        set => textBoxField.PlaceholderText = value;
     }
 
     [AllowNull]
@@ -49,17 +49,17 @@ public partial class TextBoxField : InputFieldTemplate
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public override string Text
     {
-        get => inputFieldTextBox.Text;
-        set => inputFieldTextBox.Text = value;
+        get => textBoxField.Text;
+        set => textBoxField.Text = value;
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public new bool Enabled
     {
-        get => inputFieldTextBox.Enabled;
+        get => textBoxField.Enabled;
         set
         {
-            inputFieldTextBox.Enabled = value;
+            textBoxField.Enabled = value;
             TabStop = value;
         }
     }
@@ -78,7 +78,7 @@ public partial class TextBoxField : InputFieldTemplate
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
     public new ControlBindingsCollection DataBindings
     {
-        get => inputFieldTextBox.DataBindings;
+        get => textBoxField.DataBindings;
     }
 
     /// <summary>
@@ -86,7 +86,7 @@ public partial class TextBoxField : InputFieldTemplate
     /// </summary>
     public void Clear()
     {
-        inputFieldTextBox.Clear();
+        textBoxField.Clear();
     }
 
     /// <summary>
@@ -95,7 +95,7 @@ public partial class TextBoxField : InputFieldTemplate
     [EditorBrowsable(EditorBrowsableState.Advanced)]
     public new bool Focus()
     {
-        return inputFieldTextBox.Focus();
+        return textBoxField.Focus();
     }
 
     protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)
@@ -108,7 +108,7 @@ public partial class TextBoxField : InputFieldTemplate
         base.OnEnter(e);
         if (Enabled)
         {
-            inputFieldPanel.BackColor = FocusColor.IsEmpty ? Color.Gray : FocusColor;
+            underlinePanel.BackColor = FocusColor.IsEmpty ? Color.Gray : FocusColor;
         }
     }
 
@@ -117,31 +117,31 @@ public partial class TextBoxField : InputFieldTemplate
         base.OnLeave(e);
         if (Enabled)
         {
-            inputFieldPanel.BackColor = ForeColor;
+            underlinePanel.BackColor = ForeColor;
         }
     }
 
     protected override void OnBackColorChanged(EventArgs e)
     {
         base.OnBackColorChanged(e);
-        if (inputFieldTextBox != null)
+        if (textBoxField != null)
         {
-            inputFieldTextBox.BackColor = BackColor;
+            textBoxField.BackColor = BackColor;
         }
     }
 
     protected override void OnForeColorChanged(EventArgs e)
     {
         base.OnForeColorChanged(e);
-        if (inputFieldTextBox != null)
+        if (textBoxField != null)
         {
-            inputFieldTextBox.ForeColor = ForeColor;
+            textBoxField.ForeColor = ForeColor;
         }
 
         // Make the BackColor of the panel the same color as the text color
-        if (inputFieldPanel != null)
+        if (underlinePanel != null)
         {
-            inputFieldPanel.BackColor = ForeColor;
+            underlinePanel.BackColor = ForeColor;
         }
     }
 

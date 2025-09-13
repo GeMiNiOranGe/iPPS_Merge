@@ -29,17 +29,17 @@ public partial class NumericUpDownField : InputFieldTemplate
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public decimal Value
     {
-        get => inputFieldNumericUpDown.Value;
-        set => inputFieldNumericUpDown.Value = value;
+        get => numericUpDownField.Value;
+        set => numericUpDownField.Value = value;
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public new bool Enabled
     {
-        get => inputFieldNumericUpDown.Enabled;
+        get => numericUpDownField.Enabled;
         set
         {
-            inputFieldNumericUpDown.Enabled = value;
+            numericUpDownField.Enabled = value;
             TabStop = value;
         }
     }
@@ -52,18 +52,18 @@ public partial class NumericUpDownField : InputFieldTemplate
     protected override void OnBackColorChanged(EventArgs e)
     {
         base.OnBackColorChanged(e);
-        if (inputFieldNumericUpDown != null)
+        if (numericUpDownField != null)
         {
-            inputFieldNumericUpDown.BackColor = BackColor;
+            numericUpDownField.BackColor = BackColor;
         }
     }
 
     protected override void OnForeColorChanged(EventArgs e)
     {
         base.OnForeColorChanged(e);
-        if (inputFieldNumericUpDown != null)
+        if (numericUpDownField != null)
         {
-            inputFieldNumericUpDown.ForeColor = ForeColor;
+            numericUpDownField.ForeColor = ForeColor;
         }
     }
 }
