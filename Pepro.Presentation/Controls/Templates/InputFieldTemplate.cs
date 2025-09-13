@@ -4,8 +4,10 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Pepro.Presentation.Controls.Templates;
 
-public partial class InputFieldTemplate : PeproUserControl {
-    public InputFieldTemplate() {
+public partial class InputFieldTemplate : PeproUserControl
+{
+    public InputFieldTemplate()
+    {
         InitializeComponent();
     }
 
@@ -13,7 +15,8 @@ public partial class InputFieldTemplate : PeproUserControl {
     [Category("Appearance")]
     [DefaultValue("")]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-    public virtual string LabelText {
+    public virtual string LabelText
+    {
         get => inputFieldLabel.Text;
         set => inputFieldLabel.Text = value;
     }
@@ -22,7 +25,8 @@ public partial class InputFieldTemplate : PeproUserControl {
     [Category("Appearance")]
     [DefaultValue(typeof(Font), "Segoe UI, 14px")]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-    public virtual Font LabelFont {
+    public virtual Font LabelFont
+    {
         get => inputFieldLabel.Font;
         set => inputFieldLabel.Font = value;
     }
@@ -30,7 +34,8 @@ public partial class InputFieldTemplate : PeproUserControl {
     protected override Size DefaultSize => new(240, 128);
 
     [DefaultValue(typeof(Size), "240, 128")]
-    public new Size Size {
+    public new Size Size
+    {
         get => base.Size;
         set => base.Size = value;
     }

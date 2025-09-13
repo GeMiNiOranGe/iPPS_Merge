@@ -6,10 +6,12 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Templates;
 
-public partial class MediatedTemplate : PeproUserControl {
+public partial class MediatedTemplate : PeproUserControl
+{
     private IMediator? _mediator;
 
-    public MediatedTemplate() {
+    public MediatedTemplate()
+    {
         InitializeComponent();
 
         headerReturnButton.ApplyFlatStyleNoBackColor();
@@ -18,9 +20,11 @@ public partial class MediatedTemplate : PeproUserControl {
     [Browsable(true)]
     [Category("Behavior")]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-    public virtual bool ReturnButtonVisible {
+    public virtual bool ReturnButtonVisible
+    {
         get => headerReturnButton.Visible;
-        set {
+        set
+        {
             headerReturnButton.Visible = value;
             headerReturnButton.Width = value ? 48 : 0;
         }
@@ -29,21 +33,25 @@ public partial class MediatedTemplate : PeproUserControl {
     [Browsable(true)]
     [Category("Appearance")]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-    public virtual string HeaderText {
+    public virtual string HeaderText
+    {
         get => headerLabel.Text;
         set => headerLabel.Text = value;
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public IMediator? Mediator {
+    public IMediator? Mediator
+    {
         protected get => _mediator;
         init => _mediator = value;
     }
 
-    protected override void OnLoad(EventArgs e) {
+    protected override void OnLoad(EventArgs e)
+    {
         base.OnLoad(e);
 
-        if (!DesignMode) {
+        if (!DesignMode)
+        {
             headerReturnButton.Image = IconProvider.GetIcon(
                 "ArrowLeft",
                 color: ThemeColors.Text
@@ -51,11 +59,13 @@ public partial class MediatedTemplate : PeproUserControl {
         }
     }
 
-    protected void Close() {
+    protected void Close()
+    {
         Parent?.Controls.Remove(this);
     }
 
-    private void HeaderReturnButton_Click(object sender, EventArgs e) {
+    private void HeaderReturnButton_Click(object sender, EventArgs e)
+    {
         Close();
     }
 }
