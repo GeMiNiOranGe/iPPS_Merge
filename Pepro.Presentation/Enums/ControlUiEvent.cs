@@ -1,6 +1,7 @@
 ﻿namespace Pepro.Presentation.Enums;
 
-public enum ControlUiEvent {
+public enum ControlUiEvent
+{
     NavigateAssignmentPage,
     PushAssignmentEditorPage,
     NavigateDepartmentPage,

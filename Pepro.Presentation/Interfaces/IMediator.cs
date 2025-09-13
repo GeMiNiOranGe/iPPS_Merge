@@ -2,6 +2,7 @@
 
 namespace Pepro.Presentation.Interfaces;
 
-public interface IMediator {
+public interface IMediator
+{
     void Notify(object sender, ControlUiEvent ev, object? data = null);
 }
