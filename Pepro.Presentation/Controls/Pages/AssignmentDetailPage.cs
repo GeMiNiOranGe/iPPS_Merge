@@ -6,43 +6,53 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class AssignmentDetailPage : MediatedTemplate {
+public partial class AssignmentDetailPage : MediatedTemplate
+{
     private int _projectId;
 
-    public AssignmentDetailPage() {
+    public AssignmentDetailPage()
+    {
         InitializeComponent();
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required int ProjectId {
+    public required int ProjectId
+    {
         get => _projectId;
-        set {
+        set
+        {
             _projectId = value;
             projectIdLabel.Text = _projectId.ToString();
         }
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required string ProjectName {
+    public required string ProjectName
+    {
         get => projectNameLabel.Text;
         set => projectNameLabel.Text = value;
     }
 
-    private void AssignmentDetailPage_Load(object sender, EventArgs e) {
+    private void AssignmentDetailPage_Load(object sender, EventArgs e)
+    {
         ShowAssignmentsByProject();
     }
 
-    private void ShowAssignmentsByProject() {
-        if (assignmentsOfProjectFlowLayoutPanel.Controls.Count > 0) {
+    private void ShowAssignmentsByProject()
+    {
+        if (assignmentsOfProjectFlowLayoutPanel.Controls.Count > 0)
+        {
             assignmentsOfProjectFlowLayoutPanel.Controls.Clear();
         }
 
         List<AssignmentProgressView> assignmentsProgress = AssignmentBusiness.Instance.GetAssignmentProgressViewsByProjectId(ProjectId);
 
-        for (int i = 0; i < assignmentsProgress.Count; i++) {
+        for (int i = 0; i < assignmentsProgress.Count; i++)
+        {
             AssignmentProgressView item = assignmentsProgress[i];
 
-            AssignmentProgressCard assignmentCard = new() {
+            AssignmentProgressCard assignmentCard = new()
+            {
                 Item = item,
                 Margin = i != assignmentsProgress.Count - 1 ? new Padding(0, 0, 0, 8) : new Padding(0),
                 Width = assignmentsOfProjectFlowLayoutPanel.ClientSize.Width - assignmentsOfProjectFlowLayoutPanel.Padding.Horizontal,
@@ -53,7 +63,8 @@ public partial class AssignmentDetailPage : MediatedTemplate {
                 MouseDownBackColor = ThemeColors.Accent.Dark
             };
 
-            assignmentCard.Click += (sender, e) => {
+            assignmentCard.Click += (sender, e) =>
+            {
                 RetrieveInfomation(item.AssignmentId);
             };
 
@@ -61,8 +72,10 @@ public partial class AssignmentDetailPage : MediatedTemplate {
         }
     }
 
-    public void RetrieveInfomation(int assignmentId) {
-        if (otherAssignmentsOfManagerFlowLayoutLabel.Controls.Count > 0) {
+    public void RetrieveInfomation(int assignmentId)
+    {
+        if (otherAssignmentsOfManagerFlowLayoutLabel.Controls.Count > 0)
+        {
             otherAssignmentsOfManagerFlowLayoutLabel.Controls.Clear();
         }
 
@@ -77,10 +90,12 @@ public partial class AssignmentDetailPage : MediatedTemplate {
 
         List<AssignmentProgressView> assignmentsProgress = AssignmentBusiness.Instance.GetAssignmentProgressViewsByEmployeeId(employee.EmployeeId);
 
-        for (int i = 0; i < assignmentsProgress.Count; i++) {
+        for (int i = 0; i < assignmentsProgress.Count; i++)
+        {
             AssignmentProgressView item = assignmentsProgress[i];
 
-            AssignmentProgressCard assignmentCard = new() {
+            AssignmentProgressCard assignmentCard = new()
+            {
                 Item = item,
                 Margin = i != assignmentsProgress.Count - 1 ? new Padding(0, 0, 0, 8) : new Padding(0),
                 Width = otherAssignmentsOfManagerFlowLayoutLabel.ClientSize.Width - otherAssignmentsOfManagerFlowLayoutLabel.Padding.Horizontal,

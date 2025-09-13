@@ -10,11 +10,13 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<DocumentDto> {
+public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<DocumentDto>
+{
     private DocumentDto _item = null!;
     private EditorMode _mode;
 
-    public DocumentEditorPage() {
+    public DocumentEditorPage()
+    {
         InitializeComponent();
 
         saveButton.ApplyFlatStyle();
@@ -34,9 +36,11 @@ public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<Doc
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public DocumentDto Item {
+    public DocumentDto Item
+    {
         get => _item;
-        set {
+        set
+        {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
             documentIdTextBoxField.Text = _item.DocumentId.ToString();
             titleTextBoxField.Text = _item.Title;
@@ -53,11 +57,14 @@ public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<Doc
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public EditorMode Mode {
+    public EditorMode Mode
+    {
         get => _mode;
-        set {
+        set
+        {
             _mode = value;
-            HeaderText = _mode switch {
+            HeaderText = _mode switch
+            {
                 EditorMode.Create => "Create a new document",
                 EditorMode.Edit => "Edit document",
                 _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
@@ -65,7 +72,8 @@ public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<Doc
         }
     }
 
-    private void DocumentEditorPage_Load(object sender, EventArgs e) {
+    private void DocumentEditorPage_Load(object sender, EventArgs e)
+    {
         projectIdTextBoxField.BindTextToValue(projectNameComboBoxField);
         assignmentIdTextBoxField.BindTextToValue(assignmentNameComboBoxField);
 
@@ -75,23 +83,26 @@ public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<Doc
         assignmentNameComboBoxField.DisplayMember = nameof(AssignmentDto.Name);
         assignmentNameComboBoxField.ValueMember = nameof(AssignmentDto.AssignmentId);
 
-        switch (_mode) {
-        case EditorMode.Create:
-            SetupCreateMode();
-            break;
-        case EditorMode.Edit:
-            SetupEditMode();
-            break;
+        switch (_mode)
+        {
+            case EditorMode.Create:
+                SetupCreateMode();
+                break;
+            case EditorMode.Edit:
+                SetupEditMode();
+                break;
         }
     }
 
-    private void SetupCreateMode() {
+    private void SetupCreateMode()
+    {
         List<ProjectDto> projects = ProjectBusiness.Instance.GetProjects();
         projectNameComboBoxField.DataSource = projects;
         projectNameComboBoxField.SelectedIndex = -1;
     }
 
-    private void SetupEditMode() {
+    private void SetupEditMode()
+    {
         assignmentNameComboBoxField.Enabled = false;
         projectNameComboBoxField.Enabled = false;
 
@@ -121,8 +132,10 @@ public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<Doc
         );
     }
 
-    private void ProjectNameComboBoxField_SelectedIndexChanged(object? sender, EventArgs e) {
-        if (!int.TryParse(projectNameComboBoxField.SelectedValue?.ToString(), out int projectId)){
+    private void ProjectNameComboBoxField_SelectedIndexChanged(object? sender, EventArgs e)
+    {
+        if (!int.TryParse(projectNameComboBoxField.SelectedValue?.ToString(), out int projectId))
+        {
             return;
         }
 
@@ -131,13 +144,15 @@ public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<Doc
         assignmentNameComboBoxField.SelectedIndex = -1;
     }
 
-    private void SaveButton_Click(object sender, EventArgs e) {
+    private void SaveButton_Click(object sender, EventArgs e)
+    {
         MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock2");
         NotifyDataChanged();
         Close();
     }
 
-    private void BrowseButton_Click(object sender, EventArgs e) {
+    private void BrowseButton_Click(object sender, EventArgs e)
+    {
         MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock1");
     }
 }
