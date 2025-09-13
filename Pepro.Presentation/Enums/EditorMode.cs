@@ -1,6 +1,7 @@
 ﻿namespace Pepro.Presentation.Enums;
 
-public enum EditorMode {
+public enum EditorMode
+{
     Create,
     Edit
 }
