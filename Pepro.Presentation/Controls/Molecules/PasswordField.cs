@@ -38,8 +38,8 @@ public partial class PasswordField : InputFieldTemplate
     [DefaultValue("")]
     public virtual string PlaceholderText
     {
-        get => inputFieldTextBox.PlaceholderText;
-        set => inputFieldTextBox.PlaceholderText = value;
+        get => textBoxField.PlaceholderText;
+        set => textBoxField.PlaceholderText = value;
     }
 
     [AllowNull]
@@ -49,8 +49,8 @@ public partial class PasswordField : InputFieldTemplate
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public override string Text
     {
-        get => inputFieldTextBox.Text;
-        set => inputFieldTextBox.Text = value;
+        get => textBoxField.Text;
+        set => textBoxField.Text = value;
     }
 
     [Category("Appearance")]
@@ -82,7 +82,7 @@ public partial class PasswordField : InputFieldTemplate
     /// </summary>
     public void Clear()
     {
-        inputFieldTextBox.Clear();
+        textBoxField.Clear();
     }
 
     protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)
@@ -93,21 +93,21 @@ public partial class PasswordField : InputFieldTemplate
     protected override void OnEnter(EventArgs e)
     {
         base.OnEnter(e);
-        inputFieldPanel.BackColor = FocusColor.IsEmpty ? Color.Gray : FocusColor;
+        underlinePanel.BackColor = FocusColor.IsEmpty ? Color.Gray : FocusColor;
     }
 
     protected override void OnLeave(EventArgs e)
     {
         base.OnLeave(e);
-        inputFieldPanel.BackColor = ForeColor;
+        underlinePanel.BackColor = ForeColor;
     }
 
     protected override void OnBackColorChanged(EventArgs e)
     {
         base.OnBackColorChanged(e);
-        if (inputFieldTextBox != null)
+        if (textBoxField != null)
         {
-            inputFieldTextBox.BackColor = BackColor;
+            textBoxField.BackColor = BackColor;
         }
 
         if (togglePasswordButton != null)
@@ -119,28 +119,28 @@ public partial class PasswordField : InputFieldTemplate
     protected override void OnForeColorChanged(EventArgs e)
     {
         base.OnForeColorChanged(e);
-        if (inputFieldTextBox != null)
+        if (textBoxField != null)
         {
-            inputFieldTextBox.ForeColor = ForeColor;
+            textBoxField.ForeColor = ForeColor;
         }
 
         // Make the BackColor of the panel the same color as the text color
-        if (inputFieldPanel != null)
+        if (underlinePanel != null)
         {
-            inputFieldPanel.BackColor = ForeColor;
+            underlinePanel.BackColor = ForeColor;
         }
     }
 
     private void TogglePasswordButton_Click(object sender, EventArgs e)
     {
-        if (inputFieldTextBox.UseSystemPasswordChar)
+        if (textBoxField.UseSystemPasswordChar)
         {
-            inputFieldTextBox.UseSystemPasswordChar = false;
+            textBoxField.UseSystemPasswordChar = false;
             togglePasswordButton.BackgroundImage = TogglePasswordPressedImage;
         }
         else
         {
-            inputFieldTextBox.UseSystemPasswordChar = true;
+            textBoxField.UseSystemPasswordChar = true;
             togglePasswordButton.BackgroundImage = TogglePasswordImage;
         }
     }

@@ -28,35 +28,35 @@ partial class ComboBoxField
     /// </summary>
     private void InitializeComponent()
     {
-        inputFieldComboBox = new ComboBox();
+        comboBoxField = new ComboBox();
         SuspendLayout();
         // 
-        // inputFieldComboBox
+        // comboBoxField
         // 
-        inputFieldComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        inputFieldComboBox.Cursor = Cursors.Hand;
-        inputFieldComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-        inputFieldComboBox.FlatStyle = FlatStyle.Flat;
-        inputFieldComboBox.FormattingEnabled = true;
-        inputFieldComboBox.Location = new Point(0, 21);
-        inputFieldComboBox.Margin = new Padding(0);
-        inputFieldComboBox.Name = "inputFieldComboBox";
-        inputFieldComboBox.Size = new Size(240, 27);
-        inputFieldComboBox.TabIndex = 1;
-        inputFieldComboBox.SelectedIndexChanged += InputFieldComboBox_SelectedIndexChanged;
+        comboBoxField.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        comboBoxField.Cursor = Cursors.Hand;
+        comboBoxField.DropDownStyle = ComboBoxStyle.DropDownList;
+        comboBoxField.FlatStyle = FlatStyle.Flat;
+        comboBoxField.FormattingEnabled = true;
+        comboBoxField.Location = new Point(0, 21);
+        comboBoxField.Margin = new Padding(0);
+        comboBoxField.Name = "comboBoxField";
+        comboBoxField.Size = new Size(240, 27);
+        comboBoxField.TabIndex = 1;
+        comboBoxField.SelectedIndexChanged += InputFieldComboBox_SelectedIndexChanged;
         // 
         // PeproComboBoxField
         // 
         AutoScaleDimensions = new SizeF(8F, 19F);
         AutoScaleMode = AutoScaleMode.Font;
-        Controls.Add(inputFieldComboBox);
+        Controls.Add(comboBoxField);
         Name = "PeproComboBoxField";
         Size = new Size(240, 48);
-        Controls.SetChildIndex(inputFieldComboBox, 0);
+        Controls.SetChildIndex(comboBoxField, 0);
         ResumeLayout(false);
     }
 
     #endregion
 
-    private ComboBox inputFieldComboBox;
+    private ComboBox comboBoxField;
 }

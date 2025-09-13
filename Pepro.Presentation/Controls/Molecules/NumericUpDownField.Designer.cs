@@ -28,30 +28,30 @@ partial class NumericUpDownField
     /// </summary>
     private void InitializeComponent()
     {
-        inputFieldNumericUpDown = new NumericUpDown();
-        ((System.ComponentModel.ISupportInitialize)inputFieldNumericUpDown).BeginInit();
+        numericUpDownField = new NumericUpDown();
+        ((System.ComponentModel.ISupportInitialize)numericUpDownField).BeginInit();
         SuspendLayout();
         // 
-        // inputFieldNumericUpDown
+        // numericUpDownField
         // 
-        inputFieldNumericUpDown.Location = new Point(0, 22);
-        inputFieldNumericUpDown.Margin = new Padding(0);
-        inputFieldNumericUpDown.Name = "inputFieldNumericUpDown";
-        inputFieldNumericUpDown.Size = new Size(240, 26);
-        inputFieldNumericUpDown.TabIndex = 1;
+        numericUpDownField.Location = new Point(0, 22);
+        numericUpDownField.Margin = new Padding(0);
+        numericUpDownField.Name = "numericUpDownField";
+        numericUpDownField.Size = new Size(240, 26);
+        numericUpDownField.TabIndex = 1;
         // 
         // PeproNumericUpDownField
         // 
         AutoScaleDimensions = new SizeF(8F, 19F);
         AutoScaleMode = AutoScaleMode.Font;
-        Controls.Add(inputFieldNumericUpDown);
+        Controls.Add(numericUpDownField);
         Name = "PeproNumericUpDownField";
         Size = new Size(240, 48);
-        Controls.SetChildIndex(inputFieldNumericUpDown, 0);
-        ((System.ComponentModel.ISupportInitialize)inputFieldNumericUpDown).EndInit();
+        Controls.SetChildIndex(numericUpDownField, 0);
+        ((System.ComponentModel.ISupportInitialize)numericUpDownField).EndInit();
         ResumeLayout(false);
     }
 
     #endregion
-    private NumericUpDown inputFieldNumericUpDown;
+    private NumericUpDown numericUpDownField;
 }

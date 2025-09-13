@@ -29,7 +29,7 @@ public partial class ComboBoxField : InputFieldTemplate, INotifyPropertyChanged
     /// </summary>
     [Category("Data")]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-    public ObjectCollection Items => inputFieldComboBox.Items;
+    public ObjectCollection Items => comboBoxField.Items;
 
     [AllowNull]
     [Browsable(true)]
@@ -38,8 +38,8 @@ public partial class ComboBoxField : InputFieldTemplate, INotifyPropertyChanged
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public override string Text
     {
-        get => inputFieldComboBox.Text;
-        set => inputFieldComboBox.Text = value;
+        get => comboBoxField.Text;
+        set => comboBoxField.Text = value;
     }
 
     [Browsable(true)]
@@ -53,10 +53,10 @@ public partial class ComboBoxField : InputFieldTemplate, INotifyPropertyChanged
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public new bool Enabled
     {
-        get => inputFieldComboBox.Enabled;
+        get => comboBoxField.Enabled;
         set
         {
-            inputFieldComboBox.Enabled = value;
+            comboBoxField.Enabled = value;
             TabStop = value;
         }
     }
@@ -65,24 +65,24 @@ public partial class ComboBoxField : InputFieldTemplate, INotifyPropertyChanged
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public object? DataSource
     {
-        get => inputFieldComboBox.DataSource;
-        set => inputFieldComboBox.DataSource = value;
+        get => comboBoxField.DataSource;
+        set => comboBoxField.DataSource = value;
     }
 
     [Browsable(false)]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public string DisplayMember
     {
-        get => inputFieldComboBox.DisplayMember;
-        set => inputFieldComboBox.DisplayMember = value;
+        get => comboBoxField.DisplayMember;
+        set => comboBoxField.DisplayMember = value;
     }
 
     [Browsable(false)]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public string ValueMember
     {
-        get => inputFieldComboBox.ValueMember;
-        set => inputFieldComboBox.ValueMember = value;
+        get => comboBoxField.ValueMember;
+        set => comboBoxField.ValueMember = value;
     }
 
     [Bindable(true)]
@@ -91,35 +91,35 @@ public partial class ComboBoxField : InputFieldTemplate, INotifyPropertyChanged
     [DisallowNull]
     public object? SelectedValue
     {
-        get => inputFieldComboBox.SelectedValue;
-        set => inputFieldComboBox.SelectedValue = value;
+        get => comboBoxField.SelectedValue;
+        set => comboBoxField.SelectedValue = value;
     }
 
     [Browsable(false)]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public int SelectedIndex
     {
-        get => inputFieldComboBox.SelectedIndex;
-        set => inputFieldComboBox.SelectedIndex = value;
+        get => comboBoxField.SelectedIndex;
+        set => comboBoxField.SelectedIndex = value;
     }
 
     [Browsable(false)]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public object? SelectedItem
     {
-        get => inputFieldComboBox.SelectedItem;
-        set => inputFieldComboBox.SelectedItem = value;
+        get => comboBoxField.SelectedItem;
+        set => comboBoxField.SelectedItem = value;
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-    public new ControlBindingsCollection DataBindings => inputFieldComboBox.DataBindings;
+    public new ControlBindingsCollection DataBindings => comboBoxField.DataBindings;
 
     [Browsable(false)]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public new BindingContext? BindingContext
     {
-        get => inputFieldComboBox.BindingContext;
-        set => inputFieldComboBox.BindingContext = value;
+        get => comboBoxField.BindingContext;
+        set => comboBoxField.BindingContext = value;
     }
 
     protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)
@@ -130,18 +130,18 @@ public partial class ComboBoxField : InputFieldTemplate, INotifyPropertyChanged
     protected override void OnBackColorChanged(EventArgs e)
     {
         base.OnBackColorChanged(e);
-        if (inputFieldComboBox != null)
+        if (comboBoxField != null)
         {
-            inputFieldComboBox.BackColor = BackColor;
+            comboBoxField.BackColor = BackColor;
         }
     }
 
     protected override void OnForeColorChanged(EventArgs e)
     {
         base.OnForeColorChanged(e);
-        if (inputFieldComboBox != null)
+        if (comboBoxField != null)
         {
-            inputFieldComboBox.ForeColor = ForeColor;
+            comboBoxField.ForeColor = ForeColor;
         }
     }
 
