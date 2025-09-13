@@ -4,10 +4,12 @@ using Pepro.Presentation.Controls.Templates;
 
 namespace Pepro.Presentation.Controls.Molecules;
 
-public partial class PasswordField : InputFieldTemplate {
+public partial class PasswordField : InputFieldTemplate
+{
     private Image? _togglePasswordImage;
 
-    public PasswordField() {
+    public PasswordField()
+    {
         InitializeComponent();
 
         FocusColor = Color.Gray;
@@ -16,7 +18,8 @@ public partial class PasswordField : InputFieldTemplate {
     protected override Size DefaultSize => new(240, 48);
 
     [DefaultValue(typeof(Size), "240, 48")]
-    public new Size Size {
+    public new Size Size
+    {
         get => base.Size;
         set => base.Size = value;
     }
@@ -25,14 +28,16 @@ public partial class PasswordField : InputFieldTemplate {
     [Category("Appearance")]
     [DefaultValue(typeof(Color), "Gray")]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-    public Color FocusColor {
+    public Color FocusColor
+    {
         get;
         set;
     }
 
     [AllowNull]
     [DefaultValue("")]
-    public virtual string PlaceholderText {
+    public virtual string PlaceholderText
+    {
         get => inputFieldTextBox.PlaceholderText;
         set => inputFieldTextBox.PlaceholderText = value;
     }
@@ -42,7 +47,8 @@ public partial class PasswordField : InputFieldTemplate {
     [Category("Appearance")]
     [DefaultValue("")]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-    public override string Text {
+    public override string Text
+    {
         get => inputFieldTextBox.Text;
         set => inputFieldTextBox.Text = value;
     }
@@ -51,9 +57,11 @@ public partial class PasswordField : InputFieldTemplate {
     [Description("The image displayed default state of the toggle password")]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     [DefaultValue(null)]
-    public Image? TogglePasswordImage {
+    public Image? TogglePasswordImage
+    {
         get => _togglePasswordImage;
-        set {
+        set
+        {
             _togglePasswordImage = value;
             togglePasswordButton.BackgroundImage = _togglePasswordImage;
         }
@@ -63,7 +71,8 @@ public partial class PasswordField : InputFieldTemplate {
     [Description("The image displayed when the toggle password button is pressed.")]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     [DefaultValue(null)]
-    public Image? TogglePasswordPressedImage {
+    public Image? TogglePasswordPressedImage
+    {
         get;
         set;
     }
@@ -71,53 +80,66 @@ public partial class PasswordField : InputFieldTemplate {
     /// <summary>
     ///     Clears all text from the text box control.
     /// </summary>
-    public void Clear() {
+    public void Clear()
+    {
         inputFieldTextBox.Clear();
     }
 
-    protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified) {
+    protected override void SetBoundsCore(int x, int y, int width, int height, BoundsSpecified specified)
+    {
         base.SetBoundsCore(x, y, width, DefaultSize.Height, specified);
     }
 
-    protected override void OnEnter(EventArgs e) {
+    protected override void OnEnter(EventArgs e)
+    {
         base.OnEnter(e);
         inputFieldPanel.BackColor = FocusColor.IsEmpty ? Color.Gray : FocusColor;
     }
 
-    protected override void OnLeave(EventArgs e) {
+    protected override void OnLeave(EventArgs e)
+    {
         base.OnLeave(e);
         inputFieldPanel.BackColor = ForeColor;
     }
 
-    protected override void OnBackColorChanged(EventArgs e) {
+    protected override void OnBackColorChanged(EventArgs e)
+    {
         base.OnBackColorChanged(e);
-        if (inputFieldTextBox != null) {
+        if (inputFieldTextBox != null)
+        {
             inputFieldTextBox.BackColor = BackColor;
         }
 
-        if (togglePasswordButton != null) {
+        if (togglePasswordButton != null)
+        {
             togglePasswordButton.BackColor = BackColor;
         }
     }
 
-    protected override void OnForeColorChanged(EventArgs e) {
+    protected override void OnForeColorChanged(EventArgs e)
+    {
         base.OnForeColorChanged(e);
-        if (inputFieldTextBox != null) {
+        if (inputFieldTextBox != null)
+        {
             inputFieldTextBox.ForeColor = ForeColor;
         }
 
         // Make the BackColor of the panel the same color as the text color
-        if (inputFieldPanel != null) {
+        if (inputFieldPanel != null)
+        {
             inputFieldPanel.BackColor = ForeColor;
         }
     }
 
-    private void TogglePasswordButton_Click(object sender, EventArgs e) {
-        if (inputFieldTextBox.UseSystemPasswordChar) {
+    private void TogglePasswordButton_Click(object sender, EventArgs e)
+    {
+        if (inputFieldTextBox.UseSystemPasswordChar)
+        {
             inputFieldTextBox.UseSystemPasswordChar = false;
             togglePasswordButton.BackgroundImage = TogglePasswordPressedImage;
         }
-        else {
+        else
+        {
             inputFieldTextBox.UseSystemPasswordChar = true;
             togglePasswordButton.BackgroundImage = TogglePasswordImage;
         }

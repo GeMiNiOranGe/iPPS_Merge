@@ -11,6 +11,8 @@ public class PeproLabel : Label
         float internalLeading = Font.FontFamily.GetInternalLeadingInPixels(Font);
         int topOffset = (int)Math.Round(internalLeading);
 
+        Rectangle bounds = new(0, topOffset, ClientSize.Width, ClientSize.Height - topOffset);
+
         TextFormatFlags flags = TextFormatFlags.NoPadding;
         if (!AutoSize)
         {
@@ -21,14 +23,7 @@ public class PeproLabel : Label
             flags |= TextFormatFlags.SingleLine | TextFormatFlags.EndEllipsis;
         }
 
-        TextRenderer.DrawText(
-            e.Graphics,
-            Text,
-            Font,
-            new Rectangle(0, topOffset, ClientSize.Width, ClientSize.Height - topOffset),
-            ForeColor,
-            flags
-        );
+        TextRenderer.DrawText(e.Graphics, Text, Font, bounds, ForeColor, flags);
     }
 
     public override Size GetPreferredSize(Size proposedSize)
@@ -39,12 +34,7 @@ public class PeproLabel : Label
             flags |= TextFormatFlags.WordBreak;
         }
 
-        Size size = TextRenderer.MeasureText(
-            Text,
-            Font,
-            proposedSize,
-            flags
-        );
+        Size size = TextRenderer.MeasureText(Text, Font, proposedSize, flags);
 
         float internalLeading = Font.FontFamily.GetInternalLeadingInPixels(Font);
         int newHeight = size.Height + (int)Math.Round(internalLeading);
