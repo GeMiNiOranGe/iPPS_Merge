@@ -7,8 +7,10 @@ using Pepro.Presentation.Utilities;
 
 namespace Pepro.Presentation.Controls.Pages;
 
-public partial class EmployeePage : CrudTemplate {
-    public EmployeePage() {
+public partial class EmployeePage : CrudTemplate
+{
+    public EmployeePage()
+    {
         InitializeComponent();
         employeeDataGridView.SetupCellStyle();
         fullNameColumn.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
@@ -21,17 +23,20 @@ public partial class EmployeePage : CrudTemplate {
         exportButton.ApplyFlatStyle();
     }
 
-    private void LoadEmployees() {
+    private void LoadEmployees()
+    {
         List<EmployeeView> employees = EmployeeBusiness.Instance.GetEmployeeViews();
         employeeDataGridView.DataSource = employees;
         numberOfEmployeesTextBoxField.Text = employees.Count.ToString();
     }
 
-    private void EmployeePage_Load(object sender, EventArgs e) {
+    private void EmployeePage_Load(object sender, EventArgs e)
+    {
         LoadEmployees();
     }
 
-    private void EmployeeDataGridView_CellClick(object sender, DataGridViewCellEventArgs e) {
+    private void EmployeeDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+    {
         BindDataGridViewCellClick<EmployeeDto>(
             (DataGridView)sender,
             e,
@@ -43,7 +48,8 @@ public partial class EmployeePage : CrudTemplate {
         );
     }
 
-    private void SearchButton_Click(object sender, EventArgs e) {
+    private void SearchButton_Click(object sender, EventArgs e)
+    {
         BindSearchButtonClick(
             searchTextBox.Text,
             employeeDataGridView,
@@ -52,11 +58,13 @@ public partial class EmployeePage : CrudTemplate {
         );
     }
 
-    private void ReloadButton_Click(object sender, EventArgs e) {
+    private void ReloadButton_Click(object sender, EventArgs e)
+    {
         LoadEmployees();
     }
 
-    private void InsertButton_Click(object sender, EventArgs e) {
+    private void InsertButton_Click(object sender, EventArgs e)
+    {
         BindInsertButtonClick<EmployeeDto>(
             new(),
             ControlUiEvent.PushEmployeeEditorPage,
@@ -64,7 +72,8 @@ public partial class EmployeePage : CrudTemplate {
         );
     }
 
-    private void UpdateButton_Click(object sender, EventArgs e) {
+    private void UpdateButton_Click(object sender, EventArgs e)
+    {
         BindUpdateButtonClick<EmployeeDto>(
             employeeDataGridView,
             ControlUiEvent.PushEmployeeEditorPage,
@@ -72,7 +81,8 @@ public partial class EmployeePage : CrudTemplate {
         );
     }
 
-    private void DeleteButton_Click(object sender, EventArgs e) {
+    private void DeleteButton_Click(object sender, EventArgs e)
+    {
         BindDeleteButtonClick<EmployeeDto>(
             employeeDataGridView,
             (item) => EmployeeBusiness.Instance.DeleteEmployee(item.EmployeeId),
@@ -80,14 +90,17 @@ public partial class EmployeePage : CrudTemplate {
         );
     }
 
-    private void ExportButton_Click(object sender, EventArgs e) {
-        SaveFileDialog saveFileDialog = new() {
+    private void ExportButton_Click(object sender, EventArgs e)
+    {
+        SaveFileDialog saveFileDialog = new()
+        {
             FileName = "Employees-" + DateTime.Now.ToString("ddMMyyyy-HHmmss"),
             Filter = "Excel Files|*.xlsx",
             Title = "Save Excel File"
         };
 
-        if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+        {
             ExcelExporter.Export(saveFileDialog.FileName, employeeDataGridView);
         }
     }
