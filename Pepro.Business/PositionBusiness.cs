@@ -6,11 +6,11 @@ using Pepro.DTOs;
 namespace Pepro.Business;
 
 public class PositionBusiness {
-    private static PositionBusiness? instance;
+    private static PositionBusiness? _instance;
 
     public static PositionBusiness Instance {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private PositionBusiness() { }

@@ -7,11 +7,11 @@ using Pepro.DTOs;
 namespace Pepro.Business;
 
 public class AssignmentBusiness {
-    private static AssignmentBusiness? instance;
+    private static AssignmentBusiness? _instance;
 
     public static AssignmentBusiness Instance {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private AssignmentBusiness() { }

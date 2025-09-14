@@ -10,11 +10,11 @@ using System.Data;
 namespace Pepro.DataAccess;
 
 public class EmployeeDataAccess {
-    private static EmployeeDataAccess? instance;
+    private static EmployeeDataAccess? _instance;
 
     public static EmployeeDataAccess Instance {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private EmployeeDataAccess() { }

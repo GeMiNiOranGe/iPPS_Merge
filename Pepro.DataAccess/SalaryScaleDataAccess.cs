@@ -8,11 +8,11 @@ using System.Data;
 namespace Pepro.DataAccess;
 
 public class SalaryScaleDataAccess {
-    private static SalaryScaleDataAccess? instance;
+    private static SalaryScaleDataAccess? _instance;
 
     public static SalaryScaleDataAccess Instance {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private SalaryScaleDataAccess() { }

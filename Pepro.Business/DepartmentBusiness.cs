@@ -9,11 +9,11 @@ namespace Pepro.Business;
 
 public class DepartmentBusiness
 {
-    private static DepartmentBusiness? instance;
+    private static DepartmentBusiness? _instance;
 
     public static DepartmentBusiness Instance {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private DepartmentBusiness() { }

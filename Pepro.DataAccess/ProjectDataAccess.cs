@@ -9,11 +9,11 @@ using System.Data;
 namespace Pepro.DataAccess;
 
 public class ProjectDataAccess {
-    private static ProjectDataAccess? instance;
+    private static ProjectDataAccess? _instance;
 
     public static ProjectDataAccess Instance {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private ProjectDataAccess() { }

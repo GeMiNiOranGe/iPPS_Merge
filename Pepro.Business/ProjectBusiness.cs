@@ -7,11 +7,11 @@ using Pepro.DTOs;
 namespace Pepro.Business;
 
 public class ProjectBusiness {
-    private static ProjectBusiness? instance;
+    private static ProjectBusiness? _instance;
 
     public static ProjectBusiness Instance {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private ProjectBusiness() { }

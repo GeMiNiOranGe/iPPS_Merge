@@ -8,11 +8,11 @@ using System.Data;
 namespace Pepro.DataAccess;
 
 public class DocumentDataAccess {
-    private static DocumentDataAccess? instance;
+    private static DocumentDataAccess? _instance;
 
     public static DocumentDataAccess Instance {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private DocumentDataAccess() { }

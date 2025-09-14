@@ -8,11 +8,11 @@ using Pepro.DataAccess.Utilities;
 namespace Pepro.DataAccess;
 
 public class AccountDataAccess {
-    private static AccountDataAccess? instance;
+    private static AccountDataAccess? _instance;
 
     public static AccountDataAccess Instance {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private AccountDataAccess() { }

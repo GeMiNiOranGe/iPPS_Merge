@@ -8,11 +8,11 @@ using System.Data;
 namespace Pepro.DataAccess;
 
 public class PositionDataAccess {
-    private static PositionDataAccess? instance;
+    private static PositionDataAccess? _instance;
 
     public static PositionDataAccess Instance {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private PositionDataAccess() { }

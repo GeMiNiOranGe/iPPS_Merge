@@ -7,14 +7,14 @@ internal class DataProvider
 {
     private const string CONNECTION_STRING = @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 
-    private static DataProvider? instance;
+    private static DataProvider? _instance;
 
     private DataProvider() { }
 
     public static DataProvider Instance
     {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     public SqlConnection CreateConnection()

@@ -9,12 +9,12 @@ namespace Pepro.Business;
 
 public class AccountBusiness
 {
-    private static AccountBusiness? instance;
+    private static AccountBusiness? _instance;
 
     public static AccountBusiness Instance
     {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private AccountBusiness() { }

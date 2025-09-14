@@ -11,11 +11,11 @@ namespace Pepro.Business;
 
 public class EmployeeBusiness
 {
-    private static EmployeeBusiness? instance;
+    private static EmployeeBusiness? _instance;
 
     public static EmployeeBusiness Instance {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private EmployeeBusiness() { }
