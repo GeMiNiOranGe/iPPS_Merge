@@ -6,11 +6,11 @@ using Pepro.DTOs;
 namespace Pepro.Business;
 
 public class SalaryScaleBusiness {
-    private static SalaryScaleBusiness? instance;
+    private static SalaryScaleBusiness? _instance;
 
     public static SalaryScaleBusiness Instance {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private SalaryScaleBusiness() { }

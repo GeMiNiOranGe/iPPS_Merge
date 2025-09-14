@@ -7,12 +7,12 @@ namespace Pepro.Business;
 
 public class SalaryBusiness
 {
-    private static SalaryBusiness? instance;
+    private static SalaryBusiness? _instance;
 
     public static SalaryBusiness Instance
     {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private SalaryBusiness() { }

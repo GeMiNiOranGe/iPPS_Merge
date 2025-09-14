@@ -7,12 +7,12 @@ namespace Pepro.Business;
 
 public class StatusBusiness
 {
-    private static StatusBusiness? instance;
+    private static StatusBusiness? _instance;
 
     public static StatusBusiness Instance
     {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private StatusBusiness() { }

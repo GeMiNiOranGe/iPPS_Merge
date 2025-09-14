@@ -7,12 +7,12 @@ namespace Pepro.DataAccess;
 
 public class StatusDataAccess
 {
-    private static StatusDataAccess? instance;
+    private static StatusDataAccess? _instance;
 
     public static StatusDataAccess Instance
     {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private StatusDataAccess() { }

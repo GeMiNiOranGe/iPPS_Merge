@@ -10,11 +10,11 @@ namespace Pepro.DataAccess;
 
 public class DepartmentDataAccess
 {
-    private static DepartmentDataAccess? instance;
+    private static DepartmentDataAccess? _instance;
 
     public static DepartmentDataAccess Instance {
-        get => instance ??= new();
-        private set => instance = value;
+        get => _instance ??= new();
+        private set => _instance = value;
     }
 
     private DepartmentDataAccess() { }
