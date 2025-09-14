@@ -79,12 +79,8 @@ public class SalaryScaleDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("SalaryLevelId", SqlDbType.Int, salaryLevelId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-        if (dataTable.Rows.Count == 0) {
-            return null;
-        }
-
-        DataRow row = dataTable.Rows[0];
-        return SalaryScaleMapper.FromDataRow(row);
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(SalaryScaleMapper.FromDataRow);
     }
 }

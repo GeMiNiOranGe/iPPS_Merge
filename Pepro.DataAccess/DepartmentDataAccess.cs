@@ -35,13 +35,9 @@ public class DepartmentDataAccess
         List<SqlParameter> parameters = [];
         parameters.Add("DepartmentId", SqlDbType.Int, departmentId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-        if (dataTable.Rows.Count == 0) {
-            return null;
-        }
-
-        DataRow row = dataTable.Rows[0];
-        return DepartmentMapper.FromDataRow(row);
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(DepartmentMapper.FromDataRow);
     }
 
     public List<Department> GetDepartmentsByDepartmentIds(List<int> departmentIds)

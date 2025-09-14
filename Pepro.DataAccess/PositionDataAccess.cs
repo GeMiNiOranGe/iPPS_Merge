@@ -79,12 +79,8 @@ public class PositionDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-        if (dataTable.Rows.Count == 0) {
-            return null;
-        }
-
-        DataRow row = dataTable.Rows[0];
-        return PositionMapper.FromDataRow(row);
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(PositionMapper.FromDataRow);
     }
 }
