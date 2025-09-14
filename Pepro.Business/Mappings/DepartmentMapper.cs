@@ -25,13 +25,8 @@ static class DepartmentMapper
         };
     }
 
-    public static List<DepartmentDto> ToDtos(this List<Department> entities)
+    public static IEnumerable<DepartmentDto> ToDtos(this IEnumerable<Department> entities)
     {
-        List<DepartmentDto> dtos = [];
-        foreach (Department item in entities)
-        {
-            dtos.Add(item.ToDto());
-        }
-        return dtos;
+        return entities.Select(entity => entity.ToDto());
     }
 }

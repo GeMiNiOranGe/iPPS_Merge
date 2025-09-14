@@ -92,7 +92,9 @@ public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<Emp
         salaryLevelComboBoxField.DisplayMember = nameof(SalaryLevelDto.Level);
         salaryLevelComboBoxField.ValueMember = nameof(SalaryLevelDto.SalaryLevelId);
 
-        departmentComboBoxField.DataSource = DepartmentBusiness.Instance.GetDepartments();
+        departmentComboBoxField.DataSource = DepartmentBusiness
+            .Instance.GetDepartments()
+            .ToList();
         positionComboBoxField.DataSource = PositionBusiness.Instance.GetPositions();
 
         switch (_mode)

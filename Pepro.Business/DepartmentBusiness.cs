@@ -23,25 +23,25 @@ public class DepartmentBusiness
         return department?.ToDto();
     }
 
-    public List<DepartmentDto> GetDepartments()
+    public IEnumerable<DepartmentDto> GetDepartments()
     {
-        List<Department> departments = DepartmentDataAccess.Instance.GetDepartments();
+        IEnumerable<Department> departments = DepartmentDataAccess.Instance.GetDepartments();
         return departments.ToDtos();
     }
 
-    public List<DepartmentView> GetDepartmentViews()
+    public IEnumerable<DepartmentView> GetDepartmentViews()
     {
-        List<Department> departments = DepartmentDataAccess.Instance.GetDepartments();
+        IEnumerable<Department> departments = DepartmentDataAccess.Instance.GetDepartments();
         return MapDepartmentsToViews(departments);
     }
 
-    public List<DepartmentView> SearchDepartmentViews(string searchValue)
+    public IEnumerable<DepartmentView> SearchDepartmentViews(string searchValue)
     {
-        List<Department> departments = DepartmentDataAccess.Instance.SearchDepartments(searchValue);
+        IEnumerable<Department> departments = DepartmentDataAccess.Instance.SearchDepartments(searchValue);
         return MapDepartmentsToViews(departments);
     }
 
-    private List<DepartmentView> MapDepartmentsToViews(List<Department> departments)
+    private IEnumerable<DepartmentView> MapDepartmentsToViews(IEnumerable<Department> departments)
     {
         List<int> managerIds =
         [
