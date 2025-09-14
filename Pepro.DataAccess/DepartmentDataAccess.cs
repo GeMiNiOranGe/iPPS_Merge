@@ -40,7 +40,7 @@ public class DepartmentDataAccess
             .MapToSingleOrDefault(DepartmentMapper.FromDataRow);
     }
 
-    public List<Department> GetDepartmentsByDepartmentIds(List<int> departmentIds)
+    public IEnumerable<Department> GetDepartmentsByDepartmentIds(List<int> departmentIds)
     {
         if (departmentIds == null || departmentIds.Count == 0)
         {
@@ -65,18 +65,12 @@ public class DepartmentDataAccess
         DataTable entityIds = TableParameters.CreateEntityIds(departmentIds);
         parameters.AddTableValued("DepartmentIds", "EntityIds", entityIds);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Department> departments = [];
-        foreach (DataRow row in dataTable.Rows)
-        {
-            Department department = DepartmentMapper.FromDataRow(row);
-            departments.Add(department);
-        }
-        return departments;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(DepartmentMapper.FromDataRow);
     }
 
-    public List<Department> GetDepartments() {
+    public IEnumerable<Department> GetDepartments() {
         string query = @"
             SELECT Department.DepartmentId
                 , Department.Name
@@ -89,17 +83,12 @@ public class DepartmentDataAccess
             WHERE Department.IsDeleted = 0
         ";
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
-
-        List<Department> departments = [];
-        foreach (DataRow row in dataTable.Rows) {
-            Department department = DepartmentMapper.FromDataRow(row);
-            departments.Add(department);
-        }
-        return departments;
+        return DataProvider
+            .Instance.ExecuteQuery(query)
+            .MapMany(DepartmentMapper.FromDataRow);
     }
 
-    public List<Department> SearchDepartments(string searchValue) {
+    public IEnumerable<Department> SearchDepartments(string searchValue) {
         string query = @"
             SELECT Department.DepartmentId
                 , Department.Name
@@ -115,14 +104,9 @@ public class DepartmentDataAccess
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Department> departments = [];
-        foreach (DataRow row in dataTable.Rows) {
-            Department department = DepartmentMapper.FromDataRow(row);
-            departments.Add(department);
-        }
-        return departments;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(DepartmentMapper.FromDataRow);
     }
 
     public int DeleteDepartment(int departmentId)
