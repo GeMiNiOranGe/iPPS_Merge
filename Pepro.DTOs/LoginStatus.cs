@@ -1,6 +1,7 @@
 ﻿namespace Pepro.DTOs;
 
-public enum LoginStatus {
+public enum LoginStatus
+{
     Success,
     InvalidInput,
     InvalidAccount,

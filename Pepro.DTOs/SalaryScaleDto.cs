@@ -1,21 +1,25 @@
 ﻿namespace Pepro.DTOs;
 
-public class SalaryScaleDto {
+public class SalaryScaleDto
+{
     private int _salaryScaleId;
     private string _group = "";
     private string _name = "";
 
-    public int SalaryScaleId {
+    public int SalaryScaleId
+    {
         get => _salaryScaleId;
         set => _salaryScaleId = value;
     }
 
-    public string Group {
+    public string Group
+    {
         get => _group;
         set => _group = value;
     }
 
-    public string Name {
+    public string Name
+    {
         get => _name;
         set => _name = value;
     }
