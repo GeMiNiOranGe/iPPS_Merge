@@ -38,13 +38,9 @@ public class ProjectDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("ProjectId", SqlDbType.Int, projectId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-        if (dataTable.Rows.Count == 0) {
-            return null;
-        }
-
-        DataRow row = dataTable.Rows[0];
-        return ProjectMapper.FromDataRow(row);
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(ProjectMapper.FromDataRow);
     }
 
     public List<Project> GetProjectsByProjectIds(List<int> projectIds)
@@ -212,13 +208,9 @@ public class ProjectDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-        if (dataTable.Rows.Count == 0) {
-            return null;
-        }
-
-        DataRow row = dataTable.Rows[0];
-        return ProjectMapper.FromDataRow(row);
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(ProjectMapper.FromDataRow);
     }
 
     public int DeleteProject(int projectId) {

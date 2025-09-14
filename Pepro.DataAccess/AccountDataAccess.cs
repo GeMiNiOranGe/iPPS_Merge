@@ -70,16 +70,8 @@ public class AccountDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(
-            query,
-            [.. parameters]
-        );
-        if (dataTable.Rows.Count == 0)
-        {
-            return null;
-        }
-
-        DataRow row = dataTable.Rows[0];
-        return AccountMapper.FromDataRow(row);
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(AccountMapper.FromDataRow);
     }
 }

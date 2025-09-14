@@ -41,13 +41,9 @@ public class AssignmentDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-        if (dataTable.Rows.Count == 0) {
-            return null;
-        }
-
-        DataRow row = dataTable.Rows[0];
-        return AssignmentMapper.FromDataRow(row);
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(AssignmentMapper.FromDataRow);
     }
 
     public List<Assignment> GetAssignments() {
@@ -218,13 +214,9 @@ public class AssignmentDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("AssignmentId", SqlDbType.VarChar, 10, assignmentId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-        if (dataTable.Rows.Count == 0) {
-            return null;
-        }
-
-        DataRow row = dataTable.Rows[0];
-        return EmployeeMapper.FromDataRow(row);
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(EmployeeMapper.FromDataRow);
     }
 
     public Assignment? GetAssignmentByDocumentId(int documentId) {
@@ -252,13 +244,9 @@ public class AssignmentDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("DocumentId", SqlDbType.Int, documentId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-        if (dataTable.Rows.Count == 0) {
-            return null;
-        }
-
-        DataRow row = dataTable.Rows[0];
-        return AssignmentMapper.FromDataRow(row);
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(AssignmentMapper.FromDataRow);
     }
 
     public int DeleteAssignment(int assignmentId) {

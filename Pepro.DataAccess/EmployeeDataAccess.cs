@@ -364,13 +364,9 @@ public class EmployeeDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-        if (dataTable.Rows.Count == 0) {
-            return null;
-        }
-
-        DataRow row = dataTable.Rows[0];
-        return EmployeeMapper.FromDataRow(row);
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(EmployeeMapper.FromDataRow);
     }
 
     //Lấy dữ liệu từ table ROLE trong database dựa vào EMPLOYEE_ID
