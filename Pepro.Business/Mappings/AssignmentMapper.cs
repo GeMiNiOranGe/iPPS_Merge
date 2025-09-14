@@ -39,13 +39,8 @@ static class AssignmentMapper
         };
     }
 
-    public static List<AssignmentDto> ToDtos(this List<Assignment> entities)
+    public static IEnumerable<AssignmentDto> ToDtos(this IEnumerable<Assignment> entities)
     {
-        List<AssignmentDto> dtos = [];
-        foreach (Assignment entity in entities)
-        {
-            dtos.Add(entity.ToDto());
-        }
-        return dtos;
+        return entities.Select(entity => entity.ToDto());
     }
 }

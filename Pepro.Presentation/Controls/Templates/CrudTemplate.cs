@@ -31,15 +31,15 @@ public class CrudTemplate : MediatedTemplate
     protected static void BindSearchButtonClick<ItemType>(
         string keyword,
         DataGridView dataGridView,
-        Func<string, List<ItemType>> onSearch,
-        Action<List<ItemType>>? onSearchCompleted = null
+        Func<string, IEnumerable<ItemType>> onSearch,
+        Action<IEnumerable<ItemType>>? onSearchCompleted = null
     )
     {
         if (string.IsNullOrEmpty(keyword))
         {
             return;
         }
-        List<ItemType> items = onSearch(keyword);
+        IEnumerable<ItemType> items = onSearch(keyword);
         dataGridView.DataSource = items;
         onSearchCompleted?.Invoke(items);
     }

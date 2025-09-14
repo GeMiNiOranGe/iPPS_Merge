@@ -24,4 +24,12 @@ static class DataTableExtensions
             "Sequence contains more than one element"
         );
     }
+
+    public static IEnumerable<TSource> MapMany<TSource>(
+        this DataTable dataTable,
+        Func<DataRow, TSource> map
+    )
+    {
+        return dataTable.Rows.Cast<DataRow>().Select(map);
+    }
 }

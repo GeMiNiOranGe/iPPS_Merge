@@ -46,7 +46,7 @@ public class AssignmentDataAccess {
             .MapToSingleOrDefault(AssignmentMapper.FromDataRow);
     }
 
-    public List<Assignment> GetAssignments() {
+    public IEnumerable<Assignment> GetAssignments() {
         string query = @"
             SELECT Assignment.AssignmentId
                 , Assignment.Name
@@ -66,17 +66,12 @@ public class AssignmentDataAccess {
             WHERE Assignment.IsDeleted = 0
         ";
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
-
-        List<Assignment> assignments = [];
-        foreach (DataRow row in dataTable.Rows) {
-            Assignment assignment = AssignmentMapper.FromDataRow(row);
-            assignments.Add(assignment);
-        }
-        return assignments;
+        return DataProvider
+            .Instance.ExecuteQuery(query)
+            .MapMany(AssignmentMapper.FromDataRow);
     }
 
-    public List<Assignment> SearchAssignments(string searchValue) {
+    public IEnumerable<Assignment> SearchAssignments(string searchValue) {
         string query = @"
             SELECT Assignment.AssignmentId
                 , Assignment.Name
@@ -103,17 +98,12 @@ public class AssignmentDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Assignment> assignments = [];
-        foreach (DataRow row in dataTable.Rows) {
-            Assignment assignment = AssignmentMapper.FromDataRow(row);
-            assignments.Add(assignment);
-        }
-        return assignments;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(AssignmentMapper.FromDataRow);
     }
 
-    public List<Assignment> GetAssignmentsByProjectId(int projectId) {
+    public IEnumerable<Assignment> GetAssignmentsByProjectId(int projectId) {
         string query = @"
             SELECT Assignment.AssignmentId
                 , Assignment.Name
@@ -136,17 +126,12 @@ public class AssignmentDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("ProjectId", SqlDbType.Int, projectId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Assignment> assignments = [];
-        foreach (DataRow row in dataTable.Rows) {
-            Assignment assignment = AssignmentMapper.FromDataRow(row);
-            assignments.Add(assignment);
-        }
-        return assignments;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(AssignmentMapper.FromDataRow);
     }
 
-    public List<Assignment> GetAssignmentsByEmployeeId(int employeeId) {
+    public IEnumerable<Assignment> GetAssignmentsByEmployeeId(int employeeId) {
         string query = @"
             SELECT Assignment.AssignmentId
                 , Assignment.Name
@@ -171,14 +156,9 @@ public class AssignmentDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Assignment> assignments = [];
-        foreach (DataRow row in dataTable.Rows) {
-            Assignment assignment = AssignmentMapper.FromDataRow(row);
-            assignments.Add(assignment);
-        }
-        return assignments;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(AssignmentMapper.FromDataRow);
     }
 
     /// <summary>
