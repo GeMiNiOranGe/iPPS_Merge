@@ -10,6 +10,14 @@ using System.Diagnostics.CodeAnalysis;
     "CA1822:Mark members as static",
     Justification = "Methods in this type are intentionally instance methods due to Singleton-based design.",
     Scope = "type",
+    Target = "~T:Pepro.DataAccess.Utilities.DataProvider"
+)]
+
+[assembly: SuppressMessage(
+    "Performance",
+    "CA1822:Mark members as static",
+    Justification = "Methods in this type are intentionally instance methods due to Singleton-based design.",
+    Scope = "type",
     Target = "~T:Pepro.DataAccess.AccountDataAccess"
 )]
 
@@ -19,14 +27,6 @@ using System.Diagnostics.CodeAnalysis;
     Justification = "Methods in this type are intentionally instance methods due to Singleton-based design.",
     Scope = "type",
     Target = "~T:Pepro.DataAccess.AssignmentDataAccess"
-)]
-
-[assembly: SuppressMessage(
-    "Performance",
-    "CA1822:Mark members as static",
-    Justification = "Methods in this type are intentionally instance methods due to Singleton-based design.",
-    Scope = "type",
-    Target = "~T:Pepro.DataAccess.DataProvider"
 )]
 
 [assembly: SuppressMessage(

@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace Pepro.Business;
+namespace Pepro.Business.Extensions;
 
 public static class StringExtensions
 {

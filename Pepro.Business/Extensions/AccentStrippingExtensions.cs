@@ -1,7 +1,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Pepro.Business;
+namespace Pepro.Business.Extensions;
 
 public static partial class AccentStrippingExtensions
 {

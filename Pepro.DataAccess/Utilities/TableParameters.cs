@@ -1,6 +1,6 @@
 using System.Data;
 
-namespace Pepro.DataAccess;
+namespace Pepro.DataAccess.Utilities;
 
 public static class TableParameters
 {

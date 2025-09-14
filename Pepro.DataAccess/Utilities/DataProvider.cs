@@ -1,38 +1,46 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
 
-namespace Pepro.DataAccess;
+namespace Pepro.DataAccess.Utilities;
 
-internal class DataProvider {
+internal class DataProvider
+{
     private const string CONNECTION_STRING = @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 
     private static DataProvider? instance;
 
     private DataProvider() { }
 
-    public static DataProvider Instance {
+    public static DataProvider Instance
+    {
         get => instance ??= new();
         private set => instance = value;
     }
 
-    public SqlConnection CreateConnection() {
+    public SqlConnection CreateConnection()
+    {
         return new SqlConnection(CONNECTION_STRING);
     }
 
-    public SqlCommand CreateCommand(string query) {
+    public SqlCommand CreateCommand(string query)
+    {
         SqlConnection connection = CreateConnection();
         return new SqlCommand(query, connection);
     }
 
-    public void OpenConnection(SqlConnection connection) {
+    public void OpenConnection(SqlConnection connection)
+    {
         ConnectionState state = connection.State;
-        if (state == ConnectionState.Closed || state == ConnectionState.Broken) {
+        if (state == ConnectionState.Closed || state == ConnectionState.Broken)
+        {
             connection.Open();
         }
     }
 
-    public void CloseConnection(SqlConnection connection) {
-        if (connection == null) {
+    public void CloseConnection(SqlConnection connection)
+    {
+        if (connection == null)
+        {
             return;
         }
         connection.Close();
@@ -42,7 +50,8 @@ internal class DataProvider {
         string query,
         SqlParameter[]? parameters = null,
         CommandType commandType = CommandType.Text
-    ) {
+    )
+    {
         using SqlCommand command = CreateCommand(query);
         command.CommandType = commandType;
 
@@ -62,7 +71,8 @@ internal class DataProvider {
         string query,
         SqlParameter[]? parameters = null,
         CommandType commandType = CommandType.Text
-    ) {
+    )
+    {
         using SqlCommand command = CreateCommand(query);
         command.CommandType = commandType;
 
@@ -91,11 +101,13 @@ internal class DataProvider {
         string query,
         SqlParameter[]? parameters = null,
         CommandType commandType = CommandType.Text
-    ) {
+    )
+    {
         using SqlCommand command = CreateCommand(query);
         command.CommandType = commandType;
 
-        if (parameters != null) {
+        if (parameters != null)
+        {
             command.Parameters.AddRange(parameters);
         }
 
@@ -106,7 +118,8 @@ internal class DataProvider {
         return obj;
     }
 
-    public void ExecuteReader(string query, out SqlDataReader dataReader) {
+    public void ExecuteReader(string query, out SqlDataReader dataReader)
+    {
         throw new NotImplementedException();
         /*
         using (var connection = CreateConnection()) {
