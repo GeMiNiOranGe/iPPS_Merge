@@ -1,8 +1,9 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 using Pepro.DataAccess.Contracts;
+using Pepro.DataAccess.Extensions;
 
-namespace Pepro.DataAccess;
+namespace Pepro.DataAccess.Utilities;
 
 class SqlUpdateQueryBuilder(string tableName)
 {

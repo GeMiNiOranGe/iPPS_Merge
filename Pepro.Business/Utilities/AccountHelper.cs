@@ -1,7 +1,8 @@
 using System.Text;
+using Pepro.Business.Extensions;
 using Pepro.DataAccess.Entities;
 
-namespace Pepro.Business;
+namespace Pepro.Business.Utilities;
 
 static class AccountHelper
 {

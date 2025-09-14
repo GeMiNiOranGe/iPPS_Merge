@@ -1,7 +1,7 @@
 using Microsoft.Data.SqlClient;
 using System.Data;
 
-namespace Pepro.DataAccess;
+namespace Pepro.DataAccess.Extensions;
 
 static class ListSqlParameterExtensions
 {
