@@ -54,7 +54,8 @@ public partial class EmployeePage : CrudTemplate
             searchTextBox.Text,
             employeeDataGridView,
             EmployeeBusiness.Instance.SearchEmployeeViews,
-            (items) => numberOfEmployeesTextBoxField.Text = items.Count.ToString()
+            (items) =>
+                numberOfEmployeesTextBoxField.Text = items.Count().ToString()
         );
     }
 

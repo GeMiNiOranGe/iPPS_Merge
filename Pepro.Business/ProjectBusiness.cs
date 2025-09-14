@@ -87,7 +87,10 @@ public class ProjectBusiness {
         List<ProjectProgressView> projectsProgress = [];
 
         foreach (Project project in projects) {
-            List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(project.ProjectId);
+            List<Assignment> assignments =
+            [
+                .. AssignmentDataAccess.Instance.GetAssignmentsByProjectId(project.ProjectId)
+            ];
             int total = assignments.Count;
             int completed = assignments.Count(assignment => assignment.StatusId == 4);
             decimal percent = total != 0

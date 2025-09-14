@@ -139,8 +139,9 @@ public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<Doc
             return;
         }
 
-        List<AssignmentDto> assignments = AssignmentBusiness.Instance.GetAssignmentsByProjectId(projectId);
-        assignmentNameComboBoxField.DataSource = assignments;
+        assignmentNameComboBoxField.DataSource = AssignmentBusiness
+            .Instance.GetAssignmentsByProjectId(projectId)
+            .ToList();
         assignmentNameComboBoxField.SelectedIndex = -1;
     }
 

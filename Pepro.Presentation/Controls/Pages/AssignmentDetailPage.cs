@@ -45,7 +45,10 @@ public partial class AssignmentDetailPage : MediatedTemplate
             assignmentsOfProjectFlowLayoutPanel.Controls.Clear();
         }
 
-        List<AssignmentProgressView> assignmentsProgress = AssignmentBusiness.Instance.GetAssignmentProgressViewsByProjectId(ProjectId);
+        List<AssignmentProgressView> assignmentsProgress =
+        [
+            .. AssignmentBusiness.Instance.GetAssignmentProgressViewsByProjectId(ProjectId)
+        ];
 
         for (int i = 0; i < assignmentsProgress.Count; i++)
         {
@@ -88,7 +91,10 @@ public partial class AssignmentDetailPage : MediatedTemplate
 
         assignmentManagerCard.Item = employee;
 
-        List<AssignmentProgressView> assignmentsProgress = AssignmentBusiness.Instance.GetAssignmentProgressViewsByEmployeeId(employee.EmployeeId);
+        List<AssignmentProgressView> assignmentsProgress =
+        [
+            .. AssignmentBusiness.Instance.GetAssignmentProgressViewsByEmployeeId(employee.EmployeeId)
+        ];
 
         for (int i = 0; i < assignmentsProgress.Count; i++)
         {

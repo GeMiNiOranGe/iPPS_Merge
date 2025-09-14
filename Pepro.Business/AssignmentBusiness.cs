@@ -16,19 +16,19 @@ public class AssignmentBusiness {
 
     private AssignmentBusiness() { }
 
-    public List<AssignmentView> GetAssignmentViews()
+    public IEnumerable<AssignmentView> GetAssignmentViews()
     {
-        List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignments();
+        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignments();
         return MapAssignmentsToViews(assignments);
     }
 
-    public List<AssignmentView> SearchAssignmentViews(string searchValue)
+    public IEnumerable<AssignmentView> SearchAssignmentViews(string searchValue)
     {
-        List<Assignment> assignments = AssignmentDataAccess.Instance.SearchAssignments(searchValue);
+        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.SearchAssignments(searchValue);
         return MapAssignmentsToViews(assignments);
     }
 
-    private List<AssignmentView> MapAssignmentsToViews(List<Assignment> assignments)
+    private IEnumerable<AssignmentView> MapAssignmentsToViews(IEnumerable<Assignment> assignments)
     {
         List<int> managerIds =
         [
@@ -90,13 +90,13 @@ public class AssignmentBusiness {
         ];
     }
 
-    public List<AssignmentDto> GetAssignmentsByProjectId(int projectId) {
-        List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(projectId);
+    public IEnumerable<AssignmentDto> GetAssignmentsByProjectId(int projectId) {
+        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(projectId);
         return assignments.ToDtos();
     }
 
-    public List<AssignmentProgressView> GetAssignmentProgressViewsByProjectId(int projectId) {
-        List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(projectId);
+    public IEnumerable<AssignmentProgressView> GetAssignmentProgressViewsByProjectId(int projectId) {
+        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(projectId);
         List<AssignmentProgressView> assignmentsProgress = [];
 
         foreach (Assignment assignment in assignments) {
@@ -124,8 +124,8 @@ public class AssignmentBusiness {
         return assignmentsProgress;
     }
 
-    public List<AssignmentProgressView> GetAssignmentProgressViewsByEmployeeId(int employeeId) {
-        List<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByEmployeeId(employeeId);
+    public IEnumerable<AssignmentProgressView> GetAssignmentProgressViewsByEmployeeId(int employeeId) {
+        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByEmployeeId(employeeId);
         List<AssignmentProgressView> assignmentsProgress = [];
 
         foreach (Assignment assignment in assignments) {
