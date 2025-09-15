@@ -17,7 +17,7 @@ public class PositionDataAccess {
 
     private PositionDataAccess() { }
 
-    public List<Position> GetPositionsByPositionIds(List<int> positionIds)
+    public IEnumerable<Position> GetPositionsByPositionIds(List<int> positionIds)
     {
         if (positionIds == null || positionIds.Count == 0)
         {
@@ -37,18 +37,12 @@ public class PositionDataAccess {
         DataTable entityIds = TableParameters.CreateEntityIds(positionIds);
         parameters.AddTableValued("PositionIds", "EntityIds", entityIds);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Position> positions = [];
-        foreach (DataRow row in dataTable.Rows)
-        {
-            Position employee = PositionMapper.FromDataRow(row);
-            positions.Add(employee);
-        }
-        return positions;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(PositionMapper.FromDataRow);
     }
 
-    public List<Position> GetPositions() {
+    public IEnumerable<Position> GetPositions() {
         string query = @"
             SELECT Position.PositionId
                 , Position.Title
@@ -56,14 +50,9 @@ public class PositionDataAccess {
             FROM Position
         ";
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
-
-        List<Position> positions = [];
-        foreach (DataRow row in dataTable.Rows) {
-            Position position = PositionMapper.FromDataRow(row);
-            positions.Add(position);
-        }
-        return positions;
+        return DataProvider
+            .Instance.ExecuteQuery(query)
+            .MapMany(PositionMapper.FromDataRow);
     }
 
     public Position? GetPositionByEmployeeId(int employeeId) {

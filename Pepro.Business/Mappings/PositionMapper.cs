@@ -15,13 +15,8 @@ static class PositionMapper
         };
     }
 
-    public static List<PositionDto> ToDtos(this List<Position> entities)
+    public static IEnumerable<PositionDto> ToDtos(this IEnumerable<Position> entities)
     {
-        List<PositionDto> dtos = [];
-        foreach (Position entity in entities)
-        {
-            dtos.Add(entity.ToDto());
-        }
-        return dtos;
+        return entities.Select(entity => entity.ToDto());
     }
 }
