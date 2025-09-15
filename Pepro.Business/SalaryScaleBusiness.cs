@@ -15,8 +15,8 @@ public class SalaryScaleBusiness {
 
     private SalaryScaleBusiness() { }
 
-    public List<SalaryScaleDto> GetSalaryScales() {
-        List<SalaryScale> salaryScales = SalaryScaleDataAccess.Instance.GetSalaryScales();
+    public IEnumerable<SalaryScaleDto> GetSalaryScales() {
+        IEnumerable<SalaryScale> salaryScales = SalaryScaleDataAccess.Instance.GetSalaryScales();
         return salaryScales.ToDtos();
     }
 

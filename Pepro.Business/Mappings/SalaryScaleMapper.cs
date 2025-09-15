@@ -15,13 +15,8 @@ static class SalaryScaleMapper
         };
     }
 
-    public static List<SalaryScaleDto> ToDtos(this List<SalaryScale> entities)
+    public static IEnumerable<SalaryScaleDto> ToDtos(this IEnumerable<SalaryScale> entities)
     {
-        List<SalaryScaleDto> dtos = [];
-        foreach (SalaryScale entity in entities)
-        {
-            dtos.Add(entity.ToDto());
-        }
-        return dtos;
+        return entities.Select(entity => entity.ToDto());
     }
 }
