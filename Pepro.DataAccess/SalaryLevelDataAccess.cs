@@ -17,7 +17,7 @@ public class SalaryLevelDataAccess {
 
     private SalaryLevelDataAccess() { }
 
-    public List<SalaryLevel> GetSalaryLevelsBySalaryLevelIds(List<int> salaryLevelIds)
+    public IEnumerable<SalaryLevel> GetSalaryLevelsBySalaryLevelIds(List<int> salaryLevelIds)
     {
         if (salaryLevelIds == null || salaryLevelIds.Count == 0)
         {
@@ -38,18 +38,12 @@ public class SalaryLevelDataAccess {
         DataTable entityIds = TableParameters.CreateEntityIds(salaryLevelIds);
         parameters.AddTableValued("SalaryLevelIds", "EntityIds", entityIds);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<SalaryLevel> salaryLevels = [];
-        foreach (DataRow row in dataTable.Rows)
-        {
-            SalaryLevel salaryLevel = SalaryLevelMapper.FromDataRow(row);
-            salaryLevels.Add(salaryLevel);
-        }
-        return salaryLevels;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(SalaryLevelMapper.FromDataRow);
     }
 
-    public List<SalaryLevel> GetSalaryLevelsBySalaryScaleId(int salaryScaleId) {
+    public IEnumerable<SalaryLevel> GetSalaryLevelsBySalaryScaleId(int salaryScaleId) {
         string query = @"
             SELECT SalaryLevel.SalaryLevelId
                 , SalaryLevel.Level
@@ -61,13 +55,8 @@ public class SalaryLevelDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("SalaryScaleId", SqlDbType.Int, salaryScaleId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<SalaryLevel> salaryLevels = [];
-        foreach (DataRow row in dataTable.Rows) {
-            SalaryLevel salaryLevel = SalaryLevelMapper.FromDataRow(row);
-            salaryLevels.Add(salaryLevel);
-        }
-        return salaryLevels;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(SalaryLevelMapper.FromDataRow);
     }
 }
