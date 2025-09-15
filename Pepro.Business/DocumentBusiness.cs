@@ -15,13 +15,13 @@ public class DocumentBusiness {
 
     private DocumentBusiness() { }
 
-    public List<DocumentDto> GetDocuments() {
-        List<Document> documents =  DocumentDataAccess.Instance.GetDocuments();
+    public IEnumerable<DocumentDto> GetDocuments() {
+        IEnumerable<Document> documents = DocumentDataAccess.Instance.GetDocuments();
         return documents.ToDtos();
     }
 
-    public List<DocumentDto> SearchDocuments(string searchValue) {
-        List<Document> documents = DocumentDataAccess.Instance.SearchDocuments(searchValue);
+    public IEnumerable<DocumentDto> SearchDocuments(string searchValue) {
+        IEnumerable<Document> documents = DocumentDataAccess.Instance.SearchDocuments(searchValue);
         return documents.ToDtos();
     }
 
