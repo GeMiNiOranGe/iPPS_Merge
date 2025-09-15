@@ -17,7 +17,7 @@ public class SalaryScaleDataAccess {
 
     private SalaryScaleDataAccess() { }
 
-    public List<SalaryScale> GetSalaryScales() {
+    public IEnumerable<SalaryScale> GetSalaryScales() {
         string query = @"
             SELECT SalaryScale.SalaryScaleId
                 , SalaryScale.[Group]
@@ -25,17 +25,12 @@ public class SalaryScaleDataAccess {
             FROM SalaryScale
         ";
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
-
-        List<SalaryScale> salaryScales = [];
-        foreach (DataRow row in dataTable.Rows) {
-            SalaryScale salaryScale = SalaryScaleMapper.FromDataRow(row);
-            salaryScales.Add(salaryScale);
-        }
-        return salaryScales;
+        return DataProvider
+            .Instance.ExecuteQuery(query)
+            .MapMany(SalaryScaleMapper.FromDataRow);
     }
 
-    public List<SalaryScale> GetSalaryScalesBySalaryScaleIds(List<int> salaryScaleIds)
+    public IEnumerable<SalaryScale> GetSalaryScalesBySalaryScaleIds(List<int> salaryScaleIds)
     {
         if (salaryScaleIds == null || salaryScaleIds.Count == 0)
         {
@@ -55,15 +50,9 @@ public class SalaryScaleDataAccess {
         DataTable entityIds = TableParameters.CreateEntityIds(salaryScaleIds);
         parameters.AddTableValued("SalaryScaleIds", "EntityIds", entityIds);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<SalaryScale> salaryScales = [];
-        foreach (DataRow row in dataTable.Rows)
-        {
-            SalaryScale salaryScale = SalaryScaleMapper.FromDataRow(row);
-            salaryScales.Add(salaryScale);
-        }
-        return salaryScales;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(SalaryScaleMapper.FromDataRow);
     }
 
     public SalaryScale? GetSalaryScaleBySalaryLevelId(int salaryLevelId) {

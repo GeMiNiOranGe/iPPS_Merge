@@ -127,7 +127,9 @@ public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<Emp
         salaryScaleComboBoxField.ExecuteWithoutEvent(
             nameof(ComboBoxField.SelectedIndexChanged),
             SalaryScaleComboBoxField_SelectedIndexChanged,
-            () => salaryScaleComboBoxField.DataSource = SalaryScaleBusiness.Instance.GetSalaryScales()
+            () => salaryScaleComboBoxField.DataSource = SalaryScaleBusiness
+                .Instance.GetSalaryScales()
+                .ToList()
         );
 
         departmentComboBoxField.SelectedIndex = -1;
@@ -140,7 +142,9 @@ public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<Emp
         // FIXME: The condition `SalaryScaleId != 1` is not optimized.
         // It causes the `GetSalaryLevelsBySalaryScaleId` method to be called twice.
         // It does not affect functionality but may reduce performance slightly.
-        salaryScaleComboBoxField.DataSource = SalaryScaleBusiness.Instance.GetSalaryScales();
+        salaryScaleComboBoxField.DataSource = SalaryScaleBusiness
+            .Instance.GetSalaryScales()
+            .ToList();
 
         departmentComboBoxField.SelectedValue = _item.DepartmentId;
         positionComboBoxField.SelectedValue = _item.PositionId;
