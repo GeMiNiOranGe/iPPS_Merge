@@ -164,8 +164,11 @@ public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<Emp
         }
         salaryScaleTextBoxField.Text = dto.Group;
 
-        List<SalaryLevelDto> salaryLevels = SalaryLevelBusiness
-            .Instance.GetSalaryLevelsBySalaryScaleId(dto.SalaryScaleId);
+        List<SalaryLevelDto> salaryLevels =
+        [
+            .. SalaryLevelBusiness
+                .Instance.GetSalaryLevelsBySalaryScaleId(dto.SalaryScaleId)
+        ];
         salaryLevelComboBoxField.DataSource = salaryLevels;
         salaryLevelComboBoxField.SelectedIndex = -1;
     }
