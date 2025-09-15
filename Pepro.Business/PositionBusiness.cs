@@ -15,8 +15,8 @@ public class PositionBusiness {
 
     private PositionBusiness() { }
 
-    public List<PositionDto> GetPositions() {
-        List<Position> position = PositionDataAccess.Instance.GetPositions();
+    public IEnumerable<PositionDto> GetPositions() {
+        IEnumerable<Position> position = PositionDataAccess.Instance.GetPositions();
         return position.ToDtos();
     }
 

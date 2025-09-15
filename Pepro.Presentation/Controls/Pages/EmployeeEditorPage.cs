@@ -95,7 +95,9 @@ public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<Emp
         departmentComboBoxField.DataSource = DepartmentBusiness
             .Instance.GetDepartments()
             .ToList();
-        positionComboBoxField.DataSource = PositionBusiness.Instance.GetPositions();
+        positionComboBoxField.DataSource = PositionBusiness
+            .Instance.GetPositions()
+            .ToList();
 
         switch (_mode)
         {
