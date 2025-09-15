@@ -43,7 +43,7 @@ public class ProjectDataAccess {
             .MapToSingleOrDefault(ProjectMapper.FromDataRow);
     }
 
-    public List<Project> GetProjectsByProjectIds(List<int> projectIds)
+    public IEnumerable<Project> GetProjectsByProjectIds(List<int> projectIds)
     {
         if (projectIds == null || projectIds.Count == 0)
         {
@@ -72,15 +72,9 @@ public class ProjectDataAccess {
         DataTable entityIds = TableParameters.CreateEntityIds(projectIds);
         parameters.AddTableValued("ProjectIds", "EntityIds", entityIds);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Project> projects = [];
-        foreach (DataRow row in dataTable.Rows)
-        {
-            Project employee = ProjectMapper.FromDataRow(row);
-            projects.Add(employee);
-        }
-        return projects;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(ProjectMapper.FromDataRow);
     }
 
     /// <summary>
@@ -89,7 +83,7 @@ public class ProjectDataAccess {
     /// <returns>
     ///     List of projects
     /// </returns>
-    public List<Project> GetProjects() {
+    public IEnumerable<Project> GetProjects() {
         string query = @"
             SELECT Project.ProjectId
                 , Project.Name
@@ -106,18 +100,12 @@ public class ProjectDataAccess {
             WHERE Project.IsDeleted = 0
         ";
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
-
-        List<Project> projects = [];
-        foreach (DataRow row in dataTable.Rows)
-        {
-            Project project = ProjectMapper.FromDataRow(row);
-            projects.Add(project);
-        }
-        return projects;
+        return DataProvider
+            .Instance.ExecuteQuery(query)
+            .MapMany(ProjectMapper.FromDataRow);
     }
 
-    public List<Project> SearchProjects(string searchValue) {
+    public IEnumerable<Project> SearchProjects(string searchValue) {
         string query = @"
             SELECT Project.ProjectId
                 , Project.Name
@@ -142,17 +130,12 @@ public class ProjectDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Project> projects = [];
-        foreach (DataRow row in dataTable.Rows) {
-            Project project = ProjectMapper.FromDataRow(row);
-            projects.Add(project);
-        }
-        return projects;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(ProjectMapper.FromDataRow);
     }
 
-    public List<Project> GetProjectsByEmployeeId(int employeeId) {
+    public IEnumerable<Project> GetProjectsByEmployeeId(int employeeId) {
         string query = @"
             SELECT DISTINCT Project.ProjectId
                 , Project.Name
@@ -176,14 +159,9 @@ public class ProjectDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Project> projects = [];
-        foreach (DataRow row in dataTable.Rows) {
-            Project project = ProjectMapper.FromDataRow(row);
-            projects.Add(project);
-        }
-        return projects;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(ProjectMapper.FromDataRow);
     }
 
     public Project? GetProjectByAssignmentId(int assignmentId) {

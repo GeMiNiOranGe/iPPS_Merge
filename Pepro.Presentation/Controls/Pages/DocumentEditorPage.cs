@@ -86,17 +86,32 @@ public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<Doc
         switch (_mode)
         {
             case EditorMode.Create:
+            {
                 SetupCreateMode();
                 break;
+            }
             case EditorMode.Edit:
+            {
                 SetupEditMode();
                 break;
+            }
+            default:
+            {
+                throw new InvalidEnumArgumentException(
+                    nameof(Mode),
+                    (int)_mode,
+                    typeof(EditorMode)
+                );
+            }
         }
     }
 
     private void SetupCreateMode()
     {
-        List<ProjectDto> projects = ProjectBusiness.Instance.GetProjects();
+        List<ProjectDto> projects =
+        [
+            .. ProjectBusiness.Instance.GetProjects()
+        ];
         projectNameComboBoxField.DataSource = projects;
         projectNameComboBoxField.SelectedIndex = -1;
     }

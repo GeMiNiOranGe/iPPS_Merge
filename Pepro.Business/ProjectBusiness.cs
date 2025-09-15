@@ -21,24 +21,24 @@ public class ProjectBusiness {
         return project?.ToDto();
     }
 
-    public List<ProjectDto> GetProjects() {
-        List<Project> projects = ProjectDataAccess.Instance.GetProjects();
+    public IEnumerable<ProjectDto> GetProjects() {
+        IEnumerable<Project> projects = ProjectDataAccess.Instance.GetProjects();
         return projects.ToDtos();
     }
 
-    public List<ProjectView> GetProjectViews()
+    public IEnumerable<ProjectView> GetProjectViews()
     {
-        List<Project> projects = ProjectDataAccess.Instance.GetProjects();
+        IEnumerable<Project> projects = ProjectDataAccess.Instance.GetProjects();
         return MapProjectsToViews(projects);
     }
 
-    public List<ProjectView> SearchProjectViews(string searchValue)
+    public IEnumerable<ProjectView> SearchProjectViews(string searchValue)
     {
-        List<Project> projects = ProjectDataAccess.Instance.SearchProjects(searchValue);
+        IEnumerable<Project> projects = ProjectDataAccess.Instance.SearchProjects(searchValue);
         return MapProjectsToViews(projects);
     }
 
-    private List<ProjectView> MapProjectsToViews(List<Project> projects)
+    private IEnumerable<ProjectView> MapProjectsToViews(IEnumerable<Project> projects)
     {
         List<int> managerIds =
         [
@@ -83,7 +83,7 @@ public class ProjectBusiness {
     }
 
     public List<ProjectProgressView> GetProjectsWithProgress() {
-        List<Project> projects = ProjectDataAccess.Instance.GetProjects();
+        IEnumerable<Project> projects = ProjectDataAccess.Instance.GetProjects();
         List<ProjectProgressView> projectsProgress = [];
 
         foreach (Project project in projects) {
@@ -113,12 +113,12 @@ public class ProjectBusiness {
     }
 
     public string[] GetProjectNamesByEmployeeId(int employeeId) {
-        List<Project> projects = ProjectDataAccess.Instance.GetProjectsByEmployeeId(employeeId);
-        List<string> projectNames = [];
-        foreach (Project project in projects) {
-            projectNames.Add(project.Name);
-        }
-        return [.. projectNames];
+        return
+        [
+            .. ProjectDataAccess
+                .Instance.GetProjectsByEmployeeId(employeeId)
+                .Select(project => project.Name)
+        ];
     }
 
     public ProjectDto? GetProjectByAssignmentId(int assignmentId) {
