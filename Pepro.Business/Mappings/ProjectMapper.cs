@@ -33,13 +33,8 @@ static class ProjectMapper
         };
     }
 
-    public static List<ProjectDto> ToDtos(this List<Project> entities)
+    public static IEnumerable<ProjectDto> ToDtos(this IEnumerable<Project> entities)
     {
-        List<ProjectDto> dtos = [];
-        foreach (Project entity in entities)
-        {
-            dtos.Add(entity.ToDto());
-        }
-        return dtos;
+        return entities.Select(entity => entity.ToDto());
     }
 }
