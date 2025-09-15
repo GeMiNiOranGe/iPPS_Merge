@@ -25,7 +25,10 @@ public partial class EmployeePage : CrudTemplate
 
     private void LoadEmployees()
     {
-        List<EmployeeView> employees = EmployeeBusiness.Instance.GetEmployeeViews();
+        List<EmployeeView> employees =
+        [
+            .. EmployeeBusiness.Instance.GetEmployeeViews()
+        ];
         employeeDataGridView.DataSource = employees;
         numberOfEmployeesTextBoxField.Text = employees.Count.ToString();
     }

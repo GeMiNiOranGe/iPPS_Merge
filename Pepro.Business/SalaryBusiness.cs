@@ -21,7 +21,7 @@ public class SalaryBusiness
 
     public List<Salary> GetPayroll()
     {
-        List<EmployeeDto> employees = EmployeeBusiness.Instance.GetEmployees();
+        IEnumerable<EmployeeDto> employees = EmployeeBusiness.Instance.GetEmployees();
 
         List<int> salaryLevelIds =
         [

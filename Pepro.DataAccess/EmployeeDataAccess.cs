@@ -19,7 +19,7 @@ public class EmployeeDataAccess {
 
     private EmployeeDataAccess() { }
 
-    public List<Employee> GetEmployees()
+    public IEnumerable<Employee> GetEmployees()
     {
         string query = @"
             SELECT Employee.EmployeeId
@@ -41,18 +41,12 @@ public class EmployeeDataAccess {
             WHERE Employee.IsDeleted = 0
         ";
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
-
-        List<Employee> employees = [];
-        foreach (DataRow row in dataTable.Rows)
-        {
-            Employee employee = EmployeeMapper.FromDataRow(row);
-            employees.Add(employee);
-        }
-        return employees;
+        return DataProvider
+            .Instance.ExecuteQuery(query)
+            .MapMany(EmployeeMapper.FromDataRow);
     }
 
-    public List<Employee> SearchEmployees(string searchValue) {
+    public IEnumerable<Employee> SearchEmployees(string searchValue) {
         string query = @"
             SELECT Employee.EmployeeId
                 , Employee.FirstName
@@ -80,14 +74,9 @@ public class EmployeeDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Employee> employees = [];
-        foreach (DataRow row in dataTable.Rows) {
-            Employee employee = EmployeeMapper.FromDataRow(row);
-            employees.Add(employee);
-        }
-        return employees;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(EmployeeMapper.FromDataRow);
     }
 
     public DataTable GetEmployeeByRoleID(int roleID) {
@@ -285,14 +274,9 @@ public class EmployeeDataAccess {
         parameters.Add("PositionId", SqlDbType.Int, employee.PositionId);
         parameters.Add("SalaryLevelId", SqlDbType.Int, employee.SalaryLevelId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-        if (dataTable.Rows.Count == 0)
-        {
-            return null;
-        }
-
-        DataRow row = dataTable.Rows[0];
-        return EmployeeMapper.FromDataRow(row);
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(EmployeeMapper.FromDataRow);
     }
 
     public int InsertEmployee(Employee employee)
@@ -378,7 +362,7 @@ public class EmployeeDataAccess {
         return null;
     }
 
-    public List<EmployeePhoneNumber> GetPhoneNumbersByEmployeeId(int employeeId) {
+    public IEnumerable<EmployeePhoneNumber> GetPhoneNumbersByEmployeeId(int employeeId) {
         string query = @"
             SELECT EmployeePhoneNumber.EmployeePhoneNumberId
                 , EmployeePhoneNumber.PhoneNumber
@@ -392,18 +376,12 @@ public class EmployeeDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<EmployeePhoneNumber> listPhoneNumber = [];
-        foreach (DataRow row in dataTable.Rows)
-        {
-            EmployeePhoneNumber phoneNumber = EmployeePhoneNumberMapper.FromDataRow(row);
-            listPhoneNumber.Add(phoneNumber);
-        }
-        return listPhoneNumber;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(EmployeePhoneNumberMapper.FromDataRow);
     }
 
-    public List<Employee> GetEmployeesByDepartmentId(int departmentId)
+    public IEnumerable<Employee> GetEmployeesByDepartmentId(int departmentId)
     {
         string query = @"
             SELECT Employee.EmployeeId
@@ -428,18 +406,12 @@ public class EmployeeDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("DepartmentId", SqlDbType.Int, departmentId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Employee> employees = [];
-        foreach (DataRow row in dataTable.Rows)
-        {
-            Employee employee = EmployeeMapper.FromDataRow(row);
-            employees.Add(employee);
-        }
-        return employees;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(EmployeeMapper.FromDataRow);
     }
 
-    public List<Employee> GetEmployeesByAssignmentId(int assignmentId)
+    public IEnumerable<Employee> GetEmployeesByAssignmentId(int assignmentId)
     {
         string query = @"
             SELECT Employee.EmployeeId
@@ -466,18 +438,12 @@ public class EmployeeDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Employee> employees = [];
-        foreach (DataRow row in dataTable.Rows)
-        {
-            Employee employee = EmployeeMapper.FromDataRow(row);
-            employees.Add(employee);
-        }
-        return employees;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(EmployeeMapper.FromDataRow);
     }
 
-    public List<Employee> GetEmployeesByProjectId(int projectId)
+    public IEnumerable<Employee> GetEmployeesByProjectId(int projectId)
     {
         string query = @"
             SELECT Employee.EmployeeId
@@ -507,20 +473,14 @@ public class EmployeeDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("ProjectId", SqlDbType.Int, projectId);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Employee> employees = [];
-        foreach (DataRow row in dataTable.Rows)
-        {
-            Employee employee = EmployeeMapper.FromDataRow(row);
-            employees.Add(employee);
-        }
-        return employees;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(EmployeeMapper.FromDataRow);
     }
 
-    public List<Employee> GetEmployeesByEmployeeIds(List<int> employeeIds)
+    public IEnumerable<Employee> GetEmployeesByEmployeeIds(IEnumerable<int> employeeIds)
     {
-        if (employeeIds == null || employeeIds.Count == 0)
+        if (employeeIds == null || !employeeIds.Any())
         {
             return [];
         }
@@ -551,14 +511,8 @@ public class EmployeeDataAccess {
         DataTable entityIds = TableParameters.CreateEntityIds(employeeIds);
         parameters.AddTableValued("EmployeeIds", "EntityIds", entityIds);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Employee> employees = [];
-        foreach (DataRow row in dataTable.Rows)
-        {
-            Employee employee = EmployeeMapper.FromDataRow(row);
-            employees.Add(employee);
-        }
-        return employees;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(EmployeeMapper.FromDataRow);
     }
 }
