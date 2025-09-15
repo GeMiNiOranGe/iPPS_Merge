@@ -24,7 +24,9 @@ public partial class DocumentPage : CrudTemplate
 
     private void LoadDocuments()
     {
-        documentDataGridView.DataSource = DocumentBusiness.Instance.GetDocuments();
+        documentDataGridView.DataSource = DocumentBusiness
+            .Instance.GetDocuments()
+            .ToList();
     }
 
     private void DocumentPage_Load(object sender, EventArgs e)

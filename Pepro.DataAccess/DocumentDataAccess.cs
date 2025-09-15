@@ -30,7 +30,7 @@ public class DocumentDataAccess {
         return (int)DataProvider.Instance.ExecuteScalar(query, [.. parameters]);
     }
 
-    public List<Document> GetDocuments() {
+    public IEnumerable<Document> GetDocuments() {
         string query = @"
             SELECT Document.DocumentId
                 , Document.Title
@@ -48,17 +48,12 @@ public class DocumentDataAccess {
             WHERE Document.IsDeleted = 0
         ";
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
-
-        List<Document> documents = [];
-        foreach (DataRow row in dataTable.Rows) {
-            Document document = DocumentMapper.FromDataRow(row);
-            documents.Add(document);
-        }
-        return documents;
+        return DataProvider
+            .Instance.ExecuteQuery(query)
+            .MapMany(DocumentMapper.FromDataRow);
     }
 
-    public List<Document> SearchDocuments(string searchValue) {
+    public IEnumerable<Document> SearchDocuments(string searchValue) {
         string query = @"
             SELECT Document.DocumentId
                 , Document.Title
@@ -84,14 +79,9 @@ public class DocumentDataAccess {
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, [.. parameters]);
-
-        List<Document> documents = [];
-        foreach (DataRow row in dataTable.Rows) {
-            Document document = DocumentMapper.FromDataRow(row);
-            documents.Add(document);
-        }
-        return documents;
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(DocumentMapper.FromDataRow);
     }
 
     public int DeleteDocument(int documentId) {

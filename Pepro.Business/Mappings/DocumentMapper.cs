@@ -23,13 +23,8 @@ static class DocumentMapper
         };
     }
 
-    public static List<DocumentDto> ToDtos(this List<Document> entities)
+    public static IEnumerable<DocumentDto> ToDtos(this IEnumerable<Document> entities)
     {
-        List<DocumentDto> dtos = [];
-        foreach (Document entity in entities)
-        {
-            dtos.Add(entity.ToDto());
-        }
-        return dtos;
+        return entities.Select(entity => entity.ToDto());
     }
 }

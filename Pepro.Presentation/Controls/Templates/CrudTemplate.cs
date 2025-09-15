@@ -40,7 +40,7 @@ public class CrudTemplate : MediatedTemplate
             return;
         }
         IEnumerable<ItemType> items = onSearch(keyword);
-        dataGridView.DataSource = items;
+        dataGridView.DataSource = items.ToList();
         onSearchCompleted?.Invoke(items);
     }
 
