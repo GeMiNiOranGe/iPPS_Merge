@@ -17,9 +17,9 @@ public class SalaryLevelDataAccess {
 
     private SalaryLevelDataAccess() { }
 
-    public IEnumerable<SalaryLevel> GetSalaryLevelsBySalaryLevelIds(List<int> salaryLevelIds)
+    public IEnumerable<SalaryLevel> GetSalaryLevelsBySalaryLevelIds(IEnumerable<int> salaryLevelIds)
     {
-        if (salaryLevelIds == null || salaryLevelIds.Count == 0)
+        if (salaryLevelIds == null || !salaryLevelIds.Any())
         {
             return [];
         }

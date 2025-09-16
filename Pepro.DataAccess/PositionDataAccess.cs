@@ -17,9 +17,9 @@ public class PositionDataAccess {
 
     private PositionDataAccess() { }
 
-    public IEnumerable<Position> GetPositionsByPositionIds(List<int> positionIds)
+    public IEnumerable<Position> GetPositionsByPositionIds(IEnumerable<int> positionIds)
     {
-        if (positionIds == null || positionIds.Count == 0)
+        if (positionIds == null || !positionIds.Any())
         {
             return [];
         }
