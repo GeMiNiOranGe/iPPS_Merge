@@ -84,6 +84,72 @@ When retrieving filtered data, append `By<FieldName>`:
 * `GetEmployeeByDepartmentId`, `GetEmployeeViewByDepartmentId`
 * `GetEmployeesByDepartmentId`, `GetEmployeeViewsByDepartmentId`
 
+### 🔹 Data Access Method Naming (with `Many` Convention)
+
+When naming methods in `DataAccess` or `Repository` classes, follow these rules to make the return type (single vs. multiple) explicit in the method name.
+
+| Action          | Single (returns 1 item)        | Multiple (returns collection)                  | Notes                                                              |
+| --------------- | ------------------------------ | ---------------------------------------------- | ------------------------------------------------------------------ |
+| Get by ID       | `GetById(int id)`              | `GetManyByIds(IEnumerable<int> ids)`           | Use `T?` for nullable single results                               |
+| Get by criteria | `GetBy<FieldName>(...)`        | `GetManyBy<FieldName>(...)`                    | Field name indicates the filter criteria                           |
+| Get             | `Get()`                        | `GetMany()`                                    |                                                                    |
+| Search          | `Search(string keyword)`       | *(Unavailable)*                                |                                                                    |
+| Add             | `Add(T entity)`                | *(Implement `AddMany` manually if needed)*     | Use `Add` method when you need to return the newly inserted Entity |
+| Insert          | `Insert(T entity)`             | *(Implement `InsertMany` manually if needed)*  |                                                                    |
+| Update          | `Update(int id, TUpdate info)` | *(Usually update single items only)*           |                                                                    |
+| Delete          | `Delete(int id)`               | `DeleteMany(IEnumerable<int> ids)` (if needed) |                                                                    |
+
+#### ✅ Guidelines:
+
+* **Always use `Many`** for methods returning a collection (`IEnumerable<T>`).
+* **Do not use a suffix** for methods returning a single entity.
+* Keep this consistent across **all DataAccess/Repository classes**.
+* When adding new methods, ensure there is no naming collision with existing methods that differ only by return type (C# does not allow overloads that differ only by return type).
+
+#### 📌 Example: `EmployeeDataAccess`
+
+```csharp
+public class EmployeeDataAccess
+{
+    #region Retrieve data
+    // Retrieve a single record (single result)
+    public Employee? GetById(int employeeId);
+    public Employee? GetByDepartmentId(int departmentId);
+    public Employee? GetByAssignmentId(int assignmentId);
+    public Employee? GetByProjectId(int projectId);
+
+    // Retrieve multiple records (collections)
+    public IEnumerable<Employee> GetMany();
+    public IEnumerable<Employee> GetManyByIds(IEnumerable<int> employeeIds);
+    public IEnumerable<Employee> GetManyByDepartmentId(int departmentId);
+    public IEnumerable<Employee> GetManyByAssignmentId(int assignmentId);
+    public IEnumerable<Employee> GetManyByProjectId(int projectId);
+    public IEnumerable<EmployeePhoneNumber> GetManyPhoneNumbers(int employeeId);
+    #endregion
+
+    #region Utility methods
+    // Find a single employee by a unique column (e.g., Username, Email, etc.)
+    public Employee Find(string searchValue);
+    // Find all matching employees
+    public IEnumerable<Employee> Search(string searchValue);
+    #endregion
+
+    #region Create/Update/Delete methods
+    // Single operation (single record)
+    public Employee? Add(Employee employee);
+    public int Insert(Employee employee);
+    public int Update(int employeeId, EmployeeUpdate info);
+    public int Delete(int employeeId);
+
+    // Bulk operations (multiple records)
+    public IEnumerable<Employee> AddMany(IEnumerable<Employee> employees);
+    public int InsertMany(IEnumerable<Employee> employees);
+    // `public int UpdateMany();` -> No `UpdateMany`
+    public int DeleteMany(IEnumerable<int> employeeIds);
+    #endregion
+}
+```
+
 # 🧱 Code Structure & Style
 
 ## 🔸 General Rules
