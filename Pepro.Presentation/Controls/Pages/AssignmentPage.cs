@@ -23,7 +23,9 @@ public partial class AssignmentPage : CrudTemplate
 
     private void LoadAssignments()
     {
-        assignmentDataGridView.DataSource = AssignmentBusiness.Instance.GetAssignmentViews();
+        assignmentDataGridView.DataSource = AssignmentBusiness
+            .Instance.GetAssignmentViews()
+            .ToList();
     }
 
     private void AssignmentPage_Load(object sender, EventArgs e)

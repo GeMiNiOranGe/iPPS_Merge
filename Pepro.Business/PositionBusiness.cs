@@ -21,7 +21,7 @@ public class PositionBusiness {
     }
 
     public string GetPositionTitleByEmployeeId(int employeeId) {
-        Position? employeePosition = PositionDataAccess.Instance.GetPositionByEmployeeId(employeeId);
-        return employeePosition != null ? employeePosition.Title : "";
+        Position? position = PositionDataAccess.Instance.GetPositionByEmployeeId(employeeId);
+        return position != null ? position.Title : "";
     }
 }

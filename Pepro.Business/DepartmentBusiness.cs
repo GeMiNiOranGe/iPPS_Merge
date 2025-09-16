@@ -43,32 +43,29 @@ public class DepartmentBusiness
 
     private IEnumerable<DepartmentView> MapDepartmentsToViews(IEnumerable<Department> departments)
     {
-        List<int> managerIds =
-        [
-            .. departments.Select(d => d.ManagerId).OfType<int>().Distinct(),
-        ];
+        IEnumerable<int> managerIds = departments
+            .Select(d => d.ManagerId)
+            .OfType<int>()
+            .Distinct();
 
         Dictionary<int, string> managers = EmployeeBusiness
             .Instance.GetEmployeesByEmployeeIds(managerIds)
             .ToDictionary(e => e.EmployeeId, e => e.FullName);
 
-        return
-        [
-            .. departments.Select(department => new DepartmentView()
-            {
-                DepartmentId = department.DepartmentId,
-                Name = department.Name,
-                ManagerId = department.ManagerId,
-                ManagerFullName =
-                    department.ManagerId.HasValue
-                    && managers.TryGetValue(
-                        department.ManagerId.Value,
-                        out string? managerFullName
-                    )
-                        ? managerFullName
-                        : "",
-            }),
-        ];
+        return departments.Select(department => new DepartmentView()
+        {
+            DepartmentId = department.DepartmentId,
+            Name = department.Name,
+            ManagerId = department.ManagerId,
+            ManagerFullName =
+                department.ManagerId.HasValue
+                && managers.TryGetValue(
+                    department.ManagerId.Value,
+                    out string? managerFullName
+                )
+                    ? managerFullName
+                    : "",
+        });
     }
 
     public int DeleteDepartment(int departmentId)

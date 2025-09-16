@@ -40,53 +40,48 @@ public class EmployeeBusiness
 
     private IEnumerable<EmployeeView> MapEmployeesToViews(IEnumerable<Employee> employees)
     {
-        List<int> departmentIds =
-        [
-            .. employees.Select(e => e.DepartmentId).Distinct(),
-        ];
+        IEnumerable<int> departmentIds = employees
+            .Select(e => e.DepartmentId)
+            .Distinct();
 
         Dictionary<int, string> departments = DepartmentDataAccess
             .Instance.GetDepartmentsByDepartmentIds(departmentIds)
             .ToDictionary(d => d.DepartmentId, d => d.Name);
 
-        List<int> positionIds =
-        [
-            .. employees.Select(e => e.PositionId).Distinct(),
-        ];
+        IEnumerable<int> positionIds = employees
+            .Select(e => e.PositionId)
+            .Distinct();
 
         Dictionary<int, string> positions = PositionDataAccess
             .Instance.GetPositionsByPositionIds(positionIds)
             .ToDictionary(p => p.PositionId, p => p.Title);
 
-        return
-        [
-            .. employees.Select(employee => new EmployeeView()
-            {
-                EmployeeId = employee.EmployeeId,
-                FirstName = employee.FirstName,
-                MiddleName = employee.MiddleName,
-                LastName = employee.LastName,
-                DateOfBirth = employee.DateOfBirth,
-                Gender = employee.Gender,
-                TaxCode = EncryptionConverter.DecryptToString(employee.TaxCode),
-                CitizenId = employee.CitizenId,
-                DepartmentId = employee.DepartmentId,
-                PositionId = employee.PositionId,
-                SalaryLevelId = employee.SalaryLevelId,
-                DepartmentName = departments.TryGetValue(
-                    employee.DepartmentId,
-                    out string? departmentName
-                )
-                    ? departmentName
-                    : "",
-                PositionTitle = positions.TryGetValue(
-                    employee.PositionId,
-                    out string? positionTitle
-                )
-                    ? positionTitle
-                    : "",
-            })
-        ];
+        return employees.Select(employee => new EmployeeView()
+        {
+            EmployeeId = employee.EmployeeId,
+            FirstName = employee.FirstName,
+            MiddleName = employee.MiddleName,
+            LastName = employee.LastName,
+            DateOfBirth = employee.DateOfBirth,
+            Gender = employee.Gender,
+            TaxCode = EncryptionConverter.DecryptToString(employee.TaxCode),
+            CitizenId = employee.CitizenId,
+            DepartmentId = employee.DepartmentId,
+            PositionId = employee.PositionId,
+            SalaryLevelId = employee.SalaryLevelId,
+            DepartmentName = departments.TryGetValue(
+                employee.DepartmentId,
+                out string? departmentName
+            )
+                ? departmentName
+                : "",
+            PositionTitle = positions.TryGetValue(
+                employee.PositionId,
+                out string? positionTitle
+            )
+                ? positionTitle
+                : "",
+        });
     }
 
     public string GetDisplayNameByEmployeeId(int employeeId)

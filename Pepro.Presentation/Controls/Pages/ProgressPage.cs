@@ -26,7 +26,7 @@ public partial class ProgressPage : MediatedTemplate
             projectsFlowLayoutPanel.Controls.Clear();
         }
 
-        List<ProjectProgressView> projectsProgress = ProjectBusiness.Instance.GetProjectsWithProgress();
+        List<ProjectProgressView> projectsProgress = ProjectBusiness.Instance.GetProjectProgressViews();
 
         for (int i = 0; i < projectsProgress.Count; i++)
         {
