@@ -19,14 +19,13 @@ public class SalaryBusiness
 
     private const decimal baseSalary = 2_340_000m;
 
-    public List<Salary> GetPayroll()
+    public IEnumerable<Salary> GetPayroll()
     {
         IEnumerable<EmployeeDto> employees = EmployeeBusiness.Instance.GetEmployees();
 
-        List<int> salaryLevelIds =
-        [
-            .. employees.Select(employee => employee.SalaryLevelId).Distinct()
-        ];
+        IEnumerable<int> salaryLevelIds = employees
+            .Select(employee => employee.SalaryLevelId)
+            .Distinct();
 
         Dictionary<int, SalaryLevel> salaryLevels = SalaryLevelDataAccess
             .Instance.GetSalaryLevelsBySalaryLevelIds(salaryLevelIds)
@@ -35,12 +34,9 @@ public class SalaryBusiness
                 salaryLevel => salaryLevel
             );
 
-        List<int> salaryScaleIds =
-        [
-            .. salaryLevels
-                .Values.Select(salaryLevel => salaryLevel.SalaryScaleId)
-                .Distinct()
-        ];
+        IEnumerable<int> salaryScaleIds = salaryLevels
+            .Values.Select(salaryLevel => salaryLevel.SalaryScaleId)
+            .Distinct();
 
         Dictionary<int, SalaryScale> salaryScales = SalaryScaleDataAccess
             .Instance.GetSalaryScalesBySalaryScaleIds(salaryScaleIds)
@@ -49,10 +45,9 @@ public class SalaryBusiness
                 salaryScale => salaryScale
             );
 
-        List<int> positionIds =
-        [
-            .. employees.Select(employee => employee.PositionId).Distinct()
-        ];
+        IEnumerable<int> positionIds = employees
+            .Select(employee => employee.PositionId)
+            .Distinct();
 
         Dictionary<int, Position> positions = PositionDataAccess
             .Instance.GetPositionsByPositionIds(positionIds)
@@ -61,35 +56,26 @@ public class SalaryBusiness
                 position => position
             );
 
-        Salary EmployeeSelector(EmployeeDto employee)
+        return employees.Select(employee =>
         {
             salaryLevels.TryGetValue(
                 employee.SalaryLevelId,
                 out SalaryLevel? salaryLevel
             );
 
-            SalaryScale? salaryScale =
-                salaryLevel != null
-                && salaryScales.TryGetValue(
+            SalaryScale? salaryScale = null;
+            if (salaryLevel != null)
+            {
+                salaryScales.TryGetValue(
                     salaryLevel.SalaryScaleId,
-                    out SalaryScale? value
-                )
-                    ? value
-                    : null;
+                    out salaryScale
+                );
+            }
 
-            positions.TryGetValue(
-                employee.PositionId,
-                out Position? position
-            );
+            positions.TryGetValue(employee.PositionId, out Position? position);
 
-            decimal basicSalary = salaryLevel != null
-                ? salaryLevel.Coefficient * baseSalary
-                : 0;
-
-            decimal positionAllowance = position != null
-                ? (position.AllowancePercent * basicSalary)
-                : 0;
-
+            decimal basicSalary = salaryLevel?.Coefficient * baseSalary ?? 0;
+            decimal positionAllowance = position?.AllowancePercent * basicSalary ?? 0;
             decimal grossSalary = basicSalary + positionAllowance;
 
             IFormatProvider format = CultureInfo.CreateSpecificCulture("vi-VN");
@@ -99,17 +85,12 @@ public class SalaryBusiness
                 SalaryScaleName = salaryScale?.Name ?? "",
                 SalaryScaleGroup = salaryScale?.Group ?? "",
                 SalaryLevel = salaryLevel?.Level ?? "",
-                SalaryLevelCoefficient = salaryLevel != null
-                    ? salaryLevel.Coefficient.ToString("0.00")
-                    : "",
+                SalaryLevelCoefficient = salaryLevel?.Coefficient.ToString("0.00") ?? "",
                 BasicSalary = basicSalary.ToString("C", format),
-                PositionAllowancePercent = position != null
-                    ? position.AllowancePercent.ToString("00.00%")
-                    : "",
+                PositionAllowancePercent = position?.AllowancePercent.ToString("00.00%") ?? "",
                 PositionAllowance = positionAllowance.ToString("C", format),
                 GrossSalary = grossSalary.ToString("C", format),
             };
-        }
-        return [.. employees.Select(EmployeeSelector)];
+        });
     }
 }

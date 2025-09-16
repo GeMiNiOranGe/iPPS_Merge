@@ -40,10 +40,10 @@ public class ProjectBusiness {
 
     private IEnumerable<ProjectView> MapProjectsToViews(IEnumerable<Project> projects)
     {
-        List<int> managerIds =
-        [
-            .. projects.Select(p => p.ManagerId).OfType<int>().Distinct(),
-        ];
+        IEnumerable<int> managerIds = projects
+            .Select(p => p.ManagerId)
+            .OfType<int>()
+            .Distinct();
 
         Dictionary<int, string> managers = EmployeeBusiness
             .Instance.GetEmployeesByEmployeeIds(managerIds)
@@ -53,45 +53,39 @@ public class ProjectBusiness {
             .Instance.GetStatuses()
             .ToDictionary(s => s.StatusId, s => s.Name);
 
-        return
-        [
-            .. projects.Select(project => new ProjectView()
-            {
-                ProjectId = project.ProjectId,
-                Name = project.Name,
-                CustomerName = project.CustomerName,
-                StartDate = project.StartDate,
-                EndDate = project.EndDate,
-                ManagerId = project.ManagerId,
-                StatusId = project.StatusId,
-                ManagerFullName =
-                    project.ManagerId.HasValue
-                    && managers.TryGetValue(
-                        project.ManagerId.Value,
-                        out var managerFullName
-                    )
-                        ? managerFullName
-                        : "",
-                StatusName = statuses.TryGetValue(
-                    project.StatusId,
-                    out var statusName
+        return projects.Select(project => new ProjectView()
+        {
+            ProjectId = project.ProjectId,
+            Name = project.Name,
+            CustomerName = project.CustomerName,
+            StartDate = project.StartDate,
+            EndDate = project.EndDate,
+            ManagerId = project.ManagerId,
+            StatusId = project.StatusId,
+            ManagerFullName =
+                project.ManagerId.HasValue
+                && managers.TryGetValue(
+                    project.ManagerId.Value,
+                    out var managerFullName
                 )
-                    ? statusName
+                    ? managerFullName
                     : "",
-            }),
-        ];
+            StatusName = statuses.TryGetValue(
+                project.StatusId,
+                out var statusName
+            )
+                ? statusName
+                : "",
+        });
     }
 
-    public List<ProjectProgressView> GetProjectsWithProgress() {
+    public List<ProjectProgressView> GetProjectProgressViews() {
         IEnumerable<Project> projects = ProjectDataAccess.Instance.GetProjects();
         List<ProjectProgressView> projectsProgress = [];
 
         foreach (Project project in projects) {
-            List<Assignment> assignments =
-            [
-                .. AssignmentDataAccess.Instance.GetAssignmentsByProjectId(project.ProjectId)
-            ];
-            int total = assignments.Count;
+            IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(project.ProjectId);
+            int total = assignments.Count();
             int completed = assignments.Count(assignment => assignment.StatusId == 4);
             decimal percent = total != 0
                 ? Math.Round(completed * 100m / total, 2)
@@ -113,12 +107,8 @@ public class ProjectBusiness {
     }
 
     public string[] GetProjectNamesByEmployeeId(int employeeId) {
-        return
-        [
-            .. ProjectDataAccess
-                .Instance.GetProjectsByEmployeeId(employeeId)
-                .Select(project => project.Name)
-        ];
+        IEnumerable<Project> projects = ProjectDataAccess.Instance.GetProjectsByEmployeeId(employeeId);
+        return [.. projects.Select(project => project.Name)];
     }
 
     public ProjectDto? GetProjectByAssignmentId(int assignmentId) {

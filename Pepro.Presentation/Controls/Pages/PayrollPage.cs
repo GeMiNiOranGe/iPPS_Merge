@@ -18,7 +18,9 @@ public partial class PayrollPage : MediatedTemplate
 
     private void LoadPayroll()
     {
-        payrollDataGridView.DataSource = SalaryBusiness.Instance.GetPayroll();
+        payrollDataGridView.DataSource = SalaryBusiness
+            .Instance.GetPayroll()
+            .ToList();
     }
 
     private void PayrollPage_Load(object sender, EventArgs e)

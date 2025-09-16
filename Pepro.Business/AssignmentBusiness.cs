@@ -30,19 +30,18 @@ public class AssignmentBusiness {
 
     private IEnumerable<AssignmentView> MapAssignmentsToViews(IEnumerable<Assignment> assignments)
     {
-        List<int> managerIds =
-        [
-            .. assignments.Select(a => a.ManagerId).OfType<int>().Distinct(),
-        ];
+        IEnumerable<int> managerIds = assignments
+            .Select(a => a.ManagerId)
+            .OfType<int>()
+            .Distinct();
 
         Dictionary<int, string> managers = EmployeeBusiness
             .Instance.GetEmployeesByEmployeeIds(managerIds)
             .ToDictionary(e => e.EmployeeId, e => e.FullName);
 
-        List<int> projectIds =
-        [
-            .. assignments.Select(a => a.ProjectId).Distinct(),
-        ];
+        IEnumerable<int> projectIds = assignments
+            .Select(a => a.ProjectId)
+            .Distinct();
 
         Dictionary<int, string> projects = ProjectDataAccess
             .Instance.GetProjectsByProjectIds(projectIds)
@@ -52,9 +51,22 @@ public class AssignmentBusiness {
             .Instance.GetStatuses()
             .ToDictionary(s => s.StatusId, s => s.Name);
 
-        return
-        [
-            .. assignments.Select(assignment => new AssignmentView()
+        return assignments.Select(assignment =>
+        {
+            string? managerFullName = null;
+            if (assignment.ManagerId.HasValue)
+            {
+                managers.TryGetValue(
+                    assignment.ManagerId.Value,
+                    out managerFullName
+                );
+            }
+
+            projects.TryGetValue(assignment.ProjectId, out string? projectName);
+
+            statuses.TryGetValue(assignment.StatusId, out string? statusName);
+
+            return new AssignmentView()
             {
                 AssignmentId = assignment.AssignmentId,
                 Name = assignment.Name,
@@ -66,28 +78,11 @@ public class AssignmentBusiness {
                 ManagerId = assignment.ManagerId,
                 ProjectId = assignment.ProjectId,
                 StatusId = assignment.StatusId,
-                ManagerFullName =
-                    assignment.ManagerId.HasValue
-                    && managers.TryGetValue(
-                        assignment.ManagerId.Value,
-                        out var managerFullName
-                    )
-                        ? managerFullName
-                        : "",
-                ProjectName = projects.TryGetValue(
-                    assignment.ProjectId,
-                    out var projectName
-                )
-                    ? projectName
-                    : "",
-                StatusName = statuses.TryGetValue(
-                    assignment.StatusId,
-                    out var statusName
-                )
-                    ? statusName
-                    : "",
-            })
-        ];
+                ManagerFullName = managerFullName ?? "",
+                ProjectName = projectName ?? "",
+                StatusName = statusName ?? "",
+            };
+        });
     }
 
     public IEnumerable<AssignmentDto> GetAssignmentsByProjectId(int projectId) {
@@ -97,35 +92,16 @@ public class AssignmentBusiness {
 
     public IEnumerable<AssignmentProgressView> GetAssignmentProgressViewsByProjectId(int projectId) {
         IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(projectId);
-        List<AssignmentProgressView> assignmentsProgress = [];
-
-        foreach (Assignment assignment in assignments) {
-            int requiredDocumentCount = assignment.RequiredDocumentCount;
-            int documentCount = DocumentDataAccess.Instance.CountDocumentsByAssignmentId(assignment.AssignmentId);
-            decimal percent = requiredDocumentCount != 0
-                ? Math.Round(documentCount * 100m / requiredDocumentCount, 2)
-                : 0;
-
-            assignmentsProgress.Add(new AssignmentProgressView {
-                AssignmentId = assignment.AssignmentId,
-                Name = assignment.Name,
-                IsPublicToProject = assignment.IsPublicToProject,
-                IsPublicToDepartment = assignment.IsPublicToDepartment,
-                StartDate = assignment.StartDate,
-                EndDate = assignment.EndDate,
-                RequiredDocumentCount = assignment.RequiredDocumentCount,
-                ManagerId = assignment.ManagerId,
-                ProjectId = assignment.ProjectId,
-                StatusId = assignment.StatusId,
-                ProgressPercent = percent
-            });
-        }
-
-        return assignmentsProgress;
+        return MapAssignmentsToProgressViews(assignments);
     }
 
     public IEnumerable<AssignmentProgressView> GetAssignmentProgressViewsByEmployeeId(int employeeId) {
         IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByEmployeeId(employeeId);
+        return MapAssignmentsToProgressViews(assignments);
+    }
+
+    public IEnumerable<AssignmentProgressView> MapAssignmentsToProgressViews(IEnumerable<Assignment> assignments)
+    {
         List<AssignmentProgressView> assignmentsProgress = [];
 
         foreach (Assignment assignment in assignments) {
