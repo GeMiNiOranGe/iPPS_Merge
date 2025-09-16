@@ -48,8 +48,8 @@ public class AssignmentBusiness {
             .Instance.GetProjectsByProjectIds(projectIds)
             .ToDictionary(e => e.ProjectId, e => e.Name);
 
-        Dictionary<int, string> statuses = StatusDataAccess.Instance
-            .GetStatuses()
+        Dictionary<int, string> statuses = StatusDataAccess
+            .Instance.GetStatuses()
             .ToDictionary(s => s.StatusId, s => s.Name);
 
         return

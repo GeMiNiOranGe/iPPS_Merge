@@ -1,5 +1,6 @@
 using System.Data;
 using Pepro.DataAccess.Entities;
+using Pepro.DataAccess.Extensions;
 using Pepro.DataAccess.Mappings;
 using Pepro.DataAccess.Utilities;
 
@@ -17,7 +18,7 @@ public class StatusDataAccess
 
     private StatusDataAccess() { }
 
-    public List<Status> GetStatuses()
+    public IEnumerable<Status> GetStatuses()
     {
         string query = @"
             SELECT Status.StatusId
@@ -25,14 +26,8 @@ public class StatusDataAccess
             FROM Status
         ";
 
-        DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
-
-        List<Status> statuses = [];
-        foreach (DataRow row in dataTable.Rows)
-        {
-            Status status = StatusMapper.FromDataRow(row);
-            statuses.Add(status);
-        }
-        return statuses;
+        return DataProvider
+            .Instance.ExecuteQuery(query)
+            .MapMany(StatusMapper.FromDataRow);
     }
 }

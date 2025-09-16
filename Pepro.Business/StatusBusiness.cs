@@ -17,9 +17,9 @@ public class StatusBusiness
 
     private StatusBusiness() { }
 
-    public List<StatusDto> GetStatuses()
+    public IEnumerable<StatusDto> GetStatuses()
     {
-        List<Status> statuses = StatusDataAccess.Instance.GetStatuses();
+        IEnumerable<Status> statuses = StatusDataAccess.Instance.GetStatuses();
         return statuses.ToDtos();
     }
 }
