@@ -18,13 +18,13 @@ public class AssignmentBusiness {
 
     public IEnumerable<AssignmentView> GetAssignmentViews()
     {
-        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignments();
+        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetMany();
         return MapAssignmentsToViews(assignments);
     }
 
     public IEnumerable<AssignmentView> SearchAssignmentViews(string searchValue)
     {
-        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.SearchAssignments(searchValue);
+        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.Search(searchValue);
         return MapAssignmentsToViews(assignments);
     }
 
@@ -44,11 +44,11 @@ public class AssignmentBusiness {
             .Distinct();
 
         Dictionary<int, string> projects = ProjectDataAccess
-            .Instance.GetProjectsByProjectIds(projectIds)
+            .Instance.GetManyByIds(projectIds)
             .ToDictionary(e => e.ProjectId, e => e.Name);
 
         Dictionary<int, string> statuses = StatusDataAccess
-            .Instance.GetStatuses()
+            .Instance.GetMany()
             .ToDictionary(s => s.StatusId, s => s.Name);
 
         return assignments.Select(assignment =>
@@ -86,17 +86,17 @@ public class AssignmentBusiness {
     }
 
     public IEnumerable<AssignmentDto> GetAssignmentsByProjectId(int projectId) {
-        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(projectId);
+        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetManyByProjectId(projectId);
         return assignments.ToDtos();
     }
 
     public IEnumerable<AssignmentProgressView> GetAssignmentProgressViewsByProjectId(int projectId) {
-        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(projectId);
+        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetManyByProjectId(projectId);
         return MapAssignmentsToProgressViews(assignments);
     }
 
     public IEnumerable<AssignmentProgressView> GetAssignmentProgressViewsByEmployeeId(int employeeId) {
-        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByEmployeeId(employeeId);
+        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetManyByEmployeeId(employeeId);
         return MapAssignmentsToProgressViews(assignments);
     }
 
@@ -130,22 +130,22 @@ public class AssignmentBusiness {
     }
 
     public EmployeeDto? GetAssignmentManager(int assignmentId) {
-        Employee? employee = AssignmentDataAccess.Instance.GetAssignmentManager(assignmentId);
+        Employee? employee = AssignmentDataAccess.Instance.GetManager(assignmentId);
         return employee?.ToDto();
     }
 
     public AssignmentDto? GetAssignmentByDocumentId(int documentId) {
-        Assignment? assignment = AssignmentDataAccess.Instance.GetAssignmentByDocumentId(documentId);
+        Assignment? assignment = AssignmentDataAccess.Instance.GetByDocumentId(documentId);
         return assignment?.ToDto();
     }
 
     public int DeleteAssignment(int assignmentId) {
-        return AssignmentDataAccess.Instance.DeleteAssignment(assignmentId);
+        return AssignmentDataAccess.Instance.Delete(assignmentId);
     }
 
     public int UpdateAssignment(AssignmentDto dto)
     {
-        Assignment? entity = AssignmentDataAccess.Instance.GetAssignmentByAssignmentId(dto.AssignmentId);
+        Assignment? entity = AssignmentDataAccess.Instance.GetById(dto.AssignmentId);
         if (entity == null)
         {
             return 0;
@@ -163,12 +163,12 @@ public class AssignmentBusiness {
             ProjectId = new(dto.ProjectId, entity.ProjectId != dto.ProjectId),
             StatusId = new(dto.StatusId, entity.StatusId != dto.StatusId),
         };
-        return AssignmentDataAccess.Instance.UpdateAssignment(dto.AssignmentId, updateInfo);
+        return AssignmentDataAccess.Instance.Update(dto.AssignmentId, updateInfo);
     }
 
     public int InsertAssignment(AssignmentDto dto)
     {
         Assignment entity = dto.ToEntity();
-        return AssignmentDataAccess.Instance.InsertAssignment(entity);
+        return AssignmentDataAccess.Instance.Insert(entity);
     }
 }

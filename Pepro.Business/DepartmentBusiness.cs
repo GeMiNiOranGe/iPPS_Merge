@@ -19,25 +19,25 @@ public class DepartmentBusiness
     private DepartmentBusiness() { }
 
     public DepartmentDto? GetDepartmentByDepartmentId(int departmentID) {
-        Department? department = DepartmentDataAccess.Instance.GetDepartmentByDepartmentId(departmentID);
+        Department? department = DepartmentDataAccess.Instance.GetById(departmentID);
         return department?.ToDto();
     }
 
     public IEnumerable<DepartmentDto> GetDepartments()
     {
-        IEnumerable<Department> departments = DepartmentDataAccess.Instance.GetDepartments();
+        IEnumerable<Department> departments = DepartmentDataAccess.Instance.GetMany();
         return departments.ToDtos();
     }
 
     public IEnumerable<DepartmentView> GetDepartmentViews()
     {
-        IEnumerable<Department> departments = DepartmentDataAccess.Instance.GetDepartments();
+        IEnumerable<Department> departments = DepartmentDataAccess.Instance.GetMany();
         return MapDepartmentsToViews(departments);
     }
 
     public IEnumerable<DepartmentView> SearchDepartmentViews(string searchValue)
     {
-        IEnumerable<Department> departments = DepartmentDataAccess.Instance.SearchDepartments(searchValue);
+        IEnumerable<Department> departments = DepartmentDataAccess.Instance.Search(searchValue);
         return MapDepartmentsToViews(departments);
     }
 
@@ -70,12 +70,12 @@ public class DepartmentBusiness
 
     public int DeleteDepartment(int departmentId)
     {
-        return DepartmentDataAccess.Instance.DeleteDepartment(departmentId);
+        return DepartmentDataAccess.Instance.Delete(departmentId);
     }
 
     public int UpdateDepartment(DepartmentDto dto)
     {
-        Department? entity = DepartmentDataAccess.Instance.GetDepartmentByDepartmentId(dto.DepartmentId);
+        Department? entity = DepartmentDataAccess.Instance.GetById(dto.DepartmentId);
         if (entity == null)
         {
             return 0;
@@ -86,13 +86,13 @@ public class DepartmentBusiness
             Name = new(dto.Name, entity.Name != dto.Name),
             ManagerId = new(dto.ManagerId, entity.ManagerId != dto.ManagerId)
         };
-        return DepartmentDataAccess.Instance.UpdateDepartment(dto.DepartmentId, updateInfo);
+        return DepartmentDataAccess.Instance.Update(dto.DepartmentId, updateInfo);
     }
 
     public int InsertDepartment(DepartmentDto dto)
     {
         Department entity = dto.ToEntity();
-        return DepartmentDataAccess.Instance.InsertDepartment(entity);
+        return DepartmentDataAccess.Instance.Insert(entity);
     }
 
     public DataTable GetDepartmentList()

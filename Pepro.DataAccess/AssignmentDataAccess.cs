@@ -8,17 +8,20 @@ using System.Data;
 
 namespace Pepro.DataAccess;
 
-public class AssignmentDataAccess {
+public class AssignmentDataAccess
+{
     private static AssignmentDataAccess? _instance;
 
-    public static AssignmentDataAccess Instance {
+    public static AssignmentDataAccess Instance
+    {
         get => _instance ??= new();
         private set => _instance = value;
     }
 
     private AssignmentDataAccess() { }
 
-    public Assignment? GetAssignmentByAssignmentId(int assignmentId) {
+    public Assignment? GetById(int assignmentId)
+    {
         string query = @"
             SELECT Assignment.AssignmentId
                 , Assignment.Name
@@ -46,7 +49,8 @@ public class AssignmentDataAccess {
             .MapToSingleOrDefault(AssignmentMapper.FromDataRow);
     }
 
-    public IEnumerable<Assignment> GetAssignments() {
+    public IEnumerable<Assignment> GetMany()
+    {
         string query = @"
             SELECT Assignment.AssignmentId
                 , Assignment.Name
@@ -71,7 +75,8 @@ public class AssignmentDataAccess {
             .MapMany(AssignmentMapper.FromDataRow);
     }
 
-    public IEnumerable<Assignment> SearchAssignments(string searchValue) {
+    public IEnumerable<Assignment> Search(string searchValue)
+    {
         string query = @"
             SELECT Assignment.AssignmentId
                 , Assignment.Name
@@ -103,7 +108,8 @@ public class AssignmentDataAccess {
             .MapMany(AssignmentMapper.FromDataRow);
     }
 
-    public IEnumerable<Assignment> GetAssignmentsByProjectId(int projectId) {
+    public IEnumerable<Assignment> GetManyByProjectId(int projectId)
+    {
         string query = @"
             SELECT Assignment.AssignmentId
                 , Assignment.Name
@@ -131,7 +137,8 @@ public class AssignmentDataAccess {
             .MapMany(AssignmentMapper.FromDataRow);
     }
 
-    public IEnumerable<Assignment> GetAssignmentsByEmployeeId(int employeeId) {
+    public IEnumerable<Assignment> GetManyByEmployeeId(int employeeId)
+    {
         string query = @"
             SELECT Assignment.AssignmentId
                 , Assignment.Name
@@ -168,7 +175,8 @@ public class AssignmentDataAccess {
     /// <returns>
     ///     Manager
     /// </returns>
-    public Employee? GetAssignmentManager(int assignmentId) {
+    public Employee? GetManager(int assignmentId)
+    {
         string query = @"
             SELECT Employee.EmployeeId
                 , Employee.FirstName
@@ -199,7 +207,8 @@ public class AssignmentDataAccess {
             .MapToSingleOrDefault(EmployeeMapper.FromDataRow);
     }
 
-    public Assignment? GetAssignmentByDocumentId(int documentId) {
+    public Assignment? GetByDocumentId(int documentId)
+    {
         string query = @"
             SELECT Assignment.AssignmentId
                 , Assignment.Name
@@ -229,7 +238,8 @@ public class AssignmentDataAccess {
             .MapToSingleOrDefault(AssignmentMapper.FromDataRow);
     }
 
-    public int DeleteAssignment(int assignmentId) {
+    public int Delete(int assignmentId)
+    {
         string query = @"
             UPDATE Assignment
             SET IsDeleted = 1,
@@ -242,7 +252,8 @@ public class AssignmentDataAccess {
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int UpdateAssignment(int assignmentId, AssignmentUpdate info) {
+    public int Update(int assignmentId, AssignmentUpdate info)
+    {
         SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Assignment")
             .Set("Name", SqlDbType.NVarChar, 50, info.Name)
             .Set("IsPublicToProject", SqlDbType.Bit, info.IsPublicToProject)
@@ -265,7 +276,7 @@ public class AssignmentDataAccess {
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int InsertAssignment(Assignment entity)
+    public int Insert(Assignment entity)
     {
         string query = @"
             INSERT INTO Assignment

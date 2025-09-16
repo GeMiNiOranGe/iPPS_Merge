@@ -16,7 +16,7 @@ public class SalaryLevelBusiness {
     private SalaryLevelBusiness() { }
 
     public IEnumerable<SalaryLevelDto> GetSalaryLevelsBySalaryScaleId(int salaryScaleId) {
-        IEnumerable<SalaryLevel> salaryLevels = SalaryLevelDataAccess.Instance.GetSalaryLevelsBySalaryScaleId(salaryScaleId);
+        IEnumerable<SalaryLevel> salaryLevels = SalaryLevelDataAccess.Instance.GetManyBySalaryScaleId(salaryScaleId);
         return salaryLevels.ToDtos();
     }
 }

@@ -12,14 +12,16 @@ public class DepartmentDataAccess
 {
     private static DepartmentDataAccess? _instance;
 
-    public static DepartmentDataAccess Instance {
+    public static DepartmentDataAccess Instance
+    {
         get => _instance ??= new();
         private set => _instance = value;
     }
 
     private DepartmentDataAccess() { }
 
-    public Department? GetDepartmentByDepartmentId(int departmentId) {
+    public Department? GetById(int departmentId)
+    {
         string query = @"
             SELECT Department.DepartmentId
                 , Department.Name
@@ -40,7 +42,7 @@ public class DepartmentDataAccess
             .MapToSingleOrDefault(DepartmentMapper.FromDataRow);
     }
 
-    public IEnumerable<Department> GetDepartmentsByDepartmentIds(IEnumerable<int> departmentIds)
+    public IEnumerable<Department> GetManyByIds(IEnumerable<int> departmentIds)
     {
         if (departmentIds == null || !departmentIds.Any())
         {
@@ -70,7 +72,8 @@ public class DepartmentDataAccess
             .MapMany(DepartmentMapper.FromDataRow);
     }
 
-    public IEnumerable<Department> GetDepartments() {
+    public IEnumerable<Department> GetMany()
+    {
         string query = @"
             SELECT Department.DepartmentId
                 , Department.Name
@@ -88,7 +91,8 @@ public class DepartmentDataAccess
             .MapMany(DepartmentMapper.FromDataRow);
     }
 
-    public IEnumerable<Department> SearchDepartments(string searchValue) {
+    public IEnumerable<Department> Search(string searchValue)
+    {
         string query = @"
             SELECT Department.DepartmentId
                 , Department.Name
@@ -109,7 +113,7 @@ public class DepartmentDataAccess
             .MapMany(DepartmentMapper.FromDataRow);
     }
 
-    public int DeleteDepartment(int departmentId)
+    public int Delete(int departmentId)
     {
         string query = @"
             UPDATE Department
@@ -123,7 +127,7 @@ public class DepartmentDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int UpdateDepartment(int departmentId, DepartmentUpdate info)
+    public int Update(int departmentId, DepartmentUpdate info)
     {
         SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Department")
             .Set("Name", SqlDbType.NVarChar, 50, info.Name)
@@ -140,7 +144,7 @@ public class DepartmentDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int InsertDepartment(Department entity)
+    public int Insert(Department entity)
     {
         string query = @"
             INSERT INTO Department

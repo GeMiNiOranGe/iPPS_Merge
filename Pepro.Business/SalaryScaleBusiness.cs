@@ -16,12 +16,12 @@ public class SalaryScaleBusiness {
     private SalaryScaleBusiness() { }
 
     public IEnumerable<SalaryScaleDto> GetSalaryScales() {
-        IEnumerable<SalaryScale> salaryScales = SalaryScaleDataAccess.Instance.GetSalaryScales();
+        IEnumerable<SalaryScale> salaryScales = SalaryScaleDataAccess.Instance.GetMany();
         return salaryScales.ToDtos();
     }
 
     public SalaryScaleDto? GetSalaryScaleBySalaryLevelId(int salaryLevelId) {
-        SalaryScale? salaryScale = SalaryScaleDataAccess.Instance.GetSalaryScaleBySalaryLevelId(salaryLevelId);
+        SalaryScale? salaryScale = SalaryScaleDataAccess.Instance.GetBySalaryLevelId(salaryLevelId);
         return salaryScale?.ToDto();
     }
 }

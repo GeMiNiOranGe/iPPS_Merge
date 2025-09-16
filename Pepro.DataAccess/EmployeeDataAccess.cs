@@ -9,17 +9,19 @@ using System.Data;
 
 namespace Pepro.DataAccess;
 
-public class EmployeeDataAccess {
+public class EmployeeDataAccess
+{
     private static EmployeeDataAccess? _instance;
 
-    public static EmployeeDataAccess Instance {
+    public static EmployeeDataAccess Instance
+    {
         get => _instance ??= new();
         private set => _instance = value;
     }
 
     private EmployeeDataAccess() { }
 
-    public IEnumerable<Employee> GetEmployees()
+    public IEnumerable<Employee> GetMany()
     {
         string query = @"
             SELECT Employee.EmployeeId
@@ -46,7 +48,8 @@ public class EmployeeDataAccess {
             .MapMany(EmployeeMapper.FromDataRow);
     }
 
-    public IEnumerable<Employee> SearchEmployees(string searchValue) {
+    public IEnumerable<Employee> Search(string searchValue)
+    {
         string query = @"
             SELECT Employee.EmployeeId
                 , Employee.FirstName
@@ -79,10 +82,13 @@ public class EmployeeDataAccess {
             .MapMany(EmployeeMapper.FromDataRow);
     }
 
-    public DataTable GetEmployeeByRoleID(int roleID) {
+    public DataTable GetEmployeeByRoleID(int roleID)
+    {
         DataTable dataTable = new DataTable();
-        using (SqlConnection conn = new SqlConnection("")) {
-            using (SqlCommand cmd = new SqlCommand("spSelectEmployees", conn)) {
+        using (SqlConnection conn = new SqlConnection(""))
+        {
+            using (SqlCommand cmd = new SqlCommand("spSelectEmployees", conn))
+            {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@RoleID", roleID);
 
@@ -93,7 +99,8 @@ public class EmployeeDataAccess {
         return dataTable;
     }
 
-    public bool UpdateEmployee(int roleID, string valueList, string employeeID) {
+    public bool UpdateEmployee(int roleID, string valueList, string employeeID)
+    {
         SqlParameter[] parameters =
         [
             new("@RoleID", SqlDbType.Int) { Value = roleID },
@@ -138,7 +145,7 @@ public class EmployeeDataAccess {
     }
     */
 
-    public int UpdateEmployee(int employeeId, EmployeeUpdate entity)
+    public int Update(int employeeId, EmployeeUpdate entity)
     {
         SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Employee")
             .Set("FirstName", SqlDbType.NVarChar, 10, entity.FirstName)
@@ -163,7 +170,8 @@ public class EmployeeDataAccess {
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int DeleteEmployee(int employeeId) {
+    public int Delete(int employeeId)
+    {
         string query = @"
             UPDATE Employee
             SET IsDeleted = 1,
@@ -176,10 +184,14 @@ public class EmployeeDataAccess {
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public bool DeleteEmployee(int roleID, string employeeID) {
-        using (SqlConnection connection = new SqlConnection("")) {
-            try {
-                using (SqlCommand command = new SqlCommand("spDeleteEmployee", connection)) {
+    public bool DeleteEmployee(int roleID, string employeeID)
+    {
+        using (SqlConnection connection = new SqlConnection(""))
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("spDeleteEmployee", connection))
+                {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@RoleID", roleID);
                     command.Parameters.AddWithValue("@EmployeeID", employeeID);
@@ -189,16 +201,20 @@ public class EmployeeDataAccess {
                     return rowsAffected > 0;
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
 
                 throw new Exception("An error occurred while deleting the employee.", ex);
             }
         }
     }
 
-    public void InsertEmployee(string employeeId, string fullname, bool? gender, DateTime? dateOfBirth, string phoneNumber, string salary, string allowance, string taxCode, string departmentId) {
-        using (SqlConnection conn = new SqlConnection("")) {
-            using (SqlCommand cmd = new SqlCommand("spInsertEmployeeFull", conn)) {
+    public void InsertEmployee(string employeeId, string fullname, bool? gender, DateTime? dateOfBirth, string phoneNumber, string salary, string allowance, string taxCode, string departmentId)
+    {
+        using (SqlConnection conn = new SqlConnection(""))
+        {
+            using (SqlCommand cmd = new SqlCommand("spInsertEmployeeFull", conn))
+            {
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@EmployeeId", (object)employeeId ?? DBNull.Value);
@@ -216,7 +232,7 @@ public class EmployeeDataAccess {
         }
     }
 
-    public Employee? AddEmployee(Employee employee)
+    public Employee? Add(Employee employee)
     {
         string query = @"
             INSERT INTO [dbo].[Employee]
@@ -279,7 +295,7 @@ public class EmployeeDataAccess {
             .MapToSingleOrDefault(EmployeeMapper.FromDataRow);
     }
 
-    public int InsertEmployee(Employee employee)
+    public int Insert(Employee employee)
     {
         string query = @"
             INSERT INTO [dbo].[Employee]
@@ -324,7 +340,8 @@ public class EmployeeDataAccess {
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public Employee? GetEmployeeByEmployeeId(int employeeId) {
+    public Employee? GetById(int employeeId)
+    {
         string query = @"
             SELECT Employee.EmployeeId
                 , Employee.FirstName
@@ -354,15 +371,18 @@ public class EmployeeDataAccess {
     }
 
     //Lấy dữ liệu từ table ROLE trong database dựa vào EMPLOYEE_ID
-    public CRole GetRolebyEmployeeID(string employeeID) {
+    public CRole GetRolebyEmployeeID(string employeeID)
+    {
         DataTable data = DataProvider.Instance.ExecuteQuery("Select * from ROLE where EMPLOYEE_ID = '" + employeeID + "'");
-        foreach (DataRow item in data.Rows) {
+        foreach (DataRow item in data.Rows)
+        {
             return new CRole(item);
         }
         return null;
     }
 
-    public IEnumerable<EmployeePhoneNumber> GetPhoneNumbersByEmployeeId(int employeeId) {
+    public IEnumerable<EmployeePhoneNumber> GetPhoneNumbersById(int employeeId)
+    {
         string query = @"
             SELECT EmployeePhoneNumber.EmployeePhoneNumberId
                 , EmployeePhoneNumber.PhoneNumber
@@ -381,7 +401,7 @@ public class EmployeeDataAccess {
             .MapMany(EmployeePhoneNumberMapper.FromDataRow);
     }
 
-    public IEnumerable<Employee> GetEmployeesByDepartmentId(int departmentId)
+    public IEnumerable<Employee> GetManyByDepartmentId(int departmentId)
     {
         string query = @"
             SELECT Employee.EmployeeId
@@ -411,7 +431,7 @@ public class EmployeeDataAccess {
             .MapMany(EmployeeMapper.FromDataRow);
     }
 
-    public IEnumerable<Employee> GetEmployeesByAssignmentId(int assignmentId)
+    public IEnumerable<Employee> GetManyByAssignmentId(int assignmentId)
     {
         string query = @"
             SELECT Employee.EmployeeId
@@ -443,7 +463,7 @@ public class EmployeeDataAccess {
             .MapMany(EmployeeMapper.FromDataRow);
     }
 
-    public IEnumerable<Employee> GetEmployeesByProjectId(int projectId)
+    public IEnumerable<Employee> GetManyByProjectId(int projectId)
     {
         string query = @"
             SELECT Employee.EmployeeId
@@ -478,7 +498,7 @@ public class EmployeeDataAccess {
             .MapMany(EmployeeMapper.FromDataRow);
     }
 
-    public IEnumerable<Employee> GetEmployeesByEmployeeIds(IEnumerable<int> employeeIds)
+    public IEnumerable<Employee> GetManyByIds(IEnumerable<int> employeeIds)
     {
         if (employeeIds == null || !employeeIds.Any())
         {

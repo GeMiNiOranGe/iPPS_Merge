@@ -16,16 +16,16 @@ public class DocumentBusiness {
     private DocumentBusiness() { }
 
     public IEnumerable<DocumentDto> GetDocuments() {
-        IEnumerable<Document> documents = DocumentDataAccess.Instance.GetDocuments();
+        IEnumerable<Document> documents = DocumentDataAccess.Instance.GetMany();
         return documents.ToDtos();
     }
 
     public IEnumerable<DocumentDto> SearchDocuments(string searchValue) {
-        IEnumerable<Document> documents = DocumentDataAccess.Instance.SearchDocuments(searchValue);
+        IEnumerable<Document> documents = DocumentDataAccess.Instance.Search(searchValue);
         return documents.ToDtos();
     }
 
     public int DeleteDocument(int documentId) {
-        return DocumentDataAccess.Instance.DeleteDocument(documentId);
+        return DocumentDataAccess.Instance.Delete(documentId);
     }
 }

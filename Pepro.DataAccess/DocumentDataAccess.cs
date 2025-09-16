@@ -7,17 +7,20 @@ using System.Data;
 
 namespace Pepro.DataAccess;
 
-public class DocumentDataAccess {
+public class DocumentDataAccess
+{
     private static DocumentDataAccess? _instance;
 
-    public static DocumentDataAccess Instance {
+    public static DocumentDataAccess Instance
+    {
         get => _instance ??= new();
         private set => _instance = value;
     }
 
     private DocumentDataAccess() { }
 
-    public int CountDocumentsByAssignmentId(int assignmentId) {
+    public int CountDocumentsByAssignmentId(int assignmentId)
+    {
         string query = @"
             SELECT Count(Document.AssignmentId)
             FROM Document
@@ -30,7 +33,8 @@ public class DocumentDataAccess {
         return (int)DataProvider.Instance.ExecuteScalar(query, [.. parameters]);
     }
 
-    public IEnumerable<Document> GetDocuments() {
+    public IEnumerable<Document> GetMany()
+    {
         string query = @"
             SELECT Document.DocumentId
                 , Document.Title
@@ -53,7 +57,8 @@ public class DocumentDataAccess {
             .MapMany(DocumentMapper.FromDataRow);
     }
 
-    public IEnumerable<Document> SearchDocuments(string searchValue) {
+    public IEnumerable<Document> Search(string searchValue)
+    {
         string query = @"
             SELECT Document.DocumentId
                 , Document.Title
@@ -84,7 +89,8 @@ public class DocumentDataAccess {
             .MapMany(DocumentMapper.FromDataRow);
     }
 
-    public int DeleteDocument(int documentId) {
+    public int Delete(int documentId)
+    {
         string query = @"
             UPDATE Document
             SET IsDeleted = 1

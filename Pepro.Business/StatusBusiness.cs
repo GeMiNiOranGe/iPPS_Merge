@@ -19,7 +19,7 @@ public class StatusBusiness
 
     public IEnumerable<StatusDto> GetStatuses()
     {
-        IEnumerable<Status> statuses = StatusDataAccess.Instance.GetStatuses();
+        IEnumerable<Status> statuses = StatusDataAccess.Instance.GetMany();
         return statuses.ToDtos();
     }
 }
