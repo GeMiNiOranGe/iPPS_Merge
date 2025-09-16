@@ -30,9 +30,9 @@ public class SalaryScaleDataAccess {
             .MapMany(SalaryScaleMapper.FromDataRow);
     }
 
-    public IEnumerable<SalaryScale> GetSalaryScalesBySalaryScaleIds(List<int> salaryScaleIds)
+    public IEnumerable<SalaryScale> GetSalaryScalesBySalaryScaleIds(IEnumerable<int> salaryScaleIds)
     {
-        if (salaryScaleIds == null || salaryScaleIds.Count == 0)
+        if (salaryScaleIds == null || !salaryScaleIds.Any())
         {
             return [];
         }

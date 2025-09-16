@@ -40,9 +40,9 @@ public class DepartmentDataAccess
             .MapToSingleOrDefault(DepartmentMapper.FromDataRow);
     }
 
-    public IEnumerable<Department> GetDepartmentsByDepartmentIds(List<int> departmentIds)
+    public IEnumerable<Department> GetDepartmentsByDepartmentIds(IEnumerable<int> departmentIds)
     {
-        if (departmentIds == null || departmentIds.Count == 0)
+        if (departmentIds == null || !departmentIds.Any())
         {
             return [];
         }

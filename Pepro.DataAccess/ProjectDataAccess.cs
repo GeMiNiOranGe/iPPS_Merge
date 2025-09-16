@@ -43,9 +43,9 @@ public class ProjectDataAccess {
             .MapToSingleOrDefault(ProjectMapper.FromDataRow);
     }
 
-    public IEnumerable<Project> GetProjectsByProjectIds(List<int> projectIds)
+    public IEnumerable<Project> GetProjectsByProjectIds(IEnumerable<int> projectIds)
     {
-        if (projectIds == null || projectIds.Count == 0)
+        if (projectIds == null || !projectIds.Any())
         {
             return [];
         }
