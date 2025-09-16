@@ -64,8 +64,12 @@ public partial class AssignmentEditorPage : EditorTemplate, IEditorUserControl<A
         managerComboBoxField.DisplayMember = nameof(EmployeeDto.FullName);
         managerComboBoxField.ValueMember = nameof(EmployeeDto.EmployeeId);
 
-        projectComboBoxField.DataSource = ProjectBusiness.Instance.GetProjects();
-        statusComboBoxField.DataSource = StatusBusiness.Instance.GetStatuses();
+        projectComboBoxField.DataSource = ProjectBusiness
+            .Instance.GetProjects()
+            .ToList();
+        statusComboBoxField.DataSource = StatusBusiness
+            .Instance.GetStatuses()
+            .ToList();
 
         switch (_mode)
         {

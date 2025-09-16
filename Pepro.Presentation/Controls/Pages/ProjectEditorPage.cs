@@ -59,7 +59,9 @@ public partial class ProjectEditorPage : EditorTemplate, IEditorUserControl<Proj
         managerComboBoxField.DisplayMember = nameof(EmployeeDto.FullName);
         managerComboBoxField.ValueMember = nameof(EmployeeDto.EmployeeId);
 
-        statusComboBoxField.DataSource = StatusBusiness.Instance.GetStatuses();
+        statusComboBoxField.DataSource = StatusBusiness
+            .Instance.GetStatuses()
+            .ToList();
 
         switch (_mode) {
         case EditorMode.Create:
