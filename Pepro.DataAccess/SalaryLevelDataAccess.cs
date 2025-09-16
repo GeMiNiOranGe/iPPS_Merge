@@ -7,17 +7,19 @@ using System.Data;
 
 namespace Pepro.DataAccess;
 
-public class SalaryLevelDataAccess {
+public class SalaryLevelDataAccess
+{
     private static SalaryLevelDataAccess? _instance;
 
-    public static SalaryLevelDataAccess Instance {
+    public static SalaryLevelDataAccess Instance
+    {
         get => _instance ??= new();
         private set => _instance = value;
     }
 
     private SalaryLevelDataAccess() { }
 
-    public IEnumerable<SalaryLevel> GetSalaryLevelsBySalaryLevelIds(IEnumerable<int> salaryLevelIds)
+    public IEnumerable<SalaryLevel> GetManyByIds(IEnumerable<int> salaryLevelIds)
     {
         if (salaryLevelIds == null || !salaryLevelIds.Any())
         {
@@ -43,7 +45,8 @@ public class SalaryLevelDataAccess {
             .MapMany(SalaryLevelMapper.FromDataRow);
     }
 
-    public IEnumerable<SalaryLevel> GetSalaryLevelsBySalaryScaleId(int salaryScaleId) {
+    public IEnumerable<SalaryLevel> GetManyBySalaryScaleId(int salaryScaleId)
+    {
         string query = @"
             SELECT SalaryLevel.SalaryLevelId
                 , SalaryLevel.Level

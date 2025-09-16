@@ -7,17 +7,19 @@ using System.Data;
 
 namespace Pepro.DataAccess;
 
-public class PositionDataAccess {
+public class PositionDataAccess
+{
     private static PositionDataAccess? _instance;
 
-    public static PositionDataAccess Instance {
+    public static PositionDataAccess Instance
+    {
         get => _instance ??= new();
         private set => _instance = value;
     }
 
     private PositionDataAccess() { }
 
-    public IEnumerable<Position> GetPositionsByPositionIds(IEnumerable<int> positionIds)
+    public IEnumerable<Position> GetManyByIds(IEnumerable<int> positionIds)
     {
         if (positionIds == null || !positionIds.Any())
         {
@@ -42,7 +44,8 @@ public class PositionDataAccess {
             .MapMany(PositionMapper.FromDataRow);
     }
 
-    public IEnumerable<Position> GetPositions() {
+    public IEnumerable<Position> GetMany()
+    {
         string query = @"
             SELECT Position.PositionId
                 , Position.Title
@@ -55,7 +58,8 @@ public class PositionDataAccess {
             .MapMany(PositionMapper.FromDataRow);
     }
 
-    public Position? GetPositionByEmployeeId(int employeeId) {
+    public Position? GetByEmployeeId(int employeeId)
+    {
         string query = @"
             SELECT Position.PositionId
                 , Position.Title

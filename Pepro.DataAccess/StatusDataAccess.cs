@@ -18,7 +18,7 @@ public class StatusDataAccess
 
     private StatusDataAccess() { }
 
-    public IEnumerable<Status> GetStatuses()
+    public IEnumerable<Status> GetMany()
     {
         string query = @"
             SELECT Status.StatusId

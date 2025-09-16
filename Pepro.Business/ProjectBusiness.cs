@@ -17,24 +17,24 @@ public class ProjectBusiness {
     private ProjectBusiness() { }
 
     public ProjectDto? GetProjectByProjectId(int projectId) {
-        Project? project = ProjectDataAccess.Instance.GetProjectByProjectId(projectId);
+        Project? project = ProjectDataAccess.Instance.GetById(projectId);
         return project?.ToDto();
     }
 
     public IEnumerable<ProjectDto> GetProjects() {
-        IEnumerable<Project> projects = ProjectDataAccess.Instance.GetProjects();
+        IEnumerable<Project> projects = ProjectDataAccess.Instance.GetMany();
         return projects.ToDtos();
     }
 
     public IEnumerable<ProjectView> GetProjectViews()
     {
-        IEnumerable<Project> projects = ProjectDataAccess.Instance.GetProjects();
+        IEnumerable<Project> projects = ProjectDataAccess.Instance.GetMany();
         return MapProjectsToViews(projects);
     }
 
     public IEnumerable<ProjectView> SearchProjectViews(string searchValue)
     {
-        IEnumerable<Project> projects = ProjectDataAccess.Instance.SearchProjects(searchValue);
+        IEnumerable<Project> projects = ProjectDataAccess.Instance.Search(searchValue);
         return MapProjectsToViews(projects);
     }
 
@@ -50,7 +50,7 @@ public class ProjectBusiness {
             .ToDictionary(e => e.EmployeeId, e => e.FullName);
 
         Dictionary<int, string> statuses = StatusDataAccess
-            .Instance.GetStatuses()
+            .Instance.GetMany()
             .ToDictionary(s => s.StatusId, s => s.Name);
 
         return projects.Select(project => new ProjectView()
@@ -80,11 +80,11 @@ public class ProjectBusiness {
     }
 
     public List<ProjectProgressView> GetProjectProgressViews() {
-        IEnumerable<Project> projects = ProjectDataAccess.Instance.GetProjects();
+        IEnumerable<Project> projects = ProjectDataAccess.Instance.GetMany();
         List<ProjectProgressView> projectsProgress = [];
 
         foreach (Project project in projects) {
-            IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetAssignmentsByProjectId(project.ProjectId);
+            IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetManyByProjectId(project.ProjectId);
             int total = assignments.Count();
             int completed = assignments.Count(assignment => assignment.StatusId == 4);
             decimal percent = total != 0
@@ -107,23 +107,23 @@ public class ProjectBusiness {
     }
 
     public string[] GetProjectNamesByEmployeeId(int employeeId) {
-        IEnumerable<Project> projects = ProjectDataAccess.Instance.GetProjectsByEmployeeId(employeeId);
+        IEnumerable<Project> projects = ProjectDataAccess.Instance.GetManyByEmployeeId(employeeId);
         return [.. projects.Select(project => project.Name)];
     }
 
     public ProjectDto? GetProjectByAssignmentId(int assignmentId) {
-        Project? project = ProjectDataAccess.Instance.GetProjectByAssignmentId(assignmentId);
+        Project? project = ProjectDataAccess.Instance.GetByAssignmentId(assignmentId);
         return project?.ToDto();
     }
 
     public int DeleteProject(int projectId)
     {
-        return ProjectDataAccess.Instance.DeleteProject(projectId);
+        return ProjectDataAccess.Instance.Delete(projectId);
     }
     
     public int UpdateProject(ProjectDto dto)
     {
-        Project? entity = ProjectDataAccess.Instance.GetProjectByProjectId(dto.ProjectId);
+        Project? entity = ProjectDataAccess.Instance.GetById(dto.ProjectId);
         if (entity == null)
         {
             return 0;
@@ -138,12 +138,12 @@ public class ProjectBusiness {
             EndDate = new(dto.EndDate, entity.EndDate != dto.EndDate),
             StatusId = new(dto.StatusId, entity.StatusId != dto.StatusId),
         };
-        return ProjectDataAccess.Instance.UpdateProject(dto.ProjectId, updateInfo);
+        return ProjectDataAccess.Instance.Update(dto.ProjectId, updateInfo);
     }
 
     public int InsertProject(ProjectDto dto)
     {
         Project entity = dto.ToEntity();
-        return ProjectDataAccess.Instance.InsertProject(entity);
+        return ProjectDataAccess.Instance.Insert(entity);
     }
 }

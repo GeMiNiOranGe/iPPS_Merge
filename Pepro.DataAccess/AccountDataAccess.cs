@@ -7,17 +7,20 @@ using Pepro.DataAccess.Utilities;
 
 namespace Pepro.DataAccess;
 
-public class AccountDataAccess {
+public class AccountDataAccess
+{
     private static AccountDataAccess? _instance;
 
-    public static AccountDataAccess Instance {
+    public static AccountDataAccess Instance
+    {
         get => _instance ??= new();
         private set => _instance = value;
     }
 
     private AccountDataAccess() { }
 
-    public int InsertAccount(Account account) {
+    public int Insert(Account account)
+    {
         string query = @"
             INSERT INTO [Account]
             (
@@ -55,7 +58,7 @@ public class AccountDataAccess {
     /// <returns>
     ///     The matching <see cref="Account"/>, or null if not found.
     /// </returns>
-    public Account? FindAccount(string searchValue)
+    public Account? Find(string searchValue)
     {
         string query = @"
             SELECT Account.AccountId

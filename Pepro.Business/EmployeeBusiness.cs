@@ -22,19 +22,19 @@ public class EmployeeBusiness
 
     public IEnumerable<EmployeeDto> GetEmployees()
     {
-        IEnumerable<Employee> employees = EmployeeDataAccess.Instance.GetEmployees();
+        IEnumerable<Employee> employees = EmployeeDataAccess.Instance.GetMany();
         return employees.ToDtos();
     }
 
     public IEnumerable<EmployeeView> GetEmployeeViews()
     {
-        IEnumerable<Employee> employees = EmployeeDataAccess.Instance.GetEmployees();
+        IEnumerable<Employee> employees = EmployeeDataAccess.Instance.GetMany();
         return MapEmployeesToViews(employees);
     }
 
     public IEnumerable<EmployeeView> SearchEmployeeViews(string searchValue)
     {
-        IEnumerable<Employee> employees = EmployeeDataAccess.Instance.SearchEmployees(searchValue);
+        IEnumerable<Employee> employees = EmployeeDataAccess.Instance.Search(searchValue);
         return MapEmployeesToViews(employees);
     }
 
@@ -45,7 +45,7 @@ public class EmployeeBusiness
             .Distinct();
 
         Dictionary<int, string> departments = DepartmentDataAccess
-            .Instance.GetDepartmentsByDepartmentIds(departmentIds)
+            .Instance.GetManyByIds(departmentIds)
             .ToDictionary(d => d.DepartmentId, d => d.Name);
 
         IEnumerable<int> positionIds = employees
@@ -53,7 +53,7 @@ public class EmployeeBusiness
             .Distinct();
 
         Dictionary<int, string> positions = PositionDataAccess
-            .Instance.GetPositionsByPositionIds(positionIds)
+            .Instance.GetManyByIds(positionIds)
             .ToDictionary(p => p.PositionId, p => p.Title);
 
         return employees.Select(employee => new EmployeeView()
@@ -86,7 +86,7 @@ public class EmployeeBusiness
 
     public string GetDisplayNameByEmployeeId(int employeeId)
     {
-        Employee? employee = EmployeeDataAccess.Instance.GetEmployeeByEmployeeId(employeeId);
+        Employee? employee = EmployeeDataAccess.Instance.GetById(employeeId);
         return employee != null
             ? employee.FirstName + ", " + employee.LastName
             : "";
@@ -104,7 +104,7 @@ public class EmployeeBusiness
 
     public int UpdateEmployee(EmployeeDto dto)
     {
-        Employee? entity = EmployeeDataAccess.Instance.GetEmployeeByEmployeeId(dto.EmployeeId);
+        Employee? entity = EmployeeDataAccess.Instance.GetById(dto.EmployeeId);
         if (entity == null)
         {
             return 0;
@@ -126,12 +126,12 @@ public class EmployeeBusiness
             PositionId = new(dto.PositionId, entity.PositionId != dto.PositionId),
             SalaryLevelId = new(dto.SalaryLevelId, entity.SalaryLevelId != dto.SalaryLevelId)
         };
-        return EmployeeDataAccess.Instance.UpdateEmployee(dto.EmployeeId, updateInfo);
+        return EmployeeDataAccess.Instance.Update(dto.EmployeeId, updateInfo);
     }
 
     public int DeleteEmployee(int employeeId)
     {
-        return EmployeeDataAccess.Instance.DeleteEmployee(employeeId);
+        return EmployeeDataAccess.Instance.Delete(employeeId);
     }
 
     public bool DeleteEmployee(int roleID, string employeeID)
@@ -146,7 +146,7 @@ public class EmployeeBusiness
 
     public int InsertEmployee(EmployeeDto dto) {
         Employee entity = dto.ToEntity();
-        Employee? employee = EmployeeDataAccess.Instance.AddEmployee(entity);
+        Employee? employee = EmployeeDataAccess.Instance.Add(entity);
         if (employee == null) {
             return 0;
         }
@@ -154,7 +154,7 @@ public class EmployeeBusiness
     }
 
     public EmployeeDto? GetEmployeeByEmployeeId(int employeeID) {
-        Employee? employee = EmployeeDataAccess.Instance.GetEmployeeByEmployeeId(employeeID);
+        Employee? employee = EmployeeDataAccess.Instance.GetById(employeeID);
         return employee?.ToDto();
     }
 
@@ -163,31 +163,31 @@ public class EmployeeBusiness
     }
 
     public string[] GetPhoneNumbersByEmployeeId(int employeeID) {
-        IEnumerable<EmployeePhoneNumber> employeePhoneNumbers = EmployeeDataAccess.Instance.GetPhoneNumbersByEmployeeId(employeeID);
+        IEnumerable<EmployeePhoneNumber> employeePhoneNumbers = EmployeeDataAccess.Instance.GetPhoneNumbersById(employeeID);
         return [.. employeePhoneNumbers.Select(phoneNumber => phoneNumber.PhoneNumber)];
     }
 
     public IEnumerable<EmployeeDto> GetEmployeesByDepartmentId(int departmentId)
     {
-        IEnumerable<Employee> employees = EmployeeDataAccess.Instance.GetEmployeesByDepartmentId(departmentId);
+        IEnumerable<Employee> employees = EmployeeDataAccess.Instance.GetManyByDepartmentId(departmentId);
         return employees.ToDtos();
     }
 
     public IEnumerable<EmployeeDto> GetEmployeesByAssignmentId(int assignmentId)
     {
-        IEnumerable<Employee> employees = EmployeeDataAccess.Instance.GetEmployeesByAssignmentId(assignmentId);
+        IEnumerable<Employee> employees = EmployeeDataAccess.Instance.GetManyByAssignmentId(assignmentId);
         return employees.ToDtos();
     }
 
     public IEnumerable<EmployeeDto> GetEmployeesByProjectId(int projectId)
     {
-        IEnumerable<Employee> employees = EmployeeDataAccess.Instance.GetEmployeesByProjectId(projectId);
+        IEnumerable<Employee> employees = EmployeeDataAccess.Instance.GetManyByProjectId(projectId);
         return employees.ToDtos();
     }
 
     public IEnumerable<EmployeeDto> GetEmployeesByEmployeeIds(IEnumerable<int> employeeIds)
     {
-        IEnumerable<Employee> employees = EmployeeDataAccess.Instance.GetEmployeesByEmployeeIds(employeeIds);
+        IEnumerable<Employee> employees = EmployeeDataAccess.Instance.GetManyByIds(employeeIds);
         return employees.ToDtos();
     }
 }

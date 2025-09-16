@@ -16,12 +16,12 @@ public class PositionBusiness {
     private PositionBusiness() { }
 
     public IEnumerable<PositionDto> GetPositions() {
-        IEnumerable<Position> position = PositionDataAccess.Instance.GetPositions();
+        IEnumerable<Position> position = PositionDataAccess.Instance.GetMany();
         return position.ToDtos();
     }
 
     public string GetPositionTitleByEmployeeId(int employeeId) {
-        Position? position = PositionDataAccess.Instance.GetPositionByEmployeeId(employeeId);
+        Position? position = PositionDataAccess.Instance.GetByEmployeeId(employeeId);
         return position != null ? position.Title : "";
     }
 }

@@ -37,7 +37,7 @@ public class AccountBusiness
             IsActive = true,
             EmployeeId = employee.EmployeeId
         };
-        return AccountDataAccess.Instance.InsertAccount(account);
+        return AccountDataAccess.Instance.Insert(account);
     }
 
     public LoginResult TryLogin(string accountName, string password)
@@ -50,7 +50,7 @@ public class AccountBusiness
             return loginResult;
         }
 
-        Account? account = AccountDataAccess.Instance.FindAccount(accountName);
+        Account? account = AccountDataAccess.Instance.Find(accountName);
 
         if (account == null)
         {

@@ -8,17 +8,20 @@ using System.Data;
 
 namespace Pepro.DataAccess;
 
-public class ProjectDataAccess {
+public class ProjectDataAccess
+{
     private static ProjectDataAccess? _instance;
 
-    public static ProjectDataAccess Instance {
+    public static ProjectDataAccess Instance
+    {
         get => _instance ??= new();
         private set => _instance = value;
     }
 
     private ProjectDataAccess() { }
 
-    public Project? GetProjectByProjectId(int projectId) {
+    public Project? GetById(int projectId)
+    {
         string query = @"
             SELECT Project.ProjectId
                 , Project.Name
@@ -43,7 +46,7 @@ public class ProjectDataAccess {
             .MapToSingleOrDefault(ProjectMapper.FromDataRow);
     }
 
-    public IEnumerable<Project> GetProjectsByProjectIds(IEnumerable<int> projectIds)
+    public IEnumerable<Project> GetManyByIds(IEnumerable<int> projectIds)
     {
         if (projectIds == null || !projectIds.Any())
         {
@@ -83,7 +86,8 @@ public class ProjectDataAccess {
     /// <returns>
     ///     List of projects
     /// </returns>
-    public IEnumerable<Project> GetProjects() {
+    public IEnumerable<Project> GetMany()
+    {
         string query = @"
             SELECT Project.ProjectId
                 , Project.Name
@@ -105,7 +109,8 @@ public class ProjectDataAccess {
             .MapMany(ProjectMapper.FromDataRow);
     }
 
-    public IEnumerable<Project> SearchProjects(string searchValue) {
+    public IEnumerable<Project> Search(string searchValue)
+    {
         string query = @"
             SELECT Project.ProjectId
                 , Project.Name
@@ -135,7 +140,8 @@ public class ProjectDataAccess {
             .MapMany(ProjectMapper.FromDataRow);
     }
 
-    public IEnumerable<Project> GetProjectsByEmployeeId(int employeeId) {
+    public IEnumerable<Project> GetManyByEmployeeId(int employeeId)
+    {
         string query = @"
             SELECT DISTINCT Project.ProjectId
                 , Project.Name
@@ -164,7 +170,8 @@ public class ProjectDataAccess {
             .MapMany(ProjectMapper.FromDataRow);
     }
 
-    public Project? GetProjectByAssignmentId(int assignmentId) {
+    public Project? GetByAssignmentId(int assignmentId)
+    {
         string query = @"
             SELECT Project.ProjectId
                 , Project.Name
@@ -191,7 +198,8 @@ public class ProjectDataAccess {
             .MapToSingleOrDefault(ProjectMapper.FromDataRow);
     }
 
-    public int DeleteProject(int projectId) {
+    public int Delete(int projectId)
+    {
         string query = @"
             UPDATE Project
             SET IsDeleted = 1,
@@ -204,7 +212,8 @@ public class ProjectDataAccess {
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int UpdateProject(int projectId, ProjectUpdate info) {
+    public int Update(int projectId, ProjectUpdate info)
+    {
         SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Project")
             .Set("Name", SqlDbType.NVarChar, 50, info.Name)
             .Set("CustomerName", SqlDbType.NVarChar, 50, info.CustomerName)
@@ -224,7 +233,7 @@ public class ProjectDataAccess {
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int InsertProject(Project entity)
+    public int Insert(Project entity)
     {
         string query = @"
             INSERT INTO Project

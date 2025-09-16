@@ -28,7 +28,7 @@ public class SalaryBusiness
             .Distinct();
 
         Dictionary<int, SalaryLevel> salaryLevels = SalaryLevelDataAccess
-            .Instance.GetSalaryLevelsBySalaryLevelIds(salaryLevelIds)
+            .Instance.GetManyByIds(salaryLevelIds)
             .ToDictionary(
                 salaryLevel => salaryLevel.SalaryLevelId,
                 salaryLevel => salaryLevel
@@ -39,7 +39,7 @@ public class SalaryBusiness
             .Distinct();
 
         Dictionary<int, SalaryScale> salaryScales = SalaryScaleDataAccess
-            .Instance.GetSalaryScalesBySalaryScaleIds(salaryScaleIds)
+            .Instance.GetManyByIds(salaryScaleIds)
             .ToDictionary(
                 salaryScale => salaryScale.SalaryScaleId,
                 salaryScale => salaryScale
@@ -50,7 +50,7 @@ public class SalaryBusiness
             .Distinct();
 
         Dictionary<int, Position> positions = PositionDataAccess
-            .Instance.GetPositionsByPositionIds(positionIds)
+            .Instance.GetManyByIds(positionIds)
             .ToDictionary(
                 position => position.PositionId,
                 position => position
