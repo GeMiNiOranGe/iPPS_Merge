@@ -21,6 +21,36 @@ public class EmployeeDataAccess
 
     private EmployeeDataAccess() { }
 
+    public Employee? GetById(int employeeId)
+    {
+        string query = @"
+            SELECT Employee.EmployeeId
+                , Employee.FirstName
+                , Employee.MiddleName
+                , Employee.LastName
+                , Employee.DateOfBirth
+                , Employee.Gender
+                , Employee.TaxCode
+                , Employee.CitizenId
+                , Employee.DepartmentId
+                , Employee.PositionId
+                , Employee.SalaryLevelId
+                , Employee.IsDeleted
+                , Employee.CreatedAt
+                , Employee.UpdatedAt
+                , Employee.DeletedAt
+            FROM Employee
+            WHERE Employee.EmployeeId = @EmployeeId
+            AND Employee.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(EmployeeMapper.FromDataRow);
+    }
+
     public IEnumerable<Employee> GetMany()
     {
         string query = @"
@@ -45,6 +75,141 @@ public class EmployeeDataAccess
 
         return DataProvider
             .Instance.ExecuteQuery(query)
+            .MapMany(EmployeeMapper.FromDataRow);
+    }
+
+    public IEnumerable<Employee> GetManyByIds(IEnumerable<int> employeeIds)
+    {
+        if (employeeIds == null || !employeeIds.Any())
+        {
+            return [];
+        }
+
+        string query = @"
+            SELECT Employee.EmployeeId
+                , Employee.FirstName
+                , Employee.MiddleName
+                , Employee.LastName
+                , Employee.DateOfBirth
+                , Employee.Gender
+                , Employee.TaxCode
+                , Employee.CitizenId
+                , Employee.DepartmentId
+                , Employee.PositionId
+                , Employee.SalaryLevelId
+                , Employee.IsDeleted
+                , Employee.CreatedAt
+                , Employee.UpdatedAt
+                , Employee.DeletedAt
+            FROM Employee
+            INNER JOIN @EmployeeIds AS EmployeeIds
+                    ON EmployeeIds.Id = Employee.EmployeeId
+            WHERE Employee.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+
+        DataTable entityIds = TableParameters.CreateEntityIds(employeeIds);
+        parameters.AddTableValued("EmployeeIds", "EntityIds", entityIds);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(EmployeeMapper.FromDataRow);
+    }
+
+    public IEnumerable<Employee> GetManyByAssignmentId(int assignmentId)
+    {
+        string query = @"
+            SELECT Employee.EmployeeId
+                , Employee.FirstName
+                , Employee.MiddleName
+                , Employee.LastName
+                , Employee.DateOfBirth
+                , Employee.Gender
+                , Employee.TaxCode
+                , Employee.CitizenId
+                , Employee.DepartmentId
+                , Employee.PositionId
+                , Employee.SalaryLevelId
+                , Employee.IsDeleted
+                , Employee.CreatedAt
+                , Employee.UpdatedAt
+                , Employee.DeletedAt
+            FROM Employee
+            INNER JOIN AssignmentDetail
+                    ON AssignmentDetail.EmployeeId = Employee.EmployeeId
+            WHERE AssignmentDetail.AssignmentId = @AssignmentId
+            AND Employee.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(EmployeeMapper.FromDataRow);
+    }
+
+    public IEnumerable<Employee> GetManyByDepartmentId(int departmentId)
+    {
+        string query = @"
+            SELECT Employee.EmployeeId
+                , Employee.FirstName
+                , Employee.MiddleName
+                , Employee.LastName
+                , Employee.DateOfBirth
+                , Employee.Gender
+                , Employee.TaxCode
+                , Employee.CitizenId
+                , Employee.DepartmentId
+                , Employee.PositionId
+                , Employee.SalaryLevelId
+                , Employee.IsDeleted
+                , Employee.CreatedAt
+                , Employee.UpdatedAt
+                , Employee.DeletedAt
+            FROM Employee
+            WHERE Employee.DepartmentId = @DepartmentId
+            AND Employee.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("DepartmentId", SqlDbType.Int, departmentId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(EmployeeMapper.FromDataRow);
+    }
+
+    public IEnumerable<Employee> GetManyByProjectId(int projectId)
+    {
+        string query = @"
+            SELECT Employee.EmployeeId
+                , Employee.FirstName
+                , Employee.MiddleName
+                , Employee.LastName
+                , Employee.DateOfBirth
+                , Employee.Gender
+                , Employee.TaxCode
+                , Employee.CitizenId
+                , Employee.DepartmentId
+                , Employee.PositionId
+                , Employee.SalaryLevelId
+                , Employee.IsDeleted
+                , Employee.CreatedAt
+                , Employee.UpdatedAt
+                , Employee.DeletedAt
+            FROM Employee
+            INNER JOIN Department
+                    ON Department.DepartmentId = Employee.DepartmentId
+                    AND Department.IsDeleted = 0
+            INNER JOIN DepartmentProject
+                    ON DepartmentProject.DepartmentId = Department.DepartmentId
+            WHERE DepartmentProject.ProjectId = @ProjectId
+                AND Employee.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("ProjectId", SqlDbType.Int, projectId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
             .MapMany(EmployeeMapper.FromDataRow);
     }
 
@@ -81,69 +246,6 @@ public class EmployeeDataAccess
             .Instance.ExecuteQuery(query, [.. parameters])
             .MapMany(EmployeeMapper.FromDataRow);
     }
-
-    public DataTable GetEmployeeByRoleID(int roleID)
-    {
-        DataTable dataTable = new DataTable();
-        using (SqlConnection conn = new SqlConnection(""))
-        {
-            using (SqlCommand cmd = new SqlCommand("spSelectEmployees", conn))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@RoleID", roleID);
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dataTable);
-            }
-        }
-        return dataTable;
-    }
-
-    public bool UpdateEmployee(int roleID, string valueList, string employeeID)
-    {
-        SqlParameter[] parameters =
-        [
-            new("@RoleID", SqlDbType.Int) { Value = roleID },
-            new("@ValueList", SqlDbType.NVarChar) { Value = valueList },
-            new("@EmployeeID", SqlDbType.VarChar) { Value = employeeID }
-        ];
-
-        int numberOfRowsAffected = DataProvider.Instance.ExecuteNonQuery(
-            "usp_UpdateEmployee",
-            parameters,
-            CommandType.StoredProcedure
-        );
-        return numberOfRowsAffected > 0;
-    }
-
-    /*
-    public bool UpdateEmployee(int roleID, string valueList, string employeeID) {
-        try {
-            using (SqlConnection connection = new SqlConnection("")) {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand("dbo.usp_UpdateEmployee", connection);
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.AddWithValue("@RoleID", roleID);
-                command.Parameters.AddWithValue("@ValueList", valueList);
-                command.Parameters.AddWithValue("@EmployeeID", employeeID);
-
-                command.ExecuteNonQuery();
-
-                return true;
-            }
-        }
-        catch (SqlException ex) {
-            // Xử lý các ngoại lệ SQL
-            throw new Exception("SQL Error: " + ex.Message);
-        }
-        catch (Exception ex) {
-            // Xử lý các ngoại lệ khác
-            throw new Exception("Error: " + ex.Message);
-        }
-    }
-    */
 
     public Employee? Add(Employee employee)
     {
@@ -292,6 +394,69 @@ public class EmployeeDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
+    public DataTable GetEmployeeByRoleID(int roleID)
+    {
+        DataTable dataTable = new DataTable();
+        using (SqlConnection conn = new SqlConnection(""))
+        {
+            using (SqlCommand cmd = new SqlCommand("spSelectEmployees", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@RoleID", roleID);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dataTable);
+            }
+        }
+        return dataTable;
+    }
+
+    public bool UpdateEmployee(int roleID, string valueList, string employeeID)
+    {
+        SqlParameter[] parameters =
+        [
+            new("@RoleID", SqlDbType.Int) { Value = roleID },
+            new("@ValueList", SqlDbType.NVarChar) { Value = valueList },
+            new("@EmployeeID", SqlDbType.VarChar) { Value = employeeID }
+        ];
+
+        int numberOfRowsAffected = DataProvider.Instance.ExecuteNonQuery(
+            "usp_UpdateEmployee",
+            parameters,
+            CommandType.StoredProcedure
+        );
+        return numberOfRowsAffected > 0;
+    }
+
+    /*
+    public bool UpdateEmployee(int roleID, string valueList, string employeeID) {
+        try {
+            using (SqlConnection connection = new SqlConnection("")) {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("dbo.usp_UpdateEmployee", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@RoleID", roleID);
+                command.Parameters.AddWithValue("@ValueList", valueList);
+                command.Parameters.AddWithValue("@EmployeeID", employeeID);
+
+                command.ExecuteNonQuery();
+
+                return true;
+            }
+        }
+        catch (SqlException ex) {
+            // Xử lý các ngoại lệ SQL
+            throw new Exception("SQL Error: " + ex.Message);
+        }
+        catch (Exception ex) {
+            // Xử lý các ngoại lệ khác
+            throw new Exception("Error: " + ex.Message);
+        }
+    }
+    */
+
     public bool DeleteEmployee(int roleID, string employeeID)
     {
         using (SqlConnection connection = new SqlConnection(""))
@@ -340,36 +505,6 @@ public class EmployeeDataAccess
         }
     }
 
-    public Employee? GetById(int employeeId)
-    {
-        string query = @"
-            SELECT Employee.EmployeeId
-                , Employee.FirstName
-                , Employee.MiddleName
-                , Employee.LastName
-                , Employee.DateOfBirth
-                , Employee.Gender
-                , Employee.TaxCode
-                , Employee.CitizenId
-                , Employee.DepartmentId
-                , Employee.PositionId
-                , Employee.SalaryLevelId
-                , Employee.IsDeleted
-                , Employee.CreatedAt
-                , Employee.UpdatedAt
-                , Employee.DeletedAt
-            FROM Employee
-            WHERE Employee.EmployeeId = @EmployeeId
-            AND Employee.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapToSingleOrDefault(EmployeeMapper.FromDataRow);
-    }
-
     //Lấy dữ liệu từ table ROLE trong database dựa vào EMPLOYEE_ID
     public CRole GetRolebyEmployeeID(string employeeID)
     {
@@ -399,140 +534,5 @@ public class EmployeeDataAccess
         return DataProvider
             .Instance.ExecuteQuery(query, [.. parameters])
             .MapMany(EmployeePhoneNumberMapper.FromDataRow);
-    }
-
-    public IEnumerable<Employee> GetManyByAssignmentId(int assignmentId)
-    {
-        string query = @"
-            SELECT Employee.EmployeeId
-                , Employee.FirstName
-                , Employee.MiddleName
-                , Employee.LastName
-                , Employee.DateOfBirth
-                , Employee.Gender
-                , Employee.TaxCode
-                , Employee.CitizenId
-                , Employee.DepartmentId
-                , Employee.PositionId
-                , Employee.SalaryLevelId
-                , Employee.IsDeleted
-                , Employee.CreatedAt
-                , Employee.UpdatedAt
-                , Employee.DeletedAt
-            FROM Employee
-            INNER JOIN AssignmentDetail
-                    ON AssignmentDetail.EmployeeId = Employee.EmployeeId
-            WHERE AssignmentDetail.AssignmentId = @AssignmentId
-            AND Employee.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapMany(EmployeeMapper.FromDataRow);
-    }
-
-    public IEnumerable<Employee> GetManyByDepartmentId(int departmentId)
-    {
-        string query = @"
-            SELECT Employee.EmployeeId
-                , Employee.FirstName
-                , Employee.MiddleName
-                , Employee.LastName
-                , Employee.DateOfBirth
-                , Employee.Gender
-                , Employee.TaxCode
-                , Employee.CitizenId
-                , Employee.DepartmentId
-                , Employee.PositionId
-                , Employee.SalaryLevelId
-                , Employee.IsDeleted
-                , Employee.CreatedAt
-                , Employee.UpdatedAt
-                , Employee.DeletedAt
-            FROM Employee
-            WHERE Employee.DepartmentId = @DepartmentId
-            AND Employee.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("DepartmentId", SqlDbType.Int, departmentId);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapMany(EmployeeMapper.FromDataRow);
-    }
-
-    public IEnumerable<Employee> GetManyByProjectId(int projectId)
-    {
-        string query = @"
-            SELECT Employee.EmployeeId
-                , Employee.FirstName
-                , Employee.MiddleName
-                , Employee.LastName
-                , Employee.DateOfBirth
-                , Employee.Gender
-                , Employee.TaxCode
-                , Employee.CitizenId
-                , Employee.DepartmentId
-                , Employee.PositionId
-                , Employee.SalaryLevelId
-                , Employee.IsDeleted
-                , Employee.CreatedAt
-                , Employee.UpdatedAt
-                , Employee.DeletedAt
-            FROM Employee
-            INNER JOIN Department
-                    ON Department.DepartmentId = Employee.DepartmentId
-                    AND Department.IsDeleted = 0
-            INNER JOIN DepartmentProject
-                    ON DepartmentProject.DepartmentId = Department.DepartmentId
-            WHERE DepartmentProject.ProjectId = @ProjectId
-                AND Employee.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("ProjectId", SqlDbType.Int, projectId);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapMany(EmployeeMapper.FromDataRow);
-    }
-
-    public IEnumerable<Employee> GetManyByIds(IEnumerable<int> employeeIds)
-    {
-        if (employeeIds == null || !employeeIds.Any())
-        {
-            return [];
-        }
-
-        string query = @"
-            SELECT Employee.EmployeeId
-                , Employee.FirstName
-                , Employee.MiddleName
-                , Employee.LastName
-                , Employee.DateOfBirth
-                , Employee.Gender
-                , Employee.TaxCode
-                , Employee.CitizenId
-                , Employee.DepartmentId
-                , Employee.PositionId
-                , Employee.SalaryLevelId
-                , Employee.IsDeleted
-                , Employee.CreatedAt
-                , Employee.UpdatedAt
-                , Employee.DeletedAt
-            FROM Employee
-            INNER JOIN @EmployeeIds AS EmployeeIds
-                    ON EmployeeIds.Id = Employee.EmployeeId
-            WHERE Employee.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-
-        DataTable entityIds = TableParameters.CreateEntityIds(employeeIds);
-        parameters.AddTableValued("EmployeeIds", "EntityIds", entityIds);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapMany(EmployeeMapper.FromDataRow);
     }
 }
