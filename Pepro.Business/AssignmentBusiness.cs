@@ -100,18 +100,32 @@ public class AssignmentBusiness {
         return MapAssignmentsToProgressViews(assignments);
     }
 
-    public IEnumerable<AssignmentProgressView> MapAssignmentsToProgressViews(IEnumerable<Assignment> assignments)
+    private IEnumerable<AssignmentProgressView> MapAssignmentsToProgressViews(IEnumerable<Assignment> assignments)
     {
-        List<AssignmentProgressView> assignmentsProgress = [];
+        IEnumerable<int> assignmentIds = assignments
+            .Select(assignment => assignment.AssignmentId)
+            .Distinct();
 
-        foreach (Assignment assignment in assignments) {
+        Dictionary<int, int> documentCounts = AssignmentDataAccess
+            .Instance.CountDocumentsByAssignmentIds(assignmentIds)
+            .ToDictionary(
+                item => item.AssignmentId,
+                item => item.DocumentCount
+            );
+
+        return assignments.Select(assignment =>
+        {
+            documentCounts.TryGetValue(
+                assignment.AssignmentId,
+                out int documentCount
+            );
             int requiredDocumentCount = assignment.RequiredDocumentCount;
-            int documentCount = DocumentDataAccess.Instance.CountDocumentsByAssignmentId(assignment.AssignmentId);
             decimal percent = requiredDocumentCount != 0
                 ? Math.Round(documentCount * 100m / requiredDocumentCount, 2)
                 : 0;
 
-            assignmentsProgress.Add(new AssignmentProgressView {
+            return new AssignmentProgressView
+            {
                 AssignmentId = assignment.AssignmentId,
                 Name = assignment.Name,
                 IsPublicToProject = assignment.IsPublicToProject,
@@ -123,10 +137,8 @@ public class AssignmentBusiness {
                 ProjectId = assignment.ProjectId,
                 StatusId = assignment.StatusId,
                 ProgressPercent = percent
-            });
-        }
-
-        return assignmentsProgress;
+            };
+        });
     }
 
     public EmployeeDto? GetAssignmentManager(int assignmentId) {

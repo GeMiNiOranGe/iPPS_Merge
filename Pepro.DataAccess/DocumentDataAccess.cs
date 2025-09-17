@@ -75,20 +75,6 @@ public class DocumentDataAccess
             .MapMany(DocumentMapper.FromDataRow);
     }
 
-    public int CountDocumentsByAssignmentId(int assignmentId)
-    {
-        string query = @"
-            SELECT Count(Document.AssignmentId)
-            FROM Document
-            WHERE Document.AssignmentId = @AssignmentId
-                AND Document.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
-
-        return (int)DataProvider.Instance.ExecuteScalar(query, [.. parameters]);
-    }
-
     public int Delete(int documentId)
     {
         string query = @"
