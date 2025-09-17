@@ -46,6 +46,34 @@ public class ProjectDataAccess
             .MapToSingleOrDefault(ProjectMapper.FromDataRow);
     }
 
+    public Project? GetByAssignmentId(int assignmentId)
+    {
+        string query = @"
+            SELECT Project.ProjectId
+                , Project.Name
+                , Project.CustomerName
+                , Project.ManagerId
+                , Project.StartDate
+                , Project.EndDate
+                , Project.StatusId
+                , Project.IsDeleted
+                , Project.CreatedAt
+                , Project.UpdatedAt
+                , Project.DeletedAt
+            FROM Project
+            INNER JOIN Assignment
+                    ON Assignment.ProjectId = Project.ProjectId
+            WHERE Assignment.AssignmentId = @AssignmentId
+                AND Project.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(ProjectMapper.FromDataRow);
+    }
+
     /// <summary>
     ///     Retrieve all projects
     /// </summary>
@@ -168,34 +196,6 @@ public class ProjectDataAccess
         return DataProvider
             .Instance.ExecuteQuery(query, [.. parameters])
             .MapMany(ProjectMapper.FromDataRow);
-    }
-
-    public Project? GetByAssignmentId(int assignmentId)
-    {
-        string query = @"
-            SELECT Project.ProjectId
-                , Project.Name
-                , Project.CustomerName
-                , Project.ManagerId
-                , Project.StartDate
-                , Project.EndDate
-                , Project.StatusId
-                , Project.IsDeleted
-                , Project.CreatedAt
-                , Project.UpdatedAt
-                , Project.DeletedAt
-            FROM Project
-            INNER JOIN Assignment
-                    ON Assignment.ProjectId = Project.ProjectId
-            WHERE Assignment.AssignmentId = @AssignmentId
-                AND Project.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapToSingleOrDefault(ProjectMapper.FromDataRow);
     }
 
     public int Insert(Project entity)

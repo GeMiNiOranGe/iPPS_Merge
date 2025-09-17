@@ -113,20 +113,6 @@ public class DepartmentDataAccess
             .MapMany(DepartmentMapper.FromDataRow);
     }
 
-    public int Delete(int departmentId)
-    {
-        string query = @"
-            UPDATE Department
-            SET IsDeleted = 1,
-                DeletedAt = GetDate()
-            WHERE DepartmentId = @DepartmentId
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("DepartmentId", SqlDbType.Int, departmentId);
-
-        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
-    }
-
     public int Insert(Department entity)
     {
         string query = @"
@@ -162,6 +148,20 @@ public class DepartmentDataAccess
         {
             return 0;
         }
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
+    public int Delete(int departmentId)
+    {
+        string query = @"
+            UPDATE Department
+            SET IsDeleted = 1,
+                DeletedAt = GetDate()
+            WHERE DepartmentId = @DepartmentId
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("DepartmentId", SqlDbType.Int, departmentId);
+
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 

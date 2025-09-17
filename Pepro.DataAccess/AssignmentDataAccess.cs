@@ -108,35 +108,6 @@ public class AssignmentDataAccess
             .MapMany(AssignmentMapper.FromDataRow);
     }
 
-    public IEnumerable<Assignment> GetManyByProjectId(int projectId)
-    {
-        string query = @"
-            SELECT Assignment.AssignmentId
-                , Assignment.Name
-                , Assignment.IsPublicToProject
-                , Assignment.IsPublicToDepartment
-                , Assignment.StartDate
-                , Assignment.EndDate
-                , Assignment.RequiredDocumentCount
-                , Assignment.ManagerId
-                , Assignment.ProjectId
-                , Assignment.StatusId
-                , Assignment.IsDeleted
-                , Assignment.CreatedAt
-                , Assignment.UpdatedAt
-                , Assignment.DeletedAt
-            FROM Assignment 
-            WHERE Assignment.ProjectId = @ProjectId
-                AND Assignment.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("ProjectId", SqlDbType.Int, projectId);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapMany(AssignmentMapper.FromDataRow);
-    }
-
     public IEnumerable<Assignment> GetManyByEmployeeId(int employeeId)
     {
         string query = @"
@@ -162,6 +133,35 @@ public class AssignmentDataAccess
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(AssignmentMapper.FromDataRow);
+    }
+
+    public IEnumerable<Assignment> GetManyByProjectId(int projectId)
+    {
+        string query = @"
+            SELECT Assignment.AssignmentId
+                , Assignment.Name
+                , Assignment.IsPublicToProject
+                , Assignment.IsPublicToDepartment
+                , Assignment.StartDate
+                , Assignment.EndDate
+                , Assignment.RequiredDocumentCount
+                , Assignment.ManagerId
+                , Assignment.ProjectId
+                , Assignment.StatusId
+                , Assignment.IsDeleted
+                , Assignment.CreatedAt
+                , Assignment.UpdatedAt
+                , Assignment.DeletedAt
+            FROM Assignment 
+            WHERE Assignment.ProjectId = @ProjectId
+                AND Assignment.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("ProjectId", SqlDbType.Int, projectId);
 
         return DataProvider
             .Instance.ExecuteQuery(query, [.. parameters])
