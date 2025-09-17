@@ -2,6 +2,7 @@
 using Pepro.Presentation.Controls.Templates;
 using Pepro.Presentation.Extensions;
 using Pepro.Presentation.Utilities;
+using System.Globalization;
 
 namespace Pepro.Presentation.Controls.Pages;
 
@@ -26,6 +27,10 @@ public partial class PayrollPage : MediatedTemplate
     private void PayrollPage_Load(object sender, EventArgs e)
     {
         LoadPayroll();
+        baseSalaryLabel.Text += SalaryBusiness.BASE_SALARY.ToString(
+            "C",
+            CultureInfo.CreateSpecificCulture("vi-VN")
+        );
     }
 
     private void ExportButton_Click(object sender, EventArgs e)
