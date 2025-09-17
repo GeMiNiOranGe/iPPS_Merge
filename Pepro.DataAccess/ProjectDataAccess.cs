@@ -137,6 +137,36 @@ public class ProjectDataAccess
             .MapMany(ProjectMapper.FromDataRow);
     }
 
+    public IEnumerable<Project> GetManyByEmployeeId(int employeeId)
+    {
+        string query = @"
+            SELECT DISTINCT Project.ProjectId
+                , Project.Name
+                , Project.CustomerName
+                , Project.ManagerId
+                , Project.StartDate
+                , Project.EndDate
+                , Project.StatusId
+                , Project.IsDeleted
+                , Project.CreatedAt
+                , Project.UpdatedAt
+                , Project.DeletedAt
+            FROM Project
+            INNER JOIN Assignment
+                    ON Assignment.ProjectId = Project.ProjectId
+            INNER JOIN AssignmentDetail
+                    ON AssignmentDetail.AssignmentId = Assignment.AssignmentId
+            WHERE AssignmentDetail.EmployeeId = @EmployeeId
+                AND Project.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(ProjectMapper.FromDataRow);
+    }
+
     public IEnumerable<Project> Search(string searchValue)
     {
         string query = @"
@@ -162,36 +192,6 @@ public class ProjectDataAccess
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapMany(ProjectMapper.FromDataRow);
-    }
-
-    public IEnumerable<Project> GetManyByEmployeeId(int employeeId)
-    {
-        string query = @"
-            SELECT DISTINCT Project.ProjectId
-                , Project.Name
-                , Project.CustomerName
-                , Project.ManagerId
-                , Project.StartDate
-                , Project.EndDate
-                , Project.StatusId
-                , Project.IsDeleted
-                , Project.CreatedAt
-                , Project.UpdatedAt
-                , Project.DeletedAt
-            FROM Project
-            INNER JOIN Assignment
-                    ON Assignment.ProjectId = Project.ProjectId
-            INNER JOIN AssignmentDetail
-                    ON AssignmentDetail.AssignmentId = Assignment.AssignmentId
-            WHERE AssignmentDetail.EmployeeId = @EmployeeId
-                AND Project.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
 
         return DataProvider
             .Instance.ExecuteQuery(query, [.. parameters])
