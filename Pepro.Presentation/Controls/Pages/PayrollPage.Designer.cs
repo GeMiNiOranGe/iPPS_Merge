@@ -41,6 +41,7 @@ partial class PayrollPage
         positionAllowanceColumn = new DataGridViewTextBoxColumn();
         grossSalaryColumn = new DataGridViewTextBoxColumn();
         exportButton = new Button();
+        baseSalaryLabel = new Label();
         ((System.ComponentModel.ISupportInitialize)payrollDataGridView).BeginInit();
         SuspendLayout();
         // 
@@ -137,20 +138,33 @@ partial class PayrollPage
         exportButton.Text = "Export";
         exportButton.Click += ExportButton_Click;
         // 
+        // baseSalaryLabel
+        // 
+        baseSalaryLabel.AutoSize = true;
+        baseSalaryLabel.Location = new Point(152, 75);
+        baseSalaryLabel.Margin = new Padding(24, 0, 0, 0);
+        baseSalaryLabel.Name = "baseSalaryLabel";
+        baseSalaryLabel.Size = new Size(83, 19);
+        baseSalaryLabel.TabIndex = 3;
+        baseSalaryLabel.Text = "Base salary: ";
+        // 
         // PayrollPage
         // 
         AutoScaleDimensions = new SizeF(8F, 19F);
         AutoScaleMode = AutoScaleMode.Font;
         Controls.Add(exportButton);
+        Controls.Add(baseSalaryLabel);
         Controls.Add(payrollDataGridView);
         HeaderText = "Payroll";
         Name = "PayrollPage";
         ReturnButtonVisible = false;
         Load += PayrollPage_Load;
         Controls.SetChildIndex(payrollDataGridView, 0);
+        Controls.SetChildIndex(baseSalaryLabel, 0);
         Controls.SetChildIndex(exportButton, 0);
         ((System.ComponentModel.ISupportInitialize)payrollDataGridView).EndInit();
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
@@ -166,4 +180,5 @@ partial class PayrollPage
     private DataGridViewTextBoxColumn positionAllowancePercentColumn;
     private DataGridViewTextBoxColumn positionAllowanceColumn;
     private DataGridViewTextBoxColumn grossSalaryColumn;
+    private Label baseSalaryLabel;
 }

@@ -17,7 +17,7 @@ public class SalaryBusiness
 
     private SalaryBusiness() { }
 
-    private const decimal baseSalary = 2_340_000m;
+    public const decimal BASE_SALARY = 2_340_000m;
 
     public IEnumerable<Salary> GetPayroll()
     {
@@ -74,7 +74,7 @@ public class SalaryBusiness
 
             positions.TryGetValue(employee.PositionId, out Position? position);
 
-            decimal basicSalary = salaryLevel?.Coefficient * baseSalary ?? 0;
+            decimal basicSalary = salaryLevel?.Coefficient * BASE_SALARY ?? 0;
             decimal positionAllowance = position?.AllowancePercent * basicSalary ?? 0;
             decimal grossSalary = basicSalary + positionAllowance;
 
