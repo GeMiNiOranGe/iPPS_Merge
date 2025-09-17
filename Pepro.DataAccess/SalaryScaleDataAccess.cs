@@ -19,6 +19,25 @@ public class SalaryScaleDataAccess
 
     private SalaryScaleDataAccess() { }
 
+    public SalaryScale? GetBySalaryLevelId(int salaryLevelId)
+    {
+        string query = @"
+            SELECT SalaryScale.SalaryScaleId
+                , SalaryScale.[Group]
+                , SalaryScale.Name
+            FROM SalaryScale
+            INNER JOIN SalaryLevel
+                    ON SalaryLevel.SalaryScaleId = SalaryScale.SalaryScaleId
+            WHERE SalaryLevel.SalaryLevelId = @SalaryLevelId
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("SalaryLevelId", SqlDbType.Int, salaryLevelId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(SalaryScaleMapper.FromDataRow);
+    }
+
     public IEnumerable<SalaryScale> GetMany()
     {
         string query = @"
@@ -56,24 +75,5 @@ public class SalaryScaleDataAccess
         return DataProvider
             .Instance.ExecuteQuery(query, [.. parameters])
             .MapMany(SalaryScaleMapper.FromDataRow);
-    }
-
-    public SalaryScale? GetBySalaryLevelId(int salaryLevelId)
-    {
-        string query = @"
-            SELECT SalaryScale.SalaryScaleId
-                , SalaryScale.[Group]
-                , SalaryScale.Name
-            FROM SalaryScale
-            INNER JOIN SalaryLevel
-                    ON SalaryLevel.SalaryScaleId = SalaryScale.SalaryScaleId
-            WHERE SalaryLevel.SalaryLevelId = @SalaryLevelId
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("SalaryLevelId", SqlDbType.Int, salaryLevelId);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapToSingleOrDefault(SalaryScaleMapper.FromDataRow);
     }
 }

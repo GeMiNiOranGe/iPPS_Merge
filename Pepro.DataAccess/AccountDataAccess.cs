@@ -19,6 +19,35 @@ public class AccountDataAccess
 
     private AccountDataAccess() { }
 
+    /// <summary>
+    ///     Finds an account using a flexible search value (e.g., username, or email).
+    /// </summary>
+    /// <param name="searchValue">
+    ///     The string value used to search across multiple account fields.
+    /// </param>
+    /// <returns>
+    ///     The matching <see cref="Account"/>, or null if not found.
+    /// </returns>
+    public Account? Find(string searchValue)
+    {
+        string query = @"
+            SELECT Account.AccountId
+                , Account.Username
+                , Account.Salt
+                , Account.Password
+                , Account.EmployeeId
+                , Account.IsActive
+            FROM Account
+            WHERE Account.Username = @SearchValue
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(AccountMapper.FromDataRow);
+    }
+
     public int Insert(Account account)
     {
         string query = @"
@@ -47,34 +76,5 @@ public class AccountDataAccess
         parameters.Add("EmployeeId", SqlDbType.VarChar, 10, account.EmployeeId);
 
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
-    }
-
-    /// <summary>
-    ///     Finds an account using a flexible search value (e.g., username, or email).
-    /// </summary>
-    /// <param name="searchValue">
-    ///     The string value used to search across multiple account fields.
-    /// </param>
-    /// <returns>
-    ///     The matching <see cref="Account"/>, or null if not found.
-    /// </returns>
-    public Account? Find(string searchValue)
-    {
-        string query = @"
-            SELECT Account.AccountId
-                , Account.Username
-                , Account.Salt
-                , Account.Password
-                , Account.EmployeeId
-                , Account.IsActive
-            FROM Account
-            WHERE Account.Username = @SearchValue
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapToSingleOrDefault(AccountMapper.FromDataRow);
     }
 }
