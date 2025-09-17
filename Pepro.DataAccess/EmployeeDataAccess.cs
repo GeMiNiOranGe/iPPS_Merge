@@ -145,93 +145,6 @@ public class EmployeeDataAccess
     }
     */
 
-    public int Update(int employeeId, EmployeeUpdate entity)
-    {
-        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Employee")
-            .Set("FirstName", SqlDbType.NVarChar, 10, entity.FirstName)
-            .Set("MiddleName", SqlDbType.NVarChar, 30, entity.MiddleName)
-            .Set("LastName", SqlDbType.NVarChar, 10, entity.LastName)
-            .Set("DateOfBirth", SqlDbType.Date, entity.DateOfBirth)
-            .Set("Gender", SqlDbType.Bit, entity.Gender)
-            .Set("TaxCode", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, entity.TaxCode)
-            .Set("CitizenId", SqlDbType.VarChar, 12, entity.CitizenId)
-            .Set("DepartmentId", SqlDbType.Int, entity.DepartmentId)
-            .Set("PositionId", SqlDbType.Int, entity.PositionId)
-            .Set("SalaryLevelId", SqlDbType.Int, entity.SalaryLevelId)
-            .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
-            .Where("EmployeeId", SqlDbType.Int, employeeId);
-
-        (string query, List<SqlParameter> parameters) = builder.Build();
-
-        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
-        {
-            return 0;
-        }
-        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
-    }
-
-    public int Delete(int employeeId)
-    {
-        string query = @"
-            UPDATE Employee
-            SET IsDeleted = 1,
-                DeletedAt = GetDate()
-            WHERE EmployeeId = @EmployeeId
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
-
-        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
-    }
-
-    public bool DeleteEmployee(int roleID, string employeeID)
-    {
-        using (SqlConnection connection = new SqlConnection(""))
-        {
-            try
-            {
-                using (SqlCommand command = new SqlCommand("spDeleteEmployee", connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@RoleID", roleID);
-                    command.Parameters.AddWithValue("@EmployeeID", employeeID);
-
-                    connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception("An error occurred while deleting the employee.", ex);
-            }
-        }
-    }
-
-    public void InsertEmployee(string employeeId, string fullname, bool? gender, DateTime? dateOfBirth, string phoneNumber, string salary, string allowance, string taxCode, string departmentId)
-    {
-        using (SqlConnection conn = new SqlConnection(""))
-        {
-            using (SqlCommand cmd = new SqlCommand("spInsertEmployeeFull", conn))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@EmployeeId", (object)employeeId ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@Fullname", fullname);
-                cmd.Parameters.AddWithValue("@Gender", (object)gender ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@DateOfBirth", (object)dateOfBirth ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@PhoneNumber", (object)phoneNumber ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@Salary", salary);
-                cmd.Parameters.AddWithValue("@Allowance", allowance);
-                cmd.Parameters.AddWithValue("@TaxCode", (object)taxCode ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@DepartmentId", departmentId);
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
-        }
-    }
-
     public Employee? Add(Employee employee)
     {
         string query = @"
@@ -340,6 +253,93 @@ public class EmployeeDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
+    public int Update(int employeeId, EmployeeUpdate entity)
+    {
+        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Employee")
+            .Set("FirstName", SqlDbType.NVarChar, 10, entity.FirstName)
+            .Set("MiddleName", SqlDbType.NVarChar, 30, entity.MiddleName)
+            .Set("LastName", SqlDbType.NVarChar, 10, entity.LastName)
+            .Set("DateOfBirth", SqlDbType.Date, entity.DateOfBirth)
+            .Set("Gender", SqlDbType.Bit, entity.Gender)
+            .Set("TaxCode", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, entity.TaxCode)
+            .Set("CitizenId", SqlDbType.VarChar, 12, entity.CitizenId)
+            .Set("DepartmentId", SqlDbType.Int, entity.DepartmentId)
+            .Set("PositionId", SqlDbType.Int, entity.PositionId)
+            .Set("SalaryLevelId", SqlDbType.Int, entity.SalaryLevelId)
+            .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
+            .Where("EmployeeId", SqlDbType.Int, employeeId);
+
+        (string query, List<SqlParameter> parameters) = builder.Build();
+
+        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
+        {
+            return 0;
+        }
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
+    public int Delete(int employeeId)
+    {
+        string query = @"
+            UPDATE Employee
+            SET IsDeleted = 1,
+                DeletedAt = GetDate()
+            WHERE EmployeeId = @EmployeeId
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
+
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
+    public bool DeleteEmployee(int roleID, string employeeID)
+    {
+        using (SqlConnection connection = new SqlConnection(""))
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("spDeleteEmployee", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@RoleID", roleID);
+                    command.Parameters.AddWithValue("@EmployeeID", employeeID);
+
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("An error occurred while deleting the employee.", ex);
+            }
+        }
+    }
+
+    public void InsertEmployee(string employeeId, string fullname, bool? gender, DateTime? dateOfBirth, string phoneNumber, string salary, string allowance, string taxCode, string departmentId)
+    {
+        using (SqlConnection conn = new SqlConnection(""))
+        {
+            using (SqlCommand cmd = new SqlCommand("spInsertEmployeeFull", conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@EmployeeId", (object)employeeId ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@Fullname", fullname);
+                cmd.Parameters.AddWithValue("@Gender", (object)gender ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@DateOfBirth", (object)dateOfBirth ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@PhoneNumber", (object)phoneNumber ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@Salary", salary);
+                cmd.Parameters.AddWithValue("@Allowance", allowance);
+                cmd.Parameters.AddWithValue("@TaxCode", (object)taxCode ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@DepartmentId", departmentId);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
+
     public Employee? GetById(int employeeId)
     {
         string query = @"
@@ -401,36 +401,6 @@ public class EmployeeDataAccess
             .MapMany(EmployeePhoneNumberMapper.FromDataRow);
     }
 
-    public IEnumerable<Employee> GetManyByDepartmentId(int departmentId)
-    {
-        string query = @"
-            SELECT Employee.EmployeeId
-                , Employee.FirstName
-                , Employee.MiddleName
-                , Employee.LastName
-                , Employee.DateOfBirth
-                , Employee.Gender
-                , Employee.TaxCode
-                , Employee.CitizenId
-                , Employee.DepartmentId
-                , Employee.PositionId
-                , Employee.SalaryLevelId
-                , Employee.IsDeleted
-                , Employee.CreatedAt
-                , Employee.UpdatedAt
-                , Employee.DeletedAt
-            FROM Employee
-            WHERE Employee.DepartmentId = @DepartmentId
-            AND Employee.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("DepartmentId", SqlDbType.Int, departmentId);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapMany(EmployeeMapper.FromDataRow);
-    }
-
     public IEnumerable<Employee> GetManyByAssignmentId(int assignmentId)
     {
         string query = @"
@@ -457,6 +427,36 @@ public class EmployeeDataAccess
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(EmployeeMapper.FromDataRow);
+    }
+
+    public IEnumerable<Employee> GetManyByDepartmentId(int departmentId)
+    {
+        string query = @"
+            SELECT Employee.EmployeeId
+                , Employee.FirstName
+                , Employee.MiddleName
+                , Employee.LastName
+                , Employee.DateOfBirth
+                , Employee.Gender
+                , Employee.TaxCode
+                , Employee.CitizenId
+                , Employee.DepartmentId
+                , Employee.PositionId
+                , Employee.SalaryLevelId
+                , Employee.IsDeleted
+                , Employee.CreatedAt
+                , Employee.UpdatedAt
+                , Employee.DeletedAt
+            FROM Employee
+            WHERE Employee.DepartmentId = @DepartmentId
+            AND Employee.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("DepartmentId", SqlDbType.Int, departmentId);
 
         return DataProvider
             .Instance.ExecuteQuery(query, [.. parameters])

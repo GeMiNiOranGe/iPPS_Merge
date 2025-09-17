@@ -168,6 +168,37 @@ public class AssignmentDataAccess
             .MapMany(AssignmentMapper.FromDataRow);
     }
 
+    public Assignment? GetByDocumentId(int documentId)
+    {
+        string query = @"
+            SELECT Assignment.AssignmentId
+                , Assignment.Name
+                , Assignment.IsPublicToProject
+                , Assignment.IsPublicToDepartment
+                , Assignment.StartDate
+                , Assignment.EndDate
+                , Assignment.RequiredDocumentCount
+                , Assignment.ManagerId
+                , Assignment.ProjectId
+                , Assignment.StatusId
+                , Assignment.IsDeleted
+                , Assignment.CreatedAt
+                , Assignment.UpdatedAt
+                , Assignment.DeletedAt
+            FROM Assignment
+            INNER JOIN Document
+                    ON Document.AssignmentId = Assignment.AssignmentId
+            WHERE Document.DocumentId = @DocumentId
+                AND Assignment.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("DocumentId", SqlDbType.Int, documentId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(AssignmentMapper.FromDataRow);
+    }
+
     /// <summary>
     ///     Take out the manager of the assignment
     /// </summary>
@@ -205,75 +236,6 @@ public class AssignmentDataAccess
         return DataProvider
             .Instance.ExecuteQuery(query, [.. parameters])
             .MapToSingleOrDefault(EmployeeMapper.FromDataRow);
-    }
-
-    public Assignment? GetByDocumentId(int documentId)
-    {
-        string query = @"
-            SELECT Assignment.AssignmentId
-                , Assignment.Name
-                , Assignment.IsPublicToProject
-                , Assignment.IsPublicToDepartment
-                , Assignment.StartDate
-                , Assignment.EndDate
-                , Assignment.RequiredDocumentCount
-                , Assignment.ManagerId
-                , Assignment.ProjectId
-                , Assignment.StatusId
-                , Assignment.IsDeleted
-                , Assignment.CreatedAt
-                , Assignment.UpdatedAt
-                , Assignment.DeletedAt
-            FROM Assignment
-            INNER JOIN Document
-                    ON Document.AssignmentId = Assignment.AssignmentId
-            WHERE Document.DocumentId = @DocumentId
-                AND Assignment.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("DocumentId", SqlDbType.Int, documentId);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapToSingleOrDefault(AssignmentMapper.FromDataRow);
-    }
-
-    public int Delete(int assignmentId)
-    {
-        string query = @"
-            UPDATE Assignment
-            SET IsDeleted = 1,
-                DeletedAt = GetDate()
-            WHERE AssignmentId = @AssignmentId
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
-
-        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
-    }
-
-    public int Update(int assignmentId, AssignmentUpdate info)
-    {
-        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Assignment")
-            .Set("Name", SqlDbType.NVarChar, 50, info.Name)
-            .Set("IsPublicToProject", SqlDbType.Bit, info.IsPublicToProject)
-            .Set("IsPublicToDepartment", SqlDbType.Bit, info.IsPublicToDepartment)
-            .Set("StartDate", SqlDbType.Date, info.StartDate)
-            .Set("EndDate", SqlDbType.Date, info.EndDate)
-            .Set("RequiredDocumentCount", SqlDbType.Int, info.RequiredDocumentCount)
-            .Set("ManagerId", SqlDbType.Int, info.ManagerId)
-            .Set("ProjectId", SqlDbType.Int, info.ProjectId)
-            .Set("StatusId", SqlDbType.Int, info.StatusId)
-            .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
-            .Where("AssignmentId", SqlDbType.Int, assignmentId);
-
-        (string query, List<SqlParameter> parameters) = builder.Build();
-
-        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
-        {
-            return 0;
-        }
-        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
     public int Insert(Assignment entity)
@@ -314,6 +276,44 @@ public class AssignmentDataAccess
         parameters.Add("ManagerId", SqlDbType.Int, entity.ManagerId);
         parameters.Add("ProjectId", SqlDbType.Int, entity.ProjectId);
         parameters.Add("StatusId", SqlDbType.Int, entity.StatusId);
+
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
+    public int Update(int assignmentId, AssignmentUpdate info)
+    {
+        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Assignment")
+            .Set("Name", SqlDbType.NVarChar, 50, info.Name)
+            .Set("IsPublicToProject", SqlDbType.Bit, info.IsPublicToProject)
+            .Set("IsPublicToDepartment", SqlDbType.Bit, info.IsPublicToDepartment)
+            .Set("StartDate", SqlDbType.Date, info.StartDate)
+            .Set("EndDate", SqlDbType.Date, info.EndDate)
+            .Set("RequiredDocumentCount", SqlDbType.Int, info.RequiredDocumentCount)
+            .Set("ManagerId", SqlDbType.Int, info.ManagerId)
+            .Set("ProjectId", SqlDbType.Int, info.ProjectId)
+            .Set("StatusId", SqlDbType.Int, info.StatusId)
+            .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
+            .Where("AssignmentId", SqlDbType.Int, assignmentId);
+
+        (string query, List<SqlParameter> parameters) = builder.Build();
+
+        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
+        {
+            return 0;
+        }
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
+    public int Delete(int assignmentId)
+    {
+        string query = @"
+            UPDATE Assignment
+            SET IsDeleted = 1,
+                DeletedAt = GetDate()
+            WHERE AssignmentId = @AssignmentId
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("AssignmentId", SqlDbType.Int, assignmentId);
 
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }

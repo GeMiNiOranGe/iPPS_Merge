@@ -42,6 +42,25 @@ public class DepartmentDataAccess
             .MapToSingleOrDefault(DepartmentMapper.FromDataRow);
     }
 
+    public IEnumerable<Department> GetMany()
+    {
+        string query = @"
+            SELECT Department.DepartmentId
+                , Department.Name
+                , Department.ManagerId
+                , Department.IsDeleted
+                , Department.CreatedAt
+                , Department.UpdatedAt
+                , Department.DeletedAt
+            FROM Department
+            WHERE Department.IsDeleted = 0
+        ";
+
+        return DataProvider
+            .Instance.ExecuteQuery(query)
+            .MapMany(DepartmentMapper.FromDataRow);
+    }
+
     public IEnumerable<Department> GetManyByIds(IEnumerable<int> departmentIds)
     {
         if (departmentIds == null || !departmentIds.Any())
@@ -69,25 +88,6 @@ public class DepartmentDataAccess
 
         return DataProvider
             .Instance.ExecuteQuery(query, [.. parameters])
-            .MapMany(DepartmentMapper.FromDataRow);
-    }
-
-    public IEnumerable<Department> GetMany()
-    {
-        string query = @"
-            SELECT Department.DepartmentId
-                , Department.Name
-                , Department.ManagerId
-                , Department.IsDeleted
-                , Department.CreatedAt
-                , Department.UpdatedAt
-                , Department.DeletedAt
-            FROM Department
-            WHERE Department.IsDeleted = 0
-        ";
-
-        return DataProvider
-            .Instance.ExecuteQuery(query)
             .MapMany(DepartmentMapper.FromDataRow);
     }
 
@@ -127,23 +127,6 @@ public class DepartmentDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int Update(int departmentId, DepartmentUpdate info)
-    {
-        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Department")
-            .Set("Name", SqlDbType.NVarChar, 50, info.Name)
-            .Set("ManagerId", SqlDbType.Int, info.ManagerId)
-            .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
-            .Where("DepartmentId", SqlDbType.Int, departmentId);
-
-        (string query, List<SqlParameter> parameters) = builder.Build();
-
-        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
-        {
-            return 0;
-        }
-        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
-    }
-
     public int Insert(Department entity)
     {
         string query = @"
@@ -162,6 +145,23 @@ public class DepartmentDataAccess
         parameters.Add("Name", SqlDbType.NVarChar, 50, entity.Name);
         parameters.Add("ManagerId", SqlDbType.Int, entity.ManagerId);
 
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
+    public int Update(int departmentId, DepartmentUpdate info)
+    {
+        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Department")
+            .Set("Name", SqlDbType.NVarChar, 50, info.Name)
+            .Set("ManagerId", SqlDbType.Int, info.ManagerId)
+            .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
+            .Where("DepartmentId", SqlDbType.Int, departmentId);
+
+        (string query, List<SqlParameter> parameters) = builder.Build();
+
+        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
+        {
+            return 0;
+        }
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 

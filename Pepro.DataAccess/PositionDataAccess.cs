@@ -19,6 +19,39 @@ public class PositionDataAccess
 
     private PositionDataAccess() { }
 
+    public Position? GetByEmployeeId(int employeeId)
+    {
+        string query = @"
+            SELECT Position.PositionId
+                , Position.Title
+                , Position.AllowancePercent
+            FROM Position
+            INNER JOIN Employee
+                    ON Employee.PositionId = Position.PositionId
+            WHERE Employee.EmployeeId = @EmployeeId
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(PositionMapper.FromDataRow);
+    }
+
+    public IEnumerable<Position> GetMany()
+    {
+        string query = @"
+            SELECT Position.PositionId
+                , Position.Title
+                , Position.AllowancePercent
+            FROM Position
+        ";
+
+        return DataProvider
+            .Instance.ExecuteQuery(query)
+            .MapMany(PositionMapper.FromDataRow);
+    }
+
     public IEnumerable<Position> GetManyByIds(IEnumerable<int> positionIds)
     {
         if (positionIds == null || !positionIds.Any())
@@ -42,38 +75,5 @@ public class PositionDataAccess
         return DataProvider
             .Instance.ExecuteQuery(query, [.. parameters])
             .MapMany(PositionMapper.FromDataRow);
-    }
-
-    public IEnumerable<Position> GetMany()
-    {
-        string query = @"
-            SELECT Position.PositionId
-                , Position.Title
-                , Position.AllowancePercent
-            FROM Position
-        ";
-
-        return DataProvider
-            .Instance.ExecuteQuery(query)
-            .MapMany(PositionMapper.FromDataRow);
-    }
-
-    public Position? GetByEmployeeId(int employeeId)
-    {
-        string query = @"
-            SELECT Position.PositionId
-                , Position.Title
-                , Position.AllowancePercent
-            FROM Position
-            INNER JOIN Employee
-                    ON Employee.PositionId = Position.PositionId
-            WHERE Employee.EmployeeId = @EmployeeId
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapToSingleOrDefault(PositionMapper.FromDataRow);
     }
 }
