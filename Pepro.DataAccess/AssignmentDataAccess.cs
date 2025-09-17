@@ -75,39 +75,6 @@ public class AssignmentDataAccess
             .MapMany(AssignmentMapper.FromDataRow);
     }
 
-    public IEnumerable<Assignment> Search(string searchValue)
-    {
-        string query = @"
-            SELECT Assignment.AssignmentId
-                , Assignment.Name
-                , Assignment.IsPublicToProject
-                , Assignment.IsPublicToDepartment
-                , Assignment.StartDate
-                , Assignment.EndDate
-                , Assignment.RequiredDocumentCount
-                , Assignment.ManagerId
-                , Assignment.ProjectId
-                , Assignment.StatusId
-                , Assignment.IsDeleted
-                , Assignment.CreatedAt
-                , Assignment.UpdatedAt
-                , Assignment.DeletedAt
-            FROM Assignment 
-            WHERE
-                (
-                    Assignment.AssignmentId LIKE '%' + @SearchValue + '%'
-                    OR Assignment.Name LIKE '%' + @SearchValue + '%'
-                )
-                AND Assignment.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapMany(AssignmentMapper.FromDataRow);
-    }
-
     public IEnumerable<Assignment> GetManyByEmployeeId(int employeeId)
     {
         string query = @"
@@ -162,6 +129,39 @@ public class AssignmentDataAccess
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("ProjectId", SqlDbType.Int, projectId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(AssignmentMapper.FromDataRow);
+    }
+
+    public IEnumerable<Assignment> Search(string searchValue)
+    {
+        string query = @"
+            SELECT Assignment.AssignmentId
+                , Assignment.Name
+                , Assignment.IsPublicToProject
+                , Assignment.IsPublicToDepartment
+                , Assignment.StartDate
+                , Assignment.EndDate
+                , Assignment.RequiredDocumentCount
+                , Assignment.ManagerId
+                , Assignment.ProjectId
+                , Assignment.StatusId
+                , Assignment.IsDeleted
+                , Assignment.CreatedAt
+                , Assignment.UpdatedAt
+                , Assignment.DeletedAt
+            FROM Assignment 
+            WHERE
+                (
+                    Assignment.AssignmentId LIKE '%' + @SearchValue + '%'
+                    OR Assignment.Name LIKE '%' + @SearchValue + '%'
+                )
+                AND Assignment.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
 
         return DataProvider
             .Instance.ExecuteQuery(query, [.. parameters])
