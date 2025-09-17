@@ -238,6 +238,36 @@ public class AssignmentDataAccess
             .MapMany(AssignmentMapper.FromDataRow);
     }
 
+    public IEnumerable<(int AssignmentId, int DocumentCount)> CountDocumentsByAssignmentIds(IEnumerable<int> assignmentIds)
+    {
+        if (!assignmentIds.Any())
+        {
+            return [];
+        }
+
+        string query = @"
+            SELECT AssignmentIds.Id             AS [AssignmentId]
+                , Count(Document.AssignmentId)  AS [DocumentCount]
+            FROM @AssignmentIds AS AssignmentIds
+            LEFT JOIN Document
+                    ON Document.AssignmentId = AssignmentIds.Id
+                    AND Document.IsDeleted = 0
+            GROUP BY AssignmentIds.Id
+        ";
+        List<SqlParameter> parameters = [];
+
+        DataTable entityIds = TableParameters.CreateEntityIds(assignmentIds);
+        parameters.AddTableValued("AssignmentIds", "EntityIds", entityIds);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .AsEnumerable()
+            .Select(row => (
+                AssignmentId: row.Field<int>("AssignmentId"),
+                DocumentCount: row.Field<int>("DocumentCount")
+            ));
+    }
+
     public int Insert(Assignment entity)
     {
         string query = @"
