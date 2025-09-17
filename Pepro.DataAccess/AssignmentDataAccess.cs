@@ -49,6 +49,76 @@ public class AssignmentDataAccess
             .MapToSingleOrDefault(AssignmentMapper.FromDataRow);
     }
 
+    public Assignment? GetByDocumentId(int documentId)
+    {
+        string query = @"
+            SELECT Assignment.AssignmentId
+                , Assignment.Name
+                , Assignment.IsPublicToProject
+                , Assignment.IsPublicToDepartment
+                , Assignment.StartDate
+                , Assignment.EndDate
+                , Assignment.RequiredDocumentCount
+                , Assignment.ManagerId
+                , Assignment.ProjectId
+                , Assignment.StatusId
+                , Assignment.IsDeleted
+                , Assignment.CreatedAt
+                , Assignment.UpdatedAt
+                , Assignment.DeletedAt
+            FROM Assignment
+            INNER JOIN Document
+                    ON Document.AssignmentId = Assignment.AssignmentId
+            WHERE Document.DocumentId = @DocumentId
+                AND Assignment.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("DocumentId", SqlDbType.Int, documentId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(AssignmentMapper.FromDataRow);
+    }
+
+    /// <summary>
+    ///     Take out the manager of the assignment
+    /// </summary>
+    /// <param name="assignmentId">Assignment id</param>
+    /// <returns>
+    ///     Manager
+    /// </returns>
+    public Employee? GetManager(int assignmentId)
+    {
+        string query = @"
+            SELECT Employee.EmployeeId
+                , Employee.FirstName
+                , Employee.MiddleName
+                , Employee.LastName
+                , Employee.DateOfBirth
+                , Employee.Gender
+                , Employee.TaxCode
+                , Employee.CitizenId
+                , Employee.DepartmentId
+                , Employee.PositionId
+                , Employee.SalaryLevelId
+                , Employee.IsDeleted
+                , Employee.CreatedAt
+                , Employee.UpdatedAt
+                , Employee.DeletedAt
+            FROM Employee
+            INNER JOIN Assignment
+                    ON Assignment.ManagerId = Employee.EmployeeId
+            WHERE Assignment.AssignmentId = @AssignmentId
+                AND Employee.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("AssignmentId", SqlDbType.VarChar, 10, assignmentId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(EmployeeMapper.FromDataRow);
+    }
+
     public IEnumerable<Assignment> GetMany()
     {
         string query = @"
@@ -166,76 +236,6 @@ public class AssignmentDataAccess
         return DataProvider
             .Instance.ExecuteQuery(query, [.. parameters])
             .MapMany(AssignmentMapper.FromDataRow);
-    }
-
-    public Assignment? GetByDocumentId(int documentId)
-    {
-        string query = @"
-            SELECT Assignment.AssignmentId
-                , Assignment.Name
-                , Assignment.IsPublicToProject
-                , Assignment.IsPublicToDepartment
-                , Assignment.StartDate
-                , Assignment.EndDate
-                , Assignment.RequiredDocumentCount
-                , Assignment.ManagerId
-                , Assignment.ProjectId
-                , Assignment.StatusId
-                , Assignment.IsDeleted
-                , Assignment.CreatedAt
-                , Assignment.UpdatedAt
-                , Assignment.DeletedAt
-            FROM Assignment
-            INNER JOIN Document
-                    ON Document.AssignmentId = Assignment.AssignmentId
-            WHERE Document.DocumentId = @DocumentId
-                AND Assignment.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("DocumentId", SqlDbType.Int, documentId);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapToSingleOrDefault(AssignmentMapper.FromDataRow);
-    }
-
-    /// <summary>
-    ///     Take out the manager of the assignment
-    /// </summary>
-    /// <param name="assignmentId">Assignment id</param>
-    /// <returns>
-    ///     Manager
-    /// </returns>
-    public Employee? GetManager(int assignmentId)
-    {
-        string query = @"
-            SELECT Employee.EmployeeId
-                , Employee.FirstName
-                , Employee.MiddleName
-                , Employee.LastName
-                , Employee.DateOfBirth
-                , Employee.Gender
-                , Employee.TaxCode
-                , Employee.CitizenId
-                , Employee.DepartmentId
-                , Employee.PositionId
-                , Employee.SalaryLevelId
-                , Employee.IsDeleted
-                , Employee.CreatedAt
-                , Employee.UpdatedAt
-                , Employee.DeletedAt
-            FROM Employee
-            INNER JOIN Assignment
-                    ON Assignment.ManagerId = Employee.EmployeeId
-            WHERE Assignment.AssignmentId = @AssignmentId
-                AND Employee.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("AssignmentId", SqlDbType.VarChar, 10, assignmentId);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapToSingleOrDefault(EmployeeMapper.FromDataRow);
     }
 
     public int Insert(Assignment entity)
