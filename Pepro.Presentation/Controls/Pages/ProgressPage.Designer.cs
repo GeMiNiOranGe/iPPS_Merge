@@ -1,4 +1,6 @@
-﻿namespace Pepro.Presentation.Controls.Pages;
+﻿using Pepro.Presentation.Controls.Organisms;
+
+namespace Pepro.Presentation.Controls.Pages;
 
 partial class ProgressPage
 {
@@ -28,36 +30,34 @@ partial class ProgressPage
     /// </summary>
     private void InitializeComponent()
     {
-        projectsFlowLayoutPanel = new FlowLayoutPanel();
+        projectProgressList = new ProjectProgressList();
         SuspendLayout();
         // 
-        // projectsFlowLayoutPanel
+        // projectProgressList
         // 
-        projectsFlowLayoutPanel.Dock = DockStyle.Fill;
-        projectsFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-        projectsFlowLayoutPanel.Location = new Point(0, 48);
-        projectsFlowLayoutPanel.Name = "projectsFlowLayoutPanel";
-        projectsFlowLayoutPanel.Padding = new Padding(16);
-        projectsFlowLayoutPanel.Size = new Size(1064, 633);
-        projectsFlowLayoutPanel.TabIndex = 0;
-        projectsFlowLayoutPanel.SizeChanged += ProjectsFlowLayoutPanel_SizeChanged;
+        projectProgressList.Dock = DockStyle.Fill;
+        projectProgressList.Location = new Point(0, 48);
+        projectProgressList.Name = "projectProgressList";
+        projectProgressList.Size = new Size(1064, 633);
+        projectProgressList.TabIndex = 0;
+        projectProgressList.OnItemClick += ProjectsFlowLayoutPanel_OnItemClick;
         // 
         // ProgressPage
         // 
         AutoScaleDimensions = new SizeF(8F, 19F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(15, 15, 15);
-        Controls.Add(projectsFlowLayoutPanel);
+        Controls.Add(projectProgressList);
         HeaderText = "Progress";
         Name = "ProgressPage";
         ReturnButtonVisible = false;
         Load += ProgressPage_Load;
-        Controls.SetChildIndex(projectsFlowLayoutPanel, 0);
+        Controls.SetChildIndex(projectProgressList, 0);
         ResumeLayout(false);
 
     }
 
     #endregion
 
-    private FlowLayoutPanel projectsFlowLayoutPanel;
+    private ProjectProgressList projectProgressList;
 }
