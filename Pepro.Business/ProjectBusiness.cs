@@ -38,47 +38,6 @@ public class ProjectBusiness {
         return MapProjectsToViews(projects);
     }
 
-    private IEnumerable<ProjectView> MapProjectsToViews(IEnumerable<Project> projects)
-    {
-        IEnumerable<int> managerIds = projects
-            .Select(p => p.ManagerId)
-            .OfType<int>()
-            .Distinct();
-
-        Dictionary<int, string> managers = EmployeeBusiness
-            .Instance.GetEmployeesByEmployeeIds(managerIds)
-            .ToDictionary(e => e.EmployeeId, e => e.FullName);
-
-        Dictionary<int, string> statuses = StatusDataAccess
-            .Instance.GetMany()
-            .ToDictionary(s => s.StatusId, s => s.Name);
-
-        return projects.Select(project => new ProjectView()
-        {
-            ProjectId = project.ProjectId,
-            Name = project.Name,
-            CustomerName = project.CustomerName,
-            StartDate = project.StartDate,
-            EndDate = project.EndDate,
-            ManagerId = project.ManagerId,
-            StatusId = project.StatusId,
-            ManagerFullName =
-                project.ManagerId.HasValue
-                && managers.TryGetValue(
-                    project.ManagerId.Value,
-                    out var managerFullName
-                )
-                    ? managerFullName
-                    : "",
-            StatusName = statuses.TryGetValue(
-                project.StatusId,
-                out var statusName
-            )
-                ? statusName
-                : "",
-        });
-    }
-
     public IEnumerable<ProjectProgressView> GetProjectProgressViews()
     {
         IEnumerable<Project> projects = ProjectDataAccess.Instance.GetMany();
@@ -144,5 +103,46 @@ public class ProjectBusiness {
     {
         Project entity = dto.ToEntity();
         return ProjectDataAccess.Instance.Insert(entity);
+    }
+
+    private IEnumerable<ProjectView> MapProjectsToViews(IEnumerable<Project> projects)
+    {
+        IEnumerable<int> managerIds = projects
+            .Select(p => p.ManagerId)
+            .OfType<int>()
+            .Distinct();
+
+        Dictionary<int, string> managers = EmployeeBusiness
+            .Instance.GetEmployeesByEmployeeIds(managerIds)
+            .ToDictionary(e => e.EmployeeId, e => e.FullName);
+
+        Dictionary<int, string> statuses = StatusDataAccess
+            .Instance.GetMany()
+            .ToDictionary(s => s.StatusId, s => s.Name);
+
+        return projects.Select(project => new ProjectView()
+        {
+            ProjectId = project.ProjectId,
+            Name = project.Name,
+            CustomerName = project.CustomerName,
+            StartDate = project.StartDate,
+            EndDate = project.EndDate,
+            ManagerId = project.ManagerId,
+            StatusId = project.StatusId,
+            ManagerFullName =
+                project.ManagerId.HasValue
+                && managers.TryGetValue(
+                    project.ManagerId.Value,
+                    out var managerFullName
+                )
+                    ? managerFullName
+                    : "",
+            StatusName = statuses.TryGetValue(
+                project.StatusId,
+                out var statusName
+            )
+                ? statusName
+                : "",
+        });
     }
 }
