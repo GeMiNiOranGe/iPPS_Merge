@@ -28,6 +28,64 @@ public class AssignmentBusiness {
         return MapAssignmentsToViews(assignments);
     }
 
+    public IEnumerable<AssignmentDto> GetAssignmentsByProjectId(int projectId) {
+        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetManyByProjectId(projectId);
+        return assignments.ToDtos();
+    }
+
+    public IEnumerable<AssignmentProgressView> GetAssignmentProgressViewsByProjectId(int projectId) {
+        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetManyByProjectId(projectId);
+        return MapAssignmentsToProgressViews(assignments);
+    }
+
+    public IEnumerable<AssignmentProgressView> GetAssignmentProgressViewsByEmployeeId(int employeeId) {
+        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetManyByEmployeeId(employeeId);
+        return MapAssignmentsToProgressViews(assignments);
+    }
+
+    public EmployeeDto? GetAssignmentManager(int assignmentId) {
+        Employee? employee = AssignmentDataAccess.Instance.GetManager(assignmentId);
+        return employee?.ToDto();
+    }
+
+    public AssignmentDto? GetAssignmentByDocumentId(int documentId) {
+        Assignment? assignment = AssignmentDataAccess.Instance.GetByDocumentId(documentId);
+        return assignment?.ToDto();
+    }
+
+    public int DeleteAssignment(int assignmentId) {
+        return AssignmentDataAccess.Instance.Delete(assignmentId);
+    }
+
+    public int UpdateAssignment(AssignmentDto dto)
+    {
+        Assignment? entity = AssignmentDataAccess.Instance.GetById(dto.AssignmentId);
+        if (entity == null)
+        {
+            return 0;
+        }
+
+        AssignmentUpdate updateInfo = new()
+        {
+            Name = new(dto.Name, entity.Name != dto.Name),
+            IsPublicToProject = new(dto.IsPublicToProject, entity.IsPublicToProject != dto.IsPublicToProject),
+            IsPublicToDepartment = new(dto.IsPublicToDepartment, entity.IsPublicToDepartment != dto.IsPublicToDepartment),
+            StartDate = new(dto.StartDate, entity.StartDate != dto.StartDate),
+            EndDate = new(dto.EndDate, entity.EndDate != dto.EndDate),
+            RequiredDocumentCount = new(dto.RequiredDocumentCount, entity.RequiredDocumentCount != dto.RequiredDocumentCount),
+            ManagerId = new(dto.ManagerId, entity.ManagerId != dto.ManagerId),
+            ProjectId = new(dto.ProjectId, entity.ProjectId != dto.ProjectId),
+            StatusId = new(dto.StatusId, entity.StatusId != dto.StatusId),
+        };
+        return AssignmentDataAccess.Instance.Update(dto.AssignmentId, updateInfo);
+    }
+
+    public int InsertAssignment(AssignmentDto dto)
+    {
+        Assignment entity = dto.ToEntity();
+        return AssignmentDataAccess.Instance.Insert(entity);
+    }
+
     private IEnumerable<AssignmentView> MapAssignmentsToViews(IEnumerable<Assignment> assignments)
     {
         IEnumerable<int> managerIds = assignments
@@ -85,21 +143,6 @@ public class AssignmentBusiness {
         });
     }
 
-    public IEnumerable<AssignmentDto> GetAssignmentsByProjectId(int projectId) {
-        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetManyByProjectId(projectId);
-        return assignments.ToDtos();
-    }
-
-    public IEnumerable<AssignmentProgressView> GetAssignmentProgressViewsByProjectId(int projectId) {
-        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetManyByProjectId(projectId);
-        return MapAssignmentsToProgressViews(assignments);
-    }
-
-    public IEnumerable<AssignmentProgressView> GetAssignmentProgressViewsByEmployeeId(int employeeId) {
-        IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetManyByEmployeeId(employeeId);
-        return MapAssignmentsToProgressViews(assignments);
-    }
-
     private IEnumerable<AssignmentProgressView> MapAssignmentsToProgressViews(IEnumerable<Assignment> assignments)
     {
         IEnumerable<int> assignmentIds = assignments
@@ -139,48 +182,5 @@ public class AssignmentBusiness {
                 ProgressPercent = percent
             };
         });
-    }
-
-    public EmployeeDto? GetAssignmentManager(int assignmentId) {
-        Employee? employee = AssignmentDataAccess.Instance.GetManager(assignmentId);
-        return employee?.ToDto();
-    }
-
-    public AssignmentDto? GetAssignmentByDocumentId(int documentId) {
-        Assignment? assignment = AssignmentDataAccess.Instance.GetByDocumentId(documentId);
-        return assignment?.ToDto();
-    }
-
-    public int DeleteAssignment(int assignmentId) {
-        return AssignmentDataAccess.Instance.Delete(assignmentId);
-    }
-
-    public int UpdateAssignment(AssignmentDto dto)
-    {
-        Assignment? entity = AssignmentDataAccess.Instance.GetById(dto.AssignmentId);
-        if (entity == null)
-        {
-            return 0;
-        }
-
-        AssignmentUpdate updateInfo = new()
-        {
-            Name = new(dto.Name, entity.Name != dto.Name),
-            IsPublicToProject = new(dto.IsPublicToProject, entity.IsPublicToProject != dto.IsPublicToProject),
-            IsPublicToDepartment = new(dto.IsPublicToDepartment, entity.IsPublicToDepartment != dto.IsPublicToDepartment),
-            StartDate = new(dto.StartDate, entity.StartDate != dto.StartDate),
-            EndDate = new(dto.EndDate, entity.EndDate != dto.EndDate),
-            RequiredDocumentCount = new(dto.RequiredDocumentCount, entity.RequiredDocumentCount != dto.RequiredDocumentCount),
-            ManagerId = new(dto.ManagerId, entity.ManagerId != dto.ManagerId),
-            ProjectId = new(dto.ProjectId, entity.ProjectId != dto.ProjectId),
-            StatusId = new(dto.StatusId, entity.StatusId != dto.StatusId),
-        };
-        return AssignmentDataAccess.Instance.Update(dto.AssignmentId, updateInfo);
-    }
-
-    public int InsertAssignment(AssignmentDto dto)
-    {
-        Assignment entity = dto.ToEntity();
-        return AssignmentDataAccess.Instance.Insert(entity);
     }
 }
