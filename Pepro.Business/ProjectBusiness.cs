@@ -79,11 +79,11 @@ public class ProjectBusiness {
         });
     }
 
-    public List<ProjectProgressView> GetProjectProgressViews() {
+    public IEnumerable<ProjectProgressView> GetProjectProgressViews()
+    {
         IEnumerable<Project> projects = ProjectDataAccess.Instance.GetMany();
-        List<ProjectProgressView> projectsProgress = [];
-
-        foreach (Project project in projects) {
+        return projects.Select(project =>
+        {
             IEnumerable<Assignment> assignments = AssignmentDataAccess.Instance.GetManyByProjectId(project.ProjectId);
             int total = assignments.Count();
             int completed = assignments.Count(assignment => assignment.StatusId == 4);
@@ -91,7 +91,8 @@ public class ProjectBusiness {
                 ? Math.Round(completed * 100m / total, 2)
                 : 0;
 
-            projectsProgress.Add(new ProjectProgressView {
+            return new ProjectProgressView
+            {
                 ProjectId = project.ProjectId,
                 Name = project.Name,
                 CustomerName = project.CustomerName,
@@ -100,10 +101,8 @@ public class ProjectBusiness {
                 EndDate = project.EndDate,
                 StatusId = project.StatusId,
                 ProgressPercent = percent
-            });
-        }
-
-        return projectsProgress;
+            };
+        });
     }
 
     public string[] GetProjectNamesByEmployeeId(int employeeId) {
