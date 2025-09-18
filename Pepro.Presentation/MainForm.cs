@@ -39,6 +39,7 @@ public partial class MainForm : PeproForm {
         salaryButton.SetSidebarButtonImages("UserSalary");
         dormitoryButton.SetSidebarButtonImages("BunkBed");
         departmentButton.SetSidebarButtonImages("Group");
+        accountButton.SetSidebarButtonImages("UserSetting");
 
         logoutButton.ApplyFlatStyleNoBackColor();
         logoutButton.ApplyIcon("LogOut", color: ThemeColors.Text);
@@ -158,6 +159,10 @@ public partial class MainForm : PeproForm {
         optionPanel.SetLocationY(departmentButton.Location.Y);
 
         _mediator.Notify(this, ControlUiEvent.NavigateDepartmentPage);
+    }
+
+    private void AccountButton_Click(object sender, EventArgs e) {
+        optionPanel.SetLocationY(accountButton.Location.Y);
     }
 
     private void Account_MouseClick(object sender, MouseEventArgs e) {

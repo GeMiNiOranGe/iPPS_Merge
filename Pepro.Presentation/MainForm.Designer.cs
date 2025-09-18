@@ -38,6 +38,7 @@ namespace Pepro.Presentation {
             projectButton = new PeproIconButton();
             departmentButton = new PeproIconButton();
             employeeButton = new PeproIconButton();
+            accountButton = new PeproIconButton();
             appNameLabel = new Label();
             logoutButton = new PeproIconButton();
             accountPanel = new Panel();
@@ -77,6 +78,7 @@ namespace Pepro.Presentation {
             functionListPanel.Controls.Add(projectButton);
             functionListPanel.Controls.Add(departmentButton);
             functionListPanel.Controls.Add(employeeButton);
+            functionListPanel.Controls.Add(accountButton);
             functionListPanel.Dock = DockStyle.Fill;
             functionListPanel.Location = new Point(0, 80);
             functionListPanel.Name = "functionListPanel";
@@ -95,11 +97,11 @@ namespace Pepro.Presentation {
             // 
             dormitoryButton.Dock = DockStyle.Top;
             dormitoryButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            dormitoryButton.Location = new Point(0, 384);
+            dormitoryButton.Location = new Point(0, 432);
             dormitoryButton.Name = "dormitoryButton";
             dormitoryButton.Padding = new Padding(16, 0, 0, 0);
             dormitoryButton.Size = new Size(200, 48);
-            dormitoryButton.TabIndex = 9;
+            dormitoryButton.TabIndex = 10;
             dormitoryButton.Text = "   Ký túc xá";
             dormitoryButton.MouseClick += DormitoryButton_MouseClick;
             // 
@@ -107,11 +109,11 @@ namespace Pepro.Presentation {
             // 
             attendanceButton.Dock = DockStyle.Top;
             attendanceButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            attendanceButton.Location = new Point(0, 336);
+            attendanceButton.Location = new Point(0, 384);
             attendanceButton.Name = "attendanceButton";
             attendanceButton.Padding = new Padding(16, 0, 0, 0);
             attendanceButton.Size = new Size(200, 48);
-            attendanceButton.TabIndex = 8;
+            attendanceButton.TabIndex = 9;
             attendanceButton.Text = "   Chấm công";
             attendanceButton.MouseClick += AttendanceButton_MouseClick;
             // 
@@ -119,11 +121,11 @@ namespace Pepro.Presentation {
             // 
             salaryButton.Dock = DockStyle.Top;
             salaryButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            salaryButton.Location = new Point(0, 288);
+            salaryButton.Location = new Point(0, 336);
             salaryButton.Name = "salaryButton";
             salaryButton.Padding = new Padding(16, 0, 0, 0);
             salaryButton.Size = new Size(200, 48);
-            salaryButton.TabIndex = 7;
+            salaryButton.TabIndex = 8;
             salaryButton.Text = "   Lương";
             salaryButton.MouseClick += SalaryButton_MouseClick;
             // 
@@ -131,11 +133,11 @@ namespace Pepro.Presentation {
             // 
             progressButton.Dock = DockStyle.Top;
             progressButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            progressButton.Location = new Point(0, 240);
+            progressButton.Location = new Point(0, 288);
             progressButton.Name = "progressButton";
             progressButton.Padding = new Padding(16, 0, 0, 0);
             progressButton.Size = new Size(200, 48);
-            progressButton.TabIndex = 6;
+            progressButton.TabIndex = 7;
             progressButton.Text = "   Tiến độ";
             progressButton.MouseClick += ProgressButton_MouseClick;
             // 
@@ -143,11 +145,11 @@ namespace Pepro.Presentation {
             // 
             documentButton.Dock = DockStyle.Top;
             documentButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            documentButton.Location = new Point(0, 192);
+            documentButton.Location = new Point(0, 240);
             documentButton.Name = "documentButton";
             documentButton.Padding = new Padding(16, 0, 0, 0);
             documentButton.Size = new Size(200, 48);
-            documentButton.TabIndex = 5;
+            documentButton.TabIndex = 6;
             documentButton.Text = "   Tài liệu";
             documentButton.MouseClick += DocumentButton_MouseClick;
             // 
@@ -155,11 +157,11 @@ namespace Pepro.Presentation {
             // 
             assignmentButton.Dock = DockStyle.Top;
             assignmentButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            assignmentButton.Location = new Point(0, 144);
+            assignmentButton.Location = new Point(0, 192);
             assignmentButton.Name = "assignmentButton";
             assignmentButton.Padding = new Padding(16, 0, 0, 0);
             assignmentButton.Size = new Size(200, 48);
-            assignmentButton.TabIndex = 4;
+            assignmentButton.TabIndex = 5;
             assignmentButton.Text = "   Công việc";
             assignmentButton.MouseClick += AssignmentButton_MouseClick;
             // 
@@ -167,11 +169,11 @@ namespace Pepro.Presentation {
             // 
             projectButton.Dock = DockStyle.Top;
             projectButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            projectButton.Location = new Point(0, 96);
+            projectButton.Location = new Point(0, 144);
             projectButton.Name = "projectButton";
             projectButton.Padding = new Padding(16, 0, 0, 0);
             projectButton.Size = new Size(200, 48);
-            projectButton.TabIndex = 3;
+            projectButton.TabIndex = 4;
             projectButton.Text = "   Dự án";
             projectButton.MouseClick += ProjectButton_MouseClick;
             // 
@@ -179,11 +181,11 @@ namespace Pepro.Presentation {
             // 
             departmentButton.Dock = DockStyle.Top;
             departmentButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            departmentButton.Location = new Point(0, 48);
+            departmentButton.Location = new Point(0, 96);
             departmentButton.Name = "departmentButton";
             departmentButton.Padding = new Padding(16, 0, 0, 0);
             departmentButton.Size = new Size(200, 48);
-            departmentButton.TabIndex = 2;
+            departmentButton.TabIndex = 3;
             departmentButton.Text = "   Phòng ban";
             departmentButton.Click += DepartmentButton_Click;
             // 
@@ -191,13 +193,25 @@ namespace Pepro.Presentation {
             // 
             employeeButton.Dock = DockStyle.Top;
             employeeButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            employeeButton.Location = new Point(0, 0);
+            employeeButton.Location = new Point(0, 48);
             employeeButton.Name = "employeeButton";
             employeeButton.Padding = new Padding(16, 0, 0, 0);
             employeeButton.Size = new Size(200, 48);
-            employeeButton.TabIndex = 1;
+            employeeButton.TabIndex = 2;
             employeeButton.Text = "   Nhân viên";
             employeeButton.MouseClick += EmployeeButton_MouseClick;
+            // 
+            // accountButton
+            // 
+            accountButton.Dock = DockStyle.Top;
+            accountButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
+            accountButton.Location = new Point(0, 0);
+            accountButton.Name = "accountButton";
+            accountButton.Padding = new Padding(16, 0, 0, 0);
+            accountButton.Size = new Size(200, 48);
+            accountButton.TabIndex = 1;
+            accountButton.Text = "   Tài khoản";
+            accountButton.Click += AccountButton_Click;
             // 
             // appNameLabel
             // 
@@ -220,7 +234,7 @@ namespace Pepro.Presentation {
             logoutButton.Name = "logoutButton";
             logoutButton.Padding = new Padding(16, 0, 0, 0);
             logoutButton.Size = new Size(200, 48);
-            logoutButton.TabIndex = 10;
+            logoutButton.TabIndex = 11;
             logoutButton.Text = "   Đăng xuất";
             logoutButton.Click += LogoutButton_Click;
             // 
@@ -337,6 +351,7 @@ namespace Pepro.Presentation {
         private PeproIconButton logoutButton;
         private Panel functionListPanel;
         private PeproIconButton departmentButton;
+        private PeproIconButton accountButton;
     }
 }
 
