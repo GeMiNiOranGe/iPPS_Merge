@@ -16,4 +16,5 @@ public enum ControlUiEvent
     PushProjectEditorPage,
     PushDepartmentEditorPage,
     NavigatePayrollPage,
+    NavigateAccountPage,
 }
