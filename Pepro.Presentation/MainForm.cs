@@ -163,6 +163,8 @@ public partial class MainForm : PeproForm {
 
     private void AccountButton_Click(object sender, EventArgs e) {
         optionPanel.SetLocationY(accountButton.Location.Y);
+
+        _mediator.Notify(this, ControlUiEvent.NavigateAccountPage);
     }
 
     private void Account_MouseClick(object sender, MouseEventArgs e) {

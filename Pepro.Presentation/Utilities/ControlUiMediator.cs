@@ -15,6 +15,9 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator
     {
         switch (ev)
         {
+            case ControlUiEvent.NavigateAccountPage:
+                Navigate<AccountPage>();
+                break;
             case ControlUiEvent.NavigateAssignmentPage:
                 Navigate<AssignmentPage>();
                 break;
