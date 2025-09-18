@@ -23,7 +23,9 @@ public partial class DepartmentPage : CrudTemplate
 
     private void LoadDepartments()
     {
-        departmentDataGridView.DataSource = DepartmentBusiness.Instance.GetDepartmentViews();
+        departmentDataGridView.DataSource = DepartmentBusiness
+            .Instance.GetDepartmentViews()
+            .ToList();
     }
 
     private void DepartmentPage_Load(object sender, EventArgs e)

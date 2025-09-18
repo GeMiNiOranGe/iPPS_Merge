@@ -23,7 +23,9 @@ public partial class ProjectPage : CrudTemplate
 
     private void LoadProjects()
     {
-        projectDataGridView.DataSource = ProjectBusiness.Instance.GetProjectViews();
+        projectDataGridView.DataSource = ProjectBusiness
+            .Instance.GetProjectViews()
+            .ToList();
     }
 
     private void ProjectPage_Load(object sender, EventArgs e)
