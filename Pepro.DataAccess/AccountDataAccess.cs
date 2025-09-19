@@ -129,4 +129,18 @@ public class AccountDataAccess
 
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
+
+    public int Delete(int accountId)
+    {
+        string query = @"
+            UPDATE Account
+            SET IsDeleted = 1,
+                DeletedAt = GetDate()
+            WHERE AccountId = @AccountId
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("AccountId", SqlDbType.Int, accountId);
+
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
 }

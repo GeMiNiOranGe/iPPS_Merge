@@ -89,6 +89,11 @@ public class AccountBusiness
         return loginResult;
     }
 
+    public int DeleteAccount(int accountId)
+    {
+        return AccountDataAccess.Instance.Delete(accountId);
+    }
+
     private IEnumerable<AccountView> MapAccountsToViews(IEnumerable<Account> accounts)
     {
         IEnumerable<int> employeeIds = accounts

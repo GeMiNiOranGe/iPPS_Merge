@@ -76,12 +76,10 @@ public partial class AccountPage : CrudTemplate
 
     private void DeleteButton_Click(object sender, EventArgs e)
     {
-        /*
         BindDeleteButtonClick<AccountDto>(
             accountDataGridView,
             (item) => AccountBusiness.Instance.DeleteAccount(item.AccountId),
             LoadAccounts
         );
-        */
     }
 }
