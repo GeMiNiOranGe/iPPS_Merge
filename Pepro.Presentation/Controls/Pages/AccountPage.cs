@@ -40,13 +40,11 @@ public partial class AccountPage : CrudTemplate
 
     private void SearchButton_Click(object sender, EventArgs e)
     {
-        /*
         BindSearchButtonClick(
             searchTextBox.Text,
             accountDataGridView,
             AccountBusiness.Instance.SearchAccountViews
         );
-        */
     }
 
     private void ReloadButton_Click(object sender, EventArgs e)

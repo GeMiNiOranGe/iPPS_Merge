@@ -25,6 +25,12 @@ public class AccountBusiness
         return MapAccountsToViews(accounts);
     }
 
+    public IEnumerable<object> SearchAccountViews(string searchValue)
+    {
+        IEnumerable<Account> accounts = AccountDataAccess.Instance.Search(searchValue);
+        return MapAccountsToViews(accounts);
+    }
+
     public int InsertDefaultAccountByEmployee(Employee employee)
     {
         string username = AccountHelper.GenerateDefaultUsername(employee);

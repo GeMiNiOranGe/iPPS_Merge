@@ -65,6 +65,26 @@ public class AccountDataAccess
             .MapToSingleOrDefault(AccountMapper.FromDataRow);
     }
 
+    public IEnumerable<Account> Search(string searchValue)
+    {
+        string query = @"
+            SELECT Account.AccountId
+                , Account.Username
+                , Account.Salt
+                , Account.Password
+                , Account.IsActive
+                , Account.EmployeeId
+            FROM Account 
+            WHERE Account.Username LIKE '%' + @SearchValue + '%'
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(AccountMapper.FromDataRow);
+    }
+
     public int Insert(Account account)
     {
         string query = @"
