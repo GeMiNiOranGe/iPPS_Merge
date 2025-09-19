@@ -167,18 +167,18 @@ public partial class MainForm : PeproForm {
         _mediator.Notify(this, ControlUiEvent.NavigateAccountPage);
     }
 
-    private void Account_MouseClick(object sender, MouseEventArgs e) {
+    private void Personal_MouseClick(object sender, MouseEventArgs e) {
         _mediator.Notify(this, ControlUiEvent.NavigatePersonalPage, new PersonalPagePayload() {
             EmployeeId = _employeeId,
         });
     }
 
-    private void Account_MouseEnter(object sender, EventArgs e) {
-        accountPanel.BackColor = ThemeColors.Accent.Base;
+    private void Personal_MouseEnter(object sender, EventArgs e) {
+        personalPanel.BackColor = ThemeColors.Accent.Base;
     }
 
-    private void Account_MouseLeave(object sender, EventArgs e) {
-        accountPanel.BackColor = Color.Transparent;
+    private void Personal_MouseLeave(object sender, EventArgs e) {
+        personalPanel.BackColor = Color.Transparent;
     }
 
     private void AppNameLabel_Click(object sender, EventArgs e) {

@@ -41,14 +41,14 @@ namespace Pepro.Presentation {
             accountButton = new PeproIconButton();
             appNameLabel = new Label();
             logoutButton = new PeproIconButton();
-            accountPanel = new Panel();
+            personalPanel = new Panel();
             usernameLabel = new Label();
             roleLabel = new Label();
             imageUserPictureBox = new PictureBox();
             workplacePanel = new Panel();
             sidebarPanel.SuspendLayout();
             functionListPanel.SuspendLayout();
-            accountPanel.SuspendLayout();
+            personalPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imageUserPictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -58,7 +58,7 @@ namespace Pepro.Presentation {
             sidebarPanel.Controls.Add(functionListPanel);
             sidebarPanel.Controls.Add(appNameLabel);
             sidebarPanel.Controls.Add(logoutButton);
-            sidebarPanel.Controls.Add(accountPanel);
+            sidebarPanel.Controls.Add(personalPanel);
             sidebarPanel.Dock = DockStyle.Left;
             sidebarPanel.Location = new Point(0, 0);
             sidebarPanel.Name = "sidebarPanel";
@@ -238,21 +238,21 @@ namespace Pepro.Presentation {
             logoutButton.Text = "   Đăng xuất";
             logoutButton.Click += LogoutButton_Click;
             // 
-            // accountPanel
+            // personalPanel
             // 
-            accountPanel.BackColor = Color.Transparent;
-            accountPanel.Controls.Add(usernameLabel);
-            accountPanel.Controls.Add(roleLabel);
-            accountPanel.Controls.Add(imageUserPictureBox);
-            accountPanel.Cursor = Cursors.Hand;
-            accountPanel.Dock = DockStyle.Bottom;
-            accountPanel.Location = new Point(0, 617);
-            accountPanel.Name = "accountPanel";
-            accountPanel.Size = new Size(200, 64);
-            accountPanel.TabIndex = 0;
-            accountPanel.MouseClick += Account_MouseClick;
-            accountPanel.MouseEnter += Account_MouseEnter;
-            accountPanel.MouseLeave += Account_MouseLeave;
+            personalPanel.BackColor = Color.Transparent;
+            personalPanel.Controls.Add(usernameLabel);
+            personalPanel.Controls.Add(roleLabel);
+            personalPanel.Controls.Add(imageUserPictureBox);
+            personalPanel.Cursor = Cursors.Hand;
+            personalPanel.Dock = DockStyle.Bottom;
+            personalPanel.Location = new Point(0, 617);
+            personalPanel.Name = "personalPanel";
+            personalPanel.Size = new Size(200, 64);
+            personalPanel.TabIndex = 0;
+            personalPanel.MouseClick += Personal_MouseClick;
+            personalPanel.MouseEnter += Personal_MouseEnter;
+            personalPanel.MouseLeave += Personal_MouseLeave;
             // 
             // usernameLabel
             // 
@@ -265,9 +265,9 @@ namespace Pepro.Presentation {
             usernameLabel.Size = new Size(56, 21);
             usernameLabel.TabIndex = 0;
             usernameLabel.Text = "Name";
-            usernameLabel.MouseClick += Account_MouseClick;
-            usernameLabel.MouseEnter += Account_MouseEnter;
-            usernameLabel.MouseLeave += Account_MouseLeave;
+            usernameLabel.MouseClick += Personal_MouseClick;
+            usernameLabel.MouseEnter += Personal_MouseEnter;
+            usernameLabel.MouseLeave += Personal_MouseLeave;
             // 
             // roleLabel
             // 
@@ -280,9 +280,9 @@ namespace Pepro.Presentation {
             roleLabel.Size = new Size(35, 19);
             roleLabel.TabIndex = 0;
             roleLabel.Text = "Role";
-            roleLabel.MouseClick += Account_MouseClick;
-            roleLabel.MouseEnter += Account_MouseEnter;
-            roleLabel.MouseLeave += Account_MouseLeave;
+            roleLabel.MouseClick += Personal_MouseClick;
+            roleLabel.MouseEnter += Personal_MouseEnter;
+            roleLabel.MouseLeave += Personal_MouseLeave;
             // 
             // imageUserPictureBox
             // 
@@ -293,9 +293,9 @@ namespace Pepro.Presentation {
             imageUserPictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
             imageUserPictureBox.TabIndex = 0;
             imageUserPictureBox.TabStop = false;
-            imageUserPictureBox.MouseClick += Account_MouseClick;
-            imageUserPictureBox.MouseEnter += Account_MouseEnter;
-            imageUserPictureBox.MouseLeave += Account_MouseLeave;
+            imageUserPictureBox.MouseClick += Personal_MouseClick;
+            imageUserPictureBox.MouseEnter += Personal_MouseEnter;
+            imageUserPictureBox.MouseLeave += Personal_MouseLeave;
             // 
             // workplacePanel
             // 
@@ -323,8 +323,8 @@ namespace Pepro.Presentation {
             Load += MenuForm_Load;
             sidebarPanel.ResumeLayout(false);
             functionListPanel.ResumeLayout(false);
-            accountPanel.ResumeLayout(false);
-            accountPanel.PerformLayout();
+            personalPanel.ResumeLayout(false);
+            personalPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)imageUserPictureBox).EndInit();
             ResumeLayout(false);
 
@@ -337,7 +337,7 @@ namespace Pepro.Presentation {
         private PictureBox imageUserPictureBox;
         private Label usernameLabel;
         private Label roleLabel;
-        private Panel accountPanel;
+        private Panel personalPanel;
         private PeproIconButton assignmentButton;
         private PeproIconButton progressButton;
         private PeproIconButton documentButton;
