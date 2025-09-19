@@ -36,6 +36,7 @@ EXECUTE [dbo].[usp_CreateDummyDefaultAccount] @EmployeeId = 10, @Username = 'thn
 EXECUTE [dbo].[usp_CreateDummyDefaultAccount] @EmployeeId = 11, @Username = 'ptphong'
 EXECUTE [dbo].[usp_CreateDummyDefaultAccount] @EmployeeId = 12, @Username = 'tnmi'
 EXECUTE [dbo].[usp_CreateDummyDefaultAccount] @EmployeeId = 13, @Username = 'ptntuan'
+EXECUTE [dbo].[usp_CreateDummyDefaultAccount] @EmployeeId = 14, @Username = 'tntuyet'
 GO
 
 IF EXISTS (

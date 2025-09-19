@@ -15,6 +15,10 @@ static class AccountMapper
             Password = row.Field<byte[]>("Password") ?? [],
             IsActive = row.Field<bool>("IsActive"),
             EmployeeId = row.Field<int>("EmployeeId"),
+            IsDeleted = row.Field<bool>("IsDeleted"),
+            CreatedAt = row.Field<DateTime>("CreatedAt"),
+            UpdatedAt = row.Field<DateTime>("UpdatedAt"),
+            DeletedAt = row.Field<DateTime?>("DeletedAt"),
         };
     }
 }

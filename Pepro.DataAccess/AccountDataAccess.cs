@@ -28,7 +28,12 @@ public class AccountDataAccess
                 , Account.Password
                 , Account.IsActive
                 , Account.EmployeeId
+                , Account.IsDeleted
+                , Account.CreatedAt
+                , Account.UpdatedAt
+                , Account.DeletedAt
             FROM Account 
+            WHERE Account.IsDeleted = 0
         ";
 
         return DataProvider
@@ -54,8 +59,13 @@ public class AccountDataAccess
                 , Account.Password
                 , Account.EmployeeId
                 , Account.IsActive
+                , Account.IsDeleted
+                , Account.CreatedAt
+                , Account.UpdatedAt
+                , Account.DeletedAt
             FROM Account
             WHERE Account.Username = @SearchValue
+                AND Account.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
@@ -74,8 +84,13 @@ public class AccountDataAccess
                 , Account.Password
                 , Account.IsActive
                 , Account.EmployeeId
+                , Account.IsDeleted
+                , Account.CreatedAt
+                , Account.UpdatedAt
+                , Account.DeletedAt
             FROM Account 
             WHERE Account.Username LIKE '%' + @SearchValue + '%'
+                AND Account.IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);

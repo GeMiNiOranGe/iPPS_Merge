@@ -9,6 +9,13 @@ public class Account
     private bool _isActive;
     private int _employeeId;
 
+    #region Optional fields
+    private bool _isDeleted;
+    private DateTime _createdAt;
+    private DateTime _updatedAt;
+    private DateTime? _deletedAt;
+    #endregion
+
     public required int AccountId
     {
         get => _accountId;
@@ -43,5 +50,29 @@ public class Account
     {
         get => _employeeId;
         set => _employeeId = value;
+    }
+
+    public bool IsDeleted
+    {
+        get => _isDeleted;
+        set => _isDeleted = value;
+    }
+
+    public DateTime CreatedAt
+    {
+        get => _createdAt;
+        set => _createdAt = value;
+    }
+
+    public DateTime UpdatedAt
+    {
+        get => _updatedAt;
+        set => _updatedAt = value;
+    }
+
+    public DateTime? DeletedAt
+    {
+        get => _deletedAt;
+        set => _deletedAt = value;
     }
 }
