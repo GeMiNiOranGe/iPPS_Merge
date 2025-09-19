@@ -37,6 +37,9 @@ partial class AccountPage
         updateButton = new Button();
         insertButton = new Button();
         accountDataGridView = new PeproDataGridView();
+        employeeColumn = new DataGridViewTextBoxColumn();
+        usernameColumn = new DataGridViewTextBoxColumn();
+        activeStatusColumn = new DataGridViewTextBoxColumn();
         ((System.ComponentModel.ISupportInitialize)accountDataGridView).BeginInit();
         SuspendLayout();
         // 
@@ -111,12 +114,37 @@ partial class AccountPage
         // accountDataGridView
         // 
         accountDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        accountDataGridView.Columns.AddRange(new DataGridViewColumn[] { employeeColumn, usernameColumn, activeStatusColumn });
         accountDataGridView.Location = new Point(16, 123);
         accountDataGridView.Margin = new Padding(16);
         accountDataGridView.Name = "accountDataGridView";
         accountDataGridView.Size = new Size(1032, 542);
         accountDataGridView.TabIndex = 7;
         accountDataGridView.CellClick += AccountDataGridView_CellClick;
+        // 
+        // employeeColumn
+        // 
+        employeeColumn.DataPropertyName = "EmployeeFullName";
+        employeeColumn.HeaderText = "Employee full name";
+        employeeColumn.Name = "employeeColumn";
+        employeeColumn.ReadOnly = true;
+        employeeColumn.Width = 109;
+        // 
+        // usernameColumn
+        // 
+        usernameColumn.DataPropertyName = "Username";
+        usernameColumn.HeaderText = "Username";
+        usernameColumn.Name = "usernameColumn";
+        usernameColumn.ReadOnly = true;
+        usernameColumn.Width = 96;
+        // 
+        // activeStatusColumn
+        // 
+        activeStatusColumn.DataPropertyName = "ActiveStatusText";
+        activeStatusColumn.HeaderText = "Active status";
+        activeStatusColumn.Name = "activeStatusColumn";
+        activeStatusColumn.ReadOnly = true;
+        activeStatusColumn.Width = 103;
         // 
         // AccountPage
         // 
@@ -154,4 +182,7 @@ partial class AccountPage
     private Button updateButton;
     private Button insertButton;
     private PeproDataGridView accountDataGridView;
+    private DataGridViewTextBoxColumn employeeColumn;
+    private DataGridViewTextBoxColumn usernameColumn;
+    private DataGridViewTextBoxColumn activeStatusColumn;
 }

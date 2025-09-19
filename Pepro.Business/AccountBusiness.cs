@@ -19,6 +19,12 @@ public class AccountBusiness
 
     private AccountBusiness() { }
 
+    public IEnumerable<AccountView> GetAccountViews()
+    {
+        IEnumerable<Account> accounts = AccountDataAccess.Instance.GetMany();
+        return MapAccountsToViews(accounts);
+    }
+
     public int InsertDefaultAccountByEmployee(Employee employee)
     {
         string username = AccountHelper.GenerateDefaultUsername(employee);
@@ -75,5 +81,33 @@ public class AccountBusiness
         loginResult.EmployeeId = account.EmployeeId;
         loginResult.Status = account.IsActive ? LoginStatus.Success : LoginStatus.LockedAccount;
         return loginResult;
+    }
+
+    private IEnumerable<AccountView> MapAccountsToViews(IEnumerable<Account> accounts)
+    {
+        IEnumerable<int> employeeIds = accounts
+            .Select(account => account.EmployeeId)
+            .Distinct();
+
+        Dictionary<int, string> employees = EmployeeBusiness
+            .Instance.GetEmployeesByEmployeeIds(employeeIds)
+            .ToDictionary(
+                employee => employee.EmployeeId,
+                employee => employee.FullName
+            );
+
+        return accounts.Select(account =>
+        {
+            employees.TryGetValue(account.EmployeeId, out string? fullName);
+
+            return new AccountView
+            {
+                AccountId = account.AccountId,
+                Username = account.Username,
+                IsActive = account.IsActive,
+                EmployeeId = account.EmployeeId,
+                EmployeeFullName = fullName ?? string.Empty,
+            };
+        });
     }
 }

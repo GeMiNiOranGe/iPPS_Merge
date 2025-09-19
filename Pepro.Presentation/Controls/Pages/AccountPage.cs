@@ -12,6 +12,7 @@ public partial class AccountPage : CrudTemplate
     {
         InitializeComponent();
         accountDataGridView.SetupCellStyle();
+        employeeColumn.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
 
         searchButton.ApplyFlatStyleWithIcon("Search", ThemeColors.Text);
         reloadButton.ApplyFlatStyleWithIcon("Refresh", ThemeColors.Text);
@@ -22,11 +23,9 @@ public partial class AccountPage : CrudTemplate
 
     private void LoadAccounts()
     {
-        /*
         accountDataGridView.DataSource = AccountBusiness
             .Instance.GetAccountViews()
             .ToList();
-        */
     }
 
     private void AccountPage_Load(object sender, EventArgs e)
