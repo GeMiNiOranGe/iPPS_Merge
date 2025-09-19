@@ -19,6 +19,23 @@ public class AccountDataAccess
 
     private AccountDataAccess() { }
 
+    public IEnumerable<Account> GetMany()
+    {
+        string query = @"
+            SELECT Account.AccountId
+                , Account.Username
+                , Account.Salt
+                , Account.Password
+                , Account.IsActive
+                , Account.EmployeeId
+            FROM Account 
+        ";
+
+        return DataProvider
+            .Instance.ExecuteQuery(query)
+            .MapMany(AccountMapper.FromDataRow);
+    }
+
     /// <summary>
     ///     Finds an account using a flexible search value (e.g., username, or email).
     /// </summary>
