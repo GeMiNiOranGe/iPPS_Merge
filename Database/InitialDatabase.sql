@@ -118,6 +118,11 @@ CREATE TABLE [dbo].[Account] (
     -- TODO: add email column
     
     [EmployeeId] [int]              NOT NULL,
+
+    [IsDeleted]  [bit]              NOT NULL,
+    [CreatedAt]  [datetime]         NOT NULL,
+    [UpdatedAt]  [datetime]         NOT NULL,
+    [DeletedAt]  [datetime],
 );
 
 CREATE TABLE [dbo].[Assignment] (
@@ -300,6 +305,15 @@ CONSTRAINT DF_Employee_IsDeleted DEFAULT 0
 CONSTRAINT DF_Employee_CreatedAt DEFAULT GetDate()
     FOR CreatedAt,
 CONSTRAINT DF_Employee_UpdatedAt DEFAULT GetDate()
+    FOR UpdatedAt;
+GO
+
+ALTER TABLE Account ADD
+CONSTRAINT DF_Account_IsDeleted DEFAULT 0
+    FOR IsDeleted,
+CONSTRAINT DF_Account_CreatedAt DEFAULT GetDate()
+    FOR CreatedAt,
+CONSTRAINT DF_Account_UpdatedAt DEFAULT GetDate()
     FOR UpdatedAt;
 GO
 
