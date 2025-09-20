@@ -89,6 +89,11 @@ public class AccountBusiness
         return loginResult;
     }
 
+    public int ToggleActiveAccount(int accountId)
+    {
+        return AccountDataAccess.Instance.ToggleActive(accountId);
+    }
+
     public int DeleteAccount(int accountId)
     {
         return AccountDataAccess.Instance.Delete(accountId);
