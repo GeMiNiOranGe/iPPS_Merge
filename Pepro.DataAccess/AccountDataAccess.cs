@@ -100,6 +100,20 @@ public class AccountDataAccess
             .MapMany(AccountMapper.FromDataRow);
     }
 
+    public int ToggleActive(int accountId)
+    {
+        string query = @"
+            UPDATE Account
+            SET IsActive = CASE WHEN IsActive = 1 THEN 0 ELSE 1 END,
+                UpdatedAt = GetDate()
+            WHERE AccountId = @AccountId
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("AccountId", SqlDbType.Int, accountId);
+
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
     public int Insert(Account account)
     {
         string query = @"

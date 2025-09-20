@@ -34,7 +34,7 @@ partial class AccountPage
         searchButton = new Button();
         reloadButton = new Button();
         deleteButton = new Button();
-        updateButton = new Button();
+        toggleActiveButton = new Button();
         insertButton = new Button();
         accountDataGridView = new PeproDataGridView();
         employeeColumn = new DataGridViewTextBoxColumn();
@@ -76,38 +76,37 @@ partial class AccountPage
         // 
         deleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         deleteButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        deleteButton.Location = new Point(706, 67);
-        deleteButton.Margin = new Padding(16, 16, 0, 0);
+        deleteButton.Location = new Point(936, 67);
+        deleteButton.Margin = new Padding(16, 16, 16, 0);
         deleteButton.Name = "deleteButton";
         deleteButton.Padding = new Padding(12, 0, 12, 0);
         deleteButton.Size = new Size(112, 40);
-        deleteButton.TabIndex = 4;
+        deleteButton.TabIndex = 6;
         deleteButton.Text = " Delete";
         deleteButton.Click += DeleteButton_Click;
         // 
-        // updateButton
+        // toggleActiveButton
         // 
-        updateButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        updateButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        updateButton.Location = new Point(834, 67);
-        updateButton.Margin = new Padding(16, 16, 0, 0);
-        updateButton.Name = "updateButton";
-        updateButton.Padding = new Padding(12, 0, 12, 0);
-        updateButton.Size = new Size(98, 40);
-        updateButton.TabIndex = 5;
-        updateButton.Text = " Edit";
-        updateButton.Click += UpdateButton_Click;
+        toggleActiveButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+        toggleActiveButton.Location = new Point(578, 67);
+        toggleActiveButton.Margin = new Padding(16, 16, 0, 0);
+        toggleActiveButton.Name = "toggleActiveButton";
+        toggleActiveButton.Padding = new Padding(12, 0, 12, 0);
+        toggleActiveButton.Size = new Size(112, 40);
+        toggleActiveButton.TabIndex = 4;
+        toggleActiveButton.Text = "Lock";
+        toggleActiveButton.Click += ToggleActiveButton_Click;
         // 
         // insertButton
         // 
         insertButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         insertButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        insertButton.Location = new Point(948, 67);
+        insertButton.Location = new Point(820, 67);
         insertButton.Margin = new Padding(16, 16, 0, 0);
         insertButton.Name = "insertButton";
         insertButton.Padding = new Padding(12, 0, 12, 0);
         insertButton.Size = new Size(100, 40);
-        insertButton.TabIndex = 6;
+        insertButton.TabIndex = 5;
         insertButton.Text = " Add";
         insertButton.Click += InsertButton_Click;
         // 
@@ -154,7 +153,7 @@ partial class AccountPage
         Controls.Add(searchButton);
         Controls.Add(reloadButton);
         Controls.Add(deleteButton);
-        Controls.Add(updateButton);
+        Controls.Add(toggleActiveButton);
         Controls.Add(insertButton);
         Controls.Add(accountDataGridView);
         HeaderText = "Account";
@@ -163,7 +162,7 @@ partial class AccountPage
         Load += AccountPage_Load;
         Controls.SetChildIndex(accountDataGridView, 0);
         Controls.SetChildIndex(insertButton, 0);
-        Controls.SetChildIndex(updateButton, 0);
+        Controls.SetChildIndex(toggleActiveButton, 0);
         Controls.SetChildIndex(deleteButton, 0);
         Controls.SetChildIndex(reloadButton, 0);
         Controls.SetChildIndex(searchButton, 0);
@@ -179,7 +178,7 @@ partial class AccountPage
     private Button searchButton;
     private Button reloadButton;
     private Button deleteButton;
-    private Button updateButton;
+    private Button toggleActiveButton;
     private Button insertButton;
     private PeproDataGridView accountDataGridView;
     private DataGridViewTextBoxColumn employeeColumn;

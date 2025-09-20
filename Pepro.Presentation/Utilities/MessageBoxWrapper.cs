@@ -12,8 +12,11 @@ public static class MessageBoxWrapper
             "SaveSuccess" => "Lưu dữ liệu thành công",
             "SaveFailed" => "Lưu dữ liệu thất bại",
             "DeleteSuccess" => "Đã xóa {0} dữ liệu thành công",
+            "LockSuccess" => "Đã khóa thành công {0} trường dữ liệu",
+            "UnlockSuccess" => "Đã mở khóa thành công {0} trường dữ liệu",
             "FillInformation" => "Mời điền đầy đủ thông tin",
             "ConfirmDelete" => "Bạn có chắc muốn xóa không?",
+            "Confirm" => "Bạn có chắc thực hiện thao tác không?",
             "TreasureFoundPremiumUnlock" => "Ôi trời, bạn vừa mới tìm thấy kho báu đấy, mua premium đi, rồi chúng tôi mở khóa tính năng này",
             "TreasureFoundPremiumUnlock1" => "Hay quá ta, tính năng này chưa được phát triển, cái nút chỉ để cho vui thôi :))) mua premium đi",
             "TreasureFoundPremiumUnlock2" => "Bruh, xin lỗi chứ tính năng này đã sai nghiệp vụ hoàn toàn rồi, mua premium đi rồi tôi sửa sau",
@@ -50,6 +53,16 @@ public static class MessageBoxWrapper
     {
         return MessageBox.Show(
             GetMessage("ConfirmDelete"),
+            "Xác nhận",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+        );
+    }
+
+    public static DialogResult Confirm(string? key = null)
+    {
+        return MessageBox.Show(
+            GetMessage(key ?? "Confirm"),
             "Xác nhận",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Question
