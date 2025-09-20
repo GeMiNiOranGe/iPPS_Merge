@@ -1,4 +1,5 @@
 ﻿using Pepro.Presentation.Enums;
+using Pepro.Presentation.Extensions;
 using Pepro.Presentation.Payloads;
 using Pepro.Presentation.Utilities;
 
@@ -68,16 +69,8 @@ public class CrudTemplate : MediatedTemplate
         Action? onDataChanged
     )
     {
-        if (dataGridView.CurrentRow == null)
+        if (!dataGridView.TryGetCurrentRow(out ItemType? item))
         {
-            MessageBoxWrapper.ShowInformation("SelectData");
-            return;
-        }
-
-        DataGridViewRow row = dataGridView.CurrentRow;
-        if (row.DataBoundItem is not ItemType item)
-        {
-            MessageBoxWrapper.ShowError("DataReadError");
             return;
         }
 
@@ -99,27 +92,21 @@ public class CrudTemplate : MediatedTemplate
         Action? onDataChanged
     )
     {
-        if (dataGridView.CurrentRow == null)
+        if (MessageBoxWrapper.Confirm("ConfirmDelete") != DialogResult.Yes)
         {
-            MessageBoxWrapper.ShowInformation("SelectData");
             return;
         }
 
-        DataGridViewRow row = dataGridView.CurrentRow;
-        if (row.DataBoundItem is not ItemType item)
+        if (!dataGridView.TryGetCurrentRow(out ItemType? item))
         {
-            MessageBoxWrapper.ShowError("DataReadError");
             return;
         }
 
-        if (MessageBoxWrapper.ConfirmDelete() == DialogResult.Yes)
-        {
-            int numberOfRowsAffected = onDelete(item);
-            MessageBoxWrapper.ShowInformation(
-                "DeleteSuccess",
-                numberOfRowsAffected
-            );
-            onDataChanged?.Invoke();
-        }
+        int numberOfRowsAffected = onDelete(item);
+        MessageBoxWrapper.ShowInformation(
+            "DeleteSuccess",
+            numberOfRowsAffected
+        );
+        onDataChanged?.Invoke();
     }
 }

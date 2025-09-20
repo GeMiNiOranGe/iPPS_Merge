@@ -73,29 +73,22 @@ public partial class AccountPage : CrudTemplate
 
     private void ToggleActiveButton_Click(object sender, EventArgs e)
     {
-        // same logic as delete button for now
-        if (accountDataGridView.CurrentRow == null)
+        if (MessageBoxWrapper.Confirm() != DialogResult.Yes)
         {
-            MessageBoxWrapper.ShowInformation("SelectData");
             return;
         }
 
-        DataGridViewRow row = accountDataGridView.CurrentRow;
-        if (row.DataBoundItem is not AccountDto item)
+        if (!accountDataGridView.TryGetCurrentRow(out AccountDto? item))
         {
-            MessageBoxWrapper.ShowError("DataReadError");
             return;
         }
 
-        if (MessageBoxWrapper.Confirm() == DialogResult.Yes)
-        {
-            int numberOfRowsAffected = AccountBusiness.Instance.ToggleActiveAccount(item.AccountId);
-            MessageBoxWrapper.ShowInformation(
-                item.IsActive ? "LockSuccess" : "UnlockSuccess",
-                numberOfRowsAffected
-            );
-            LoadAccounts();
-        }
+        int numberOfRowsAffected = AccountBusiness.Instance.ToggleActiveAccount(item.AccountId);
+        MessageBoxWrapper.ShowInformation(
+            item.IsActive ? "LockSuccess" : "UnlockSuccess",
+            numberOfRowsAffected
+        );
+        LoadAccounts();
     }
 
     private void DeleteButton_Click(object sender, EventArgs e)
