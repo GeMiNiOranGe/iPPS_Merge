@@ -1,4 +1,7 @@
-﻿namespace Pepro.Presentation.Extensions;
+﻿using System.Diagnostics.CodeAnalysis;
+using Pepro.Presentation.Utilities;
+
+namespace Pepro.Presentation.Extensions;
 
 public static class DataGridViewExtensions
 {
@@ -45,5 +48,28 @@ public static class DataGridViewExtensions
         // Applies to newly created rows (typically when binding data or adding
         // a row manually). It can also override DefaultCellStyle.Padding.
         dataGridView.RowTemplate.DefaultCellStyle.Padding = new Padding(4);
+    }
+
+    public static bool TryGetCurrentRow<ItemType>(
+        this DataGridView dataGridView,
+        [NotNullWhen(true)] out ItemType? item
+    )
+    {
+        item = default;
+        if (dataGridView.CurrentRow == null)
+        {
+            MessageBoxWrapper.ShowInformation("SelectData");
+            return false;
+        }
+
+        DataGridViewRow row = dataGridView.CurrentRow;
+        if (row.DataBoundItem is not ItemType castedItem)
+        {
+            MessageBoxWrapper.ShowError("DataReadError");
+            return false;
+        }
+
+        item = castedItem;
+        return true;
     }
 }

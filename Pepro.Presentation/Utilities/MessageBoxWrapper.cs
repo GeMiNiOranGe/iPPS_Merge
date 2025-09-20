@@ -49,16 +49,6 @@ public static class MessageBoxWrapper
         );
     }
 
-    public static DialogResult ConfirmDelete()
-    {
-        return MessageBox.Show(
-            GetMessage("ConfirmDelete"),
-            "Xác nhận",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question
-        );
-    }
-
     public static DialogResult Confirm(string? key = null)
     {
         return MessageBox.Show(
