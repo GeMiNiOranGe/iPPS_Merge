@@ -10,6 +10,7 @@ namespace Pepro.Business;
 
 public class AccountBusiness
 {
+    private readonly Hasher _hasher = new(HashAlgorithmType.Sha256, 32);
     private static AccountBusiness? _instance;
 
     public static AccountBusiness Instance
@@ -37,16 +38,14 @@ public class AccountBusiness
         string username = AccountHelper.GenerateDefaultUsername(employee);
 
         byte[] defaultPassword = DefaultConverter.GetBytes(username);
-        byte[] salt = SaltGenerator.GenerateSalt(32);
-        byte[] saltedPassword = ByteHandler.Combine(defaultPassword, salt);
-        byte[] hashedPassword = Hasher.ComputeHash(saltedPassword, HashAlgorithmType.Sha256);
+        HashResult hashResult = _hasher.ComputeHashWithSalt(defaultPassword);
 
         Account account = new()
         {
             AccountId = default,
             Username = username,
-            Password = hashedPassword,
-            Salt = salt,
+            Password = hashResult.HashedMessage,
+            Salt = hashResult.Salt,
             IsActive = true,
             EmployeeId = employee.EmployeeId
         };
@@ -72,14 +71,7 @@ public class AccountBusiness
         }
 
         byte[] castPassword = DefaultConverter.GetBytes(password);
-        byte[] saltedPassword = ByteHandler.Combine(castPassword, account.Salt);
-        bool isSamePassword = Hasher.VerifyMessage(
-            saltedPassword,
-            account.Password,
-            HashAlgorithmType.Sha256
-        );
-
-        if (!isSamePassword)
+        if (!_hasher.Verify(castPassword, account.Password, account.Salt))
         {
             loginResult.Status = LoginStatus.InvalidAccount;
             return loginResult;
@@ -104,23 +96,18 @@ public class AccountBusiness
         }
 
         byte[] defaultPassword = DefaultConverter.GetBytes(account.Username);
-        byte[] saltedPassword = ByteHandler.Combine(defaultPassword, account.Salt);
-        byte[] hashedPassword = Hasher.ComputeHash(saltedPassword, HashAlgorithmType.Sha256);
-
-        if (account.Password.SequenceEqual(hashedPassword))
+        if (_hasher.Verify(defaultPassword, account.Password, account.Salt))
         {
             return 0;
         }
 
-        byte[] newSalt = SaltGenerator.GenerateSalt(32);
-        byte[] saltedNewPassword = ByteHandler.Combine(defaultPassword, newSalt);
-        byte[] hashedNewPassword = Hasher.ComputeHash(saltedNewPassword, HashAlgorithmType.Sha256);
-
+        HashResult hashResult = _hasher.ComputeHashWithSalt(defaultPassword);
         AccountUpdate updateInfo = new()
         {
-            Salt = new(newSalt, true),
-            Password = new(hashedNewPassword, true),
+            Password = new(hashResult.HashedMessage, true),
+            Salt = new(hashResult.Salt, true),
         };
+
         return AccountDataAccess.Instance.Update(accountId, updateInfo);
     }
 
