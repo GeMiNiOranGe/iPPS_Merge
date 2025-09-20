@@ -1,11 +1,41 @@
 ﻿using System.Security.Authentication;
 using System.Security.Cryptography;
+using Pepro.Business.Utilities;
 
 namespace Pepro.Business.Security;
 
-static class Hasher
+internal class Hasher(HashAlgorithmType type, int saltSize)
 {
-    // Factory method Design Pattern
+    private readonly HashAlgorithmType _type = type;
+    private readonly int _saltSize = saltSize;
+
+    public byte[] ComputeHash(byte[] buffer)
+    {
+        using HashAlgorithm algorithm = CreateHashAlgorithm(_type);
+        byte[] hashedMessage = algorithm.ComputeHash(buffer);
+        return hashedMessage;
+    }
+
+    public HashResult ComputeHashWithSalt(byte[] buffer)
+    {
+        byte[] salt = SaltGenerator.GenerateSalt(_saltSize);
+        byte[] saltedBuffer = ByteHandler.Combine(buffer, salt);
+        byte[] hashedBuffer = ComputeHash(saltedBuffer);
+        return new(hashedBuffer, salt);
+    }
+
+    public bool Verify(byte[] message, byte[] expected)
+    {
+        byte[] hashedMessage = ComputeHash(message);
+        return hashedMessage.SequenceEqual(expected);
+    }
+
+    public bool Verify(byte[] message, byte[] expected, byte[] salt)
+    {
+        byte[] saltedMessage = ByteHandler.Combine(message, salt);
+        return Verify(saltedMessage, expected);
+    }
+
     private static HashAlgorithm CreateHashAlgorithm(HashAlgorithmType type)
     {
         return type switch
@@ -17,22 +47,5 @@ static class Hasher
             HashAlgorithmType.Sha512 => SHA512.Create(),
             _ => throw new ArgumentException("Invalid hash algorithm type."),
         };
-    }
-
-    public static byte[] ComputeHash(byte[] message, HashAlgorithmType type)
-    {
-        using HashAlgorithm algorithm = CreateHashAlgorithm(type);
-        byte[] hashedMessage = algorithm.ComputeHash(message);
-        return hashedMessage;
-    }
-
-    public static bool VerifyMessage(
-        byte[] rawMessage,
-        byte[] hashedMessage,
-        HashAlgorithmType hashAlgorithmType
-    )
-    {
-        byte[] hashedRawMessage = ComputeHash(rawMessage, hashAlgorithmType);
-        return hashedRawMessage.SequenceEqual(hashedMessage);
     }
 }
