@@ -35,7 +35,7 @@ partial class AccountPage
         reloadButton = new Button();
         deleteButton = new Button();
         toggleActiveButton = new Button();
-        insertButton = new Button();
+        resetPasswordButton = new Button();
         accountDataGridView = new PeproDataGridView();
         employeeColumn = new DataGridViewTextBoxColumn();
         usernameColumn = new DataGridViewTextBoxColumn();
@@ -97,18 +97,17 @@ partial class AccountPage
         toggleActiveButton.Text = "Lock";
         toggleActiveButton.Click += ToggleActiveButton_Click;
         // 
-        // insertButton
+        // resetPasswordButton
         // 
-        insertButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        insertButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        insertButton.Location = new Point(820, 67);
-        insertButton.Margin = new Padding(16, 16, 0, 0);
-        insertButton.Name = "insertButton";
-        insertButton.Padding = new Padding(12, 0, 12, 0);
-        insertButton.Size = new Size(100, 40);
-        insertButton.TabIndex = 5;
-        insertButton.Text = " Add";
-        insertButton.Click += InsertButton_Click;
+        resetPasswordButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+        resetPasswordButton.Location = new Point(706, 67);
+        resetPasswordButton.Margin = new Padding(16, 16, 0, 0);
+        resetPasswordButton.Name = "resetPasswordButton";
+        resetPasswordButton.Padding = new Padding(12, 0, 12, 0);
+        resetPasswordButton.Size = new Size(152, 40);
+        resetPasswordButton.TabIndex = 5;
+        resetPasswordButton.Text = "Reset password";
+        resetPasswordButton.Click += ResetPasswordButton_Click;
         // 
         // accountDataGridView
         // 
@@ -152,18 +151,18 @@ partial class AccountPage
         Controls.Add(searchTextBox);
         Controls.Add(searchButton);
         Controls.Add(reloadButton);
-        Controls.Add(deleteButton);
         Controls.Add(toggleActiveButton);
-        Controls.Add(insertButton);
+        Controls.Add(resetPasswordButton);
+        Controls.Add(deleteButton);
         Controls.Add(accountDataGridView);
         HeaderText = "Account";
         Name = "AccountPage";
         ReturnButtonVisible = false;
         Load += AccountPage_Load;
         Controls.SetChildIndex(accountDataGridView, 0);
-        Controls.SetChildIndex(insertButton, 0);
-        Controls.SetChildIndex(toggleActiveButton, 0);
         Controls.SetChildIndex(deleteButton, 0);
+        Controls.SetChildIndex(resetPasswordButton, 0);
+        Controls.SetChildIndex(toggleActiveButton, 0);
         Controls.SetChildIndex(reloadButton, 0);
         Controls.SetChildIndex(searchButton, 0);
         Controls.SetChildIndex(searchTextBox, 0);
@@ -179,7 +178,7 @@ partial class AccountPage
     private Button reloadButton;
     private Button deleteButton;
     private Button toggleActiveButton;
-    private Button insertButton;
+    private Button resetPasswordButton;
     private PeproDataGridView accountDataGridView;
     private DataGridViewTextBoxColumn employeeColumn;
     private DataGridViewTextBoxColumn usernameColumn;
