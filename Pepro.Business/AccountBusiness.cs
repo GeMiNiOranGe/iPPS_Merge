@@ -4,6 +4,7 @@ using Pepro.Business.Security;
 using Pepro.DataAccess;
 using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
+using Pepro.DataAccess.Contracts;
 
 namespace Pepro.Business;
 
@@ -92,6 +93,35 @@ public class AccountBusiness
     public int ToggleActiveAccount(int accountId)
     {
         return AccountDataAccess.Instance.ToggleActive(accountId);
+    }
+
+    public int ResetPasswordAccount(int accountId)
+    {
+        Account? account = AccountDataAccess.Instance.GetById(accountId);
+        if (account == null)
+        {
+            return 0;
+        }
+
+        byte[] defaultPassword = DefaultConverter.GetBytes(account.Username);
+        byte[] saltedPassword = ByteHandler.Combine(defaultPassword, account.Salt);
+        byte[] hashedPassword = Hasher.ComputeHash(saltedPassword, HashAlgorithmType.Sha256);
+
+        if (account.Password.SequenceEqual(hashedPassword))
+        {
+            return 0;
+        }
+
+        byte[] newSalt = SaltGenerator.GenerateSalt(32);
+        byte[] saltedNewPassword = ByteHandler.Combine(defaultPassword, newSalt);
+        byte[] hashedNewPassword = Hasher.ComputeHash(saltedNewPassword, HashAlgorithmType.Sha256);
+
+        AccountUpdate updateInfo = new()
+        {
+            Salt = new(newSalt, true),
+            Password = new(hashedNewPassword, true),
+        };
+        return AccountDataAccess.Instance.Update(accountId, updateInfo);
     }
 
     public int DeleteAccount(int accountId)

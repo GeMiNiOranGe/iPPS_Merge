@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Contracts;
 using Pepro.DataAccess.Entities;
 using Pepro.DataAccess.Extensions;
 using Pepro.DataAccess.Mappings;
@@ -18,6 +19,31 @@ public class AccountDataAccess
     }
 
     private AccountDataAccess() { }
+
+    public Account? GetById(int accountId)
+    {
+        string query = @"
+            SELECT Account.AccountId
+                , Account.Username
+                , Account.Salt
+                , Account.Password
+                , Account.EmployeeId
+                , Account.IsActive
+                , Account.IsDeleted
+                , Account.CreatedAt
+                , Account.UpdatedAt
+                , Account.DeletedAt
+            FROM Account
+            WHERE Account.AccountId = @AccountId
+                AND Account.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("AccountId", SqlDbType.Int, accountId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(AccountMapper.FromDataRow);
+    }
 
     public IEnumerable<Account> GetMany()
     {
@@ -141,6 +167,26 @@ public class AccountDataAccess
         parameters.Add("IsActive", SqlDbType.Bit, account.IsActive);
         parameters.Add("EmployeeId", SqlDbType.VarChar, 10, account.EmployeeId);
 
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
+    public int Update(int accountId, AccountUpdate entity)
+    {
+        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Account")
+            .Set("Username", SqlDbType.NVarChar, 255, entity.Username)
+            .Set("Salt", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, entity.Salt)
+            .Set("Password", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, entity.Password)
+            .Set("IsActive", SqlDbType.Bit, entity.IsActive)
+            .Set("EmployeeId", SqlDbType.Int, entity.EmployeeId)
+            .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
+            .Where("AccountId", SqlDbType.Int, accountId);
+
+        (string query, List<SqlParameter> parameters) = builder.Build();
+
+        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
+        {
+            return 0;
+        }
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 

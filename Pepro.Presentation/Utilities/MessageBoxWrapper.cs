@@ -12,6 +12,7 @@ public static class MessageBoxWrapper
             "SaveSuccess" => "Lưu dữ liệu thành công",
             "SaveFailed" => "Lưu dữ liệu thất bại",
             "DeleteSuccess" => "Đã xóa {0} dữ liệu thành công",
+            "ResetPasswordSuccess" => "Đã đặt mật khẩu gốc cho {0} tài khoản thành công",
             "LockSuccess" => "Đã khóa thành công {0} trường dữ liệu",
             "UnlockSuccess" => "Đã mở khóa thành công {0} trường dữ liệu",
             "FillInformation" => "Mời điền đầy đủ thông tin",

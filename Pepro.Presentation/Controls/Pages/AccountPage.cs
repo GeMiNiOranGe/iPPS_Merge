@@ -17,9 +17,9 @@ public partial class AccountPage : CrudTemplate
 
         searchButton.ApplyFlatStyleWithIcon("Search", ThemeColors.Text);
         reloadButton.ApplyFlatStyleWithIcon("Refresh", ThemeColors.Text);
-        insertButton.ApplyFlatStyleWithIcon("Plus", ThemeColors.Text);
         deleteButton.ApplyFlatStyleWithIcon("Trash", ThemeColors.Text);
         toggleActiveButton.ApplyFlatStyle();
+        resetPasswordButton.ApplyFlatStyle();
     }
 
     private void LoadAccounts()
@@ -60,15 +60,24 @@ public partial class AccountPage : CrudTemplate
         LoadAccounts();
     }
 
-    private void InsertButton_Click(object sender, EventArgs e)
+    private void ResetPasswordButton_Click(object sender, EventArgs e)
     {
-        /*
-        BindInsertButtonClick<AccountDto>(
-            new(),
-            ControlUiEvent.PushAccountEditorPage,
-            LoadAccounts
+        if (MessageBoxWrapper.Confirm() != DialogResult.Yes)
+        {
+            return;
+        }
+
+        if (!accountDataGridView.TryGetCurrentRow(out AccountDto? item))
+        {
+            return;
+        }
+
+        int numberOfRowsAffected = AccountBusiness.Instance.ResetPasswordAccount(item.AccountId);
+        MessageBoxWrapper.ShowInformation(
+            "ResetPasswordSuccess",
+            numberOfRowsAffected
         );
-        */
+        LoadAccounts();
     }
 
     private void ToggleActiveButton_Click(object sender, EventArgs e)
