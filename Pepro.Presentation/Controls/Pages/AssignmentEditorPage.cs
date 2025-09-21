@@ -106,10 +106,10 @@ public partial class AssignmentEditorPage : EditorTemplate, IEditorUserControl<A
         projectComboBoxField.SelectedValue = _item.ProjectId;
         statusComboBoxField.SelectedValue = _item.StatusId;
 
-        managerComboBoxField.DataSource =
-            EmployeeBusiness.Instance.GetEmployeesByAssignmentId(
-                _item.AssignmentId
-            );
+        managerComboBoxField.DataSource = EmployeeBusiness
+            .Instance.GetEmployeesByAssignmentId(_item.AssignmentId)
+            .ToList();
+
         if (_item.ManagerId.HasValue)
         {
             managerComboBoxField.SelectedValue = _item.ManagerId.Value;
