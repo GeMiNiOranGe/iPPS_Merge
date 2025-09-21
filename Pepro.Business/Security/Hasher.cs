@@ -24,16 +24,34 @@ internal class Hasher(HashAlgorithmType type, int saltSize)
         return new(hashedBuffer, salt);
     }
 
+    public HashResult ComputeHashWithSalt(string buffer)
+    {
+        byte[] castBuffer = DefaultConverter.GetBytes(buffer);
+        return ComputeHashWithSalt(castBuffer);
+    }
+
     public bool Verify(byte[] message, byte[] expected)
     {
         byte[] hashedMessage = ComputeHash(message);
         return hashedMessage.SequenceEqual(expected);
     }
 
+    public bool Verify(string message, byte[] expected)
+    {
+        byte[] castMessage = DefaultConverter.GetBytes(message);
+        return Verify(castMessage, expected);
+    }
+
     public bool Verify(byte[] message, byte[] expected, byte[] salt)
     {
         byte[] saltedMessage = ByteHandler.Combine(message, salt);
         return Verify(saltedMessage, expected);
+    }
+
+    public bool Verify(string message, byte[] expected, byte[] salt)
+    {
+        byte[] castMessage = DefaultConverter.GetBytes(message);
+        return Verify(castMessage, expected, salt);
     }
 
     private static HashAlgorithm CreateHashAlgorithm(HashAlgorithmType type)

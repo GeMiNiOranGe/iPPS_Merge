@@ -36,9 +36,7 @@ public class AccountBusiness
     public int InsertDefaultAccountByEmployee(Employee employee)
     {
         string username = AccountHelper.GenerateDefaultUsername(employee);
-
-        byte[] defaultPassword = DefaultConverter.GetBytes(username);
-        HashResult hashResult = _hasher.ComputeHashWithSalt(defaultPassword);
+        HashResult hashResult = _hasher.ComputeHashWithSalt(username);
 
         Account account = new()
         {
@@ -70,8 +68,7 @@ public class AccountBusiness
             return loginResult;
         }
 
-        byte[] castPassword = DefaultConverter.GetBytes(password);
-        if (!_hasher.Verify(castPassword, account.Password, account.Salt))
+        if (!_hasher.Verify(password, account.Password, account.Salt))
         {
             loginResult.Status = LoginStatus.InvalidAccount;
             return loginResult;
@@ -95,13 +92,12 @@ public class AccountBusiness
             return 0;
         }
 
-        byte[] defaultPassword = DefaultConverter.GetBytes(account.Username);
-        if (_hasher.Verify(defaultPassword, account.Password, account.Salt))
+        if (_hasher.Verify(account.Username, account.Password, account.Salt))
         {
             return 0;
         }
 
-        HashResult hashResult = _hasher.ComputeHashWithSalt(defaultPassword);
+        HashResult hashResult = _hasher.ComputeHashWithSalt(account.Username);
         AccountUpdate updateInfo = new()
         {
             Password = new(hashResult.HashedMessage, true),
