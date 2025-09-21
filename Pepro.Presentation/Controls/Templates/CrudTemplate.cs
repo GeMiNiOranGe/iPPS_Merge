@@ -92,12 +92,12 @@ public class CrudTemplate : MediatedTemplate
         Action? onDataChanged
     )
     {
-        if (MessageBoxWrapper.Confirm("ConfirmDelete") != DialogResult.Yes)
+        if (!dataGridView.TryGetCurrentRow(out ItemType? item))
         {
             return;
         }
 
-        if (!dataGridView.TryGetCurrentRow(out ItemType? item))
+        if (MessageBoxWrapper.Confirm("ConfirmDelete") != DialogResult.Yes)
         {
             return;
         }

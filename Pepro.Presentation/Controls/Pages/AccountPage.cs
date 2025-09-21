@@ -62,12 +62,12 @@ public partial class AccountPage : CrudTemplate
 
     private void ResetPasswordButton_Click(object sender, EventArgs e)
     {
-        if (MessageBoxWrapper.Confirm() != DialogResult.Yes)
+        if (!accountDataGridView.TryGetCurrentRow(out AccountDto? item))
         {
             return;
         }
 
-        if (!accountDataGridView.TryGetCurrentRow(out AccountDto? item))
+        if (MessageBoxWrapper.Confirm() != DialogResult.Yes)
         {
             return;
         }
@@ -82,12 +82,12 @@ public partial class AccountPage : CrudTemplate
 
     private void ToggleActiveButton_Click(object sender, EventArgs e)
     {
-        if (MessageBoxWrapper.Confirm() != DialogResult.Yes)
+        if (!accountDataGridView.TryGetCurrentRow(out AccountDto? item))
         {
             return;
         }
 
-        if (!accountDataGridView.TryGetCurrentRow(out AccountDto? item))
+        if (MessageBoxWrapper.Confirm() != DialogResult.Yes)
         {
             return;
         }
