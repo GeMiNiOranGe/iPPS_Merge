@@ -357,7 +357,7 @@ public class EmployeeDataAccess
 
     public int Update(int employeeId, EmployeeUpdateModel model)
     {
-        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Employee")
+        QueryBuildResult result = new SqlUpdateQueryBuilder("Employee")
             .Set("FirstName", SqlDbType.NVarChar, 10, model.FirstName)
             .Set("MiddleName", SqlDbType.NVarChar, 30, model.MiddleName)
             .Set("LastName", SqlDbType.NVarChar, 10, model.LastName)
@@ -369,15 +369,15 @@ public class EmployeeDataAccess
             .Set("PositionId", SqlDbType.Int, model.PositionId)
             .Set("SalaryLevelId", SqlDbType.Int, model.SalaryLevelId)
             .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
-            .Where("EmployeeId", SqlDbType.Int, employeeId);
+            .Where("EmployeeId", SqlDbType.Int, employeeId)
+            .Build();
 
-        (string query, List<SqlParameter> parameters) = builder.Build();
-
-        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
+        if (string.IsNullOrEmpty(result.Query) || result.Parameters.Count == 0)
         {
             return 0;
         }
-        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+
+        return DataProvider.Instance.ExecuteNonQuery(result.Query, [.. result.Parameters]);
     }
 
     public int Delete(int employeeId)

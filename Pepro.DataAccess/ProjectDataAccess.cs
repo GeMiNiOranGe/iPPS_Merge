@@ -233,7 +233,7 @@ public class ProjectDataAccess
 
     public int Update(int projectId, ProjectUpdateModel model)
     {
-        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Project")
+        QueryBuildResult result = new SqlUpdateQueryBuilder("Project")
             .Set("Name", SqlDbType.NVarChar, 50, model.Name)
             .Set("CustomerName", SqlDbType.NVarChar, 50, model.CustomerName)
             .Set("ManagerId", SqlDbType.Int, model.ManagerId)
@@ -241,15 +241,15 @@ public class ProjectDataAccess
             .Set("EndDate", SqlDbType.Date, model.EndDate)
             .Set("StatusId", SqlDbType.Int, model.StatusId)
             .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
-            .Where("ProjectId", SqlDbType.Int, projectId);
+            .Where("ProjectId", SqlDbType.Int, projectId)
+            .Build();
 
-        (string query, List<SqlParameter> parameters) = builder.Build();
-
-        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
+        if (string.IsNullOrEmpty(result.Query) || result.Parameters.Count == 0)
         {
             return 0;
         }
-        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+
+        return DataProvider.Instance.ExecuteNonQuery(result.Query, [.. result.Parameters]);
     }
 
     public int Delete(int projectId)

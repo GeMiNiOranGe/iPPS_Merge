@@ -172,22 +172,22 @@ public class AccountDataAccess
 
     public int Update(int accountId, AccountUpdateModel model)
     {
-        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Account")
+        QueryBuildResult result = new SqlUpdateQueryBuilder("Account")
             .Set("Username", SqlDbType.NVarChar, 255, model.Username)
             .Set("Salt", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, model.Salt)
             .Set("Password", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, model.Password)
             .Set("IsActive", SqlDbType.Bit, model.IsActive)
             .Set("EmployeeId", SqlDbType.Int, model.EmployeeId)
             .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
-            .Where("AccountId", SqlDbType.Int, accountId);
+            .Where("AccountId", SqlDbType.Int, accountId)
+            .Build();
 
-        (string query, List<SqlParameter> parameters) = builder.Build();
-
-        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
+        if (string.IsNullOrEmpty(result.Query) || result.Parameters.Count == 0)
         {
             return 0;
         }
-        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+
+        return DataProvider.Instance.ExecuteNonQuery(result.Query, [.. result.Parameters]);
     }
 
     public int Delete(int accountId)
