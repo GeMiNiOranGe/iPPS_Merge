@@ -312,7 +312,7 @@ public class AssignmentDataAccess
 
     public int Update(int assignmentId, AssignmentUpdateModel model)
     {
-        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Assignment")
+        QueryBuildResult result = new SqlUpdateQueryBuilder("Assignment")
             .Set("Name", SqlDbType.NVarChar, 50, model.Name)
             .Set("IsPublicToProject", SqlDbType.Bit, model.IsPublicToProject)
             .Set("IsPublicToDepartment", SqlDbType.Bit, model.IsPublicToDepartment)
@@ -323,15 +323,15 @@ public class AssignmentDataAccess
             .Set("ProjectId", SqlDbType.Int, model.ProjectId)
             .Set("StatusId", SqlDbType.Int, model.StatusId)
             .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
-            .Where("AssignmentId", SqlDbType.Int, assignmentId);
+            .Where("AssignmentId", SqlDbType.Int, assignmentId)
+            .Build();
 
-        (string query, List<SqlParameter> parameters) = builder.Build();
-
-        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
+        if (string.IsNullOrEmpty(result.Query) || result.Parameters.Count == 0)
         {
             return 0;
         }
-        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+
+        return DataProvider.Instance.ExecuteNonQuery(result.Query, [.. result.Parameters]);
     }
 
     public int Delete(int assignmentId)

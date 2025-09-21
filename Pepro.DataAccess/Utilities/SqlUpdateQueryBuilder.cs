@@ -76,11 +76,11 @@ class SqlUpdateQueryBuilder(string tableName)
         return this;
     }
 
-    public (string query, List<SqlParameter> parameters) Build()
+    public QueryBuildResult Build()
     {
         if (_setClauses.Count == 0)
         {
-            return ("", []);
+            return new("", []);
         }
 
         _setClauses.AddRange(_setDirectClauses);
@@ -90,6 +90,6 @@ class SqlUpdateQueryBuilder(string tableName)
             WHERE {string.Join(", ", _whereClauses)}
         ";
 
-        return (query, _parameters);
+        return new(query, _parameters);
     }
 }

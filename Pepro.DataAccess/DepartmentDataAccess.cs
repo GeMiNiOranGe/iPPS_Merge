@@ -136,19 +136,19 @@ public class DepartmentDataAccess
 
     public int Update(int departmentId, DepartmentUpdateModel model)
     {
-        SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Department")
+        QueryBuildResult result = new SqlUpdateQueryBuilder("Department")
             .Set("Name", SqlDbType.NVarChar, 50, model.Name)
             .Set("ManagerId", SqlDbType.Int, model.ManagerId)
             .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
-            .Where("DepartmentId", SqlDbType.Int, departmentId);
+            .Where("DepartmentId", SqlDbType.Int, departmentId)
+            .Build();
 
-        (string query, List<SqlParameter> parameters) = builder.Build();
-
-        if (string.IsNullOrEmpty(query) || parameters.Count == 0)
+        if (string.IsNullOrEmpty(result.Query) || result.Parameters.Count == 0)
         {
             return 0;
         }
-        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+
+        return DataProvider.Instance.ExecuteNonQuery(result.Query, [.. result.Parameters]);
     }
 
     public int Delete(int departmentId)
