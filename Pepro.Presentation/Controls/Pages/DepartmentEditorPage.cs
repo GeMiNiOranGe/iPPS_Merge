@@ -89,10 +89,10 @@ public partial class DepartmentEditorPage
 
     private void SetupEditMode()
     {
-        managerComboBoxField.DataSource =
-            EmployeeBusiness.Instance.GetEmployeesByDepartmentId(
-                _item.DepartmentId
-            );
+        managerComboBoxField.DataSource = EmployeeBusiness
+            .Instance.GetEmployeesByDepartmentId(_item.DepartmentId)
+            .ToList();
+
         if (_item.ManagerId.HasValue)
         {
             managerComboBoxField.SelectedValue = _item.ManagerId.Value;

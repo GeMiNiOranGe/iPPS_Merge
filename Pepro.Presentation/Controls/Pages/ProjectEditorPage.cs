@@ -83,10 +83,10 @@ public partial class ProjectEditorPage : EditorTemplate, IEditorUserControl<Proj
     {
         statusComboBoxField.SelectedValue = _item.StatusId;
 
-        managerComboBoxField.DataSource =
-            EmployeeBusiness.Instance.GetEmployeesByProjectId(
-                _item.ProjectId
-            );
+        managerComboBoxField.DataSource = EmployeeBusiness
+            .Instance.GetEmployeesByProjectId(_item.ProjectId)
+            .ToList();
+
         if (_item.ManagerId.HasValue)
         {
             managerComboBoxField.SelectedValue = _item.ManagerId.Value;

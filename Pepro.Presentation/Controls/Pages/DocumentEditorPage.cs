@@ -108,11 +108,9 @@ public partial class DocumentEditorPage : EditorTemplate, IEditorUserControl<Doc
 
     private void SetupCreateMode()
     {
-        List<ProjectDto> projects =
-        [
-            .. ProjectBusiness.Instance.GetProjects()
-        ];
-        projectNameComboBoxField.DataSource = projects;
+        projectNameComboBoxField.DataSource = ProjectBusiness
+            .Instance.GetProjects()
+            .ToList();
         projectNameComboBoxField.SelectedIndex = -1;
     }
 
