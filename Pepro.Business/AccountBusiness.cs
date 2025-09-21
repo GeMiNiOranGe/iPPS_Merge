@@ -93,13 +93,13 @@ public class AccountBusiness
         }
 
         HashResult hashResult = _hasher.ComputeHashWithSalt(account.Username);
-        AccountUpdate updateInfo = new()
+        AccountUpdateModel model = new()
         {
             Password = new(hashResult.HashedMessage, true),
             Salt = new(hashResult.Salt, true),
         };
 
-        return AccountDataAccess.Instance.Update(accountId, updateInfo);
+        return AccountDataAccess.Instance.Update(accountId, model);
     }
 
     public int DeleteAccount(int accountId)

@@ -113,7 +113,7 @@ public class EmployeeBusiness
         byte[]? encryptedTaxCode = EncryptionConverter.EncryptFromString(dto.TaxCode);
         string? taxCode = EncryptionConverter.DecryptToString(entity.TaxCode);
 
-        EmployeeUpdate updateInfo = new()
+        EmployeeUpdateModel model = new()
         {
             FirstName = new(dto.FirstName, entity.FirstName != dto.FirstName),
             MiddleName = new(dto.MiddleName, entity.MiddleName != dto.MiddleName),
@@ -126,7 +126,7 @@ public class EmployeeBusiness
             PositionId = new(dto.PositionId, entity.PositionId != dto.PositionId),
             SalaryLevelId = new(dto.SalaryLevelId, entity.SalaryLevelId != dto.SalaryLevelId)
         };
-        return EmployeeDataAccess.Instance.Update(dto.EmployeeId, updateInfo);
+        return EmployeeDataAccess.Instance.Update(dto.EmployeeId, model);
     }
 
     public int DeleteEmployee(int employeeId)

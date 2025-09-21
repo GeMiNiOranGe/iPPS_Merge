@@ -1,6 +1,6 @@
 namespace Pepro.DataAccess.Contracts;
 
-public class AccountUpdate
+public class AccountUpdateModel
 {
     private TrackedValue<string> _username = new();
     private TrackedValue<byte[]> _salt = new();

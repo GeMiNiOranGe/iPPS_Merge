@@ -170,14 +170,14 @@ public class AccountDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int Update(int accountId, AccountUpdate entity)
+    public int Update(int accountId, AccountUpdateModel model)
     {
         SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Account")
-            .Set("Username", SqlDbType.NVarChar, 255, entity.Username)
-            .Set("Salt", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, entity.Salt)
-            .Set("Password", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, entity.Password)
-            .Set("IsActive", SqlDbType.Bit, entity.IsActive)
-            .Set("EmployeeId", SqlDbType.Int, entity.EmployeeId)
+            .Set("Username", SqlDbType.NVarChar, 255, model.Username)
+            .Set("Salt", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, model.Salt)
+            .Set("Password", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, model.Password)
+            .Set("IsActive", SqlDbType.Bit, model.IsActive)
+            .Set("EmployeeId", SqlDbType.Int, model.EmployeeId)
             .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
             .Where("AccountId", SqlDbType.Int, accountId);
 

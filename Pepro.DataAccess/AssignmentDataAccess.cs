@@ -310,18 +310,18 @@ public class AssignmentDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int Update(int assignmentId, AssignmentUpdate info)
+    public int Update(int assignmentId, AssignmentUpdateModel model)
     {
         SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Assignment")
-            .Set("Name", SqlDbType.NVarChar, 50, info.Name)
-            .Set("IsPublicToProject", SqlDbType.Bit, info.IsPublicToProject)
-            .Set("IsPublicToDepartment", SqlDbType.Bit, info.IsPublicToDepartment)
-            .Set("StartDate", SqlDbType.Date, info.StartDate)
-            .Set("EndDate", SqlDbType.Date, info.EndDate)
-            .Set("RequiredDocumentCount", SqlDbType.Int, info.RequiredDocumentCount)
-            .Set("ManagerId", SqlDbType.Int, info.ManagerId)
-            .Set("ProjectId", SqlDbType.Int, info.ProjectId)
-            .Set("StatusId", SqlDbType.Int, info.StatusId)
+            .Set("Name", SqlDbType.NVarChar, 50, model.Name)
+            .Set("IsPublicToProject", SqlDbType.Bit, model.IsPublicToProject)
+            .Set("IsPublicToDepartment", SqlDbType.Bit, model.IsPublicToDepartment)
+            .Set("StartDate", SqlDbType.Date, model.StartDate)
+            .Set("EndDate", SqlDbType.Date, model.EndDate)
+            .Set("RequiredDocumentCount", SqlDbType.Int, model.RequiredDocumentCount)
+            .Set("ManagerId", SqlDbType.Int, model.ManagerId)
+            .Set("ProjectId", SqlDbType.Int, model.ProjectId)
+            .Set("StatusId", SqlDbType.Int, model.StatusId)
             .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
             .Where("AssignmentId", SqlDbType.Int, assignmentId);
 

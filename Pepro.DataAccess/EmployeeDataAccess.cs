@@ -355,19 +355,19 @@ public class EmployeeDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int Update(int employeeId, EmployeeUpdate entity)
+    public int Update(int employeeId, EmployeeUpdateModel model)
     {
         SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Employee")
-            .Set("FirstName", SqlDbType.NVarChar, 10, entity.FirstName)
-            .Set("MiddleName", SqlDbType.NVarChar, 30, entity.MiddleName)
-            .Set("LastName", SqlDbType.NVarChar, 10, entity.LastName)
-            .Set("DateOfBirth", SqlDbType.Date, entity.DateOfBirth)
-            .Set("Gender", SqlDbType.Bit, entity.Gender)
-            .Set("TaxCode", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, entity.TaxCode)
-            .Set("CitizenId", SqlDbType.VarChar, 12, entity.CitizenId)
-            .Set("DepartmentId", SqlDbType.Int, entity.DepartmentId)
-            .Set("PositionId", SqlDbType.Int, entity.PositionId)
-            .Set("SalaryLevelId", SqlDbType.Int, entity.SalaryLevelId)
+            .Set("FirstName", SqlDbType.NVarChar, 10, model.FirstName)
+            .Set("MiddleName", SqlDbType.NVarChar, 30, model.MiddleName)
+            .Set("LastName", SqlDbType.NVarChar, 10, model.LastName)
+            .Set("DateOfBirth", SqlDbType.Date, model.DateOfBirth)
+            .Set("Gender", SqlDbType.Bit, model.Gender)
+            .Set("TaxCode", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, model.TaxCode)
+            .Set("CitizenId", SqlDbType.VarChar, 12, model.CitizenId)
+            .Set("DepartmentId", SqlDbType.Int, model.DepartmentId)
+            .Set("PositionId", SqlDbType.Int, model.PositionId)
+            .Set("SalaryLevelId", SqlDbType.Int, model.SalaryLevelId)
             .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
             .Where("EmployeeId", SqlDbType.Int, employeeId);
 
