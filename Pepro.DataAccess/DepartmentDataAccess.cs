@@ -134,11 +134,11 @@ public class DepartmentDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int Update(int departmentId, DepartmentUpdate info)
+    public int Update(int departmentId, DepartmentUpdateModel model)
     {
         SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Department")
-            .Set("Name", SqlDbType.NVarChar, 50, info.Name)
-            .Set("ManagerId", SqlDbType.Int, info.ManagerId)
+            .Set("Name", SqlDbType.NVarChar, 50, model.Name)
+            .Set("ManagerId", SqlDbType.Int, model.ManagerId)
             .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
             .Where("DepartmentId", SqlDbType.Int, departmentId);
 

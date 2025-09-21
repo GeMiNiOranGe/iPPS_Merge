@@ -231,15 +231,15 @@ public class ProjectDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int Update(int projectId, ProjectUpdate info)
+    public int Update(int projectId, ProjectUpdateModel model)
     {
         SqlUpdateQueryBuilder builder = new SqlUpdateQueryBuilder("Project")
-            .Set("Name", SqlDbType.NVarChar, 50, info.Name)
-            .Set("CustomerName", SqlDbType.NVarChar, 50, info.CustomerName)
-            .Set("ManagerId", SqlDbType.Int, info.ManagerId)
-            .Set("StartDate", SqlDbType.Date, info.StartDate)
-            .Set("EndDate", SqlDbType.Date, info.EndDate)
-            .Set("StatusId", SqlDbType.Int, info.StatusId)
+            .Set("Name", SqlDbType.NVarChar, 50, model.Name)
+            .Set("CustomerName", SqlDbType.NVarChar, 50, model.CustomerName)
+            .Set("ManagerId", SqlDbType.Int, model.ManagerId)
+            .Set("StartDate", SqlDbType.Date, model.StartDate)
+            .Set("EndDate", SqlDbType.Date, model.EndDate)
+            .Set("StatusId", SqlDbType.Int, model.StatusId)
             .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
             .Where("ProjectId", SqlDbType.Int, projectId);
 

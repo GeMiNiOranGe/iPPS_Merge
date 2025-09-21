@@ -1,6 +1,6 @@
 namespace Pepro.DataAccess.Contracts;
 
-public class EmployeeUpdate
+public class EmployeeUpdateModel
 {
     private TrackedValue<string> _firstName = new();
     private TrackedValue<string?> _middleName = new();

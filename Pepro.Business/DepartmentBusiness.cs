@@ -81,12 +81,12 @@ public class DepartmentBusiness
             return 0;
         }
 
-        DepartmentUpdate updateInfo = new()
+        DepartmentUpdateModel model = new()
         {
             Name = new(dto.Name, entity.Name != dto.Name),
             ManagerId = new(dto.ManagerId, entity.ManagerId != dto.ManagerId)
         };
-        return DepartmentDataAccess.Instance.Update(dto.DepartmentId, updateInfo);
+        return DepartmentDataAccess.Instance.Update(dto.DepartmentId, model);
     }
 
     public int InsertDepartment(DepartmentDto dto)

@@ -65,7 +65,7 @@ public class AssignmentBusiness {
             return 0;
         }
 
-        AssignmentUpdate updateInfo = new()
+        AssignmentUpdateModel model = new()
         {
             Name = new(dto.Name, entity.Name != dto.Name),
             IsPublicToProject = new(dto.IsPublicToProject, entity.IsPublicToProject != dto.IsPublicToProject),
@@ -77,7 +77,7 @@ public class AssignmentBusiness {
             ProjectId = new(dto.ProjectId, entity.ProjectId != dto.ProjectId),
             StatusId = new(dto.StatusId, entity.StatusId != dto.StatusId),
         };
-        return AssignmentDataAccess.Instance.Update(dto.AssignmentId, updateInfo);
+        return AssignmentDataAccess.Instance.Update(dto.AssignmentId, model);
     }
 
     public int InsertAssignment(AssignmentDto dto)

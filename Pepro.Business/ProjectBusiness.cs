@@ -87,7 +87,7 @@ public class ProjectBusiness {
             return 0;
         }
 
-        ProjectUpdate updateInfo = new()
+        ProjectUpdateModel model = new()
         {
             Name = new(dto.Name, entity.Name != dto.Name),
             CustomerName = new(dto.CustomerName, entity.CustomerName != dto.CustomerName),
@@ -96,7 +96,7 @@ public class ProjectBusiness {
             EndDate = new(dto.EndDate, entity.EndDate != dto.EndDate),
             StatusId = new(dto.StatusId, entity.StatusId != dto.StatusId),
         };
-        return ProjectDataAccess.Instance.Update(dto.ProjectId, updateInfo);
+        return ProjectDataAccess.Instance.Update(dto.ProjectId, model);
     }
 
     public int InsertProject(ProjectDto dto)

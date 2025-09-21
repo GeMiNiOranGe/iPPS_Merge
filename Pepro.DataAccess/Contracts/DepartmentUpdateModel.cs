@@ -1,6 +1,6 @@
 namespace Pepro.DataAccess.Contracts;
 
-public class DepartmentUpdate
+public class DepartmentUpdateModel
 {
     private TrackedValue<string> _name = new();
     private TrackedValue<int?> _managerId = new();
