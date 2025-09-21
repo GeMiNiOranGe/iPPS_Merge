@@ -62,13 +62,10 @@ public class AccountBusiness
 
         Account? account = AccountDataAccess.Instance.Find(accountName);
 
-        if (account == null)
-        {
-            loginResult.Status = LoginStatus.InvalidAccount;
-            return loginResult;
-        }
-
-        if (!_hasher.Verify(password, account.Password, account.Salt))
+        if (
+            account == null
+            || !_hasher.Verify(password, account.Password, account.Salt)
+        )
         {
             loginResult.Status = LoginStatus.InvalidAccount;
             return loginResult;
@@ -87,12 +84,10 @@ public class AccountBusiness
     public int ResetPasswordAccount(int accountId)
     {
         Account? account = AccountDataAccess.Instance.GetById(accountId);
-        if (account == null)
-        {
-            return 0;
-        }
-
-        if (_hasher.Verify(account.Username, account.Password, account.Salt))
+        if (
+            account == null
+            || _hasher.Verify(account.Username, account.Password, account.Salt)
+        )
         {
             return 0;
         }
