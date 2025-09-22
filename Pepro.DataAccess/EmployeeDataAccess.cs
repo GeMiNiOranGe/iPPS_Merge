@@ -247,7 +247,7 @@ public class EmployeeDataAccess
             .MapMany(EmployeeMapper.FromDataRow);
     }
 
-    public Employee? Add(Employee employee)
+    public Employee? Add(EmployeeInsertModel model)
     {
         string query = @"
             INSERT INTO [dbo].[Employee]
@@ -294,23 +294,23 @@ public class EmployeeDataAccess
             )
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("FirstName", SqlDbType.NVarChar, 10, employee.FirstName);
-        parameters.Add("MiddleName", SqlDbType.NVarChar, 30, employee.MiddleName);
-        parameters.Add("LastName", SqlDbType.NVarChar, 10, employee.LastName);
-        parameters.Add("DateOfBirth", SqlDbType.Date, employee.DateOfBirth);
-        parameters.Add("Gender", SqlDbType.Bit, employee.Gender);
-        parameters.Add("TaxCode", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, employee.TaxCode);
-        parameters.Add("CitizenId", SqlDbType.VarChar, 12, employee.CitizenId);
-        parameters.Add("DepartmentId", SqlDbType.Int, employee.DepartmentId);
-        parameters.Add("PositionId", SqlDbType.Int, employee.PositionId);
-        parameters.Add("SalaryLevelId", SqlDbType.Int, employee.SalaryLevelId);
+        parameters.Add("FirstName", SqlDbType.NVarChar, 10, model.FirstName);
+        parameters.Add("MiddleName", SqlDbType.NVarChar, 30, model.MiddleName);
+        parameters.Add("LastName", SqlDbType.NVarChar, 10, model.LastName);
+        parameters.Add("DateOfBirth", SqlDbType.Date, model.DateOfBirth);
+        parameters.Add("Gender", SqlDbType.Bit, model.Gender);
+        parameters.Add("TaxCode", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, model.TaxCode);
+        parameters.Add("CitizenId", SqlDbType.VarChar, 12, model.CitizenId);
+        parameters.Add("DepartmentId", SqlDbType.Int, model.DepartmentId);
+        parameters.Add("PositionId", SqlDbType.Int, model.PositionId);
+        parameters.Add("SalaryLevelId", SqlDbType.Int, model.SalaryLevelId);
 
         return DataProvider
             .Instance.ExecuteQuery(query, [.. parameters])
             .MapToSingleOrDefault(EmployeeMapper.FromDataRow);
     }
 
-    public int Insert(Employee employee)
+    public int Insert(EmployeeInsertModel model)
     {
         string query = @"
             INSERT INTO [dbo].[Employee]
@@ -341,16 +341,16 @@ public class EmployeeDataAccess
             )
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("FirstName", SqlDbType.NVarChar, 10, employee.FirstName);
-        parameters.Add("MiddleName", SqlDbType.NVarChar, 30, employee.MiddleName);
-        parameters.Add("LastName", SqlDbType.NVarChar, 10, employee.LastName);
-        parameters.Add("DateOfBirth", SqlDbType.Date, employee.DateOfBirth);
-        parameters.Add("Gender", SqlDbType.Bit, employee.Gender);
-        parameters.Add("TaxCode", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, employee.TaxCode);
-        parameters.Add("CitizenId", SqlDbType.VarChar, 12, employee.CitizenId);
-        parameters.Add("DepartmentId", SqlDbType.Int, employee.DepartmentId);
-        parameters.Add("PositionId", SqlDbType.Int, employee.PositionId);
-        parameters.Add("SalaryLevelId", SqlDbType.Int, employee.SalaryLevelId);
+        parameters.Add("FirstName", SqlDbType.NVarChar, 10, model.FirstName);
+        parameters.Add("MiddleName", SqlDbType.NVarChar, 30, model.MiddleName);
+        parameters.Add("LastName", SqlDbType.NVarChar, 10, model.LastName);
+        parameters.Add("DateOfBirth", SqlDbType.Date, model.DateOfBirth);
+        parameters.Add("Gender", SqlDbType.Bit, model.Gender);
+        parameters.Add("TaxCode", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, model.TaxCode);
+        parameters.Add("CitizenId", SqlDbType.VarChar, 12, model.CitizenId);
+        parameters.Add("DepartmentId", SqlDbType.Int, model.DepartmentId);
+        parameters.Add("PositionId", SqlDbType.Int, model.PositionId);
+        parameters.Add("SalaryLevelId", SqlDbType.Int, model.SalaryLevelId);
 
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }

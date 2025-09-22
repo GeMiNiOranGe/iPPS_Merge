@@ -145,8 +145,8 @@ public class EmployeeBusiness
     }
 
     public int InsertEmployee(EmployeeDto dto) {
-        Employee entity = dto.ToEntity();
-        Employee? employee = EmployeeDataAccess.Instance.Add(entity);
+        EmployeeInsertModel model = dto.ToInsertModel();
+        Employee? employee = EmployeeDataAccess.Instance.Add(model);
         if (employee == null) {
             return 0;
         }
