@@ -1,3 +1,4 @@
+using Pepro.DataAccess.Contracts;
 using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 
@@ -5,11 +6,10 @@ namespace Pepro.Business.Mappings;
 
 static class AssignmentMapper
 {
-    public static Assignment ToEntity(this AssignmentDto dto)
+    public static AssignmentInsertModel ToInsertModel(this AssignmentDto dto)
     {
-        return new Assignment()
+        return new AssignmentInsertModel()
         {
-            AssignmentId = dto.AssignmentId,
             Name = dto.Name,
             IsPublicToProject = dto.IsPublicToProject,
             IsPublicToDepartment = dto.IsPublicToDepartment,

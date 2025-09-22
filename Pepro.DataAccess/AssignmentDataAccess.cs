@@ -268,7 +268,7 @@ public class AssignmentDataAccess
             ));
     }
 
-    public int Insert(Assignment entity)
+    public int Insert(AssignmentInsertModel model)
     {
         string query = @"
             INSERT INTO Assignment
@@ -297,15 +297,15 @@ public class AssignmentDataAccess
             )
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("Name", SqlDbType.NVarChar, 50, entity.Name);
-        parameters.Add("IsPublicToProject", SqlDbType.Bit, entity.IsPublicToProject);
-        parameters.Add("IsPublicToDepartment", SqlDbType.Bit, entity.IsPublicToDepartment);
-        parameters.Add("StartDate", SqlDbType.Date, entity.StartDate);
-        parameters.Add("EndDate", SqlDbType.Date, entity.EndDate);
-        parameters.Add("RequiredDocumentCount", SqlDbType.Int, entity.RequiredDocumentCount);
-        parameters.Add("ManagerId", SqlDbType.Int, entity.ManagerId);
-        parameters.Add("ProjectId", SqlDbType.Int, entity.ProjectId);
-        parameters.Add("StatusId", SqlDbType.Int, entity.StatusId);
+        parameters.Add("Name", SqlDbType.NVarChar, 50, model.Name);
+        parameters.Add("IsPublicToProject", SqlDbType.Bit, model.IsPublicToProject);
+        parameters.Add("IsPublicToDepartment", SqlDbType.Bit, model.IsPublicToDepartment);
+        parameters.Add("StartDate", SqlDbType.Date, model.StartDate);
+        parameters.Add("EndDate", SqlDbType.Date, model.EndDate);
+        parameters.Add("RequiredDocumentCount", SqlDbType.Int, model.RequiredDocumentCount);
+        parameters.Add("ManagerId", SqlDbType.Int, model.ManagerId);
+        parameters.Add("ProjectId", SqlDbType.Int, model.ProjectId);
+        parameters.Add("StatusId", SqlDbType.Int, model.StatusId);
 
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }

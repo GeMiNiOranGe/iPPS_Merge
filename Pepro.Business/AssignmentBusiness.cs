@@ -82,8 +82,8 @@ public class AssignmentBusiness {
 
     public int InsertAssignment(AssignmentDto dto)
     {
-        Assignment entity = dto.ToEntity();
-        return AssignmentDataAccess.Instance.Insert(entity);
+        AssignmentInsertModel model = dto.ToInsertModel();
+        return AssignmentDataAccess.Instance.Insert(model);
     }
 
     private IEnumerable<AssignmentView> MapAssignmentsToViews(IEnumerable<Assignment> assignments)
