@@ -1,4 +1,5 @@
 using Pepro.Business.Utilities;
+using Pepro.DataAccess.Contracts;
 using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 
@@ -6,11 +7,10 @@ namespace Pepro.Business.Mappings;
 
 static class EmployeeMapper
 {
-    public static Employee ToEntity(this EmployeeDto dto)
+    public static EmployeeInsertModel ToInsertModel(this EmployeeDto dto)
     {
-        return new Employee()
+        return new EmployeeInsertModel()
         {
-            EmployeeId = dto.EmployeeId,
             FirstName = dto.FirstName,
             MiddleName = dto.MiddleName,
             LastName = dto.LastName,
