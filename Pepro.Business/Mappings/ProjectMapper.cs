@@ -1,3 +1,4 @@
+using Pepro.DataAccess.Contracts;
 using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 
@@ -5,11 +6,10 @@ namespace Pepro.Business.Mappings;
 
 static class ProjectMapper
 {
-    public static Project ToEntity(this ProjectDto dto)
+    public static ProjectInsertModel ToInsertModel(this ProjectDto dto)
     {
-        return new Project()
+        return new ProjectInsertModel()
         {
-            ProjectId = dto.ProjectId,
             Name = dto.Name,
             CustomerName = dto.CustomerName,
             ManagerId = dto.ManagerId,

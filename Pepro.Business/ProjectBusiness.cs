@@ -101,7 +101,7 @@ public class ProjectBusiness {
 
     public int InsertProject(ProjectDto dto)
     {
-        Project entity = dto.ToEntity();
+        ProjectInsertModel entity = dto.ToInsertModel();
         return ProjectDataAccess.Instance.Insert(entity);
     }
 

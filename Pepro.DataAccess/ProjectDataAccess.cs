@@ -198,7 +198,7 @@ public class ProjectDataAccess
             .MapMany(ProjectMapper.FromDataRow);
     }
 
-    public int Insert(Project entity)
+    public int Insert(ProjectInsertModel model)
     {
         string query = @"
             INSERT INTO Project
@@ -221,12 +221,12 @@ public class ProjectDataAccess
             )
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("Name", SqlDbType.NVarChar, 50, entity.Name);
-        parameters.Add("CustomerName", SqlDbType.NVarChar, 50, entity.CustomerName);
-        parameters.Add("ManagerId", SqlDbType.Int, entity.ManagerId);
-        parameters.Add("StartDate", SqlDbType.Date, entity.StartDate);
-        parameters.Add("EndDate", SqlDbType.Date, entity.EndDate);
-        parameters.Add("StatusId", SqlDbType.Int, entity.StatusId);
+        parameters.Add("Name", SqlDbType.NVarChar, 50, model.Name);
+        parameters.Add("CustomerName", SqlDbType.NVarChar, 50, model.CustomerName);
+        parameters.Add("ManagerId", SqlDbType.Int, model.ManagerId);
+        parameters.Add("StartDate", SqlDbType.Date, model.StartDate);
+        parameters.Add("EndDate", SqlDbType.Date, model.EndDate);
+        parameters.Add("StatusId", SqlDbType.Int, model.StatusId);
 
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
