@@ -91,8 +91,8 @@ public class DepartmentBusiness
 
     public int InsertDepartment(DepartmentDto dto)
     {
-        Department entity = dto.ToEntity();
-        return DepartmentDataAccess.Instance.Insert(entity);
+        DepartmentInsertModel model = dto.ToInsertModel();
+        return DepartmentDataAccess.Instance.Insert(model);
     }
 
     public DataTable GetDepartmentList()
