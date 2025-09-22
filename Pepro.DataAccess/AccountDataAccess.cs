@@ -140,7 +140,7 @@ public class AccountDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int Insert(Account account)
+    public int Insert(AccountInsertModel model)
     {
         string query = @"
             INSERT INTO [Account]
@@ -161,11 +161,11 @@ public class AccountDataAccess
             )
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("Username", SqlDbType.VarChar, 255, account.Username);
-        parameters.Add("Password", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, account.Password);
-        parameters.Add("Salt", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, account.Salt);
-        parameters.Add("IsActive", SqlDbType.Bit, account.IsActive);
-        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, account.EmployeeId);
+        parameters.Add("Username", SqlDbType.VarChar, 255, model.Username);
+        parameters.Add("Password", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, model.Password);
+        parameters.Add("Salt", SqlDbType.VarBinary, DatabaseConstants.MAX_SIZE, model.Salt);
+        parameters.Add("IsActive", SqlDbType.Bit, model.IsActive);
+        parameters.Add("EmployeeId", SqlDbType.VarChar, 10, model.EmployeeId);
 
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
