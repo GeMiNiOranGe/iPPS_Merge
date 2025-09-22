@@ -113,7 +113,7 @@ public class DepartmentDataAccess
             .MapMany(DepartmentMapper.FromDataRow);
     }
 
-    public int Insert(Department entity)
+    public int Insert(DepartmentInsertModel model)
     {
         string query = @"
             INSERT INTO Department
@@ -128,8 +128,8 @@ public class DepartmentDataAccess
             )
         ";
         List<SqlParameter> parameters = [];
-        parameters.Add("Name", SqlDbType.NVarChar, 50, entity.Name);
-        parameters.Add("ManagerId", SqlDbType.Int, entity.ManagerId);
+        parameters.Add("Name", SqlDbType.NVarChar, 50, model.Name);
+        parameters.Add("ManagerId", SqlDbType.Int, model.ManagerId);
 
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }

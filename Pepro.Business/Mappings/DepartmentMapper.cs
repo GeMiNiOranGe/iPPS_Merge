@@ -1,3 +1,4 @@
+using Pepro.DataAccess.Contracts;
 using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 
@@ -5,11 +6,10 @@ namespace Pepro.Business.Mappings;
 
 static class DepartmentMapper
 {
-    public static Department ToEntity(this DepartmentDto dto)
+    public static DepartmentInsertModel ToInsertModel(this DepartmentDto dto)
     {
-        return new Department()
+        return new DepartmentInsertModel()
         {
-            DepartmentId = dto.DepartmentId,
             Name = dto.Name,
             ManagerId = dto.ManagerId,
         };
