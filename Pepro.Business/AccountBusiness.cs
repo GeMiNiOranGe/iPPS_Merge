@@ -38,16 +38,15 @@ public class AccountBusiness
         string username = AccountHelper.GenerateDefaultUsername(employee);
         HashResult hashResult = _hasher.ComputeHashWithSalt(username);
 
-        Account account = new()
+        AccountInsertModel model = new()
         {
-            AccountId = default,
             Username = username,
             Password = hashResult.HashedMessage,
             Salt = hashResult.Salt,
             IsActive = true,
             EmployeeId = employee.EmployeeId
         };
-        return AccountDataAccess.Instance.Insert(account);
+        return AccountDataAccess.Instance.Insert(model);
     }
 
     public LoginResult TryLogin(string accountName, string password)
