@@ -4,8 +4,8 @@ public class Account
 {
     private int _accountId;
     private string _username = null!;
-    private byte[] _salt = [];
-    private byte[] _password = [];
+    private byte[] _salt = null!;
+    private byte[] _password = null!;
     private bool _isActive;
     private int _employeeId;
 
