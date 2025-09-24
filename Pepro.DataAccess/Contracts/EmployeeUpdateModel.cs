@@ -13,61 +13,61 @@ public class EmployeeUpdateModel
     private TrackedValue<int> _positionId = new();
     private TrackedValue<int> _salaryLevelId = new();
 
-    public required TrackedValue<string> FirstName
+    public TrackedValue<string> FirstName
     {
         get => _firstName;
         set => _firstName = value;
     }
 
-    public required TrackedValue<string?> MiddleName
+    public TrackedValue<string?> MiddleName
     {
         get => _middleName;
         set => _middleName = value;
     }
 
-    public required TrackedValue<string> LastName
+    public TrackedValue<string> LastName
     {
         get => _lastName;
         set => _lastName = value;
     }
 
-    public required TrackedValue<DateOnly> DateOfBirth
+    public TrackedValue<DateOnly> DateOfBirth
     {
         get => _dateOfBirth;
         set => _dateOfBirth = value;
     }
 
-    public required TrackedValue<bool?> Gender
+    public TrackedValue<bool?> Gender
     {
         get => _gender;
         set => _gender = value;
     }
 
-    public required TrackedValue<byte[]?> TaxCode
+    public TrackedValue<byte[]?> TaxCode
     {
         get => _taxCode;
         set => _taxCode = value;
     }
 
-    public required TrackedValue<string> CitizenId
+    public TrackedValue<string> CitizenId
     {
         get => _citizenId;
         set => _citizenId = value;
     }
 
-    public required TrackedValue<int> DepartmentId
+    public TrackedValue<int> DepartmentId
     {
         get => _departmentId;
         set => _departmentId = value;
     }
 
-    public required TrackedValue<int> PositionId
+    public TrackedValue<int> PositionId
     {
         get => _positionId;
         set => _positionId = value;
     }
 
-    public required TrackedValue<int> SalaryLevelId
+    public TrackedValue<int> SalaryLevelId
     {
         get => _salaryLevelId;
         set => _salaryLevelId = value;
