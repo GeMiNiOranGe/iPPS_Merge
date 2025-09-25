@@ -20,6 +20,10 @@ public partial class AccountPage : CrudTemplate
         deleteButton.ApplyFlatStyleWithIcon("Trash", ThemeColors.Text);
         toggleActiveButton.ApplyFlatStyle();
         resetPasswordButton.ApplyFlatStyle();
+
+        deleteButton.ApplyPermission("Account.Delete");
+        toggleActiveButton.ApplyPermission("Account.Update");
+        resetPasswordButton.ApplyPermission("Account.Update");
     }
 
     private void LoadAccounts()

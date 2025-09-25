@@ -15,8 +15,7 @@ public static class EncryptionConverter
 
     public static string? DecryptToString(byte[]? cipherText)
     {
-        bool hasPermmission = true;
-        if (!hasPermmission)
+        if (!PermissionBusiness.Instance.Has("Salary.Read"))
         {
             return cipherText != null ? "**********" : null;
         }

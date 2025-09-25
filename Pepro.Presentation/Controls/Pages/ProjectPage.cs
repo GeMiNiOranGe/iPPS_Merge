@@ -19,6 +19,10 @@ public partial class ProjectPage : CrudTemplate
         insertButton.ApplyFlatStyleWithIcon("Plus", ThemeColors.Text);
         deleteButton.ApplyFlatStyleWithIcon("Trash", ThemeColors.Text);
         updateButton.ApplyFlatStyleWithIcon("EditPencil", ThemeColors.Text);
+
+        insertButton.ApplyPermission("Project.Create");
+        deleteButton.ApplyPermission("Project.Delete");
+        updateButton.ApplyPermission("Project.Update");
     }
 
     private void LoadProjects()

@@ -21,6 +21,10 @@ public partial class EmployeePage : CrudTemplate
         deleteButton.ApplyFlatStyleWithIcon("Trash", ThemeColors.Text);
         updateButton.ApplyFlatStyleWithIcon("EditPencil", ThemeColors.Text);
         exportButton.ApplyFlatStyle();
+
+        insertButton.ApplyPermission("Employee.Create");
+        deleteButton.ApplyPermission("Employee.Delete");
+        updateButton.ApplyPermission("Employee.Update");
     }
 
     private void LoadEmployees()

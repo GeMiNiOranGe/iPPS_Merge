@@ -20,6 +20,8 @@ public partial class EmployeeEditorPage : EditorTemplate, IEditorUserControl<Emp
         InitializeComponent();
 
         saveButton.ApplyFlatStyle();
+
+        taxCodeTextBoxField.ApplyPermission("Salary.Update", true);
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]

@@ -19,6 +19,10 @@ public partial class AssignmentPage : CrudTemplate
         insertButton.ApplyFlatStyleWithIcon("Plus", ThemeColors.Text);
         deleteButton.ApplyFlatStyleWithIcon("Trash", ThemeColors.Text);
         updateButton.ApplyFlatStyleWithIcon("EditPencil", ThemeColors.Text);
+
+        insertButton.ApplyPermission("Assignment.Create");
+        deleteButton.ApplyPermission("Assignment.Delete");
+        updateButton.ApplyPermission("Assignment.Update");
     }
 
     private void LoadAssignments()
