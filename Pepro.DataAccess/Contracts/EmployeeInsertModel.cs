@@ -13,61 +13,61 @@ public class EmployeeInsertModel
     private int _positionId;
     private int _salaryLevelId;
 
-    public string FirstName
+    public required string FirstName
     {
         get => _firstName;
         set => _firstName = value;
     }
 
-    public string? MiddleName
+    public required string? MiddleName
     {
         get => _middleName;
         set => _middleName = value;
     }
 
-    public string LastName
+    public required string LastName
     {
         get => _lastName;
         set => _lastName = value;
     }
 
-    public DateOnly DateOfBirth
+    public required DateOnly DateOfBirth
     {
         get => _dateOfBirth;
         set => _dateOfBirth = value;
     }
 
-    public bool? Gender
+    public required bool? Gender
     {
         get => _gender;
         set => _gender = value;
     }
 
-    public byte[]? TaxCode
+    public required byte[]? TaxCode
     {
         get => _taxCode;
         set => _taxCode = value;
     }
 
-    public string CitizenId
+    public required string CitizenId
     {
         get => _citizenId;
         set => _citizenId = value;
     }
 
-    public int DepartmentId
+    public required int DepartmentId
     {
         get => _departmentId;
         set => _departmentId = value;
     }
 
-    public int PositionId
+    public required int PositionId
     {
         get => _positionId;
         set => _positionId = value;
     }
 
-    public int SalaryLevelId
+    public required int SalaryLevelId
     {
         get => _salaryLevelId;
         set => _salaryLevelId = value;

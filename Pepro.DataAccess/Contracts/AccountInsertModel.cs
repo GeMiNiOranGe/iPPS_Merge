@@ -8,31 +8,31 @@ public class AccountInsertModel
     private bool _isActive;
     private int _employeeId;
 
-    public string Username
+    public required string Username
     {
         get => _username;
         set => _username = value;
     }
 
-    public byte[] Salt
+    public required byte[] Salt
     {
         get => _salt;
         set => _salt = value;
     }
 
-    public byte[] Password
+    public required byte[] Password
     {
         get => _password;
         set => _password = value;
     }
 
-    public bool IsActive
+    public required bool IsActive
     {
         get => _isActive;
         set => _isActive = value;
     }
 
-    public int EmployeeId
+    public required int EmployeeId
     {
         get => _employeeId;
         set => _employeeId = value;
