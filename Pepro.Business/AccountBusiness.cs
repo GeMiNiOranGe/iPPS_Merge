@@ -70,8 +70,16 @@ public class AccountBusiness
             return loginResult;
         }
 
+        if (!account.IsActive)
+        {
+            loginResult.Status = LoginStatus.LockedAccount;
+            return loginResult;
+        }
+
         loginResult.EmployeeId = account.EmployeeId;
-        loginResult.Status = account.IsActive ? LoginStatus.Success : LoginStatus.LockedAccount;
+        loginResult.Status = LoginStatus.Success;
+        PermissionBusiness.Instance.Initialize(account.AccountId);
+
         return loginResult;
     }
 

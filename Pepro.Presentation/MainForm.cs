@@ -49,6 +49,17 @@ public partial class MainForm : PeproForm {
             color: Color.White,
             size: 48
         );
+        
+        assignmentButton.ApplyPermission("Assignment.Read");
+        projectButton.ApplyPermission("Project.Read");
+        documentButton.ApplyPermission("Document.Read");
+        progressButton.ApplyPermission("Project.Read");
+        employeeButton.ApplyPermission("Employee.Read");
+        attendanceButton.ApplyPermission("Salary.Read");
+        salaryButton.ApplyPermission("Salary.Read");
+        dormitoryButton.ApplyPermission("Salary.Read");
+        departmentButton.ApplyPermission("Department.Read");
+        accountButton.ApplyPermission("Account.Read");
     }
 
     private void OpenChildControl(UserControl child) {

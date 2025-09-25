@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Pepro.Business;
 
 namespace Pepro.Presentation.Extensions;
 
@@ -40,6 +41,14 @@ public static class ControlExtensions
         finally
         {
             eventInfo.AddEventHandler(control, eventHandler);
+        }
+    }
+
+    public static void ApplyPermission(this Button button, string key)
+    {
+        if (!PermissionBusiness.Instance.Has(key))
+        {
+            button.Parent?.Controls.Remove(button);
         }
     }
 }
