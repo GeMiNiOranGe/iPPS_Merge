@@ -44,11 +44,23 @@ public static class ControlExtensions
         }
     }
 
-    public static void ApplyPermission(this Button button, string key)
+    public static void ApplyPermission(
+        this Control control,
+        string key,
+        bool disable = false
+    )
     {
-        if (!PermissionBusiness.Instance.Has(key))
+        if (PermissionBusiness.Instance.Has(key))
         {
-            button.Parent?.Controls.Remove(button);
+            return;
         }
+
+        if (disable)
+        {
+            control.Enabled = false;
+            return;
+        }
+
+        control.Parent?.Controls.Remove(control);
     }
 }

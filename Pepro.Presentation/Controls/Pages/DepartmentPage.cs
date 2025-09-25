@@ -19,6 +19,10 @@ public partial class DepartmentPage : CrudTemplate
         insertButton.ApplyFlatStyleWithIcon("Plus", ThemeColors.Text);
         deleteButton.ApplyFlatStyleWithIcon("Trash", ThemeColors.Text);
         updateButton.ApplyFlatStyleWithIcon("EditPencil", ThemeColors.Text);
+
+        insertButton.ApplyPermission("Department.Create");
+        deleteButton.ApplyPermission("Department.Delete");
+        updateButton.ApplyPermission("Department.Update");
     }
 
     private void LoadDepartments()

@@ -20,6 +20,10 @@ public partial class DocumentPage : CrudTemplate
         deleteButton.ApplyFlatStyleWithIcon("Trash", ThemeColors.Text);
         updateButton.ApplyFlatStyleWithIcon("EditPencil", ThemeColors.Text);
         downloadButton.ApplyFlatStyle();
+
+        insertButton.ApplyPermission("Document.Create");
+        deleteButton.ApplyPermission("Document.Delete");
+        updateButton.ApplyPermission("Document.Update");
     }
 
     private void LoadDocuments()

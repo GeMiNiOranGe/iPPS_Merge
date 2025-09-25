@@ -110,8 +110,8 @@ public class EmployeeBusiness
             return 0;
         }
 
-        byte[]? encryptedTaxCode = EncryptionConverter.EncryptFromString(dto.TaxCode);
         string? taxCode = EncryptionConverter.DecryptToString(entity.TaxCode);
+        byte[]? encryptedTaxCode = EncryptionConverter.EncryptFromString(dto.TaxCode);
 
         EmployeeUpdateModel model = new()
         {
