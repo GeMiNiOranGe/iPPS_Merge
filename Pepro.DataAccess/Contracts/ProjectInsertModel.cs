@@ -9,37 +9,37 @@ public class ProjectInsertModel
     private int? _managerId;
     private int _statusId;
 
-    public string Name
+    public required string Name
     {
         get => _name;
         set => _name = value;
     }
 
-    public string CustomerName
+    public required string CustomerName
     {
         get => _customerName;
         set => _customerName = value;
     }
 
-    public DateTime StartDate
+    public required DateTime StartDate
     {
         get => _startDate;
         set => _startDate = value;
     }
 
-    public DateTime EndDate
+    public required DateTime EndDate
     {
         get => _endDate;
         set => _endDate = value;
     }
 
-    public int? ManagerId
+    public required int? ManagerId
     {
         get => _managerId;
         set => _managerId = value;
     }
 
-    public int StatusId
+    public required int StatusId
     {
         get => _statusId;
         set => _statusId = value;

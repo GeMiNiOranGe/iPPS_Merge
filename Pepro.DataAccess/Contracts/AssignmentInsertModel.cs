@@ -12,55 +12,55 @@ public class AssignmentInsertModel
     private int _projectId;
     private int _statusId;
 
-    public string Name
+    public required string Name
     {
         get => _name;
         set => _name = value;
     }
 
-    public bool IsPublicToProject
+    public required bool IsPublicToProject
     {
         get => _isPublicToProject;
         set => _isPublicToProject = value;
     }
 
-    public bool IsPublicToDepartment
+    public required bool IsPublicToDepartment
     {
         get => _isPublicToDepartment;
         set => _isPublicToDepartment = value;
     }
 
-    public DateTime StartDate
+    public required DateTime StartDate
     {
         get => _startDate;
         set => _startDate = value;
     }
 
-    public DateTime EndDate
+    public required DateTime EndDate
     {
         get => _endDate;
         set => _endDate = value;
     }
 
-    public int RequiredDocumentCount
+    public required int RequiredDocumentCount
     {
         get => _requiredDocumentCount;
         set => _requiredDocumentCount = value;
     }
 
-    public int? ManagerId
+    public required int? ManagerId
     {
         get => _managerId;
         set => _managerId = value;
     }
 
-    public int ProjectId
+    public required int ProjectId
     {
         get => _projectId;
         set => _projectId = value;
     }
 
-    public int StatusId
+    public required int StatusId
     {
         get => _statusId;
         set => _statusId = value;
