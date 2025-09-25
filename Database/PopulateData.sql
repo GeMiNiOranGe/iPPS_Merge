@@ -3,6 +3,8 @@ GO
 
 SET NOCOUNT ON
 
+:r $(workspace)\Database\SampleData\PopulateRole.sql
+:r $(workspace)\Database\SampleData\PopulatePermission.sql
 :r $(workspace)\Database\SampleData\PopulateDepartment.sql
 :r $(workspace)\Database\SampleData\PopulateStatus.sql
 :r $(workspace)\Database\SampleData\PopulatePosition.sql
@@ -15,6 +17,8 @@ SET NOCOUNT ON
 :r $(workspace)\Database\SampleData\PopulateAssignment.sql
 :r $(workspace)\Database\SampleData\PopulateDocument.sql
 
+:r $(workspace)\Database\SampleData\PopulateRolePermission.sql
+:r $(workspace)\Database\SampleData\PopulateAccountRole.sql
 :r $(workspace)\Database\SampleData\PopulateAssignmentDetail.sql
 :r $(workspace)\Database\SampleData\PopulateDepartmentProject.sql
 
