@@ -27,6 +27,21 @@ USE [Pepro]
 GO
 
 -- have no key ----------------------------------
+CREATE TABLE [dbo].[Role] (
+    [RoleId]    [int]           NOT NULL IDENTITY(1,1),
+    [Name]      [nvarchar](50)  NOT NULL,
+
+    [IsDeleted] [bit]           NOT NULL,
+    [CreatedAt] [datetime]      NOT NULL,
+    [UpdatedAt] [datetime]      NOT NULL,
+    [DeletedAt] [datetime],
+);
+
+CREATE TABLE [dbo].[Permission] (
+    [PermissionId]  [int]           NOT NULL IDENTITY(1,1),
+    [Key]           [varchar](100)  NOT NULL,
+);
+
 CREATE TABLE [dbo].[Department] (
     [DepartmentId]  [int]           NOT NULL IDENTITY(1, 1),
     [Name]          [nvarchar](50)  NOT NULL,
@@ -162,6 +177,20 @@ CREATE TABLE [dbo].[Document] (
 );
 
 -- many-to-many relationship --------------------
+CREATE TABLE [dbo].[RolePermission] (
+    [RolePermissionId]  [int]   NOT NULL IDENTITY(1, 1),
+
+    [RoleId]            [int]   NOT NULL,
+    [PermissionId]      [int]   NOT NULL,
+);
+
+CREATE TABLE [dbo].[AccountRole] (
+    [AccountRoleId] [int]   NOT NULL IDENTITY(1, 1),
+
+    [AccountId]     [int]   NOT NULL,
+    [RoleId]        [int]   NOT NULL,
+);
+
 CREATE TABLE [AssignmentDetail] (
     [AssignmentDetailId]    [int]   NOT NULL IDENTITY(1, 1),
 
@@ -184,6 +213,8 @@ ADD CONSTRAINT [UK_Username]      UNIQUE ([Username])
 GO
 
 -- add primary key -------------------------------------------------------
+ALTER TABLE [dbo].[Role]                ADD CONSTRAINT [PK_Role]                PRIMARY KEY ([RoleId]);
+ALTER TABLE [dbo].[Permission]          ADD CONSTRAINT [PK_Permission]          PRIMARY KEY ([PermissionId]);
 ALTER TABLE [dbo].[Department]          ADD CONSTRAINT [PK_Department]          PRIMARY KEY ([DepartmentId])
 ALTER TABLE [dbo].[Status]              ADD CONSTRAINT [PK_Status]              PRIMARY KEY ([StatusId])
 ALTER TABLE [dbo].[Position]            ADD CONSTRAINT [PK_Position]            PRIMARY KEY ([PositionId])
@@ -195,7 +226,10 @@ ALTER TABLE [dbo].[EmployeePhoneNumber] ADD CONSTRAINT [PK_EmployeePhoneNumber] 
 ALTER TABLE [dbo].[Account]             ADD CONSTRAINT [PK_Account]             PRIMARY KEY ([AccountId])
 ALTER TABLE [dbo].[Assignment]          ADD CONSTRAINT [PK_Assignment]          PRIMARY KEY ([AssignmentId])
 ALTER TABLE [dbo].[Document]            ADD CONSTRAINT [PK_Document]            PRIMARY KEY ([DocumentId])
+ALTER TABLE [dbo].[RolePermission]      ADD CONSTRAINT [PK_RolePermission]      PRIMARY KEY ([RolePermissionId])
+ALTER TABLE [dbo].[AccountRole]         ADD CONSTRAINT [PK_AccountRole]         PRIMARY KEY ([AccountRoleId])
 ALTER TABLE [dbo].[AssignmentDetail]    ADD CONSTRAINT [PK_AssignmentDetail]    PRIMARY KEY ([AssignmentDetailId])
+ALTER TABLE [dbo].[DepartmentProject]   ADD CONSTRAINT [PK_DepartmentProject]   PRIMARY KEY ([DepartmentProjectId])
 GO
 
 -- add foreign key -------------------------------------------------------
@@ -262,6 +296,24 @@ CONSTRAINT [FK_Document_Assignment]
     REFERENCES [dbo].[Assignment]([AssignmentId]);
 GO
 
+ALTER TABLE [dbo].[RolePermission] ADD
+CONSTRAINT [FK_RolePermission_Role]
+    FOREIGN KEY ([RoleId])
+    REFERENCES [dbo].[Role]([RoleId]),
+CONSTRAINT [FK_RolePermission_Permission]
+    FOREIGN KEY ([PermissionId])
+    REFERENCES [dbo].[Permission]([PermissionId]);
+GO
+
+ALTER TABLE [dbo].[AccountRole] ADD
+CONSTRAINT [FK_AccountRole_Account]
+    FOREIGN KEY ([AccountId])
+    REFERENCES [dbo].[Account]([AccountId]),
+CONSTRAINT [FK_AccountRole_Role]
+    FOREIGN KEY ([RoleId])
+    REFERENCES [dbo].[Role]([RoleId]);
+GO
+
 ALTER TABLE [dbo].[AssignmentDetail] ADD
 CONSTRAINT [FK_AssignmentDetail_Employee]
     FOREIGN KEY ([EmployeeId])
@@ -281,6 +333,15 @@ CONSTRAINT [FK_DepartmentProject_Department]
 GO
 
 -- default ---------------------------------------------------------------
+ALTER TABLE [Role] ADD
+CONSTRAINT DF_Role_IsDeleted DEFAULT 0
+    FOR IsDeleted,
+CONSTRAINT DF_Role_CreatedAt DEFAULT GetDate()
+    FOR CreatedAt,
+CONSTRAINT DF_Role_UpdatedAt DEFAULT GetDate()
+    FOR UpdatedAt;
+GO
+
 ALTER TABLE Department ADD
 CONSTRAINT DF_Department_IsDeleted DEFAULT 0
     FOR IsDeleted,
