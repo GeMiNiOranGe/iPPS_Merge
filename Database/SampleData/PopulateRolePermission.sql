@@ -45,7 +45,7 @@ GO
 
 EXECUTE [dbo].[usp_CreateDummyRolePermission]
     @RoleName       = N'Employee'
-  , @PermissionKeys = N'Assignment.Read|Employee.Read|Project.Read'
+  , @PermissionKeys = N'Assignment.Read|Document.Read|Project.Read'
 
 EXECUTE [dbo].[usp_CreateDummyRolePermission]
     @RoleName       = N'DepartmentHead'
@@ -53,15 +53,19 @@ EXECUTE [dbo].[usp_CreateDummyRolePermission]
 
 EXECUTE [dbo].[usp_CreateDummyRolePermission]
     @RoleName       = N'HR'
-  , @PermissionKeys = N'Employee.Create|Employee.Update|Employee.Delete'
+  , @PermissionKeys = N'Employee.Create|Employee.Read|Employee.Update|Employee.Delete'
 
 EXECUTE [dbo].[usp_CreateDummyRolePermission]
     @RoleName       = N'Finance'
-  , @PermissionKeys = N'Salary.Read|Salary.Update'
+  , @PermissionKeys = N'Employee.Read|Employee.Update|Salary.Read|Salary.Update'
 
 EXECUTE [dbo].[usp_CreateDummyRolePermission]
     @RoleName       = N'IT'
   , @PermissionKeys = N'Account.Create|Account.Read|Account.Update|Account.Delete|Role.Create|Role.Read|Role.Update|Role.Delete'
+
+EXECUTE [dbo].[usp_CreateDummyRolePermission]
+    @RoleName       = N'ProjectManager'
+  , @PermissionKeys = N'Project.Create|Project.Read|Project.Update|Project.Delete|Assignment.Create|Assignment.Read|Assignment.Update|Assignment.Delete'
 GO
 
 IF EXISTS (

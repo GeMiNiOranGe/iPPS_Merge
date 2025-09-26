@@ -8,6 +8,7 @@ VALUES  (1,         N'Admin')
      ,  (4,         N'HR')
      ,  (5,         N'Finance')
      ,  (6,         N'IT')
+     ,  (7,         N'ProjectManager')
 ;
 
 SET IDENTITY_INSERT [dbo].[Role] OFF;
