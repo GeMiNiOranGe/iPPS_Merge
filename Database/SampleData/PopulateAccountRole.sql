@@ -40,7 +40,7 @@ EXECUTE dbo.usp_CreateDummyAccountRole
 -- HR
 EXECUTE dbo.usp_CreateDummyAccountRole
     @AccountId = 4
-  , @RoleNames = N'Employee|HR'
+  , @RoleNames = N'Employee|HR|ProjectManager'
 
 EXECUTE dbo.usp_CreateDummyAccountRole
     @AccountId = 5
@@ -57,7 +57,7 @@ EXECUTE dbo.usp_CreateDummyAccountRole
 -- Finance
 EXECUTE dbo.usp_CreateDummyAccountRole
     @AccountId = 8
-  , @RoleNames = N'Employee|Finance'
+  , @RoleNames = N'Employee|Finance|ProjectManager'
 
 EXECUTE dbo.usp_CreateDummyAccountRole
     @AccountId = 9
