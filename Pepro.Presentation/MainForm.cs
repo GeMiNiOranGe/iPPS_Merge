@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using Pepro.Business;
+﻿using Pepro.Business;
 using Pepro.Presentation.Controls.Atoms;
 using Pepro.Presentation.Enums;
 using Pepro.Presentation.Extensions;
@@ -10,9 +9,6 @@ using System.ComponentModel;
 namespace Pepro.Presentation;
 
 public partial class MainForm : PeproForm {
-    private readonly SqlConnection conn = new(
-        @"Data Source=.;Initial Catalog=Pepro;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
-    );
     private int _employeeId;
     private readonly ControlUiMediator _mediator;
 
@@ -62,26 +58,13 @@ public partial class MainForm : PeproForm {
         accountButton.ApplyPermission("Account.Read");
     }
 
-    private void OpenChildControl(UserControl child) {
-        workplacePanel.Controls.Clear();
-        child.Dock = DockStyle.Fill;
-        workplacePanel.Controls.Add(child);
-        child.BringToFront();
-    }
-
     private void MenuForm_Load(object sender, EventArgs e) {
         usernameLabel.Text = EmployeeBusiness.Instance.GetDisplayNameByEmployeeId(_employeeId);
         roleLabel.Text = PositionBusiness.Instance.GetPositionTitleByEmployeeId(_employeeId);
     }
 
     private void MenuForm_FormClosing(object sender, FormClosingEventArgs e) {
-        DialogResult dialogResult = MessageBox.Show(
-            "Bạn có chắc muốn thoát không?",
-            "Thông báo",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question
-        );
-        if (dialogResult == DialogResult.No) {
+        if (MessageBoxWrapper.Confirm("ConfirmExit") == DialogResult.No) {
             e.Cancel = true;
         }
     }
@@ -90,42 +73,12 @@ public partial class MainForm : PeproForm {
         optionPanel.SetLocationY(assignmentButton.Location.Y);
 
         _mediator.Notify(this, ControlUiEvent.NavigateAssignmentPage);
-        /*
-        string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_employeeId}'";
-        conn.Open();
-        var sqlCommand = new SqlCommand(query, conn);
-        var sqlDataReader = sqlCommand.ExecuteReader();
-        if (sqlDataReader.Read()) {
-            if ((byte)sqlDataReader["PERMISSION_LEVEL"] <= 1) {
-                OpenChildControl(new AssignmentPage());
-            }
-            else {
-                OpenChildControl(new EmployeeTaskControl());
-            }
-        }
-        conn.Close();
-        */
     }
 
     private void ProjectButton_MouseClick(object sender, MouseEventArgs e) {
         optionPanel.SetLocationY(projectButton.Location.Y);
 
         _mediator.Notify(this, ControlUiEvent.NavigateProjectPage);
-        /*
-        string query = $"select * from EMPLOYEE inner join ROLE on EMPLOYEE.ID = ROLE.EMPLOYEE_ID where EMPLOYEE.ID = N'{_employeeId}'";
-        conn.Open();
-        var sqlCommand = new SqlCommand(query, conn);
-        var sqlDataReader = sqlCommand.ExecuteReader();
-        if (sqlDataReader.Read()) {
-            if ((byte)sqlDataReader["PERMISSION_LEVEL"] <= 1) {
-                OpenChildControl(new ProjectPage());
-            }
-            else {
-                OpenChildControl(new EmployeeProjectPage());
-            }
-        }
-        conn.Close();
-        */
     }
 
     private void DocumentButton_MouseClick(object sender, MouseEventArgs e) {

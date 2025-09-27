@@ -17,6 +17,7 @@ public static class MessageBoxWrapper
             "UnlockSuccess" => "Đã mở khóa thành công {0} trường dữ liệu",
             "FillInformation" => "Mời điền đầy đủ thông tin",
             "ConfirmDelete" => "Bạn có chắc muốn xóa không?",
+            "ConfirmExit" => "Bạn có chắc muốn thoát không?",
             "Confirm" => "Bạn có chắc thực hiện thao tác không?",
             "TreasureFoundPremiumUnlock" => "Ôi trời, bạn vừa mới tìm thấy kho báu đấy, mua premium đi, rồi chúng tôi mở khóa tính năng này",
             "TreasureFoundPremiumUnlock1" => "Hay quá ta, tính năng này chưa được phát triển, cái nút chỉ để cho vui thôi :))) mua premium đi",
