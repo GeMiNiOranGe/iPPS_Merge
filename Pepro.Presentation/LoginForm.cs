@@ -7,15 +7,18 @@ using System.Runtime.InteropServices;
 
 namespace Pepro.Presentation;
 
-public partial class LoginForm : PeproForm {
+public partial class LoginForm : PeproForm
+{
     private int _employeeId;
 
-    public LoginForm() {
+    public LoginForm()
+    {
         InitializeComponent();
         InitializeRuntimeComponents();
     }
 
-    private void InitializeRuntimeComponents() {
+    private void InitializeRuntimeComponents()
+    {
         accountNameTextBoxField.FocusColor = ThemeColors.Secondary.Base;
 
         passwordField.FocusColor = ThemeColors.Secondary.Base;
@@ -51,36 +54,41 @@ public partial class LoginForm : PeproForm {
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public int EmployeeId {
+    public int EmployeeId
+    {
         get => _employeeId;
         private set => _employeeId = value;
     }
 
-    private void LoginButton_Click(object sender, EventArgs e) {
+    private void LoginButton_Click(object sender, EventArgs e)
+    {
         string accountName = accountNameTextBoxField.Text;
         string password = passwordField.Text;
 
-        try {
+        try
+        {
             LoginResult loginResult = AccountBusiness.Instance.TryLogin(accountName, password);
 
-            switch (loginResult.Status) {
-            case LoginStatus.Success:
-                _employeeId = loginResult.EmployeeId;
-                DialogResult = DialogResult.OK;
-                Close();
-                break;
-            case LoginStatus.InvalidInput:
-                errorLabel.Text = "Username and password must not be empty!";
-                break;
-            case LoginStatus.InvalidAccount:
-                errorLabel.Text = "Incorrect username or password!";
-                break;
-            case LoginStatus.LockedAccount:
-                errorLabel.Text = "Your account has been locked!";
-                break;
+            switch (loginResult.Status)
+            {
+                case LoginStatus.Success:
+                    _employeeId = loginResult.EmployeeId;
+                    DialogResult = DialogResult.OK;
+                    Close();
+                    break;
+                case LoginStatus.InvalidInput:
+                    errorLabel.Text = "Username and password must not be empty!";
+                    break;
+                case LoginStatus.InvalidAccount:
+                    errorLabel.Text = "Incorrect username or password!";
+                    break;
+                case LoginStatus.LockedAccount:
+                    errorLabel.Text = "Your account has been locked!";
+                    break;
             }
         }
-        catch (Exception ex) {
+        catch (Exception ex)
+        {
             errorLabel.Text = "An error occurred during the login process!";
             MessageBox.Show(ex.Message);
         }
@@ -98,14 +106,17 @@ public partial class LoginForm : PeproForm {
     [DllImport("user32.dll")]
     public static extern bool ReleaseCapture();
 
-    private void LoginForm_MouseDown(object sender, MouseEventArgs e) {
-        if (e.Button == MouseButtons.Left) {
+    private void LoginForm_MouseDown(object sender, MouseEventArgs e)
+    {
+        if (e.Button == MouseButtons.Left)
+        {
             ReleaseCapture();
             _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
     }
 
-    private void ClosePictureBox_Click(object sender, EventArgs e) {
+    private void ClosePictureBox_Click(object sender, EventArgs e)
+    {
         Close();
     }
 }

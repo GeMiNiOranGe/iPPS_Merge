@@ -8,24 +8,28 @@ using System.ComponentModel;
 
 namespace Pepro.Presentation;
 
-public partial class MainForm : PeproForm {
+public partial class MainForm : PeproForm
+{
     private int _employeeId;
     private readonly ControlUiMediator _mediator;
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public required int EmployeeId {
+    public required int EmployeeId
+    {
         get => _employeeId;
         set => _employeeId = value;
     }
 
-    public MainForm() {
+    public MainForm()
+    {
         InitializeComponent();
         InitializeRuntimeComponents();
 
         _mediator = new ControlUiMediator(workplacePanel);
     }
 
-    private void InitializeRuntimeComponents() {
+    private void InitializeRuntimeComponents()
+    {
         assignmentButton.SetSidebarButtonImages("Task");
         projectButton.SetSidebarButtonImages("Folder");
         documentButton.SetSidebarButtonImages("MultiplePages");
@@ -45,7 +49,7 @@ public partial class MainForm : PeproForm {
             color: Color.White,
             size: 48
         );
-        
+
         assignmentButton.ApplyPermission("Assignment.Read");
         projectButton.ApplyPermission("Project.Read");
         documentButton.ApplyPermission("Document.Read");
@@ -58,98 +62,117 @@ public partial class MainForm : PeproForm {
         accountButton.ApplyPermission("Account.Read");
     }
 
-    private void MenuForm_Load(object sender, EventArgs e) {
+    private void MenuForm_Load(object sender, EventArgs e)
+    {
         usernameLabel.Text = EmployeeBusiness.Instance.GetDisplayNameByEmployeeId(_employeeId);
         roleLabel.Text = PositionBusiness.Instance.GetPositionTitleByEmployeeId(_employeeId);
     }
 
-    private void MenuForm_FormClosing(object sender, FormClosingEventArgs e) {
-        if (MessageBoxWrapper.Confirm("ConfirmExit") == DialogResult.No) {
+    private void MenuForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        if (MessageBoxWrapper.Confirm("ConfirmExit") == DialogResult.No)
+        {
             e.Cancel = true;
         }
     }
 
-    private void AssignmentButton_MouseClick(object sender, MouseEventArgs e) {
+    private void AssignmentButton_MouseClick(object sender, MouseEventArgs e)
+    {
         optionPanel.SetLocationY(assignmentButton.Location.Y);
 
         _mediator.Notify(this, ControlUiEvent.NavigateAssignmentPage);
     }
 
-    private void ProjectButton_MouseClick(object sender, MouseEventArgs e) {
+    private void ProjectButton_MouseClick(object sender, MouseEventArgs e)
+    {
         optionPanel.SetLocationY(projectButton.Location.Y);
 
         _mediator.Notify(this, ControlUiEvent.NavigateProjectPage);
     }
 
-    private void DocumentButton_MouseClick(object sender, MouseEventArgs e) {
+    private void DocumentButton_MouseClick(object sender, MouseEventArgs e)
+    {
         optionPanel.SetLocationY(documentButton.Location.Y);
 
         _mediator.Notify(this, ControlUiEvent.NavigateDocumentPage);
     }
 
-    private void ProgressButton_MouseClick(object sender, MouseEventArgs e) {
+    private void ProgressButton_MouseClick(object sender, MouseEventArgs e)
+    {
         optionPanel.SetLocationY(progressButton.Location.Y);
 
         _mediator.Notify(this, ControlUiEvent.NavigateProgressPage);
     }
 
-    private void EmployeeButton_MouseClick(object sender, MouseEventArgs e) {
+    private void EmployeeButton_MouseClick(object sender, MouseEventArgs e)
+    {
         optionPanel.SetLocationY(employeeButton.Location.Y);
 
         _mediator.Notify(this, ControlUiEvent.NavigateEmployeePage);
     }
 
-    private void AttendanceButton_MouseClick(object sender, MouseEventArgs e) {
+    private void AttendanceButton_MouseClick(object sender, MouseEventArgs e)
+    {
         optionPanel.SetLocationY(attendanceButton.Location.Y);
 
         workplacePanel.Controls.Clear();
         MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock3");
     }
 
-    private void SalaryButton_MouseClick(object sender, MouseEventArgs e) {
+    private void SalaryButton_MouseClick(object sender, MouseEventArgs e)
+    {
         optionPanel.SetLocationY(salaryButton.Location.Y);
 
         _mediator.Notify(this, ControlUiEvent.NavigatePayrollPage);
     }
 
-    private void DormitoryButton_MouseClick(object sender, MouseEventArgs e) {
+    private void DormitoryButton_MouseClick(object sender, MouseEventArgs e)
+    {
         optionPanel.SetLocationY(dormitoryButton.Location.Y);
 
         workplacePanel.Controls.Clear();
         MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock3");
     }
 
-    private void DepartmentButton_Click(object sender, EventArgs e) {
+    private void DepartmentButton_Click(object sender, EventArgs e)
+    {
         optionPanel.SetLocationY(departmentButton.Location.Y);
 
         _mediator.Notify(this, ControlUiEvent.NavigateDepartmentPage);
     }
 
-    private void AccountButton_Click(object sender, EventArgs e) {
+    private void AccountButton_Click(object sender, EventArgs e)
+    {
         optionPanel.SetLocationY(accountButton.Location.Y);
 
         _mediator.Notify(this, ControlUiEvent.NavigateAccountPage);
     }
 
-    private void Personal_MouseClick(object sender, MouseEventArgs e) {
-        _mediator.Notify(this, ControlUiEvent.NavigatePersonalPage, new PersonalPagePayload() {
+    private void Personal_MouseClick(object sender, MouseEventArgs e)
+    {
+        _mediator.Notify(this, ControlUiEvent.NavigatePersonalPage, new PersonalPagePayload()
+        {
             EmployeeId = _employeeId,
         });
     }
 
-    private void Personal_MouseEnter(object sender, EventArgs e) {
+    private void Personal_MouseEnter(object sender, EventArgs e)
+    {
         personalPanel.BackColor = ThemeColors.Accent.Base;
     }
 
-    private void Personal_MouseLeave(object sender, EventArgs e) {
+    private void Personal_MouseLeave(object sender, EventArgs e)
+    {
         personalPanel.BackColor = Color.Transparent;
     }
 
-    private void AppNameLabel_Click(object sender, EventArgs e) {
+    private void AppNameLabel_Click(object sender, EventArgs e)
+    {
         workplacePanel.Controls.Clear();
     }
 
-    private void LogoutButton_Click(object sender, EventArgs e) {
+    private void LogoutButton_Click(object sender, EventArgs e)
+    {
         DialogResult = DialogResult.Retry;
         Close();
     }
