@@ -191,14 +191,14 @@ CREATE TABLE [dbo].[AccountRole] (
     [RoleId]        [int]   NOT NULL,
 );
 
-CREATE TABLE [AssignmentDetail] (
+CREATE TABLE [dbo].[AssignmentDetail] (
     [AssignmentDetailId]    [int]   NOT NULL IDENTITY(1, 1),
 
     [EmployeeId]            [int]   NOT NULL,
     [AssignmentId]          [int]   NOT NULL,
 );
 
-CREATE TABLE [DepartmentProject] (
+CREATE TABLE [dbo].[DepartmentProject] (
     [DepartmentProjectId]   [int]   NOT NULL IDENTITY(1, 1),
 
     [ProjectId]             [int]   NOT NULL,

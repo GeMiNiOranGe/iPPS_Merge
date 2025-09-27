@@ -1,7 +1,12 @@
+SET IDENTITY_INSERT [dbo].[Department] ON;
+
 INSERT INTO [dbo].[Department]
-        ([Name])
-VALUES  (N'Phòng giám đốc')
-     ,  (N'Phòng nhân sự')
-     ,  (N'Phòng tài chính')
-     ,  (N'Phòng công nghệ thông tin')
+        ([DepartmentId],    [Name])
+VALUES  (1,                 N'Phòng giám đốc')
+     ,  (2,                 N'Phòng nhân sự')
+     ,  (3,                 N'Phòng tài chính')
+     ,  (4,                 N'Phòng công nghệ thông tin')
+;
+
+SET IDENTITY_INSERT [dbo].[Department] OFF;
 GO
