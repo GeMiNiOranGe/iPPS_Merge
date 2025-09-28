@@ -164,26 +164,4 @@ public class DepartmentDataAccess
 
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
-
-    public DataTable GetDepartmentList()
-    {
-        DataTable dataTable = new DataTable();
-
-        using (SqlConnection connection = new SqlConnection(""))
-        {
-            string query = "SELECT DepartmentID FROM Departments";
-
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                connection.Open();
-
-                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                {
-                    adapter.Fill(dataTable);
-                }
-            }
-        }
-
-        return dataTable;
-    }
 }

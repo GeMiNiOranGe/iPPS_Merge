@@ -247,6 +247,26 @@ public class EmployeeDataAccess
             .MapMany(EmployeeMapper.FromDataRow);
     }
 
+    public IEnumerable<EmployeePhoneNumber> GetPhoneNumbersById(int employeeId)
+    {
+        string query = @"
+            SELECT EmployeePhoneNumber.EmployeePhoneNumberId
+                , EmployeePhoneNumber.PhoneNumber
+                , EmployeePhoneNumber.EmployeeId
+            FROM EmployeePhoneNumber
+            INNER JOIN Employee
+                    ON Employee.EmployeeId = EmployeePhoneNumber.EmployeeId
+            WHERE Employee.EmployeeId = @EmployeeId
+            AND Employee.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(EmployeePhoneNumberMapper.FromDataRow);
+    }
+
     public Employee? Add(EmployeeInsertModel model)
     {
         string query = @"
@@ -394,117 +414,6 @@ public class EmployeeDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public DataTable GetEmployeeByRoleID(int roleID)
-    {
-        DataTable dataTable = new DataTable();
-        using (SqlConnection conn = new SqlConnection(""))
-        {
-            using (SqlCommand cmd = new SqlCommand("spSelectEmployees", conn))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@RoleID", roleID);
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dataTable);
-            }
-        }
-        return dataTable;
-    }
-
-    public bool UpdateEmployee(int roleID, string valueList, string employeeID)
-    {
-        SqlParameter[] parameters =
-        [
-            new("@RoleID", SqlDbType.Int) { Value = roleID },
-            new("@ValueList", SqlDbType.NVarChar) { Value = valueList },
-            new("@EmployeeID", SqlDbType.VarChar) { Value = employeeID }
-        ];
-
-        int numberOfRowsAffected = DataProvider.Instance.ExecuteNonQuery(
-            "usp_UpdateEmployee",
-            parameters,
-            CommandType.StoredProcedure
-        );
-        return numberOfRowsAffected > 0;
-    }
-
-    /*
-    public bool UpdateEmployee(int roleID, string valueList, string employeeID) {
-        try {
-            using (SqlConnection connection = new SqlConnection("")) {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand("dbo.usp_UpdateEmployee", connection);
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.AddWithValue("@RoleID", roleID);
-                command.Parameters.AddWithValue("@ValueList", valueList);
-                command.Parameters.AddWithValue("@EmployeeID", employeeID);
-
-                command.ExecuteNonQuery();
-
-                return true;
-            }
-        }
-        catch (SqlException ex) {
-            // Xử lý các ngoại lệ SQL
-            throw new Exception("SQL Error: " + ex.Message);
-        }
-        catch (Exception ex) {
-            // Xử lý các ngoại lệ khác
-            throw new Exception("Error: " + ex.Message);
-        }
-    }
-    */
-
-    public bool DeleteEmployee(int roleID, string employeeID)
-    {
-        using (SqlConnection connection = new SqlConnection(""))
-        {
-            try
-            {
-                using (SqlCommand command = new SqlCommand("spDeleteEmployee", connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@RoleID", roleID);
-                    command.Parameters.AddWithValue("@EmployeeID", employeeID);
-
-                    connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception("An error occurred while deleting the employee.", ex);
-            }
-        }
-    }
-
-    public void InsertEmployee(string employeeId, string fullname, bool? gender, DateTime? dateOfBirth, string phoneNumber, string salary, string allowance, string taxCode, string departmentId)
-    {
-        using (SqlConnection conn = new SqlConnection(""))
-        {
-            using (SqlCommand cmd = new SqlCommand("spInsertEmployeeFull", conn))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@EmployeeId", (object)employeeId ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@Fullname", fullname);
-                cmd.Parameters.AddWithValue("@Gender", (object)gender ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@DateOfBirth", (object)dateOfBirth ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@PhoneNumber", (object)phoneNumber ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@Salary", salary);
-                cmd.Parameters.AddWithValue("@Allowance", allowance);
-                cmd.Parameters.AddWithValue("@TaxCode", (object)taxCode ?? DBNull.Value);
-                cmd.Parameters.AddWithValue("@DepartmentId", departmentId);
-                conn.Open();
-                cmd.ExecuteNonQuery();
-            }
-        }
-    }
-
     //Lấy dữ liệu từ table ROLE trong database dựa vào EMPLOYEE_ID
     public CRole GetRolebyEmployeeID(string employeeID)
     {
@@ -514,25 +423,5 @@ public class EmployeeDataAccess
             return new CRole(item);
         }
         return null;
-    }
-
-    public IEnumerable<EmployeePhoneNumber> GetPhoneNumbersById(int employeeId)
-    {
-        string query = @"
-            SELECT EmployeePhoneNumber.EmployeePhoneNumberId
-                , EmployeePhoneNumber.PhoneNumber
-                , EmployeePhoneNumber.EmployeeId
-            FROM EmployeePhoneNumber
-            INNER JOIN Employee
-                    ON Employee.EmployeeId = EmployeePhoneNumber.EmployeeId
-            WHERE Employee.EmployeeId = @EmployeeId
-            AND Employee.IsDeleted = 0
-        ";
-        List<SqlParameter> parameters = [];
-        parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
-
-        return DataProvider
-            .Instance.ExecuteQuery(query, [.. parameters])
-            .MapMany(EmployeePhoneNumberMapper.FromDataRow);
     }
 }

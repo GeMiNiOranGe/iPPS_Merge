@@ -1,6 +1,4 @@
-﻿using Pepro.Presentation.Controls;
-
-namespace Pepro.Presentation
+﻿namespace Pepro.Presentation
 {
     public partial class MenuPmForm : Form
     {
@@ -26,31 +24,6 @@ namespace Pepro.Presentation
 
         }
 
-        private void btnEmployee_Click(object sender, EventArgs e)
-        {
-           
-           pnMenu.Controls.Clear();
-            EmployeeForm employee = new EmployeeForm(_roleID);
-            employee.TopLevel = false;
-            employee.Dock = DockStyle.Fill;
-            employee.FormBorderStyle = FormBorderStyle.None;
-            pnMenu.Controls.Add(employee);
-            employee.Show();
-        }
-
-        private void btnDepartment_Click(object sender, EventArgs e)
-        {
-            pnMenu.Controls.Clear();
-            /*
-            DepartmentForm fdp= new DepartmentForm();
-            fdp.TopLevel = false;
-            fdp.Dock = DockStyle.Fill;
-            fdp.FormBorderStyle = FormBorderStyle.None;
-            pnMenu.Controls.Add(fdp);
-            fdp.Show();
-            */
-        }
-
         private void btnGrant_Click(object sender, EventArgs e)
         {
             pnMenu.Controls.Clear();
@@ -62,10 +35,6 @@ namespace Pepro.Presentation
             gr.Show();
         }
 
-        private void FormMenu_Load(object sender, EventArgs e)
-        {
-
-        }
         private void checkPermission(int roleid)
         {
             if (roleid != 1)

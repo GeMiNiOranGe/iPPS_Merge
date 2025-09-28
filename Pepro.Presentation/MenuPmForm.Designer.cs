@@ -110,7 +110,6 @@
             btnDepartment.TabIndex = 1;
             btnDepartment.Text = "Department";
             btnDepartment.UseVisualStyleBackColor = false;
-            btnDepartment.Click += btnDepartment_Click;
             // 
             // btnEmployee
             // 
@@ -124,7 +123,6 @@
             btnEmployee.TabIndex = 0;
             btnEmployee.Text = "Employee";
             btnEmployee.UseVisualStyleBackColor = false;
-            btnEmployee.Click += btnEmployee_Click;
             // 
             // pnMenu
             // 
@@ -186,7 +184,6 @@
             Name = "FormMenuPM";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu";
-            Load += FormMenu_Load;
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picLogout).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

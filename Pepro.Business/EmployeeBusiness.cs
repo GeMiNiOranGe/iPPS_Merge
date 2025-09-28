@@ -92,16 +92,6 @@ public class EmployeeBusiness
             : "";
     }
 
-    public DataTable GetEmployeesByRoleID(int roleID)
-    {
-        return EmployeeDataAccess.Instance.GetEmployeeByRoleID(roleID);
-    }
-
-    public bool UpdateEmployee(int roleID, string valueList, string employeeID)
-    {
-        return EmployeeDataAccess.Instance.UpdateEmployee(roleID, valueList, employeeID);
-    }
-
     public int UpdateEmployee(EmployeeDto dto)
     {
         Employee? entity = EmployeeDataAccess.Instance.GetById(dto.EmployeeId);
@@ -132,16 +122,6 @@ public class EmployeeBusiness
     public int DeleteEmployee(int employeeId)
     {
         return EmployeeDataAccess.Instance.Delete(employeeId);
-    }
-
-    public bool DeleteEmployee(int roleID, string employeeID)
-    {
-        return EmployeeDataAccess.Instance.DeleteEmployee(roleID, employeeID);
-    }
-
-    public void InsertEmployee(string employeeId, string fullname, bool? gender, DateTime? dateOfBirth, string phoneNumber, string salary, string allowance, string taxCode, string departmentId)
-    {
-        EmployeeDataAccess.Instance.InsertEmployee(employeeId, fullname, gender, dateOfBirth, phoneNumber, salary, allowance, taxCode, departmentId);
     }
 
     public int InsertEmployee(EmployeeDto dto) {

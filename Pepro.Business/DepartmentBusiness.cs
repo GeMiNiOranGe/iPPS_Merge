@@ -94,9 +94,4 @@ public class DepartmentBusiness
         DepartmentInsertModel model = dto.ToInsertModel();
         return DepartmentDataAccess.Instance.Insert(model);
     }
-
-    public DataTable GetDepartmentList()
-    {
-        return DepartmentDataAccess.Instance.GetDepartmentList();
-    }
 }
