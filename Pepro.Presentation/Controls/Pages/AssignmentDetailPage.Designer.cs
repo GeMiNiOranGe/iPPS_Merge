@@ -44,7 +44,7 @@ partial class AssignmentDetailPage
         // 
         projectIdLabel.AutoSize = true;
         projectIdLabel.ForeColor = Color.White;
-        projectIdLabel.Location = new Point(13, 59);
+        projectIdLabel.Location = new Point(13, 67);
         projectIdLabel.Margin = new Padding(8, 8, 0, 4);
         projectIdLabel.Name = "projectIdLabel";
         projectIdLabel.Size = new Size(66, 19);
@@ -55,7 +55,7 @@ partial class AssignmentDetailPage
         // 
         projectNameLabel.AutoSize = true;
         projectNameLabel.ForeColor = Color.White;
-        projectNameLabel.Location = new Point(13, 82);
+        projectNameLabel.Location = new Point(13, 90);
         projectNameLabel.Margin = new Padding(8, 0, 0, 4);
         projectNameLabel.Name = "projectNameLabel";
         projectNameLabel.Size = new Size(89, 19);
@@ -67,7 +67,7 @@ partial class AssignmentDetailPage
         assignmentsOfProjectLabel.AutoSize = true;
         assignmentsOfProjectLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
         assignmentsOfProjectLabel.ForeColor = Color.White;
-        assignmentsOfProjectLabel.Location = new Point(13, 108);
+        assignmentsOfProjectLabel.Location = new Point(13, 116);
         assignmentsOfProjectLabel.Margin = new Padding(0);
         assignmentsOfProjectLabel.Name = "assignmentsOfProjectLabel";
         assignmentsOfProjectLabel.Size = new Size(231, 28);
@@ -78,10 +78,10 @@ partial class AssignmentDetailPage
         // 
         assignmentsOfProjectFlowLayoutPanel.AutoScroll = true;
         assignmentsOfProjectFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-        assignmentsOfProjectFlowLayoutPanel.Location = new Point(17, 144);
+        assignmentsOfProjectFlowLayoutPanel.Location = new Point(17, 152);
         assignmentsOfProjectFlowLayoutPanel.Margin = new Padding(8);
         assignmentsOfProjectFlowLayoutPanel.Name = "assignmentsOfProjectFlowLayoutPanel";
-        assignmentsOfProjectFlowLayoutPanel.Size = new Size(504, 520);
+        assignmentsOfProjectFlowLayoutPanel.Size = new Size(504, 512);
         assignmentsOfProjectFlowLayoutPanel.TabIndex = 0;
         // 
         // assignmentManagerLabel
@@ -89,7 +89,7 @@ partial class AssignmentDetailPage
         assignmentManagerLabel.AutoSize = true;
         assignmentManagerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
         assignmentManagerLabel.ForeColor = Color.White;
-        assignmentManagerLabel.Location = new Point(549, 108);
+        assignmentManagerLabel.Location = new Point(549, 116);
         assignmentManagerLabel.Margin = new Padding(0);
         assignmentManagerLabel.Name = "assignmentManagerLabel";
         assignmentManagerLabel.Size = new Size(212, 28);
@@ -100,7 +100,7 @@ partial class AssignmentDetailPage
         // 
         assignmentManagerCard.BackColor = Color.FromArgb(29, 29, 29);
         assignmentManagerCard.ForeColor = Color.White;
-        assignmentManagerCard.Location = new Point(553, 144);
+        assignmentManagerCard.Location = new Point(553, 152);
         assignmentManagerCard.Margin = new Padding(0, 0, 0, 24);
         assignmentManagerCard.Name = "assignmentManagerCard";
         assignmentManagerCard.Size = new Size(495, 61);
@@ -111,7 +111,7 @@ partial class AssignmentDetailPage
         otherAssignmentsOfManagerLabel.AutoSize = true;
         otherAssignmentsOfManagerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
         otherAssignmentsOfManagerLabel.ForeColor = Color.White;
-        otherAssignmentsOfManagerLabel.Location = new Point(549, 229);
+        otherAssignmentsOfManagerLabel.Location = new Point(549, 237);
         otherAssignmentsOfManagerLabel.Margin = new Padding(0);
         otherAssignmentsOfManagerLabel.Name = "otherAssignmentsOfManagerLabel";
         otherAssignmentsOfManagerLabel.Size = new Size(304, 28);
@@ -122,10 +122,10 @@ partial class AssignmentDetailPage
         // 
         otherAssignmentsOfManagerFlowLayoutLabel.AutoScroll = true;
         otherAssignmentsOfManagerFlowLayoutLabel.FlowDirection = FlowDirection.TopDown;
-        otherAssignmentsOfManagerFlowLayoutLabel.Location = new Point(553, 265);
+        otherAssignmentsOfManagerFlowLayoutLabel.Location = new Point(553, 273);
         otherAssignmentsOfManagerFlowLayoutLabel.Margin = new Padding(24, 8, 16, 8);
         otherAssignmentsOfManagerFlowLayoutLabel.Name = "otherAssignmentsOfManagerFlowLayoutLabel";
-        otherAssignmentsOfManagerFlowLayoutLabel.Size = new Size(495, 399);
+        otherAssignmentsOfManagerFlowLayoutLabel.Size = new Size(495, 391);
         otherAssignmentsOfManagerFlowLayoutLabel.TabIndex = 0;
         // 
         // AssignmentDetailPage

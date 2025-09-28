@@ -45,7 +45,7 @@ partial class AccountPage
         // 
         // searchTextBox
         // 
-        searchTextBox.Location = new Point(16, 75);
+        searchTextBox.Location = new Point(16, 80);
         searchTextBox.Margin = new Padding(3, 2, 3, 2);
         searchTextBox.Name = "searchTextBox";
         searchTextBox.PlaceholderText = "Search for username";
@@ -55,7 +55,7 @@ partial class AccountPage
         // searchButton
         // 
         searchButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        searchButton.Location = new Point(466, 67);
+        searchButton.Location = new Point(466, 72);
         searchButton.Margin = new Padding(16, 16, 0, 0);
         searchButton.Name = "searchButton";
         searchButton.Size = new Size(40, 40);
@@ -65,7 +65,7 @@ partial class AccountPage
         // reloadButton
         // 
         reloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        reloadButton.Location = new Point(522, 67);
+        reloadButton.Location = new Point(522, 72);
         reloadButton.Margin = new Padding(16, 16, 0, 0);
         reloadButton.Name = "reloadButton";
         reloadButton.Size = new Size(40, 40);
@@ -76,7 +76,7 @@ partial class AccountPage
         // 
         deleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         deleteButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        deleteButton.Location = new Point(936, 67);
+        deleteButton.Location = new Point(936, 72);
         deleteButton.Margin = new Padding(16, 16, 16, 0);
         deleteButton.Name = "deleteButton";
         deleteButton.Padding = new Padding(12, 0, 12, 0);
@@ -88,7 +88,7 @@ partial class AccountPage
         // toggleActiveButton
         // 
         toggleActiveButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        toggleActiveButton.Location = new Point(578, 67);
+        toggleActiveButton.Location = new Point(578, 72);
         toggleActiveButton.Margin = new Padding(16, 16, 0, 0);
         toggleActiveButton.Name = "toggleActiveButton";
         toggleActiveButton.Padding = new Padding(12, 0, 12, 0);
@@ -100,7 +100,7 @@ partial class AccountPage
         // resetPasswordButton
         // 
         resetPasswordButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        resetPasswordButton.Location = new Point(706, 67);
+        resetPasswordButton.Location = new Point(706, 72);
         resetPasswordButton.Margin = new Padding(16, 16, 0, 0);
         resetPasswordButton.Name = "resetPasswordButton";
         resetPasswordButton.Padding = new Padding(12, 0, 12, 0);
@@ -113,10 +113,10 @@ partial class AccountPage
         // 
         accountDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         accountDataGridView.Columns.AddRange(new DataGridViewColumn[] { employeeColumn, usernameColumn, activeStatusColumn });
-        accountDataGridView.Location = new Point(16, 123);
+        accountDataGridView.Location = new Point(16, 128);
         accountDataGridView.Margin = new Padding(16);
         accountDataGridView.Name = "accountDataGridView";
-        accountDataGridView.Size = new Size(1032, 542);
+        accountDataGridView.Size = new Size(1032, 537);
         accountDataGridView.TabIndex = 7;
         accountDataGridView.CellClick += AccountDataGridView_CellClick;
         // 

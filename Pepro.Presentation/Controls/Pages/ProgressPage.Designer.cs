@@ -36,9 +36,9 @@ partial class ProgressPage
         // projectProgressList
         // 
         projectProgressList.Dock = DockStyle.Fill;
-        projectProgressList.Location = new Point(0, 48);
+        projectProgressList.Location = new Point(0, 56);
         projectProgressList.Name = "projectProgressList";
-        projectProgressList.Size = new Size(1064, 633);
+        projectProgressList.Size = new Size(1064, 625);
         projectProgressList.TabIndex = 0;
         projectProgressList.OnItemClick += ProjectsFlowLayoutPanel_OnItemClick;
         // 

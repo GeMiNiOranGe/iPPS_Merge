@@ -63,7 +63,7 @@ partial class DocumentPage
         documentIdTextBoxField.Enabled = false;
         documentIdTextBoxField.ForeColor = Color.White;
         documentIdTextBoxField.LabelText = "Document id";
-        documentIdTextBoxField.Location = new Point(16, 64);
+        documentIdTextBoxField.Location = new Point(16, 72);
         documentIdTextBoxField.Margin = new Padding(16, 16, 0, 24);
         documentIdTextBoxField.Name = "documentIdTextBoxField";
         documentIdTextBoxField.PlaceholderText = "e.g. document id";
@@ -77,7 +77,7 @@ partial class DocumentPage
         assignmentIdTextBoxField.Enabled = false;
         assignmentIdTextBoxField.ForeColor = Color.White;
         assignmentIdTextBoxField.LabelText = "Assignment id";
-        assignmentIdTextBoxField.Location = new Point(280, 64);
+        assignmentIdTextBoxField.Location = new Point(280, 72);
         assignmentIdTextBoxField.Margin = new Padding(24, 16, 0, 24);
         assignmentIdTextBoxField.Name = "assignmentIdTextBoxField";
         assignmentIdTextBoxField.PlaceholderText = "e.g. assignment id";
@@ -92,7 +92,7 @@ partial class DocumentPage
         assignmentNameTextBoxField.Enabled = false;
         assignmentNameTextBoxField.ForeColor = Color.White;
         assignmentNameTextBoxField.LabelText = "Assignment name";
-        assignmentNameTextBoxField.Location = new Point(544, 64);
+        assignmentNameTextBoxField.Location = new Point(544, 72);
         assignmentNameTextBoxField.Margin = new Padding(24, 16, 16, 24);
         assignmentNameTextBoxField.Name = "assignmentNameTextBoxField";
         assignmentNameTextBoxField.PlaceholderText = "e.g. assignment name";
@@ -105,7 +105,7 @@ partial class DocumentPage
         fileTypeTextBoxField.Enabled = false;
         fileTypeTextBoxField.ForeColor = Color.White;
         fileTypeTextBoxField.LabelText = "File type";
-        fileTypeTextBoxField.Location = new Point(16, 136);
+        fileTypeTextBoxField.Location = new Point(16, 144);
         fileTypeTextBoxField.Margin = new Padding(16, 0, 0, 24);
         fileTypeTextBoxField.Name = "fileTypeTextBoxField";
         fileTypeTextBoxField.PlaceholderText = "e.g. docx, xlsx, pptx, ...";
@@ -118,7 +118,7 @@ partial class DocumentPage
         projectIdTextBoxField.Enabled = false;
         projectIdTextBoxField.ForeColor = Color.White;
         projectIdTextBoxField.LabelText = "Project id";
-        projectIdTextBoxField.Location = new Point(280, 136);
+        projectIdTextBoxField.Location = new Point(280, 144);
         projectIdTextBoxField.Margin = new Padding(24, 0, 0, 24);
         projectIdTextBoxField.Name = "projectIdTextBoxField";
         projectIdTextBoxField.PlaceholderText = "e.g. project id";
@@ -132,7 +132,7 @@ partial class DocumentPage
         projectNameTextBoxField.Enabled = false;
         projectNameTextBoxField.ForeColor = Color.White;
         projectNameTextBoxField.LabelText = "Project name";
-        projectNameTextBoxField.Location = new Point(544, 136);
+        projectNameTextBoxField.Location = new Point(544, 144);
         projectNameTextBoxField.Margin = new Padding(24, 0, 16, 24);
         projectNameTextBoxField.Name = "projectNameTextBoxField";
         projectNameTextBoxField.PlaceholderText = "e.g. project name";
@@ -142,7 +142,7 @@ partial class DocumentPage
         // 
         // searchTextBox
         // 
-        searchTextBox.Location = new Point(16, 215);
+        searchTextBox.Location = new Point(16, 223);
         searchTextBox.Margin = new Padding(2);
         searchTextBox.Name = "searchTextBox";
         searchTextBox.PlaceholderText = "Search for document title, id, and assignment id";
@@ -152,7 +152,7 @@ partial class DocumentPage
         // searchButton
         // 
         searchButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        searchButton.Location = new Point(466, 208);
+        searchButton.Location = new Point(466, 216);
         searchButton.Margin = new Padding(16, 0, 0, 0);
         searchButton.Name = "searchButton";
         searchButton.Size = new Size(40, 40);
@@ -162,7 +162,7 @@ partial class DocumentPage
         // reloadButton
         // 
         reloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        reloadButton.Location = new Point(522, 208);
+        reloadButton.Location = new Point(522, 216);
         reloadButton.Margin = new Padding(16, 0, 0, 0);
         reloadButton.Name = "reloadButton";
         reloadButton.Size = new Size(40, 40);
@@ -172,7 +172,7 @@ partial class DocumentPage
         // downloadButton
         // 
         downloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        downloadButton.Location = new Point(578, 208);
+        downloadButton.Location = new Point(578, 216);
         downloadButton.Margin = new Padding(16, 0, 0, 0);
         downloadButton.Name = "downloadButton";
         downloadButton.Size = new Size(112, 40);
@@ -184,7 +184,7 @@ partial class DocumentPage
         // 
         deleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         deleteButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        deleteButton.Location = new Point(706, 208);
+        deleteButton.Location = new Point(706, 216);
         deleteButton.Margin = new Padding(16, 0, 0, 0);
         deleteButton.Name = "deleteButton";
         deleteButton.Padding = new Padding(12, 0, 12, 0);
@@ -197,7 +197,7 @@ partial class DocumentPage
         // 
         updateButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         updateButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        updateButton.Location = new Point(834, 208);
+        updateButton.Location = new Point(834, 216);
         updateButton.Margin = new Padding(16, 0, 0, 0);
         updateButton.Name = "updateButton";
         updateButton.Padding = new Padding(12, 0, 12, 0);
@@ -210,7 +210,7 @@ partial class DocumentPage
         // 
         insertButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         insertButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        insertButton.Location = new Point(948, 208);
+        insertButton.Location = new Point(948, 216);
         insertButton.Margin = new Padding(16, 0, 0, 0);
         insertButton.Name = "insertButton";
         insertButton.Padding = new Padding(12, 0, 12, 0);
@@ -223,10 +223,10 @@ partial class DocumentPage
         // 
         documentDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         documentDataGridView.Columns.AddRange(new DataGridViewColumn[] { titleColumn, createAtColumn, revisionNumberColumn, revisionStatusColumn, documentUrlColumn, nativeFileFormatColumn, preparedByColumn, checkedByColumn, approvedByColumn, assignmentIdColumn });
-        documentDataGridView.Location = new Point(16, 264);
+        documentDataGridView.Location = new Point(16, 272);
         documentDataGridView.Margin = new Padding(16);
         documentDataGridView.Name = "documentDataGridView";
-        documentDataGridView.Size = new Size(1032, 401);
+        documentDataGridView.Size = new Size(1032, 393);
         documentDataGridView.TabIndex = 8;
         documentDataGridView.CellClick += DocumentDataGridView_CellClick;
         // 

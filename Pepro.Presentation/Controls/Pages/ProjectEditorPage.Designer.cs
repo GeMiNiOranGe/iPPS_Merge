@@ -45,7 +45,7 @@ partial class ProjectEditorPage
         // startDateTimePicker
         // 
         startDateTimePicker.Anchor = AnchorStyles.None;
-        startDateTimePicker.Location = new Point(544, 233);
+        startDateTimePicker.Location = new Point(544, 241);
         startDateTimePicker.Margin = new Padding(24, 0, 0, 16);
         startDateTimePicker.Name = "startDateTimePicker";
         startDateTimePicker.Size = new Size(240, 26);
@@ -55,7 +55,7 @@ partial class ProjectEditorPage
         // 
         startDateLabel.Anchor = AnchorStyles.None;
         startDateLabel.AutoSize = true;
-        startDateLabel.Location = new Point(544, 211);
+        startDateLabel.Location = new Point(544, 219);
         startDateLabel.Margin = new Padding(24, 16, 0, 0);
         startDateLabel.Name = "startDateLabel";
         startDateLabel.Size = new Size(60, 14);
@@ -66,7 +66,7 @@ partial class ProjectEditorPage
         // 
         endDateLabel.Anchor = AnchorStyles.None;
         endDateLabel.AutoSize = true;
-        endDateLabel.Location = new Point(808, 211);
+        endDateLabel.Location = new Point(808, 219);
         endDateLabel.Margin = new Padding(24, 16, 0, 0);
         endDateLabel.Name = "endDateLabel";
         endDateLabel.Size = new Size(54, 14);
@@ -76,7 +76,7 @@ partial class ProjectEditorPage
         // endDateTimePicker
         // 
         endDateTimePicker.Anchor = AnchorStyles.None;
-        endDateTimePicker.Location = new Point(808, 233);
+        endDateTimePicker.Location = new Point(808, 241);
         endDateTimePicker.Margin = new Padding(24, 0, 16, 16);
         endDateTimePicker.Name = "endDateTimePicker";
         endDateTimePicker.Size = new Size(240, 26);
@@ -86,7 +86,7 @@ partial class ProjectEditorPage
         // 
         projectNameTextBoxField.Anchor = AnchorStyles.None;
         projectNameTextBoxField.LabelText = "Project name";
-        projectNameTextBoxField.Location = new Point(16, 67);
+        projectNameTextBoxField.Location = new Point(16, 75);
         projectNameTextBoxField.Margin = new Padding(16, 16, 16, 24);
         projectNameTextBoxField.Name = "projectNameTextBoxField";
         projectNameTextBoxField.PlaceholderText = "e.g. project name";
@@ -97,7 +97,7 @@ partial class ProjectEditorPage
         // 
         statusComboBoxField.Anchor = AnchorStyles.None;
         statusComboBoxField.LabelText = "Status";
-        statusComboBoxField.Location = new Point(280, 211);
+        statusComboBoxField.Location = new Point(280, 219);
         statusComboBoxField.Margin = new Padding(24, 0, 0, 24);
         statusComboBoxField.Name = "statusComboBoxField";
         statusComboBoxField.Size = new Size(240, 48);
@@ -107,7 +107,7 @@ partial class ProjectEditorPage
         // 
         customerNameTextBoxField.Anchor = AnchorStyles.None;
         customerNameTextBoxField.LabelText = "Customer name";
-        customerNameTextBoxField.Location = new Point(16, 139);
+        customerNameTextBoxField.Location = new Point(16, 147);
         customerNameTextBoxField.Margin = new Padding(16, 0, 16, 24);
         customerNameTextBoxField.Name = "customerNameTextBoxField";
         customerNameTextBoxField.PlaceholderText = "e.g. customer name";
@@ -118,7 +118,7 @@ partial class ProjectEditorPage
         // 
         managerComboBoxField.Anchor = AnchorStyles.None;
         managerComboBoxField.LabelText = "Manager id";
-        managerComboBoxField.Location = new Point(16, 211);
+        managerComboBoxField.Location = new Point(16, 219);
         managerComboBoxField.Margin = new Padding(16, 0, 0, 24);
         managerComboBoxField.Name = "managerComboBoxField";
         managerComboBoxField.Size = new Size(240, 48);

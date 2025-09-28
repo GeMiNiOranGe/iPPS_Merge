@@ -60,7 +60,7 @@ partial class EmployeeEditorPage
         // 
         genderLabel.Anchor = AnchorStyles.None;
         genderLabel.AutoSize = true;
-        genderLabel.Location = new Point(16, 136);
+        genderLabel.Location = new Point(16, 147);
         genderLabel.Name = "genderLabel";
         genderLabel.Size = new Size(45, 14);
         genderLabel.TabIndex = 0;
@@ -70,7 +70,7 @@ partial class EmployeeEditorPage
         // 
         dateOfBirthLabel.Anchor = AnchorStyles.None;
         dateOfBirthLabel.AutoSize = true;
-        dateOfBirthLabel.Location = new Point(808, 64);
+        dateOfBirthLabel.Location = new Point(808, 75);
         dateOfBirthLabel.Name = "dateOfBirthLabel";
         dateOfBirthLabel.Size = new Size(78, 14);
         dateOfBirthLabel.TabIndex = 0;
@@ -80,7 +80,7 @@ partial class EmployeeEditorPage
         // 
         maleRadioButton.Anchor = AnchorStyles.None;
         maleRadioButton.AutoSize = true;
-        maleRadioButton.Location = new Point(16, 161);
+        maleRadioButton.Location = new Point(16, 172);
         maleRadioButton.Name = "maleRadioButton";
         maleRadioButton.Size = new Size(57, 23);
         maleRadioButton.TabIndex = 5;
@@ -92,7 +92,7 @@ partial class EmployeeEditorPage
         // 
         femaleRadioButton.Anchor = AnchorStyles.None;
         femaleRadioButton.AutoSize = true;
-        femaleRadioButton.Location = new Point(96, 161);
+        femaleRadioButton.Location = new Point(96, 172);
         femaleRadioButton.Name = "femaleRadioButton";
         femaleRadioButton.Size = new Size(70, 23);
         femaleRadioButton.TabIndex = 6;
@@ -103,7 +103,7 @@ partial class EmployeeEditorPage
         // dateOfBirthDateTimePicker
         // 
         dateOfBirthDateTimePicker.Anchor = AnchorStyles.None;
-        dateOfBirthDateTimePicker.Location = new Point(808, 86);
+        dateOfBirthDateTimePicker.Location = new Point(808, 97);
         dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
         dateOfBirthDateTimePicker.Size = new Size(240, 26);
         dateOfBirthDateTimePicker.TabIndex = 4;
@@ -112,7 +112,7 @@ partial class EmployeeEditorPage
         // 
         firstNameTextBoxField.Anchor = AnchorStyles.None;
         firstNameTextBoxField.LabelText = "First name";
-        firstNameTextBoxField.Location = new Point(16, 64);
+        firstNameTextBoxField.Location = new Point(16, 75);
         firstNameTextBoxField.Margin = new Padding(16, 16, 0, 24);
         firstNameTextBoxField.Name = "firstNameTextBoxField";
         firstNameTextBoxField.PlaceholderText = "e.g. first name";
@@ -123,7 +123,7 @@ partial class EmployeeEditorPage
         // 
         departmentComboBoxField.Anchor = AnchorStyles.None;
         departmentComboBoxField.LabelText = "Department";
-        departmentComboBoxField.Location = new Point(808, 136);
+        departmentComboBoxField.Location = new Point(808, 147);
         departmentComboBoxField.Margin = new Padding(24, 0, 16, 24);
         departmentComboBoxField.Name = "departmentComboBoxField";
         departmentComboBoxField.Size = new Size(240, 48);
@@ -134,7 +134,7 @@ partial class EmployeeEditorPage
         positionTextBoxField.Anchor = AnchorStyles.None;
         positionTextBoxField.Enabled = false;
         positionTextBoxField.LabelText = "Position allowance percent";
-        positionTextBoxField.Location = new Point(808, 208);
+        positionTextBoxField.Location = new Point(808, 219);
         positionTextBoxField.Margin = new Padding(24, 0, 16, 24);
         positionTextBoxField.Name = "positionTextBoxField";
         positionTextBoxField.PlaceholderText = "e.g. position allowance percent";
@@ -145,7 +145,7 @@ partial class EmployeeEditorPage
         // 
         positionComboBoxField.Anchor = AnchorStyles.None;
         positionComboBoxField.LabelText = "Position";
-        positionComboBoxField.Location = new Point(544, 208);
+        positionComboBoxField.Location = new Point(544, 219);
         positionComboBoxField.Margin = new Padding(24, 0, 0, 24);
         positionComboBoxField.Name = "positionComboBoxField";
         positionComboBoxField.Size = new Size(240, 48);
@@ -157,7 +157,7 @@ partial class EmployeeEditorPage
         salaryScaleTextBoxField.Anchor = AnchorStyles.None;
         salaryScaleTextBoxField.Enabled = false;
         salaryScaleTextBoxField.LabelText = "Salary scale group";
-        salaryScaleTextBoxField.Location = new Point(280, 208);
+        salaryScaleTextBoxField.Location = new Point(280, 219);
         salaryScaleTextBoxField.Margin = new Padding(24, 0, 0, 24);
         salaryScaleTextBoxField.Name = "salaryScaleTextBoxField";
         salaryScaleTextBoxField.PlaceholderText = "e.g. salary scale group";
@@ -168,7 +168,7 @@ partial class EmployeeEditorPage
         // 
         salaryScaleComboBoxField.Anchor = AnchorStyles.None;
         salaryScaleComboBoxField.LabelText = "Salary scale";
-        salaryScaleComboBoxField.Location = new Point(16, 208);
+        salaryScaleComboBoxField.Location = new Point(16, 219);
         salaryScaleComboBoxField.Margin = new Padding(16, 0, 0, 24);
         salaryScaleComboBoxField.Name = "salaryScaleComboBoxField";
         salaryScaleComboBoxField.Size = new Size(240, 48);
@@ -180,7 +180,7 @@ partial class EmployeeEditorPage
         salaryLevelTextBoxField.Anchor = AnchorStyles.None;
         salaryLevelTextBoxField.Enabled = false;
         salaryLevelTextBoxField.LabelText = "Salary level coefficient";
-        salaryLevelTextBoxField.Location = new Point(280, 280);
+        salaryLevelTextBoxField.Location = new Point(280, 291);
         salaryLevelTextBoxField.Margin = new Padding(24, 0, 0, 24);
         salaryLevelTextBoxField.Name = "salaryLevelTextBoxField";
         salaryLevelTextBoxField.PlaceholderText = "e.g. salary level coefficient";
@@ -191,7 +191,7 @@ partial class EmployeeEditorPage
         // 
         salaryLevelComboBoxField.Anchor = AnchorStyles.None;
         salaryLevelComboBoxField.LabelText = "Salary level";
-        salaryLevelComboBoxField.Location = new Point(16, 280);
+        salaryLevelComboBoxField.Location = new Point(16, 291);
         salaryLevelComboBoxField.Margin = new Padding(16, 0, 0, 24);
         salaryLevelComboBoxField.Name = "salaryLevelComboBoxField";
         salaryLevelComboBoxField.Size = new Size(240, 48);
@@ -202,7 +202,7 @@ partial class EmployeeEditorPage
         // 
         otherRadioButton.Anchor = AnchorStyles.None;
         otherRadioButton.AutoSize = true;
-        otherRadioButton.Location = new Point(193, 161);
+        otherRadioButton.Location = new Point(193, 172);
         otherRadioButton.Name = "otherRadioButton";
         otherRadioButton.Size = new Size(63, 23);
         otherRadioButton.TabIndex = 7;
@@ -214,7 +214,7 @@ partial class EmployeeEditorPage
         // 
         lbCheck3.Anchor = AnchorStyles.None;
         lbCheck3.AutoSize = true;
-        lbCheck3.Location = new Point(91, 208);
+        lbCheck3.Location = new Point(91, 219);
         lbCheck3.Name = "lbCheck3";
         lbCheck3.Size = new Size(15, 19);
         lbCheck3.TabIndex = 0;
@@ -224,7 +224,7 @@ partial class EmployeeEditorPage
         // 
         lbCheck1.Anchor = AnchorStyles.None;
         lbCheck1.AutoSize = true;
-        lbCheck1.Location = new Point(888, 136);
+        lbCheck1.Location = new Point(888, 147);
         lbCheck1.Name = "lbCheck1";
         lbCheck1.Size = new Size(15, 19);
         lbCheck1.TabIndex = 0;
@@ -234,7 +234,7 @@ partial class EmployeeEditorPage
         // 
         lbCheck2.Anchor = AnchorStyles.None;
         lbCheck2.AutoSize = true;
-        lbCheck2.Location = new Point(599, 208);
+        lbCheck2.Location = new Point(599, 219);
         lbCheck2.Name = "lbCheck2";
         lbCheck2.Size = new Size(15, 19);
         lbCheck2.TabIndex = 0;
@@ -244,7 +244,7 @@ partial class EmployeeEditorPage
         // 
         lbCheck4.Anchor = AnchorStyles.None;
         lbCheck4.AutoSize = true;
-        lbCheck4.Location = new Point(91, 280);
+        lbCheck4.Location = new Point(91, 291);
         lbCheck4.Name = "lbCheck4";
         lbCheck4.Size = new Size(15, 19);
         lbCheck4.TabIndex = 0;
@@ -266,7 +266,7 @@ partial class EmployeeEditorPage
         // 
         middleNameTextBoxField.Anchor = AnchorStyles.None;
         middleNameTextBoxField.LabelText = "Middle name";
-        middleNameTextBoxField.Location = new Point(280, 64);
+        middleNameTextBoxField.Location = new Point(280, 75);
         middleNameTextBoxField.Margin = new Padding(24, 16, 0, 24);
         middleNameTextBoxField.Name = "middleNameTextBoxField";
         middleNameTextBoxField.PlaceholderText = "e.g. middle name";
@@ -277,7 +277,7 @@ partial class EmployeeEditorPage
         // 
         lastNameTextBoxField.Anchor = AnchorStyles.None;
         lastNameTextBoxField.LabelText = "Last name";
-        lastNameTextBoxField.Location = new Point(544, 64);
+        lastNameTextBoxField.Location = new Point(544, 75);
         lastNameTextBoxField.Margin = new Padding(24, 16, 16, 24);
         lastNameTextBoxField.Name = "lastNameTextBoxField";
         lastNameTextBoxField.PlaceholderText = "e.g. last name";
@@ -288,7 +288,7 @@ partial class EmployeeEditorPage
         // 
         taxCodeTextBoxField.Anchor = AnchorStyles.None;
         taxCodeTextBoxField.LabelText = "Tax code";
-        taxCodeTextBoxField.Location = new Point(280, 136);
+        taxCodeTextBoxField.Location = new Point(280, 147);
         taxCodeTextBoxField.Margin = new Padding(24, 0, 0, 24);
         taxCodeTextBoxField.Name = "taxCodeTextBoxField";
         taxCodeTextBoxField.PlaceholderText = "e.g. tax code";
@@ -299,7 +299,7 @@ partial class EmployeeEditorPage
         // 
         citizenIdTextBoxField.Anchor = AnchorStyles.None;
         citizenIdTextBoxField.LabelText = "Citizen id";
-        citizenIdTextBoxField.Location = new Point(544, 136);
+        citizenIdTextBoxField.Location = new Point(544, 147);
         citizenIdTextBoxField.Margin = new Padding(24, 0, 16, 24);
         citizenIdTextBoxField.Name = "citizenIdTextBoxField";
         citizenIdTextBoxField.PlaceholderText = "e.g. citizen id";

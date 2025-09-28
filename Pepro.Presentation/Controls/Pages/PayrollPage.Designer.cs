@@ -49,10 +49,10 @@ partial class PayrollPage
         // 
         payrollDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         payrollDataGridView.Columns.AddRange(new DataGridViewColumn[] { fullNameColumn, scaleNameColumn, scaleGroupColumn, levelColumn, coefficientColumn, basicSalaryColumn, positionAllowancePercentColumn, positionAllowanceColumn, grossSalaryColumn });
-        payrollDataGridView.Location = new Point(16, 120);
+        payrollDataGridView.Location = new Point(16, 128);
         payrollDataGridView.Margin = new Padding(16);
         payrollDataGridView.Name = "payrollDataGridView";
-        payrollDataGridView.Size = new Size(1032, 545);
+        payrollDataGridView.Size = new Size(1032, 537);
         payrollDataGridView.TabIndex = 2;
         // 
         // fullNameColumn
@@ -130,7 +130,7 @@ partial class PayrollPage
         // exportButton
         // 
         exportButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        exportButton.Location = new Point(16, 64);
+        exportButton.Location = new Point(16, 72);
         exportButton.Margin = new Padding(16, 16, 0, 0);
         exportButton.Name = "exportButton";
         exportButton.Size = new Size(112, 40);
@@ -141,7 +141,7 @@ partial class PayrollPage
         // baseSalaryLabel
         // 
         baseSalaryLabel.AutoSize = true;
-        baseSalaryLabel.Location = new Point(152, 75);
+        baseSalaryLabel.Location = new Point(152, 83);
         baseSalaryLabel.Margin = new Padding(24, 0, 0, 0);
         baseSalaryLabel.Name = "baseSalaryLabel";
         baseSalaryLabel.Size = new Size(83, 19);

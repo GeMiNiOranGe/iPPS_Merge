@@ -31,18 +31,18 @@ partial class ProjectPage
     private void InitializeComponent()
     {
         projectDataGridView = new PeproDataGridView();
-        insertButton = new Button();
-        updateButton = new Button();
-        deleteButton = new Button();
-        reloadButton = new Button();
-        searchButton = new Button();
-        searchTextBox = new TextBox();
         projectNameColumn = new DataGridViewTextBoxColumn();
         customerNameColumn = new DataGridViewTextBoxColumn();
         managerColumn = new DataGridViewTextBoxColumn();
         startDateColumn = new DataGridViewTextBoxColumn();
         endDateColumn = new DataGridViewTextBoxColumn();
         statusNameColumn = new DataGridViewTextBoxColumn();
+        insertButton = new Button();
+        updateButton = new Button();
+        deleteButton = new Button();
+        reloadButton = new Button();
+        searchButton = new Button();
+        searchTextBox = new TextBox();
         ((System.ComponentModel.ISupportInitialize)projectDataGridView).BeginInit();
         SuspendLayout();
         // 
@@ -50,80 +50,12 @@ partial class ProjectPage
         // 
         projectDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         projectDataGridView.Columns.AddRange(new DataGridViewColumn[] { projectNameColumn, customerNameColumn, managerColumn, startDateColumn, endDateColumn, statusNameColumn });
-        projectDataGridView.Location = new Point(16, 123);
+        projectDataGridView.Location = new Point(16, 128);
         projectDataGridView.Margin = new Padding(16);
         projectDataGridView.Name = "projectDataGridView";
-        projectDataGridView.Size = new Size(1032, 542);
+        projectDataGridView.Size = new Size(1032, 537);
         projectDataGridView.TabIndex = 7;
         projectDataGridView.CellClick += ProjectDataGridView_CellClick;
-        // 
-        // insertButton
-        // 
-        insertButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        insertButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        insertButton.Location = new Point(948, 67);
-        insertButton.Margin = new Padding(16, 16, 0, 0);
-        insertButton.Name = "insertButton";
-        insertButton.Padding = new Padding(12, 0, 12, 0);
-        insertButton.Size = new Size(100, 40);
-        insertButton.TabIndex = 6;
-        insertButton.Text = " Add";
-        insertButton.Click += InsertButton_Click;
-        // 
-        // updateButton
-        // 
-        updateButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        updateButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        updateButton.Location = new Point(834, 67);
-        updateButton.Margin = new Padding(16, 16, 0, 0);
-        updateButton.Name = "updateButton";
-        updateButton.Padding = new Padding(12, 0, 12, 0);
-        updateButton.Size = new Size(98, 40);
-        updateButton.TabIndex = 5;
-        updateButton.Text = " Edit";
-        updateButton.Click += UpdateButton_Click;
-        // 
-        // deleteButton
-        // 
-        deleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        deleteButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        deleteButton.Location = new Point(706, 67);
-        deleteButton.Margin = new Padding(16, 16, 0, 0);
-        deleteButton.Name = "deleteButton";
-        deleteButton.Padding = new Padding(12, 0, 12, 0);
-        deleteButton.Size = new Size(112, 40);
-        deleteButton.TabIndex = 4;
-        deleteButton.Text = " Delete";
-        deleteButton.Click += DeleteButton_Click;
-        // 
-        // reloadButton
-        // 
-        reloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        reloadButton.Location = new Point(522, 67);
-        reloadButton.Margin = new Padding(16, 16, 0, 0);
-        reloadButton.Name = "reloadButton";
-        reloadButton.Size = new Size(40, 40);
-        reloadButton.TabIndex = 3;
-        reloadButton.Click += ReloadButton_Click;
-        // 
-        // searchButton
-        // 
-        searchButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        searchButton.Location = new Point(466, 67);
-        searchButton.Margin = new Padding(16, 16, 0, 0);
-        searchButton.Name = "searchButton";
-        searchButton.Size = new Size(40, 40);
-        searchButton.TabIndex = 2;
-        searchButton.Click += SearchButton_Click;
-        // 
-        // searchTextBox
-        // 
-        searchTextBox.Location = new Point(16, 75);
-        searchTextBox.Margin = new Padding(3, 2, 3, 2);
-        searchTextBox.Name = "searchTextBox";
-        searchTextBox.PlaceholderText = "Search for customer name, project id or name";
-        searchTextBox.Size = new Size(431, 26);
-        searchTextBox.TabIndex = 1;
         // 
         // projectNameColumn
         // 
@@ -172,6 +104,74 @@ partial class ProjectPage
         statusNameColumn.Name = "statusNameColumn";
         statusNameColumn.ReadOnly = true;
         statusNameColumn.Width = 72;
+        // 
+        // insertButton
+        // 
+        insertButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        insertButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+        insertButton.Location = new Point(948, 72);
+        insertButton.Margin = new Padding(16, 16, 0, 0);
+        insertButton.Name = "insertButton";
+        insertButton.Padding = new Padding(12, 0, 12, 0);
+        insertButton.Size = new Size(100, 40);
+        insertButton.TabIndex = 6;
+        insertButton.Text = " Add";
+        insertButton.Click += InsertButton_Click;
+        // 
+        // updateButton
+        // 
+        updateButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        updateButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+        updateButton.Location = new Point(834, 72);
+        updateButton.Margin = new Padding(16, 16, 0, 0);
+        updateButton.Name = "updateButton";
+        updateButton.Padding = new Padding(12, 0, 12, 0);
+        updateButton.Size = new Size(98, 40);
+        updateButton.TabIndex = 5;
+        updateButton.Text = " Edit";
+        updateButton.Click += UpdateButton_Click;
+        // 
+        // deleteButton
+        // 
+        deleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        deleteButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+        deleteButton.Location = new Point(706, 72);
+        deleteButton.Margin = new Padding(16, 16, 0, 0);
+        deleteButton.Name = "deleteButton";
+        deleteButton.Padding = new Padding(12, 0, 12, 0);
+        deleteButton.Size = new Size(112, 40);
+        deleteButton.TabIndex = 4;
+        deleteButton.Text = " Delete";
+        deleteButton.Click += DeleteButton_Click;
+        // 
+        // reloadButton
+        // 
+        reloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+        reloadButton.Location = new Point(522, 72);
+        reloadButton.Margin = new Padding(16, 16, 0, 0);
+        reloadButton.Name = "reloadButton";
+        reloadButton.Size = new Size(40, 40);
+        reloadButton.TabIndex = 3;
+        reloadButton.Click += ReloadButton_Click;
+        // 
+        // searchButton
+        // 
+        searchButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+        searchButton.Location = new Point(466, 72);
+        searchButton.Margin = new Padding(16, 16, 0, 0);
+        searchButton.Name = "searchButton";
+        searchButton.Size = new Size(40, 40);
+        searchButton.TabIndex = 2;
+        searchButton.Click += SearchButton_Click;
+        // 
+        // searchTextBox
+        // 
+        searchTextBox.Location = new Point(16, 80);
+        searchTextBox.Margin = new Padding(3, 2, 3, 2);
+        searchTextBox.Name = "searchTextBox";
+        searchTextBox.PlaceholderText = "Search for customer name, project id or name";
+        searchTextBox.Size = new Size(431, 26);
+        searchTextBox.TabIndex = 1;
         // 
         // ProjectPage
         // 

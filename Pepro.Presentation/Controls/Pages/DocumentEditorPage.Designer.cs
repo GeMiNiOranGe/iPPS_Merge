@@ -56,7 +56,7 @@ partial class DocumentEditorPage
         projectIdTextBoxField.Enabled = false;
         projectIdTextBoxField.ForeColor = Color.White;
         projectIdTextBoxField.LabelText = "Project id";
-        projectIdTextBoxField.Location = new Point(16, 67);
+        projectIdTextBoxField.Location = new Point(16, 75);
         projectIdTextBoxField.Margin = new Padding(16, 16, 0, 24);
         projectIdTextBoxField.Name = "projectIdTextBoxField";
         projectIdTextBoxField.PlaceholderText = "e.g. project id";
@@ -69,7 +69,7 @@ partial class DocumentEditorPage
         projectNameComboBoxField.Anchor = AnchorStyles.None;
         projectNameComboBoxField.ForeColor = Color.White;
         projectNameComboBoxField.LabelText = "Project name";
-        projectNameComboBoxField.Location = new Point(280, 64);
+        projectNameComboBoxField.Location = new Point(280, 75);
         projectNameComboBoxField.Margin = new Padding(24, 16, 16, 24);
         projectNameComboBoxField.Name = "projectNameComboBoxField";
         projectNameComboBoxField.Size = new Size(768, 48);
@@ -82,7 +82,7 @@ partial class DocumentEditorPage
         assignmentIdTextBoxField.Enabled = false;
         assignmentIdTextBoxField.ForeColor = Color.White;
         assignmentIdTextBoxField.LabelText = "Assignment id";
-        assignmentIdTextBoxField.Location = new Point(16, 139);
+        assignmentIdTextBoxField.Location = new Point(16, 147);
         assignmentIdTextBoxField.Margin = new Padding(16, 0, 0, 24);
         assignmentIdTextBoxField.Name = "assignmentIdTextBoxField";
         assignmentIdTextBoxField.PlaceholderText = "e.g. assignment id";
@@ -95,7 +95,7 @@ partial class DocumentEditorPage
         assignmentNameComboBoxField.Anchor = AnchorStyles.None;
         assignmentNameComboBoxField.ForeColor = Color.White;
         assignmentNameComboBoxField.LabelText = "Assignment name";
-        assignmentNameComboBoxField.Location = new Point(280, 139);
+        assignmentNameComboBoxField.Location = new Point(280, 147);
         assignmentNameComboBoxField.Margin = new Padding(24, 0, 16, 24);
         assignmentNameComboBoxField.Name = "assignmentNameComboBoxField";
         assignmentNameComboBoxField.Size = new Size(768, 48);
@@ -107,7 +107,7 @@ partial class DocumentEditorPage
         documentIdTextBoxField.Enabled = false;
         documentIdTextBoxField.ForeColor = Color.White;
         documentIdTextBoxField.LabelText = "Document id";
-        documentIdTextBoxField.Location = new Point(16, 211);
+        documentIdTextBoxField.Location = new Point(16, 219);
         documentIdTextBoxField.Margin = new Padding(16, 0, 0, 24);
         documentIdTextBoxField.Name = "documentIdTextBoxField";
         documentIdTextBoxField.PlaceholderText = "e.g. document id";
@@ -120,7 +120,7 @@ partial class DocumentEditorPage
         titleTextBoxField.Anchor = AnchorStyles.None;
         titleTextBoxField.ForeColor = Color.White;
         titleTextBoxField.LabelText = "Title";
-        titleTextBoxField.Location = new Point(280, 211);
+        titleTextBoxField.Location = new Point(280, 219);
         titleTextBoxField.Margin = new Padding(24, 0, 16, 24);
         titleTextBoxField.Name = "titleTextBoxField";
         titleTextBoxField.PlaceholderText = "e.g. title";
@@ -132,7 +132,7 @@ partial class DocumentEditorPage
         preparedByTextBoxField.Anchor = AnchorStyles.None;
         preparedByTextBoxField.ForeColor = Color.White;
         preparedByTextBoxField.LabelText = "Prepared by";
-        preparedByTextBoxField.Location = new Point(16, 283);
+        preparedByTextBoxField.Location = new Point(16, 291);
         preparedByTextBoxField.Margin = new Padding(16, 0, 0, 24);
         preparedByTextBoxField.Name = "preparedByTextBoxField";
         preparedByTextBoxField.PlaceholderText = "e.g. Jessica";
@@ -144,7 +144,7 @@ partial class DocumentEditorPage
         checkedByTextBoxField.Anchor = AnchorStyles.None;
         checkedByTextBoxField.ForeColor = Color.White;
         checkedByTextBoxField.LabelText = "Checked by";
-        checkedByTextBoxField.Location = new Point(544, 283);
+        checkedByTextBoxField.Location = new Point(544, 291);
         checkedByTextBoxField.Margin = new Padding(24, 0, 16, 24);
         checkedByTextBoxField.Name = "checkedByTextBoxField";
         checkedByTextBoxField.PlaceholderText = "e.g. Mike";
@@ -156,7 +156,7 @@ partial class DocumentEditorPage
         approvedByTextBoxField.Anchor = AnchorStyles.None;
         approvedByTextBoxField.ForeColor = Color.White;
         approvedByTextBoxField.LabelText = "Approved by";
-        approvedByTextBoxField.Location = new Point(16, 355);
+        approvedByTextBoxField.Location = new Point(16, 363);
         approvedByTextBoxField.Margin = new Padding(16, 0, 0, 24);
         approvedByTextBoxField.Name = "approvedByTextBoxField";
         approvedByTextBoxField.PlaceholderText = "e.g. John";
@@ -169,7 +169,7 @@ partial class DocumentEditorPage
         fileTypeTextBoxField.Enabled = false;
         fileTypeTextBoxField.ForeColor = Color.White;
         fileTypeTextBoxField.LabelText = "File type";
-        fileTypeTextBoxField.Location = new Point(544, 355);
+        fileTypeTextBoxField.Location = new Point(544, 363);
         fileTypeTextBoxField.Margin = new Padding(24, 0, 0, 24);
         fileTypeTextBoxField.Name = "fileTypeTextBoxField";
         fileTypeTextBoxField.PlaceholderText = "e.g. docx, xlsx, pptx";
@@ -182,7 +182,7 @@ partial class DocumentEditorPage
         createdAtLabel.Anchor = AnchorStyles.None;
         createdAtLabel.AutoSize = true;
         createdAtLabel.ForeColor = Color.White;
-        createdAtLabel.Location = new Point(808, 355);
+        createdAtLabel.Location = new Point(808, 363);
         createdAtLabel.Margin = new Padding(16, 24, 8, 0);
         createdAtLabel.Name = "createdAtLabel";
         createdAtLabel.Size = new Size(29, 14);
@@ -193,7 +193,7 @@ partial class DocumentEditorPage
         // 
         createdAtDateTimePicker.Anchor = AnchorStyles.None;
         createdAtDateTimePicker.Checked = false;
-        createdAtDateTimePicker.Location = new Point(808, 377);
+        createdAtDateTimePicker.Location = new Point(808, 385);
         createdAtDateTimePicker.Margin = new Padding(24, 8, 16, 16);
         createdAtDateTimePicker.Name = "createdAtDateTimePicker";
         createdAtDateTimePicker.Size = new Size(240, 26);
@@ -205,7 +205,7 @@ partial class DocumentEditorPage
         revisionNumberTextBoxField.Enabled = false;
         revisionNumberTextBoxField.ForeColor = Color.White;
         revisionNumberTextBoxField.LabelText = "Revision number";
-        revisionNumberTextBoxField.Location = new Point(16, 427);
+        revisionNumberTextBoxField.Location = new Point(16, 435);
         revisionNumberTextBoxField.Margin = new Padding(16, 0, 0, 24);
         revisionNumberTextBoxField.Name = "revisionNumberTextBoxField";
         revisionNumberTextBoxField.PlaceholderText = "e.g. 642837";
@@ -219,7 +219,7 @@ partial class DocumentEditorPage
         revisionStatusTextBoxField.Enabled = false;
         revisionStatusTextBoxField.ForeColor = Color.White;
         revisionStatusTextBoxField.LabelText = "Revision status";
-        revisionStatusTextBoxField.Location = new Point(280, 427);
+        revisionStatusTextBoxField.Location = new Point(280, 435);
         revisionStatusTextBoxField.Margin = new Padding(24, 0, 0, 24);
         revisionStatusTextBoxField.Name = "revisionStatusTextBoxField";
         revisionStatusTextBoxField.PlaceholderText = "e.g. latest";
@@ -233,7 +233,7 @@ partial class DocumentEditorPage
         filePathTextBoxField.Enabled = false;
         filePathTextBoxField.ForeColor = Color.White;
         filePathTextBoxField.LabelText = "File path";
-        filePathTextBoxField.Location = new Point(544, 427);
+        filePathTextBoxField.Location = new Point(544, 435);
         filePathTextBoxField.Margin = new Padding(24, 0, 0, 24);
         filePathTextBoxField.Name = "filePathTextBoxField";
         filePathTextBoxField.PlaceholderText = "e.g. path/to/file.ext";
@@ -245,7 +245,7 @@ partial class DocumentEditorPage
         // 
         browseButton.Anchor = AnchorStyles.None;
         browseButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        browseButton.Location = new Point(808, 431);
+        browseButton.Location = new Point(808, 439);
         browseButton.Margin = new Padding(16);
         browseButton.Name = "browseButton";
         browseButton.Size = new Size(104, 40);

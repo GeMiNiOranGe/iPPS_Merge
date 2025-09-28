@@ -53,7 +53,7 @@ partial class AssignmentEditorPage
         publicProjectLabel.AutoSize = true;
         publicProjectLabel.BackColor = Color.Transparent;
         publicProjectLabel.ForeColor = Color.White;
-        publicProjectLabel.Location = new Point(544, 136);
+        publicProjectLabel.Location = new Point(544, 147);
         publicProjectLabel.Margin = new Padding(2, 0, 2, 0);
         publicProjectLabel.Name = "publicProjectLabel";
         publicProjectLabel.Size = new Size(99, 14);
@@ -66,7 +66,7 @@ partial class AssignmentEditorPage
         publicDepartmentLabel.AutoSize = true;
         publicDepartmentLabel.BackColor = Color.Transparent;
         publicDepartmentLabel.ForeColor = Color.White;
-        publicDepartmentLabel.Location = new Point(808, 136);
+        publicDepartmentLabel.Location = new Point(808, 147);
         publicDepartmentLabel.Margin = new Padding(2, 0, 2, 0);
         publicDepartmentLabel.Name = "publicDepartmentLabel";
         publicDepartmentLabel.Size = new Size(129, 14);
@@ -89,7 +89,7 @@ partial class AssignmentEditorPage
         // 
         managerComboBoxField.Anchor = AnchorStyles.None;
         managerComboBoxField.LabelText = "Manager id";
-        managerComboBoxField.Location = new Point(280, 208);
+        managerComboBoxField.Location = new Point(280, 219);
         managerComboBoxField.Margin = new Padding(24, 0, 0, 24);
         managerComboBoxField.Name = "managerComboBoxField";
         managerComboBoxField.Size = new Size(240, 48);
@@ -99,7 +99,7 @@ partial class AssignmentEditorPage
         // 
         assignmentNameTextBoxField.Anchor = AnchorStyles.None;
         assignmentNameTextBoxField.LabelText = "Assignment name";
-        assignmentNameTextBoxField.Location = new Point(16, 64);
+        assignmentNameTextBoxField.Location = new Point(16, 75);
         assignmentNameTextBoxField.Margin = new Padding(16, 16, 16, 24);
         assignmentNameTextBoxField.Name = "assignmentNameTextBoxField";
         assignmentNameTextBoxField.PlaceholderText = "e.g. assignment name";
@@ -110,7 +110,7 @@ partial class AssignmentEditorPage
         // 
         statusComboBoxField.Anchor = AnchorStyles.None;
         statusComboBoxField.LabelText = "Status";
-        statusComboBoxField.Location = new Point(16, 280);
+        statusComboBoxField.Location = new Point(16, 291);
         statusComboBoxField.Margin = new Padding(16, 0, 0, 24);
         statusComboBoxField.Name = "statusComboBoxField";
         statusComboBoxField.Size = new Size(240, 48);
@@ -120,7 +120,7 @@ partial class AssignmentEditorPage
         // 
         isPublicToProjectCheckBox.Anchor = AnchorStyles.None;
         isPublicToProjectCheckBox.AutoSize = true;
-        isPublicToProjectCheckBox.Location = new Point(544, 159);
+        isPublicToProjectCheckBox.Location = new Point(544, 170);
         isPublicToProjectCheckBox.Margin = new Padding(24, 8, 0, 24);
         isPublicToProjectCheckBox.Name = "isPublicToProjectCheckBox";
         isPublicToProjectCheckBox.Size = new Size(48, 23);
@@ -132,7 +132,7 @@ partial class AssignmentEditorPage
         // 
         isPublicToDepartmentCheckBox.Anchor = AnchorStyles.None;
         isPublicToDepartmentCheckBox.AutoSize = true;
-        isPublicToDepartmentCheckBox.Location = new Point(808, 159);
+        isPublicToDepartmentCheckBox.Location = new Point(808, 170);
         isPublicToDepartmentCheckBox.Margin = new Padding(24, 8, 0, 24);
         isPublicToDepartmentCheckBox.Name = "isPublicToDepartmentCheckBox";
         isPublicToDepartmentCheckBox.Size = new Size(48, 23);
@@ -144,7 +144,7 @@ partial class AssignmentEditorPage
         // 
         startDateLabel.Anchor = AnchorStyles.None;
         startDateLabel.AutoSize = true;
-        startDateLabel.Location = new Point(544, 208);
+        startDateLabel.Location = new Point(544, 219);
         startDateLabel.Margin = new Padding(24, 0, 0, 0);
         startDateLabel.Name = "startDateLabel";
         startDateLabel.Size = new Size(60, 14);
@@ -154,7 +154,7 @@ partial class AssignmentEditorPage
         // startDateTimePicker
         // 
         startDateTimePicker.Anchor = AnchorStyles.None;
-        startDateTimePicker.Location = new Point(544, 230);
+        startDateTimePicker.Location = new Point(544, 241);
         startDateTimePicker.Margin = new Padding(24, 0, 0, 24);
         startDateTimePicker.Name = "startDateTimePicker";
         startDateTimePicker.Size = new Size(240, 26);
@@ -164,7 +164,7 @@ partial class AssignmentEditorPage
         // 
         endDateLabel.Anchor = AnchorStyles.None;
         endDateLabel.AutoSize = true;
-        endDateLabel.Location = new Point(808, 208);
+        endDateLabel.Location = new Point(808, 219);
         endDateLabel.Margin = new Padding(24, 0, 0, 0);
         endDateLabel.Name = "endDateLabel";
         endDateLabel.Size = new Size(54, 14);
@@ -174,7 +174,7 @@ partial class AssignmentEditorPage
         // endDateTimePicker
         // 
         endDateTimePicker.Anchor = AnchorStyles.None;
-        endDateTimePicker.Location = new Point(808, 230);
+        endDateTimePicker.Location = new Point(808, 241);
         endDateTimePicker.Margin = new Padding(24, 0, 16, 24);
         endDateTimePicker.Name = "endDateTimePicker";
         endDateTimePicker.Size = new Size(240, 26);
@@ -184,7 +184,7 @@ partial class AssignmentEditorPage
         // 
         projectComboBoxField.Anchor = AnchorStyles.None;
         projectComboBoxField.LabelText = "Project name";
-        projectComboBoxField.Location = new Point(16, 136);
+        projectComboBoxField.Location = new Point(16, 147);
         projectComboBoxField.Margin = new Padding(16, 0, 0, 24);
         projectComboBoxField.Name = "projectComboBoxField";
         projectComboBoxField.Size = new Size(504, 48);
@@ -194,7 +194,7 @@ partial class AssignmentEditorPage
         // 
         requiredDocumentCountNumericUpDownField.Anchor = AnchorStyles.None;
         requiredDocumentCountNumericUpDownField.LabelText = "Required document count";
-        requiredDocumentCountNumericUpDownField.Location = new Point(16, 208);
+        requiredDocumentCountNumericUpDownField.Location = new Point(16, 219);
         requiredDocumentCountNumericUpDownField.Margin = new Padding(16, 0, 0, 24);
         requiredDocumentCountNumericUpDownField.Name = "requiredDocumentCountNumericUpDownField";
         requiredDocumentCountNumericUpDownField.Size = new Size(240, 48);

@@ -33,6 +33,13 @@ partial class EmployeePage
     {
         searchTextBox = new TextBox();
         employeeDataGridView = new PeproDataGridView();
+        fullNameColumn = new DataGridViewTextBoxColumn();
+        dateOfBirthColumn = new DataGridViewTextBoxColumn();
+        genderColumn = new DataGridViewTextBoxColumn();
+        taxCodeColumn = new DataGridViewTextBoxColumn();
+        citizenIdColumn = new DataGridViewTextBoxColumn();
+        departmentColumn = new DataGridViewTextBoxColumn();
+        positionColumn = new DataGridViewTextBoxColumn();
         employeeIdTextBoxField = new TextBoxField();
         numberOfEmployeesTextBoxField = new TextBoxField();
         employeeNameTextBoxField = new TextBoxField();
@@ -42,19 +49,12 @@ partial class EmployeePage
         deleteButton = new Button();
         updateButton = new Button();
         insertButton = new Button();
-        fullNameColumn = new DataGridViewTextBoxColumn();
-        dateOfBirthColumn = new DataGridViewTextBoxColumn();
-        genderColumn = new DataGridViewTextBoxColumn();
-        taxCodeColumn = new DataGridViewTextBoxColumn();
-        citizenIdColumn = new DataGridViewTextBoxColumn();
-        departmentColumn = new DataGridViewTextBoxColumn();
-        positionColumn = new DataGridViewTextBoxColumn();
         ((System.ComponentModel.ISupportInitialize)employeeDataGridView).BeginInit();
         SuspendLayout();
         // 
         // searchTextBox
         // 
-        searchTextBox.Location = new Point(16, 147);
+        searchTextBox.Location = new Point(16, 152);
         searchTextBox.Margin = new Padding(3, 2, 3, 2);
         searchTextBox.Name = "searchTextBox";
         searchTextBox.PlaceholderText = "Search for employee id or name";
@@ -65,119 +65,12 @@ partial class EmployeePage
         // 
         employeeDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         employeeDataGridView.Columns.AddRange(new DataGridViewColumn[] { fullNameColumn, dateOfBirthColumn, genderColumn, taxCodeColumn, citizenIdColumn, departmentColumn, positionColumn });
-        employeeDataGridView.Location = new Point(16, 195);
+        employeeDataGridView.Location = new Point(16, 200);
         employeeDataGridView.Margin = new Padding(16);
         employeeDataGridView.Name = "employeeDataGridView";
-        employeeDataGridView.Size = new Size(1032, 470);
+        employeeDataGridView.Size = new Size(1032, 465);
         employeeDataGridView.TabIndex = 8;
         employeeDataGridView.CellClick += EmployeeDataGridView_CellClick;
-        // 
-        // employeeIdTextBoxField
-        // 
-        employeeIdTextBoxField.Enabled = false;
-        employeeIdTextBoxField.ForeColor = Color.White;
-        employeeIdTextBoxField.LabelText = "Employee id";
-        employeeIdTextBoxField.Location = new Point(280, 67);
-        employeeIdTextBoxField.Margin = new Padding(24, 16, 0, 24);
-        employeeIdTextBoxField.Name = "employeeIdTextBoxField";
-        employeeIdTextBoxField.PlaceholderText = "e.g. employee id";
-        employeeIdTextBoxField.Size = new Size(240, 48);
-        employeeIdTextBoxField.TabIndex = 0;
-        // 
-        // numberOfEmployeesTextBoxField
-        // 
-        numberOfEmployeesTextBoxField.Enabled = false;
-        numberOfEmployeesTextBoxField.ForeColor = Color.White;
-        numberOfEmployeesTextBoxField.LabelText = "Number of employees";
-        numberOfEmployeesTextBoxField.Location = new Point(16, 67);
-        numberOfEmployeesTextBoxField.Margin = new Padding(16, 16, 0, 24);
-        numberOfEmployeesTextBoxField.Name = "numberOfEmployeesTextBoxField";
-        numberOfEmployeesTextBoxField.PlaceholderText = "e.g. number of employees";
-        numberOfEmployeesTextBoxField.Size = new Size(240, 48);
-        numberOfEmployeesTextBoxField.TabIndex = 0;
-        // 
-        // employeeNameTextBoxField
-        // 
-        employeeNameTextBoxField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        employeeNameTextBoxField.Enabled = false;
-        employeeNameTextBoxField.ForeColor = Color.White;
-        employeeNameTextBoxField.LabelText = "Employee name";
-        employeeNameTextBoxField.Location = new Point(544, 67);
-        employeeNameTextBoxField.Margin = new Padding(24, 16, 16, 24);
-        employeeNameTextBoxField.Name = "employeeNameTextBoxField";
-        employeeNameTextBoxField.PlaceholderText = "e.g. employee name";
-        employeeNameTextBoxField.Size = new Size(504, 48);
-        employeeNameTextBoxField.TabIndex = 0;
-        // 
-        // searchButton
-        // 
-        searchButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        searchButton.Location = new Point(466, 139);
-        searchButton.Margin = new Padding(16, 0, 0, 0);
-        searchButton.Name = "searchButton";
-        searchButton.Size = new Size(40, 40);
-        searchButton.TabIndex = 2;
-        searchButton.Click += SearchButton_Click;
-        // 
-        // reloadButton
-        // 
-        reloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        reloadButton.Location = new Point(522, 139);
-        reloadButton.Margin = new Padding(16, 0, 0, 0);
-        reloadButton.Name = "reloadButton";
-        reloadButton.Size = new Size(40, 40);
-        reloadButton.TabIndex = 3;
-        reloadButton.Click += ReloadButton_Click;
-        // 
-        // exportButton
-        // 
-        exportButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        exportButton.Location = new Point(578, 139);
-        exportButton.Margin = new Padding(16, 0, 0, 0);
-        exportButton.Name = "exportButton";
-        exportButton.Size = new Size(112, 40);
-        exportButton.TabIndex = 4;
-        exportButton.Text = "Export";
-        exportButton.Click += ExportButton_Click;
-        // 
-        // deleteButton
-        // 
-        deleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        deleteButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        deleteButton.Location = new Point(706, 139);
-        deleteButton.Margin = new Padding(16, 0, 0, 0);
-        deleteButton.Name = "deleteButton";
-        deleteButton.Padding = new Padding(12, 0, 12, 0);
-        deleteButton.Size = new Size(112, 40);
-        deleteButton.TabIndex = 5;
-        deleteButton.Text = " Delete";
-        deleteButton.Click += DeleteButton_Click;
-        // 
-        // updateButton
-        // 
-        updateButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        updateButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        updateButton.Location = new Point(834, 139);
-        updateButton.Margin = new Padding(16, 0, 0, 0);
-        updateButton.Name = "updateButton";
-        updateButton.Padding = new Padding(12, 0, 12, 0);
-        updateButton.Size = new Size(98, 40);
-        updateButton.TabIndex = 6;
-        updateButton.Text = " Edit";
-        updateButton.Click += UpdateButton_Click;
-        // 
-        // insertButton
-        // 
-        insertButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        insertButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-        insertButton.Location = new Point(948, 139);
-        insertButton.Margin = new Padding(16, 0, 0, 0);
-        insertButton.Name = "insertButton";
-        insertButton.Padding = new Padding(12, 0, 12, 0);
-        insertButton.Size = new Size(100, 40);
-        insertButton.TabIndex = 7;
-        insertButton.Text = " Add";
-        insertButton.Click += InsertButton_Click;
         // 
         // fullNameColumn
         // 
@@ -234,6 +127,113 @@ partial class EmployeePage
         positionColumn.Name = "positionColumn";
         positionColumn.ReadOnly = true;
         positionColumn.Width = 82;
+        // 
+        // employeeIdTextBoxField
+        // 
+        employeeIdTextBoxField.Enabled = false;
+        employeeIdTextBoxField.ForeColor = Color.White;
+        employeeIdTextBoxField.LabelText = "Employee id";
+        employeeIdTextBoxField.Location = new Point(280, 72);
+        employeeIdTextBoxField.Margin = new Padding(24, 16, 0, 24);
+        employeeIdTextBoxField.Name = "employeeIdTextBoxField";
+        employeeIdTextBoxField.PlaceholderText = "e.g. employee id";
+        employeeIdTextBoxField.Size = new Size(240, 48);
+        employeeIdTextBoxField.TabIndex = 0;
+        // 
+        // numberOfEmployeesTextBoxField
+        // 
+        numberOfEmployeesTextBoxField.Enabled = false;
+        numberOfEmployeesTextBoxField.ForeColor = Color.White;
+        numberOfEmployeesTextBoxField.LabelText = "Number of employees";
+        numberOfEmployeesTextBoxField.Location = new Point(16, 72);
+        numberOfEmployeesTextBoxField.Margin = new Padding(16, 16, 0, 24);
+        numberOfEmployeesTextBoxField.Name = "numberOfEmployeesTextBoxField";
+        numberOfEmployeesTextBoxField.PlaceholderText = "e.g. number of employees";
+        numberOfEmployeesTextBoxField.Size = new Size(240, 48);
+        numberOfEmployeesTextBoxField.TabIndex = 0;
+        // 
+        // employeeNameTextBoxField
+        // 
+        employeeNameTextBoxField.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        employeeNameTextBoxField.Enabled = false;
+        employeeNameTextBoxField.ForeColor = Color.White;
+        employeeNameTextBoxField.LabelText = "Employee name";
+        employeeNameTextBoxField.Location = new Point(544, 72);
+        employeeNameTextBoxField.Margin = new Padding(24, 16, 16, 24);
+        employeeNameTextBoxField.Name = "employeeNameTextBoxField";
+        employeeNameTextBoxField.PlaceholderText = "e.g. employee name";
+        employeeNameTextBoxField.Size = new Size(504, 48);
+        employeeNameTextBoxField.TabIndex = 0;
+        // 
+        // searchButton
+        // 
+        searchButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+        searchButton.Location = new Point(466, 144);
+        searchButton.Margin = new Padding(16, 0, 0, 0);
+        searchButton.Name = "searchButton";
+        searchButton.Size = new Size(40, 40);
+        searchButton.TabIndex = 2;
+        searchButton.Click += SearchButton_Click;
+        // 
+        // reloadButton
+        // 
+        reloadButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+        reloadButton.Location = new Point(522, 144);
+        reloadButton.Margin = new Padding(16, 0, 0, 0);
+        reloadButton.Name = "reloadButton";
+        reloadButton.Size = new Size(40, 40);
+        reloadButton.TabIndex = 3;
+        reloadButton.Click += ReloadButton_Click;
+        // 
+        // exportButton
+        // 
+        exportButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+        exportButton.Location = new Point(578, 144);
+        exportButton.Margin = new Padding(16, 0, 0, 0);
+        exportButton.Name = "exportButton";
+        exportButton.Size = new Size(112, 40);
+        exportButton.TabIndex = 4;
+        exportButton.Text = "Export";
+        exportButton.Click += ExportButton_Click;
+        // 
+        // deleteButton
+        // 
+        deleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        deleteButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+        deleteButton.Location = new Point(706, 144);
+        deleteButton.Margin = new Padding(16, 0, 0, 0);
+        deleteButton.Name = "deleteButton";
+        deleteButton.Padding = new Padding(12, 0, 12, 0);
+        deleteButton.Size = new Size(112, 40);
+        deleteButton.TabIndex = 5;
+        deleteButton.Text = " Delete";
+        deleteButton.Click += DeleteButton_Click;
+        // 
+        // updateButton
+        // 
+        updateButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        updateButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+        updateButton.Location = new Point(834, 144);
+        updateButton.Margin = new Padding(16, 0, 0, 0);
+        updateButton.Name = "updateButton";
+        updateButton.Padding = new Padding(12, 0, 12, 0);
+        updateButton.Size = new Size(98, 40);
+        updateButton.TabIndex = 6;
+        updateButton.Text = " Edit";
+        updateButton.Click += UpdateButton_Click;
+        // 
+        // insertButton
+        // 
+        insertButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        insertButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+        insertButton.Location = new Point(948, 144);
+        insertButton.Margin = new Padding(16, 0, 0, 0);
+        insertButton.Name = "insertButton";
+        insertButton.Padding = new Padding(12, 0, 12, 0);
+        insertButton.Size = new Size(100, 40);
+        insertButton.TabIndex = 7;
+        insertButton.Text = " Add";
+        insertButton.Click += InsertButton_Click;
         // 
         // EmployeePage
         // 

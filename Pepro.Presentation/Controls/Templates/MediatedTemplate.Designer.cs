@@ -38,11 +38,11 @@ partial class MediatedTemplate
         // 
         headerLabel.Dock = DockStyle.Fill;
         headerLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
-        headerLabel.Location = new Point(48, 0);
+        headerLabel.Location = new Point(56, 0);
         headerLabel.Margin = new Padding(0);
         headerLabel.Name = "headerLabel";
-        headerLabel.Padding = new Padding(16, 0, 0, 0);
-        headerLabel.Size = new Size(1016, 48);
+        headerLabel.Padding = new Padding(12, 0, 0, 0);
+        headerLabel.Size = new Size(1008, 56);
         headerLabel.TabIndex = 0;
         headerLabel.Text = "Header Text";
         headerLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -52,7 +52,7 @@ partial class MediatedTemplate
         headerReturnButton.Dock = DockStyle.Left;
         headerReturnButton.Location = new Point(0, 0);
         headerReturnButton.Name = "headerReturnButton";
-        headerReturnButton.Size = new Size(48, 48);
+        headerReturnButton.Size = new Size(56, 56);
         headerReturnButton.TabIndex = 1;
         headerReturnButton.UseVisualStyleBackColor = true;
         headerReturnButton.Click += HeaderReturnButton_Click;
@@ -64,18 +64,19 @@ partial class MediatedTemplate
         headerPanel.Controls.Add(headerReturnButton);
         headerPanel.Dock = DockStyle.Top;
         headerPanel.Location = new Point(0, 0);
+        headerPanel.Margin = new Padding(0);
         headerPanel.Name = "headerPanel";
-        headerPanel.Size = new Size(1064, 48);
+        headerPanel.Size = new Size(1064, 56);
         headerPanel.TabIndex = 0;
         // 
-        // PeproMediatedUserControl
+        // MediatedTemplate
         // 
         AutoScaleDimensions = new SizeF(8F, 19F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(15, 15, 15);
         Controls.Add(headerPanel);
         ForeColor = Color.White;
-        Name = "PeproMediatedUserControl";
+        Name = "MediatedTemplate";
         Size = new Size(1064, 681);
         headerPanel.ResumeLayout(false);
         ResumeLayout(false);

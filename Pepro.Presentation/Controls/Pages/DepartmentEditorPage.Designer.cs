@@ -39,7 +39,7 @@ partial class DepartmentEditorPage
         // 
         departmentNameTextBoxField.Anchor = AnchorStyles.None;
         departmentNameTextBoxField.LabelText = "Department name";
-        departmentNameTextBoxField.Location = new Point(16, 67);
+        departmentNameTextBoxField.Location = new Point(16, 75);
         departmentNameTextBoxField.Margin = new Padding(16, 16, 16, 24);
         departmentNameTextBoxField.Name = "departmentNameTextBoxField";
         departmentNameTextBoxField.PlaceholderText = "e.g. department name";
@@ -50,7 +50,7 @@ partial class DepartmentEditorPage
         // 
         managerComboBoxField.Anchor = AnchorStyles.None;
         managerComboBoxField.LabelText = "Manager";
-        managerComboBoxField.Location = new Point(16, 139);
+        managerComboBoxField.Location = new Point(16, 147);
         managerComboBoxField.Margin = new Padding(16, 0, 16, 24);
         managerComboBoxField.Name = "managerComboBoxField";
         managerComboBoxField.Size = new Size(1032, 48);
