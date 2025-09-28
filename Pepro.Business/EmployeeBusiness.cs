@@ -38,52 +38,6 @@ public class EmployeeBusiness
         return MapEmployeesToViews(employees);
     }
 
-    private IEnumerable<EmployeeView> MapEmployeesToViews(IEnumerable<Employee> employees)
-    {
-        IEnumerable<int> departmentIds = employees
-            .Select(e => e.DepartmentId)
-            .Distinct();
-
-        Dictionary<int, string> departments = DepartmentDataAccess
-            .Instance.GetManyByIds(departmentIds)
-            .ToDictionary(d => d.DepartmentId, d => d.Name);
-
-        IEnumerable<int> positionIds = employees
-            .Select(e => e.PositionId)
-            .Distinct();
-
-        Dictionary<int, string> positions = PositionDataAccess
-            .Instance.GetManyByIds(positionIds)
-            .ToDictionary(p => p.PositionId, p => p.Title);
-
-        return employees.Select(employee => new EmployeeView()
-        {
-            EmployeeId = employee.EmployeeId,
-            FirstName = employee.FirstName,
-            MiddleName = employee.MiddleName,
-            LastName = employee.LastName,
-            DateOfBirth = employee.DateOfBirth,
-            Gender = employee.Gender,
-            TaxCode = EncryptionConverter.DecryptToString(employee.TaxCode),
-            CitizenId = employee.CitizenId,
-            DepartmentId = employee.DepartmentId,
-            PositionId = employee.PositionId,
-            SalaryLevelId = employee.SalaryLevelId,
-            DepartmentName = departments.TryGetValue(
-                employee.DepartmentId,
-                out string? departmentName
-            )
-                ? departmentName
-                : "",
-            PositionTitle = positions.TryGetValue(
-                employee.PositionId,
-                out string? positionTitle
-            )
-                ? positionTitle
-                : "",
-        });
-    }
-
     public string GetDisplayNameByEmployeeId(int employeeId)
     {
         Employee? employee = EmployeeDataAccess.Instance.GetById(employeeId);
@@ -138,10 +92,6 @@ public class EmployeeBusiness
         return employee?.ToDto();
     }
 
-    public CRole GetRolebyEmployeeID(string employeeID) {
-        return EmployeeDataAccess.Instance.GetRolebyEmployeeID(employeeID);
-    }
-
     public string[] GetPhoneNumbersByEmployeeId(int employeeID) {
         IEnumerable<EmployeePhoneNumber> employeePhoneNumbers = EmployeeDataAccess.Instance.GetPhoneNumbersById(employeeID);
         return [.. employeePhoneNumbers.Select(phoneNumber => phoneNumber.PhoneNumber)];
@@ -169,5 +119,51 @@ public class EmployeeBusiness
     {
         IEnumerable<Employee> employees = EmployeeDataAccess.Instance.GetManyByIds(employeeIds);
         return employees.ToDtos();
+    }
+
+    private IEnumerable<EmployeeView> MapEmployeesToViews(IEnumerable<Employee> employees)
+    {
+        IEnumerable<int> departmentIds = employees
+            .Select(e => e.DepartmentId)
+            .Distinct();
+
+        Dictionary<int, string> departments = DepartmentDataAccess
+            .Instance.GetManyByIds(departmentIds)
+            .ToDictionary(d => d.DepartmentId, d => d.Name);
+
+        IEnumerable<int> positionIds = employees
+            .Select(e => e.PositionId)
+            .Distinct();
+
+        Dictionary<int, string> positions = PositionDataAccess
+            .Instance.GetManyByIds(positionIds)
+            .ToDictionary(p => p.PositionId, p => p.Title);
+
+        return employees.Select(employee => new EmployeeView()
+        {
+            EmployeeId = employee.EmployeeId,
+            FirstName = employee.FirstName,
+            MiddleName = employee.MiddleName,
+            LastName = employee.LastName,
+            DateOfBirth = employee.DateOfBirth,
+            Gender = employee.Gender,
+            TaxCode = EncryptionConverter.DecryptToString(employee.TaxCode),
+            CitizenId = employee.CitizenId,
+            DepartmentId = employee.DepartmentId,
+            PositionId = employee.PositionId,
+            SalaryLevelId = employee.SalaryLevelId,
+            DepartmentName = departments.TryGetValue(
+                employee.DepartmentId,
+                out string? departmentName
+            )
+                ? departmentName
+                : "",
+            PositionTitle = positions.TryGetValue(
+                employee.PositionId,
+                out string? positionTitle
+            )
+                ? positionTitle
+                : "",
+        });
     }
 }

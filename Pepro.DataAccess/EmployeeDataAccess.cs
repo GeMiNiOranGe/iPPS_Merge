@@ -4,7 +4,6 @@ using Pepro.DataAccess.Entities;
 using Pepro.DataAccess.Extensions;
 using Pepro.DataAccess.Mappings;
 using Pepro.DataAccess.Utilities;
-using Pepro.DTOs;
 using System.Data;
 
 namespace Pepro.DataAccess;
@@ -412,16 +411,5 @@ public class EmployeeDataAccess
         parameters.Add("EmployeeId", SqlDbType.Int, employeeId);
 
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
-    }
-
-    //Lấy dữ liệu từ table ROLE trong database dựa vào EMPLOYEE_ID
-    public CRole GetRolebyEmployeeID(string employeeID)
-    {
-        DataTable data = DataProvider.Instance.ExecuteQuery("Select * from ROLE where EMPLOYEE_ID = '" + employeeID + "'");
-        foreach (DataRow item in data.Rows)
-        {
-            return new CRole(item);
-        }
-        return null;
     }
 }
