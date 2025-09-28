@@ -35,7 +35,7 @@ partial class MainForm
         optionPanel = new Panel();
         dormitoryButton = new PeproIconButton();
         attendanceButton = new PeproIconButton();
-        salaryButton = new PeproIconButton();
+        payrollButton = new PeproIconButton();
         progressButton = new PeproIconButton();
         documentButton = new PeproIconButton();
         assignmentButton = new PeproIconButton();
@@ -46,8 +46,8 @@ partial class MainForm
         appNameLabel = new Label();
         logoutButton = new PeproIconButton();
         personalPanel = new Panel();
-        usernameLabel = new Label();
-        roleLabel = new Label();
+        employeeLabel = new Label();
+        positionLabel = new Label();
         imageUserPictureBox = new PictureBox();
         workplacePanel = new Panel();
         sidebarPanel.SuspendLayout();
@@ -75,7 +75,7 @@ partial class MainForm
         functionListPanel.Controls.Add(optionPanel);
         functionListPanel.Controls.Add(dormitoryButton);
         functionListPanel.Controls.Add(attendanceButton);
-        functionListPanel.Controls.Add(salaryButton);
+        functionListPanel.Controls.Add(payrollButton);
         functionListPanel.Controls.Add(progressButton);
         functionListPanel.Controls.Add(documentButton);
         functionListPanel.Controls.Add(assignmentButton);
@@ -84,9 +84,9 @@ partial class MainForm
         functionListPanel.Controls.Add(employeeButton);
         functionListPanel.Controls.Add(accountButton);
         functionListPanel.Dock = DockStyle.Fill;
-        functionListPanel.Location = new Point(0, 80);
+        functionListPanel.Location = new Point(0, 56);
         functionListPanel.Name = "functionListPanel";
-        functionListPanel.Size = new Size(200, 489);
+        functionListPanel.Size = new Size(200, 521);
         functionListPanel.TabIndex = 0;
         // 
         // optionPanel
@@ -94,159 +94,151 @@ partial class MainForm
         optionPanel.BackColor = Color.White;
         optionPanel.Location = new Point(0, 0);
         optionPanel.Name = "optionPanel";
-        optionPanel.Size = new Size(8, 48);
+        optionPanel.Size = new Size(8, 40);
         optionPanel.TabIndex = 0;
+        optionPanel.Visible = false;
         // 
         // dormitoryButton
         // 
         dormitoryButton.Dock = DockStyle.Top;
-        dormitoryButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-        dormitoryButton.Location = new Point(0, 432);
+        dormitoryButton.Location = new Point(0, 360);
         dormitoryButton.Name = "dormitoryButton";
         dormitoryButton.Padding = new Padding(16, 0, 0, 0);
-        dormitoryButton.Size = new Size(200, 48);
+        dormitoryButton.Size = new Size(200, 40);
         dormitoryButton.TabIndex = 10;
-        dormitoryButton.Text = "   Ký túc xá";
-        dormitoryButton.MouseClick += DormitoryButton_MouseClick;
+        dormitoryButton.Text = "   Dormitory";
+        dormitoryButton.Click += SidebarLockedFeatureButton_Click;
         // 
         // attendanceButton
         // 
         attendanceButton.Dock = DockStyle.Top;
-        attendanceButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-        attendanceButton.Location = new Point(0, 384);
+        attendanceButton.Location = new Point(0, 320);
         attendanceButton.Name = "attendanceButton";
         attendanceButton.Padding = new Padding(16, 0, 0, 0);
-        attendanceButton.Size = new Size(200, 48);
+        attendanceButton.Size = new Size(200, 40);
         attendanceButton.TabIndex = 9;
-        attendanceButton.Text = "   Chấm công";
-        attendanceButton.MouseClick += AttendanceButton_MouseClick;
+        attendanceButton.Text = "   Attendance";
+        attendanceButton.Click += SidebarLockedFeatureButton_Click;
         // 
-        // salaryButton
+        // payrollButton
         // 
-        salaryButton.Dock = DockStyle.Top;
-        salaryButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-        salaryButton.Location = new Point(0, 336);
-        salaryButton.Name = "salaryButton";
-        salaryButton.Padding = new Padding(16, 0, 0, 0);
-        salaryButton.Size = new Size(200, 48);
-        salaryButton.TabIndex = 8;
-        salaryButton.Text = "   Lương";
-        salaryButton.MouseClick += SalaryButton_MouseClick;
+        payrollButton.Dock = DockStyle.Top;
+        payrollButton.Location = new Point(0, 280);
+        payrollButton.Name = "payrollButton";
+        payrollButton.Padding = new Padding(16, 0, 0, 0);
+        payrollButton.Size = new Size(200, 40);
+        payrollButton.TabIndex = 8;
+        payrollButton.Text = "   Payroll";
+        payrollButton.Click += SidebarButton_Click;
         // 
         // progressButton
         // 
         progressButton.Dock = DockStyle.Top;
-        progressButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-        progressButton.Location = new Point(0, 288);
+        progressButton.Location = new Point(0, 240);
         progressButton.Name = "progressButton";
         progressButton.Padding = new Padding(16, 0, 0, 0);
-        progressButton.Size = new Size(200, 48);
+        progressButton.Size = new Size(200, 40);
         progressButton.TabIndex = 7;
-        progressButton.Text = "   Tiến độ";
-        progressButton.MouseClick += ProgressButton_MouseClick;
+        progressButton.Text = "   Progress";
+        progressButton.Click += SidebarButton_Click;
         // 
         // documentButton
         // 
         documentButton.Dock = DockStyle.Top;
-        documentButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-        documentButton.Location = new Point(0, 240);
+        documentButton.Location = new Point(0, 200);
         documentButton.Name = "documentButton";
         documentButton.Padding = new Padding(16, 0, 0, 0);
-        documentButton.Size = new Size(200, 48);
+        documentButton.Size = new Size(200, 40);
         documentButton.TabIndex = 6;
-        documentButton.Text = "   Tài liệu";
-        documentButton.MouseClick += DocumentButton_MouseClick;
+        documentButton.Text = "   Document";
+        documentButton.Click += SidebarButton_Click;
         // 
         // assignmentButton
         // 
         assignmentButton.Dock = DockStyle.Top;
-        assignmentButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-        assignmentButton.Location = new Point(0, 192);
+        assignmentButton.Location = new Point(0, 160);
         assignmentButton.Name = "assignmentButton";
         assignmentButton.Padding = new Padding(16, 0, 0, 0);
-        assignmentButton.Size = new Size(200, 48);
+        assignmentButton.Size = new Size(200, 40);
         assignmentButton.TabIndex = 5;
-        assignmentButton.Text = "   Công việc";
-        assignmentButton.MouseClick += AssignmentButton_MouseClick;
+        assignmentButton.Text = "   Assignment";
+        assignmentButton.Click += SidebarButton_Click;
         // 
         // projectButton
         // 
         projectButton.Dock = DockStyle.Top;
-        projectButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-        projectButton.Location = new Point(0, 144);
+        projectButton.Location = new Point(0, 120);
         projectButton.Name = "projectButton";
         projectButton.Padding = new Padding(16, 0, 0, 0);
-        projectButton.Size = new Size(200, 48);
+        projectButton.Size = new Size(200, 40);
         projectButton.TabIndex = 4;
-        projectButton.Text = "   Dự án";
-        projectButton.MouseClick += ProjectButton_MouseClick;
+        projectButton.Text = "   Project";
+        projectButton.Click += SidebarButton_Click;
         // 
         // departmentButton
         // 
         departmentButton.Dock = DockStyle.Top;
-        departmentButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-        departmentButton.Location = new Point(0, 96);
+        departmentButton.Location = new Point(0, 80);
         departmentButton.Name = "departmentButton";
         departmentButton.Padding = new Padding(16, 0, 0, 0);
-        departmentButton.Size = new Size(200, 48);
+        departmentButton.Size = new Size(200, 40);
         departmentButton.TabIndex = 3;
-        departmentButton.Text = "   Phòng ban";
-        departmentButton.Click += DepartmentButton_Click;
+        departmentButton.Text = "   Department";
+        departmentButton.Click += SidebarButton_Click;
         // 
         // employeeButton
         // 
         employeeButton.Dock = DockStyle.Top;
-        employeeButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-        employeeButton.Location = new Point(0, 48);
+        employeeButton.Location = new Point(0, 40);
         employeeButton.Name = "employeeButton";
         employeeButton.Padding = new Padding(16, 0, 0, 0);
-        employeeButton.Size = new Size(200, 48);
+        employeeButton.Size = new Size(200, 40);
         employeeButton.TabIndex = 2;
-        employeeButton.Text = "   Nhân viên";
-        employeeButton.MouseClick += EmployeeButton_MouseClick;
+        employeeButton.Text = "   Employee";
+        employeeButton.Click += SidebarButton_Click;
         // 
         // accountButton
         // 
         accountButton.Dock = DockStyle.Top;
-        accountButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
         accountButton.Location = new Point(0, 0);
         accountButton.Name = "accountButton";
         accountButton.Padding = new Padding(16, 0, 0, 0);
-        accountButton.Size = new Size(200, 48);
+        accountButton.Size = new Size(200, 40);
         accountButton.TabIndex = 1;
-        accountButton.Text = "   Tài khoản";
-        accountButton.Click += AccountButton_Click;
+        accountButton.Text = "   Account";
+        accountButton.Click += SidebarButton_Click;
         // 
         // appNameLabel
         // 
         appNameLabel.Cursor = Cursors.Hand;
         appNameLabel.Dock = DockStyle.Top;
-        appNameLabel.Font = new Font("Segoe UI", 28F, FontStyle.Regular, GraphicsUnit.Pixel, 0);
+        appNameLabel.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
+        appNameLabel.ImageAlign = ContentAlignment.MiddleLeft;
         appNameLabel.Location = new Point(0, 0);
         appNameLabel.Name = "appNameLabel";
-        appNameLabel.Size = new Size(200, 80);
+        appNameLabel.Padding = new Padding(16, 0, 0, 0);
+        appNameLabel.Size = new Size(200, 56);
         appNameLabel.TabIndex = 0;
-        appNameLabel.Text = "iPPS Ver.0";
-        appNameLabel.TextAlign = ContentAlignment.MiddleCenter;
+        appNameLabel.Text = "          Pepro";
+        appNameLabel.TextAlign = ContentAlignment.MiddleLeft;
         appNameLabel.Click += AppNameLabel_Click;
         // 
         // logoutButton
         // 
         logoutButton.Dock = DockStyle.Bottom;
-        logoutButton.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-        logoutButton.Location = new Point(0, 569);
+        logoutButton.Location = new Point(0, 577);
         logoutButton.Name = "logoutButton";
         logoutButton.Padding = new Padding(16, 0, 0, 0);
-        logoutButton.Size = new Size(200, 48);
+        logoutButton.Size = new Size(200, 40);
         logoutButton.TabIndex = 11;
-        logoutButton.Text = "   Đăng xuất";
+        logoutButton.Text = "   Logout";
         logoutButton.Click += LogoutButton_Click;
         // 
         // personalPanel
         // 
         personalPanel.BackColor = Color.Transparent;
-        personalPanel.Controls.Add(usernameLabel);
-        personalPanel.Controls.Add(roleLabel);
+        personalPanel.Controls.Add(employeeLabel);
+        personalPanel.Controls.Add(positionLabel);
         personalPanel.Controls.Add(imageUserPictureBox);
         personalPanel.Cursor = Cursors.Hand;
         personalPanel.Dock = DockStyle.Bottom;
@@ -258,35 +250,35 @@ partial class MainForm
         personalPanel.MouseEnter += Personal_MouseEnter;
         personalPanel.MouseLeave += Personal_MouseLeave;
         // 
-        // usernameLabel
+        // employeeLabel
         // 
-        usernameLabel.AutoSize = true;
-        usernameLabel.BackColor = Color.Transparent;
-        usernameLabel.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-        usernameLabel.Location = new Point(60, 11);
-        usernameLabel.Margin = new Padding(4, 0, 0, 4);
-        usernameLabel.Name = "usernameLabel";
-        usernameLabel.Size = new Size(56, 21);
-        usernameLabel.TabIndex = 0;
-        usernameLabel.Text = "Name";
-        usernameLabel.MouseClick += Personal_MouseClick;
-        usernameLabel.MouseEnter += Personal_MouseEnter;
-        usernameLabel.MouseLeave += Personal_MouseLeave;
+        employeeLabel.AutoSize = true;
+        employeeLabel.BackColor = Color.Transparent;
+        employeeLabel.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
+        employeeLabel.Location = new Point(60, 11);
+        employeeLabel.Margin = new Padding(4, 0, 0, 4);
+        employeeLabel.Name = "employeeLabel";
+        employeeLabel.Size = new Size(56, 21);
+        employeeLabel.TabIndex = 0;
+        employeeLabel.Text = "Name";
+        employeeLabel.MouseClick += Personal_MouseClick;
+        employeeLabel.MouseEnter += Personal_MouseEnter;
+        employeeLabel.MouseLeave += Personal_MouseLeave;
         // 
-        // roleLabel
+        // positionLabel
         // 
-        roleLabel.AutoSize = true;
-        roleLabel.BackColor = Color.Transparent;
-        roleLabel.ForeColor = Color.Silver;
-        roleLabel.Location = new Point(60, 36);
-        roleLabel.Margin = new Padding(4, 0, 0, 0);
-        roleLabel.Name = "roleLabel";
-        roleLabel.Size = new Size(35, 19);
-        roleLabel.TabIndex = 0;
-        roleLabel.Text = "Role";
-        roleLabel.MouseClick += Personal_MouseClick;
-        roleLabel.MouseEnter += Personal_MouseEnter;
-        roleLabel.MouseLeave += Personal_MouseLeave;
+        positionLabel.AutoSize = true;
+        positionLabel.BackColor = Color.Transparent;
+        positionLabel.ForeColor = Color.Silver;
+        positionLabel.Location = new Point(60, 36);
+        positionLabel.Margin = new Padding(4, 0, 0, 0);
+        positionLabel.Name = "positionLabel";
+        positionLabel.Size = new Size(35, 19);
+        positionLabel.TabIndex = 0;
+        positionLabel.Text = "Role";
+        positionLabel.MouseClick += Personal_MouseClick;
+        positionLabel.MouseEnter += Personal_MouseEnter;
+        positionLabel.MouseLeave += Personal_MouseLeave;
         // 
         // imageUserPictureBox
         // 
@@ -322,7 +314,7 @@ partial class MainForm
         MinimumSize = new Size(960, 540);
         Name = "MainForm";
         StartPosition = FormStartPosition.CenterScreen;
-        Text = "Bảng điều khiển";
+        Text = "Pepro";
         FormClosing += MenuForm_FormClosing;
         Load += MenuForm_Load;
         sidebarPanel.ResumeLayout(false);
@@ -339,8 +331,8 @@ partial class MainForm
     private Panel sidebarPanel;
     private Panel workplacePanel;
     private PictureBox imageUserPictureBox;
-    private Label usernameLabel;
-    private Label roleLabel;
+    private Label employeeLabel;
+    private Label positionLabel;
     private Panel personalPanel;
     private PeproIconButton assignmentButton;
     private PeproIconButton progressButton;
@@ -349,7 +341,7 @@ partial class MainForm
     private Label appNameLabel;
     private PeproIconButton employeeButton;
     private PeproIconButton dormitoryButton;
-    private PeproIconButton salaryButton;
+    private PeproIconButton payrollButton;
     private PeproIconButton attendanceButton;
     private Panel optionPanel;
     private PeproIconButton logoutButton;

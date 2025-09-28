@@ -181,7 +181,7 @@ partial class LoginForm
         FormBorderStyle = FormBorderStyle.None;
         Name = "LoginForm";
         StartPosition = FormStartPosition.CenterScreen;
-        Text = "Đăng Nhập";
+        Text = "Login";
         MouseDown += LoginForm_MouseDown;
         ((System.ComponentModel.ISupportInitialize)logoPictureBox).EndInit();
         ((System.ComponentModel.ISupportInitialize)illustrationPictureBox).EndInit();

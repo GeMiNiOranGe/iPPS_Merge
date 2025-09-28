@@ -10,6 +10,7 @@ namespace Pepro.Presentation;
 
 public partial class MainForm : PeproForm
 {
+    private string _defaultText;
     private int _employeeId;
     private readonly ControlUiMediator _mediator;
 
@@ -23,26 +24,24 @@ public partial class MainForm : PeproForm
     public MainForm()
     {
         InitializeComponent();
-        InitializeRuntimeComponents();
-
         _mediator = new ControlUiMediator(workplacePanel);
-    }
+        _defaultText = Text;
 
-    private void InitializeRuntimeComponents()
-    {
         assignmentButton.SetSidebarButtonImages("Task");
         projectButton.SetSidebarButtonImages("Folder");
         documentButton.SetSidebarButtonImages("MultiplePages");
         progressButton.SetSidebarButtonImages("DoughnutChart");
         employeeButton.SetSidebarButtonImages("User");
         attendanceButton.SetSidebarButtonImages("CalendarCheck");
-        salaryButton.SetSidebarButtonImages("UserSalary");
+        payrollButton.SetSidebarButtonImages("UserSalary");
         dormitoryButton.SetSidebarButtonImages("BunkBed");
         departmentButton.SetSidebarButtonImages("Group");
         accountButton.SetSidebarButtonImages("UserSetting");
 
         logoutButton.ApplyFlatStyleNoBackColor();
         logoutButton.ApplyIcon("LogOut", color: ThemeColors.Text);
+
+        appNameLabel.Image = IconProvider.GetLogo();
 
         imageUserPictureBox.Image = IconProvider.GetIcon(
             "Profile",
@@ -56,16 +55,27 @@ public partial class MainForm : PeproForm
         progressButton.ApplyPermission("Project.Read");
         employeeButton.ApplyPermission("Employee.Read");
         attendanceButton.ApplyPermission("Salary.Read");
-        salaryButton.ApplyPermission("Salary.Read");
+        payrollButton.ApplyPermission("Salary.Read");
         dormitoryButton.ApplyPermission("Salary.Read");
         departmentButton.ApplyPermission("Department.Read");
         accountButton.ApplyPermission("Account.Read");
+
+        assignmentButton.Tag = ControlUiEvent.NavigateAssignmentPage;
+        projectButton.Tag = ControlUiEvent.NavigateProjectPage;
+        documentButton.Tag = ControlUiEvent.NavigateDocumentPage;
+        progressButton.Tag = ControlUiEvent.NavigateProgressPage;
+        employeeButton.Tag = ControlUiEvent.NavigateEmployeePage;
+        payrollButton.Tag = ControlUiEvent.NavigatePayrollPage;
+        departmentButton.Tag = ControlUiEvent.NavigateDepartmentPage;
+        accountButton.Tag = ControlUiEvent.NavigateAccountPage;
     }
 
     private void MenuForm_Load(object sender, EventArgs e)
     {
-        usernameLabel.Text = EmployeeBusiness.Instance.GetDisplayNameByEmployeeId(_employeeId);
-        roleLabel.Text = PositionBusiness.Instance.GetPositionTitleByEmployeeId(_employeeId);
+        employeeLabel.Text =
+            EmployeeBusiness.Instance.GetDisplayNameByEmployeeId(_employeeId);
+        positionLabel.Text =
+            PositionBusiness.Instance.GetPositionTitleByEmployeeId(_employeeId);
     }
 
     private void MenuForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -76,84 +86,18 @@ public partial class MainForm : PeproForm
         }
     }
 
-    private void AssignmentButton_MouseClick(object sender, MouseEventArgs e)
-    {
-        optionPanel.SetLocationY(assignmentButton.Location.Y);
-
-        _mediator.Notify(this, ControlUiEvent.NavigateAssignmentPage);
-    }
-
-    private void ProjectButton_MouseClick(object sender, MouseEventArgs e)
-    {
-        optionPanel.SetLocationY(projectButton.Location.Y);
-
-        _mediator.Notify(this, ControlUiEvent.NavigateProjectPage);
-    }
-
-    private void DocumentButton_MouseClick(object sender, MouseEventArgs e)
-    {
-        optionPanel.SetLocationY(documentButton.Location.Y);
-
-        _mediator.Notify(this, ControlUiEvent.NavigateDocumentPage);
-    }
-
-    private void ProgressButton_MouseClick(object sender, MouseEventArgs e)
-    {
-        optionPanel.SetLocationY(progressButton.Location.Y);
-
-        _mediator.Notify(this, ControlUiEvent.NavigateProgressPage);
-    }
-
-    private void EmployeeButton_MouseClick(object sender, MouseEventArgs e)
-    {
-        optionPanel.SetLocationY(employeeButton.Location.Y);
-
-        _mediator.Notify(this, ControlUiEvent.NavigateEmployeePage);
-    }
-
-    private void AttendanceButton_MouseClick(object sender, MouseEventArgs e)
-    {
-        optionPanel.SetLocationY(attendanceButton.Location.Y);
-
-        workplacePanel.Controls.Clear();
-        MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock3");
-    }
-
-    private void SalaryButton_MouseClick(object sender, MouseEventArgs e)
-    {
-        optionPanel.SetLocationY(salaryButton.Location.Y);
-
-        _mediator.Notify(this, ControlUiEvent.NavigatePayrollPage);
-    }
-
-    private void DormitoryButton_MouseClick(object sender, MouseEventArgs e)
-    {
-        optionPanel.SetLocationY(dormitoryButton.Location.Y);
-
-        workplacePanel.Controls.Clear();
-        MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock3");
-    }
-
-    private void DepartmentButton_Click(object sender, EventArgs e)
-    {
-        optionPanel.SetLocationY(departmentButton.Location.Y);
-
-        _mediator.Notify(this, ControlUiEvent.NavigateDepartmentPage);
-    }
-
-    private void AccountButton_Click(object sender, EventArgs e)
-    {
-        optionPanel.SetLocationY(accountButton.Location.Y);
-
-        _mediator.Notify(this, ControlUiEvent.NavigateAccountPage);
-    }
-
     private void Personal_MouseClick(object sender, MouseEventArgs e)
     {
-        _mediator.Notify(this, ControlUiEvent.NavigatePersonalPage, new PersonalPagePayload()
-        {
-            EmployeeId = _employeeId,
-        });
+        Text = $"Personal Information - {_defaultText}";
+        optionPanel.Visible = false;
+        _mediator.Notify(
+            this,
+            ControlUiEvent.NavigatePersonalPage,
+            new PersonalPagePayload()
+            {
+                EmployeeId = _employeeId,
+            }
+        );
     }
 
     private void Personal_MouseEnter(object sender, EventArgs e)
@@ -169,11 +113,44 @@ public partial class MainForm : PeproForm
     private void AppNameLabel_Click(object sender, EventArgs e)
     {
         workplacePanel.Controls.Clear();
+        Text = _defaultText;
+        optionPanel.Visible = false;
     }
 
     private void LogoutButton_Click(object sender, EventArgs e)
     {
         DialogResult = DialogResult.Retry;
         Close();
+    }
+
+    private void SidebarButton_Click(object sender, EventArgs e)
+    {
+        if (
+            sender is not Button button
+            || button.Tag is not ControlUiEvent uiEvent
+        )
+        {
+            return;
+        }
+
+        Text = $"{button.Text.Trim()} - {_defaultText}";
+        optionPanel.SetLocationY(button.Location.Y);
+        optionPanel.Visible = true;
+        _mediator.Notify(this, uiEvent);
+    }
+
+    private void SidebarLockedFeatureButton_Click(object sender, EventArgs e)
+    {
+        if (sender is not Button button)
+        {
+            return;
+        }
+
+        optionPanel.SetLocationY(button.Location.Y);
+        optionPanel.Visible = true;
+        workplacePanel.Controls.Clear();
+        MessageBoxWrapper.ShowInformation("TreasureFoundPremiumUnlock3");
+        optionPanel.Visible = false;
+        Text = _defaultText;
     }
 }
