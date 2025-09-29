@@ -135,12 +135,12 @@ CREATE TABLE [dbo].[Employee]
     [DeletedAt]     [datetime],
 );
 
-CREATE TABLE [dbo].[EmployeePhoneNumber]
+CREATE TABLE [dbo].[PhoneNumber]
 (
-    [EmployeePhoneNumberId] [int]       NOT NULL IDENTITY(1, 1),
-    [PhoneNumber]           [char](10)  NOT NULL,
+    [PhoneNumberId] [int]       NOT NULL IDENTITY(1, 1),
+    [Number]        [char](10)  NOT NULL,
 
-    [EmployeeId]            [int]       NOT NULL,
+    [EmployeeId]    [int]       NOT NULL,
 );
 
 CREATE TABLE [dbo].[Account]
@@ -288,9 +288,9 @@ ADD
     CONSTRAINT [PK_Employee] PRIMARY KEY ([EmployeeId])
 ;
 
-ALTER TABLE [dbo].[EmployeePhoneNumber]
+ALTER TABLE [dbo].[PhoneNumber]
 ADD
-    CONSTRAINT [PK_EmployeePhoneNumber] PRIMARY KEY ([EmployeePhoneNumberId])
+    CONSTRAINT [PK_PhoneNumber] PRIMARY KEY ([PhoneNumberId])
 ;
 
 ALTER TABLE [dbo].[Account]
@@ -364,9 +364,9 @@ ADD
     FOREIGN KEY ([SalaryLevelId]) REFERENCES [dbo].[SalaryLevel]([SalaryLevelId])
 ;
 
-ALTER TABLE [dbo].[EmployeePhoneNumber]
+ALTER TABLE [dbo].[PhoneNumber]
 ADD
-    CONSTRAINT [FK_EmployeePhoneNumber_Employee]
+    CONSTRAINT [FK_PhoneNumber_Employee]
     FOREIGN KEY ([EmployeeId]) REFERENCES [dbo].[Employee]([EmployeeId])
 ;
 

@@ -26,9 +26,9 @@ AS BEGIN
 
     SELECT @EmployeeId = EmployeeId FROM @InsertedEmployee
     IF (@PhoneNumberList IS NOT NULL) BEGIN
-        INSERT INTO [dbo].[EmployeePhoneNumber]
-                ([PhoneNumber], [EmployeeId])
-        SELECT    value,        @EmployeeId
+        INSERT INTO [dbo].[PhoneNumber]
+                ([Number], [EmployeeId])
+        SELECT    value,   @EmployeeId
         FROM string_split(@PhoneNumberList, @Separator)
         WHERE RTrim(value) <> '';
     END

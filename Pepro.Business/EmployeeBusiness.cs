@@ -93,8 +93,8 @@ public class EmployeeBusiness
     }
 
     public string[] GetPhoneNumbersByEmployeeId(int employeeID) {
-        IEnumerable<EmployeePhoneNumber> employeePhoneNumbers = EmployeeDataAccess.Instance.GetPhoneNumbersById(employeeID);
-        return [.. employeePhoneNumbers.Select(phoneNumber => phoneNumber.PhoneNumber)];
+        IEnumerable<PhoneNumber> phoneNumbers = EmployeeDataAccess.Instance.GetPhoneNumbersById(employeeID);
+        return [.. phoneNumbers.Select(phoneNumber => phoneNumber.Number)];
     }
 
     public IEnumerable<EmployeeDto> GetEmployeesByDepartmentId(int departmentId)

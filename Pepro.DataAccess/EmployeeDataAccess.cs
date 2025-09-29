@@ -246,15 +246,15 @@ public class EmployeeDataAccess
             .MapMany(EmployeeMapper.FromDataRow);
     }
 
-    public IEnumerable<EmployeePhoneNumber> GetPhoneNumbersById(int employeeId)
+    public IEnumerable<PhoneNumber> GetPhoneNumbersById(int employeeId)
     {
         string query = @"
-            SELECT EmployeePhoneNumber.EmployeePhoneNumberId
-                , EmployeePhoneNumber.PhoneNumber
-                , EmployeePhoneNumber.EmployeeId
-            FROM EmployeePhoneNumber
+            SELECT PhoneNumber.PhoneNumberId
+                , PhoneNumber.Number
+                , PhoneNumber.EmployeeId
+            FROM PhoneNumber
             INNER JOIN Employee
-                    ON Employee.EmployeeId = EmployeePhoneNumber.EmployeeId
+                    ON Employee.EmployeeId = PhoneNumber.EmployeeId
             WHERE Employee.EmployeeId = @EmployeeId
             AND Employee.IsDeleted = 0
         ";
@@ -263,7 +263,7 @@ public class EmployeeDataAccess
 
         return DataProvider
             .Instance.ExecuteQuery(query, [.. parameters])
-            .MapMany(EmployeePhoneNumberMapper.FromDataRow);
+            .MapMany(PhoneNumberMapper.FromDataRow);
     }
 
     public Employee? Add(EmployeeInsertModel model)

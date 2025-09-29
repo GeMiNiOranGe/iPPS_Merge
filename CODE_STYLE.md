@@ -124,7 +124,7 @@ public class EmployeeDataAccess
     public IEnumerable<Employee> GetManyByDepartmentId(int departmentId);
     public IEnumerable<Employee> GetManyByAssignmentId(int assignmentId);
     public IEnumerable<Employee> GetManyByProjectId(int projectId);
-    public IEnumerable<EmployeePhoneNumber> GetManyPhoneNumbers(int employeeId);
+    public IEnumerable<PhoneNumber> GetManyPhoneNumbers(int employeeId);
     #endregion
 
     #region Utility methods
