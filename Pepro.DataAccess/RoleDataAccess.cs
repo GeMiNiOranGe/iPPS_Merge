@@ -5,6 +5,16 @@ namespace Pepro.DataAccess;
 
 public class RoleDataAccess
 {
+    private static RoleDataAccess? _instance;
+
+    public static RoleDataAccess Instance
+    {
+        get => _instance ??= new();
+        private set => _instance = value;
+    }
+
+    private RoleDataAccess() { }
+
     public DataTable getRoleID()
     {
         DataTable dataTable = new();

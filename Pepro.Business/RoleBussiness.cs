@@ -1,40 +1,42 @@
 ﻿using Pepro.DataAccess;
 using System.Data;
 
-namespace Pepro.Business
+namespace Pepro.Business;
+
+public class RoleBussiness
 {
-    public class RoleBussiness
+    private static RoleBussiness? _instance;
+
+    public static RoleBussiness Instance
     {
-        private RoleDataAccess rolePermissionData;
+        get => _instance ??= new();
+        private set => _instance = value;
+    }
 
-        public RoleBussiness()
-        {
-            rolePermissionData = new RoleDataAccess();
-        }
+    private RoleBussiness() { }
+    
+    public DataTable GetRolePermissions()
+    {
+        return RoleDataAccess.Instance.GetRolePermissions();
+    }
 
-        public DataTable GetRolePermissions()
-        {
-            return rolePermissionData.GetRolePermissions();
-        }
+    public DataTable GetRoles()
+    {
+        return RoleDataAccess.Instance.getRoleID();
+    }
 
-        public DataTable GetRoles()
-        {
-            return rolePermissionData.getRoleID();
-        }
+    public DataTable GetPermission()
+    {
+        return RoleDataAccess.Instance.getPermissionsID();
+    }
 
-        public DataTable GetPermission()
-        {
-            return rolePermissionData.getPermissionsID();
-        }
+    public void GrantRole(int roleID, int roleIDAdd, int permissionID, string name, string columnName)
+    {
+        RoleDataAccess.Instance.GrantRole(roleID, roleIDAdd, permissionID, name, columnName);
+    }
 
-        public void GrantRole(int roleID, int roleIDAdd, int permissionID, string name, string columnName)
-        {
-            rolePermissionData.GrantRole(roleID, roleIDAdd, permissionID, name, columnName);
-        }
-
-        public void UpdateRolePermission(int roleID, int roleIDAdd, int permissionID, string columnName)
-        {
-            rolePermissionData.UpdateRolePermission(roleID, roleIDAdd, permissionID, columnName);
-        }
+    public void UpdateRolePermission(int roleID, int roleIDAdd, int permissionID, string columnName)
+    {
+        RoleDataAccess.Instance.UpdateRolePermission(roleID, roleIDAdd, permissionID, columnName);
     }
 }

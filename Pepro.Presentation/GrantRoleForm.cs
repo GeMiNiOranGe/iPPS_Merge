@@ -6,12 +6,10 @@ namespace Pepro.Presentation
 {
     public partial class GrantRoleForm : Form
     {
-        private RoleBussiness roleBussiness;
         private int _roleID;
         public GrantRoleForm(int roleID)
         {
             InitializeComponent();
-            roleBussiness = new RoleBussiness();
             loadData();
             loadRoleID();
             loadPermissionID();
@@ -23,7 +21,7 @@ namespace Pepro.Presentation
         #region Function
         private void loadData()
         {
-            DataTable dataTable = roleBussiness.GetRolePermissions();
+            DataTable dataTable = RoleBussiness.Instance.GetRolePermissions();
             try
             {
                 if (dataTable == null || dataTable.Columns.Count == 0)
@@ -41,13 +39,13 @@ namespace Pepro.Presentation
         }
         private void loadRoleID()
         {
-            DataTable role= roleBussiness.GetRoles();
+            DataTable role= RoleBussiness.Instance.GetRoles();
             cbRoleID.DataSource = role;
             cbRoleID.DisplayMember = "RoleID";
         }
         private void  loadPermissionID()
         {
-            DataTable Permission = roleBussiness.GetPermission();
+            DataTable Permission = RoleBussiness.Instance.GetPermission();
             cbPermission.DataSource = Permission;
             cbPermission.DisplayMember = "PermissionID";
         }
@@ -129,7 +127,7 @@ namespace Pepro.Presentation
             // Only proceed if columnName is not empty
             if (!string.IsNullOrWhiteSpace(columnName))
             {
-                roleBussiness.GrantRole(roleID, roleIDAdd, permissionID, name, columnName);
+                RoleBussiness.Instance.GrantRole(roleID, roleIDAdd, permissionID, name, columnName);
                 loadData();
             }
             else
@@ -154,7 +152,7 @@ namespace Pepro.Presentation
                 columnList.Remove(columnName);
                 string newColumns = string.Join(",", columnList);
 
-                roleBussiness.UpdateRolePermission(roleID, roldidAdd,permissionid, newColumns);
+                RoleBussiness.Instance.UpdateRolePermission(roleID, roldidAdd,permissionid, newColumns);
                 loadData();
             }
             else
