@@ -10,9 +10,9 @@ namespace Pepro.Presentation;
 
 public partial class MainForm : PeproForm
 {
-    private string _defaultText;
-    private int _employeeId;
+    private readonly string _defaultText;
     private readonly ControlUiMediator _mediator;
+    private int _employeeId;
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public required int EmployeeId
@@ -59,6 +59,7 @@ public partial class MainForm : PeproForm
         dormitoryButton.ApplyPermission("Salary.Read");
         departmentButton.ApplyPermission("Department.Read");
         accountButton.ApplyPermission("Account.Read");
+        roleButton.ApplyPermission("Role.Read");
 
         assignmentButton.Tag = ControlUiEvent.NavigateAssignmentPage;
         projectButton.Tag = ControlUiEvent.NavigateProjectPage;
@@ -68,6 +69,7 @@ public partial class MainForm : PeproForm
         payrollButton.Tag = ControlUiEvent.NavigatePayrollPage;
         departmentButton.Tag = ControlUiEvent.NavigateDepartmentPage;
         accountButton.Tag = ControlUiEvent.NavigateAccountPage;
+        roleButton.Tag = ControlUiEvent.NavigateRolePage;
     }
 
     private void MenuForm_Load(object sender, EventArgs e)

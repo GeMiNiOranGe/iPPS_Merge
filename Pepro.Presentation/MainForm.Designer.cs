@@ -50,6 +50,7 @@ partial class MainForm
         positionLabel = new Label();
         imageUserPictureBox = new PictureBox();
         workplacePanel = new Panel();
+        roleButton = new PeproIconButton();
         sidebarPanel.SuspendLayout();
         functionListPanel.SuspendLayout();
         personalPanel.SuspendLayout();
@@ -82,6 +83,7 @@ partial class MainForm
         functionListPanel.Controls.Add(projectButton);
         functionListPanel.Controls.Add(departmentButton);
         functionListPanel.Controls.Add(employeeButton);
+        functionListPanel.Controls.Add(roleButton);
         functionListPanel.Controls.Add(accountButton);
         functionListPanel.Dock = DockStyle.Fill;
         functionListPanel.Location = new Point(0, 56);
@@ -105,7 +107,7 @@ partial class MainForm
         dormitoryButton.Name = "dormitoryButton";
         dormitoryButton.Padding = new Padding(16, 0, 0, 0);
         dormitoryButton.Size = new Size(200, 40);
-        dormitoryButton.TabIndex = 10;
+        dormitoryButton.TabIndex = 11;
         dormitoryButton.Text = "   Dormitory";
         dormitoryButton.Click += SidebarLockedFeatureButton_Click;
         // 
@@ -116,7 +118,7 @@ partial class MainForm
         attendanceButton.Name = "attendanceButton";
         attendanceButton.Padding = new Padding(16, 0, 0, 0);
         attendanceButton.Size = new Size(200, 40);
-        attendanceButton.TabIndex = 9;
+        attendanceButton.TabIndex = 10;
         attendanceButton.Text = "   Attendance";
         attendanceButton.Click += SidebarLockedFeatureButton_Click;
         // 
@@ -127,7 +129,7 @@ partial class MainForm
         payrollButton.Name = "payrollButton";
         payrollButton.Padding = new Padding(16, 0, 0, 0);
         payrollButton.Size = new Size(200, 40);
-        payrollButton.TabIndex = 8;
+        payrollButton.TabIndex = 9;
         payrollButton.Text = "   Payroll";
         payrollButton.Click += SidebarButton_Click;
         // 
@@ -138,7 +140,7 @@ partial class MainForm
         progressButton.Name = "progressButton";
         progressButton.Padding = new Padding(16, 0, 0, 0);
         progressButton.Size = new Size(200, 40);
-        progressButton.TabIndex = 7;
+        progressButton.TabIndex = 8;
         progressButton.Text = "   Progress";
         progressButton.Click += SidebarButton_Click;
         // 
@@ -149,7 +151,7 @@ partial class MainForm
         documentButton.Name = "documentButton";
         documentButton.Padding = new Padding(16, 0, 0, 0);
         documentButton.Size = new Size(200, 40);
-        documentButton.TabIndex = 6;
+        documentButton.TabIndex = 7;
         documentButton.Text = "   Document";
         documentButton.Click += SidebarButton_Click;
         // 
@@ -160,7 +162,7 @@ partial class MainForm
         assignmentButton.Name = "assignmentButton";
         assignmentButton.Padding = new Padding(16, 0, 0, 0);
         assignmentButton.Size = new Size(200, 40);
-        assignmentButton.TabIndex = 5;
+        assignmentButton.TabIndex = 6;
         assignmentButton.Text = "   Assignment";
         assignmentButton.Click += SidebarButton_Click;
         // 
@@ -171,7 +173,7 @@ partial class MainForm
         projectButton.Name = "projectButton";
         projectButton.Padding = new Padding(16, 0, 0, 0);
         projectButton.Size = new Size(200, 40);
-        projectButton.TabIndex = 4;
+        projectButton.TabIndex = 5;
         projectButton.Text = "   Project";
         projectButton.Click += SidebarButton_Click;
         // 
@@ -182,7 +184,7 @@ partial class MainForm
         departmentButton.Name = "departmentButton";
         departmentButton.Padding = new Padding(16, 0, 0, 0);
         departmentButton.Size = new Size(200, 40);
-        departmentButton.TabIndex = 3;
+        departmentButton.TabIndex = 4;
         departmentButton.Text = "   Department";
         departmentButton.Click += SidebarButton_Click;
         // 
@@ -193,7 +195,7 @@ partial class MainForm
         employeeButton.Name = "employeeButton";
         employeeButton.Padding = new Padding(16, 0, 0, 0);
         employeeButton.Size = new Size(200, 40);
-        employeeButton.TabIndex = 2;
+        employeeButton.TabIndex = 3;
         employeeButton.Text = "   Employee";
         employeeButton.Click += SidebarButton_Click;
         // 
@@ -230,7 +232,7 @@ partial class MainForm
         logoutButton.Name = "logoutButton";
         logoutButton.Padding = new Padding(16, 0, 0, 0);
         logoutButton.Size = new Size(200, 40);
-        logoutButton.TabIndex = 11;
+        logoutButton.TabIndex = 12;
         logoutButton.Text = "   Logout";
         logoutButton.Click += LogoutButton_Click;
         // 
@@ -303,6 +305,17 @@ partial class MainForm
         workplacePanel.Size = new Size(1064, 681);
         workplacePanel.TabIndex = 0;
         // 
+        // roleButton
+        // 
+        roleButton.Dock = DockStyle.Top;
+        roleButton.Location = new Point(0, 400);
+        roleButton.Name = "roleButton";
+        roleButton.Padding = new Padding(16, 0, 0, 0);
+        roleButton.Size = new Size(200, 40);
+        roleButton.TabIndex = 2;
+        roleButton.Text = "   Role";
+        roleButton.Click += SidebarButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 19F);
@@ -348,4 +361,5 @@ partial class MainForm
     private Panel functionListPanel;
     private PeproIconButton departmentButton;
     private PeproIconButton accountButton;
+    private PeproIconButton roleButton;
 }

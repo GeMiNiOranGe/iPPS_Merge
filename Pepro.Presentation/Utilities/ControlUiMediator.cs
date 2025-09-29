@@ -60,6 +60,9 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator
             case ControlUiEvent.NavigatePayrollPage:
                 Navigate<PayrollPage>();
                 break;
+            case ControlUiEvent.NavigateRolePage:
+                Navigate<RolePage>();
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(ev), ev, "This event is not supported.");
         }
