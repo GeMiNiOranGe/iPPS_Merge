@@ -21,7 +21,7 @@ namespace Pepro.Presentation
         #region Function
         private void loadData()
         {
-            DataTable dataTable = RoleBussiness.Instance.GetRolePermissions();
+            DataTable dataTable = RoleBusiness.Instance.GetRolePermissions();
             try
             {
                 if (dataTable == null || dataTable.Columns.Count == 0)
@@ -45,7 +45,7 @@ namespace Pepro.Presentation
         }
         private void  loadPermissionID()
         {
-            DataTable Permission = RoleBussiness.Instance.GetPermission();
+            DataTable Permission = RoleBusiness.Instance.GetPermission();
             cbPermission.DataSource = Permission;
             cbPermission.DisplayMember = "PermissionID";
         }
@@ -127,7 +127,7 @@ namespace Pepro.Presentation
             // Only proceed if columnName is not empty
             if (!string.IsNullOrWhiteSpace(columnName))
             {
-                RoleBussiness.Instance.GrantRole(roleID, roleIDAdd, permissionID, name, columnName);
+                RoleBusiness.Instance.GrantRole(roleID, roleIDAdd, permissionID, name, columnName);
                 loadData();
             }
             else
@@ -152,7 +152,7 @@ namespace Pepro.Presentation
                 columnList.Remove(columnName);
                 string newColumns = string.Join(",", columnList);
 
-                RoleBussiness.Instance.UpdateRolePermission(roleID, roldidAdd,permissionid, newColumns);
+                RoleBusiness.Instance.UpdateRolePermission(roleID, roldidAdd,permissionid, newColumns);
                 loadData();
             }
             else

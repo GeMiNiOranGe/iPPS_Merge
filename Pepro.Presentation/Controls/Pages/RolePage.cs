@@ -25,7 +25,7 @@ public partial class RolePage : CrudTemplate
 
     private void LoadRoles()
     {
-        roleDataGridView.DataSource = RoleBussiness
+        roleDataGridView.DataSource = RoleBusiness
             .Instance.GetRoles()
             .ToList();
     }

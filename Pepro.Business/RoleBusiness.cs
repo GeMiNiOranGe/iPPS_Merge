@@ -6,17 +6,17 @@ using System.Data;
 
 namespace Pepro.Business;
 
-public class RoleBussiness
+public class RoleBusiness
 {
-    private static RoleBussiness? _instance;
+    private static RoleBusiness? _instance;
 
-    public static RoleBussiness Instance
+    public static RoleBusiness Instance
     {
         get => _instance ??= new();
         private set => _instance = value;
     }
 
-    private RoleBussiness() { }
+    private RoleBusiness() { }
     
     public IEnumerable<RoleDto> GetRoles()
     {
