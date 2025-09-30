@@ -1,4 +1,6 @@
-﻿using Pepro.Presentation.Controls.Templates;
+﻿using Pepro.Business;
+using Pepro.Presentation.Controls.Templates;
+using Pepro.Presentation.Enums;
 using Pepro.Presentation.Extensions;
 
 namespace Pepro.Presentation.Controls.Pages;
@@ -16,8 +18,76 @@ public partial class RolePage : CrudTemplate
         deleteButton.ApplyFlatStyleWithIcon("Trash", ThemeColors.Text);
         updateButton.ApplyFlatStyleWithIcon("EditPencil", ThemeColors.Text);
 
-        insertButton.ApplyPermission("Project.Create");
-        deleteButton.ApplyPermission("Project.Delete");
-        updateButton.ApplyPermission("Project.Update");
+        insertButton.ApplyPermission("Role.Create");
+        deleteButton.ApplyPermission("Role.Delete");
+        updateButton.ApplyPermission("Role.Update");
+    }
+
+    private void LoadRoles()
+    {
+        /*
+        roleDataGridView.DataSource = RoleBussiness
+            .Instance.GetRoleViews()
+            .ToList();
+        */
+    }
+
+    private void RolePage_Load(object sender, EventArgs e)
+    {
+        LoadRoles();
+    }
+
+    private void RoleDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+    {
+        // BindDataGridViewCellClick<RoleDto>((DataGridView)sender, e);
+    }
+
+    private void SearchButton_Click(object sender, EventArgs e)
+    {
+        /*
+        BindSearchButtonClick(
+            searchTextBox.Text,
+            roleDataGridView,
+            RoleBusiness.Instance.SearchRoleViews
+        );
+        */
+    }
+
+    private void ReloadButton_Click(object sender, EventArgs e)
+    {
+        LoadRoles();
+    }
+
+    private void InsertButton_Click(object sender, EventArgs e)
+    {
+        /*
+        BindInsertButtonClick<RoleDto>(
+            new(),
+            ControlUiEvent.PushRoleEditorPage,
+            LoadRoles
+        );
+        */
+    }
+
+    private void UpdateButton_Click(object sender, EventArgs e)
+    {
+        /*
+        BindUpdateButtonClick<RoleDto>(
+            roleDataGridView,
+            ControlUiEvent.PushRoleEditorPage,
+            LoadRoles
+        );
+        */
+    }
+
+    private void DeleteButton_Click(object sender, EventArgs e)
+    {
+        /*
+        BindDeleteButtonClick<RoleDto>(
+            roleDataGridView,
+            (item) => RoleBusiness.Instance.DeleteRole(item.RoleId),
+            LoadRoles
+        );
+        */
     }
 }

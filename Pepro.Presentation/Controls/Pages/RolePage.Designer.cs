@@ -48,6 +48,7 @@ partial class RolePage
         roleDataGridView.Name = "roleDataGridView";
         roleDataGridView.Size = new Size(1032, 537);
         roleDataGridView.TabIndex = 7;
+        roleDataGridView.CellClick += RoleDataGridView_CellClick;
         // 
         // searchTextBox
         // 
@@ -66,6 +67,7 @@ partial class RolePage
         searchButton.Name = "searchButton";
         searchButton.Size = new Size(40, 40);
         searchButton.TabIndex = 2;
+        searchButton.Click += SearchButton_Click;
         // 
         // reloadButton
         // 
@@ -75,6 +77,7 @@ partial class RolePage
         reloadButton.Name = "reloadButton";
         reloadButton.Size = new Size(40, 40);
         reloadButton.TabIndex = 3;
+        reloadButton.Click += ReloadButton_Click;
         // 
         // deleteButton
         // 
@@ -87,6 +90,7 @@ partial class RolePage
         deleteButton.Size = new Size(112, 40);
         deleteButton.TabIndex = 4;
         deleteButton.Text = " Delete";
+        deleteButton.Click += DeleteButton_Click;
         // 
         // updateButton
         // 
@@ -99,6 +103,7 @@ partial class RolePage
         updateButton.Size = new Size(98, 40);
         updateButton.TabIndex = 5;
         updateButton.Text = " Edit";
+        updateButton.Click += UpdateButton_Click;
         // 
         // insertButton
         // 
@@ -111,6 +116,7 @@ partial class RolePage
         insertButton.Size = new Size(100, 40);
         insertButton.TabIndex = 6;
         insertButton.Text = " Add";
+        insertButton.Click += InsertButton_Click;
         // 
         // RolePage
         // 
@@ -126,6 +132,7 @@ partial class RolePage
         HeaderText = "Role";
         Name = "RolePage";
         ReturnButtonVisible = false;
+        Load += RolePage_Load;
         Controls.SetChildIndex(roleDataGridView, 0);
         Controls.SetChildIndex(insertButton, 0);
         Controls.SetChildIndex(updateButton, 0);
