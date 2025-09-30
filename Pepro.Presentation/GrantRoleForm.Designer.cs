@@ -81,7 +81,6 @@
             // 
             // btnForbid
             // 
-            btnForbid.BackgroundImage = Properties.Resources.IconForbid;
             btnForbid.BackgroundImageLayout = ImageLayout.Center;
             btnForbid.Location = new Point(343, 156);
             btnForbid.Margin = new Padding(4, 3, 4, 3);
@@ -93,7 +92,6 @@
             // 
             // btnPermiss
             // 
-            btnPermiss.BackgroundImage = Properties.Resources.IconPermiss;
             btnPermiss.BackgroundImageLayout = ImageLayout.Center;
             btnPermiss.Location = new Point(198, 156);
             btnPermiss.Margin = new Padding(4, 3, 4, 3);
