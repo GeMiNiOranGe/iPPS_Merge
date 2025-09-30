@@ -25,11 +25,9 @@ public partial class RolePage : CrudTemplate
 
     private void LoadRoles()
     {
-        /*
         roleDataGridView.DataSource = RoleBussiness
-            .Instance.GetRoleViews()
+            .Instance.GetRoles()
             .ToList();
-        */
     }
 
     private void RolePage_Load(object sender, EventArgs e)

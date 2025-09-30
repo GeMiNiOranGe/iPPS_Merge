@@ -39,8 +39,8 @@ namespace Pepro.Presentation
         }
         private void loadRoleID()
         {
-            DataTable role= RoleBussiness.Instance.GetRoles();
-            cbRoleID.DataSource = role;
+            // DataTable role= RoleBussiness.Instance.GetRoles();
+            // cbRoleID.DataSource = role;
             cbRoleID.DisplayMember = "RoleID";
         }
         private void  loadPermissionID()

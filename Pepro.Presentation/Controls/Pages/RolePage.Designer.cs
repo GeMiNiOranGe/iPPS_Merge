@@ -37,12 +37,14 @@ partial class RolePage
         deleteButton = new Button();
         updateButton = new Button();
         insertButton = new Button();
+        roleNameColumn = new DataGridViewTextBoxColumn();
         ((System.ComponentModel.ISupportInitialize)roleDataGridView).BeginInit();
         SuspendLayout();
         // 
         // roleDataGridView
         // 
         roleDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        roleDataGridView.Columns.AddRange(new DataGridViewColumn[] { roleNameColumn });
         roleDataGridView.Location = new Point(16, 128);
         roleDataGridView.Margin = new Padding(16);
         roleDataGridView.Name = "roleDataGridView";
@@ -118,6 +120,14 @@ partial class RolePage
         insertButton.Text = " Add";
         insertButton.Click += InsertButton_Click;
         // 
+        // roleNameColumn
+        // 
+        roleNameColumn.DataPropertyName = "Name";
+        roleNameColumn.HeaderText = "Role name";
+        roleNameColumn.Name = "roleNameColumn";
+        roleNameColumn.ReadOnly = true;
+        roleNameColumn.Width = 98;
+        // 
         // RolePage
         // 
         AutoScaleDimensions = new SizeF(8F, 19F);
@@ -154,4 +164,5 @@ partial class RolePage
     private Button deleteButton;
     private Button updateButton;
     private Button insertButton;
+    private DataGridViewTextBoxColumn roleNameColumn;
 }

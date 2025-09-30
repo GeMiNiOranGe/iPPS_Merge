@@ -1,4 +1,7 @@
-﻿using Pepro.DataAccess;
+﻿using Pepro.Business.Mappings;
+using Pepro.DataAccess;
+using Pepro.DataAccess.Entities;
+using Pepro.DTOs;
 using System.Data;
 
 namespace Pepro.Business;
@@ -15,15 +18,23 @@ public class RoleBussiness
 
     private RoleBussiness() { }
     
+    public IEnumerable<RoleDto> GetRoles()
+    {
+        IEnumerable<Role> roles = RoleDataAccess.Instance.GetMany();
+        return roles.ToDtos();
+    }
+
     public DataTable GetRolePermissions()
     {
         return RoleDataAccess.Instance.GetRolePermissions();
     }
 
+    /*
     public DataTable GetRoles()
     {
         return RoleDataAccess.Instance.getRoleID();
     }
+    */
 
     public DataTable GetPermission()
     {
