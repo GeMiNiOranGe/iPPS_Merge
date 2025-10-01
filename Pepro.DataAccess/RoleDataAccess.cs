@@ -37,6 +37,27 @@ public class RoleDataAccess
             .MapMany(RoleMapper.FromDataRow);
     }
 
+    public IEnumerable<Role> Search(string searchValue)
+    {
+        string query = @"
+            SELECT Role.RoleId
+                , Role.Name
+                , Role.IsDeleted
+                , Role.CreatedAt
+                , Role.UpdatedAt
+                , Role.DeletedAt
+            FROM Role
+            WHERE Role.Name LIKE '%' + @SearchValue + '%'
+                AND Role.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("SearchValue", SqlDbType.NVarChar, DatabaseConstants.SEARCH_SIZE, searchValue);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapMany(RoleMapper.FromDataRow);
+    }
+
     /*
     public DataTable getRoleID()
     {

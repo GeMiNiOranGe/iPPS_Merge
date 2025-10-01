@@ -42,13 +42,11 @@ public partial class RolePage : CrudTemplate
 
     private void SearchButton_Click(object sender, EventArgs e)
     {
-        /*
         BindSearchButtonClick(
             searchTextBox.Text,
             roleDataGridView,
-            RoleBusiness.Instance.SearchRoleViews
+            RoleBusiness.Instance.SearchRoles
         );
-        */
     }
 
     private void ReloadButton_Click(object sender, EventArgs e)

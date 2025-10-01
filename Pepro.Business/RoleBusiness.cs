@@ -24,6 +24,12 @@ public class RoleBusiness
         return roles.ToDtos();
     }
 
+    public IEnumerable<RoleDto> SearchRoles(string searchValue)
+    {
+        IEnumerable<Role> roles = RoleDataAccess.Instance.Search(searchValue);
+        return roles.ToDtos();
+    }
+
     public DataTable GetRolePermissions()
     {
         return RoleDataAccess.Instance.GetRolePermissions();
