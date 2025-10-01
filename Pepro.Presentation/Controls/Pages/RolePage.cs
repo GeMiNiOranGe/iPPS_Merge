@@ -1,4 +1,5 @@
 ﻿using Pepro.Business;
+using Pepro.DTOs;
 using Pepro.Presentation.Controls.Templates;
 using Pepro.Presentation.Enums;
 using Pepro.Presentation.Extensions;
@@ -56,24 +57,20 @@ public partial class RolePage : CrudTemplate
 
     private void InsertButton_Click(object sender, EventArgs e)
     {
-        /*
         BindInsertButtonClick<RoleDto>(
             new(),
             ControlUiEvent.PushRoleEditorPage,
             LoadRoles
         );
-        */
     }
 
     private void UpdateButton_Click(object sender, EventArgs e)
     {
-        /*
         BindUpdateButtonClick<RoleDto>(
             roleDataGridView,
             ControlUiEvent.PushRoleEditorPage,
             LoadRoles
         );
-        */
     }
 
     private void DeleteButton_Click(object sender, EventArgs e)

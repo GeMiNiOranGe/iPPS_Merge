@@ -63,6 +63,9 @@ public class ControlUiMediator(Panel workplacePanel) : IMediator
             case ControlUiEvent.NavigateRolePage:
                 Navigate<RolePage>();
                 break;
+            case ControlUiEvent.PushRoleEditorPage:
+                PushEditor<RoleEditorPage, RoleDto>(data);
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(ev), ev, "This event is not supported.");
         }
