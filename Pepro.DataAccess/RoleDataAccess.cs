@@ -20,6 +20,27 @@ public class RoleDataAccess
 
     private RoleDataAccess() { }
 
+    public Role? GetById(int roleId)
+    {
+        string query = @"
+            SELECT Role.RoleId
+                , Role.Name
+                , Role.IsDeleted
+                , Role.CreatedAt
+                , Role.UpdatedAt
+                , Role.DeletedAt
+            FROM Role
+            WHERE Role.RoleId = @RoleId
+                AND Role.IsDeleted = 0
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("RoleId", SqlDbType.Int, roleId);
+
+        return DataProvider
+            .Instance.ExecuteQuery(query, [.. parameters])
+            .MapToSingleOrDefault(RoleMapper.FromDataRow);
+    }
+
     public IEnumerable<Role> GetMany()
     {
         string query = @"
@@ -75,6 +96,22 @@ public class RoleDataAccess
         parameters.Add("Name", SqlDbType.NVarChar, 50, model.Name);
 
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
+    public int Update(int projectId, RoleUpdateModel model)
+    {
+        QueryBuildResult result = new SqlUpdateQueryBuilder("Role")
+            .Set("Name", SqlDbType.NVarChar, 50, model.Name)
+            .SetDirect("UpdatedAt", SqlDbType.DateTime, DateTime.Now)
+            .Where("RoleId", SqlDbType.Int, projectId)
+            .Build();
+
+        if (string.IsNullOrEmpty(result.Query) || result.Parameters.Count == 0)
+        {
+            return 0;
+        }
+
+        return DataProvider.Instance.ExecuteNonQuery(result.Query, [.. result.Parameters]);
     }
 
     /*

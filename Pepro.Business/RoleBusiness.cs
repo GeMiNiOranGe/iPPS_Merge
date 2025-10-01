@@ -37,6 +37,21 @@ public class RoleBusiness
         return RoleDataAccess.Instance.Insert(entity);
     }
 
+    public int UpdateRole(RoleDto dto)
+    {
+        Role? entity = RoleDataAccess.Instance.GetById(dto.RoleId);
+        if (entity == null)
+        {
+            return 0;
+        }
+
+        RoleUpdateModel model = new()
+        {
+            Name = new(dto.Name, entity.Name != dto.Name),
+        };
+        return RoleDataAccess.Instance.Update(dto.RoleId, model);
+    }
+
     public DataTable GetRolePermissions()
     {
         return RoleDataAccess.Instance.GetRolePermissions();
