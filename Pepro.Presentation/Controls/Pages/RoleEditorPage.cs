@@ -1,7 +1,9 @@
 ﻿using Pepro.DTOs;
 using Pepro.Presentation.Controls.Templates;
 using Pepro.Presentation.Enums;
+using Pepro.Presentation.Extensions;
 using Pepro.Presentation.Interfaces;
+using Pepro.Presentation.Utilities;
 using System.ComponentModel;
 
 namespace Pepro.Presentation.Controls.Pages;
@@ -14,6 +16,8 @@ public partial class RoleEditorPage : EditorTemplate, IEditorUserControl<RoleDto
     public RoleEditorPage()
     {
         InitializeComponent();
+
+        saveButton.ApplyFlatStyle();
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -23,6 +27,7 @@ public partial class RoleEditorPage : EditorTemplate, IEditorUserControl<RoleDto
         set
         {
             _item = value ?? throw new ArgumentNullException(nameof(Item));
+            roleNameTextBoxField.Text = _item.Name;
         }
     }
 
@@ -40,5 +45,66 @@ public partial class RoleEditorPage : EditorTemplate, IEditorUserControl<RoleDto
                 _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
             };
         }
+    }
+
+    private void RoleEditorPage_Load(object sender, EventArgs e)
+    {
+        switch (_mode)
+        {
+            case EditorMode.Create:
+                SetupCreateMode();
+                break;
+            case EditorMode.Edit:
+                SetupEditMode();
+                break;
+        }
+    }
+
+    private static void SetupCreateMode()
+    {
+        // lines of code for create mode
+    }
+
+    private static void SetupEditMode()
+    {
+        // lines of code for edit mode
+    }
+
+    private void SaveButton_Click(object sender, EventArgs e)
+    {
+        if (!ValidateInputs())
+        {
+            MessageBoxWrapper.ShowInformation("FillInformation");
+            return;
+        }
+
+        RoleDto project = new()
+        {
+            RoleId = _item.RoleId,
+            Name = roleNameTextBoxField.Text.Trim(),
+        };
+
+        int result = _mode switch
+        {
+            // EditorMode.Create => RoleBusiness.Instance.InsertRole(project),
+            // EditorMode.Edit => RoleBusiness.Instance.UpdateRole(project),
+            _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
+        };
+
+        if (result > 0)
+        {
+            NotifyDataChanged();
+            Close();
+            MessageBoxWrapper.ShowInformation("SaveSuccess");
+        }
+        else
+        {
+            MessageBoxWrapper.ShowError("SaveFailed");
+        }
+    }
+
+    private bool ValidateInputs()
+    {
+        return !string.IsNullOrWhiteSpace(roleNameTextBoxField.Text);
     }
 }
