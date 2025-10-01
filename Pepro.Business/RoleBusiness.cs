@@ -1,5 +1,6 @@
 ﻿using Pepro.Business.Mappings;
 using Pepro.DataAccess;
+using Pepro.DataAccess.Contracts;
 using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 using System.Data;
@@ -28,6 +29,12 @@ public class RoleBusiness
     {
         IEnumerable<Role> roles = RoleDataAccess.Instance.Search(searchValue);
         return roles.ToDtos();
+    }
+
+    public int InsertRole(RoleDto dto)
+    {
+        RoleInsertModel entity = dto.ToInsertModel();
+        return RoleDataAccess.Instance.Insert(entity);
     }
 
     public DataTable GetRolePermissions()

@@ -1,4 +1,5 @@
-﻿using Pepro.DTOs;
+﻿using Pepro.Business;
+using Pepro.DTOs;
 using Pepro.Presentation.Controls.Templates;
 using Pepro.Presentation.Enums;
 using Pepro.Presentation.Extensions;
@@ -86,7 +87,7 @@ public partial class RoleEditorPage : EditorTemplate, IEditorUserControl<RoleDto
 
         int result = _mode switch
         {
-            // EditorMode.Create => RoleBusiness.Instance.InsertRole(project),
+            EditorMode.Create => RoleBusiness.Instance.InsertRole(project),
             // EditorMode.Edit => RoleBusiness.Instance.UpdateRole(project),
             _ => throw new InvalidEnumArgumentException(nameof(Mode), (int)_mode, typeof(EditorMode)),
         };

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Pepro.DataAccess.Contracts;
 using Pepro.DataAccess.Entities;
 using Pepro.DataAccess.Extensions;
 using Pepro.DataAccess.Mappings;
@@ -56,6 +57,24 @@ public class RoleDataAccess
         return DataProvider
             .Instance.ExecuteQuery(query, [.. parameters])
             .MapMany(RoleMapper.FromDataRow);
+    }
+
+    public int Insert(RoleInsertModel model)
+    {
+        string query = @"
+            INSERT INTO Role
+            (
+                Name
+            )
+            VALUES
+            (
+                @Name
+            )
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("Name", SqlDbType.NVarChar, 50, model.Name);
+
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
     /*

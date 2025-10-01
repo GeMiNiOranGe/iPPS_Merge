@@ -1,3 +1,4 @@
+using Pepro.DataAccess.Contracts;
 using Pepro.DataAccess.Entities;
 using Pepro.DTOs;
 
@@ -5,6 +6,14 @@ namespace Pepro.Business.Mappings;
 
 static class RoleMapper
 {
+    public static RoleInsertModel ToInsertModel(this RoleDto dto)
+    {
+        return new RoleInsertModel()
+        {
+            Name = dto.Name,
+        };
+    }
+
     public static RoleDto ToDto(this Role entity)
     {
         return new RoleDto()
