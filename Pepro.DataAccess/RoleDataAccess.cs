@@ -114,6 +114,20 @@ public class RoleDataAccess
         return DataProvider.Instance.ExecuteNonQuery(result.Query, [.. result.Parameters]);
     }
 
+    public int Delete(int roleId)
+    {
+        string query = @"
+            UPDATE Role
+            SET IsDeleted = 1,
+                DeletedAt = GetDate()
+            WHERE RoleId = @RoleId
+        ";
+        List<SqlParameter> parameters = [];
+        parameters.Add("RoleId", SqlDbType.Int, roleId);
+
+        return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
+    }
+
     /*
     public DataTable getRoleID()
     {

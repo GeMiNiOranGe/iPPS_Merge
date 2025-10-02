@@ -38,7 +38,7 @@ public partial class RolePage : CrudTemplate
 
     private void RoleDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-        // BindDataGridViewCellClick<RoleDto>((DataGridView)sender, e);
+        BindDataGridViewCellClick<RoleDto>((DataGridView)sender, e);
     }
 
     private void SearchButton_Click(object sender, EventArgs e)
@@ -75,12 +75,10 @@ public partial class RolePage : CrudTemplate
 
     private void DeleteButton_Click(object sender, EventArgs e)
     {
-        /*
         BindDeleteButtonClick<RoleDto>(
             roleDataGridView,
             (item) => RoleBusiness.Instance.DeleteRole(item.RoleId),
             LoadRoles
         );
-        */
     }
 }

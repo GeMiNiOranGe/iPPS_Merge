@@ -52,6 +52,11 @@ public class RoleBusiness
         return RoleDataAccess.Instance.Update(dto.RoleId, model);
     }
 
+    public int DeleteRole(int roleId)
+    {
+        return RoleDataAccess.Instance.Delete(roleId);
+    }
+
     public DataTable GetRolePermissions()
     {
         return RoleDataAccess.Instance.GetRolePermissions();
