@@ -34,6 +34,7 @@ public class PermissionDataAccess
             INNER JOIN Account
                     ON Account.AccountId = AccountRole.AccountId
             WHERE Account.AccountId = @AccountId
+                AND [Role].IsDeleted = 0
         ";
         List<SqlParameter> parameters = [];
         parameters.Add("AccountId", SqlDbType.Int, accountId);
