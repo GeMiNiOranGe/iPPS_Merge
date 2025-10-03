@@ -37,6 +37,7 @@ public partial class MainForm : PeproForm
         dormitoryButton.SetSidebarButtonImages("BunkBed");
         departmentButton.SetSidebarButtonImages("Group");
         accountButton.SetSidebarButtonImages("UserSetting");
+        roleButton.SetSidebarButtonImages("Shield");
 
         logoutButton.ApplyFlatStyleNoBackColor();
         logoutButton.ApplyIcon("LogOut", color: ThemeColors.Text);
