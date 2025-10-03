@@ -56,31 +56,4 @@ public class RoleBusiness
     {
         return RoleDataAccess.Instance.Delete(roleId);
     }
-
-    public DataTable GetRolePermissions()
-    {
-        return RoleDataAccess.Instance.GetRolePermissions();
-    }
-
-    /*
-    public DataTable GetRoles()
-    {
-        return RoleDataAccess.Instance.getRoleID();
-    }
-    */
-
-    public DataTable GetPermission()
-    {
-        return RoleDataAccess.Instance.getPermissionsID();
-    }
-
-    public void GrantRole(int roleID, int roleIDAdd, int permissionID, string name, string columnName)
-    {
-        RoleDataAccess.Instance.GrantRole(roleID, roleIDAdd, permissionID, name, columnName);
-    }
-
-    public void UpdateRolePermission(int roleID, int roleIDAdd, int permissionID, string columnName)
-    {
-        RoleDataAccess.Instance.UpdateRolePermission(roleID, roleIDAdd, permissionID, columnName);
-    }
 }
