@@ -63,13 +63,26 @@ public partial class ProjectEditorPage : EditorTemplate, IEditorUserControl<Proj
             .Instance.GetStatuses()
             .ToList();
 
-        switch (_mode) {
-        case EditorMode.Create:
-            SetupCreateMode();
-            break;
-        case EditorMode.Edit:
-            SetupEditMode();
-            break;
+        switch (_mode)
+        {
+            case EditorMode.Create:
+            {
+                SetupCreateMode();
+                break;
+            }
+            case EditorMode.Edit:
+            {
+                SetupEditMode();
+                break;
+            }
+            default:
+            {
+                throw new InvalidEnumArgumentException(
+                    nameof(Mode),
+                    (int)_mode,
+                    typeof(EditorMode)
+                );
+            }
         }
     }
 

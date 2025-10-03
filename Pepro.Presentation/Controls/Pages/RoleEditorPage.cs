@@ -53,11 +53,23 @@ public partial class RoleEditorPage : EditorTemplate, IEditorUserControl<RoleDto
         switch (_mode)
         {
             case EditorMode.Create:
+            {
                 SetupCreateMode();
                 break;
+            }
             case EditorMode.Edit:
+            {
                 SetupEditMode();
                 break;
+            }
+            default:
+            {
+                throw new InvalidEnumArgumentException(
+                    nameof(Mode),
+                    (int)_mode,
+                    typeof(EditorMode)
+                );
+            }
         }
     }
 
