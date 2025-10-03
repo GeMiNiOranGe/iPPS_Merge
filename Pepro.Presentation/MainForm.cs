@@ -52,7 +52,6 @@ public partial class MainForm : PeproForm
         assignmentButton.ApplyPermission("Assignment.Read");
         projectButton.ApplyPermission("Project.Read");
         documentButton.ApplyPermission("Document.Read");
-        progressButton.ApplyPermission("Project.Read");
         employeeButton.ApplyPermission("Employee.Read");
         attendanceButton.ApplyPermission("Salary.Read");
         payrollButton.ApplyPermission("Salary.Read");
@@ -78,6 +77,8 @@ public partial class MainForm : PeproForm
             EmployeeBusiness.Instance.GetDisplayNameByEmployeeId(_employeeId);
         positionLabel.Text =
             PositionBusiness.Instance.GetPositionTitleByEmployeeId(_employeeId);
+
+        _mediator.Notify(this, ControlUiEvent.NavigateProgressPage);
     }
 
     private void MenuForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -117,6 +118,8 @@ public partial class MainForm : PeproForm
         workplacePanel.Controls.Clear();
         Text = _defaultText;
         optionPanel.Visible = false;
+
+        _mediator.Notify(this, ControlUiEvent.NavigateProgressPage);
     }
 
     private void LogoutButton_Click(object sender, EventArgs e)
