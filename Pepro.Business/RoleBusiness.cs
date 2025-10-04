@@ -33,7 +33,7 @@ public class RoleBusiness
 
     public int InsertRole(RoleDto dto)
     {
-        RoleInsertModel entity = dto.ToInsertModel();
+        InsertRoleModel entity = dto.ToInsertModel();
         return RoleDataAccess.Instance.Insert(entity);
     }
 
@@ -45,7 +45,7 @@ public class RoleBusiness
             return 0;
         }
 
-        RoleUpdateModel model = new()
+        UpdateRoleModel model = new()
         {
             Name = new(dto.Name, entity.Name != dto.Name),
         };

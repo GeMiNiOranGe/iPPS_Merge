@@ -6,9 +6,9 @@ namespace Pepro.Business.Mappings;
 
 static class DepartmentMapper
 {
-    public static DepartmentInsertModel ToInsertModel(this DepartmentDto dto)
+    public static InsertDepartmentModel ToInsertModel(this DepartmentDto dto)
     {
-        return new DepartmentInsertModel()
+        return new InsertDepartmentModel()
         {
             Name = dto.Name,
             ManagerId = dto.ManagerId,

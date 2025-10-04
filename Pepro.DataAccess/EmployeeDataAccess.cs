@@ -266,7 +266,7 @@ public class EmployeeDataAccess
             .MapMany(PhoneNumberMapper.FromDataRow);
     }
 
-    public Employee? Add(EmployeeInsertModel model)
+    public Employee? Add(InsertEmployeeModel model)
     {
         string query = @"
             INSERT INTO [dbo].[Employee]
@@ -329,7 +329,7 @@ public class EmployeeDataAccess
             .MapToSingleOrDefault(EmployeeMapper.FromDataRow);
     }
 
-    public int Insert(EmployeeInsertModel model)
+    public int Insert(InsertEmployeeModel model)
     {
         string query = @"
             INSERT INTO [dbo].[Employee]
@@ -374,7 +374,7 @@ public class EmployeeDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int Update(int employeeId, EmployeeUpdateModel model)
+    public int Update(int employeeId, UpdateEmployeeModel model)
     {
         QueryBuildResult result = new SqlUpdateQueryBuilder("Employee")
             .Set("FirstName", SqlDbType.NVarChar, 10, model.FirstName)

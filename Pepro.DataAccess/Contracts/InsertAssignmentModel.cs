@@ -1,12 +1,15 @@
 namespace Pepro.DataAccess.Contracts;
 
-public class ProjectInsertModel
+public class InsertAssignmentModel
 {
     private string _name = null!;
-    private string _customerName = null!;
+    private bool _isPublicToProject;
+    private bool _isPublicToDepartment;
     private DateTime _startDate;
     private DateTime _endDate;
+    private int _requiredDocumentCount;
     private int? _managerId;
+    private int _projectId;
     private int _statusId;
 
     public required string Name
@@ -15,10 +18,16 @@ public class ProjectInsertModel
         set => _name = value;
     }
 
-    public required string CustomerName
+    public required bool IsPublicToProject
     {
-        get => _customerName;
-        set => _customerName = value;
+        get => _isPublicToProject;
+        set => _isPublicToProject = value;
+    }
+
+    public required bool IsPublicToDepartment
+    {
+        get => _isPublicToDepartment;
+        set => _isPublicToDepartment = value;
     }
 
     public required DateTime StartDate
@@ -33,10 +42,22 @@ public class ProjectInsertModel
         set => _endDate = value;
     }
 
+    public required int RequiredDocumentCount
+    {
+        get => _requiredDocumentCount;
+        set => _requiredDocumentCount = value;
+    }
+
     public required int? ManagerId
     {
         get => _managerId;
         set => _managerId = value;
+    }
+
+    public required int ProjectId
+    {
+        get => _projectId;
+        set => _projectId = value;
     }
 
     public required int StatusId

@@ -140,7 +140,7 @@ public class AccountDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int Insert(AccountInsertModel model)
+    public int Insert(InsertAccountModel model)
     {
         string query = @"
             INSERT INTO [Account]
@@ -170,7 +170,7 @@ public class AccountDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int Update(int accountId, AccountUpdateModel model)
+    public int Update(int accountId, UpdateAccountModel model)
     {
         QueryBuildResult result = new SqlUpdateQueryBuilder("Account")
             .Set("Username", SqlDbType.NVarChar, 255, model.Username)

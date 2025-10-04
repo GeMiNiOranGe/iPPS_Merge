@@ -80,7 +80,7 @@ public class RoleDataAccess
             .MapMany(RoleMapper.FromDataRow);
     }
 
-    public int Insert(RoleInsertModel model)
+    public int Insert(InsertRoleModel model)
     {
         string query = @"
             INSERT INTO Role
@@ -98,7 +98,7 @@ public class RoleDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int Update(int projectId, RoleUpdateModel model)
+    public int Update(int projectId, UpdateRoleModel model)
     {
         QueryBuildResult result = new SqlUpdateQueryBuilder("Role")
             .Set("Name", SqlDbType.NVarChar, 50, model.Name)

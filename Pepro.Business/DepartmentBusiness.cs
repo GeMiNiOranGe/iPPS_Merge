@@ -81,7 +81,7 @@ public class DepartmentBusiness
             return 0;
         }
 
-        DepartmentUpdateModel model = new()
+        UpdateDepartmentModel model = new()
         {
             Name = new(dto.Name, entity.Name != dto.Name),
             ManagerId = new(dto.ManagerId, entity.ManagerId != dto.ManagerId)
@@ -91,7 +91,7 @@ public class DepartmentBusiness
 
     public int InsertDepartment(DepartmentDto dto)
     {
-        DepartmentInsertModel model = dto.ToInsertModel();
+        InsertDepartmentModel model = dto.ToInsertModel();
         return DepartmentDataAccess.Instance.Insert(model);
     }
 }

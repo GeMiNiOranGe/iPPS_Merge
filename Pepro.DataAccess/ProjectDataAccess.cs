@@ -198,7 +198,7 @@ public class ProjectDataAccess
             .MapMany(ProjectMapper.FromDataRow);
     }
 
-    public int Insert(ProjectInsertModel model)
+    public int Insert(InsertProjectModel model)
     {
         string query = @"
             INSERT INTO Project
@@ -231,7 +231,7 @@ public class ProjectDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int Update(int projectId, ProjectUpdateModel model)
+    public int Update(int projectId, UpdateProjectModel model)
     {
         QueryBuildResult result = new SqlUpdateQueryBuilder("Project")
             .Set("Name", SqlDbType.NVarChar, 50, model.Name)

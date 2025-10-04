@@ -38,7 +38,7 @@ public class AccountBusiness
         string username = AccountHelper.GenerateDefaultUsername(employee);
         HashResult hashResult = _hasher.ComputeHashWithSalt(username);
 
-        AccountInsertModel model = new()
+        InsertAccountModel model = new()
         {
             Username = username,
             Password = hashResult.HashedMessage,
@@ -100,7 +100,7 @@ public class AccountBusiness
         }
 
         HashResult hashResult = _hasher.ComputeHashWithSalt(account.Username);
-        AccountUpdateModel model = new()
+        UpdateAccountModel model = new()
         {
             Password = new(hashResult.HashedMessage, true),
             Salt = new(hashResult.Salt, true),

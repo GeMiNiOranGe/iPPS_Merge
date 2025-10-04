@@ -6,9 +6,9 @@ namespace Pepro.Business.Mappings;
 
 static class AssignmentMapper
 {
-    public static AssignmentInsertModel ToInsertModel(this AssignmentDto dto)
+    public static InsertAssignmentModel ToInsertModel(this AssignmentDto dto)
     {
-        return new AssignmentInsertModel()
+        return new InsertAssignmentModel()
         {
             Name = dto.Name,
             IsPublicToProject = dto.IsPublicToProject,

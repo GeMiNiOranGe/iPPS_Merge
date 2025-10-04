@@ -6,9 +6,9 @@ namespace Pepro.Business.Mappings;
 
 static class ProjectMapper
 {
-    public static ProjectInsertModel ToInsertModel(this ProjectDto dto)
+    public static InsertProjectModel ToInsertModel(this ProjectDto dto)
     {
-        return new ProjectInsertModel()
+        return new InsertProjectModel()
         {
             Name = dto.Name,
             CustomerName = dto.CustomerName,

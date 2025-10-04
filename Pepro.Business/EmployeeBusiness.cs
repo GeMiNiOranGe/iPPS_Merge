@@ -57,7 +57,7 @@ public class EmployeeBusiness
         string? taxCode = EncryptionConverter.DecryptToString(entity.TaxCode);
         byte[]? encryptedTaxCode = EncryptionConverter.EncryptFromString(dto.TaxCode);
 
-        EmployeeUpdateModel model = new()
+        UpdateEmployeeModel model = new()
         {
             FirstName = new(dto.FirstName, entity.FirstName != dto.FirstName),
             MiddleName = new(dto.MiddleName, entity.MiddleName != dto.MiddleName),
@@ -79,7 +79,7 @@ public class EmployeeBusiness
     }
 
     public int InsertEmployee(EmployeeDto dto) {
-        EmployeeInsertModel model = dto.ToInsertModel();
+        InsertEmployeeModel model = dto.ToInsertModel();
         Employee? employee = EmployeeDataAccess.Instance.Add(model);
         if (employee == null) {
             return 0;

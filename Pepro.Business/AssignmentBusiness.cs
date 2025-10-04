@@ -65,7 +65,7 @@ public class AssignmentBusiness {
             return 0;
         }
 
-        AssignmentUpdateModel model = new()
+        UpdateAssignmentModel model = new()
         {
             Name = new(dto.Name, entity.Name != dto.Name),
             IsPublicToProject = new(dto.IsPublicToProject, entity.IsPublicToProject != dto.IsPublicToProject),
@@ -82,7 +82,7 @@ public class AssignmentBusiness {
 
     public int InsertAssignment(AssignmentDto dto)
     {
-        AssignmentInsertModel model = dto.ToInsertModel();
+        InsertAssignmentModel model = dto.ToInsertModel();
         return AssignmentDataAccess.Instance.Insert(model);
     }
 

@@ -7,9 +7,9 @@ namespace Pepro.Business.Mappings;
 
 static class EmployeeMapper
 {
-    public static EmployeeInsertModel ToInsertModel(this EmployeeDto dto)
+    public static InsertEmployeeModel ToInsertModel(this EmployeeDto dto)
     {
-        return new EmployeeInsertModel()
+        return new InsertEmployeeModel()
         {
             FirstName = dto.FirstName,
             MiddleName = dto.MiddleName,

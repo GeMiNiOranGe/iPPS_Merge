@@ -1,6 +1,6 @@
 namespace Pepro.DataAccess.Contracts;
 
-public class EmployeeInsertModel
+public class InsertEmployeeModel
 {
     private string _firstName = null!;
     private string? _middleName = null!;

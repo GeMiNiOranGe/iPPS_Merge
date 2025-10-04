@@ -113,7 +113,7 @@ public class DepartmentDataAccess
             .MapMany(DepartmentMapper.FromDataRow);
     }
 
-    public int Insert(DepartmentInsertModel model)
+    public int Insert(InsertDepartmentModel model)
     {
         string query = @"
             INSERT INTO Department
@@ -134,7 +134,7 @@ public class DepartmentDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int Update(int departmentId, DepartmentUpdateModel model)
+    public int Update(int departmentId, UpdateDepartmentModel model)
     {
         QueryBuildResult result = new SqlUpdateQueryBuilder("Department")
             .Set("Name", SqlDbType.NVarChar, 50, model.Name)

@@ -268,7 +268,7 @@ public class AssignmentDataAccess
             ));
     }
 
-    public int Insert(AssignmentInsertModel model)
+    public int Insert(InsertAssignmentModel model)
     {
         string query = @"
             INSERT INTO Assignment
@@ -310,7 +310,7 @@ public class AssignmentDataAccess
         return DataProvider.Instance.ExecuteNonQuery(query, [.. parameters]);
     }
 
-    public int Update(int assignmentId, AssignmentUpdateModel model)
+    public int Update(int assignmentId, UpdateAssignmentModel model)
     {
         QueryBuildResult result = new SqlUpdateQueryBuilder("Assignment")
             .Set("Name", SqlDbType.NVarChar, 50, model.Name)

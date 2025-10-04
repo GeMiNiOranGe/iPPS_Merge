@@ -87,7 +87,7 @@ public class ProjectBusiness {
             return 0;
         }
 
-        ProjectUpdateModel model = new()
+        UpdateProjectModel model = new()
         {
             Name = new(dto.Name, entity.Name != dto.Name),
             CustomerName = new(dto.CustomerName, entity.CustomerName != dto.CustomerName),
@@ -101,7 +101,7 @@ public class ProjectBusiness {
 
     public int InsertProject(ProjectDto dto)
     {
-        ProjectInsertModel entity = dto.ToInsertModel();
+        InsertProjectModel entity = dto.ToInsertModel();
         return ProjectDataAccess.Instance.Insert(entity);
     }
 

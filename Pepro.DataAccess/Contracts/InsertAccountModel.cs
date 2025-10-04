@@ -1,6 +1,6 @@
 namespace Pepro.DataAccess.Contracts;
 
-public class AccountInsertModel
+public class InsertAccountModel
 {
     private string _username = null!;
     private byte[] _salt = null!;

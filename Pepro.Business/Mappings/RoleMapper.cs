@@ -6,9 +6,9 @@ namespace Pepro.Business.Mappings;
 
 static class RoleMapper
 {
-    public static RoleInsertModel ToInsertModel(this RoleDto dto)
+    public static InsertRoleModel ToInsertModel(this RoleDto dto)
     {
-        return new RoleInsertModel()
+        return new InsertRoleModel()
         {
             Name = dto.Name,
         };
