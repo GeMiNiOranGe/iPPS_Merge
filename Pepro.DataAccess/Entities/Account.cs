@@ -8,13 +8,10 @@ public class Account
     private byte[] _password = null!;
     private bool _isActive;
     private int _employeeId;
-
-    #region Optional fields
     private bool _isDeleted;
     private DateTime _createdAt;
     private DateTime _updatedAt;
     private DateTime? _deletedAt;
-    #endregion
 
     public required int AccountId
     {
@@ -52,25 +49,25 @@ public class Account
         set => _employeeId = value;
     }
 
-    public bool IsDeleted
+    public required bool IsDeleted
     {
         get => _isDeleted;
         set => _isDeleted = value;
     }
 
-    public DateTime CreatedAt
+    public required DateTime CreatedAt
     {
         get => _createdAt;
         set => _createdAt = value;
     }
 
-    public DateTime UpdatedAt
+    public required DateTime UpdatedAt
     {
         get => _updatedAt;
         set => _updatedAt = value;
     }
 
-    public DateTime? DeletedAt
+    public required DateTime? DeletedAt
     {
         get => _deletedAt;
         set => _deletedAt = value;

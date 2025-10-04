@@ -5,13 +5,13 @@ public class Permission
     private int _permissionId;
     private string _key = null!;
 
-    public int PermissionId
+    public required int PermissionId
     {
         get => _permissionId;
         set => _permissionId = value;
     }
 
-    public string Key
+    public required string Key
     {
         get => _key;
         set => _key = value;

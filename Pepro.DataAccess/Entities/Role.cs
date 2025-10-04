@@ -4,13 +4,10 @@ public class Role
 {
     private int _roleId;
     private string _name = null!;
-
-    #region Optional fields
     private bool _isDeleted;
     private DateTime _createdAt;
     private DateTime _updatedAt;
     private DateTime? _deletedAt;
-    #endregion
 
     public required int RoleId
     {
@@ -24,25 +21,25 @@ public class Role
         set => _name = value;
     }
 
-    public bool IsDeleted
+    public required bool IsDeleted
     {
         get => _isDeleted;
         set => _isDeleted = value;
     }
 
-    public DateTime CreatedAt
+    public required DateTime CreatedAt
     {
         get => _createdAt;
         set => _createdAt = value;
     }
 
-    public DateTime UpdatedAt
+    public required DateTime UpdatedAt
     {
         get => _updatedAt;
         set => _updatedAt = value;
     }
 
-    public DateTime? DeletedAt
+    public required DateTime? DeletedAt
     {
         get => _deletedAt;
         set => _deletedAt = value;

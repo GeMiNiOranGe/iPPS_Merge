@@ -8,13 +8,10 @@ public class Project {
     private DateTime _endDate;
     private int? _managerId;
     private int _statusId;
-
-    #region Optional fields
     private bool _isDeleted;
     private DateTime _createdAt;
     private DateTime _updatedAt;
     private DateTime? _deletedAt;
-    #endregion
 
     public required int ProjectId {
         get => _projectId;
@@ -51,22 +48,22 @@ public class Project {
         set => _statusId = value;
     }
 
-    public bool IsDeleted {
+    public required bool IsDeleted {
         get => _isDeleted;
         set => _isDeleted = value;
     }
 
-    public DateTime CreatedAt {
+    public required DateTime CreatedAt {
         get => _createdAt;
         set => _createdAt = value;
     }
 
-    public DateTime UpdatedAt {
+    public required DateTime UpdatedAt {
         get => _updatedAt;
         set => _updatedAt = value;
     }
 
-    public DateTime? DeletedAt {
+    public required DateTime? DeletedAt {
         get => _deletedAt;
         set => _deletedAt = value;
     }

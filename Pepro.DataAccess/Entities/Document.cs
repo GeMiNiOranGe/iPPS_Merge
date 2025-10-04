@@ -13,10 +13,7 @@ public class Document
     private string? _checkedBy;
     private string? _approvedBy;
     private int _assignmentId;
-
-    #region Optional fields
     private bool _isDeleted;
-    #endregion
 
     public required int DocumentId
     {
@@ -84,7 +81,7 @@ public class Document
         set => _assignmentId = value;
     }
 
-    public bool IsDeleted
+    public required bool IsDeleted
     {
         get => _isDeleted;
         set => _isDeleted = value;
